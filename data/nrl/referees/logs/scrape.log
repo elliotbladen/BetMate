@@ -1,0 +1,49 @@
+2026-05-05 13:47:11 [INFO] Targeting season=2026 round=10
+2026-05-05 13:47:11 [INFO] Attempt 1/3 — referees R10 2026 — https://www.nrl.com/draw/nrl-premiership/2026/round-10/
+2026-05-05 13:47:11 [INFO] JSON blob parse found 0 — trying HTML text fallback
+2026-05-05 13:47:11 [INFO] Wrote latest-referees.csv — 0 assignments, round 10
+2026-05-05 13:47:11 [WARNING] Page fetched but no referee data found — referees may not be announced yet
+2026-05-05 14:28:13 [INFO] Targeting season=2026 round=10
+2026-05-05 14:28:13 [INFO] Attempt 1/3 — referees R10 2026 — https://www.nrl.com/draw/nrl-premiership/2026/round-10/
+2026-05-05 14:28:13 [INFO] JSON blob parse found 0 — trying HTML text fallback
+2026-05-05 14:28:13 [INFO] Wrote latest-referees.csv — 0 assignments, round 10
+2026-05-05 14:28:13 [WARNING] Page fetched but no referee data found — referees may not be announced yet
+2026-05-07 12:23:17 [INFO] Targeting season=2026 round=10
+2026-05-07 12:23:17 [INFO] Attempt 1/3 — referees R10 2026 — https://www.nrl.com/draw/nrl-premiership/2026/round-10/
+2026-05-07 12:23:17 [INFO] JSON blob parse found 0 — trying HTML text fallback
+2026-05-07 12:23:17 [INFO] Wrote latest-referees.csv — 0 assignments, round 10
+2026-05-07 12:23:17 [WARNING] Page fetched but no referee data found — referees may not be announced yet
+2026-05-07 12:50:06 [INFO] Targeting season=2026 round=10
+2026-05-07 12:50:06 [WARNING] Fetch failed https://www.nrl.com/news/2026/04/29/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/04/29/nrl-team-lists-round-10/
+2026-05-07 12:50:06 [WARNING] Fetch failed https://www.nrl.com/news/2026/04/30/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/04/30/nrl-team-lists-round-10/
+2026-05-07 12:50:07 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/01/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/01/nrl-team-lists-round-10/
+2026-05-07 12:50:07 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/02/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/02/nrl-team-lists-round-10/
+2026-05-07 12:50:07 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/03/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/03/nrl-team-lists-round-10/
+2026-05-07 12:50:07 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/04/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/04/nrl-team-lists-round-10/
+2026-05-07 12:50:07 [INFO] Using NRL team-lists source: https://www.nrl.com/news/2026/05/05/nrl-team-lists-round-10/
+2026-05-07 12:50:07 [INFO] Wrote latest-referees.csv — 7 assignments, round 10
+2026-05-07 12:50:07 [INFO] Referees scraped from team lists — 7 assignments
+2026-05-08 08:59:07 [INFO] Targeting season=2026 round=11
+2026-05-08 08:59:08 [WARNING] Fetch failed https://www.nrl.com/news/2026/04/30/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/04/30/nrl-team-lists-round-11/
+2026-05-08 08:59:08 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/01/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/01/nrl-team-lists-round-11/
+2026-05-08 08:59:08 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/02/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/02/nrl-team-lists-round-11/
+2026-05-08 08:59:10 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/03/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/03/nrl-team-lists-round-11/
+2026-05-08 08:59:11 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/04/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/04/nrl-team-lists-round-11/
+2026-05-08 08:59:11 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/05/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/05/nrl-team-lists-round-11/
+2026-05-08 08:59:11 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/06/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/06/nrl-team-lists-round-11/
+2026-05-08 08:59:11 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/07/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/07/nrl-team-lists-round-11/
+2026-05-08 08:59:11 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/08/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/08/nrl-team-lists-round-11/
+2026-05-08 08:59:11 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/09/nrl-team-lists-round-11/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/09/nrl-team-lists-round-11/
+2026-05-08 08:59:11 [INFO] Attempt 1/3 — referees R11 2026 — https://www.nrl.com/draw/nrl-premiership/2026/round-11/
+2026-05-08 08:59:12 [INFO] JSON blob parse found 0 — trying HTML text fallback
+2026-05-08 08:59:12 [INFO] Wrote latest-referees.csv — 0 assignments, round 11
+2026-05-08 08:59:12 [WARNING] Page fetched but no referee data found — referees may not be announced yet
+2026-05-08 08:59:54 [INFO] Targeting season=2026 round=10
+2026-05-08 08:59:55 [WARNING] Fetch failed https://www.nrl.com/news/2026/04/30/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/04/30/nrl-team-lists-round-10/
+2026-05-08 08:59:55 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/01/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/01/nrl-team-lists-round-10/
+2026-05-08 08:59:55 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/02/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/02/nrl-team-lists-round-10/
+2026-05-08 08:59:55 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/03/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/03/nrl-team-lists-round-10/
+2026-05-08 08:59:55 [WARNING] Fetch failed https://www.nrl.com/news/2026/05/04/nrl-team-lists-round-10/ — 404 Client Error: Not Found for url: https://www.nrl.com/news/2026/05/04/nrl-team-lists-round-10/
+2026-05-08 08:59:55 [INFO] Using NRL team-lists source: https://www.nrl.com/news/2026/05/05/nrl-team-lists-round-10/
+2026-05-08 08:59:55 [INFO] Wrote latest-referees.csv — 7 assignments, round 10
+2026-05-08 08:59:55 [INFO] Referees scraped from team lists — 7 assignments
