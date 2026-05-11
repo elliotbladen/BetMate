@@ -17,6 +17,7 @@ const PUBLIC_PATHS = [
   '/api/odds',
   '/api/weather',
   '/api/ev-signals',
+  '/api/afl-bvi',
 ];
 
 export async function middleware(request: NextRequest) {

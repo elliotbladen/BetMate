@@ -23,6 +23,7 @@ import json
 import logging
 import os
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -70,7 +71,7 @@ def load_api_key() -> str:
     return ""
 
 
-def fetch_odds(api_key: str, sport_key: str) -> list[dict]:
+def fetch_odds(api_key: str, sport_key: str, max_retries: int = 3, retry_delay: int = 300) -> list[dict]:
     url = BASE_URL.format(sport_key=sport_key)
     params = {
         "apiKey":     api_key,
@@ -78,11 +79,19 @@ def fetch_odds(api_key: str, sport_key: str) -> list[dict]:
         "markets":    MARKETS,
         "oddsFormat": ODDS_FORMAT,
     }
-    resp = requests.get(url, params=params, timeout=30)
-    resp.raise_for_status()
-    remaining = resp.headers.get("x-requests-remaining", "?")
-    log.info("  %s — %s events, %s API calls remaining", sport_key, len(resp.json()), remaining)
-    return resp.json()
+    for attempt in range(1, max_retries + 1):
+        try:
+            resp = requests.get(url, params=params, timeout=30)
+            resp.raise_for_status()
+            remaining = resp.headers.get("x-requests-remaining", "?")
+            log.info("  %s — %s events, %s API calls remaining", sport_key, len(resp.json()), remaining)
+            return resp.json()
+        except Exception as exc:
+            if attempt < max_retries:
+                log.warning("  Attempt %d/%d failed for %s — %s. Retrying in %ds ...", attempt, max_retries, sport_key, exc, retry_delay)
+                time.sleep(retry_delay)
+            else:
+                raise
 
 
 def flatten(events: list[dict], sport: str, snap_date: str, snap_time: str) -> list[dict]:
@@ -129,6 +138,8 @@ def write_csv(rows: list[dict], path: Path, append: bool = False) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Intraday odds snapshot to CSV")
     parser.add_argument("--dry-run", action="store_true", help="Fetch but don't write files")
+    parser.add_argument("--max-retries", type=int, default=3, help="Retry attempts per sport on network failure")
+    parser.add_argument("--retry-delay", type=int, default=300, help="Seconds between retries")
     args = parser.parse_args()
 
     LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -158,7 +169,7 @@ def main() -> None:
     for sport, sport_key in SPORTS.items():
         log.info("Fetching %s odds ...", sport)
         try:
-            events = fetch_odds(api_key, sport_key)
+            events = fetch_odds(api_key, sport_key, max_retries=args.max_retries, retry_delay=args.retry_delay)
             rows   = flatten(events, sport, snap_date, snap_time)
             log.info("  %d rows", len(rows))
             all_rows.extend(rows)

@@ -1,47 +1,61 @@
-param(
-    [string]$TaskName = "BetMate Odds Snapshot 10min",
-    [string]$UvExe   = "uv",
-    [string]$RunTime  = "00:00",
-    [int]$IntervalMinutes = 10
-)
+# install_odds_snapshot_task.ps1
+#
+# Installs BetMate Odds Snapshot to run twice daily (09:00 + 18:00).
+# StartWhenAvailable: if the machine was off/asleep at the scheduled time,
+# the task fires as soon as it comes back online.
+# The Python script retries up to 3x (5 min apart) on network failure.
+#
+# Run once (as admin if needed) to install. Re-run to update.
 
 $ErrorActionPreference = "Stop"
 
-$repoRoot   = Resolve-Path (Join-Path $PSScriptRoot "..")
-$scriptPath = Join-Path $repoRoot "lib\scraper\odds_snapshot.py"
-$trackerPath = Join-Path $repoRoot "lib\scraper\odds_movement_tracker.py"
-$runnerPath = Join-Path $repoRoot "scripts\run_odds_snapshot_cycle.ps1"
+$uvExe    = "C:\Users\ElliotBladen\.local\bin\uv.exe"
+$repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+$runner   = Join-Path $repoRoot "scripts\run_odds_snapshot_cycle.ps1"
 
-if (-not (Test-Path $scriptPath)) {
-    throw "Could not find snapshot script at $scriptPath"
-}
-if (-not (Test-Path $trackerPath)) {
-    throw "Could not find movement tracker script at $trackerPath"
-}
-if (-not (Test-Path $runnerPath)) {
-    throw "Could not find snapshot runner at $runnerPath"
+if (-not (Test-Path $runner)) { throw "Cannot find $runner" }
+
+# Remove old tasks
+foreach ($old in @("BetMate Odds Snapshot 10min", "BetMate Daily Odds Snapshot")) {
+    if (Get-ScheduledTask -TaskName $old -ErrorAction SilentlyContinue) {
+        Unregister-ScheduledTask -TaskName $old -Confirm:$false
+        Write-Host "Removed: $old"
+    }
 }
 
-$argument = "-NoProfile -ExecutionPolicy Bypass -File `"$runnerPath`" -UvExe `"$UvExe`""
-$action   = New-ScheduledTaskAction -Execute "powershell.exe" -Argument $argument -WorkingDirectory $repoRoot
-$trigger  = New-ScheduledTaskTrigger -Once -At $RunTime `
-    -RepetitionInterval (New-TimeSpan -Minutes $IntervalMinutes) `
-    -RepetitionDuration (New-TimeSpan -Days 1)
+$action = New-ScheduledTaskAction `
+    -Execute          "powershell.exe" `
+    -Argument         "-NoProfile -ExecutionPolicy Bypass -File `"$runner`" -UvExe `"$uvExe`"" `
+    -WorkingDirectory $repoRoot
+
+# Morning open + pre-game evening
+$t1 = New-ScheduledTaskTrigger -Daily -At "09:00"
+$t2 = New-ScheduledTaskTrigger -Daily -At "18:00"
+
 $settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
+    -ExecutionTimeLimit    (New-TimeSpan -Minutes 30) `
+    -MultipleInstances     IgnoreNew `
     -AllowStartIfOnBatteries `
-    -DontStopIfGoingOnBatteries `
-    -ExecutionTimeLimit (New-TimeSpan -Minutes 10)
+    -DontStopIfGoingOnBatteries
+
+$principal = New-ScheduledTaskPrincipal `
+    -UserId    $env:USERNAME `
+    -LogonType Interactive `
+    -RunLevel  Highest
 
 Register-ScheduledTask `
-    -TaskName $TaskName `
-    -Action $action `
-    -Trigger $trigger `
-    -Settings $settings `
-    -Description "10-minute odds snapshot from The Odds API, then writes price movements to data/odds_movements/YYYY/YYYY-MM-DD.csv." `
-    -Force
+    -TaskName  "BetMate Odds Snapshot" `
+    -Action    $action `
+    -Trigger   @($t1, $t2) `
+    -Settings  $settings `
+    -Principal $principal `
+    -Description "NRL + AFL odds snapshot twice daily. Retries on network failure. Catches up missed runs on wake." `
+    -Force | Out-Null
 
-Write-Host "Installed: $TaskName"
-Write-Host "Schedule:  every $IntervalMinutes minutes, starting at $RunTime"
-Write-Host "Output:    data/odds_snapshots/YYYY/YYYY-MM-DD.csv (appended intraday)"
-Write-Host "Movements: data/odds_movements/YYYY/YYYY-MM-DD.csv"
+$info = Get-ScheduledTaskInfo -TaskName "BetMate Odds Snapshot"
+Write-Host ""
+Write-Host "Installed: BetMate Odds Snapshot"
+Write-Host "  Triggers : 09:00 + 18:00 daily (StartWhenAvailable)"
+Write-Host "  Next run : $($info.NextRunTime)"
+Write-Host "  Script   : $runner"
