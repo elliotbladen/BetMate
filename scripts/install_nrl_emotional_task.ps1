@@ -8,9 +8,9 @@
 
 $TaskName   = "BetMate NRL Emotional Flags"
 $UvPath     = "C:\Users\ElliotBladen\.local\bin\uv.exe"
-$ScriptPath = "C:\Users\ElliotBladen\Apps\BetMate\lib\scraper\nrl_emotional.py"
-$WorkDir    = "C:\Users\ElliotBladen\Apps\BetMate"
-$LogFile    = "C:\Users\ElliotBladen\Apps\BetMate\data\nrl\emotional\logs\task.log"
+$ScriptPath = "C:\Users\ElliotBladen\Apps\lib\scraper\nrl_emotional.py"
+$WorkDir    = "C:\Users\ElliotBladen\Apps"
+$LogFile    = "C:\Users\ElliotBladen\Apps\data\nrl\emotional\logs\task.log"
 
 $Args = "run --with anthropic --with requests python `"$ScriptPath`" --round 0 >> `"$LogFile`" 2>&1"
 

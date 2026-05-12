@@ -29,7 +29,8 @@
 | "BetMate NRL Style Stats Scrape" | Tuesday 18:00 | ✅ Fixed (was broken — bare `uv`) |
 | "BetMate NRL Round Prep" | Tuesday 18:05 | ✅ Fixed (was broken — bare `uv`) |
 | "BettingEngine NRL Pricing" | Tuesday 19:03 | ✅ Shifted Mon→Tue |
-| "BetMate NRL Emotional Flags" | Tuesday 11:00 | ⚠️ Needs install (run install_nrl_emotional_task.ps1) |
+| "BetMate NRL Emotional Flags" | Tuesday 11:00 | ✅ Installed 2026-05-12 |
+| "BettingEngine NRL Referees Fetch" | Tuesday 14:00 + 17:00 | ✅ Installed 2026-05-12 |
 
 **Pipeline day is now TUESDAY** (shifted 2026-05-11 — historical odds not ready until Tuesday).
 All BetMate tasks that previously used bare `uv` now use full path `C:\Users\ElliotBladen\.local\bin\uv.exe`.
@@ -97,6 +98,7 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 
 ### Pending Work
 - BVI weekly task: install Task Scheduler entry to run `afl_bvi.py` Monday 08:00
+- Emotional task install script (`scripts/install_nrl_emotional_task.ps1`) has stale BetMate/ paths — fix before rerunning (paths updated inline 2026-05-12)
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
 - UI: no pending redesign — user reverted RacingZone polish on 2026-05-05, keep current look
 - AFL scraper: no equivalent injury scraper yet
