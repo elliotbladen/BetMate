@@ -21,8 +21,12 @@ function classifyCondition(
   precipIntensity: number,
   precipProbability: number,
   dewSpread: number,  // temp - dewPoint
+  localHour: number | null,
+  humidity: number,
+  temperature: number,
 ): { condition: WeatherData['condition']; flags: string[] } {
   const flags: string[] = [];
+  const isDewWindow = localHour == null || localHour >= 18 || localHour <= 7;
 
   if (precipIntensity > 2 || precipProbability > 60) flags.push('RAIN');
   else if (precipProbability > 30) flags.push('SHOWERS');
@@ -30,8 +34,9 @@ function classifyCondition(
   if (windSpeed > 60) flags.push('STRONG WIND');
   else if (windSpeed > 35) flags.push('WIND');
 
-  if (dewSpread < 3) flags.push('DEW RISK');
-  else if (dewSpread < 6) flags.push('MILD DEW');
+  const hasDewConditions = isDewWindow && humidity >= 80 && temperature <= 22;
+  if (hasDewConditions && dewSpread < 3) flags.push('DEW RISK');
+  else if (hasDewConditions && dewSpread < 5) flags.push('MILD DEW');
 
   // Score: 0 = perfect, higher = worse
   let score = 0;
@@ -44,8 +49,8 @@ function classifyCondition(
   else if (windSpeed > 40) score += 2;
   else if (windSpeed > 25) score += 1;
 
-  if (dewSpread < 3)  score += 2;
-  else if (dewSpread < 6) score += 1;
+  if (hasDewConditions && dewSpread < 3)  score += 2;
+  else if (hasDewConditions && dewSpread < 5) score += 1;
 
   const condition =
     score === 0 ? 'good' :
@@ -136,12 +141,24 @@ export async function GET(req: NextRequest) {
   const windSpeedKmh = (v.windSpeed ?? 0) * 3.6;
   const windGustKmh  = (v.windGust  ?? 0) * 3.6;
   const dewSpread    = (v.temperature ?? 20) - (v.dewPoint ?? 10);
+  const localHour = commenceTime
+    ? Number(
+        new Intl.DateTimeFormat('en-AU', {
+          hour: 'numeric',
+          hourCycle: 'h23',
+          timeZone: 'Australia/Sydney',
+        }).format(new Date(commenceTime)),
+      )
+    : null;
 
   const { condition, flags } = classifyCondition(
     windSpeedKmh,
     v.precipitationIntensity ?? 0,
     v.precipitationProbability ?? 0,
     dewSpread,
+    Number.isNaN(localHour) ? null : localHour,
+    v.humidity ?? 0,
+    v.temperature ?? 0,
   );
 
   const data: WeatherData = {

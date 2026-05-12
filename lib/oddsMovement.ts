@@ -76,12 +76,14 @@ export function computeMovementsFromOpening(
 ): MovementMap {
   const map: MovementMap = {};
 
-  function setMovement(key: string, currentPrice: number) {
-    const openingPrice = openingPrices[key];
+  function setMovement(game: Game, market: string, bookmaker: string, side: string, currentPrice: number) {
+    const idKey = `${game.id}:${market}:${bookmaker}:${side}`;
+    const matchupKey = `${game.homeTeam}:::${game.awayTeam}:${market}:${bookmaker}:${side}`;
+    const openingPrice = openingPrices[idKey] ?? openingPrices[matchupKey];
     if (!openingPrice || openingPrice <= 0 || currentPrice === openingPrice) return;
 
     const changePct = ((currentPrice - openingPrice) / openingPrice) * 100;
-    map[key] = {
+    map[idKey] = {
       direction: currentPrice > openingPrice ? 'up' : 'down',
       changePct,
       shortenedStrong: changePct <= -10,
@@ -90,21 +92,21 @@ export function computeMovementsFromOpening(
 
   for (const game of games) {
     for (const [bm, odds] of Object.entries(game.odds)) {
-      setMovement(`${game.id}:h2h:${bm}:home`, odds.home);
-      setMovement(`${game.id}:h2h:${bm}:away`, odds.away);
+      setMovement(game, 'h2h', bm, 'home', odds.home);
+      setMovement(game, 'h2h', bm, 'away', odds.away);
     }
 
     if (game.spreadsOdds) {
       for (const [bm, odds] of Object.entries(game.spreadsOdds)) {
-        setMovement(`${game.id}:spreads:${bm}:home`, odds.home);
-        setMovement(`${game.id}:spreads:${bm}:away`, odds.away);
+        setMovement(game, 'spreads', bm, 'home', odds.home);
+        setMovement(game, 'spreads', bm, 'away', odds.away);
       }
     }
 
     if (game.totalsOdds) {
       for (const [bm, odds] of Object.entries(game.totalsOdds)) {
-        setMovement(`${game.id}:totals:${bm}:over`, odds.over);
-        setMovement(`${game.id}:totals:${bm}:under`, odds.under);
+        setMovement(game, 'totals', bm, 'over', odds.over);
+        setMovement(game, 'totals', bm, 'under', odds.under);
       }
     }
   }

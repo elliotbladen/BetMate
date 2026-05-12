@@ -40,6 +40,15 @@ type MarketTab = 'H2H' | 'Line' | 'Totals';
 type BviTier = 'value' | 'neutral' | 'fade';
 interface BviEntry { rank: number; score: number; tier: BviTier; fav_profit: number; und_profit: number; }
 type BviMap = Record<string, BviEntry>;
+interface HomeAwayValueEntry {
+  rank: number;
+  home_win_pct: number;
+  away_win_pct: number;
+  difference_pct: number;
+  home_record?: { wins: number; games: number } | null;
+  away_record?: { wins: number; games: number } | null;
+}
+type HomeAwayValueMap = Record<string, HomeAwayValueEntry>;
 type DetailTab = 'Markets' | 'Intelligence' | 'Team News' | 'Weather / Ref' | 'History';
 
 interface WeatherData {
@@ -313,6 +322,23 @@ function BviBadge({ tier }: { tier: BviTier | null }) {
   );
 }
 
+function HomeAwayValueBadge({ type, pct }: { type: 'home' | 'away'; pct: number | null }) {
+  const threshold = type === 'home' ? 70 : 65;
+  if (pct == null || pct < threshold) return null;
+  const isHome = type === 'home';
+  return (
+    <span
+      title={`${isHome ? 'Home' : 'Away'} win rate ${pct.toFixed(1)}%`}
+      className={[
+        'inline-flex animate-pulse items-center gap-1 rounded px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest',
+        isHome ? 'bg-[#dbeafe] text-[#2563eb]' : 'bg-[#fef3c7] text-[#b45309]',
+      ].join(' ')}
+    >
+      {isHome ? '⌂' : '↗'} {isHome ? 'Home Value' : 'Away Value'}
+    </span>
+  );
+}
+
 function OddsBoardCard({
   game,
   market,
@@ -322,6 +348,8 @@ function OddsBoardCard({
   onAskBaz,
   bviHomeEntry,
   bviAwayEntry,
+  homeAwayHomeEntry,
+  homeAwayAwayEntry,
 }: {
   game: Game;
   market: MarketTab;
@@ -331,6 +359,8 @@ function OddsBoardCard({
   onAskBaz: () => void;
   bviHomeEntry?: BviEntry | null;
   bviAwayEntry?: BviEntry | null;
+  homeAwayHomeEntry?: HomeAwayValueEntry | null;
+  homeAwayAwayEntry?: HomeAwayValueEntry | null;
 }) {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
@@ -370,6 +400,8 @@ function OddsBoardCard({
   const bothSame = rawBviHome != null && rawBviHome === rawBviAway;
   const displayBviHome: BviTier | null = bothSame ? null : rawBviHome;
   const displayBviAway: BviTier | null = bothSame ? null : rawBviAway;
+  const homeValuePct = homeAwayHomeEntry?.home_win_pct ?? null;
+  const awayValuePct = homeAwayAwayEntry?.away_win_pct ?? null;
 
   useEffect(() => {
     if (!venue) { setWeatherLoading(false); return; }
@@ -426,9 +458,11 @@ function OddsBoardCard({
             <h2 className="flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-lg font-extrabold leading-tight text-[#111827] sm:text-xl">
               <TeamBadge name={game.homeTeam} />
               <BviBadge tier={displayBviHome} />
+              <HomeAwayValueBadge type="home" pct={homeValuePct} />
               <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#9CA3AF]">vs</span>
               <TeamBadge name={game.awayTeam} />
               <BviBadge tier={displayBviAway} />
+              <HomeAwayValueBadge type="away" pct={awayValuePct} />
             </h2>
             {venue && <p className="mt-1 text-xs text-[#9CA3AF]">{venue.name}</p>}
           </div>
@@ -853,6 +887,8 @@ function OddsBoard({
   onAskBaz,
   bviData,
   showBVI,
+  homeAwayValueData,
+  showHomeAwayValue,
 }: {
   activeSport: Sport;
   market: MarketTab;
@@ -865,6 +901,8 @@ function OddsBoard({
   onAskBaz: (gameId: string) => void;
   bviData?: BviMap;
   showBVI?: boolean;
+  homeAwayValueData?: HomeAwayValueMap;
+  showHomeAwayValue?: boolean;
 }) {
   if (loading) {
     return (
@@ -904,6 +942,8 @@ function OddsBoard({
           onAskBaz={() => onAskBaz(game.id)}
           bviHomeEntry={showBVI ? (bviData?.[game.homeTeam] ?? null) : null}
           bviAwayEntry={showBVI ? (bviData?.[game.awayTeam] ?? null) : null}
+          homeAwayHomeEntry={showHomeAwayValue ? (homeAwayValueData?.[game.homeTeam] ?? null) : null}
+          homeAwayAwayEntry={showHomeAwayValue ? (homeAwayValueData?.[game.awayTeam] ?? null) : null}
         />
       ))}
     </div>
@@ -930,6 +970,9 @@ function OddsPageContent() {
   const [showBVI, setShowBVI] = useState(false);
   const [bviData, setBviData] = useState<BviMap>({});
   const [showBVIInfo, setShowBVIInfo] = useState(false);
+  const [showHomeAwayValue, setShowHomeAwayValue] = useState(false);
+  const [homeAwayValueData, setHomeAwayValueData] = useState<HomeAwayValueMap>({});
+  const [showHomeAwayValueInfo, setShowHomeAwayValueInfo] = useState(false);
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
@@ -1049,6 +1092,13 @@ function OddsPageContent() {
   }, []);
 
   useEffect(() => {
+    fetch('/api/afl-home-away-value')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.teams) setHomeAwayValueData(data.teams); })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
     setError(null);
     setExpandedGameId(null);
     setSelectedGameId(null);
@@ -1066,12 +1116,15 @@ function OddsPageContent() {
 
   const rawGames = activeSport === 'NRL' ? nrlGames : aflGames;
   const games = useMemo(() => {
-    if (!showBVI || activeSport !== 'AFL') return rawGames;
+    if (activeSport !== 'AFL') return rawGames;
     return rawGames.filter((g) => {
-      const home = bviData[g.homeTeam]?.tier;
-      const away = bviData[g.awayTeam]?.tier;
-      // hide games where BOTH teams are neutral — nothing interesting
-      return !(home === 'neutral' && away === 'neutral');
+      if (showBVI) {
+        const home = bviData[g.homeTeam]?.tier;
+        const away = bviData[g.awayTeam]?.tier;
+        // hide games where BOTH teams are neutral — nothing interesting
+        if (home === 'neutral' && away === 'neutral') return false;
+      }
+      return true;
     });
   }, [rawGames, showBVI, activeSport, bviData]);
   const selectedGame = useMemo(() => games.find((game) => game.id === selectedGameId), [games, selectedGameId]);
@@ -1180,6 +1233,64 @@ function OddsPageContent() {
                 </div>
               )}
 
+              {activeSport === 'AFL' && (
+                <div className="relative flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setShowHomeAwayValue((v) => !v)}
+                    className={[
+                      'inline-flex h-10 items-center gap-2 rounded border px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors',
+                      showHomeAwayValue
+                        ? 'border-[#2563eb] bg-[#dbeafe] text-[#2563eb]'
+                        : 'border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#2563eb]/60',
+                    ].join(' ')}
+                  >
+                    <span className={['flex h-3.5 w-3.5 items-center justify-center rounded-sm border text-[9px]', showHomeAwayValue ? 'border-[#2563eb] bg-[#2563eb] text-white' : 'border-[#D1D5DB]'].join(' ')}>
+                      {showHomeAwayValue ? '✓' : ''}
+                    </span>
+                    H/A Value
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowHomeAwayValueInfo((v) => !v)}
+                    className="flex h-6 w-6 items-center justify-center rounded-full text-[#9CA3AF] transition-colors hover:bg-[#F3F4F6] hover:text-[#6B7280]"
+                  >
+                    <Info className="h-3.5 w-3.5" />
+                  </button>
+
+                  {showHomeAwayValueInfo && (
+                    <>
+                      <div className="fixed inset-0 z-40" onClick={() => setShowHomeAwayValueInfo(false)} />
+                      <div className="absolute right-0 top-12 z-50 w-72 rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="text-[11px] font-mono font-black uppercase tracking-widest text-[#111827]">Home / Away Value</span>
+                          <button onClick={() => setShowHomeAwayValueInfo(false)} className="text-[#9CA3AF] hover:text-[#6B7280]">
+                            <X className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                        <p className="mb-3 text-xs leading-relaxed text-[#6B7280]">
+                          Flags AFL teams with a strong venue split from aussportstipping.com's home-field advantage table.
+                        </p>
+                        <div className="mb-3 space-y-1.5">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex items-center gap-1 rounded bg-[#dbeafe] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#2563eb]">⌂ Home Value</span>
+                            <span className="text-xs text-[#6B7280]">Home team has at least 70% home wins</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex items-center gap-1 rounded bg-[#fef3c7] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#b45309]">↗ Away Value</span>
+                            <span className="text-xs text-[#6B7280]">Away team has at least 65% away wins</span>
+                          </div>
+                        </div>
+                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">
+                          When the filter is on, games without either signal are hidden. Source: aussportstipping.com home-field advantage analysis.
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
               <button
                 type="button"
                 className="hidden h-10 items-center gap-2 rounded border border-[#E2E8F0] bg-[#F8FAFC] px-3 text-sm text-[#9CA3AF] lg:inline-flex"
@@ -1206,6 +1317,8 @@ function OddsPageContent() {
             onAskBaz={askBaz}
             bviData={bviData}
             showBVI={showBVI}
+            homeAwayValueData={homeAwayValueData}
+            showHomeAwayValue={showHomeAwayValue}
           />
           <CompletedSection
             games={activeSport === 'NRL' ? nrlCompleted : aflCompleted}

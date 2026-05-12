@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { readdir, readFile } from 'fs/promises';
+import { access, readdir, readFile } from 'fs/promises';
 import path from 'path';
 import type { OpeningPriceMap } from '@/lib/oddsMovement';
 
@@ -69,6 +69,11 @@ async function findSnapshotFiles(root: string): Promise<string[]> {
   const entries = await readdir(root, { withFileTypes: true }).catch(() => []);
   const yearDirs = entries.filter((entry) => entry.isDirectory() && /^\d{4}$/.test(entry.name));
   const files: string[] = [];
+  const latestFile = path.join(root, 'latest.csv');
+
+  if (await access(latestFile).then(() => true).catch(() => false)) {
+    files.push(latestFile);
+  }
 
   for (const yearDir of yearDirs) {
     const dir = path.join(root, yearDir.name);
@@ -80,7 +85,11 @@ async function findSnapshotFiles(root: string): Promise<string[]> {
     }
   }
 
-  return files.sort();
+  return files.sort((a, b) => {
+    if (a.endsWith('latest.csv')) return -1;
+    if (b.endsWith('latest.csv')) return 1;
+    return a.localeCompare(b);
+  });
 }
 
 export async function GET(request: NextRequest) {
@@ -106,6 +115,9 @@ export async function GET(request: NextRequest) {
 
       const key = `${row.game_id}:${row.market}:${row.bookmaker}:${side}`;
       openingPrices[key] ??= price;
+
+      const matchupKey = `${row.home_team}:::${row.away_team}:${row.market}:${row.bookmaker}:${side}`;
+      openingPrices[matchupKey] ??= price;
     }
   }
 

@@ -18,6 +18,7 @@ const PUBLIC_PATHS = [
   '/api/weather',
   '/api/ev-signals',
   '/api/afl-bvi',
+  '/api/afl-home-away-value',
 ];
 
 export async function middleware(request: NextRequest) {
