@@ -8,18 +8,23 @@ Writes:
   data/odds_movements/YYYY/YYYY-MM-DD.csv
   data/odds_movements/latest.csv
 """
+# /// script
+# dependencies = ["tzdata"]
+# ///
 
 from __future__ import annotations
 
 import argparse
 import csv
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[2]
 SNAP_DIR = ROOT / "data" / "odds_snapshots"
 MOVE_DIR = ROOT / "data" / "odds_movements"
+LOCAL_TZ = ZoneInfo("Australia/Sydney")
 
 FIELDNAMES = [
     "detected_date",
@@ -111,7 +116,7 @@ def detect_movements(
         if row.get("snapshot_time") == to_time and row.get("price")
     ]
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(LOCAL_TZ)
     detected_date = now.strftime("%Y-%m-%d")
     detected_time = now.strftime("%H:%M:%S")
     movements: list[dict[str, str]] = []
@@ -163,7 +168,7 @@ def main() -> None:
     parser.add_argument("--min-pct", type=float, default=0.0, help="Only write changes at/above this percent.")
     args = parser.parse_args()
 
-    target_date = args.date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    target_date = args.date or datetime.now(LOCAL_TZ).strftime("%Y-%m-%d")
     year = target_date[:4]
     snapshot_path = SNAP_DIR / year / f"{target_date}.csv"
     movement_path = MOVE_DIR / year / f"{target_date}.csv"

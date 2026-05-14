@@ -1,8 +1,9 @@
 # install_odds_snapshot_task.ps1
 #
-# Installs BetMate Odds Snapshot to run twice daily (09:00 + 18:00).
+# Installs BetMate Odds Snapshot to run three times daily (09:00, 12:00, 18:00).
 # StartWhenAvailable: if the machine was off/asleep at the scheduled time,
 # the task fires as soon as it comes back online.
+# RestartCount: Task Scheduler retries twice (30 min apart) if the cycle fails.
 # The Python script retries up to 3x (5 min apart) on network failure.
 #
 # Run once (as admin if needed) to install. Re-run to update.
@@ -28,16 +29,19 @@ $action = New-ScheduledTaskAction `
     -Argument         "-NoProfile -ExecutionPolicy Bypass -File `"$runner`" -UvExe `"$uvExe`"" `
     -WorkingDirectory $repoRoot
 
-# Morning open + pre-game evening
+# Morning open, midday, pre-game evening
 $t1 = New-ScheduledTaskTrigger -Daily -At "09:00"
-$t2 = New-ScheduledTaskTrigger -Daily -At "18:00"
+$t2 = New-ScheduledTaskTrigger -Daily -At "12:00"
+$t3 = New-ScheduledTaskTrigger -Daily -At "18:00"
 
 $settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
     -ExecutionTimeLimit    (New-TimeSpan -Minutes 30) `
     -MultipleInstances     IgnoreNew `
     -AllowStartIfOnBatteries `
-    -DontStopIfGoingOnBatteries
+    -DontStopIfGoingOnBatteries `
+    -RestartCount          2 `
+    -RestartInterval       (New-TimeSpan -Minutes 30)
 
 $principal = New-ScheduledTaskPrincipal `
     -UserId    $env:USERNAME `
@@ -47,15 +51,16 @@ $principal = New-ScheduledTaskPrincipal `
 Register-ScheduledTask `
     -TaskName  "BetMate Odds Snapshot" `
     -Action    $action `
-    -Trigger   @($t1, $t2) `
+    -Trigger   @($t1, $t2, $t3) `
     -Settings  $settings `
     -Principal $principal `
-    -Description "NRL + AFL odds snapshot twice daily. Retries on network failure. Catches up missed runs on wake." `
+    -Description "NRL + AFL odds snapshot 3x daily (09:00, 12:00, 18:00). Retries 2x on failure (30 min apart). Catches up missed runs on wake." `
     -Force | Out-Null
 
 $info = Get-ScheduledTaskInfo -TaskName "BetMate Odds Snapshot"
 Write-Host ""
 Write-Host "Installed: BetMate Odds Snapshot"
-Write-Host "  Triggers : 09:00 + 18:00 daily (StartWhenAvailable)"
+Write-Host "  Triggers : 09:00 + 12:00 + 18:00 daily (StartWhenAvailable)"
+Write-Host "  Retries  : 2x on failure, 30 min apart"
 Write-Host "  Next run : $($info.NextRunTime)"
 Write-Host "  Script   : $runner"

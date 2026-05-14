@@ -196,6 +196,62 @@ function bestGap(entries: ReturnType<typeof bookmakerEntries>) {
   return Math.max(sideGap(homePrices), sideGap(awayPrices));
 }
 
+function commonPoint(points: Array<number | null>): number | null {
+  const counts = new Map<number, number>();
+  for (const point of points) {
+    if (point == null) continue;
+    counts.set(point, (counts.get(point) ?? 0) + 1);
+  }
+
+  let selected: number | null = null;
+  let selectedCount = 0;
+  for (const [point, count] of Array.from(counts.entries())) {
+    if (count > selectedCount || (count === selectedCount && selected != null && Math.abs(point) < Math.abs(selected))) {
+      selected = point;
+      selectedCount = count;
+    }
+  }
+  return selected;
+}
+
+function comparableBest(
+  entries: ReturnType<typeof bookmakerEntries>,
+  side: 'home' | 'away',
+  lineAware: boolean,
+) {
+  if (!lineAware) {
+    return {
+      point: null as number | null,
+      price: entries.length > 0 ? Math.max(...entries.map((entry) => entry[side].price)) : 0,
+    };
+  }
+
+  const point = commonPoint(entries.map((entry) => entry[side].point));
+  const comparable = point == null ? entries : entries.filter((entry) => entry[side].point === point);
+  return {
+    point,
+    price: comparable.length > 0 ? Math.max(...comparable.map((entry) => entry[side].price)) : 0,
+  };
+}
+
+function TotalSelectionLabel({ side, point }: { side: 'Over' | 'Under'; point: number | null }) {
+  return (
+    <div>
+      <span className={[
+        'inline-flex h-8 min-w-[54px] items-center justify-center rounded px-2 text-[10px] font-black uppercase tracking-wider shadow-sm',
+        side === 'Over'
+          ? 'bg-[#DCFCE7] text-[#166534] ring-1 ring-[#16A34A]/20'
+          : 'bg-[#FEE2E2] text-[#991B1B] ring-1 ring-[#DC2626]/20',
+      ].join(' ')}>
+        {side}
+      </span>
+      <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
+        {point != null ? point : 'Total'}
+      </span>
+    </div>
+  );
+}
+
 function displayPrice(price: number, point: number | null, isTotal = false) {
   if (point == null) return price.toFixed(2);
   if (isTotal) return `${point}  ${price.toFixed(2)}`;
@@ -434,9 +490,13 @@ function OddsBoardCard({
 
   if (entries.length === 0) return <MarketUnavailable market={market} />;
 
-  const bestHome = Math.max(...entries.map((entry) => entry.home.price));
-  const bestAway = Math.max(...entries.map((entry) => entry.away.price));
+  const lineAware = market !== 'H2H';
+  const bestHome = comparableBest(entries, 'home', lineAware);
+  const bestAway = comparableBest(entries, 'away', lineAware);
   const selected = market === 'Totals' ? 'Over / Under' : `${game.homeShort} / ${game.awayShort}`;
+  const displayEntries = entries.slice(0, 10);
+  const bookmakerColumnCount = Math.max(displayEntries.length, 1);
+  const gridMinWidth = 150 + bookmakerColumnCount * 82;
 
   return (
     <article className={['overflow-hidden rounded-xl border bg-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg', expanded ? 'border-[#00DEB8] shadow-[0_0_0_3px_rgba(0,222,184,0.10)]' : 'border-[#E2E8F0]'].join(' ')}>
@@ -487,9 +547,15 @@ function OddsBoardCard({
       </div>
 
       <div className="overflow-x-auto">
-        <div className="grid min-w-[1100px] grid-cols-[minmax(150px,1.1fr)_repeat(10,minmax(72px,1fr))]">
+        <div
+          className="grid"
+          style={{
+            minWidth: `${gridMinWidth}px`,
+            gridTemplateColumns: `minmax(150px,1.1fr) repeat(${bookmakerColumnCount}, minmax(72px,1fr))`,
+          }}
+        >
           <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
-          {entries.slice(0, 10).map((entry) => (
+          {displayEntries.map((entry) => (
             <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
               <BookLogo bmKey={entry.key} />
             </div>
@@ -497,16 +563,13 @@ function OddsBoardCard({
 
           <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
             {market === 'Totals' ? (
-              <div>
-                <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-                <span className="mt-1 block text-[10px] font-mono font-bold uppercase tracking-widest text-[#00866F]">Over</span>
-              </div>
+              <TotalSelectionLabel side="Over" point={bestHome.point} />
             ) : market === 'Line' ? (
               <div>
                 <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-                {entries[0].home.point != null && (
+                {bestHome.point != null && (
                   <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                    {entries[0].home.point > 0 ? '+' : ''}{entries[0].home.point} (ref)
+                    {bestHome.point > 0 ? '+' : ''}{bestHome.point}
                   </span>
                 )}
               </div>
@@ -514,12 +577,12 @@ function OddsBoardCard({
               <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
             )}
           </div>
-          {entries.slice(0, 10).map((entry) => (
+          {displayEntries.map((entry) => (
             <PriceCell
               key={`${entry.key}-home`}
               price={entry.home.price}
               point={entry.home.point}
-              isBest={entry.home.price === bestHome}
+              isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
               movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
               isTotal={market === 'Totals'}
             />
@@ -527,16 +590,13 @@ function OddsBoardCard({
 
           <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
             {market === 'Totals' ? (
-              <div>
-                <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-                <span className="mt-1 block text-[10px] font-mono font-bold uppercase tracking-widest text-[#dc2626]">Under</span>
-              </div>
+              <TotalSelectionLabel side="Under" point={bestAway.point} />
             ) : market === 'Line' ? (
               <div>
                 <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-                {entries[0].away.point != null && (
+                {bestAway.point != null && (
                   <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                    {entries[0].away.point > 0 ? '+' : ''}{entries[0].away.point} (ref)
+                    {bestAway.point > 0 ? '+' : ''}{bestAway.point}
                   </span>
                 )}
               </div>
@@ -544,12 +604,12 @@ function OddsBoardCard({
               <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
             )}
           </div>
-          {entries.slice(0, 10).map((entry) => (
+          {displayEntries.map((entry) => (
             <PriceCell
               key={`${entry.key}-away`}
               price={entry.away.price}
               point={entry.away.point}
-              isBest={entry.away.price === bestAway}
+              isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
               movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
               isTotal={market === 'Totals'}
             />
@@ -805,9 +865,12 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
   const entries = bookmakerEntries(game, market);
   const displayEntries = entries.length > 0 ? entries : bookmakerEntries(game, 'H2H');
   const cols = Math.min(displayEntries.length, 5);
+  const lineAware = market !== 'H2H' && entries.length > 0;
 
-  const bestHome = displayEntries.length > 0 ? Math.max(...displayEntries.map((e) => e.home.price)) : 0;
-  const bestAway = displayEntries.length > 0 ? Math.max(...displayEntries.map((e) => e.away.price)) : 0;
+  const bestHome = comparableBest(displayEntries, 'home', lineAware);
+  const bestAway = comparableBest(displayEntries, 'away', lineAware);
+  const homeLabel = market === 'Totals' ? 'Over' : game.homeShort;
+  const awayLabel = market === 'Totals' ? 'Under' : game.awayShort;
 
   return (
     <article className="overflow-hidden rounded-xl border border-[#E2E8F0] bg-white opacity-60">
@@ -830,16 +893,16 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
               return <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">{meta.abbr}</div>;
             })}
 
-            <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{game.homeShort}</div>
+            <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{homeLabel}</div>
             {displayEntries.slice(0, cols).map((entry) => (
-              <div key={`${entry.key}-h`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.home.price === bestHome ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+              <div key={`${entry.key}-h`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
                 {entry.home.price > 0 ? entry.home.price.toFixed(2) : '—'}
               </div>
             ))}
 
-            <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{game.awayShort}</div>
+            <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{awayLabel}</div>
             {displayEntries.slice(0, cols).map((entry) => (
-              <div key={`${entry.key}-a`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.away.price === bestAway ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+              <div key={`${entry.key}-a`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
                 {entry.away.price > 0 ? entry.away.price.toFixed(2) : '—'}
               </div>
             ))}
@@ -965,7 +1028,7 @@ function OddsPageContent() {
   const [nrlCompleted, setNrlCompleted] = useState<Game[]>([]);
   const [aflCompleted, setAflCompleted] = useState<Game[]>([]);
   const [movements, setMovements] = useState<MovementMap>({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showBVI, setShowBVI] = useState(false);
   const [bviData, setBviData] = useState<BviMap>({});
@@ -1100,6 +1163,7 @@ function OddsPageContent() {
 
   useEffect(() => {
     setError(null);
+    setLoading(true);
     setExpandedGameId(null);
     setSelectedGameId(null);
     setMovements(activeSport === 'NRL' ? movementsRef.current : aflMovRef.current);

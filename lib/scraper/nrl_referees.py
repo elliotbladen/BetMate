@@ -43,6 +43,7 @@ DEFAULT_RETRY_DELAY  = 30
 DEFAULT_ROUND_ONE_MONDAY = "2026-03-02"
 
 NRL_DRAW_URL = "https://www.nrl.com/draw/nrl-premiership/{season}/round-{round}/"
+NRL_DRAW_API = "https://www.nrl.com/draw/data/?competition=111&season={season}&round={round}"
 NRL_TEAM_LIST_URL = "https://www.nrl.com/news/{year}/{month:02d}/{day:02d}/nrl-team-lists-round-{round}/"
 
 HEADERS = {
@@ -128,6 +129,16 @@ def fetch_html(url: str) -> str | None:
         resp = requests.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
         resp.raise_for_status()
         return resp.text
+    except Exception as exc:
+        log.warning("Fetch failed %s — %s", url, exc)
+        return None
+
+
+def fetch_json(url: str) -> dict | None:
+    try:
+        resp = requests.get(url, headers={**HEADERS, "Accept": "application/json,*/*"}, timeout=DEFAULT_TIMEOUT)
+        resp.raise_for_status()
+        return resp.json()
     except Exception as exc:
         log.warning("Fetch failed %s — %s", url, exc)
         return None
@@ -329,6 +340,81 @@ def parse_referees_from_team_lists(html: str) -> list[dict]:
     return deduped
 
 
+def parse_referee_from_match_centre(html: str) -> str | None:
+    """Parse match-centre officials rendered as either 'Referee: Name' or Name then Role."""
+    soup = BeautifulSoup(html, "html.parser")
+
+    for card in soup.select(".card-team-mate"):
+        name = card.select_one(".card-team-mate__name")
+        position = card.select_one(".card-team-mate__position")
+        if (
+            name
+            and position
+            and position.get_text(" ", strip=True).lower() == "referee"
+        ):
+            return name.get_text(" ", strip=True)
+
+    card_match = re.search(
+        r'<h3 class="card-team-mate__name">\s*([^<]+?)\s*</h3>\s*'
+        r'<p class="card-team-mate__position">\s*Referee\s*</p>',
+        html,
+        re.IGNORECASE | re.DOTALL,
+    )
+    if card_match:
+        return card_match.group(1).strip()
+
+    lines = [line.strip() for line in soup.get_text("\n").splitlines() if line.strip()]
+
+    for line in lines:
+        match = re.match(r"^Referee:\s+(.+)$", line, re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+
+    for start, line in enumerate(lines):
+        if line.lower() != "match officials":
+            continue
+        section = lines[start + 1:start + 40]
+        for i, item in enumerate(section):
+            if item.lower() == "referee" and i > 0:
+                candidate = section[i - 1].strip()
+                if re.match(r"^[A-Z][A-Za-z'.-]+(?:\s+[A-Z][A-Za-z'.-]+)+$", candidate):
+                    return candidate
+    return None
+
+
+def scrape_match_centres(season: int, round_number: int) -> list[dict]:
+    """Fetch each official NRL match-centre page from the draw API and parse officials."""
+    api_url = NRL_DRAW_API.format(season=season, round=round_number)
+    raw = fetch_json(api_url)
+    if not raw:
+        return []
+
+    records: list[dict] = []
+    for fixture in raw.get("fixtures", []):
+        if fixture.get("type") != "Match":
+            continue
+
+        path = fixture.get("matchCentreUrl")
+        home = canon_team(fixture.get("homeTeam", {}).get("nickName", ""))
+        away = canon_team(fixture.get("awayTeam", {}).get("nickName", ""))
+        if not path or not home or not away:
+            continue
+
+        url = path if str(path).startswith("http") else f"https://www.nrl.com{path}"
+        html = fetch_html(url)
+        if not html:
+            continue
+
+        referee = parse_referee_from_match_centre(html)
+        if referee:
+            records.append({"home_team": home, "away_team": away, "referee": referee})
+            log.info("Match-centre referee: %s v %s — %s", home, away, referee)
+        else:
+            log.warning("No match-centre referee found: %s", url)
+
+    return records
+
+
 def write_outputs(records: list[dict], raw_html: str, season: int, round_number: int) -> None:
     scraped_at = datetime.now(timezone.utc).isoformat()
 
@@ -378,6 +464,12 @@ def scrape(season: int, round_number: int, max_attempts: int, retry_delay: int, 
             log.info("Referees scraped from team lists — %d assignments", len(records))
             return len(records)
         log.warning("Team-lists source found but no referee rows parsed — falling back to draw page")
+
+    match_centre_records = scrape_match_centres(season, round_number)
+    if match_centre_records:
+        write_outputs(match_centre_records, "", season, round_number)
+        log.info("Referees scraped from match centres — %d assignments", len(match_centre_records))
+        return len(match_centre_records)
 
     url = NRL_DRAW_URL.format(season=season, round=round_number)
     for attempt in range(1, max_attempts + 1):

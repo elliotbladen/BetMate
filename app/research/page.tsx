@@ -6,6 +6,7 @@ import type { Sport, BetResult, LegacyBet, ModelBet } from '@/lib/researchData';
 
 const SPORTS: (Sport | 'ALL')[] = ['ALL', 'NRL', 'AFL', 'FOOTBALL', 'OTHER'];
 
+
 function resultBadge(r: BetResult) {
   if (r === 'win')  return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-[#00DEB8]/15 text-[#00DEB8]">W</span>;
   if (r === 'loss') return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-red-500/15 text-red-500">L</span>;
@@ -33,13 +34,24 @@ function clvDelta(taken: number, closing: number | null) {
   return <span className={`font-mono text-xs ${cls}`}>{delta > 0 ? '+' : ''}{delta.toFixed(1)}%</span>;
 }
 
-function statsFor(bets: { result: BetResult; plUnits?: number; cumPL?: number }[]) {
-  const wins   = bets.filter(b => b.result === 'win').length;
-  const losses = bets.filter(b => b.result === 'loss').length;
-  const total  = bets.length;
+function statsFor(bets: LegacyBet[]) {
+  const wins     = bets.filter(b => b.result === 'win').length;
+  const losses   = bets.filter(b => b.result === 'loss').length;
+  const total    = bets.length;
   const decisive = wins + losses;
-  const winRate = decisive > 0 ? (wins / decisive) * 100 : 0;
-  return { total, wins, losses, winRate };
+  const winRate  = decisive > 0 ? (wins / decisive) * 100 : 0;
+  return { total, wins, losses, decisive, winRate };
+}
+
+function modelStatsFor(bets: typeof MODEL_BETS) {
+  const wins     = bets.filter(b => b.result === 'win').length;
+  const losses   = bets.filter(b => b.result === 'loss').length;
+  const total    = bets.length;
+  const decisive = wins + losses;
+  const winRate  = decisive > 0 ? (wins / decisive) * 100 : 0;
+  const totalPL  = bets.reduce((sum, b) => sum + b.plUnits, 0);
+  const roi      = decisive > 0 ? (totalPL / decisive) * 100 : 0;
+  return { total, wins, losses, winRate, totalPL, roi };
 }
 
 // -- All Bets tab --------------------------------------------------------------
@@ -48,21 +60,23 @@ function AllBetsTab({ sport }: { sport: Sport | 'ALL' }) {
     () => sport === 'ALL' ? LEGACY_BETS : LEGACY_BETS.filter(b => b.sport === sport),
     [sport],
   );
-  const stats = statsFor(filtered);
+  const stats  = statsFor(filtered);
   const finalPL = filtered.length > 0 ? filtered[filtered.length - 1].cumPL : 0;
+  const roi     = stats.decisive > 0 ? (finalPL / stats.decisive) * 100 : 0;
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-5">
         {[
-          { label: 'Bets', value: stats.total.toString() },
-          { label: 'Win Rate', value: `${stats.winRate.toFixed(1)}%` },
-          { label: 'Cum P&L', value: `${finalPL > 0 ? '+' : ''}${finalPL.toFixed(1)}u` },
-          { label: 'W / L', value: `${stats.wins} / ${stats.losses}` },
+          { label: 'Bets',     value: stats.total.toString(),                                          color: '' },
+          { label: 'Win Rate', value: `${stats.winRate.toFixed(1)}%`,                                  color: '' },
+          { label: 'Cum P&L',  value: `${finalPL >= 0 ? '+' : ''}${finalPL.toFixed(2)}u`,             color: finalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
+          { label: 'W / L',    value: `${stats.wins} / ${stats.losses}`,                               color: '' },
+          { label: 'ROI',      value: `${roi >= 0 ? '+' : ''}${roi.toFixed(1)}%`,                     color: roi >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
         ].map(s => (
           <div key={s.label} className="border border-[#E2E8F0] rounded-lg px-4 py-3 bg-white">
             <p className="text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1">{s.label}</p>
-            <p className="text-[18px] font-mono font-bold text-[#111827] leading-none">{s.value}</p>
+            <p className={`text-[18px] font-mono font-bold leading-none ${s.color || 'text-[#111827]'}`}>{s.value}</p>
           </div>
         ))}
       </div>
@@ -100,9 +114,7 @@ function AllBetsTab({ sport }: { sport: Sport | 'ALL' }) {
 
 // -- NRL Model tab -------------------------------------------------------------
 function ModelTab() {
-  const stats   = statsFor(MODEL_BETS);
-  const last    = MODEL_BETS[MODEL_BETS.length - 1];
-  const finalPL = last?.runningTotal ?? 0;
+  const stats = modelStatsFor(MODEL_BETS);
 
   const clvBets   = MODEL_BETS.filter(b => b.takenPrice !== null && b.closingPrice !== null);
   const clvBeaten = clvBets.filter(b => (b.takenPrice ?? 0) > (b.closingPrice ?? 0)).length;
@@ -110,17 +122,18 @@ function ModelTab() {
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-5">
         {[
-          { label: 'Bets',         value: stats.total.toString() },
-          { label: 'Win Rate',     value: `${stats.winRate.toFixed(1)}%` },
-          { label: 'Running P&L',  value: `${finalPL > 0 ? '+' : ''}${finalPL.toFixed(2)}u` },
-          { label: 'W / L',        value: `${stats.wins} / ${stats.losses}` },
-          { label: 'Beat CLV',     value: clvBets.length > 0 ? `${clvPct.toFixed(0)}%` : 'N/A' },
+          { label: 'Bets',        value: stats.total.toString(),                                                          color: '' },
+          { label: 'Win Rate',    value: `${stats.winRate.toFixed(1)}%`,                                                  color: '' },
+          { label: 'Running P&L', value: `${stats.totalPL >= 0 ? '+' : ''}${stats.totalPL.toFixed(2)}u`,                 color: stats.totalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
+          { label: 'W / L',       value: `${stats.wins} / ${stats.losses}`,                                               color: '' },
+          { label: 'Beat CLV',    value: clvBets.length > 0 ? `${clvPct.toFixed(0)}%` : 'N/A',                           color: '' },
+          { label: 'ROI',         value: `${stats.roi >= 0 ? '+' : ''}${stats.roi.toFixed(1)}%`,                         color: stats.roi >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
         ].map(s => (
           <div key={s.label} className="border border-[#E2E8F0] rounded-lg px-4 py-3 bg-white">
             <p className="text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1">{s.label}</p>
-            <p className={`text-[18px] font-mono font-bold leading-none ${s.label === 'Running P&L' ? (finalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500') : 'text-[#111827]'}`}>
+            <p className={`text-[18px] font-mono font-bold leading-none ${s.color || 'text-[#111827]'}`}>
               {s.value}
             </p>
           </div>

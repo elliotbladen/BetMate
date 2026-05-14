@@ -1,0 +1,14 @@
+detected_date,detected_time,from_snapshot_time,to_snapshot_time,sport,game_id,home_team,away_team,commence_time,bookmaker,market,outcome,point,old_price,new_price,change,change_pct,direction
+2026-05-14,09:59:16,09:51:23,09:59:13,AFL,3e5e12bdab964d97668f0bd1d0e3cfb3,Brisbane Lions,Geelong Cats,2026-05-14T09:30:00Z,betfair_ex_au,h2h,Geelong Cats,,2.8400,2.9000,0.0600,2.11,up
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,2eb8c03af1f7e3ae8cf309913f92b51a,Cronulla Sutherland Sharks,Canterbury Bulldogs,2026-05-15T08:00:00Z,betright,h2h,Canterbury Bulldogs,,2.5000,2.5500,0.0500,2.00,up
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,edd035aab9bc0ea43e28561fec91c5b9,Wests Tigers,Manly Warringah Sea Eagles,2026-05-16T05:00:00Z,sportsbet,h2h,Wests Tigers,,3.1900,3.1400,-0.0500,-1.57,down
+2026-05-14,09:59:16,09:51:23,09:59:13,AFL,f436616887b737e10f106ef8a57610eb,Carlton Blues,Western Bulldogs,2026-05-16T09:35:00Z,betfair_ex_au,h2h,Carlton Blues,,2.5400,2.5800,0.0400,1.57,up
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,2eb8c03af1f7e3ae8cf309913f92b51a,Cronulla Sutherland Sharks,Canterbury Bulldogs,2026-05-15T08:00:00Z,sportsbet,h2h,Canterbury Bulldogs,,2.4700,2.5000,0.0300,1.21,up
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,edd035aab9bc0ea43e28561fec91c5b9,Wests Tigers,Manly Warringah Sea Eagles,2026-05-16T05:00:00Z,sportsbet,totals,Over,53.5,1.8400,1.8200,-0.0200,-1.09,down
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,edd035aab9bc0ea43e28561fec91c5b9,Wests Tigers,Manly Warringah Sea Eagles,2026-05-16T05:00:00Z,sportsbet,totals,Under,53.5,1.9700,1.9900,0.0200,1.02,up
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,edd035aab9bc0ea43e28561fec91c5b9,Wests Tigers,Manly Warringah Sea Eagles,2026-05-16T05:00:00Z,sportsbet,h2h,Manly Warringah Sea Eagles,,1.3600,1.3700,0.0100,0.74,up
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,2eb8c03af1f7e3ae8cf309913f92b51a,Cronulla Sutherland Sharks,Canterbury Bulldogs,2026-05-15T08:00:00Z,sportsbet,h2h,Cronulla Sutherland Sharks,,1.5500,1.5400,-0.0100,-0.65,down
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,2eb8c03af1f7e3ae8cf309913f92b51a,Cronulla Sutherland Sharks,Canterbury Bulldogs,2026-05-15T08:00:00Z,betright,h2h,Cronulla Sutherland Sharks,,1.5400,1.5300,-0.0100,-0.65,down
+2026-05-14,09:59:16,09:51:23,09:59:13,AFL,3e5e12bdab964d97668f0bd1d0e3cfb3,Brisbane Lions,Geelong Cats,2026-05-14T09:30:00Z,betfair_ex_au,h2h_lay,Brisbane Lions,,1.5400,1.5300,-0.0100,-0.65,down
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,edd035aab9bc0ea43e28561fec91c5b9,Wests Tigers,Manly Warringah Sea Eagles,2026-05-16T05:00:00Z,sportsbet,spreads,Wests Tigers,8.5,1.8900,1.9000,0.0100,0.53,up
+2026-05-14,09:59:16,09:51:23,09:59:13,NRL,edd035aab9bc0ea43e28561fec91c5b9,Wests Tigers,Manly Warringah Sea Eagles,2026-05-16T05:00:00Z,sportsbet,spreads,Manly Warringah Sea Eagles,-8.5,1.9100,1.9000,-0.0100,-0.52,down

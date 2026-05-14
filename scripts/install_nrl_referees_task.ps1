@@ -19,6 +19,11 @@ $action   = New-ScheduledTaskAction -Execute "powershell.exe" -Argument $argumen
 
 $trigger1 = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Tuesday -At "14:00"
 $trigger2 = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Tuesday -At "17:00"
+$trigger3 = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Wednesday -At "08:00"
+$trigger4 = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Wednesday -At "12:00"
+$trigger5 = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Wednesday -At "17:00"
+$trigger6 = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Thursday -At "08:00"
+$trigger7 = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Thursday -At "12:00"
 
 $settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
@@ -29,11 +34,11 @@ $settings = New-ScheduledTaskSettingsSet `
 Register-ScheduledTask `
     -TaskName $TaskName `
     -Action $action `
-    -Trigger @($trigger1, $trigger2) `
+    -Trigger @($trigger1, $trigger2, $trigger3, $trigger4, $trigger5, $trigger6, $trigger7) `
     -Settings $settings `
-    -Description "Scrapes NRL referee appointments Tuesday 14:00 + 17:00. Writes latest-referees.csv for BettingEngine T6." `
+    -Description "Scrapes NRL referee appointments Tuesday-Thursday until official match-centre data is available. Writes latest-referees.csv for BettingEngine T6." `
     -Force
 
 Write-Host "Installed: $TaskName"
-Write-Host "Schedule:  Tuesday 14:00 + 17:00 (weekly)"
+Write-Host "Schedule:  Tuesday 14:00 + 17:00; Wednesday 08:00 + 12:00 + 17:00; Thursday 08:00 + 12:00 (weekly)"
 Write-Host "Output:    data/nrl/referees/processed/latest-referees.csv"

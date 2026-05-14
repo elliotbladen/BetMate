@@ -167,6 +167,18 @@ function getBest(odds: Game['odds'], side: 'home' | 'away') {
   return prices.length ? Math.max(...prices) : 0;
 }
 
+function bookmakerSortKey(key: string): number {
+  const order = Object.keys(BOOKMAKER_META).indexOf(key);
+  return order === -1 ? Number.MAX_SAFE_INTEGER : order;
+}
+
+function sortBookmakers<T>(entries: [string, T][]): [string, T][] {
+  return [...entries].sort(([a], [b]) => {
+    const diff = bookmakerSortKey(a) - bookmakerSortKey(b);
+    return diff !== 0 ? diff : a.localeCompare(b);
+  });
+}
+
 // â”€â”€â”€ Bookmaker card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function BmCard({
   bmKey, sport, isBest, evPct, userPlan, isLoggedIn = false, movement, refreshCount, children,
@@ -296,9 +308,8 @@ function OddsRow({ label, odds, side, best, evPct, userPlan, isLoggedIn, gameId,
   label: string; odds: Game['odds']; side: 'home' | 'away'; best: number; evPct?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
   gameId: string; market: string; sport: string; movements?: MovementMap; refreshCount?: number;
 }) {
-  const entries = Object.entries(odds)
+  const entries = sortBookmakers(Object.entries(odds))
     .map(([key, o]) => ({ key, price: effectivePrice(key, o[side]) }))
-    .sort((a, b) => b.price - a.price);
 
   return (
     <div>
@@ -327,10 +338,9 @@ function SpreadsRow({ label, odds, side, evPct, userPlan, isLoggedIn, gameId, sp
   label: string; odds: SpreadsOdds; side: 'home' | 'away'; evPct?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
   gameId: string; sport: string; movements?: MovementMap; refreshCount?: number;
 }) {
-  const entries = Object.entries(odds)
-    .map(([key, o]) => ({ key, price: effectivePrice(key, o[side]), point: side === 'home' ? o.homePoint : o.awayPoint }))
-    .sort((a, b) => b.price - a.price);
-  const best = entries[0]?.price ?? 0;
+  const entries = sortBookmakers(Object.entries(odds))
+    .map(([key, o]) => ({ key, price: effectivePrice(key, o[side]), point: side === 'home' ? o.homePoint : o.awayPoint }));
+  const best = entries.length > 0 ? Math.max(...entries.map((entry) => entry.price)) : 0;
 
   return (
     <div>
@@ -361,7 +371,7 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
   odds: TotalsOdds; evOver?: number; evUnder?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
   gameId: string; sport: string; movements?: MovementMap; refreshCount?: number;
 }) {
-  const entries = Object.entries(odds).sort((a, b) => effectivePrice(a[0], b[1].over) - effectivePrice(b[0], a[1].over));
+  const entries = sortBookmakers(Object.entries(odds));
   const bestOver  = Math.max(...entries.map(([key, o]) => effectivePrice(key, o.over)));
   const bestUnder = Math.max(...entries.map(([key, o]) => effectivePrice(key, o.under)));
   const line = entries[0]?.[1].point;

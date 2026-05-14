@@ -11,9 +11,12 @@ Outputs:
   data/odds_snapshots/latest.csv            ← always most recent
 
 Usage:
-  python lib/scraper/odds_snapshot.py
-  python lib/scraper/odds_snapshot.py --dry-run
+  uv run lib/scraper/odds_snapshot.py
+  uv run lib/scraper/odds_snapshot.py --dry-run
 """
+# /// script
+# dependencies = ["requests", "tzdata"]
+# ///
 
 from __future__ import annotations
 
@@ -24,8 +27,9 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 
@@ -34,6 +38,7 @@ SNAP_DIR   = ROOT / "data" / "odds_snapshots"
 LOG_DIR    = SNAP_DIR / "logs"
 LOG_PATH   = LOG_DIR / "snapshot.log"
 ENV_PATH   = ROOT / ".env.local"
+LOCAL_TZ   = ZoneInfo("Australia/Sydney")
 
 SPORTS = {
     "NRL": "rugbyleague_nrl",
@@ -159,7 +164,7 @@ def main() -> None:
         log.error("ODDS_API_KEY not found in environment or .env.local")
         sys.exit(1)
 
-    now       = datetime.now(timezone.utc)
+    now       = datetime.now(LOCAL_TZ)
     snap_date = now.strftime("%Y-%m-%d")
     snap_time = now.strftime("%H:%M:%S")
     year      = now.strftime("%Y")

@@ -31,6 +31,24 @@ export const BOOKMAKER_META: Record<string, { abbr: string; name: string; color:
   playup:        { abbr: 'PU',  name: 'PlayUp',     color: 'text-pink-400',    domain: 'playup.com.au'      },
 };
 
+function normalizeOutcomeName(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/\bfc\b/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .replace(/\s+/g, ' ');
+}
+
+function findOutcome(
+  outcomes: { name: string; price: number; point?: number }[],
+  teamName: string,
+) {
+  const target = normalizeOutcomeName(teamName);
+  return outcomes.find((outcome) => normalizeOutcomeName(outcome.name) === target);
+}
+
 export function extractH2HOdds(
   event: OddsApiEvent,
 ): Record<string, { home: number; away: number }> {
@@ -38,8 +56,8 @@ export function extractH2HOdds(
   for (const bm of event.bookmakers) {
     const h2h = bm.markets.find((m) => m.key === 'h2h');
     if (!h2h) continue;
-    const homeOutcome = h2h.outcomes.find((o) => o.name === event.home_team);
-    const awayOutcome = h2h.outcomes.find((o) => o.name === event.away_team);
+    const homeOutcome = findOutcome(h2h.outcomes, event.home_team);
+    const awayOutcome = findOutcome(h2h.outcomes, event.away_team);
     if (homeOutcome && awayOutcome) {
       odds[bm.key] = { home: homeOutcome.price, away: awayOutcome.price };
     }
@@ -54,8 +72,8 @@ export function extractSpreadsOdds(
   for (const bm of event.bookmakers) {
     const spreads = bm.markets.find((m) => m.key === 'spreads');
     if (!spreads) continue;
-    const homeOutcome = spreads.outcomes.find((o) => o.name === event.home_team);
-    const awayOutcome = spreads.outcomes.find((o) => o.name === event.away_team);
+    const homeOutcome = findOutcome(spreads.outcomes, event.home_team);
+    const awayOutcome = findOutcome(spreads.outcomes, event.away_team);
     if (homeOutcome && awayOutcome && homeOutcome.point != null && awayOutcome.point != null) {
       odds[bm.key] = {
         home: homeOutcome.price,

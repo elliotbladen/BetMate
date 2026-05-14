@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-11
+**Last updated:** 2026-05-14
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -102,6 +102,8 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
 - UI: no pending redesign — user reverted RacingZone polish on 2026-05-05, keep current look
 - AFL scraper: no equivalent injury scraper yet
+- `public/mockup.html` — design mockup file, can be deleted
+- **Market movement analysis (sleeping on it):** build full Fav/Dog × Shortened/Flat/Lengthened ROI matrix for H2H + handicap. Data is in xlsx. Scripts: `scripts/market_hammered_drift.py` and `scripts/shortened_team_roi.py` already exist as starting point.
 
 ---
 

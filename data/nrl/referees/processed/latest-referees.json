@@ -1,42 +1,42 @@
 {
   "sport": "NRL",
   "season": 2026,
-  "round": 10,
-  "scraped_at": "2026-05-07T22:59:55.980325+00:00",
+  "round": 11,
+  "scraped_at": "2026-05-14T02:00:11.929233+00:00",
   "records": [
     {
-      "home_team": "Dolphins",
+      "home_team": "Cronulla Sutherland Sharks",
       "away_team": "Canterbury Bulldogs",
+      "referee": "Gerard Sutton"
+    },
+    {
+      "home_team": "South Sydney Rabbitohs",
+      "away_team": "Dolphins",
+      "referee": "Adam Gee"
+    },
+    {
+      "home_team": "Wests Tigers",
+      "away_team": "Manly Warringah Sea Eagles",
       "referee": "Grant Atkins"
     },
     {
       "home_team": "Sydney Roosters",
-      "away_team": "Gold Coast Titans",
-      "referee": "Peter Gough"
-    },
-    {
-      "home_team": "North Queensland Cowboys",
-      "away_team": "Parramatta Eels",
-      "referee": "Liam Kennedy"
-    },
-    {
-      "home_team": "St George Illawarra Dragons",
-      "away_team": "Newcastle Knights",
+      "away_team": "North Queensland Cowboys",
       "referee": "Todd Smith"
     },
     {
-      "home_team": "Manly Warringah Sea Eagles",
+      "home_team": "Parramatta Eels",
+      "away_team": "Melbourne Storm",
+      "referee": "Peter Gough"
+    },
+    {
+      "home_team": "Gold Coast Titans",
+      "away_team": "Newcastle Knights",
+      "referee": "Wyatt Raymond"
+    },
+    {
+      "home_team": "New Zealand Warriors",
       "away_team": "Brisbane Broncos",
-      "referee": "Gerard Sutton"
-    },
-    {
-      "home_team": "Melbourne Storm",
-      "away_team": "Wests Tigers",
-      "referee": "Adam Gee"
-    },
-    {
-      "home_team": "Canberra Raiders",
-      "away_team": "Penrith Panthers",
       "referee": "Ashley Klein"
     }
   ]
