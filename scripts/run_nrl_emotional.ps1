@@ -1,7 +1,7 @@
 # run_nrl_emotional.ps1 — wrapper for Task Scheduler
 # Loads .env.local so ANTHROPIC_API_KEY is available, then runs the emotional scraper.
 
-$EnvFile  = "C:\Users\ElliotBladen\Apps\BetMate\.env.local"
+$EnvFile  = "C:\Users\ElliotBladen\Apps\.env.local"
 $UvPath   = "C:\Users\ElliotBladen\.local\bin\uv.exe"
 $Script   = "C:\Users\ElliotBladen\Apps\lib\scraper\nrl_emotional.py"
 $WorkDir  = "C:\Users\ElliotBladen\Apps"

@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-14
+**Last updated:** 2026-05-19 (end of session)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -23,17 +23,27 @@
 ### Scheduled Tasks (Task Scheduler)
 | Task | Schedule | Status |
 |------|----------|--------|
-| "BetMate Odds Snapshot" | 09:00 + 18:00 daily | ✅ Installed (StartWhenAvailable) |
-| "BettingEngine NRL Injuries Fetch" | Tuesday 10:00 | ✅ Running |
-| "BetMate NRL Historical Results" | Tuesday 17:00 | ✅ Fixed (was broken — bare `uv`) |
-| "BetMate NRL Style Stats Scrape" | Tuesday 18:00 | ✅ Fixed (was broken — bare `uv`) |
-| "BetMate NRL Round Prep" | Tuesday 18:05 | ✅ Fixed (was broken — bare `uv`) |
-| "BettingEngine NRL Pricing" | Tuesday 19:03 | ✅ Shifted Mon→Tue |
-| "BetMate NRL Emotional Flags" | Tuesday 11:00 | ✅ Installed 2026-05-12 |
-| "BettingEngine NRL Referees Fetch" | Tuesday 14:00 + 17:00 | ✅ Installed 2026-05-12 |
+| "BetMate Odds Snapshot" | 09:00 + 18:00 daily | ✅ Running |
+| "BettingEngine NRL Injuries Fetch" | Tuesday 10:00 | ✅ Fixed path (Apps not Apps\BetMate) |
+| "BetMate NRL Historical Results" | Tuesday 16:00 | ✅ Fixed — also runs AFL download |
+| "BetMate NRL Style Stats Scrape" | Tuesday 16:15 | ✅ Fixed path |
+| "BetMate NRL Round Prep" | Tuesday 16:20 | ✅ Fixed path, time 16:20 |
+| "BettingEngine NRL Pricing" | Tuesday 16:40 | ✅ FIXED — now uses wrapper scripts/run_nrl_pricing.ps1 with BETMATE_ROOT |
+| "BetMate NRL Emotional Flags" | Tuesday 14:00 | ✅ Updated to 14:00; fixed stale BetMate/ path in wrapper |
+| "BetMate AFL Emotional Flags" | Tuesday 14:30 | ✅ NEW — lib/scraper/afl_emotional.py |
+| "BettingEngine NRL Referees Fetch" | Wednesday 14:00 | ✅ Moved to Wednesday (refs announced Wed) |
+| "BetMate AFL Injuries Fetch" | Tuesday 11:30 | ✅ NEW — lib/scraper/afl_injuries.py |
+| "BetMate AFL Style Stats Scrape" | Tuesday 16:15 | ✅ NEW — lib/scraper/afl_style_stats.py |
+| "BetMate AFL Round Prep" | Tuesday 16:20 | ✅ NEW — lib/scraper/afl_round_prep.py |
 
 **Pipeline day is now TUESDAY** (shifted 2026-05-11 — historical odds not ready until Tuesday).
-All BetMate tasks that previously used bare `uv` now use full path `C:\Users\ElliotBladen\.local\bin\uv.exe`.
+All BetMate tasks use full path `C:\Users\ElliotBladen\.local\bin\uv.exe`.
+
+**CRITICAL FIX 2026-05-19: BETMATE_ROOT**
+BettingEngine's `_find_betmate_root()` was resolving to `Apps\BetMate` (old split repo, no data) instead of `Apps` (actual data location). Fixed by:
+- Wrapper script: `BettingEngine/scripts/run_nrl_pricing.ps1` — sets `BETMATE_ROOT=C:\Users\ElliotBladen\Apps` + `PYTHONUTF8=1`, runs prepare_round.py then export_round_csv.py
+- Task Scheduler "BettingEngine NRL Pricing" now calls this wrapper via `powershell.exe -File run_nrl_pricing.ps1`
+- `ephem` module installed into BettingEngine venv (was missing — caused Step 8 matrix failures)
 
 ### Scrapers — Output Locations
 | Scraper | Output | Consumed by |
@@ -42,12 +52,16 @@ All BetMate tasks that previously used bare `uv` now use full path `C:\Users\Ell
 | `lib/scraper/odds_movement_tracker.py` | `data/odds_movements/YYYY/YYYY-MM-DD.csv` | UI alerts |
 | `lib/scraper/nrl_injuries.py` | `data/nrl/injuries/processed/latest-injuries.json` | BettingEngine T5 |
 | `lib/scraper/nrl_emotional.py` | `data/nrl/emotional/processed/latest-emotional.json` | BettingEngine T7 |
+| `lib/scraper/afl_emotional.py` | `data/afl/emotional/processed/latest-emotional.json` | future AFL BettingEngine T7 |
 | `lib/scraper/afl_bvi.py` | `data/afl/bvi/processed/latest-bvi.json` | `/api/afl-bvi` → odds page BVI filter |
+| `lib/scraper/afl_injuries.py` | `data/afl/injuries/processed/latest-injuries.json` | future AFL BettingEngine T5 |
+| `lib/scraper/afl_style_stats.py` | `data/afl/style-stats/processed/latest-style-stats.csv` | future AFL BettingEngine T2 |
+| `lib/scraper/afl_round_prep.py` | orchestrates AFL injuries scrape | runs afl_injuries.py |
 
 ### Injury Scraper — Current Source
 Source changed 2026-05-05: NRL.com casualty ward (Fox Sports broke).
 URL: `https://www.nrl.com/news/{season}/01/01/nrl-casualty-ward-...`
-Last scraped: 2026-05-11 (R11, 107 records)
+Last scraped: 2026-05-19 (R12, 109 records)
 
 ### Weather System
 
@@ -96,14 +110,59 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 - Scraper: `lib/scraper/afl_bvi.py` — run manually or via Task Scheduler
 - **Pending:** weekly Task Scheduler task to auto-refresh BVI data (not yet installed)
 
+### Team News System — BUILT 2026-05-18
+- `data/nrl/team-news/latest.json` — NRL R12 fresh news (Rabbitohs, Wests Tigers, Manly)
+- `data/afl/team-news/latest.json` — AFL R11 fresh news (Richmond, West Coast, Gold Coast)
+- `app/api/team-news/nrl/route.ts` + `app/api/team-news/afl/route.ts` — API routes (public)
+- UI: DetailDrawer Team News tab shows real data; chip shows Alert/Monitor status
+- **Update weekly:** manually edit JSON files after weekend games (Monday for NRL, Wednesday after AFL tribunal)
+- **Future automation:** `lib/scraper/nrl_team_news.py` — auto-generate injuries section from `latest-injuries.json`; suspensions stay manual
+
+### BVI + H/A Value Controls — moved to per-card (2026-05-18)
+- Removed from global header (no more header toggles or Search button)
+- Each game card now has independent BVI and H/A Value toggle controls
+- Design: split-box top-right (left=checkbox, divider, right=ℹ️ popup), stacked below Ask Baz/Details
+
 ### Pending Work
+- **NRL R12 reprice:** after referees announced Wednesday 14:00 → run `scripts/run_nrl_pricing.ps1` manually (refs not yet announced as of 2026-05-19)
 - BVI weekly task: install Task Scheduler entry to run `afl_bvi.py` Monday 08:00
 - Emotional task install script (`scripts/install_nrl_emotional_task.ps1`) has stale BetMate/ paths — fix before rerunning (paths updated inline 2026-05-12)
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
 - UI: no pending redesign — user reverted RacingZone polish on 2026-05-05, keep current look
-- AFL scraper: no equivalent injury scraper yet
 - `public/mockup.html` — design mockup file, can be deleted
+- **AFL R10 data gap:** AFL R10 (May 15-16) was never priced — model jumped R9→R11. Rolling CLV has a gap for R10. No fix needed retroactively but ensure pipeline runs every round going forward.
+- **AFL totals model:** Both AFL R9 and NRL R11 show model consistently pricing totals 5-10pts above market. Needs T1 expected-points review before using totals bets.
 - **Market movement analysis (sleeping on it):** build full Fav/Dog × Shortened/Flat/Lengthened ROI matrix for H2H + handicap. Data is in xlsx. Scripts: `scripts/market_hammered_drift.py` and `scripts/shortened_team_roi.py` already exist as starting point.
+- **nrl_team_news.py:** Script to auto-populate injuries section of team-news JSON from latest-injuries.json (suspensions still manual)
+- **Pre-launch SaaS:** migrate local data files to Supabase (team-news JSONs, BVI JSON, injuries JSON, odds snapshots CSV) so Vercel deployment can access them. Scrapers write to Supabase instead of local files.
+
+### Baz Agent — BUILT 2026-05-15
+- `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round`, `/context/game`, `/signals`, `/clv`, `/context/team`
+- `app/api/chat/route.ts` — updated to fetch from `BAZ_LOCAL_API` before calling Claude. 1.5s timeout, graceful fallback.
+- `.env.local` — `BAZ_LOCAL_API=http://127.0.0.1:8765` added
+- `components/chat/ChatPanel.tsx` — parses brain status token from stream, shows "Brain offline" amber banner when BettingEngine is down
+- FastAPI + uvicorn installed into `.venv` (bootstrapped pip first — bare venv had no pip)
+- ChatPanel.tsx has a double-encoding issue with box-drawing chars (pre-existing, not introduced here). Future edits to this file: use PowerShell file manipulation, NOT the Edit tool — it inserts curly quotes.
+
+**To start Baz's brain:**
+```powershell
+cd C:\Users\ElliotBladen\Apps\BettingEngine
+& .\.venv\Scripts\python.exe baz_server.py
+```
+
+### Product Vision — SaaS + Crypto Agent
+BetMate is being built as a SaaS community product. Baz is the lead AI agent across both BetMate (sports) and a planned crypto AI agent.
+
+**Target architecture:**
+- **Vercel** — Next.js frontend (always on, public)
+- **Supabase** — all data storage (odds, team news, BVI, user accounts, snapshots)
+- **Cloudflare Tunnel** — exposes Baz (local → internet, IP stays private)
+- **VPS ($5-10/mo)** — when traffic justifies, move BettingEngine + Baz off local machine
+- **MCP layer** — makes Baz domain-agnostic (sports MCP server + crypto MCP server, same brain)
+
+**Key principle:** The pricing IP (BettingEngine) never lives on the public internet. Cloudflare Tunnel routes requests to wherever the brain is running (local or VPS). "Brain offline" banner already handles graceful degradation.
+
+**Pre-launch blocker:** All local `data/` file reads in API routes must move to Supabase before Vercel deployment works.
 
 ---
 
@@ -167,6 +226,9 @@ BetMate is a Next.js frontend that:
 | `lib/scraper/afl_bvi.py` | Scrapes AFL BVI from aussportstipping.com — run weekly |
 | `app/api/afl-bvi/route.ts` | Serves BVI JSON to the odds page |
 | `data/afl/bvi/processed/latest-bvi.json` | BVI data (18 teams, rank + score + tier) |
+| `BettingEngine/scripts/generate_clv_txt.py` | Generates formatted CLV TXT from weekly CLV report CSV — `python generate_clv_txt.py --sport NRL --season 2026 --round 11` |
+| `BettingEngine/scripts/rolling_clv_summary.py` | Rolling CLV across rounds — reads ml_comparison CSVs, writes `outputs/clv_running/running_clv_summary.csv` |
+| `BettingEngine/outputs/clv_running/running_clv_summary.csv` | Running CLV R9–R11 (NRL). Update after each round's ml_comparison is generated. |
 
 ### Dev Server Issues
 If `.next` build cache corrupts (symptom: `Cannot find module './948.js'`):

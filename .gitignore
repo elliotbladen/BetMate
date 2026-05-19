@@ -10,5 +10,21 @@ out/
 .env.local
 .env*.local
 
+# data — scraped files, logs, large binaries (stay local only)
+data/
+*.xlsx
+
+# python
+__pycache__/
+*.pyc
+.uv-cache/
+
+# logs
+dev-server*.log
+dev.log
+
+# build artifacts
+tsconfig.tsbuildinfo
+
 # misc
 .DS_Store

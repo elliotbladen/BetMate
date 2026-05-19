@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "data" / "afl" / "home-away" / "processed"
 OUT = OUT_DIR / "latest-home-away.json"
 URL = "https://www.aussportstipping.com/sports/afl/home_advantage/"
-START_DATE = {"day": "01", "month": "03", "year": "2025"}
+LOOKBACK_YEARS = 1
 
 TEAM_MAP: dict[str, str] = {
     "Adelaide": "Adelaide Crows",
@@ -97,14 +97,16 @@ def _parse_record(value: str) -> dict[str, int] | None:
 def scrape() -> list[dict]:
     log.info("Fetching AFL home advantage data from %s", URL)
     now = datetime.now(timezone.utc)
+    start = now.replace(year=now.year - LOOKBACK_YEARS)
+    log.info("Date range: %s to %s", start.date().isoformat(), now.date().isoformat())
     resp = requests.post(
         URL,
         timeout=20,
         headers={"User-Agent": "Mozilla/5.0"},
         data={
-            "start_day": START_DATE["day"],
-            "start_month": START_DATE["month"],
-            "start_year": START_DATE["year"],
+            "start_day": f"{start.day:02d}",
+            "start_month": f"{start.month:02d}",
+            "start_year": f"{start.year}",
             "end_day": f"{now.day:02d}",
             "end_month": f"{now.month:02d}",
             "end_year": f"{now.year}",
@@ -160,13 +162,14 @@ def main() -> None:
         log.error("Only %d teams found — page structure may have changed. Aborting.", len(rows))
         sys.exit(1)
 
+    now = datetime.now(timezone.utc)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     payload = {
-        "updated": datetime.now(timezone.utc).isoformat(),
+        "updated": now.isoformat(),
         "source": URL,
         "date_range": {
-            "start": f"{START_DATE['year']}-{START_DATE['month']}-{START_DATE['day']}",
-            "end": datetime.now(timezone.utc).date().isoformat(),
+            "start": now.replace(year=now.year - LOOKBACK_YEARS).date().isoformat(),
+            "end": now.date().isoformat(),
         },
         "thresholds": {
             "home_win_pct": 70,
@@ -186,6 +189,9 @@ def main() -> None:
     }
     OUT.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     log.info("Wrote %d teams to %s", len(rows), OUT)
+
+    from supabase_push import push  # noqa: PLC0415
+    push("afl_home_away", payload)
 
 
 if __name__ == "__main__":

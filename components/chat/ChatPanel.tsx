@@ -122,6 +122,7 @@ export default function ChatPanel({
   const [input, setInput]       = useState('');
   const [loading, setLoading]   = useState(false);
   const [msgCount, setMsgCount] = useState(0);
+  const [brainOnline, setBrainOnline] = useState<boolean | null>(null);
 
   const bottomRef   = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -168,11 +169,23 @@ export default function ChatPanel({
       const reader  = res.body.getReader();
       const decoder = new TextDecoder();
       let assistantText = '';
+      let headerParsed = false;
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        assistantText += decoder.decode(value, { stream: true });
+        let chunk = decoder.decode(value, { stream: true });
+
+        if (!headerParsed) {
+          const match = chunk.match(/^\x00brain:(online|offline)\x00/);
+          if (match) {
+            setBrainOnline(match[1] === 'online');
+            chunk = chunk.slice(match[0].length);
+          }
+          headerParsed = true;
+        }
+
+        assistantText += chunk;
         setMessages((prev) => {
           const updated = [...prev];
           updated[updated.length - 1] = { role: 'assistant', content: assistantText };
@@ -220,6 +233,13 @@ export default function ChatPanel({
       </div>
 
       {/* â”€â”€ Login wall â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {brainOnline === false && (
+        <div style={{backgroundColor:'#fffbeb',borderBottom:'1px solid #fde68a',flexShrink:0}} className="px-4 py-2">
+          <p style={{color:'#92400e'}} className="text-[11px] font-mono text-center">
+            Brain offline &mdash; Baz running on general NRL knowledge only
+          </p>
+        </div>
+      )}
       {!isLoggedIn && (
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center gap-4">
           <div className="w-12 h-12 rounded-full border border-[#00DEB8]/40 flex items-center justify-center mb-1">

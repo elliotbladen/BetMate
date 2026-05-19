@@ -166,6 +166,9 @@ function resolveHcapSide(rawSide: 'home' | 'away', direction: string): EVSignal[
 }
 
 export function getEVSignals(homeTeam: string, awayTeam: string): EVSignal[] {
+  // BettingEngine outputs are only available locally — return empty on Vercel or missing path
+  if (!fs.existsSync(ENGINE_OUTPUTS)) return [];
+
   const home = canonicalise(homeTeam);
   const away = canonicalise(awayTeam);
 

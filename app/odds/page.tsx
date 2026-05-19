@@ -13,9 +13,10 @@ import {
   Flame,
   History,
   Info,
+
   LineChart,
   MessageCircle,
-  Search,
+
   ShieldAlert,
   Sparkles,
   Stethoscope,
@@ -33,7 +34,8 @@ import type { Movement, MovementMap, OpeningPriceMap } from '@/lib/oddsMovement'
 import { getRefForGame } from '@/lib/referees';
 import { getAFLVenue } from '@/lib/aflVenues';
 import { getTeamMeta } from '@/lib/teams';
-import { getVenue } from '@/lib/venues';
+import { getVenue, getVenueByName } from '@/lib/venues';
+import { getSpecialRoundVenue } from '@/lib/specialRounds';
 
 type Sport = 'NRL' | 'AFL';
 type MarketTab = 'H2H' | 'Line' | 'Totals';
@@ -49,6 +51,17 @@ interface HomeAwayValueEntry {
   away_record?: { wins: number; games: number } | null;
 }
 type HomeAwayValueMap = Record<string, HomeAwayValueEntry>;
+interface TeamNewsItem {
+  type: 'injury' | 'suspension';
+  player: string;
+  detail: string;
+  severity: 'high' | 'medium' | 'low';
+}
+interface TeamNewsEntry {
+  status: 'alert' | 'monitor';
+  items: TeamNewsItem[];
+}
+type TeamNewsMap = Record<string, TeamNewsEntry>;
 type DetailTab = 'Markets' | 'Intelligence' | 'Team News' | 'Weather / Ref' | 'History';
 
 interface WeatherData {
@@ -110,6 +123,32 @@ function makeTransform(sport: Sport) {
 
 const transformNRL = makeTransform('NRL');
 const transformAFL = makeTransform('AFL');
+
+interface FixtureGame { home_team: string; away_team: string; venue: string; }
+interface FixtureData { season: number | null; round: number | null; games: FixtureGame[]; }
+
+// Apply actual venues to NRL games.
+// Priority: special round override → fixture match → leave undefined (falls back to home team in card)
+function applyNRLVenues(games: Game[], fixture: FixtureData): Game[] {
+  const special = fixture.season && fixture.round
+    ? getSpecialRoundVenue(fixture.season, fixture.round, 'NRL')
+    : null;
+
+  if (special) {
+    return games.map((g) => ({ ...g, venue: special.venue }));
+  }
+
+  const fixtureMap = new Map<string, string>();
+  for (const fg of fixture.games ?? []) {
+    fixtureMap.set(`${fg.home_team}|${fg.away_team}`, fg.venue);
+    fixtureMap.set(`${fg.away_team}|${fg.home_team}`, fg.venue);
+  }
+
+  return games.map((g) => {
+    const venue = fixtureMap.get(`${g.homeTeam}|${g.awayTeam}`);
+    return venue ? { ...g, venue } : g;
+  });
+}
 
 async function fetchOpeningPrices(sport: Sport): Promise<OpeningPriceMap> {
   const response = await fetch(`/api/odds/opening?sport=${sport}`);
@@ -182,6 +221,11 @@ function movementStats(game: Game, market: MarketTab, movements: MovementMap) {
   };
 }
 
+function netPrice(price: number, key: string): number {
+  if (key === 'betfair_ex_au' && price > 1) return 1 + (price - 1) * 0.95;
+  return price;
+}
+
 function sideGap(prices: number[]): number {
   const valid = prices.filter((p) => p > 0);
   if (valid.length < 2) return 0;
@@ -191,8 +235,8 @@ function sideGap(prices: number[]): number {
 }
 
 function bestGap(entries: ReturnType<typeof bookmakerEntries>) {
-  const homePrices = entries.map((entry) => entry.home.price);
-  const awayPrices = entries.map((entry) => entry.away.price);
+  const homePrices = entries.map((e) => netPrice(e.home.price, e.key));
+  const awayPrices = entries.map((e) => netPrice(e.away.price, e.key));
   return Math.max(sideGap(homePrices), sideGap(awayPrices));
 }
 
@@ -296,11 +340,13 @@ function Chip({
   label,
   value,
   tone = 'neutral',
+  tooltip,
 }: {
   icon: React.ElementType;
   label: string;
   value: string;
   tone?: 'neutral' | 'hot' | 'good' | 'warn';
+  tooltip?: string;
 }) {
   const styles = {
     neutral: 'border-[#E2E8F0] bg-white text-[#4B5563]',
@@ -310,9 +356,18 @@ function Chip({
   };
 
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-[11px] font-mono font-bold uppercase tracking-wide ${styles[tone]}`}>
+    <span className={`relative inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-[11px] font-mono font-bold uppercase tracking-wide ${styles[tone]}`}>
       <Icon className="h-3.5 w-3.5" />
       {label}: {value}
+      {tooltip && (
+        <span className="group relative ml-0.5 cursor-default">
+          <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-current text-[8px] opacity-50 group-hover:opacity-100">i</span>
+          <span className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 w-52 -translate-x-1/2 rounded-md bg-[#111827] px-3 py-2 text-[10px] font-normal normal-case leading-relaxed tracking-normal text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+            {tooltip}
+            <span className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-[#111827]" />
+          </span>
+        </span>
+      )}
     </span>
   );
 }
@@ -406,6 +461,8 @@ function OddsBoardCard({
   bviAwayEntry,
   homeAwayHomeEntry,
   homeAwayAwayEntry,
+  teamNewsHomeEntry,
+  teamNewsAwayEntry,
 }: {
   game: Game;
   market: MarketTab;
@@ -417,12 +474,20 @@ function OddsBoardCard({
   bviAwayEntry?: BviEntry | null;
   homeAwayHomeEntry?: HomeAwayValueEntry | null;
   homeAwayAwayEntry?: HomeAwayValueEntry | null;
+  teamNewsHomeEntry?: TeamNewsEntry | null;
+  teamNewsAwayEntry?: TeamNewsEntry | null;
 }) {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
+  const [showBVI, setShowBVI] = useState(false);
+  const [showBVIInfo, setShowBVIInfo] = useState(false);
+  const [showHaValue, setShowHaValue] = useState(false);
+  const [showHaInfo, setShowHaInfo] = useState(false);
 
   const entries = bookmakerEntries(game, market);
-  const venue = game.sport === 'AFL' ? getAFLVenue(game.homeTeam) : getVenue(game.homeTeam);
+  const venue = game.sport === 'AFL'
+    ? getAFLVenue(game.homeTeam)
+    : (game.venue ? getVenueByName(game.venue) : null) ?? getVenue(game.homeTeam);
   const stats = movementStats(game, market, movements);
   const gap = bestGap(entries);
   const refBucket = game.refereeBucket ?? 'Neutral';
@@ -454,10 +519,10 @@ function OddsBoardCard({
   // Suppress both badges when the signal is the same on both sides —
   // two fades or two values in the same game gives you nothing to act on.
   const bothSame = rawBviHome != null && rawBviHome === rawBviAway;
-  const displayBviHome: BviTier | null = bothSame ? null : rawBviHome;
-  const displayBviAway: BviTier | null = bothSame ? null : rawBviAway;
-  const homeValuePct = homeAwayHomeEntry?.home_win_pct ?? null;
-  const awayValuePct = homeAwayAwayEntry?.away_win_pct ?? null;
+  const displayBviHome: BviTier | null = showBVI && !bothSame ? rawBviHome : null;
+  const displayBviAway: BviTier | null = showBVI && !bothSame ? rawBviAway : null;
+  const homeValuePct = showHaValue ? (homeAwayHomeEntry?.home_win_pct ?? null) : null;
+  const awayValuePct = showHaValue ? (homeAwayAwayEntry?.away_win_pct ?? null) : null;
 
   useEffect(() => {
     if (!venue) { setWeatherLoading(false); return; }
@@ -527,21 +592,110 @@ function OddsBoardCard({
             {venue && <p className="mt-1 text-xs text-[#9CA3AF]">{venue.name}</p>}
           </div>
 
-          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-            <button
-              onClick={onAskBaz}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#00DEB8] px-3 py-2 text-xs font-bold text-black shadow-[0_8px_24px_rgba(0,222,184,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#00C9A6]"
-            >
-              <Bot className="h-4 w-4" />
-              Ask Baz
-            </button>
-            <button
-              onClick={onToggleDetails}
-              className="inline-flex items-center justify-center gap-1 rounded-md border border-[#E2E8F0] bg-white px-3 py-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280] transition-colors hover:border-[#00DEB8]/60 hover:text-[#00866F]"
-            >
-              Details
-              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
-            </button>
+          <div className="flex flex-col items-end gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+              <button
+                onClick={onAskBaz}
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#00DEB8] px-3 py-2 text-xs font-bold text-black shadow-[0_8px_24px_rgba(0,222,184,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#00C9A6]"
+              >
+                <Bot className="h-4 w-4" />
+                Ask Baz
+              </button>
+              <button
+                onClick={onToggleDetails}
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-[#E2E8F0] bg-white px-3 py-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280] transition-colors hover:border-[#00DEB8]/60 hover:text-[#00866F]"
+              >
+                Details
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+
+            {(bviHomeEntry || bviAwayEntry || homeAwayHomeEntry || homeAwayAwayEntry) && (
+              <div className="flex flex-wrap justify-end gap-2">
+
+                {(bviHomeEntry || bviAwayEntry) && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setShowBVIInfo(true)}
+                    onMouseLeave={() => setShowBVIInfo(false)}
+                  >
+                    <div className="inline-flex items-stretch overflow-hidden rounded border border-[#E2E8F0] bg-white text-[11px] font-mono font-bold uppercase tracking-widest">
+                      <button
+                        type="button"
+                        onClick={() => setShowBVI(v => !v)}
+                        className={['inline-flex items-center gap-1.5 px-2.5 py-1.5 transition-colors', showBVI ? 'bg-[#22c55e]/10 text-[#16a34a]' : 'text-[#6B7280] hover:bg-[#F8FAFC]'].join(' ')}
+                      >
+                        <span className={['flex h-3 w-3 items-center justify-center rounded-sm border text-[8px]', showBVI ? 'border-[#16a34a] bg-[#22c55e] text-white' : 'border-[#D1D5DB]'].join(' ')}>
+                          {showBVI ? '✓' : ''}
+                        </span>
+                        BVI
+                      </button>
+                      <div className="w-px bg-[#E2E8F0]" />
+                      <button
+                        type="button"
+                        className="flex items-center px-2 py-1.5 text-[#9CA3AF] transition-colors hover:bg-[#F8FAFC] hover:text-[#6B7280]"
+                      >
+                        <Info className="h-3 w-3" />
+                      </button>
+                    </div>
+                    {showBVIInfo && (
+                      <div className="absolute right-0 top-full mt-1 z-50 w-72 rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
+                        <p className="mb-2 text-[11px] font-mono font-black uppercase tracking-widest text-[#111827]">Betting Value Index</p>
+                        <p className="mb-3 text-xs leading-relaxed text-[#6B7280]">
+                          The <strong className="text-[#111827]">AFL Betting Value Index</strong> ranks all 18 teams by their current betting value — a composite of recent form, market pricing, and public perception gaps.
+                        </p>
+                        <div className="mb-3 space-y-1.5">
+                          <div className="flex items-center gap-2"><span className="inline-flex items-center gap-0.5 rounded bg-[#dcfce7] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#16a34a]">▲ Value</span><span className="text-xs text-[#6B7280]">Top 6 — market underrating them</span></div>
+                          <div className="flex items-center gap-2"><span className="inline-flex items-center rounded bg-[#F3F4F6] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#9CA3AF]">Neutral</span><span className="text-xs text-[#6B7280]">Mid 6 — no strong lean</span></div>
+                          <div className="flex items-center gap-2"><span className="inline-flex items-center gap-0.5 rounded bg-[#fee2e2] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#dc2626]">▼ Fade</span><span className="text-xs text-[#6B7280]">Bottom 6 — market overrating them</span></div>
+                        </div>
+                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">Badges appear when teams are in different tiers — same-tier matchups are suppressed. Source: aussportstipping.com — updated weekly.</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {(homeAwayHomeEntry || homeAwayAwayEntry) && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setShowHaInfo(true)}
+                    onMouseLeave={() => setShowHaInfo(false)}
+                  >
+                    <div className="inline-flex items-stretch overflow-hidden rounded border border-[#E2E8F0] bg-white text-[11px] font-mono font-bold uppercase tracking-widest">
+                      <button
+                        type="button"
+                        onClick={() => setShowHaValue(v => !v)}
+                        className={['inline-flex items-center gap-1.5 px-2.5 py-1.5 transition-colors', showHaValue ? 'bg-[#dbeafe] text-[#2563eb]' : 'text-[#6B7280] hover:bg-[#F8FAFC]'].join(' ')}
+                      >
+                        <span className={['flex h-3 w-3 items-center justify-center rounded-sm border text-[8px]', showHaValue ? 'border-[#2563eb] bg-[#2563eb] text-white' : 'border-[#D1D5DB]'].join(' ')}>
+                          {showHaValue ? '✓' : ''}
+                        </span>
+                        H/A Value
+                      </button>
+                      <div className="w-px bg-[#E2E8F0]" />
+                      <button
+                        type="button"
+                        className="flex items-center px-2 py-1.5 text-[#9CA3AF] transition-colors hover:bg-[#F8FAFC] hover:text-[#6B7280]"
+                      >
+                        <Info className="h-3 w-3" />
+                      </button>
+                    </div>
+                    {showHaInfo && (
+                      <div className="absolute right-0 top-full mt-1 z-50 w-72 rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
+                        <p className="mb-2 text-[11px] font-mono font-black uppercase tracking-widest text-[#111827]">Home / Away Value</p>
+                        <p className="mb-3 text-xs leading-relaxed text-[#6B7280]">Flags AFL teams with a strong venue split from aussportstipping.com's home-field advantage table.</p>
+                        <div className="mb-3 space-y-1.5">
+                          <div className="flex items-center gap-2"><span className="inline-flex items-center gap-1 rounded bg-[#dbeafe] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#2563eb]">⌂ Home Value</span><span className="text-xs text-[#6B7280]">Home team wins 70%+ at home</span></div>
+                          <div className="flex items-center gap-2"><span className="inline-flex items-center gap-1 rounded bg-[#fef3c7] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#b45309]">↗ Away Value</span><span className="text-xs text-[#6B7280]">Away team wins 65%+ away</span></div>
+                        </div>
+                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">Source: aussportstipping.com — updated weekly.</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -620,7 +774,7 @@ function OddsBoardCard({
       <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
         <div className="flex flex-wrap gap-2">
           <Chip icon={Flame} label="Move" value={stats.label} tone={stats.tone as 'neutral' | 'hot' | 'warn'} />
-          <Chip icon={Trophy} label="Shop gap" value={gap > 0 ? `${gap.toFixed(1)}%` : 'N/A'} tone={gap >= 3 ? 'good' : 'neutral'} />
+          <Chip icon={Trophy} label="Best price gap" value={gap > 0 ? `${gap.toFixed(1)}%` : 'N/A'} tone={gap >= 3 ? 'good' : 'neutral'} tooltip="The % difference between the best and worst price across all bookmakers. Betfair prices are adjusted for 5% commission. A gap above 3% means real money is being left on the table." />
           <Chip
             icon={CloudRain}
             label="Weather"
@@ -638,15 +792,15 @@ function OddsBoardCard({
               weather.condition === 'poor' ? 'warn' : 'neutral'
             }
           />
-          <Chip icon={ShieldAlert} label="Ref" value={game.referee ? `${game.referee} · ${refBucket}` : refBucket} />
-          <Chip icon={Stethoscope} label="Team news" value="Monitor" tone="warn" />
+          {game.sport === 'NRL' && <Chip icon={ShieldAlert} label="Ref" value={game.referee ? `${game.referee} · ${refBucket}` : refBucket} />}
+          <Chip icon={Stethoscope} label="Team news" value={(teamNewsHomeEntry?.status === 'alert' || teamNewsAwayEntry?.status === 'alert') ? 'Alert' : 'Monitor'} tone={(teamNewsHomeEntry?.status === 'alert' || teamNewsAwayEntry?.status === 'alert') ? 'hot' : 'warn'} />
         </div>
         <p className="mt-3 text-sm leading-6 text-[#4B5563]">
-          <span className="font-bold text-[#111827]">BetMATE read:</span> {stats.label === 'Quiet' ? 'No major market move flagged yet.' : `${stats.label} detected on ${market}. Best price gap is ${gap.toFixed(1)}%.`} Ask Baz for the plain-English read before kickoff.
+          {stats.label === 'Quiet' ? 'No major market move flagged yet.' : `${stats.label} detected on ${market}. Best price gap is ${gap.toFixed(1)}%.`} Ask Baz for the plain-English read before kickoff.
         </p>
       </div>
 
-      {expanded && <DetailDrawer game={game} market={market} entries={entries} movements={movements} weather={weather} venue={venue} />}
+      {expanded && <DetailDrawer game={game} market={market} entries={entries} movements={movements} weather={weather} venue={venue} teamNewsHomeEntry={teamNewsHomeEntry} teamNewsAwayEntry={teamNewsAwayEntry} />}
     </article>
   );
 }
@@ -658,6 +812,8 @@ function DetailDrawer({
   movements,
   weather,
   venue,
+  teamNewsHomeEntry,
+  teamNewsAwayEntry,
 }: {
   game: Game;
   market: MarketTab;
@@ -665,6 +821,8 @@ function DetailDrawer({
   movements: MovementMap;
   weather: WeatherData | null;
   venue: { name: string; lat: number; lon: number } | null;
+  teamNewsHomeEntry?: TeamNewsEntry | null;
+  teamNewsAwayEntry?: TeamNewsEntry | null;
 }) {
   const [tab, setTab] = useState<DetailTab>('Intelligence');
   const stats = movementStats(game, market, movements);
@@ -732,17 +890,37 @@ function DetailDrawer({
 
         {tab === 'Team News' && (
           <div className="grid gap-3 md:grid-cols-2">
-            {[game.homeTeam, game.awayTeam].map((team, index) => (
-              <div key={team} className={`rounded-lg border p-3 ${index === 1 ? 'border-amber-300 bg-amber-50' : 'border-[#E2E8F0] bg-[#F8FAFC]'}`}>
-                <div className="mb-2 flex items-center gap-2">
-                  <Stethoscope className={`h-4 w-4 ${index === 1 ? 'text-amber-700' : 'text-[#00B899]'}`} />
-                  <p className="text-sm font-bold text-[#111827]">{team}</p>
+            {([
+              [game.homeTeam, teamNewsHomeEntry],
+              [game.awayTeam, teamNewsAwayEntry],
+            ] as [string, TeamNewsEntry | null | undefined][]).map(([team, newsEntry]) => {
+              const hasAlert = newsEntry?.status === 'alert' && (newsEntry.items?.length ?? 0) > 0;
+              return (
+                <div key={team} className={`rounded-lg border p-3 ${hasAlert ? 'border-amber-300 bg-amber-50' : 'border-[#E2E8F0] bg-[#F8FAFC]'}`}>
+                  <div className="mb-2 flex items-center gap-2">
+                    <Stethoscope className={`h-4 w-4 ${hasAlert ? 'text-amber-700' : 'text-[#00B899]'}`} />
+                    <p className="text-sm font-bold text-[#111827]">{team}</p>
+                  </div>
+                  {hasAlert ? (
+                    <ul className="space-y-2">
+                      {newsEntry!.items.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className={`mt-0.5 shrink-0 rounded px-1 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest ${item.type === 'suspension' ? 'bg-amber-200 text-amber-900' : 'bg-red-100 text-red-700'}`}>
+                            {item.type === 'suspension' ? 'SUSP' : 'OUT'}
+                          </span>
+                          <div>
+                            <span className={`text-xs font-bold ${item.severity === 'high' ? 'text-red-700' : item.severity === 'medium' ? 'text-amber-700' : 'text-[#374151]'}`}>{item.player}</span>
+                            <span className="ml-1 text-xs text-[#6B7280]">{item.detail}</span>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-xs leading-5 text-[#6B7280]">Monitor — no significant news flagged.</p>
+                  )}
                 </div>
-                <p className={`text-xs leading-5 ${index === 1 ? 'text-amber-800' : 'text-[#6B7280]'}`}>
-                  {index === 1 ? 'Monitor late mail, suspensions and final team lists before kickoff.' : 'No major public team-news flag in this mock read.'}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
@@ -949,9 +1127,8 @@ function OddsBoard({
   onToggleDetails,
   onAskBaz,
   bviData,
-  showBVI,
   homeAwayValueData,
-  showHomeAwayValue,
+  teamNewsData,
 }: {
   activeSport: Sport;
   market: MarketTab;
@@ -963,9 +1140,8 @@ function OddsBoard({
   onToggleDetails: (gameId: string) => void;
   onAskBaz: (gameId: string) => void;
   bviData?: BviMap;
-  showBVI?: boolean;
   homeAwayValueData?: HomeAwayValueMap;
-  showHomeAwayValue?: boolean;
+  teamNewsData?: TeamNewsMap;
 }) {
   if (loading) {
     return (
@@ -1003,10 +1179,12 @@ function OddsBoard({
           expanded={expandedGameId === game.id}
           onToggleDetails={() => onToggleDetails(game.id)}
           onAskBaz={() => onAskBaz(game.id)}
-          bviHomeEntry={showBVI ? (bviData?.[game.homeTeam] ?? null) : null}
-          bviAwayEntry={showBVI ? (bviData?.[game.awayTeam] ?? null) : null}
-          homeAwayHomeEntry={showHomeAwayValue ? (homeAwayValueData?.[game.homeTeam] ?? null) : null}
-          homeAwayAwayEntry={showHomeAwayValue ? (homeAwayValueData?.[game.awayTeam] ?? null) : null}
+          bviHomeEntry={bviData?.[game.homeTeam] ?? null}
+          bviAwayEntry={bviData?.[game.awayTeam] ?? null}
+          homeAwayHomeEntry={homeAwayValueData?.[game.homeTeam] ?? null}
+          homeAwayAwayEntry={homeAwayValueData?.[game.awayTeam] ?? null}
+          teamNewsHomeEntry={teamNewsData?.[game.homeTeam] ?? null}
+          teamNewsAwayEntry={teamNewsData?.[game.awayTeam] ?? null}
         />
       ))}
     </div>
@@ -1030,12 +1208,10 @@ function OddsPageContent() {
   const [movements, setMovements] = useState<MovementMap>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showBVI, setShowBVI] = useState(false);
   const [bviData, setBviData] = useState<BviMap>({});
-  const [showBVIInfo, setShowBVIInfo] = useState(false);
-  const [showHomeAwayValue, setShowHomeAwayValue] = useState(false);
   const [homeAwayValueData, setHomeAwayValueData] = useState<HomeAwayValueMap>({});
-  const [showHomeAwayValueInfo, setShowHomeAwayValueInfo] = useState(false);
+  const [nrlTeamNews, setNrlTeamNews] = useState<TeamNewsMap>({});
+  const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
@@ -1079,9 +1255,10 @@ function OddsPageContent() {
           return response.json();
         }),
         fetchOpeningPrices('NRL'),
+        fetch('/api/odds/fixture').then((r) => r.ok ? r.json() : { season: null, round: null, games: [] }),
       ])
-        .then(([events, openingPrices]: [OddsApiEvent[], OpeningPriceMap]) => {
-          const newGames = transformNRL(events);
+        .then(([events, openingPrices, fixture]: [OddsApiEvent[], OpeningPriceMap, FixtureData]) => {
+          const newGames = applyNRLVenues(transformNRL(events), fixture);
           const now = new Date();
           const upcoming = newGames.filter((g) => new Date(g.commenceTime) > now);
           const done = newGames.filter((g) => new Date(g.commenceTime) <= now);
@@ -1162,6 +1339,20 @@ function OddsPageContent() {
   }, []);
 
   useEffect(() => {
+    fetch('/api/team-news/nrl')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.teams) setNrlTeamNews(data.teams); })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    fetch('/api/team-news/afl')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.teams) setAflTeamNews(data.teams); })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
     setError(null);
     setLoading(true);
     setExpandedGameId(null);
@@ -1179,18 +1370,7 @@ function OddsPageContent() {
   }
 
   const rawGames = activeSport === 'NRL' ? nrlGames : aflGames;
-  const games = useMemo(() => {
-    if (activeSport !== 'AFL') return rawGames;
-    return rawGames.filter((g) => {
-      if (showBVI) {
-        const home = bviData[g.homeTeam]?.tier;
-        const away = bviData[g.awayTeam]?.tier;
-        // hide games where BOTH teams are neutral — nothing interesting
-        if (home === 'neutral' && away === 'neutral') return false;
-      }
-      return true;
-    });
-  }, [rawGames, showBVI, activeSport, bviData]);
+  const games = rawGames;
   const selectedGame = useMemo(() => games.find((game) => game.id === selectedGameId), [games, selectedGameId]);
   const chatGames = selectedGame ? [selectedGame, ...games.filter((game) => game.id !== selectedGame.id)] : games;
 
@@ -1235,133 +1415,6 @@ function OddsPageContent() {
                 ))}
               </div>
 
-              {activeSport === 'AFL' && (
-                <div className="relative flex items-center gap-1">
-                  <button
-                    type="button"
-                    onClick={() => setShowBVI((v) => !v)}
-                    className={[
-                      'inline-flex h-10 items-center gap-2 rounded border px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors',
-                      showBVI
-                        ? 'border-[#22c55e] bg-[#22c55e]/10 text-[#16a34a]'
-                        : 'border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#22c55e]/60',
-                    ].join(' ')}
-                  >
-                    <span className={['flex h-3.5 w-3.5 items-center justify-center rounded-sm border text-[9px]', showBVI ? 'border-[#16a34a] bg-[#22c55e] text-white' : 'border-[#D1D5DB]'].join(' ')}>
-                      {showBVI ? '✓' : ''}
-                    </span>
-                    BVI
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setShowBVIInfo((v) => !v)}
-                    className="flex h-6 w-6 items-center justify-center rounded-full text-[#9CA3AF] transition-colors hover:bg-[#F3F4F6] hover:text-[#6B7280]"
-                  >
-                    <Info className="h-3.5 w-3.5" />
-                  </button>
-
-                  {showBVIInfo && (
-                    <>
-                      <div className="fixed inset-0 z-40" onClick={() => setShowBVIInfo(false)} />
-                      <div className="absolute right-0 top-12 z-50 w-72 rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
-                        <div className="mb-2 flex items-center justify-between">
-                          <span className="text-[11px] font-mono font-black uppercase tracking-widest text-[#111827]">Betting Value Index</span>
-                          <button onClick={() => setShowBVIInfo(false)} className="text-[#9CA3AF] hover:text-[#6B7280]">
-                            <X className="h-3.5 w-3.5" />
-                          </button>
-                        </div>
-                        <p className="mb-3 text-xs leading-relaxed text-[#6B7280]">
-                          The <strong className="text-[#111827]">AFL Betting Value Index</strong> ranks all 18 teams by their current betting value — a composite of recent form, market pricing, and public perception gaps.
-                        </p>
-                        <div className="mb-3 space-y-1.5">
-                          <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center gap-0.5 rounded bg-[#dcfce7] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#16a34a]">▲ Value</span>
-                            <span className="text-xs text-[#6B7280]">Top 6 teams — market underrating them</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center rounded bg-[#F3F4F6] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#9CA3AF]">Neutral</span>
-                            <span className="text-xs text-[#6B7280]">Mid 6 — no strong lean</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center gap-0.5 rounded bg-[#fee2e2] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#dc2626]">▼ Fade</span>
-                            <span className="text-xs text-[#6B7280]">Bottom 6 — market overrating them</span>
-                          </div>
-                        </div>
-                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">
-                          Badges only appear when the two teams are in <strong className="text-[#6B7280]">different tiers</strong> — if both teams share the same tier the signal can't pick a side, so no badge is shown. Neutral vs neutral games are hidden when the filter is on. Source: aussportstipping.com — updated weekly.
-                        </p>
-                      </div>
-                    </>
-                  )}
-                </div>
-              )}
-
-              {activeSport === 'AFL' && (
-                <div className="relative flex items-center gap-1">
-                  <button
-                    type="button"
-                    onClick={() => setShowHomeAwayValue((v) => !v)}
-                    className={[
-                      'inline-flex h-10 items-center gap-2 rounded border px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors',
-                      showHomeAwayValue
-                        ? 'border-[#2563eb] bg-[#dbeafe] text-[#2563eb]'
-                        : 'border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#2563eb]/60',
-                    ].join(' ')}
-                  >
-                    <span className={['flex h-3.5 w-3.5 items-center justify-center rounded-sm border text-[9px]', showHomeAwayValue ? 'border-[#2563eb] bg-[#2563eb] text-white' : 'border-[#D1D5DB]'].join(' ')}>
-                      {showHomeAwayValue ? '✓' : ''}
-                    </span>
-                    H/A Value
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setShowHomeAwayValueInfo((v) => !v)}
-                    className="flex h-6 w-6 items-center justify-center rounded-full text-[#9CA3AF] transition-colors hover:bg-[#F3F4F6] hover:text-[#6B7280]"
-                  >
-                    <Info className="h-3.5 w-3.5" />
-                  </button>
-
-                  {showHomeAwayValueInfo && (
-                    <>
-                      <div className="fixed inset-0 z-40" onClick={() => setShowHomeAwayValueInfo(false)} />
-                      <div className="absolute right-0 top-12 z-50 w-72 rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
-                        <div className="mb-2 flex items-center justify-between">
-                          <span className="text-[11px] font-mono font-black uppercase tracking-widest text-[#111827]">Home / Away Value</span>
-                          <button onClick={() => setShowHomeAwayValueInfo(false)} className="text-[#9CA3AF] hover:text-[#6B7280]">
-                            <X className="h-3.5 w-3.5" />
-                          </button>
-                        </div>
-                        <p className="mb-3 text-xs leading-relaxed text-[#6B7280]">
-                          Flags AFL teams with a strong venue split from aussportstipping.com's home-field advantage table.
-                        </p>
-                        <div className="mb-3 space-y-1.5">
-                          <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center gap-1 rounded bg-[#dbeafe] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#2563eb]">⌂ Home Value</span>
-                            <span className="text-xs text-[#6B7280]">Home team has at least 70% home wins</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center gap-1 rounded bg-[#fef3c7] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#b45309]">↗ Away Value</span>
-                            <span className="text-xs text-[#6B7280]">Away team has at least 65% away wins</span>
-                          </div>
-                        </div>
-                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">
-                          When the filter is on, games without either signal are hidden. Source: aussportstipping.com home-field advantage analysis.
-                        </p>
-                      </div>
-                    </>
-                  )}
-                </div>
-              )}
-
-              <button
-                type="button"
-                className="hidden h-10 items-center gap-2 rounded border border-[#E2E8F0] bg-[#F8FAFC] px-3 text-sm text-[#9CA3AF] lg:inline-flex"
-              >
-                <Search className="h-4 w-4" />
-                Search teams
-              </button>
             </div>
           </div>
         </div>
@@ -1380,9 +1433,8 @@ function OddsPageContent() {
             onToggleDetails={(gameId) => setExpandedGameId((current) => current === gameId ? null : gameId)}
             onAskBaz={askBaz}
             bviData={bviData}
-            showBVI={showBVI}
             homeAwayValueData={homeAwayValueData}
-            showHomeAwayValue={showHomeAwayValue}
+            teamNewsData={activeSport === 'NRL' ? nrlTeamNews : aflTeamNews}
           />
           <CompletedSection
             games={activeSport === 'NRL' ? nrlCompleted : aflCompleted}

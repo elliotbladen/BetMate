@@ -40,6 +40,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Market intelligence ticker */}
+      <div className="bg-[#0B1014] border-b border-[#1E2A35] overflow-hidden">
+        <div className="ticker-track flex whitespace-nowrap py-2.5">
+          {[
+            'BULLDOGS shortening detected on H2H — best price gap is 9.2%. Ask Baz for the plain-English read before kickoff.',
+            'STORM drifted +18% on handicap vs Tigers. Market turning hard. Cover rate on hammered teams: 28%.',
+            'DOLPHINS H2H shortened from 2.40 → 1.95. Sharp money or public? Baz has the read.',
+            'Best H2H gap right now: Sportsbet vs TAB on the Panthers — 6.4% edge available.',
+            'RAIDERS opening price held. No significant move 48hrs out. Market neutral.',
+            'BRONCOS drifted out 22% since Tuesday open. Check line movement before locking in.',
+            'NRL R11 — 3 games with price gaps above 5%. Odds board updated.',
+          ].concat([
+            'BULLDOGS shortening detected on H2H — best price gap is 9.2%. Ask Baz for the plain-English read before kickoff.',
+            'STORM drifted +18% on handicap vs Tigers. Market turning hard. Cover rate on hammered teams: 28%.',
+            'DOLPHINS H2H shortened from 2.40 → 1.95. Sharp money or public? Baz has the read.',
+            'Best H2H gap right now: Sportsbet vs TAB on the Panthers — 6.4% edge available.',
+            'RAIDERS opening price held. No significant move 48hrs out. Market neutral.',
+            'BRONCOS drifted out 22% since Tuesday open. Check line movement before locking in.',
+            'NRL R11 — 3 games with price gaps above 5%. Odds board updated.',
+          ]).map((msg, i) => (
+            <span key={i} className="inline-flex items-center gap-3 px-6">
+              <span className="w-1 h-1 rounded-full bg-[#00DEB8] shrink-0" />
+              <span className="text-[11px] font-mono text-[#94A3B8] tracking-wide">{msg}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5">
         <div className="border border-[#E2E8F0] rounded-lg bg-white px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -47,7 +75,7 @@ export default function Home() {
               <BarChart3 className="w-4 h-4 text-[#00DEB8]" />
             </div>
             <p className="text-sm text-[#6B7280]">
-              <span className="font-bold text-[#111827]">BetMATE</span> — odds comparison, market movement, and AI context for NRL and AFL.
+              Odds comparison, market movement, and AI context for NRL and AFL.
             </p>
           </div>
           <span className="inline-flex items-center gap-1.5 rounded border border-[#E2E8F0] px-3 py-1.5 text-[11px] font-mono uppercase tracking-widest text-[#6B7280] shrink-0">

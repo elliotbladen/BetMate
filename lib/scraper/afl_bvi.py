@@ -222,6 +222,9 @@ def main() -> None:
         log.info("  %2d. %-35s fav=%+.2f  und=%+.2f  [%s]",
                  r["rank"], r["name"], r["fav_profit"], r["und_profit"], r["tier"])
 
+    from supabase_push import push  # noqa: PLC0415
+    push("afl_bvi", payload)
+
 
 if __name__ == "__main__":
     main()

@@ -214,6 +214,9 @@ def write_outputs(games: list[dict], raw: dict, season: int, round_number: int) 
     )
     log.info("Wrote latest-fixture.json — %d games, round %d", len(games), round_number)
 
+    from supabase_push import push  # noqa: PLC0415
+    push("nrl_fixture", payload)
+
 
 def scrape(season: int, round_number: int, max_attempts: int, retry_delay: int) -> int:
     for attempt in range(1, max_attempts + 1):

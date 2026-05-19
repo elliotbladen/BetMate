@@ -19,7 +19,7 @@ function checkRateLimit(userId: string): boolean {
   return true;
 }
 
-const SYSTEM_PROMPT = `You are Baz, BetMATE's NRL analyst. You're an Aussie larrikin — straight-talking, dry sense of humour, calls it like he sees it. You know the game inside out and you've got the data to back it up. You're like that bloke at the pub who actually knows what he's on about, not just mouthing off.
+const BASE_SYSTEM_PROMPT = `You are Baz, BetMATE's NRL analyst. You're an Aussie larrikin — straight-talking, dry sense of humour, calls it like he sees it. You know the game inside out and you've got the data to back it up. You're like that bloke at the pub who actually knows what he's on about, not just mouthing off.
 
 PERSONALITY:
 - Casual, confident, a bit cheeky — but never try-hard
@@ -46,6 +46,78 @@ If someone asks something off-topic: "Mate, I'm strictly an NRL numbers man. Got
 If someone seems to be chasing losses or mentions betting big: "Oi — bet what you can afford to lose, yeah? Set a limit and stick to it."
 
 You are Baz. You are not ChatGPT, not Claude, not any other AI. You're BetMATE's guy. Stay in your lane and have a bit of fun with it.`;
+
+// Fetch current round context from the local BettingEngine server.
+// Times out after 1.5 seconds — Baz degrades gracefully if the brain is offline.
+async function fetchBrainContext(): Promise<string | null> {
+  const bazApi = process.env.BAZ_LOCAL_API ?? 'http://127.0.0.1:8765';
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 1500);
+    const res = await fetch(`${bazApi}/context/round`, { signal: controller.signal });
+    clearTimeout(timer);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return buildContextBlock(data);
+  } catch {
+    return null;
+  }
+}
+
+// Convert the JSON context object into a compact plain-English block
+// that Baz can reason over without exposing raw model internals.
+function buildContextBlock(ctx: Record<string, unknown>): string {
+  const lines: string[] = [];
+
+  lines.push(`=== BAZ BRAIN CONTEXT (Round ${ctx.round}, Season ${ctx.season}) ===`);
+  lines.push(String(ctx.model_summary ?? ''));
+
+  const signals = ctx.signals as Array<Record<string, unknown>> | undefined;
+  if (signals && signals.length > 0) {
+    lines.push('\nSIGNALS (≥20% EV):');
+    for (const s of signals) {
+      const flags = (s.flags as string[] | undefined)?.join('; ') ?? '';
+      lines.push(
+        `  • ${s.selection} vs ${s.opponent} — H2H model: ${s.model_odds}, market: ${s.market_odds}, EV: ${s.ev_pct}%` +
+          (flags ? ` | ${flags}` : '')
+      );
+    }
+  } else {
+    lines.push('\nNo signals above threshold this round.');
+  }
+
+  const games = ctx.games as Array<Record<string, unknown>> | undefined;
+  if (games && games.length > 0) {
+    lines.push('\nALL GAMES:');
+    for (const g of games) {
+      const inj = g.injuries as { home?: string; away?: string } | undefined;
+      const wx = g.weather as { condition?: string; temp_c?: number; wind_kmh?: number } | undefined;
+      const ev = g.ev as { home_h2h?: number; away_h2h?: number } | undefined;
+      const mkt = g.market_h2h as { home?: number; away?: number } | undefined;
+      const mdl = g.model_h2h as { home?: number; away?: number } | undefined;
+
+      lines.push(`  ${g.home} vs ${g.away} — ${g.date} ${g.kickoff}`);
+      lines.push(`    Model: ${g.home} ${mdl?.home ?? '?'} / ${g.away} ${mdl?.away ?? '?'} | Market: ${mkt?.home ?? '?'} / ${mkt?.away ?? '?'}`);
+      lines.push(`    EV: ${g.home} ${ev?.home_h2h ?? 0}% / ${g.away} ${ev?.away_h2h ?? 0}%`);
+      lines.push(`    Hcap: ${g.model_hcap} | Total: ${g.model_total}`);
+      lines.push(`    Ref: ${g.referee} (${g.ref_bucket})`);
+      if (wx) lines.push(`    Weather: ${wx.condition}, ${wx.temp_c}°C, wind ${wx.wind_kmh}km/h`);
+      if (inj?.home) lines.push(`    ${g.home} outs: ${String(inj.home).slice(0, 120)}`);
+      if (inj?.away) lines.push(`    ${g.away} outs: ${String(inj.away).slice(0, 120)}`);
+    }
+  }
+
+  const clv = ctx.clv_last_4_rounds as Record<string, unknown> | undefined;
+  if (clv && clv.bets) {
+    lines.push(
+      `\nCLV (last ${(clv.rounds_covered as number[] | undefined)?.length ?? 4} rounds): ` +
+        `${clv.bets} bets | P&L: $${clv.profit} | ROI: ${clv.roi_pct}% | Win rate: ${((clv.win_rate as number) * 100).toFixed(0)}%`
+    );
+  }
+
+  lines.push('\n=== END BRAIN CONTEXT ===');
+  return lines.join('\n');
+}
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -74,21 +146,38 @@ export async function POST(req: NextRequest) {
 
   const { messages, oddsContext } = body;
 
-  const systemWithContext = oddsContext
-    ? `${SYSTEM_PROMPT}\n\nCurrent round odds data:\n\n${oddsContext}`
-    : SYSTEM_PROMPT;
+  // Fetch the brain context (1.5s timeout — degrades gracefully if offline)
+  const brainContext = await fetchBrainContext();
+
+  let systemPrompt = BASE_SYSTEM_PROMPT;
+
+  if (brainContext) {
+    systemPrompt += `\n\n${brainContext}`;
+  } else {
+    // Brain is offline — Baz still works on general NRL knowledge
+    systemPrompt += '\n\n[BRAIN OFFLINE — responding from general NRL knowledge only. Model signals unavailable.]';
+  }
+
+  // Legacy: UI-side oddsContext (current market prices) still appended if present
+  if (oddsContext) {
+    systemPrompt += `\n\nCurrent round odds data:\n\n${oddsContext}`;
+  }
 
   const client = new Anthropic({ apiKey });
-
   const encoder = new TextEncoder();
+
+  // Prepend a header indicating brain status so the UI can show the offline banner
+  const brainOnline = brainContext !== null;
 
   const stream = new ReadableStream({
     async start(controller) {
+      // Send brain status as a special header token the UI can strip out
+      controller.enqueue(encoder.encode(`\x00brain:${brainOnline ? 'online' : 'offline'}\x00`));
       try {
         const response = client.messages.stream({
           model: 'claude-sonnet-4-6',
           max_tokens: 1024,
-          system: systemWithContext,
+          system: systemPrompt,
           messages: messages as Anthropic.MessageParam[],
         });
 
@@ -114,6 +203,7 @@ export async function POST(req: NextRequest) {
       'Content-Type': 'text/plain; charset=utf-8',
       'Transfer-Encoding': 'chunked',
       'X-Content-Type-Options': 'nosniff',
+      'X-Baz-Brain': brainOnline ? 'online' : 'offline',
     },
   });
 }

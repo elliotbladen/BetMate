@@ -4,9 +4,6 @@ import { useState, useMemo } from 'react';
 import { LEGACY_BETS, MODEL_BETS } from '@/lib/researchData';
 import type { Sport, BetResult, LegacyBet, ModelBet } from '@/lib/researchData';
 
-const SPORTS: (Sport | 'ALL')[] = ['ALL', 'NRL', 'AFL', 'FOOTBALL', 'OTHER'];
-
-
 function resultBadge(r: BetResult) {
   if (r === 'win')  return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-[#00DEB8]/15 text-[#00DEB8]">W</span>;
   if (r === 'loss') return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-red-500/15 text-red-500">L</span>;
@@ -55,11 +52,8 @@ function modelStatsFor(bets: typeof MODEL_BETS) {
 }
 
 // -- All Bets tab --------------------------------------------------------------
-function AllBetsTab({ sport }: { sport: Sport | 'ALL' }) {
-  const filtered = useMemo(
-    () => sport === 'ALL' ? LEGACY_BETS : LEGACY_BETS.filter(b => b.sport === sport),
-    [sport],
-  );
+function AllBetsTab() {
+  const filtered = LEGACY_BETS;
   const stats  = statsFor(filtered);
   const finalPL = filtered.length > 0 ? filtered[filtered.length - 1].cumPL : 0;
   const roi     = stats.decisive > 0 ? (finalPL / stats.decisive) * 100 : 0;
@@ -181,18 +175,15 @@ const TABS = ['Sports Betting', 'NRL Model'] as const;
 type Tab = typeof TABS[number];
 
 export default function ResearchPage() {
-  const [activeTab, setActiveTab]     = useState<Tab>('Sports Betting');
-  const [activeSport, setActiveSport] = useState<Sport | 'ALL'>('ALL');
+  const [activeTab, setActiveTab] = useState<Tab>('Sports Betting');
 
   const allBets = useMemo(() => {
-    const legacy  = LEGACY_BETS.filter(b => activeSport === 'ALL' || b.sport === activeSport);
-    const modelBets = (activeSport === 'ALL' || activeSport === 'NRL') ? MODEL_BETS : [];
-    const combined  = [...legacy, ...modelBets];
+    const combined = [...LEGACY_BETS, ...MODEL_BETS];
     const wins   = combined.filter(b => b.result === 'win').length;
     const losses = combined.filter(b => b.result === 'loss').length;
     const total  = combined.length;
     return { total, wins, losses, winRate: (wins + losses) > 0 ? (wins / (wins + losses)) * 100 : 0 };
-  }, [activeSport]);
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -201,28 +192,10 @@ export default function ResearchPage() {
         {/* Header */}
         <div className="mb-6">
           <p className="text-[11px] font-mono text-[#9CA3AF] uppercase tracking-[0.2em] mb-1">Research</p>
-          <h1 className="text-2xl font-display font-bold text-[#111827]">Betting Results</h1>
+          <h1 className="text-2xl font-display font-bold text-[#111827]">Baz Results</h1>
           <p className="text-[13px] font-mono text-[#6B7280] mt-1">
             {allBets.total} bets · {allBets.winRate.toFixed(1)}% win rate · {allBets.wins}W / {allBets.losses}L
           </p>
-        </div>
-
-        {/* Sport filter */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {SPORTS.map(s => (
-            <button
-              key={s}
-              onClick={() => setActiveSport(s)}
-              className={[
-                'px-3 py-1 rounded text-[11px] font-mono font-bold uppercase tracking-widest transition-colors',
-                activeSport === s
-                  ? 'bg-[#00DEB8] text-black'
-                  : 'text-[#9CA3AF] border border-[#E2E8F0] hover:text-[#374151]',
-              ].join(' ')}
-            >
-              {s}
-            </button>
-          ))}
         </div>
 
         {/* Tabs */}
@@ -243,7 +216,7 @@ export default function ResearchPage() {
           ))}
         </div>
 
-        {activeTab === 'Sports Betting' && <AllBetsTab sport={activeSport} />}
+        {activeTab === 'Sports Betting' && <AllBetsTab />}
         {activeTab === 'NRL Model'      && <ModelTab />}
 
       </div>

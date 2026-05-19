@@ -96,6 +96,13 @@ button, a, [role="button"] {
 }
 .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track { animation: ticker 40s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+
 /* Card hover */
 .card-hover { transition: border-color 0.15s ease; }
 
