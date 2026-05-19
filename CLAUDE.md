@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-19 (end of session)
+**Last updated:** 2026-05-20 (end of session)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -123,18 +123,46 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 - Each game card now has independent BVI and H/A Value toggle controls
 - Design: split-box top-right (left=checkbox, divider, right=ℹ️ popup), stacked below Ask Baz/Details
 
+### Vercel Deployment — LIVE 2026-05-20
+- URL: `bet-mate-ten.vercel.app` ✅ (custom domain pending)
+- GitHub: `github.com/elliotbladen/BetMate` ✅ — auto-deploys on push to main
+- Supabase `betmate_data_store` table created ✅ — seeded with 5 keys (afl_bvi, afl_home_away, nrl_fixture, team_news_nrl, team_news_afl)
+- All 5 API routes migrated to Supabase-first with local fallback ✅
+- `lib/matrixEV.ts` — Vercel guard added (returns [] if BettingEngine outputs missing) ✅
+- `lib/referees.ts` — static JSON imports removed (refs show blank on Vercel) ✅
+- `data/` excluded from git (gitignore updated) ✅
+- EV signals (arrows) blank on Vercel — intentional, BettingEngine IP stays local. Fix via Cloudflare Tunnel when ready.
+
+### Cloudflare Tunnel — IN PROGRESS
+- `cloudflared` installed at `C:\Program Files (x86)\cloudflared\cloudflared.exe` ✅
+- Logged in to Cloudflare account ✅
+- **Blocked:** no domain added to Cloudflare yet — waiting on domain
+- **Next steps when domain ready:**
+  1. Add domain to Cloudflare, update nameservers at registrar
+  2. `cloudflared tunnel create betmate-baz`
+  3. Configure tunnel → localhost:8765
+  4. Add `BAZ_TUNNEL_URL` to Vercel env vars
+  5. Update `app/api/chat/route.ts` to use tunnel URL on Vercel
+  6. Point custom domain at Vercel
+
+### Supabase Push — Weekly scraper updates
+Scrapers now push to Supabase automatically after local write:
+- `afl_bvi.py` → key `afl_bvi`
+- `afl_home_advantage.py` → key `afl_home_away`
+- `nrl_fixture.py` → key `nrl_fixture`
+- Team news (manual): run `uv run --with requests python scripts/push_team_news.py` after editing JSON files
+- Requires `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`
+
 ### Pending Work
-- **NRL R12 reprice:** after referees announced Wednesday 14:00 → run `scripts/run_nrl_pricing.ps1` manually (refs not yet announced as of 2026-05-19)
+- **Custom domain:** point at Vercel + set up Cloudflare Tunnel (waiting on domain)
+- **EV signals on Vercel:** wire via Cloudflare Tunnel once domain ready
+- **NRL R12 reprice:** after referees announced Wednesday 14:00 → run `scripts/run_nrl_pricing.ps1` manually
 - BVI weekly task: install Task Scheduler entry to run `afl_bvi.py` Monday 08:00
-- Emotional task install script (`scripts/install_nrl_emotional_task.ps1`) has stale BetMate/ paths — fix before rerunning (paths updated inline 2026-05-12)
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
-- UI: no pending redesign — user reverted RacingZone polish on 2026-05-05, keep current look
-- `public/mockup.html` — design mockup file, can be deleted
-- **AFL R10 data gap:** AFL R10 (May 15-16) was never priced — model jumped R9→R11. Rolling CLV has a gap for R10. No fix needed retroactively but ensure pipeline runs every round going forward.
-- **AFL totals model:** Both AFL R9 and NRL R11 show model consistently pricing totals 5-10pts above market. Needs T1 expected-points review before using totals bets.
-- **Market movement analysis (sleeping on it):** build full Fav/Dog × Shortened/Flat/Lengthened ROI matrix for H2H + handicap. Data is in xlsx. Scripts: `scripts/market_hammered_drift.py` and `scripts/shortened_team_roi.py` already exist as starting point.
+- **AFL R10 data gap:** AFL R10 (May 15-16) was never priced — no fix needed retroactively
+- **AFL totals model:** Both AFL R9 and NRL R11 show model consistently pricing totals 5-10pts above market. Needs T1 expected-points review.
 - **nrl_team_news.py:** Script to auto-populate injuries section of team-news JSON from latest-injuries.json (suspensions still manual)
-- **Pre-launch SaaS:** migrate local data files to Supabase (team-news JSONs, BVI JSON, injuries JSON, odds snapshots CSV) so Vercel deployment can access them. Scrapers write to Supabase instead of local files.
+- **Refs on Vercel:** wire `lib/referees.ts` to an API route + Supabase key so ref badges show on live site
 
 ### Baz Agent — BUILT 2026-05-15
 - `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round`, `/context/game`, `/signals`, `/clv`, `/context/team`
@@ -162,7 +190,7 @@ BetMate is being built as a SaaS community product. Baz is the lead AI agent acr
 
 **Key principle:** The pricing IP (BettingEngine) never lives on the public internet. Cloudflare Tunnel routes requests to wherever the brain is running (local or VPS). "Brain offline" banner already handles graceful degradation.
 
-**Pre-launch blocker:** All local `data/` file reads in API routes must move to Supabase before Vercel deployment works.
+**Pre-launch blocker resolved 2026-05-20:** Supabase migration complete, site live on Vercel. Cloudflare Tunnel pending domain.
 
 ---
 
