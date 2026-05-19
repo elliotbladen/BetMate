@@ -1,5 +1,6 @@
-import nrlReferees from '@/data/nrl/referees/processed/latest-referees.json';
-import aflUmpires from '@/data/afl/umpires/processed/latest-umpires.json';
+// Referee/umpire assignments per game.
+// Data loaded at runtime via /api/referees — static JSON imports removed
+// so this module works on Vercel (client component can't read local files).
 
 export type RefBucket = 'WHISTLE HEAVY' | 'FLOW HEAVY' | 'NEUTRAL';
 
@@ -31,23 +32,21 @@ function bucketFor(name: string): RefBucket {
   return REF_BUCKETS[first] ?? 'NEUTRAL';
 }
 
-function buildMap(records: RefRecord[] | undefined): Record<string, RefAssignment> {
+export function buildRefMap(records: RefRecord[] | undefined): Record<string, RefAssignment> {
   const map: Record<string, RefAssignment> = {};
   for (const row of records ?? []) {
     const name = (row.referee || row.field_umpires || '').trim();
     if (!row.home_team || !name) continue;
-    map[row.home_team] = {
-      name,
-      bucket: bucketFor(name),
-    };
+    map[row.home_team] = { name, bucket: bucketFor(name) };
   }
   return map;
 }
 
-const NRL_REFS = buildMap((nrlReferees as { records?: RefRecord[] }).records);
-const AFL_UMPIRES = buildMap((aflUmpires as { records?: RefRecord[] }).records);
-
-export function getRefForGame(homeTeam: string, sport: 'NRL' | 'AFL' = 'NRL'): RefAssignment | null {
-  const source = sport === 'AFL' ? AFL_UMPIRES : NRL_REFS;
-  return source[homeTeam] ?? null;
+// Returns null when refs not loaded yet — callers must handle gracefully
+export function getRefForGame(
+  homeTeam: string,
+  sport: 'NRL' | 'AFL' = 'NRL',
+  refMap?: Record<string, RefAssignment>,
+): RefAssignment | null {
+  return refMap?.[homeTeam] ?? null;
 }
