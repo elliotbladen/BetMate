@@ -21,6 +21,7 @@ const PUBLIC_PATHS = [
   '/api/afl-home-away-value',
   '/api/team-news',
   '/api/odds/fixture',
+  // NOTE: /api/chat is intentionally NOT listed here — requires auth
 ];
 
 export async function middleware(request: NextRequest) {
