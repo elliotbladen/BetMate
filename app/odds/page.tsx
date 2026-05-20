@@ -31,7 +31,8 @@ import type { OddsApiEvent } from '@/lib/oddsApi';
 import { BOOKMAKER_META, extractH2HOdds, extractSpreadsOdds, extractTotalsOdds } from '@/lib/oddsApi';
 import { computeMovementsFromOpening } from '@/lib/oddsMovement';
 import type { Movement, MovementMap, OpeningPriceMap } from '@/lib/oddsMovement';
-import { getRefForGame } from '@/lib/referees';
+import { buildRefMap, getRefForGame } from '@/lib/referees';
+import type { RefAssignment } from '@/lib/referees';
 import { getAFLVenue } from '@/lib/aflVenues';
 import { getTeamMeta } from '@/lib/teams';
 import { getVenue, getVenueByName } from '@/lib/venues';
@@ -1222,6 +1223,7 @@ function OddsPageContent() {
   const [homeAwayValueData, setHomeAwayValueData] = useState<HomeAwayValueMap>({});
   const [nrlTeamNews, setNrlTeamNews] = useState<TeamNewsMap>({});
   const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
+  const [nrlRefMap, setNrlRefMap] = useState<Record<string, RefAssignment>>({});
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
@@ -1363,6 +1365,22 @@ function OddsPageContent() {
     fetch('/api/team-news/afl')
       .then((r) => r.ok ? r.json() : null)
       .then((data) => { if (data?.teams) setAflTeamNews(data.teams); })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    fetch('/api/referees/nrl')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (!data?.records) return;
+        const map = buildRefMap(data.records);
+        setNrlRefMap(map);
+        setNrlGames((prev) => prev.map((g) => ({
+          ...g,
+          referee: map[g.homeTeam]?.name ?? g.referee,
+          refereeBucket: map[g.homeTeam]?.bucket ?? g.refereeBucket,
+        })));
+      })
       .catch(() => {});
   }, []);
 

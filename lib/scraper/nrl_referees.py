@@ -21,6 +21,7 @@ import argparse
 import csv
 import json
 import logging
+import os
 import re
 import sys
 import time
@@ -96,6 +97,28 @@ TEAM_MAP = {
 }
 
 log = logging.getLogger(__name__)
+
+
+def _load_env() -> None:
+    env_file = ROOT / ".env.local"
+    if not env_file.exists():
+        return
+    for line in env_file.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip())
+
+
+def _push_to_supabase(payload: dict) -> None:
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).parent))
+        from supabase_push import push  # noqa: PLC0415
+        push("nrl_refs", payload)
+        log.info("Pushed nrl_refs to Supabase (%d records)", len(payload.get("records", [])))
+    except Exception as exc:
+        log.warning("Supabase push failed: %s", exc)
 
 
 def setup_logging() -> None:
@@ -440,17 +463,19 @@ def write_outputs(records: list[dict], raw_html: str, season: int, round_number:
     if records:
         PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
         write_csv(PROCESSED_DIR / "latest-referees.csv")
+        payload = {
+            "sport": "NRL",
+            "season": season,
+            "round": round_number,
+            "scraped_at": scraped_at,
+            "records": records,
+        }
         (PROCESSED_DIR / "latest-referees.json").write_text(
-            json.dumps({
-                "sport": "NRL",
-                "season": season,
-                "round": round_number,
-                "scraped_at": scraped_at,
-                "records": records,
-            }, indent=2, ensure_ascii=False),
+            json.dumps(payload, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
         log.info("Wrote latest-referees.csv — %d assignments, round %d", len(records), round_number)
+        _push_to_supabase(payload)
     else:
         log.info("No assignments found — latest-referees.json NOT overwritten")
 
@@ -491,6 +516,7 @@ def scrape(season: int, round_number: int, max_attempts: int, retry_delay: int, 
 
 
 def main() -> None:
+    _load_env()
     setup_logging()
     p = argparse.ArgumentParser(description="Scrape NRL referee assignments")
     p.add_argument("--season", type=int, default=2026)

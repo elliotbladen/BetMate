@@ -33,6 +33,7 @@
 | "BetMate AFL Emotional Flags" | Tuesday 14:30 | ✅ NEW — lib/scraper/afl_emotional.py |
 | "BettingEngine NRL Referees Fetch" | Wednesday 14:00 | ✅ Moved to Wednesday (refs announced Wed) |
 | "BetMate AFL Injuries Fetch" | Tuesday 11:30 | ✅ NEW — lib/scraper/afl_injuries.py |
+| "BetMate NRL Team News" | Tuesday 10:30 | ✅ NEW — lib/scraper/nrl_team_news.py (auto-generates injuries section; suspensions stay manual) |
 | "BetMate AFL Style Stats Scrape" | Tuesday 16:15 | ✅ NEW — lib/scraper/afl_style_stats.py |
 | "BetMate AFL Round Prep" | Tuesday 16:20 | ✅ NEW — lib/scraper/afl_round_prep.py |
 
@@ -57,6 +58,7 @@ BettingEngine's `_find_betmate_root()` was resolving to `Apps\BetMate` (old spli
 | `lib/scraper/afl_injuries.py` | `data/afl/injuries/processed/latest-injuries.json` | future AFL BettingEngine T5 |
 | `lib/scraper/afl_style_stats.py` | `data/afl/style-stats/processed/latest-style-stats.csv` | future AFL BettingEngine T2 |
 | `lib/scraper/afl_round_prep.py` | orchestrates AFL injuries scrape | runs afl_injuries.py |
+| `lib/scraper/nrl_team_news.py` | `data/nrl/team-news/latest.json` + Supabase `team_news_nrl` | team news UI tab |
 
 ### Injury Scraper — Current Source
 Source changed 2026-05-05: NRL.com casualty ward (Fox Sports broke).
@@ -161,7 +163,7 @@ Scrapers now push to Supabase automatically after local write:
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
 - **AFL R10 data gap:** AFL R10 (May 15-16) was never priced — no fix needed retroactively
 - **AFL totals model:** Both AFL R9 and NRL R11 show model consistently pricing totals 5-10pts above market. Needs T1 expected-points review.
-- **nrl_team_news.py:** Script to auto-populate injuries section of team-news JSON from latest-injuries.json (suspensions still manual)
+- ~~**nrl_team_news.py:**~~ ✅ DONE — runs Tuesday 10:30 via Task Scheduler
 - **Refs on Vercel:** wire `lib/referees.ts` to an API route + Supabase key so ref badges show on live site
 
 ### Baz Agent — BUILT 2026-05-15
