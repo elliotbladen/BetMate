@@ -157,6 +157,16 @@ async function fetchOpeningPrices(sport: Sport): Promise<OpeningPriceMap> {
   return data.openingPrices ?? {};
 }
 
+async function fetchSupabaseMovements(): Promise<MovementMap> {
+  try {
+    const res = await fetch('/api/odds/movements');
+    if (!res.ok) return {};
+    return await res.json();
+  } catch {
+    return {};
+  }
+}
+
 function bookmakerEntries(game: Game, market: MarketTab) {
   if (market === 'H2H') {
     return Object.entries(game.odds).map(([key, value]) => ({
@@ -1257,14 +1267,16 @@ function OddsPageContent() {
         fetchOpeningPrices('NRL'),
         fetch('/api/odds/fixture').then((r) => r.ok ? r.json() : { season: null, round: null, games: [] }),
       ])
-        .then(([events, openingPrices, fixture]: [OddsApiEvent[], OpeningPriceMap, FixtureData]) => {
+        .then(async ([events, openingPrices, fixture]: [OddsApiEvent[], OpeningPriceMap, FixtureData]) => {
           const newGames = applyNRLVenues(transformNRL(events), fixture);
           const now = new Date();
           const upcoming = newGames.filter((g) => new Date(g.commenceTime) > now);
           const done = newGames.filter((g) => new Date(g.commenceTime) <= now);
           const openingMovements = computeMovementsFromOpening(openingPrices, upcoming);
-          movementsRef.current = openingMovements;
-          setMovements(openingMovements);
+          const hasLocal = Object.keys(openingMovements).length > 0;
+          const resolvedMovements = hasLocal ? openingMovements : await fetchSupabaseMovements();
+          movementsRef.current = resolvedMovements;
+          setMovements(resolvedMovements);
           try { localStorage.setItem('BetMATE_nrl_odds', JSON.stringify(upcoming)); } catch { /* ignore */ }
           setNrlGames(upcoming);
           if (done.length > 0) {
@@ -1297,14 +1309,16 @@ function OddsPageContent() {
         }),
         fetchOpeningPrices('AFL'),
       ])
-        .then(([events, openingPrices]: [OddsApiEvent[], OpeningPriceMap]) => {
+        .then(async ([events, openingPrices]: [OddsApiEvent[], OpeningPriceMap]) => {
           const newGames = transformAFL(events);
           const now = new Date();
           const upcoming = newGames.filter((g) => new Date(g.commenceTime) > now);
           const done = newGames.filter((g) => new Date(g.commenceTime) <= now);
           const openingMovements = computeMovementsFromOpening(openingPrices, upcoming);
-          aflMovRef.current = openingMovements;
-          setMovements(openingMovements);
+          const hasLocal = Object.keys(openingMovements).length > 0;
+          const resolvedMovements = hasLocal ? openingMovements : await fetchSupabaseMovements();
+          aflMovRef.current = resolvedMovements;
+          setMovements(resolvedMovements);
           try { localStorage.setItem('BetMATE_afl_odds', JSON.stringify(upcoming)); } catch { /* ignore */ }
           setAflGames(upcoming);
           if (done.length > 0) {

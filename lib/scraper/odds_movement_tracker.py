@@ -16,6 +16,8 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
+import os
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -162,6 +164,74 @@ def detect_movements(
     return sorted(movements, key=lambda row: abs(float(row["change_pct"])), reverse=True)
 
 
+def _side_for_outcome(row: dict[str, str]) -> str | None:
+    outcome = row.get("outcome", "")
+    home = row.get("home_team", "")
+    away = row.get("away_team", "")
+    if outcome == home:
+        return "home"
+    if outcome == away:
+        return "away"
+    if outcome.lower() == "over":
+        return "over"
+    if outcome.lower() == "under":
+        return "under"
+    return None
+
+
+def _push_movements_to_supabase(movements: list[dict[str, str]]) -> None:
+    env_file = ROOT.parent / ".env.local"
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+
+    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
+    service_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not url or not service_key:
+        print("Supabase env vars not set — skipping movement push")
+        return
+
+    # Convert to MovementMap format: {gameId:market:bookmaker:side: {direction, changePct, ...}}
+    movement_map: dict[str, dict] = {}
+    for row in movements:
+        side = _side_for_outcome(row)
+        if not side:
+            continue
+        key = f"{row['game_id']}:{row['market']}:{row['bookmaker']}:{side}"
+        try:
+            change_pct = float(row["change_pct"])
+            movement_map[key] = {
+                "direction": row["direction"],
+                "changePct": change_pct,
+                "oldPrice": float(row["old_price"]),
+                "newPrice": float(row["new_price"]),
+                "shortenedStrong": row["direction"] == "down" and abs(change_pct) >= 10,
+            }
+        except (ValueError, KeyError):
+            continue
+
+    try:
+        import requests  # noqa: PLC0415
+        resp = requests.post(
+            f"{url}/rest/v1/betmate_data_store",
+            headers={
+                "apikey": service_key,
+                "Authorization": f"Bearer {service_key}",
+                "Content-Type": "application/json",
+                "Prefer": "resolution=merge-duplicates",
+            },
+            data=json.dumps([{"key": "odds_movements", "data": movement_map}]),
+            timeout=10,
+        )
+        resp.raise_for_status()
+        print(f"Pushed odds_movements to Supabase ({len(movement_map)} entries)")
+    except Exception as exc:
+        print(f"Supabase push failed: {exc}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Track odds movements between snapshot pulls.")
     parser.add_argument("--date", default=None, help="Snapshot date YYYY-MM-DD. Default: today UTC.")
@@ -197,6 +267,7 @@ def main() -> None:
     print(f"New movement rows written: {len(new_movements)}")
     print(f"Wrote {movement_path}")
     print(f"Updated {latest_path}")
+    _push_movements_to_supabase(movements)
 
 
 if __name__ == "__main__":

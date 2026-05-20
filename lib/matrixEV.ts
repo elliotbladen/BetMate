@@ -1,12 +1,11 @@
 // lib/matrixEV.ts — server-side only (used in API routes)
-// Parses BettingEngine matrices and returns EV signals for a matchup.
+// Reads NRL matrix data from Supabase (Vercel) or local files (dev).
 
 import fs from 'fs';
 import path from 'path';
 import * as xlsx from 'xlsx';
+import { getDataStore } from '@/lib/supabaseServer';
 
-// Set BETTING_ENGINE_OUTPUTS_PATH in .env.local (local dev) or server env (production).
-// On production this should point to a private location — never a path inside the public app.
 const ENGINE_OUTPUTS = process.env.BETTING_ENGINE_OUTPUTS_PATH
   ?? path.join(process.cwd(), '..', 'BettingEngine', 'outputs');
 
@@ -20,8 +19,12 @@ export interface EVSignal {
   tier: 'free' | 'pro';
 }
 
+type EdgeData = { edgePct: number; direction: string } | null;
+type SheetData = Record<string, EdgeData>;
+type MatrixData = Record<string, SheetData>;
+type HandicapData = Record<string, Record<string, { edgePct: number; direction: string }>>;
+
 // ─── Team name normalisation ──────────────────────────────────────────────────
-// The Odds API may return names that differ slightly from matrix sheet names.
 
 const CANONICAL: Record<string, string> = {
   'brisbane broncos':                    'Brisbane Broncos',
@@ -58,10 +61,8 @@ function canonicalise(name: string): string {
 }
 
 // ─── Edge string parser ───────────────────────────────────────────────────────
-// H2H:     "15.0% backing"  | "4.5% opposing" | "—"
-// Totals:  "3.1% overs edge" | "1.6% unders edge" | "—"
 
-function parseEdge(s: string | null | undefined): { edgePct: number; direction: string } | null {
+function parseEdge(s: string | null | undefined): EdgeData {
   if (!s || s === '—' || s.trim() === '—') return null;
   const m = (s as string).match(/^([\d.]+)%\s+(.+)$/);
   if (!m) return null;
@@ -74,18 +75,12 @@ function tier(edgePct: number): 'free' | 'pro' {
   return edgePct > 15 ? 'pro' : 'free';
 }
 
-// ─── In-memory caches ─────────────────────────────────────────────────────────
+// ─── Local file loaders (dev only) ───────────────────────────────────────────
 
-type SheetData = Record<string, { edgePct: number; direction: string } | null>;
-
-let h2hCache: Record<string, SheetData> | null = null;
-let totalsCache: Record<string, SheetData> | null = null;
-let handicapCache: Record<string, Record<string, { edgePct: number; direction: string }>> | null = null;
-
-function loadXlsxMatrix(filename: string): Record<string, SheetData> {
+function loadXlsxMatrix(filename: string): MatrixData {
   const buf = fs.readFileSync(path.join(ENGINE_OUTPUTS, filename));
   const wb = xlsx.read(buf, { type: 'buffer' });
-  const result: Record<string, SheetData> = {};
+  const result: MatrixData = {};
   for (const sheetName of wb.SheetNames) {
     const ws = wb.Sheets[sheetName];
     const rows = xlsx.utils.sheet_to_json(ws, { defval: null }) as Record<string, unknown>[];
@@ -102,13 +97,12 @@ function loadXlsxMatrix(filename: string): Record<string, SheetData> {
   return result;
 }
 
-function loadHandicapCSV(): Record<string, Record<string, { edgePct: number; direction: string }>> {
+function loadHandicapCSV(): HandicapData {
   const content = fs.readFileSync(path.join(ENGINE_OUTPUTS, 'nrl_handicap_matrix.csv'), 'utf8');
-  const lines = content.trim().split('\n').slice(1); // skip header
-  const result: Record<string, Record<string, { edgePct: number; direction: string }>> = {};
+  const lines = content.trim().split('\n').slice(1);
+  const result: HandicapData = {};
   for (const line of lines) {
     const parts = line.split(',');
-    // team, section, category, cover_rate_pct, market_implied_pct, diff_pp, edge_pct, direction, n, flag
     const [team, , category, , , , edgePctStr, direction] = parts;
     if (!team || !category) continue;
     const edgePct = parseFloat(edgePctStr);
@@ -119,40 +113,43 @@ function loadHandicapCSV(): Record<string, Record<string, { edgePct: number; dir
   return result;
 }
 
-function getH2H() {
-  if (!h2hCache) h2hCache = loadXlsxMatrix('nrl_h2h_matrix.xlsx');
+// ─── Cache ────────────────────────────────────────────────────────────────────
+
+let h2hCache: MatrixData | null = null;
+let totalsCache: MatrixData | null = null;
+let handicapCache: HandicapData | null = null;
+
+async function getH2H(): Promise<MatrixData> {
+  if (h2hCache) return h2hCache;
+  const remote = await getDataStore('nrl_h2h_matrix') as MatrixData | null;
+  if (remote) { h2hCache = remote; return remote; }
+  if (!fs.existsSync(ENGINE_OUTPUTS)) return {};
+  h2hCache = loadXlsxMatrix('nrl_h2h_matrix.xlsx');
   return h2hCache;
 }
 
-function getTotals() {
-  if (!totalsCache) totalsCache = loadXlsxMatrix('nrl_team_totals_matrix.xlsx');
+async function getTotals(): Promise<MatrixData> {
+  if (totalsCache) return totalsCache;
+  const remote = await getDataStore('nrl_totals_matrix') as MatrixData | null;
+  if (remote) { totalsCache = remote; return remote; }
+  if (!fs.existsSync(ENGINE_OUTPUTS)) return {};
+  totalsCache = loadXlsxMatrix('nrl_team_totals_matrix.xlsx');
   return totalsCache;
 }
 
-function getHandicap() {
-  if (!handicapCache) handicapCache = loadHandicapCSV();
+async function getHandicap(): Promise<HandicapData> {
+  if (handicapCache) return handicapCache;
+  const remote = await getDataStore('nrl_handicap_matrix') as HandicapData | null;
+  if (remote) { handicapCache = remote; return remote; }
+  if (!fs.existsSync(ENGINE_OUTPUTS)) return {};
+  handicapCache = loadHandicapCSV();
   return handicapCache;
 }
 
 // ─── Signal helpers ───────────────────────────────────────────────────────────
 
-function qualifies(edgePct: number): boolean {
-  return edgePct >= 10;
-}
+function qualifies(edgePct: number): boolean { return edgePct >= 10; }
 
-function makeSignal(
-  market: EVSignal['market'],
-  side: EVSignal['side'],
-  data: { edgePct: number; direction: string } | null | undefined,
-): EVSignal | null {
-  if (!data || !qualifies(data.edgePct)) return null;
-  return { market, side, edgePct: data.edgePct, direction: data.direction, tier: tier(data.edgePct) };
-}
-
-// ─── Public API ───────────────────────────────────────────────────────────────
-
-// Derive the actionable side from raw data + which team it belongs to.
-// "backing" home → back home. "opposing" away → back home (flip). etc.
 function resolveH2HSide(rawSide: 'home' | 'away', direction: string): EVSignal['side'] {
   const isOpposing = direction.includes('opposing');
   if (rawSide === 'home') return isOpposing ? 'away' : 'home';
@@ -165,16 +162,13 @@ function resolveHcapSide(rawSide: 'home' | 'away', direction: string): EVSignal[
   return isFades ? 'home' : 'away';
 }
 
-export function getEVSignals(homeTeam: string, awayTeam: string): EVSignal[] {
-  // BettingEngine outputs are only available locally — return empty on Vercel or missing path
-  if (!fs.existsSync(ENGINE_OUTPUTS)) return [];
+// ─── Public API ───────────────────────────────────────────────────────────────
 
+export async function getEVSignals(homeTeam: string, awayTeam: string): Promise<EVSignal[]> {
   const home = canonicalise(homeTeam);
   const away = canonicalise(awayTeam);
 
-  const h2h      = getH2H();
-  const totals   = getTotals();
-  const handicap = getHandicap();
+  const [h2h, totals, handicap] = await Promise.all([getH2H(), getTotals(), getHandicap()]);
 
   const signals: EVSignal[] = [];
 
@@ -187,7 +181,6 @@ export function getEVSignals(homeTeam: string, awayTeam: string): EVSignal[] {
   }
   if (h2hAwayData && qualifies(h2hAwayData.edgePct)) {
     const side = resolveH2HSide('away', h2hAwayData.direction);
-    // Deduplicate: skip if same side already added from home team data
     if (!signals.find(s => s.market === 'h2h' && s.side === side)) {
       signals.push({ market: 'h2h', side, edgePct: h2hAwayData.edgePct, direction: h2hAwayData.direction, tier: tier(h2hAwayData.edgePct) });
     }

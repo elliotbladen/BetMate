@@ -15,6 +15,7 @@ const PUBLIC_PATHS = [
   '/auth/register',
   '/auth/callback',
   '/api/odds',
+  '/api/odds/movements',
   '/api/weather',
   '/api/ev-signals',
   '/api/afl-bvi',

@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const signals = getEVSignals(home, away);
+    const signals = await getEVSignals(home, away);
     return NextResponse.json({ signals }, { headers: { 'Cache-Control': 'public, max-age=300' } });
   } catch (err) {
     console.error('[ev-signals]', err);
