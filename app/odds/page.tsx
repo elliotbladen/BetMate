@@ -32,7 +32,6 @@ import { BOOKMAKER_META, extractH2HOdds, extractSpreadsOdds, extractTotalsOdds }
 import { computeMovementsFromOpening } from '@/lib/oddsMovement';
 import type { Movement, MovementMap, OpeningPriceMap } from '@/lib/oddsMovement';
 import { buildRefMap, getRefForGame } from '@/lib/referees';
-import type { RefAssignment } from '@/lib/referees';
 import { getAFLVenue } from '@/lib/aflVenues';
 import { getTeamMeta } from '@/lib/teams';
 import { getVenue, getVenueByName } from '@/lib/venues';
@@ -1223,7 +1222,6 @@ function OddsPageContent() {
   const [homeAwayValueData, setHomeAwayValueData] = useState<HomeAwayValueMap>({});
   const [nrlTeamNews, setNrlTeamNews] = useState<TeamNewsMap>({});
   const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
-  const [nrlRefMap, setNrlRefMap] = useState<Record<string, RefAssignment>>({});
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
@@ -1268,9 +1266,15 @@ function OddsPageContent() {
         }),
         fetchOpeningPrices('NRL'),
         fetch('/api/odds/fixture').then((r) => r.ok ? r.json() : { season: null, round: null, games: [] }),
+        fetch('/api/referees/nrl').then((r) => r.ok ? r.json() : { records: [] }),
       ])
-        .then(async ([events, openingPrices, fixture]: [OddsApiEvent[], OpeningPriceMap, FixtureData]) => {
-          const newGames = applyNRLVenues(transformNRL(events), fixture);
+        .then(async ([events, openingPrices, fixture, refsData]: [OddsApiEvent[], OpeningPriceMap, FixtureData, { records?: unknown[] }]) => {
+          const refMap = buildRefMap(refsData.records as Parameters<typeof buildRefMap>[0]);
+          const newGames = applyNRLVenues(transformNRL(events), fixture).map((g) => ({
+            ...g,
+            referee: refMap[g.homeTeam]?.name ?? g.referee,
+            refereeBucket: refMap[g.homeTeam]?.bucket ?? g.refereeBucket,
+          }));
           const now = new Date();
           const upcoming = newGames.filter((g) => new Date(g.commenceTime) > now);
           const done = newGames.filter((g) => new Date(g.commenceTime) <= now);
@@ -1368,21 +1372,6 @@ function OddsPageContent() {
       .catch(() => {});
   }, []);
 
-  useEffect(() => {
-    fetch('/api/referees/nrl')
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        if (!data?.records) return;
-        const map = buildRefMap(data.records);
-        setNrlRefMap(map);
-        setNrlGames((prev) => prev.map((g) => ({
-          ...g,
-          referee: map[g.homeTeam]?.name ?? g.referee,
-          refereeBucket: map[g.homeTeam]?.bucket ?? g.refereeBucket,
-        })));
-      })
-      .catch(() => {});
-  }, []);
 
   useEffect(() => {
     setError(null);
