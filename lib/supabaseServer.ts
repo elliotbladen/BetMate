@@ -13,8 +13,8 @@ export async function getDataStore(key: string): Promise<unknown | null> {
     .from('betmate_data_store')
     .select('data')
     .eq('key', key)
-    .single();
+    .limit(1);
 
-  if (error || !data) return null;
-  return data.data;
+  if (error || !data || data.length === 0) return null;
+  return data[0].data;
 }
