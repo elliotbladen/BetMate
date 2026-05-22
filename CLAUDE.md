@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-21 (end of session)
+**Last updated:** 2026-05-22 (end of session)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -132,12 +132,35 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 ### Vercel Deployment — LIVE 2026-05-20
 - URL: `bet-mate-ten.vercel.app` ✅ (custom domain pending)
 - GitHub: `github.com/elliotbladen/BetMate` ✅ — auto-deploys on push to main
-- Supabase `betmate_data_store` table created ✅ — seeded with 5 keys (afl_bvi, afl_home_away, nrl_fixture, team_news_nrl, team_news_afl)
-- All 5 API routes migrated to Supabase-first with local fallback ✅
+- Supabase `betmate_data_store` table: keys include afl_bvi, afl_home_away, nrl_bvi, nrl_home_away, nrl_fixture, team_news_nrl, team_news_afl, nrl_opening_baseline, afl_opening_baseline, odds_movements ✅
+- All API routes migrated to Supabase-first with local fallback ✅
 - `lib/matrixEV.ts` — Vercel guard added (returns [] if BettingEngine outputs missing) ✅
 - `lib/referees.ts` — static JSON imports removed (refs show blank on Vercel) ✅
 - `data/` excluded from git (gitignore updated) ✅
 - EV signals (arrows) blank on Vercel — intentional, BettingEngine IP stays local. Fix via Cloudflare Tunnel when ready.
+- **Odds movement arrows WORKING on Vercel as of 2026-05-22** ✅ — Monday baseline → Supabase → arrows on every price cell
+
+### Odds Movement System — HOW IT WORKS (2026-05-22)
+**Monday 09:00 snapshot** → `odds_snapshot.py` runs (via Task Scheduler) → also calls `push_opening_baseline()` which stores NRL + AFL prices under `nrl_opening_baseline` / `afl_opening_baseline` keys in Supabase.
+
+**Every subsequent snapshot** (09:00 + 18:00 Tue–Sun) → `odds_movement_tracker.py` runs via wrapper → reads `latest.csv`, fetches baselines from Supabase, detects movements, pushes to Supabase key `odds_movements`.
+
+**Vercel frontend** → `/api/odds/movements` → `getDataStore('odds_movements')` → returns movement map → arrows shown on price cells.
+
+**Key format:** `{game_id}:{market}:{bookmaker}:{side}` where market = `h2h` / `spreads` / `totals` and side = `home` / `away` / `over` / `under`.
+
+**CRITICAL BUG FIXED (2026-05-22):** `getDataStore` used `.single()` which fails when duplicate rows exist for a key. Changed to `.limit(1)` so any duplicate rows are tolerated. Root cause: tracker was run twice (no UNIQUE constraint on `key` column in Supabase).
+
+**To manually refresh movements:**
+```powershell
+cd C:\Users\ElliotBladen\Apps
+& C:\Users\ElliotBladen\.local\bin\uv.exe run --with requests --with tzdata python lib/scraper/odds_movement_tracker.py
+```
+
+**To seed baseline manually** (if Monday task missed or for testing):
+```powershell
+& C:\Users\ElliotBladen\.local\bin\uv.exe run --with requests python scripts/seed_test_baseline.py
+```
 
 ### Cloudflare Tunnel — IN PROGRESS
 - `cloudflared` installed at `C:\Program Files (x86)\cloudflared\cloudflared.exe` ✅
@@ -196,11 +219,12 @@ $env:BETMATE_ROOT = "C:\Users\ElliotBladen\Apps"; $env:PYTHONUTF8 = "1"
 ### Pending Work
 - **Custom domain betmate.au:** DNS resolving ✅, SSL cert provisioning. `www.betmate.au` CNAME still points to wrong site — needs updating in Cloudflare + Vercel domain added
 - **EV signals on Vercel:** wire via Cloudflare Tunnel once domain + tunnel ready
-- ~~BVI weekly task~~ ✅ "BetMate AFL BVI" (Mon 08:00) + "BetMate AFL Home Away Value" (Mon 08:10) both installed and ready — first run 2026-05-25
+- ~~BVI weekly task~~ ✅ All 4 tasks installed — "BetMate NRL BVI" (Mon 08:20) + "BetMate NRL Home Away Value" (Mon 08:30) first run 2026-05-25
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
 - **AFL totals model:** Both AFL and NRL show model consistently pricing totals 5–10pts+ above market. Needs T1 expected-points review.
 - **Refs on Vercel:** wire `lib/referees.ts` to an API route + Supabase key so ref badges show on live site
 - **T9 Matrix tier:** end-of-2026 review. Weighted by sample size (N<10=0.3, N10-25=0.6, N25+=1.0). Triple confluence cap 10%. See memory file.
+- **Supabase UNIQUE constraint:** Add UNIQUE constraint on `key` column in `betmate_data_store` so `resolution=merge-duplicates` actually merges instead of inserting duplicates. Currently `getDataStore` works around this with `.limit(1)` but the root cause should be fixed in Supabase SQL editor: `ALTER TABLE betmate_data_store ADD CONSTRAINT betmate_data_store_key_unique UNIQUE (key);`
 
 ### Baz Agent — BUILT 2026-05-15
 - `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round`, `/context/game`, `/signals`, `/clv`, `/context/team`
