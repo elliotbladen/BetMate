@@ -18,6 +18,14 @@ export default function Header() {
   const activeSport  = searchParams.get('sport')?.toUpperCase() === 'AFL' ? 'AFL' : 'NRL';
   const [email, setEmail] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    const close = () => setDropdownOpen(false);
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [dropdownOpen]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -91,19 +99,26 @@ export default function Header() {
           {/* Auth */}
           <div className="hidden sm:flex items-center sm:ml-2">
             {email ? (
-              <div className="relative group">
-                <span className="text-[#00DEB8] text-[12px] font-mono uppercase tracking-wide truncate max-w-[180px] cursor-default">
+              <div className="relative">
+                <span
+                  onClick={(e) => { e.stopPropagation(); setDropdownOpen(o => !o); }}
+                  className="text-[#00DEB8] text-[12px] font-mono uppercase tracking-wide truncate max-w-[180px] cursor-pointer select-none"
+                >
                   {email}
                 </span>
-                <button
-                  onClick={async () => {
-                    const supabase = createClient();
-                    await supabase.auth.signOut();
-                  }}
-                  className="absolute right-0 top-full mt-2 hidden group-hover:flex items-center px-3 py-1.5 bg-[#111] border border-[#252525] hover:border-red-500/40 hover:text-red-400 text-[#5C5C5C] text-[11px] font-mono uppercase tracking-widest rounded transition-colors whitespace-nowrap z-50"
-                >
-                  Sign Out
-                </button>
+                {dropdownOpen && (
+                  <button
+                    onClick={async (e) => {
+                      e.stopPropagation();
+                      setDropdownOpen(false);
+                      const supabase = createClient();
+                      await supabase.auth.signOut();
+                    }}
+                    className="absolute right-0 top-full mt-2 flex items-center px-3 py-1.5 bg-[#111] border border-[#252525] hover:border-red-500/40 hover:text-red-400 text-[#5C5C5C] text-[11px] font-mono uppercase tracking-widest rounded transition-colors whitespace-nowrap z-50"
+                  >
+                    Sign Out
+                  </button>
+                )}
               </div>
             ) : (
               <Link
