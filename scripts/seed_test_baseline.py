@@ -1,4 +1,4 @@
-"""Seed today's latest.csv as the opening baseline for testing."""
+"""Seed Monday 09:00 snapshot as the opening baseline for the current week."""
 # /// script
 # dependencies = ["requests"]
 # ///
@@ -20,9 +20,16 @@ for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
 url = os.environ["NEXT_PUBLIC_SUPABASE_URL"].rstrip("/")
 svc = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
 
-latest = ROOT / "data" / "odds_snapshots" / "latest.csv"
-with latest.open(newline="", encoding="utf-8") as fh:
-    rows = list(csv.DictReader(fh))
+# Use Monday's 09:00 snapshot as the opening baseline
+monday_file = ROOT / "data" / "odds_snapshots" / "2026" / "2026-05-18.csv"
+with monday_file.open(newline="", encoding="utf-8") as fh:
+    all_rows = list(csv.DictReader(fh))
+
+# Pick the earliest snapshot time (the genuine 09:00 open)
+opening_time = min(r["snapshot_time"] for r in all_rows)
+print(f"Using Monday snapshot time: {opening_time}")
+rows = [r for r in all_rows if r["snapshot_time"] == opening_time]
+print(f"  {len(rows)} rows at that time")
 
 def side_for(row):
     o, h, a = row.get("outcome",""), row.get("home_team",""), row.get("away_team","")
