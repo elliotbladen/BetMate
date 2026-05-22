@@ -1220,6 +1220,8 @@ function OddsPageContent() {
   const [error, setError] = useState<string | null>(null);
   const [bviData, setBviData] = useState<BviMap>({});
   const [homeAwayValueData, setHomeAwayValueData] = useState<HomeAwayValueMap>({});
+  const [nrlBviData, setNrlBviData] = useState<BviMap>({});
+  const [nrlHomeAwayValueData, setNrlHomeAwayValueData] = useState<HomeAwayValueMap>({});
   const [nrlTeamNews, setNrlTeamNews] = useState<TeamNewsMap>({});
   const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
 
@@ -1359,6 +1361,20 @@ function OddsPageContent() {
   }, []);
 
   useEffect(() => {
+    fetch('/api/nrl-bvi')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.teams) setNrlBviData(data.teams); })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    fetch('/api/nrl-home-away-value')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.teams) setNrlHomeAwayValueData(data.teams); })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
     fetch('/api/team-news/nrl')
       .then((r) => r.ok ? r.json() : null)
       .then((data) => { if (data?.teams) setNrlTeamNews(data.teams); })
@@ -1453,8 +1469,8 @@ function OddsPageContent() {
             expandedGameId={expandedGameId}
             onToggleDetails={(gameId) => setExpandedGameId((current) => current === gameId ? null : gameId)}
             onAskBaz={askBaz}
-            bviData={bviData}
-            homeAwayValueData={homeAwayValueData}
+            bviData={activeSport === 'AFL' ? bviData : nrlBviData}
+            homeAwayValueData={activeSport === 'AFL' ? homeAwayValueData : nrlHomeAwayValueData}
             teamNewsData={activeSport === 'NRL' ? nrlTeamNews : aflTeamNews}
           />
           <CompletedSection

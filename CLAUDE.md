@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-20 (end of session)
+**Last updated:** 2026-05-21 (end of session)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -31,6 +31,10 @@
 | "BettingEngine NRL Pricing" | Tuesday 16:40 | ✅ FIXED — now uses wrapper scripts/run_nrl_pricing.ps1 with BETMATE_ROOT |
 | "BetMate NRL Emotional Flags" | Tuesday 14:00 | ✅ Updated to 14:00; fixed stale BetMate/ path in wrapper |
 | "BetMate AFL Emotional Flags" | Tuesday 14:30 | ✅ NEW — lib/scraper/afl_emotional.py |
+| "BetMate AFL BVI" | Monday 08:00 | ✅ Weekly — lib/scraper/afl_bvi.py → Supabase afl_bvi |
+| "BetMate AFL Home Away Value" | Monday 08:10 | ✅ Weekly — lib/scraper/afl_home_advantage.py → Supabase afl_home_away |
+| "BetMate NRL BVI" | Monday 08:20 | ✅ Weekly — lib/scraper/nrl_bvi.py → Supabase nrl_bvi |
+| "BetMate NRL Home Away Value" | Monday 08:30 | ✅ Weekly — lib/scraper/nrl_home_advantage.py → Supabase nrl_home_away |
 | "BettingEngine NRL Referees Fetch" | Wednesday 14:00 | ✅ Moved to Wednesday (refs announced Wed) |
 | "BetMate AFL Injuries Fetch" | Tuesday 11:30 | ✅ NEW — lib/scraper/afl_injuries.py |
 | "BetMate NRL Team News" | Tuesday 10:30 | ✅ NEW — lib/scraper/nrl_team_news.py (auto-generates injuries section; suspensions stay manual) |
@@ -155,16 +159,48 @@ Scrapers now push to Supabase automatically after local write:
 - Team news (manual): run `uv run --with requests python scripts/push_team_news.py` after editing JSON files
 - Requires `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`
 
+### Round Pricing — Current Files
+| File | Location | Generated | Notes |
+|------|----------|-----------|-------|
+| `r12_pricing_2026.csv` | `BettingEngine/results/` | 2026-05-21 | NRL R12 — 5 games, T1–T8 |
+| `r11_afl_2026.csv` | `BettingEngine/results/` | 2026-05-21 | AFL R11 — 9 games, T1–T4 rules + ML shadow |
+| `r12_round_pricing_2026.md` | `BettingEngine/outputs/results/` | 2026-05-21 | NRL R12 full analysis + Origin overlays + matrix signals |
+| `r11_afl_pricing_2026.md` | `BettingEngine/outputs/results/` | 2026-05-21 | AFL R11 full analysis + ML divergence + injury notes |
+
+**To run pricing manually:**
+```powershell
+# NRL — sets BETMATE_ROOT, runs prepare_round + export
+& C:\Users\ElliotBladen\Apps\BettingEngine\scripts\run_nrl_pricing.ps1
+
+# AFL — rebuild ELO first, then price
+cd C:\Users\ElliotBladen\Apps\BettingEngine
+$env:BETMATE_ROOT = "C:\Users\ElliotBladen\Apps"; $env:PYTHONUTF8 = "1"
+& ".\.venv\Scripts\python.exe" ml\afl\game_log.py --xlsx outputs\afl_weekly_review\historical\latest.xlsx
+& ".\.venv\Scripts\python.exe" scripts\prepare_afl_round.py --season 2026 --round 11
+& ".\.venv\Scripts\python.exe" scripts\_export_afl_prices.py
+```
+
+### NRL R12 — Key Pricing Notes (2026-05-21)
+- Refs confirmed: Todd Smith (Raiders/Dolphins), Wyatt Raymond (Bulldogs/Storm), Grant Atkins (Cowboys/Rabbitohs)
+- **Origin overlay applied manually** — casualty ward scraper misses Origin absences. See .md file for full adjustments.
+- Cowboys/Rabbitohs: **triple matrix confluence backing Cowboys** (Sunday + long rest + H2H). Bet signal.
+- Bulldogs/Storm: Handicap triple confluence → Bulldogs cover. H2H conflicted (no bet).
+- Totals: model known to run 5–10pts high. Use with caution vs market lines.
+
+### AFL R11 — Key Pricing Notes (2026-05-21)
+- **T9 note:** ML shadow divergences are the key signal this round — rules model overcooks home teams
+- Top signals: Cats/Swans UNDERS (ML 158 vs rules 209, 51pt gap) | Giants cover vs Lions | Kangaroos cover vs Suns | Crows cover vs Hawks
+- Injury scraper classifies all players as "average" — manual overlays needed for elite absences (Connor Rozee out for Port, Sean Darcy out for Fremantle, Tim English out for Bulldogs)
+- AFL totals model has same known bias as NRL — rules consistently 10–30pts above market
+
 ### Pending Work
-- **Custom domain:** point at Vercel + set up Cloudflare Tunnel (waiting on domain)
-- **EV signals on Vercel:** wire via Cloudflare Tunnel once domain ready
-- **NRL R12 reprice:** after referees announced Wednesday 14:00 → run `scripts/run_nrl_pricing.ps1` manually
-- BVI weekly task: install Task Scheduler entry to run `afl_bvi.py` Monday 08:00
+- **Custom domain betmate.au:** DNS resolving ✅, SSL cert provisioning. `www.betmate.au` CNAME still points to wrong site — needs updating in Cloudflare + Vercel domain added
+- **EV signals on Vercel:** wire via Cloudflare Tunnel once domain + tunnel ready
+- ~~BVI weekly task~~ ✅ "BetMate AFL BVI" (Mon 08:00) + "BetMate AFL Home Away Value" (Mon 08:10) both installed and ready — first run 2026-05-25
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
-- **AFL R10 data gap:** AFL R10 (May 15-16) was never priced — no fix needed retroactively
-- **AFL totals model:** Both AFL R9 and NRL R11 show model consistently pricing totals 5-10pts above market. Needs T1 expected-points review.
-- ~~**nrl_team_news.py:**~~ ✅ DONE — runs Tuesday 10:30 via Task Scheduler
+- **AFL totals model:** Both AFL and NRL show model consistently pricing totals 5–10pts+ above market. Needs T1 expected-points review.
 - **Refs on Vercel:** wire `lib/referees.ts` to an API route + Supabase key so ref badges show on live site
+- **T9 Matrix tier:** end-of-2026 review. Weighted by sample size (N<10=0.3, N10-25=0.6, N25+=1.0). Triple confluence cap 10%. See memory file.
 
 ### Baz Agent — BUILT 2026-05-15
 - `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round`, `/context/game`, `/signals`, `/clv`, `/context/team`

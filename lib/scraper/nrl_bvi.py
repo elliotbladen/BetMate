@@ -31,58 +31,63 @@ ROOT    = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "data" / "nrl" / "bvi" / "processed"
 OUT     = OUT_DIR / "latest-bvi.json"
 URL     = "https://www.aussportstipping.com/sports/nrl/betting_value_index/"
+LOOKBACK_YEARS = 1
 
+# Canonical names must match keys in lib/teams.ts NRL_TEAMS exactly
 TEAM_MAP: dict[str, str] = {
-    "Broncos":                       "Brisbane Broncos",
-    "Brisbane Broncos":              "Brisbane Broncos",
-    "Brisbane":                      "Brisbane Broncos",
-    "Raiders":                       "Canberra Raiders",
-    "Canberra Raiders":              "Canberra Raiders",
-    "Canberra":                      "Canberra Raiders",
-    "Bulldogs":                      "Canterbury-Bankstown Bulldogs",
-    "Canterbury-Bankstown Bulldogs": "Canterbury-Bankstown Bulldogs",
-    "Canterbury":                    "Canterbury-Bankstown Bulldogs",
-    "Sharks":                        "Cronulla-Sutherland Sharks",
-    "Cronulla-Sutherland Sharks":    "Cronulla-Sutherland Sharks",
-    "Cronulla":                      "Cronulla-Sutherland Sharks",
-    "Dolphins":                      "Dolphins",
-    "Titans":                        "Gold Coast Titans",
-    "Gold Coast Titans":             "Gold Coast Titans",
-    "Gold Coast":                    "Gold Coast Titans",
-    "Sea Eagles":                    "Manly-Warringah Sea Eagles",
-    "Manly-Warringah Sea Eagles":    "Manly-Warringah Sea Eagles",
-    "Manly":                         "Manly-Warringah Sea Eagles",
-    "Storm":                         "Melbourne Storm",
-    "Melbourne Storm":               "Melbourne Storm",
-    "Melbourne":                     "Melbourne Storm",
-    "Warriors":                      "New Zealand Warriors",
-    "New Zealand Warriors":          "New Zealand Warriors",
-    "NZ Warriors":                   "New Zealand Warriors",
-    "Knights":                       "Newcastle Knights",
-    "Newcastle Knights":             "Newcastle Knights",
-    "Newcastle":                     "Newcastle Knights",
-    "Cowboys":                       "North Queensland Cowboys",
-    "North Queensland Cowboys":      "North Queensland Cowboys",
-    "North Queensland":              "North Queensland Cowboys",
-    "Eels":                          "Parramatta Eels",
-    "Parramatta Eels":               "Parramatta Eels",
-    "Parramatta":                    "Parramatta Eels",
-    "Panthers":                      "Penrith Panthers",
-    "Penrith Panthers":              "Penrith Panthers",
-    "Penrith":                       "Penrith Panthers",
-    "Rabbitohs":                     "South Sydney Rabbitohs",
-    "South Sydney Rabbitohs":        "South Sydney Rabbitohs",
-    "South Sydney":                  "South Sydney Rabbitohs",
-    "Dragons":                       "St. George Illawarra Dragons",
-    "St. George Illawarra Dragons":  "St. George Illawarra Dragons",
-    "St George Illawarra":           "St. George Illawarra Dragons",
-    "Dragons":                       "St. George Illawarra Dragons",
-    "Roosters":                      "Sydney Roosters",
-    "Sydney Roosters":               "Sydney Roosters",
-    "Sydney":                        "Sydney Roosters",
-    "Tigers":                        "Wests Tigers",
-    "Wests Tigers":                  "Wests Tigers",
-    "Wests":                         "Wests Tigers",
+    "Broncos":                      "Brisbane Broncos",
+    "Brisbane Broncos":             "Brisbane Broncos",
+    "Brisbane":                     "Brisbane Broncos",
+    "Raiders":                      "Canberra Raiders",
+    "Canberra Raiders":             "Canberra Raiders",
+    "Canberra":                     "Canberra Raiders",
+    "Bulldogs":                     "Canterbury Bulldogs",
+    "Canterbury Bulldogs":          "Canterbury Bulldogs",
+    "Canterbury-Bankstown Bulldogs":"Canterbury Bulldogs",
+    "Canterbury":                   "Canterbury Bulldogs",
+    "Sharks":                       "Cronulla Sutherland Sharks",
+    "Cronulla Sutherland Sharks":   "Cronulla Sutherland Sharks",
+    "Cronulla-Sutherland Sharks":   "Cronulla Sutherland Sharks",
+    "Cronulla":                     "Cronulla Sutherland Sharks",
+    "Dolphins":                     "Dolphins",
+    "Titans":                       "Gold Coast Titans",
+    "Gold Coast Titans":            "Gold Coast Titans",
+    "Gold Coast":                   "Gold Coast Titans",
+    "Sea Eagles":                   "Manly Warringah Sea Eagles",
+    "Manly Warringah Sea Eagles":   "Manly Warringah Sea Eagles",
+    "Manly-Warringah Sea Eagles":   "Manly Warringah Sea Eagles",
+    "Manly":                        "Manly Warringah Sea Eagles",
+    "Storm":                        "Melbourne Storm",
+    "Melbourne Storm":              "Melbourne Storm",
+    "Melbourne":                    "Melbourne Storm",
+    "Warriors":                     "New Zealand Warriors",
+    "New Zealand Warriors":         "New Zealand Warriors",
+    "NZ Warriors":                  "New Zealand Warriors",
+    "Knights":                      "Newcastle Knights",
+    "Newcastle Knights":            "Newcastle Knights",
+    "Newcastle":                    "Newcastle Knights",
+    "Cowboys":                      "North Queensland Cowboys",
+    "North Queensland Cowboys":     "North Queensland Cowboys",
+    "North Queensland":             "North Queensland Cowboys",
+    "Eels":                         "Parramatta Eels",
+    "Parramatta Eels":              "Parramatta Eels",
+    "Parramatta":                   "Parramatta Eels",
+    "Panthers":                     "Penrith Panthers",
+    "Penrith Panthers":             "Penrith Panthers",
+    "Penrith":                      "Penrith Panthers",
+    "Rabbitohs":                    "South Sydney Rabbitohs",
+    "South Sydney Rabbitohs":       "South Sydney Rabbitohs",
+    "South Sydney":                 "South Sydney Rabbitohs",
+    "Dragons":                      "St George Illawarra Dragons",
+    "St George Illawarra Dragons":  "St George Illawarra Dragons",
+    "St. George Illawarra Dragons": "St George Illawarra Dragons",
+    "St George Illawarra":          "St George Illawarra Dragons",
+    "Roosters":                     "Sydney Roosters",
+    "Sydney Roosters":              "Sydney Roosters",
+    "Sydney":                       "Sydney Roosters",
+    "Tigers":                       "Wests Tigers",
+    "Wests Tigers":                 "Wests Tigers",
+    "Wests":                        "Wests Tigers",
 }
 
 logging.basicConfig(
@@ -104,8 +109,22 @@ def _parse_dollar(s: str) -> float | None:
 
 
 def scrape() -> list[dict]:
-    log.info("Fetching NRL BVI from %s", URL)
-    resp = requests.get(URL, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
+    now   = datetime.now(timezone.utc)
+    start = now.replace(year=now.year - LOOKBACK_YEARS)
+    log.info("Fetching NRL BVI from %s (1-year window: %s → %s)", URL, start.date(), now.date())
+    resp = requests.post(
+        URL,
+        timeout=20,
+        headers={"User-Agent": "Mozilla/5.0"},
+        data={
+            "start_day":   f"{start.day:02d}",
+            "start_month": f"{start.month:02d}",
+            "start_year":  f"{start.year}",
+            "end_day":     f"{now.day:02d}",
+            "end_month":   f"{now.month:02d}",
+            "end_year":    f"{now.year}",
+        },
+    )
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, "html.parser")
@@ -192,10 +211,15 @@ def main() -> None:
 
     rows = assign_tiers(rows)
 
+    now = datetime.now(timezone.utc)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     payload = {
-        "updated": datetime.now(timezone.utc).isoformat(),
-        "source": URL,
+        "updated": now.isoformat(),
+        "source":  URL,
+        "date_range": {
+            "start": now.replace(year=now.year - LOOKBACK_YEARS).date().isoformat(),
+            "end":   now.date().isoformat(),
+        },
         "teams": {
             r["name"]: {
                 "rank":       r["rank"],
@@ -212,6 +236,9 @@ def main() -> None:
     for r in rows:
         log.info("  %2d. %-35s fav=%+.2f  und=%+.2f  [%s]",
                  r["rank"], r["name"], r["fav_profit"], r["und_profit"], r["tier"])
+
+    from supabase_push import push  # noqa: PLC0415
+    push("nrl_bvi", payload)
 
 
 if __name__ == "__main__":

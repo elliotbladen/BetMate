@@ -9,16 +9,16 @@
 
 $ErrorActionPreference = "Stop"
 
-$uvExe    = "C:\Users\ElliotBladen\.local\bin\uv.exe"
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+$wrapper  = Join-Path $repoRoot "scripts\run_bvi_home_away.ps1"
 $script   = Join-Path $repoRoot "lib\scraper\afl_bvi.py"
 
-if (-not (Test-Path $uvExe))  { throw "uv not found at $uvExe" }
-if (-not (Test-Path $script)) { throw "Scraper not found at $script" }
+if (-not (Test-Path $wrapper)) { throw "Wrapper not found at $wrapper" }
+if (-not (Test-Path $script))  { throw "Scraper not found at $script" }
 
 $action = New-ScheduledTaskAction `
-    -Execute          $uvExe `
-    -Argument         "run --with requests --with beautifulsoup4 python `"$script`"" `
+    -Execute          "powershell.exe" `
+    -Argument         "-NonInteractive -File `"$wrapper`" `"$script`"" `
     -WorkingDirectory $repoRoot
 
 $trigger = New-ScheduledTaskTrigger -Weekly -WeeksInterval 1 -DaysOfWeek Monday -At "08:00"
