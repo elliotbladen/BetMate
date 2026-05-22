@@ -1,15 +1,22 @@
 """
-Track odds movements between the latest two intraday snapshot times.
+Track odds movements against the Monday opening baseline.
+
+Each run compares the current snapshot (latest.csv) against the Monday
+09:00 baseline stored in Supabase (nrl_opening_baseline / afl_opening_baseline).
+Movements are pushed to Supabase as odds_movements so Vercel can serve them.
 
 Reads:
-  data/odds_snapshots/YYYY/YYYY-MM-DD.csv
+  data/odds_snapshots/latest.csv          ← current prices
+  Supabase: nrl_opening_baseline          ← Monday 09:00 NRL prices
+  Supabase: afl_opening_baseline          ← Monday 09:00 AFL prices
 
 Writes:
-  data/odds_movements/YYYY/YYYY-MM-DD.csv
+  data/odds_movements/YYYY/YYYY-MM-DD.csv ← local archive
   data/odds_movements/latest.csv
+  Supabase: odds_movements                ← consumed by Vercel UI
 """
 # /// script
-# dependencies = ["tzdata"]
+# dependencies = ["requests", "tzdata"]
 # ///
 
 from __future__ import annotations
@@ -22,10 +29,12 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import requests as _requests
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT     = Path(__file__).resolve().parents[2]
 SNAP_DIR = ROOT / "data" / "odds_snapshots"
 MOVE_DIR = ROOT / "data" / "odds_movements"
+ENV_PATH = ROOT / ".env.local"
 LOCAL_TZ = ZoneInfo("Australia/Sydney")
 
 FIELDNAMES = [
@@ -50,178 +59,147 @@ FIELDNAMES = [
 ]
 
 
-def movement_key(row: dict[str, str]) -> tuple[str, ...]:
+def _load_env() -> tuple[str, str]:
+    if ENV_PATH.exists():
+        for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
     return (
-        row["to_snapshot_time"],
-        row["sport"],
-        row["game_id"],
-        row["bookmaker"],
-        row["market"],
-        row["outcome"],
-        row.get("point", ""),
+        os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/"),
+        os.environ.get("SUPABASE_SERVICE_ROLE_KEY", ""),
     )
 
 
-def price_key(row: dict[str, str]) -> tuple[str, ...]:
-    return (
-        row["sport"],
-        row["game_id"],
-        row["bookmaker"],
-        row["market"],
-        row["outcome"],
-        row.get("point", ""),
-    )
+def _side_for_outcome(row: dict) -> str | None:
+    outcome = row.get("outcome", "")
+    home    = row.get("home_team", "")
+    away    = row.get("away_team", "")
+    if outcome == home:            return "home"
+    if outcome == away:            return "away"
+    if outcome.lower() == "over":  return "over"
+    if outcome.lower() == "under": return "under"
+    return None
 
 
-def read_rows(path: Path) -> list[dict[str, str]]:
+def _fetch_baseline(sport: str, url: str, service_key: str) -> dict:
+    """Fetch Monday opening baseline from Supabase. Returns prices dict or {}."""
+    key = f"{sport.lower()}_opening_baseline"
+    try:
+        resp = _requests.get(
+            f"{url}/rest/v1/betmate_data_store",
+            headers={"apikey": service_key, "Authorization": f"Bearer {service_key}"},
+            params={"key": f"eq.{key}", "select": "data"},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        rows = resp.json()
+        if rows:
+            return rows[0]["data"].get("prices", {})
+    except Exception as exc:
+        print(f"Could not fetch {key} from Supabase: {exc}")
+    return {}
+
+
+def read_latest_snapshot() -> list[dict]:
+    path = SNAP_DIR / "latest.csv"
+    if not path.exists():
+        return []
     with path.open(newline="", encoding="utf-8") as fh:
         return list(csv.DictReader(fh))
 
 
-def write_rows(path: Path, rows: list[dict[str, str]], append: bool) -> None:
+def detect_movements_vs_baseline(
+    current_rows: list[dict],
+    baseline: dict,
+    sport: str,
+    min_pct: float,
+) -> list[dict]:
+    """Compare current snapshot rows against Monday baseline price map."""
+    now           = datetime.now(LOCAL_TZ)
+    detected_date = now.strftime("%Y-%m-%d")
+    detected_time = now.strftime("%H:%M:%S")
+    movements: list[dict] = []
+
+    for row in current_rows:
+        if row.get("sport") != sport:
+            continue
+        side = _side_for_outcome(row)
+        if not side:
+            continue
+
+        key   = f"{row['game_id']}:{row['market']}:{row['bookmaker']}:{side}"
+        entry = baseline.get(key)
+        if not entry:
+            continue
+
+        old_price = float(entry["price"])
+        new_price = float(row["price"])
+        if old_price <= 0 or old_price == new_price:
+            continue
+
+        change     = new_price - old_price
+        change_pct = (change / old_price) * 100
+        if abs(change_pct) < min_pct:
+            continue
+
+        movements.append({
+            "detected_date":      detected_date,
+            "detected_time":      detected_time,
+            "from_snapshot_time": entry.get("captured_at", "Monday"),
+            "to_snapshot_time":   row.get("snapshot_time", detected_time),
+            "sport":              sport,
+            "game_id":            row["game_id"],
+            "home_team":          row["home_team"],
+            "away_team":          row["away_team"],
+            "commence_time":      row["commence_time"],
+            "bookmaker":          row["bookmaker"],
+            "market":             row["market"],
+            "outcome":            row["outcome"],
+            "point":              row.get("point", ""),
+            "old_price":          f"{old_price:.4f}",
+            "new_price":          f"{new_price:.4f}",
+            "change":             f"{change:.4f}",
+            "change_pct":         f"{change_pct:.2f}",
+            "direction":          "down" if change < 0 else "up",
+            "side":               side,
+            "key":                key,
+        })
+
+    return sorted(movements, key=lambda m: abs(float(m["change_pct"])), reverse=True)
+
+
+def write_rows(path: Path, rows: list[dict], append: bool) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     mode = "a" if append and path.exists() else "w"
     with path.open(mode, newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=FIELDNAMES)
         if mode == "w":
             writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows({k: r.get(k, "") for k in FIELDNAMES} for r in rows)
 
 
-def existing_keys(path: Path) -> set[tuple[str, ...]]:
-    if not path.exists():
-        return set()
-    return {movement_key(row) for row in read_rows(path)}
-
-
-def latest_two_times(rows: list[dict[str, str]]) -> tuple[str, str] | None:
-    times = sorted({row["snapshot_time"] for row in rows if row.get("snapshot_time")})
-    if len(times) < 2:
-        return None
-    return times[-2], times[-1]
-
-
-def detect_movements(
-    snapshot_rows: list[dict[str, str]],
-    from_time: str,
-    to_time: str,
-    min_pct: float,
-) -> list[dict[str, str]]:
-    old_rows = {
-        price_key(row): row
-        for row in snapshot_rows
-        if row.get("snapshot_time") == from_time and row.get("price")
-    }
-    new_rows = [
-        row
-        for row in snapshot_rows
-        if row.get("snapshot_time") == to_time and row.get("price")
-    ]
-
-    now = datetime.now(LOCAL_TZ)
-    detected_date = now.strftime("%Y-%m-%d")
-    detected_time = now.strftime("%H:%M:%S")
-    movements: list[dict[str, str]] = []
-
-    for new in new_rows:
-        old = old_rows.get(price_key(new))
-        if not old:
-            continue
-
-        old_price = float(old["price"])
-        new_price = float(new["price"])
-        if old_price <= 0 or old_price == new_price:
-            continue
-
-        change = new_price - old_price
-        change_pct = (change / old_price) * 100
-        if abs(change_pct) < min_pct:
-            continue
-
-        movements.append(
-            {
-                "detected_date": detected_date,
-                "detected_time": detected_time,
-                "from_snapshot_time": from_time,
-                "to_snapshot_time": to_time,
-                "sport": new["sport"],
-                "game_id": new["game_id"],
-                "home_team": new["home_team"],
-                "away_team": new["away_team"],
-                "commence_time": new["commence_time"],
-                "bookmaker": new["bookmaker"],
-                "market": new["market"],
-                "outcome": new["outcome"],
-                "point": new.get("point", ""),
-                "old_price": f"{old_price:.4f}",
-                "new_price": f"{new_price:.4f}",
-                "change": f"{change:.4f}",
-                "change_pct": f"{change_pct:.2f}",
-                "direction": "up" if change > 0 else "down",
-            }
-        )
-
-    return sorted(movements, key=lambda row: abs(float(row["change_pct"])), reverse=True)
-
-
-def _side_for_outcome(row: dict[str, str]) -> str | None:
-    outcome = row.get("outcome", "")
-    home = row.get("home_team", "")
-    away = row.get("away_team", "")
-    if outcome == home:
-        return "home"
-    if outcome == away:
-        return "away"
-    if outcome.lower() == "over":
-        return "over"
-    if outcome.lower() == "under":
-        return "under"
-    return None
-
-
-def _push_movements_to_supabase(movements: list[dict[str, str]]) -> None:
-    env_file = ROOT.parent / ".env.local"
-    if env_file.exists():
-        for line in env_file.read_text(encoding="utf-8").splitlines():
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip())
-
-    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
-    service_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-    if not url or not service_key:
-        print("Supabase env vars not set — skipping movement push")
-        return
-
-    # Convert to MovementMap format: {gameId:market:bookmaker:side: {direction, changePct, ...}}
+def _push_movements_to_supabase(movements: list[dict], url: str, service_key: str) -> None:
     movement_map: dict[str, dict] = {}
-    for row in movements:
-        side = _side_for_outcome(row)
-        if not side:
-            continue
-        key = f"{row['game_id']}:{row['market']}:{row['bookmaker']}:{side}"
-        try:
-            change_pct = float(row["change_pct"])
-            movement_map[key] = {
-                "direction": row["direction"],
-                "changePct": change_pct,
-                "oldPrice": float(row["old_price"]),
-                "newPrice": float(row["new_price"]),
-                "shortenedStrong": row["direction"] == "down" and abs(change_pct) >= 10,
-            }
-        except (ValueError, KeyError):
-            continue
+    for m in movements:
+        change_pct = float(m["change_pct"])
+        movement_map[m["key"]] = {
+            "direction":      m["direction"],
+            "changePct":      change_pct,
+            "oldPrice":       float(m["old_price"]),
+            "newPrice":       float(m["new_price"]),
+            "shortenedStrong": m["direction"] == "down" and abs(change_pct) >= 10,
+        }
 
     try:
-        import requests  # noqa: PLC0415
-        resp = requests.post(
+        resp = _requests.post(
             f"{url}/rest/v1/betmate_data_store",
             headers={
-                "apikey": service_key,
+                "apikey":        service_key,
                 "Authorization": f"Bearer {service_key}",
-                "Content-Type": "application/json",
-                "Prefer": "resolution=merge-duplicates",
+                "Content-Type":  "application/json",
+                "Prefer":        "resolution=merge-duplicates",
             },
             data=json.dumps([{"key": "odds_movements", "data": movement_map}]),
             timeout=10,
@@ -233,41 +211,45 @@ def _push_movements_to_supabase(movements: list[dict[str, str]]) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Track odds movements between snapshot pulls.")
-    parser.add_argument("--date", default=None, help="Snapshot date YYYY-MM-DD. Default: today UTC.")
-    parser.add_argument("--min-pct", type=float, default=0.0, help="Only write changes at/above this percent.")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--min-pct", type=float, default=0.0, help="Minimum change %% to record.")
     args = parser.parse_args()
 
-    target_date = args.date or datetime.now(LOCAL_TZ).strftime("%Y-%m-%d")
-    year = target_date[:4]
-    snapshot_path = SNAP_DIR / year / f"{target_date}.csv"
-    movement_path = MOVE_DIR / year / f"{target_date}.csv"
-    latest_path = MOVE_DIR / "latest.csv"
-
-    if not snapshot_path.exists():
-        print(f"No snapshot file found: {snapshot_path}")
+    url, service_key = _load_env()
+    if not url or not service_key:
+        print("Supabase env vars not set — cannot fetch baseline or push movements.")
         return
 
-    snapshot_rows = read_rows(snapshot_path)
-    times = latest_two_times(snapshot_rows)
-    if not times:
-        print(f"Need at least two snapshot times in {snapshot_path}; found fewer than two.")
+    current_rows = read_latest_snapshot()
+    if not current_rows:
+        print("No latest.csv found — run odds_snapshot.py first.")
         return
 
-    from_time, to_time = times
-    movements = detect_movements(snapshot_rows, from_time, to_time, args.min_pct)
-    seen = existing_keys(movement_path)
-    new_movements = [row for row in movements if movement_key(row) not in seen]
+    all_movements: list[dict] = []
+    for sport in ("NRL", "AFL"):
+        baseline = _fetch_baseline(sport, url, service_key)
+        if not baseline:
+            print(f"No {sport} baseline in Supabase — skipping (Monday snapshot not yet run?)")
+            continue
+        movements = detect_movements_vs_baseline(current_rows, baseline, sport, args.min_pct)
+        print(f"{sport}: {len(movements)} movements vs Monday baseline")
+        all_movements.extend(movements)
 
-    write_rows(movement_path, new_movements, append=True)
-    write_rows(latest_path, movements, append=False)
+    if not all_movements:
+        print("No movements detected.")
+        # Still push empty map so Vercel clears stale arrows
+        _push_movements_to_supabase([], url, service_key)
+        return
 
-    print(f"Compared {from_time} -> {to_time}")
-    print(f"Detected movements: {len(movements)}")
-    print(f"New movement rows written: {len(new_movements)}")
-    print(f"Wrote {movement_path}")
-    print(f"Updated {latest_path}")
-    _push_movements_to_supabase(movements)
+    # Archive to local CSV
+    now          = datetime.now(LOCAL_TZ)
+    dated_path   = MOVE_DIR / now.strftime("%Y") / f"{now.strftime('%Y-%m-%d')}.csv"
+    latest_path  = MOVE_DIR / "latest.csv"
+    write_rows(dated_path, all_movements, append=True)
+    write_rows(latest_path, all_movements, append=False)
+    print(f"Wrote {dated_path} ({len(all_movements)} rows)")
+
+    _push_movements_to_supabase(all_movements, url, service_key)
 
 
 if __name__ == "__main__":

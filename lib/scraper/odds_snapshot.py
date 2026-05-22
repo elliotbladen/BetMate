@@ -39,6 +39,7 @@ LOG_DIR    = SNAP_DIR / "logs"
 LOG_PATH   = LOG_DIR / "snapshot.log"
 ENV_PATH   = ROOT / ".env.local"
 LOCAL_TZ   = ZoneInfo("Australia/Sydney")
+MONDAY     = 0  # weekday() index
 
 SPORTS = {
     "NRL": "rugbyleague_nrl",
@@ -128,6 +129,85 @@ def flatten(events: list[dict], sport: str, snap_date: str, snap_time: str) -> l
     return rows
 
 
+def _side_for_outcome(row: dict) -> str | None:
+    outcome = row.get("outcome", "")
+    home    = row.get("home_team", "")
+    away    = row.get("away_team", "")
+    if outcome == home:         return "home"
+    if outcome == away:         return "away"
+    if outcome.lower() == "over":  return "over"
+    if outcome.lower() == "under": return "under"
+    return None
+
+
+def _load_supabase_env() -> tuple[str, str]:
+    """Load Supabase URL + service key from .env.local, return (url, key)."""
+    for var in ("NEXT_PUBLIC_SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"):
+        if not os.environ.get(var) and ENV_PATH.exists():
+            for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    os.environ.setdefault(k.strip(), v.strip())
+            break
+    return (
+        os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/"),
+        os.environ.get("SUPABASE_SERVICE_ROLE_KEY", ""),
+    )
+
+
+def push_opening_baseline(all_rows: list[dict], now: datetime) -> None:
+    """On Monday, push a price map per sport to Supabase as the week's baseline."""
+    if now.weekday() != MONDAY:
+        return
+
+    url, service_key = _load_supabase_env()
+    if not url or not service_key:
+        log.warning("Supabase env vars not set — skipping opening baseline push")
+        return
+
+    for sport in ("NRL", "AFL"):
+        sport_rows = [r for r in all_rows if r["sport"] == sport]
+        prices: dict[str, dict] = {}
+        for row in sport_rows:
+            side = _side_for_outcome(row)
+            if not side:
+                continue
+            key = f"{row['game_id']}:{row['market']}:{row['bookmaker']}:{side}"
+            prices[key] = {
+                "price":        float(row["price"]),
+                "home_team":    row["home_team"],
+                "away_team":    row["away_team"],
+                "commence_time":row["commence_time"],
+            }
+
+        payload = [{
+            "key":  f"{sport.lower()}_opening_baseline",
+            "data": {
+                "captured_at": now.isoformat(),
+                "sport":       sport,
+                "prices":      prices,
+            },
+        }]
+
+        try:
+            resp = requests.post(
+                f"{url}/rest/v1/betmate_data_store",
+                headers={
+                    "apikey":        service_key,
+                    "Authorization": f"Bearer {service_key}",
+                    "Content-Type":  "application/json",
+                    "Prefer":        "resolution=merge-duplicates",
+                },
+                data=json.dumps(payload),
+                timeout=10,
+            )
+            resp.raise_for_status()
+            log.info("Monday baseline pushed to Supabase: %s_opening_baseline (%d prices)", sport.lower(), len(prices))
+        except Exception as exc:
+            log.warning("Failed to push %s baseline: %s", sport, exc)
+
+
 def write_csv(rows: list[dict], path: Path, append: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     mode = "a" if append and path.exists() else "w"
@@ -201,6 +281,10 @@ def main() -> None:
     latest_path = SNAP_DIR / "latest.csv"
     write_csv(all_rows, latest_path)
     log.info("Updated: %s", latest_path)
+
+    # Monday: push as the week's opening baseline so the movement tracker
+    # can compare every subsequent snapshot against Monday's prices.
+    push_opening_baseline(all_rows, now)
 
 
 if __name__ == "__main__":
