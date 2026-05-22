@@ -20,6 +20,8 @@ const PUBLIC_PATHS = [
   '/api/ev-signals',
   '/api/afl-bvi',
   '/api/afl-home-away-value',
+  '/api/nrl-bvi',
+  '/api/nrl-home-away-value',
   '/api/team-news',
   '/api/odds/fixture',
   '/api/referees/nrl',
