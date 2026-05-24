@@ -11,7 +11,7 @@ $ErrorActionPreference = "Stop"
 
 $uvExe    = "C:\Users\ElliotBladen\.local\bin\uv.exe"
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$script   = Join-Path $repoRoot "lib\scraper\nrl_team_news.py"
+$script   = Join-Path $repoRoot "scrapers\nrl_team_news.py"
 
 if (-not (Test-Path $uvExe))  { throw "uv not found at $uvExe" }
 if (-not (Test-Path $script)) { throw "Scraper not found at $script" }

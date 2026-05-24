@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot   = Resolve-Path (Join-Path $PSScriptRoot "..")
-$scriptPath = Join-Path $repoRoot "lib\scraper\nrl_historical_results.py"
+$scriptPath = Join-Path $repoRoot "scrapers\nrl_historical_results.py"
 
 if (-not (Test-Path $scriptPath)) {
     throw "Could not find scraper at $scriptPath"

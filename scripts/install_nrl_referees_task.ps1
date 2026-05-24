@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$scriptPath = Join-Path $repoRoot "lib\scraper\nrl_referees.py"
+$scriptPath = Join-Path $repoRoot "scrapers\nrl_referees.py"
 $runnerPath = Join-Path $repoRoot "scripts\run_nrl_referees.ps1"
 
 if (-not (Test-Path $scriptPath)) { throw "Could not find referee scraper at $scriptPath" }

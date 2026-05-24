@@ -9,4 +9,4 @@ $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 $env:UV_CACHE_DIR = Join-Path $repoRoot ".uv-cache"
 
 Set-Location $repoRoot
-& $UvExe run --with requests --with beautifulsoup4 python "lib\scraper\nrl_news_flags.py" --season $Season
+& $UvExe run --with requests --with beautifulsoup4 python "scrapers\nrl_news_flags.py" --season $Season

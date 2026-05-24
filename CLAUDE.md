@@ -30,16 +30,16 @@
 | "BetMate NRL Round Prep" | Tuesday 16:20 | ✅ Fixed path, time 16:20 |
 | "BettingEngine NRL Pricing" | Tuesday 16:40 | ✅ FIXED — now uses wrapper scripts/run_nrl_pricing.ps1 with BETMATE_ROOT |
 | "BetMate NRL Emotional Flags" | Tuesday 14:00 | ✅ Updated to 14:00; fixed stale BetMate/ path in wrapper |
-| "BetMate AFL Emotional Flags" | Tuesday 14:30 | ✅ NEW — lib/scraper/afl_emotional.py |
-| "BetMate AFL BVI" | Monday 08:00 | ✅ Weekly — lib/scraper/afl_bvi.py → Supabase afl_bvi |
-| "BetMate AFL Home Away Value" | Monday 08:10 | ✅ Weekly — lib/scraper/afl_home_advantage.py → Supabase afl_home_away |
-| "BetMate NRL BVI" | Monday 08:20 | ✅ Weekly — lib/scraper/nrl_bvi.py → Supabase nrl_bvi |
-| "BetMate NRL Home Away Value" | Monday 08:30 | ✅ Weekly — lib/scraper/nrl_home_advantage.py → Supabase nrl_home_away |
+| "BetMate AFL Emotional Flags" | Tuesday 14:30 | ✅ NEW — scrapers/afl_emotional.py |
+| "BetMate AFL BVI" | Monday 08:00 | ✅ Weekly — scrapers/afl_bvi.py → Supabase afl_bvi |
+| "BetMate AFL Home Away Value" | Monday 08:10 | ✅ Weekly — scrapers/afl_home_advantage.py → Supabase afl_home_away |
+| "BetMate NRL BVI" | Monday 08:20 | ✅ Weekly — scrapers/nrl_bvi.py → Supabase nrl_bvi |
+| "BetMate NRL Home Away Value" | Monday 08:30 | ✅ Weekly — scrapers/nrl_home_advantage.py → Supabase nrl_home_away |
 | "BettingEngine NRL Referees Fetch" | Wednesday 14:00 | ✅ Moved to Wednesday (refs announced Wed) |
-| "BetMate AFL Injuries Fetch" | Tuesday 11:30 | ✅ NEW — lib/scraper/afl_injuries.py |
-| "BetMate NRL Team News" | Tuesday 10:30 | ✅ NEW — lib/scraper/nrl_team_news.py (auto-generates injuries section; suspensions stay manual) |
-| "BetMate AFL Style Stats Scrape" | Tuesday 16:15 | ✅ NEW — lib/scraper/afl_style_stats.py |
-| "BetMate AFL Round Prep" | Tuesday 16:20 | ✅ NEW — lib/scraper/afl_round_prep.py |
+| "BetMate AFL Injuries Fetch" | Tuesday 11:30 | ✅ NEW — scrapers/afl_injuries.py |
+| "BetMate NRL Team News" | Tuesday 10:30 | ✅ NEW — scrapers/nrl_team_news.py (auto-generates injuries section; suspensions stay manual) |
+| "BetMate AFL Style Stats Scrape" | Tuesday 16:15 | ✅ NEW — scrapers/afl_style_stats.py |
+| "BetMate AFL Round Prep" | Tuesday 16:20 | ✅ NEW — scrapers/afl_round_prep.py |
 
 **Pipeline day is now TUESDAY** (shifted 2026-05-11 — historical odds not ready until Tuesday).
 All BetMate tasks use full path `C:\Users\ElliotBladen\.local\bin\uv.exe`.
@@ -53,16 +53,16 @@ BettingEngine's `_find_betmate_root()` was resolving to `Apps\BetMate` (old spli
 ### Scrapers — Output Locations
 | Scraper | Output | Consumed by |
 |---------|--------|-------------|
-| `lib/scraper/odds_snapshot.py` | `data/odds_snapshots/YYYY/YYYY-MM-DD.csv` | UI + study |
-| `lib/scraper/odds_movement_tracker.py` | `data/odds_movements/YYYY/YYYY-MM-DD.csv` | UI alerts |
-| `lib/scraper/nrl_injuries.py` | `data/nrl/injuries/processed/latest-injuries.json` | BettingEngine T5 |
-| `lib/scraper/nrl_emotional.py` | `data/nrl/emotional/processed/latest-emotional.json` | BettingEngine T7 |
-| `lib/scraper/afl_emotional.py` | `data/afl/emotional/processed/latest-emotional.json` | future AFL BettingEngine T7 |
-| `lib/scraper/afl_bvi.py` | `data/afl/bvi/processed/latest-bvi.json` | `/api/afl-bvi` → odds page BVI filter |
-| `lib/scraper/afl_injuries.py` | `data/afl/injuries/processed/latest-injuries.json` | future AFL BettingEngine T5 |
-| `lib/scraper/afl_style_stats.py` | `data/afl/style-stats/processed/latest-style-stats.csv` | future AFL BettingEngine T2 |
-| `lib/scraper/afl_round_prep.py` | orchestrates AFL injuries scrape | runs afl_injuries.py |
-| `lib/scraper/nrl_team_news.py` | `data/nrl/team-news/latest.json` + Supabase `team_news_nrl` | team news UI tab |
+| `scrapers/odds_snapshot.py` | `data/odds_snapshots/YYYY/YYYY-MM-DD.csv` | UI + study |
+| `scrapers/odds_movement_tracker.py` | `data/odds_movements/YYYY/YYYY-MM-DD.csv` | UI alerts |
+| `scrapers/nrl_injuries.py` | `data/nrl/injuries/processed/latest-injuries.json` | BettingEngine T5 |
+| `scrapers/nrl_emotional.py` | `data/nrl/emotional/processed/latest-emotional.json` | BettingEngine T7 |
+| `scrapers/afl_emotional.py` | `data/afl/emotional/processed/latest-emotional.json` | future AFL BettingEngine T7 |
+| `scrapers/afl_bvi.py` | `data/afl/bvi/processed/latest-bvi.json` | `/api/afl-bvi` → odds page BVI filter |
+| `scrapers/afl_injuries.py` | `data/afl/injuries/processed/latest-injuries.json` | future AFL BettingEngine T5 |
+| `scrapers/afl_style_stats.py` | `data/afl/style-stats/processed/latest-style-stats.csv` | future AFL BettingEngine T2 |
+| `scrapers/afl_round_prep.py` | orchestrates AFL injuries scrape | runs afl_injuries.py |
+| `scrapers/nrl_team_news.py` | `data/nrl/team-news/latest.json` + Supabase `team_news_nrl` | team news UI tab |
 
 ### Injury Scraper — Current Source
 Source changed 2026-05-05: NRL.com casualty ward (Fox Sports broke).
@@ -113,7 +113,7 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 **SCRAPER BUG HISTORY:** Original scraper was capturing game count (#) not profit — values were 28/27/26... (games played). Fixed 2026-05-11 to specifically parse `$`-prefixed values under `Fav:` / `Und:` labels.
 
 - API: `/api/afl-bvi` → serves `data/afl/bvi/processed/latest-bvi.json`
-- Scraper: `lib/scraper/afl_bvi.py` — run manually or via Task Scheduler
+- Scraper: `scrapers/afl_bvi.py` — run manually or via Task Scheduler
 - **Pending:** weekly Task Scheduler task to auto-refresh BVI data (not yet installed)
 
 ### Team News System — BUILT 2026-05-18
@@ -122,7 +122,7 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 - `app/api/team-news/nrl/route.ts` + `app/api/team-news/afl/route.ts` — API routes (public)
 - UI: DetailDrawer Team News tab shows real data; chip shows Alert/Monitor status
 - **Update weekly:** manually edit JSON files after weekend games (Monday for NRL, Wednesday after AFL tribunal)
-- **Future automation:** `lib/scraper/nrl_team_news.py` — auto-generate injuries section from `latest-injuries.json`; suspensions stay manual
+- **Future automation:** `scrapers/nrl_team_news.py` — auto-generate injuries section from `latest-injuries.json`; suspensions stay manual
 
 ### BVI + H/A Value Controls — moved to per-card (2026-05-18)
 - Removed from global header (no more header toggles or Search button)
@@ -154,7 +154,7 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 **To manually refresh movements:**
 ```powershell
 cd C:\Users\ElliotBladen\Apps
-& C:\Users\ElliotBladen\.local\bin\uv.exe run --with requests --with tzdata python lib/scraper/odds_movement_tracker.py
+& C:\Users\ElliotBladen\.local\bin\uv.exe run --with requests --with tzdata python scrapers/odds_movement_tracker.py
 ```
 
 **To seed baseline manually** (if Monday task missed or for testing):
@@ -293,8 +293,8 @@ BetMate is a Next.js frontend that:
 ### Running Python Scrapers
 ```powershell
 # Use uv — full path required for Task Scheduler:
-& C:\Users\ElliotBladen\.local\bin\uv.exe run python lib/scraper/odds_snapshot.py
-& C:\Users\ElliotBladen\.local\bin\uv.exe run python lib/scraper/nrl_injuries.py
+& C:\Users\ElliotBladen\.local\bin\uv.exe run python scrapers/odds_snapshot.py
+& C:\Users\ElliotBladen\.local\bin\uv.exe run python scrapers/nrl_injuries.py
 
 # uv cache is local to avoid permission issues:
 # BetMate\.uv-cache
@@ -303,9 +303,9 @@ BetMate is a Next.js frontend that:
 ### Key Files
 | File | Purpose |
 |------|---------|
-| `lib/scraper/odds_snapshot.py` | Pulls odds from API, appends to dated CSV |
-| `lib/scraper/odds_movement_tracker.py` | Diffs last two snapshots, writes movements CSV |
-| `lib/scraper/nrl_injuries.py` | Scrapes NRL.com casualty ward |
+| `scrapers/odds_snapshot.py` | Pulls odds from API, appends to dated CSV |
+| `scrapers/odds_movement_tracker.py` | Diffs last two snapshots, writes movements CSV |
+| `scrapers/nrl_injuries.py` | Scrapes NRL.com casualty ward |
 | `scripts/run_odds_snapshot_cycle.ps1` | Wrapper: runs snapshot + movement tracker |
 | `scripts/install_odds_snapshot_task.ps1` | Installs twice-daily snapshot task (09:00 + 18:00, StartWhenAvailable) |
 | `app/api/weather/route.ts` | Weather API proxy (Tomorrow.io) + ping logger |
@@ -313,7 +313,7 @@ BetMate is a Next.js frontend that:
 | `lib/venues.ts` | NRL home team → venue coords |
 | `lib/aflVenues.ts` | AFL home team → venue coords |
 | `data/weather/YYYY/YYYY-MM-DD.csv` | Weather ping log (auto-created) |
-| `lib/scraper/afl_bvi.py` | Scrapes AFL BVI from aussportstipping.com — run weekly |
+| `scrapers/afl_bvi.py` | Scrapes AFL BVI from aussportstipping.com — run weekly |
 | `app/api/afl-bvi/route.ts` | Serves BVI JSON to the odds page |
 | `data/afl/bvi/processed/latest-bvi.json` | BVI data (18 teams, rank + score + tier) |
 | `BettingEngine/scripts/generate_clv_txt.py` | Generates formatted CLV TXT from weekly CLV report CSV — `python generate_clv_txt.py --sport NRL --season 2026 --round 11` |

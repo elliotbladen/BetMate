@@ -8,7 +8,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$scriptPath = Join-Path $repoRoot "lib\scraper\nrl_postgame_scout.py"
+$scriptPath = Join-Path $repoRoot "scrapers\nrl_postgame_scout.py"
 $runnerPath = Join-Path $repoRoot "scripts\run_nrl_postgame_scout.ps1"
 
 if (-not (Test-Path $scriptPath)) {

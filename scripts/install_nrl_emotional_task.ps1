@@ -8,7 +8,7 @@
 
 $TaskName   = "BetMate NRL Emotional Flags"
 $UvPath     = "C:\Users\ElliotBladen\.local\bin\uv.exe"
-$ScriptPath = "C:\Users\ElliotBladen\Apps\lib\scraper\nrl_emotional.py"
+$ScriptPath = "C:\Users\ElliotBladen\Apps\scrapers\nrl_emotional.py"
 $WorkDir    = "C:\Users\ElliotBladen\Apps"
 $LogFile    = "C:\Users\ElliotBladen\Apps\data\nrl\emotional\logs\task.log"
 
@@ -34,4 +34,4 @@ Write-Host "Task '$TaskName' installed — runs every Tuesday at 11:00 AM."
 Write-Host "BettingEngine prepare_round.py will auto-load latest-emotional.json."
 Write-Host ""
 Write-Host "To test manually:"
-Write-Host "  uv run --with anthropic --with requests python lib\scraper\nrl_emotional.py --round 11 --dry-run"
+Write-Host "  uv run --with anthropic --with requests python scrapers\nrl_emotional.py --round 11 --dry-run"

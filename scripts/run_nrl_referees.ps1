@@ -13,4 +13,4 @@ $LogFile = "$LogDir\task.log"
 New-Item -ItemType Directory -Force $LogDir | Out-Null
 
 Set-Location $WorkDir
-& $UvExe run --with requests --with beautifulsoup4 python lib\scraper\nrl_referees.py --season $Season >> $LogFile 2>&1
+& $UvExe run --with requests --with beautifulsoup4 python scrapers\nrl_referees.py --season $Season >> $LogFile 2>&1

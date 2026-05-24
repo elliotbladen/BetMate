@@ -3,7 +3,7 @@
 
 $EnvFile = "C:\Users\ElliotBladen\Apps\.env.local"
 $UvPath  = "C:\Users\ElliotBladen\.local\bin\uv.exe"
-$Script  = "C:\Users\ElliotBladen\Apps\lib\scraper\afl_emotional.py"
+$Script  = "C:\Users\ElliotBladen\Apps\scrapers\afl_emotional.py"
 $WorkDir = "C:\Users\ElliotBladen\Apps"
 $LogDir  = "C:\Users\ElliotBladen\Apps\data\afl\emotional\logs"
 $LogFile = "$LogDir\task.log"

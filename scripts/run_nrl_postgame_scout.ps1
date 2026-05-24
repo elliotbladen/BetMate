@@ -19,7 +19,7 @@ $argsList = @(
     "--with", "requests",
     "--with", "beautifulsoup4",
     "python",
-    "lib\scraper\nrl_postgame_scout.py",
+    "scrapers\nrl_postgame_scout.py",
     "--season", "$Season",
     "--scan-delay-hours", "$ScanDelayHours"
 )

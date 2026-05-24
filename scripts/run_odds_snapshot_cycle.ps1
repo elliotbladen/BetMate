@@ -5,8 +5,8 @@ param(
 $ErrorActionPreference = "Continue"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$snapshotScript = Join-Path $repoRoot "lib\scraper\odds_snapshot.py"
-$trackerScript = Join-Path $repoRoot "lib\scraper\odds_movement_tracker.py"
+$snapshotScript = Join-Path $repoRoot "scrapers\odds_snapshot.py"
+$trackerScript = Join-Path $repoRoot "scrapers\odds_movement_tracker.py"
 $env:UV_CACHE_DIR = Join-Path $repoRoot ".uv-cache"
 $logDir = Join-Path $repoRoot "data\odds_snapshots\logs"
 $cycleLog = Join-Path $logDir "cycle.log"

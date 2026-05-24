@@ -8,7 +8,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$scriptPath = Join-Path $repoRoot "lib\scraper\nrl_news_flags.py"
+$scriptPath = Join-Path $repoRoot "scrapers\nrl_news_flags.py"
 $runnerPath = Join-Path $repoRoot "scripts\run_nrl_news_flags.ps1"
 
 if (-not (Test-Path $scriptPath)) {

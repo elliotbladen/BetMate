@@ -11,7 +11,7 @@ $ErrorActionPreference = "Stop"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 $wrapper  = Join-Path $repoRoot "scripts\run_bvi_home_away.ps1"
-$script   = Join-Path $repoRoot "lib\scraper\afl_bvi.py"
+$script   = Join-Path $repoRoot "scrapers\afl_bvi.py"
 
 if (-not (Test-Path $wrapper)) { throw "Wrapper not found at $wrapper" }
 if (-not (Test-Path $script))  { throw "Scraper not found at $script" }
