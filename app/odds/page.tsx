@@ -62,7 +62,7 @@ interface TeamNewsEntry {
   items: TeamNewsItem[];
 }
 type TeamNewsMap = Record<string, TeamNewsEntry>;
-type DetailTab = 'Markets' | 'Intelligence' | 'Team News' | 'Weather / Ref' | 'History';
+type DetailTab = 'Intelligence' | 'Team News' | 'Weather / Ref' | 'History';
 
 interface WeatherData {
   temperature: number;
@@ -78,7 +78,7 @@ interface WeatherData {
 
 const SPORT_TABS: Sport[] = ['NRL', 'AFL'];
 const MARKET_TABS: MarketTab[] = ['H2H', 'Line', 'Totals'];
-const DETAIL_TABS: DetailTab[] = ['Markets', 'Intelligence', 'Team News', 'Weather / Ref', 'History'];
+const DETAIL_TABS: DetailTab[] = ['Intelligence', 'Team News', 'Weather / Ref', 'History'];
 
 function makeTransform(sport: Sport) {
   return function transformEvents(events: OddsApiEvent[]): Game[] {
@@ -856,18 +856,6 @@ function DetailDrawer({
       </div>
 
       <div className="p-4">
-        {tab === 'Markets' && (
-          <div className="grid gap-3 md:grid-cols-3">
-            {MARKET_TABS.map((item) => (
-              <div key={item} className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-3">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">{item}</p>
-                <p className="mt-2 font-display font-bold text-[#111827]">{item === market ? 'Current board' : 'Available in market tab'}</p>
-                <p className="mt-1 text-xs leading-5 text-[#6B7280]">Switch the top market control to compare this market across books.</p>
-              </div>
-            ))}
-          </div>
-        )}
-
         {tab === 'Intelligence' && (
           <div className="grid gap-4 lg:grid-cols-[1fr_1fr]">
             <div>
