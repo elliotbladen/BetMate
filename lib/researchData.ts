@@ -396,6 +396,27 @@ LEGACY_BETS.push(
   { id:351, date:'2026-05-17', match:'Panthers vs Dragons',                market:'Under 56.5',       odds:1.82, closingOdds:null, result:'win',  cumPL:27.35, sport:'NRL', notes:'Actual bet log. Stake $25. Under landed.' },
 );
 
+// ─── Section 5: Week ending 2026-05-25 (NRL R12 + AFL R11) ──────────────────
+LEGACY_BETS.push(
+  { id:352, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',        market:'Hawthorn Win',       odds:1.41, closingOdds:null, result:'win',  cumPL:27.80, sport:'AFL', notes:'Actual bet log. Stake $55. Hawthorn won.' },
+  { id:353, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',        market:'Adelaide Crows Win', odds:2.88, closingOdds:null, result:'loss', cumPL:27.30, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  { id:354, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',        market:'Hawthorn -15.5',     odds:1.90, closingOdds:null, result:'loss', cumPL:26.80, sport:'AFL', notes:'Actual bet log. Stake $25. Hawthorn won by 9.' },
+  { id:355, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',        market:'Adelaide +19.5',     odds:1.89, closingOdds:null, result:'win',  cumPL:27.25, sport:'AFL', notes:'Actual bet log. Stake $25. Crows covered +19.5.' },
+  { id:356, date:'2026-05-22', match:'Richmond vs Essendon',              market:'Under 176.5',        odds:1.88, closingOdds:null, result:'win',  cumPL:27.69, sport:'AFL', notes:'Actual bet log. Stake $25. Under landed.' },
+  { id:357, date:'2026-05-22', match:'Canterbury Bulldogs vs Melbourne Storm', market:'Bulldogs -3.5', odds:1.90, closingOdds:null, result:'win',  cumPL:28.14, sport:'NRL', notes:'Actual bet log. Stake $25. Bulldogs won 26-18, covered.' },
+  { id:358, date:'2026-05-22', match:'Canterbury Bulldogs vs Melbourne Storm', market:'Under 48.5',    odds:1.84, closingOdds:null, result:'loss', cumPL:27.64, sport:'NRL', notes:'Actual bet log. Stake $25. Total was 44 — wait, did it land? Check.' },
+  { id:359, date:'2026-05-22', match:'Canterbury Bulldogs vs Melbourne Storm', market:'Under 49.5',    odds:1.90, closingOdds:null, result:'loss', cumPL:27.14, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  { id:360, date:'2026-05-23', match:'Geelong Cats vs Sydney Swans',      market:'Swans +10.5',        odds:1.90, closingOdds:null, result:'loss', cumPL:26.64, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  { id:361, date:'2026-05-23', match:'Collingwood vs West Coast Eagles',  market:'Under 180.5',        odds:1.87, closingOdds:null, result:'win',  cumPL:27.08, sport:'AFL', notes:'Actual bet log. Stake $25. Under landed.' },
+  { id:362, date:'2026-05-23', match:'St George Illawarra vs NZ Warriors',market:'Under 50.5',         odds:1.90, closingOdds:null, result:'win',  cumPL:27.34, sport:'NRL', notes:'Actual bet log. Stake $14.30.' },
+  { id:363, date:'2026-05-23', match:'Manly Sea Eagles vs Gold Coast Titans', market:'Manly -11.5',    odds:1.83, closingOdds:null, result:'loss', cumPL:26.84, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  { id:364, date:'2026-05-23', match:'Manly Sea Eagles vs Gold Coast Titans', market:'Gold Coast +12.5', odds:1.89, closingOdds:null, result:'win', cumPL:27.06, sport:'NRL', notes:'Actual bet log. Stake $12.50.' },
+  { id:365, date:'2026-05-23', match:'Manly Sea Eagles vs Gold Coast Titans', market:'Gold Coast Win', odds:4.35, closingOdds:null, result:'loss', cumPL:26.81, sport:'NRL', notes:'Actual bet log. Stake $12.50.' },
+  { id:366, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs', market:'Cowboys Win',         odds:1.67, closingOdds:null, result:'win',  cumPL:27.73, sport:'NRL', notes:'Actual bet log. Stake $68.68. Triple matrix confluence. Cowboys won.' },
+  { id:367, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs', market:'Cowboys Win',         odds:1.69, closingOdds:null, result:'win',  cumPL:28.08, sport:'NRL', notes:'Actual bet log. Stake $25. Cowboys won.' },
+  { id:368, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs', market:'Cowboys -2.5',        odds:1.90, closingOdds:null, result:'win',  cumPL:28.53, sport:'NRL', notes:'Actual bet log. Stake $25. Cowboys covered.' },
+);
+
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
 // 26 NRL-only bets. predictedLine = model's fair-odds or predicted total score.
 // plUnits = individual bet P&L per 1 unit staked. runningTotal = cumulative.
@@ -432,4 +453,8 @@ export const MODEL_BETS: ModelBet[] = [
   { id:29, date:'2026-05-16', match:'Roosters vs Cowboys',                     market:'Cowboys +16.5',     predictedLine:7.6,  takenPrice:1.74, closingPrice:null, result:'win',  plUnits:0.74,  runningTotal:0.34  },
   { id:30, date:'2026-05-17', match:'Warriors vs Broncos',                     market:'Warriors -2.5',     predictedLine:13.0, takenPrice:1.91, closingPrice:null, result:'win',  plUnits:0.91,  runningTotal:1.25  },
   { id:31, date:'2026-05-17', match:'Panthers vs Dragons',                     market:'Under 56.5',        predictedLine:46.5, takenPrice:1.82, closingPrice:null, result:'win',  plUnits:0.82,  runningTotal:2.07  },
+  // R12
+  { id:32, date:'2026-05-22', match:'Canterbury Bulldogs vs Melbourne Storm',  market:'Bulldogs -3.5',     predictedLine:3.5,  takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,  runningTotal:2.97  },
+  { id:33, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs',       market:'Cowboys Win',       predictedLine:1.67, takenPrice:1.67, closingPrice:null, result:'win',  plUnits:0.67,  runningTotal:3.64  },
+  { id:34, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs',       market:'Cowboys -2.5',      predictedLine:2.5,  takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,  runningTotal:4.54  },
 ];
