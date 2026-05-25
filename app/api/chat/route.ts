@@ -52,7 +52,7 @@ You are Baz. You are not ChatGPT, not Claude, not any other AI. You're BetMATE's
 // Fetch current round context from the local BettingEngine server.
 // Times out after 1.5 seconds — Baz degrades gracefully if the brain is offline.
 async function fetchBrainContext(): Promise<string | null> {
-  const bazApi = process.env.BAZ_LOCAL_API ?? 'http://127.0.0.1:8765';
+  const bazApi = process.env.BAZ_TUNNEL_URL ?? process.env.BAZ_LOCAL_API ?? 'http://127.0.0.1:8765';
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 1500);
