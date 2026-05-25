@@ -421,6 +421,41 @@ function PriceCell({
   );
 }
 
+function MobilePriceTile({
+  bmKey, price, point, isBest, movement, isTotal = false,
+}: {
+  bmKey: string; price: number; point: number | null; isBest: boolean; movement?: Movement; isTotal?: boolean;
+}) {
+  const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
+  const adj = netPrice(price, bmKey);
+  return (
+    <div className={[
+      'relative flex shrink-0 w-[72px] flex-col items-center gap-1.5 rounded-xl border px-2 py-3',
+      isBest
+        ? 'border-[#00DEB8]/50 bg-[#00DEB8]/10 shadow-[inset_0_0_0_1px_rgba(0,222,184,0.3)]'
+        : 'border-[#E2E8F0] bg-[#F8FAFC]',
+    ].join(' ')}>
+      {movement && (
+        <span className={`absolute top-1.5 right-1.5 ${movement.direction === 'down' ? 'text-[#F97316]' : 'text-[#00B899]'}`}>
+          <ArrowDown className={`h-3 w-3 ${movement.direction === 'up' ? 'rotate-180' : ''}`} />
+        </span>
+      )}
+      <span className="flex h-6 w-6 items-center justify-center overflow-hidden rounded bg-white shadow-sm ring-1 ring-black/5">
+        <img src={`https://www.google.com/s2/favicons?domain=${meta.domain}&sz=64`} alt={meta.abbr} className="h-4 w-4" />
+      </span>
+      <span className="text-[8px] font-mono font-black uppercase tracking-wide text-[#9CA3AF]">{meta.abbr}</span>
+      {point != null && (
+        <span className="text-[10px] font-mono font-bold text-[#9CA3AF] leading-none">
+          {isTotal ? point : (point > 0 ? `+${point}` : point)}
+        </span>
+      )}
+      <span className={`text-[15px] font-bold font-mono tabular-nums leading-tight ${isBest ? 'text-[#00866F]' : 'text-[#111827]'}`}>
+        {adj.toFixed(2)}
+      </span>
+    </div>
+  );
+}
+
 function MarketUnavailable({ market }: { market: MarketTab }) {
   return (
     <div className="rounded-lg border border-[#E2E8F0] bg-white px-4 py-10 text-center">
@@ -733,76 +768,145 @@ function OddsBoardCard({
         </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <div
-          className="grid"
-          style={{
-            minWidth: `${gridMinWidth}px`,
-            gridTemplateColumns: `minmax(${labelCol}px,1.1fr) repeat(${bookmakerColumnCount}, minmax(${bookCol}px,1fr))`,
-          }}
-        >
-          <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
-          {displayEntries.map((entry) => (
-            <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
-              <BookLogo bmKey={entry.key} />
-            </div>
-          ))}
-
-          <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
-            {market === 'Totals' ? (
-              <TotalSelectionLabel side="Over" point={bestHome.point} />
-            ) : market === 'Line' ? (
-              <div>
+      {isMobile ? (
+        <div className="border-t border-[#E2E8F0] px-4 py-4 space-y-5">
+          {/* Home / Over */}
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              {market === 'Totals' ? (
+                <TotalSelectionLabel side="Over" point={bestHome.point} />
+              ) : market === 'Line' ? (
+                <div className="flex items-center gap-2">
+                  <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+                  {bestHome.point != null && (
+                    <span className="text-[11px] font-mono font-bold text-[#6B7280]">
+                      {bestHome.point > 0 ? '+' : ''}{bestHome.point}
+                    </span>
+                  )}
+                </div>
+              ) : (
                 <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-                {bestHome.point != null && (
-                  <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                    {bestHome.point > 0 ? '+' : ''}{bestHome.point}
-                  </span>
-                )}
-              </div>
-            ) : (
-              <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-            )}
+              )}
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+              {displayEntries.map((entry) => (
+                <MobilePriceTile
+                  key={entry.key}
+                  bmKey={entry.key}
+                  price={entry.home.price}
+                  point={entry.home.point}
+                  isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
+                  movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
+                  isTotal={market === 'Totals'}
+                />
+              ))}
+            </div>
           </div>
-          {displayEntries.map((entry) => (
-            <PriceCell
-              key={`${entry.key}-home`}
-              price={entry.home.price}
-              point={entry.home.point}
-              isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
-              movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
-              isTotal={market === 'Totals'}
-            />
-          ))}
-
-          <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
-            {market === 'Totals' ? (
-              <TotalSelectionLabel side="Under" point={bestAway.point} />
-            ) : market === 'Line' ? (
-              <div>
+          {/* Away / Under */}
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              {market === 'Totals' ? (
+                <TotalSelectionLabel side="Under" point={bestAway.point} />
+              ) : market === 'Line' ? (
+                <div className="flex items-center gap-2">
+                  <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+                  {bestAway.point != null && (
+                    <span className="text-[11px] font-mono font-bold text-[#6B7280]">
+                      {bestAway.point > 0 ? '+' : ''}{bestAway.point}
+                    </span>
+                  )}
+                </div>
+              ) : (
                 <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-                {bestAway.point != null && (
-                  <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                    {bestAway.point > 0 ? '+' : ''}{bestAway.point}
-                  </span>
-                )}
-              </div>
-            ) : (
-              <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-            )}
+              )}
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+              {displayEntries.map((entry) => (
+                <MobilePriceTile
+                  key={entry.key}
+                  bmKey={entry.key}
+                  price={entry.away.price}
+                  point={entry.away.point}
+                  isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
+                  movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
+                  isTotal={market === 'Totals'}
+                />
+              ))}
+            </div>
           </div>
-          {displayEntries.map((entry) => (
-            <PriceCell
-              key={`${entry.key}-away`}
-              price={entry.away.price}
-              point={entry.away.point}
-              isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
-              movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
-              isTotal={market === 'Totals'}
-            />
-          ))}
         </div>
-      </div>
+      ) : (
+        <div className="overflow-x-auto">
+          <div
+            className="grid"
+            style={{
+              minWidth: `${gridMinWidth}px`,
+              gridTemplateColumns: `minmax(${labelCol}px,1.1fr) repeat(${bookmakerColumnCount}, minmax(${bookCol}px,1fr))`,
+            }}
+          >
+            <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
+            {displayEntries.map((entry) => (
+              <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
+                <BookLogo bmKey={entry.key} />
+              </div>
+            ))}
+
+            <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
+              {market === 'Totals' ? (
+                <TotalSelectionLabel side="Over" point={bestHome.point} />
+              ) : market === 'Line' ? (
+                <div>
+                  <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+                  {bestHome.point != null && (
+                    <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
+                      {bestHome.point > 0 ? '+' : ''}{bestHome.point}
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+              )}
+            </div>
+            {displayEntries.map((entry) => (
+              <PriceCell
+                key={`${entry.key}-home`}
+                price={entry.home.price}
+                point={entry.home.point}
+                isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
+                movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
+                isTotal={market === 'Totals'}
+              />
+            ))}
+
+            <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
+              {market === 'Totals' ? (
+                <TotalSelectionLabel side="Under" point={bestAway.point} />
+              ) : market === 'Line' ? (
+                <div>
+                  <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+                  {bestAway.point != null && (
+                    <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
+                      {bestAway.point > 0 ? '+' : ''}{bestAway.point}
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+              )}
+            </div>
+            {displayEntries.map((entry) => (
+              <PriceCell
+                key={`${entry.key}-away`}
+                price={entry.away.price}
+                point={entry.away.point}
+                isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
+                movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
+                isTotal={market === 'Totals'}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
         <div className="flex flex-wrap gap-2">
