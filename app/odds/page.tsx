@@ -522,7 +522,6 @@ function OddsBoardCard({
   teamNewsHomeEntry?: TeamNewsEntry | null;
   teamNewsAwayEntry?: TeamNewsEntry | null;
 }) {
-  const [isMobile, setIsMobile] = useState(false);
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
   const [showBVI, setShowBVI] = useState(false);
@@ -531,13 +530,6 @@ function OddsBoardCard({
   const [showHaInfo, setShowHaInfo] = useState(false);
   const bviInfoRef = useRef<HTMLDivElement>(null);
   const haInfoRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 640);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
 
   useEffect(() => {
     if (!showBVIInfo && !showHaInfo) return;
@@ -628,15 +620,15 @@ function OddsBoardCard({
   const bestHome = comparableBest(entries, 'home', lineAware);
   const bestAway = comparableBest(entries, 'away', lineAware);
   const selected = market === 'Totals' ? 'Over / Under' : `${game.homeShort} / ${game.awayShort}`;
-  const maxBooks = isMobile ? 5 : 10;
-  const displayEntries = entries.slice(0, maxBooks);
+  const displayEntries = entries.slice(0, 10);
+  const mobileEntries = entries;
   const bookmakerColumnCount = Math.max(displayEntries.length, 1);
-  const labelCol = isMobile ? 100 : 150;
-  const bookCol  = isMobile ? 60  : 72;
+  const labelCol = 150;
+  const bookCol  = 72;
   const gridMinWidth = labelCol + bookmakerColumnCount * (bookCol + 10);
 
   return (
-    <article className={['relative rounded-xl border bg-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg', expanded ? 'border-[#00DEB8] shadow-[0_0_0_3px_rgba(0,222,184,0.10)]' : 'border-[#E2E8F0]', (showBVIInfo || showHaInfo) ? 'z-10' : ''].join(' ')}>
+    <article className={['relative overflow-hidden rounded-xl border bg-white transition-all duration-200', expanded ? 'border-[#00DEB8] shadow-[0_0_0_3px_rgba(0,222,184,0.10)]' : 'border-[#E2E8F0]', (showBVIInfo || showHaInfo) ? 'z-10' : ''].join(' ')}>
       <div className="overflow-hidden rounded-t-xl">
         <div
           className="h-1.5"
@@ -768,108 +760,31 @@ function OddsBoardCard({
         </div>
       </div>
 
-      {isMobile ? (
-        <div className="border-t border-[#E2E8F0] px-4 py-4 space-y-5">
-          {/* Home / Over */}
-          <div>
-            <div className="mb-3 flex items-center gap-2">
-              {market === 'Totals' ? (
-                <TotalSelectionLabel side="Over" point={bestHome.point} />
-              ) : market === 'Line' ? (
-                <div className="flex items-center gap-2">
-                  <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-                  {bestHome.point != null && (
-                    <span className="text-[11px] font-mono font-bold text-[#6B7280]">
-                      {bestHome.point > 0 ? '+' : ''}{bestHome.point}
-                    </span>
-                  )}
-                </div>
-              ) : (
+      {/* Mobile tile view — CSS hidden at sm+ so server renders this first */}
+      <div className="sm:hidden border-t border-[#E2E8F0] px-3 py-4 space-y-4">
+        {/* Home / Over */}
+        <div>
+          <div className="mb-2 flex items-center gap-2">
+            {market === 'Totals' ? (
+              <TotalSelectionLabel side="Over" point={bestHome.point} />
+            ) : market === 'Line' ? (
+              <div className="flex items-center gap-2">
                 <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-              )}
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
-              {displayEntries.map((entry) => (
-                <MobilePriceTile
-                  key={entry.key}
-                  bmKey={entry.key}
-                  price={entry.home.price}
-                  point={entry.home.point}
-                  isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
-                  movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
-                  isTotal={market === 'Totals'}
-                />
-              ))}
-            </div>
-          </div>
-          {/* Away / Under */}
-          <div>
-            <div className="mb-3 flex items-center gap-2">
-              {market === 'Totals' ? (
-                <TotalSelectionLabel side="Under" point={bestAway.point} />
-              ) : market === 'Line' ? (
-                <div className="flex items-center gap-2">
-                  <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-                  {bestAway.point != null && (
-                    <span className="text-[11px] font-mono font-bold text-[#6B7280]">
-                      {bestAway.point > 0 ? '+' : ''}{bestAway.point}
-                    </span>
-                  )}
-                </div>
-              ) : (
-                <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-              )}
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
-              {displayEntries.map((entry) => (
-                <MobilePriceTile
-                  key={entry.key}
-                  bmKey={entry.key}
-                  price={entry.away.price}
-                  point={entry.away.point}
-                  isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
-                  movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
-                  isTotal={market === 'Totals'}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="overflow-x-auto">
-          <div
-            className="grid"
-            style={{
-              minWidth: `${gridMinWidth}px`,
-              gridTemplateColumns: `minmax(${labelCol}px,1.1fr) repeat(${bookmakerColumnCount}, minmax(${bookCol}px,1fr))`,
-            }}
-          >
-            <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
-            {displayEntries.map((entry) => (
-              <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
-                <BookLogo bmKey={entry.key} />
+                {bestHome.point != null && (
+                  <span className="text-[11px] font-mono font-bold text-[#6B7280]">
+                    {bestHome.point > 0 ? '+' : ''}{bestHome.point}
+                  </span>
+                )}
               </div>
-            ))}
-
-            <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
-              {market === 'Totals' ? (
-                <TotalSelectionLabel side="Over" point={bestHome.point} />
-              ) : market === 'Line' ? (
-                <div>
-                  <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-                  {bestHome.point != null && (
-                    <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                      {bestHome.point > 0 ? '+' : ''}{bestHome.point}
-                    </span>
-                  )}
-                </div>
-              ) : (
-                <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-              )}
-            </div>
-            {displayEntries.map((entry) => (
-              <PriceCell
-                key={`${entry.key}-home`}
+            ) : (
+              <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+            )}
+          </div>
+          <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+            {mobileEntries.map((entry) => (
+              <MobilePriceTile
+                key={entry.key}
+                bmKey={entry.key}
                 price={entry.home.price}
                 point={entry.home.point}
                 isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
@@ -877,26 +792,31 @@ function OddsBoardCard({
                 isTotal={market === 'Totals'}
               />
             ))}
-
-            <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
-              {market === 'Totals' ? (
-                <TotalSelectionLabel side="Under" point={bestAway.point} />
-              ) : market === 'Line' ? (
-                <div>
-                  <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-                  {bestAway.point != null && (
-                    <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                      {bestAway.point > 0 ? '+' : ''}{bestAway.point}
-                    </span>
-                  )}
-                </div>
-              ) : (
+          </div>
+        </div>
+        {/* Away / Under */}
+        <div>
+          <div className="mb-2 flex items-center gap-2">
+            {market === 'Totals' ? (
+              <TotalSelectionLabel side="Under" point={bestAway.point} />
+            ) : market === 'Line' ? (
+              <div className="flex items-center gap-2">
                 <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-              )}
-            </div>
-            {displayEntries.map((entry) => (
-              <PriceCell
-                key={`${entry.key}-away`}
+                {bestAway.point != null && (
+                  <span className="text-[11px] font-mono font-bold text-[#6B7280]">
+                    {bestAway.point > 0 ? '+' : ''}{bestAway.point}
+                  </span>
+                )}
+              </div>
+            ) : (
+              <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+            )}
+          </div>
+          <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+            {mobileEntries.map((entry) => (
+              <MobilePriceTile
+                key={entry.key}
+                bmKey={entry.key}
                 price={entry.away.price}
                 point={entry.away.point}
                 isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
@@ -906,10 +826,82 @@ function OddsBoardCard({
             ))}
           </div>
         </div>
-      )}
+      </div>
 
-      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3">
-        <div className="flex flex-wrap gap-2">
+      {/* Desktop grid — hidden on mobile */}
+      <div className="hidden sm:block overflow-x-auto">
+        <div
+          className="grid"
+          style={{
+            minWidth: `${gridMinWidth}px`,
+            gridTemplateColumns: `minmax(${labelCol}px,1.1fr) repeat(${bookmakerColumnCount}, minmax(${bookCol}px,1fr))`,
+          }}
+        >
+          <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
+          {displayEntries.map((entry) => (
+            <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
+              <BookLogo bmKey={entry.key} />
+            </div>
+          ))}
+
+          <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
+            {market === 'Totals' ? (
+              <TotalSelectionLabel side="Over" point={bestHome.point} />
+            ) : market === 'Line' ? (
+              <div>
+                <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+                {bestHome.point != null && (
+                  <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
+                    {bestHome.point > 0 ? '+' : ''}{bestHome.point}
+                  </span>
+                )}
+              </div>
+            ) : (
+              <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+            )}
+          </div>
+          {displayEntries.map((entry) => (
+            <PriceCell
+              key={`${entry.key}-home`}
+              price={entry.home.price}
+              point={entry.home.point}
+              isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
+              movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
+              isTotal={market === 'Totals'}
+            />
+          ))}
+
+          <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
+            {market === 'Totals' ? (
+              <TotalSelectionLabel side="Under" point={bestAway.point} />
+            ) : market === 'Line' ? (
+              <div>
+                <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+                {bestAway.point != null && (
+                  <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
+                    {bestAway.point > 0 ? '+' : ''}{bestAway.point}
+                  </span>
+                )}
+              </div>
+            ) : (
+              <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+            )}
+          </div>
+          {displayEntries.map((entry) => (
+            <PriceCell
+              key={`${entry.key}-away`}
+              price={entry.away.price}
+              point={entry.away.point}
+              isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
+              movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
+              isTotal={market === 'Totals'}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-3 py-3">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
           <Chip icon={Flame} label="Move" value={stats.label} tone={stats.tone as 'neutral' | 'hot' | 'warn'} />
           <Chip icon={Trophy} label="Best price gap" value={gap > 0 ? `${gap.toFixed(1)}%` : 'N/A'} tone={gap >= 3 ? 'good' : 'neutral'} tooltip="The % difference between the best and worst price across all bookmakers. Betfair prices are adjusted for 5% commission. A gap above 3% means real money is being left on the table." />
           <Chip
