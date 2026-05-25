@@ -659,7 +659,7 @@ function OddsBoardCard({
                           <div className="flex items-center gap-2"><span className="inline-flex items-center rounded bg-[#F3F4F6] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#9CA3AF]">Neutral</span><span className="text-xs text-[#6B7280]">Mid 6 — no strong lean</span></div>
                           <div className="flex items-center gap-2"><span className="inline-flex items-center gap-0.5 rounded bg-[#fee2e2] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#dc2626]">▼ Fade</span><span className="text-xs text-[#6B7280]">Bottom 6 — market overrating them</span></div>
                         </div>
-                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">Badges appear when teams are in different tiers — same-tier matchups are suppressed. Source: aussportstipping.com — updated weekly.</p>
+                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">Badges appear when teams are in different tiers — same-tier matchups are suppressed. Updated weekly.</p>
                       </div>
                     )}
                   </div>
@@ -693,12 +693,12 @@ function OddsBoardCard({
                     {showHaInfo && (
                       <div className="absolute right-0 top-full mt-1 z-50 w-72 rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-xl">
                         <p className="mb-2 text-[11px] font-mono font-black uppercase tracking-widest text-[#111827]">Home / Away Value</p>
-                        <p className="mb-3 text-xs leading-relaxed text-[#6B7280]">Flags AFL teams with a strong venue split from aussportstipping.com's home-field advantage table.</p>
+                        <p className="mb-3 text-xs leading-relaxed text-[#6B7280]">Flags AFL teams with a strong venue split based on home-field advantage data.</p>
                         <div className="mb-3 space-y-1.5">
                           <div className="flex items-center gap-2"><span className="inline-flex items-center gap-1 rounded bg-[#dbeafe] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#2563eb]">⌂ Home Value</span><span className="text-xs text-[#6B7280]">Home team wins 70%+ at home</span></div>
                           <div className="flex items-center gap-2"><span className="inline-flex items-center gap-1 rounded bg-[#fef3c7] px-1.5 py-0.5 text-[9px] font-mono font-black uppercase tracking-widest text-[#b45309]">↗ Away Value</span><span className="text-xs text-[#6B7280]">Away team wins 65%+ away</span></div>
                         </div>
-                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">Source: aussportstipping.com — updated weekly.</p>
+                        <p className="text-[10px] leading-relaxed text-[#9CA3AF]">Updated weekly.</p>
                       </div>
                     )}
                   </div>
@@ -982,7 +982,7 @@ function DetailDrawer({
               <h3 className="font-display font-bold text-[#111827]">Historical context</h3>
             </div>
             <p className="text-sm leading-6 text-[#6B7280]">
-              This is where AusSportsBetting-style records, recent form, line history, totals trends and CLV notes will sit. It stays off the default board so the scan remains fast.
+              This is where historical records, recent form, line history, totals trends and CLV notes will sit. It stays off the default board so the scan remains fast.
             </p>
           </div>
         )}
