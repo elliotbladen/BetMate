@@ -487,6 +487,7 @@ function OddsBoardCard({
   teamNewsHomeEntry?: TeamNewsEntry | null;
   teamNewsAwayEntry?: TeamNewsEntry | null;
 }) {
+  const [isMobile, setIsMobile] = useState(false);
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
   const [showBVI, setShowBVI] = useState(false);
@@ -495,6 +496,13 @@ function OddsBoardCard({
   const [showHaInfo, setShowHaInfo] = useState(false);
   const bviInfoRef = useRef<HTMLDivElement>(null);
   const haInfoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   useEffect(() => {
     if (!showBVIInfo && !showHaInfo) return;
@@ -585,9 +593,12 @@ function OddsBoardCard({
   const bestHome = comparableBest(entries, 'home', lineAware);
   const bestAway = comparableBest(entries, 'away', lineAware);
   const selected = market === 'Totals' ? 'Over / Under' : `${game.homeShort} / ${game.awayShort}`;
-  const displayEntries = entries.slice(0, 10);
+  const maxBooks = isMobile ? 5 : 10;
+  const displayEntries = entries.slice(0, maxBooks);
   const bookmakerColumnCount = Math.max(displayEntries.length, 1);
-  const gridMinWidth = 150 + bookmakerColumnCount * 82;
+  const labelCol = isMobile ? 100 : 150;
+  const bookCol  = isMobile ? 60  : 72;
+  const gridMinWidth = labelCol + bookmakerColumnCount * (bookCol + 10);
 
   return (
     <article className={['relative rounded-xl border bg-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg', expanded ? 'border-[#00DEB8] shadow-[0_0_0_3px_rgba(0,222,184,0.10)]' : 'border-[#E2E8F0]', (showBVIInfo || showHaInfo) ? 'z-10' : ''].join(' ')}>
@@ -620,18 +631,18 @@ function OddsBoardCard({
             {venue && <p className="mt-1 text-xs text-[#9CA3AF]">{venue.name}</p>}
           </div>
 
-          <div className="flex flex-col items-end gap-2">
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+          <div className="flex flex-col gap-2 lg:items-end">
+            <div className="flex gap-2 sm:flex-wrap">
               <button
                 onClick={onAskBaz}
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#00DEB8] px-3 py-2 text-xs font-bold text-black shadow-[0_8px_24px_rgba(0,222,184,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#00C9A6]"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-md bg-[#00DEB8] px-3 py-2 text-xs font-bold text-black shadow-[0_8px_24px_rgba(0,222,184,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#00C9A6]"
               >
                 <Bot className="h-4 w-4" />
                 Ask Baz
               </button>
               <button
                 onClick={onToggleDetails}
-                className="inline-flex items-center justify-center gap-1 rounded-md border border-[#E2E8F0] bg-white px-3 py-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280] transition-colors hover:border-[#00DEB8]/60 hover:text-[#00866F]"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1 rounded-md border border-[#E2E8F0] bg-white px-3 py-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280] transition-colors hover:border-[#00DEB8]/60 hover:text-[#00866F]"
               >
                 Details
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
@@ -727,7 +738,7 @@ function OddsBoardCard({
           className="grid"
           style={{
             minWidth: `${gridMinWidth}px`,
-            gridTemplateColumns: `minmax(150px,1.1fr) repeat(${bookmakerColumnCount}, minmax(72px,1fr))`,
+            gridTemplateColumns: `minmax(${labelCol}px,1.1fr) repeat(${bookmakerColumnCount}, minmax(${bookCol}px,1fr))`,
           }}
         >
           <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
