@@ -25,7 +25,7 @@ const PUBLIC_PATHS = [
   '/api/team-news',
   '/api/odds/fixture',
   '/api/referees/nrl',
-  // NOTE: /api/chat is intentionally NOT listed here — requires auth
+  '/api/chat',
 ];
 
 export async function middleware(request: NextRequest) {
