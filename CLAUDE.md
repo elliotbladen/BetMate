@@ -216,12 +216,49 @@ $env:BETMATE_ROOT = "C:\Users\ElliotBladen\Apps"; $env:PYTHONUTF8 = "1"
 - Injury scraper classifies all players as "average" — manual overlays needed for elite absences (Connor Rozee out for Port, Sean Darcy out for Fremantle, Tim English out for Bulldogs)
 - AFL totals model has same known bias as NRL — rules consistently 10–30pts above market
 
+### BettingEngine Data Folder Structure (updated 2026-05-25)
+
+All output data lives in `BettingEngine/data/` with consistent naming: `{SPORT}_{TYPE}_R{rr:02d}_{YYYY-MM-DD}[_suffix].csv`
+
+```
+BettingEngine/data/
+├── bets/
+│   ├── actual_bets_2026.csv              master ledger (44 bets as of R12)
+│   └── weekly/                           YYYY-MM-DD_AFL-RXX_NRL-RXX.csv
+├── clv/
+│   ├── nrl/                              NRL_CLV_R{rr}_{date}[_ml_comparison|_ml_shadow|_rules_vs_ml|_manual].csv
+│   ├── afl/                              AFL_CLV_R{rr}_{date}[_suffix].csv
+│   └── running/
+│       ├── actual_bets_clv_2026.csv      per-bet CLV (fill after each round)
+│       ├── model_clv_supplement_nrl_2026.csv  R8/R9 model CLV (no actual bets)
+│       ├── NRL_CLV_running_2026.csv      running total — currently +7.94% (R8–R11)
+│       └── AFL_CLV_running_2026.csv      running total — currently +0.72% (R8–R9)
+├── model_accuracy/
+│   ├── nrl/                              NRL_MODEL_ACCURACY_R{rr}_{date}.csv
+│   ├── afl/                              AFL_MODEL_ACCURACY_R{rr}_{date}.csv
+│   └── MODEL_ACCURACY_RUNNING_2026.csv   rules vs ML vs market — running bias table
+└── pricing/
+    ├── nrl/                              NRL_PRICING_R{rr}_{date}[_ml_shadow|_tier_breakdown].csv
+    └── afl/                              AFL_PRICING_R{rr}_{date}[_suffix].csv
+```
+
+**Post-CLV scripts (run Tue after closing lines filed):**
+```powershell
+cd C:\Users\ElliotBladen\Apps\BettingEngine
+& C:\Users\ElliotBladen\.local\bin\uv.exe run python scripts\update_clv_running.py
+& C:\Users\ElliotBladen\.local\bin\uv.exe run python scripts\generate_model_accuracy.py
+# After new round priced — add to SOURCES list first:
+& C:\Users\ElliotBladen\.local\bin\uv.exe run python scripts\convert_pricing_files.py
+```
+
 ### Pending Work
 - **Custom domain betmate.au:** DNS resolving ✅, SSL cert provisioning. `www.betmate.au` CNAME still points to wrong site — needs updating in Cloudflare + Vercel domain added
 - **EV signals on Vercel:** wire via Cloudflare Tunnel once domain + tunnel ready
 - ~~BVI weekly task~~ ✅ All 4 tasks installed — "BetMate NRL BVI" (Mon 08:20) + "BetMate NRL Home Away Value" (Mon 08:30) first run 2026-05-25
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
-- **AFL totals model:** Both AFL and NRL show model consistently pricing totals 5–10pts+ above market. Needs T1 expected-points review.
+- **AFL totals model:** Model accuracy running file confirms rules AND ML both systematically underprice AFL totals by 8–25pts. Needs T1 expected-points review.
+- **NRL H2H home bias:** Rules model overrates home teams by +9–11% vs market. ML shadow much better (+1–6%). Consider T4 venue calibration review.
+- **R12 CLV:** Not yet filed — opening/closing lines pending. Run scripts after filing.
 - **Refs on Vercel:** wire `lib/referees.ts` to an API route + Supabase key so ref badges show on live site
 - **T9 Matrix tier:** end-of-2026 review. Weighted by sample size (N<10=0.3, N10-25=0.6, N25+=1.0). Triple confluence cap 10%. See memory file.
 - **Supabase UNIQUE constraint:** Add UNIQUE constraint on `key` column in `betmate_data_store` so `resolution=merge-duplicates` actually merges instead of inserting duplicates. Currently `getDataStore` works around this with `.limit(1)` but the root cause should be fixed in Supabase SQL editor: `ALTER TABLE betmate_data_store ADD CONSTRAINT betmate_data_store_key_unique UNIQUE (key);`

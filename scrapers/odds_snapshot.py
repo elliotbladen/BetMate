@@ -33,7 +33,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-ROOT       = Path(__file__).resolve().parents[2]
+ROOT       = Path(__file__).resolve().parents[1]
 SNAP_DIR   = ROOT / "data" / "odds_snapshots"
 LOG_DIR    = SNAP_DIR / "logs"
 LOG_PATH   = LOG_DIR / "snapshot.log"

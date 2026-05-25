@@ -17,7 +17,7 @@ export default function Home() {
               </div>
 
               <h1 className="font-display text-[42px] sm:text-[58px] lg:text-[68px] leading-[0.92] font-extrabold tracking-tight text-white max-w-xl">
-                Compare odds. Spot moves. Ask Baz.
+                Betting Intelligence.
               </h1>
 
               <p className="mt-6 text-[16px] sm:text-[18px] leading-7 text-[#CBD5E1] max-w-sm">

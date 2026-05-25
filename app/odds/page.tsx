@@ -1406,7 +1406,7 @@ function OddsPageContent() {
           <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
             <div className="min-w-0">
               <p className="section-label mb-1">Live odds board</p>
-              <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#111827] sm:text-3xl">Compare odds. Spot moves. Ask Baz.</h1>
+              <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#111827] sm:text-3xl">Betting Intelligence.</h1>
             </div>
 
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center">

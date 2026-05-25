@@ -31,7 +31,7 @@ from zoneinfo import ZoneInfo
 
 import requests as _requests
 
-ROOT     = Path(__file__).resolve().parents[2]
+ROOT     = Path(__file__).resolve().parents[1]
 SNAP_DIR = ROOT / "data" / "odds_snapshots"
 MOVE_DIR = ROOT / "data" / "odds_movements"
 ENV_PATH = ROOT / ".env.local"
