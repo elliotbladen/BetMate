@@ -493,6 +493,22 @@ function OddsBoardCard({
   const [showBVIInfo, setShowBVIInfo] = useState(false);
   const [showHaValue, setShowHaValue] = useState(false);
   const [showHaInfo, setShowHaInfo] = useState(false);
+  const bviInfoRef = useRef<HTMLDivElement>(null);
+  const haInfoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showBVIInfo && !showHaInfo) return;
+    function handle(e: MouseEvent | TouchEvent) {
+      if (showBVIInfo && !bviInfoRef.current?.contains(e.target as Node)) setShowBVIInfo(false);
+      if (showHaInfo && !haInfoRef.current?.contains(e.target as Node)) setShowHaInfo(false);
+    }
+    document.addEventListener('mousedown', handle);
+    document.addEventListener('touchstart', handle);
+    return () => {
+      document.removeEventListener('mousedown', handle);
+      document.removeEventListener('touchstart', handle);
+    };
+  }, [showBVIInfo, showHaInfo]);
 
   const entries = bookmakerEntries(game, market);
   const venue = game.sport === 'AFL'
@@ -574,13 +590,15 @@ function OddsBoardCard({
   const gridMinWidth = 150 + bookmakerColumnCount * 82;
 
   return (
-    <article className={['overflow-hidden rounded-xl border bg-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg', expanded ? 'border-[#00DEB8] shadow-[0_0_0_3px_rgba(0,222,184,0.10)]' : 'border-[#E2E8F0]'].join(' ')}>
-      <div
-        className="h-1.5"
-        style={{
-          background: `linear-gradient(90deg, ${teamMetaHome?.primary ?? '#111827'} 0%, ${teamMetaHome?.primary ?? '#111827'} 45%, #E2E8F0 45%, #E2E8F0 55%, ${teamMetaAway?.primary ?? '#111827'} 55%, ${teamMetaAway?.primary ?? '#111827'} 100%)`,
-        }}
-      />
+    <article className={['relative rounded-xl border bg-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg', expanded ? 'border-[#00DEB8] shadow-[0_0_0_3px_rgba(0,222,184,0.10)]' : 'border-[#E2E8F0]', (showBVIInfo || showHaInfo) ? 'z-10' : ''].join(' ')}>
+      <div className="overflow-hidden rounded-t-xl">
+        <div
+          className="h-1.5"
+          style={{
+            background: `linear-gradient(90deg, ${teamMetaHome?.primary ?? '#111827'} 0%, ${teamMetaHome?.primary ?? '#111827'} 45%, #E2E8F0 45%, #E2E8F0 55%, ${teamMetaAway?.primary ?? '#111827'} 55%, ${teamMetaAway?.primary ?? '#111827'} 100%)`,
+          }}
+        />
+      </div>
 
       <div className="px-4 py-4">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
@@ -624,11 +642,7 @@ function OddsBoardCard({
               <div className="flex flex-wrap justify-end gap-2">
 
                 {(bviHomeEntry || bviAwayEntry) && (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setShowBVIInfo(true)}
-                    onMouseLeave={() => setShowBVIInfo(false)}
-                  >
+                  <div className="relative" ref={bviInfoRef}>
                     <div className="inline-flex items-stretch overflow-hidden rounded border border-[#E2E8F0] bg-white text-[11px] font-mono font-bold uppercase tracking-widest">
                       <button
                         type="button"
@@ -643,6 +657,7 @@ function OddsBoardCard({
                       <div className="w-px bg-[#E2E8F0]" />
                       <button
                         type="button"
+                        onClick={() => setShowBVIInfo(v => !v)}
                         className="flex items-center px-2 py-1.5 text-[#9CA3AF] transition-colors hover:bg-[#F8FAFC] hover:text-[#6B7280]"
                       >
                         <Info className="h-3 w-3" />
@@ -666,11 +681,7 @@ function OddsBoardCard({
                 )}
 
                 {(homeAwayHomeEntry || homeAwayAwayEntry) && (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setShowHaInfo(true)}
-                    onMouseLeave={() => setShowHaInfo(false)}
-                  >
+                  <div className="relative" ref={haInfoRef}>
                     <div className="inline-flex items-stretch overflow-hidden rounded border border-[#E2E8F0] bg-white text-[11px] font-mono font-bold uppercase tracking-widest">
                       <button
                         type="button"
@@ -685,6 +696,7 @@ function OddsBoardCard({
                       <div className="w-px bg-[#E2E8F0]" />
                       <button
                         type="button"
+                        onClick={() => setShowHaInfo(v => !v)}
                         className="flex items-center px-2 py-1.5 text-[#9CA3AF] transition-colors hover:bg-[#F8FAFC] hover:text-[#6B7280]"
                       >
                         <Info className="h-3 w-3" />
@@ -1402,44 +1414,40 @@ function OddsPageContent() {
   return (
     <div className="min-h-[calc(100dvh-60px)] bg-[#F0F2F5]">
       <div className="sticky top-[60px] z-30 border-b border-[#E2E8F0] bg-white/95 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
-          <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-            <div className="min-w-0">
+        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 sm:py-3">
+          <div className="flex items-center gap-3 xl:justify-between">
+            {/* Title — desktop only */}
+            <div className="hidden xl:block min-w-0 shrink-0">
               <p className="section-label mb-1">Live odds board</p>
-              <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#111827] sm:text-3xl">Betting Intelligence.</h1>
+              <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#111827]">Betting Intelligence.</h1>
             </div>
-
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-              <div className="flex gap-1 overflow-x-auto no-scrollbar">
-                {SPORT_TABS.map((sport) => (
-                  <button
-                    key={sport}
-                    onClick={() => switchSport(sport)}
-                    className={[
-                      'h-10 shrink-0 rounded px-4 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors',
-                      activeSport === sport ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
-                    ].join(' ')}
-                  >
-                    {sport}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex gap-1 overflow-x-auto no-scrollbar">
-                {MARKET_TABS.map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => setMarket(item)}
-                    className={[
-                      'h-10 shrink-0 rounded px-4 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors',
-                      market === item ? 'bg-[#00DEB8] text-black' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
-                    ].join(' ')}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-
+            {/* All tabs in one scrollable row */}
+            <div className="flex flex-1 items-center gap-1 overflow-x-auto no-scrollbar xl:flex-none">
+              {SPORT_TABS.map((sport) => (
+                <button
+                  key={sport}
+                  onClick={() => switchSport(sport)}
+                  className={[
+                    'h-9 shrink-0 rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
+                    activeSport === sport ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
+                  ].join(' ')}
+                >
+                  {sport}
+                </button>
+              ))}
+              <div className="mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
+              {MARKET_TABS.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => setMarket(item)}
+                  className={[
+                    'h-9 shrink-0 rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
+                    market === item ? 'bg-[#00DEB8] text-black' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
+                  ].join(' ')}
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
         </div>
