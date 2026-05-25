@@ -638,7 +638,43 @@ function OddsBoardCard({
         />
       </div>
 
-      <div className="px-4 py-4">
+      {/* ── Mobile header (hidden on sm+) ── */}
+      <div className="sm:hidden px-3 pt-3 pb-2">
+        <div className="mb-1.5 flex items-center gap-2 flex-wrap">
+          <span className="rounded bg-[#111827] px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest text-white">{game.sport}</span>
+          <span className="text-[10px] font-mono uppercase tracking-wide text-[#6B7280]">{game.kickoffTime}</span>
+          <span className="text-[10px] text-[#9CA3AF]">{market}</span>
+        </div>
+        <div className="mb-0.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+          <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+          <BviBadge tier={displayBviHome} />
+          <HomeAwayValueBadge type="home" pct={homeValuePct} />
+          <span className="text-[9px] font-mono font-black uppercase tracking-widest text-[#9CA3AF]">vs</span>
+          <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+          <BviBadge tier={displayBviAway} />
+          <HomeAwayValueBadge type="away" pct={awayValuePct} />
+        </div>
+        {venue && <p className="mb-2 text-[10px] text-[#9CA3AF]">{venue.name}</p>}
+        <div className="flex w-full gap-2 mt-2">
+          <button
+            onClick={onAskBaz}
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#00DEB8] py-2.5 text-xs font-bold text-black"
+          >
+            <Bot className="h-3.5 w-3.5" />
+            Ask Baz
+          </button>
+          <button
+            onClick={onToggleDetails}
+            className="flex-1 inline-flex items-center justify-center gap-1 rounded-lg border border-[#E2E8F0] bg-white py-2.5 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280]"
+          >
+            Details
+            <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
+      </div>
+
+      {/* ── Desktop header (hidden on mobile) ── */}
+      <div className="hidden sm:block px-4 py-4">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div className="min-w-0">
             <div className="mb-2 flex flex-wrap items-center gap-2">
@@ -659,17 +695,17 @@ function OddsBoardCard({
           </div>
 
           <div className="flex flex-col gap-2 lg:items-end">
-            <div className="flex gap-2 sm:flex-wrap">
+            <div className="flex gap-2">
               <button
                 onClick={onAskBaz}
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-md bg-[#00DEB8] px-3 py-2 text-xs font-bold text-black shadow-[0_8px_24px_rgba(0,222,184,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#00C9A6]"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#00DEB8] px-3 py-2 text-xs font-bold text-black shadow-[0_8px_24px_rgba(0,222,184,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#00C9A6]"
               >
                 <Bot className="h-4 w-4" />
                 Ask Baz
               </button>
               <button
                 onClick={onToggleDetails}
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1 rounded-md border border-[#E2E8F0] bg-white px-3 py-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280] transition-colors hover:border-[#00DEB8]/60 hover:text-[#00866F]"
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-[#E2E8F0] bg-white px-3 py-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280] transition-colors hover:border-[#00DEB8]/60 hover:text-[#00866F]"
               >
                 Details
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
@@ -924,7 +960,7 @@ function OddsBoardCard({
           {game.sport === 'NRL' && <Chip icon={ShieldAlert} label="Ref" value={game.referee ? `${game.referee} · ${refBucket}` : refBucket} />}
           <Chip icon={Stethoscope} label="Team news" value={(teamNewsHomeEntry?.status === 'alert' || teamNewsAwayEntry?.status === 'alert') ? 'Alert' : 'Monitor'} tone={(teamNewsHomeEntry?.status === 'alert' || teamNewsAwayEntry?.status === 'alert') ? 'hot' : 'warn'} />
         </div>
-        <p className="mt-3 text-sm leading-6 text-[#4B5563]">
+        <p className="hidden sm:block mt-3 text-sm leading-6 text-[#4B5563]">
           {stats.label === 'Quiet' ? 'No major market move flagged yet.' : `${stats.label} detected on ${market}. Best price gap is ${gap.toFixed(1)}%.`} Ask Baz for the plain-English read before kickoff.
         </p>
       </div>
