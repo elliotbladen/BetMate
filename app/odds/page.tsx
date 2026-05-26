@@ -671,6 +671,40 @@ function OddsBoardCard({
             <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
           </button>
         </div>
+        {(bviHomeEntry || bviAwayEntry || homeAwayHomeEntry || homeAwayAwayEntry) && (
+          <div className="flex gap-2 mt-2">
+            {(bviHomeEntry || bviAwayEntry) && (
+              <button
+                type="button"
+                onClick={() => setShowBVI(v => !v)}
+                className={[
+                  'flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border py-2 text-[10px] font-mono font-bold uppercase tracking-widest transition-colors',
+                  showBVI ? 'border-[#22c55e]/50 bg-[#22c55e]/10 text-[#16a34a]' : 'border-[#E2E8F0] bg-[#F8FAFC] text-[#9CA3AF]',
+                ].join(' ')}
+              >
+                <span className={['flex h-2.5 w-2.5 items-center justify-center rounded-sm border text-[7px]', showBVI ? 'border-[#16a34a] bg-[#22c55e] text-white' : 'border-[#D1D5DB]'].join(' ')}>
+                  {showBVI ? '✓' : ''}
+                </span>
+                BVI
+              </button>
+            )}
+            {(homeAwayHomeEntry || homeAwayAwayEntry) && (
+              <button
+                type="button"
+                onClick={() => setShowHaValue(v => !v)}
+                className={[
+                  'flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border py-2 text-[10px] font-mono font-bold uppercase tracking-widest transition-colors',
+                  showHaValue ? 'border-[#2563eb]/50 bg-[#dbeafe] text-[#2563eb]' : 'border-[#E2E8F0] bg-[#F8FAFC] text-[#9CA3AF]',
+                ].join(' ')}
+              >
+                <span className={['flex h-2.5 w-2.5 items-center justify-center rounded-sm border text-[7px]', showHaValue ? 'border-[#2563eb] bg-[#2563eb] text-white' : 'border-[#D1D5DB]'].join(' ')}>
+                  {showHaValue ? '✓' : ''}
+                </span>
+                H/A Value
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       {/* ── Desktop header (hidden on mobile) ── */}
@@ -1205,40 +1239,65 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
 
   return (
     <article className="overflow-hidden rounded-xl border border-[#E2E8F0] bg-white opacity-60">
-      <div className="flex items-center justify-between border-b border-[#E2E8F0] px-4 py-3">
-        <div>
+      <div className="flex items-center justify-between gap-2 border-b border-[#E2E8F0] px-4 py-3">
+        <div className="min-w-0">
           <p className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">{game.kickoffTime}</p>
-          <p className="font-display font-bold text-[#111827]">
-            {game.homeTeam} <span className="text-[10px] font-mono font-black text-[#9CA3AF]">vs</span> {game.awayTeam}
+          <p className="truncate font-display text-sm font-bold text-[#111827] sm:text-base">
+            {game.homeShort} <span className="text-[10px] font-mono font-black text-[#9CA3AF]">vs</span> {game.awayShort}
           </p>
         </div>
-        <span className="rounded bg-[#F0F2F5] px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#9CA3AF]">Kicked off</span>
+        <span className="shrink-0 rounded bg-[#F0F2F5] px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#9CA3AF]">Kicked off</span>
       </div>
 
       {displayEntries.length > 0 && (
-        <div className="overflow-x-auto">
-          <div className="min-w-[480px]" style={{ display: 'grid', gridTemplateColumns: `minmax(100px,1fr) repeat(${cols}, minmax(72px,1fr))` }}>
-            <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
-            {displayEntries.slice(0, cols).map((entry) => {
-              const meta = BOOKMAKER_META[entry.key] ?? { abbr: entry.key.slice(0, 3).toUpperCase() };
-              return <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">{meta.abbr}</div>;
-            })}
-
-            <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{homeLabel}</div>
-            {displayEntries.slice(0, cols).map((entry) => (
-              <div key={`${entry.key}-h`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
-                {entry.home.price > 0 ? entry.home.price.toFixed(2) : '—'}
-              </div>
-            ))}
-
-            <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{awayLabel}</div>
-            {displayEntries.slice(0, cols).map((entry) => (
-              <div key={`${entry.key}-a`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
-                {entry.away.price > 0 ? entry.away.price.toFixed(2) : '—'}
-              </div>
-            ))}
+        <>
+          {/* Mobile: compact horizontal scroll tiles */}
+          <div className="sm:hidden border-t border-[#E2E8F0] px-3 py-3">
+            <div className="mb-1.5 flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#9CA3AF]">
+              <span>{homeLabel}</span><span className="text-[#D1D5DB]">/</span><span>{awayLabel}</span>
+            </div>
+            <div className="flex gap-3 overflow-x-auto no-scrollbar">
+              {displayEntries.slice(0, cols).map((entry) => {
+                const meta = BOOKMAKER_META[entry.key] ?? { abbr: entry.key.slice(0, 3).toUpperCase() };
+                return (
+                  <div key={entry.key} className="shrink-0 flex flex-col items-center gap-1 min-w-[40px]">
+                    <span className="text-[8px] font-mono font-black uppercase tracking-wide text-[#9CA3AF]">{meta.abbr}</span>
+                    <span className={`text-[12px] font-mono font-bold tabular-nums ${entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+                      {entry.home.price > 0 ? entry.home.price.toFixed(2) : '—'}
+                    </span>
+                    <span className={`text-[12px] font-mono font-bold tabular-nums ${entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+                      {entry.away.price > 0 ? entry.away.price.toFixed(2) : '—'}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
+          {/* Desktop: full grid */}
+          <div className="hidden sm:block overflow-x-auto">
+            <div className="min-w-[480px]" style={{ display: 'grid', gridTemplateColumns: `minmax(100px,1fr) repeat(${cols}, minmax(72px,1fr))` }}>
+              <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
+              {displayEntries.slice(0, cols).map((entry) => {
+                const meta = BOOKMAKER_META[entry.key] ?? { abbr: entry.key.slice(0, 3).toUpperCase() };
+                return <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">{meta.abbr}</div>;
+              })}
+
+              <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{homeLabel}</div>
+              {displayEntries.slice(0, cols).map((entry) => (
+                <div key={`${entry.key}-h`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+                  {entry.home.price > 0 ? entry.home.price.toFixed(2) : '—'}
+                </div>
+              ))}
+
+              <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{awayLabel}</div>
+              {displayEntries.slice(0, cols).map((entry) => (
+                <div key={`${entry.key}-a`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+                  {entry.away.price > 0 ? entry.away.price.toFixed(2) : '—'}
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
       )}
     </article>
   );
@@ -1566,19 +1625,20 @@ function OddsPageContent() {
             </div>
             {/* All tabs in one scrollable row */}
             <div className="flex flex-1 items-center gap-1 overflow-x-auto no-scrollbar xl:flex-none">
+              {/* Sport tabs — hidden on mobile (header already has them) */}
               {SPORT_TABS.map((sport) => (
                 <button
                   key={sport}
                   onClick={() => switchSport(sport)}
                   className={[
-                    'h-9 shrink-0 rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
+                    'hidden sm:flex h-9 shrink-0 items-center justify-center rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
                     activeSport === sport ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
                   ].join(' ')}
                 >
                   {sport}
                 </button>
               ))}
-              <div className="mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
+              <div className="hidden sm:block mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
               {MARKET_TABS.map((item) => (
                 <button
                   key={item}
