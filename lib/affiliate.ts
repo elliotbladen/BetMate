@@ -54,3 +54,56 @@ export function getAffiliateUrl(bookmaker: string, sport: string): string | null
   const map = sport.toUpperCase() === 'AFL' ? AFL_URLS : NRL_URLS;
   return map[bookmaker] ?? null;
 }
+
+function slugify(name: string): string {
+  return name.trim().replace(/\s+/g, '-');
+}
+
+// Short name = last word (e.g. "North Queensland Cowboys" → "Cowboys")
+function shortName(name: string): string {
+  return name.trim().split(/\s+/).pop() ?? name;
+}
+
+// Best game-specific URL we can construct per bookmaker.
+// TAB uses full-name slug URLs (no event ID needed).
+// Sportsbet/Neds use event IDs we don't have — search is the next best option.
+// All others fall back to the competition-level URL.
+export function buildGameUrl(
+  bookmaker: string,
+  sport: 'NRL' | 'AFL',
+  homeTeam: string,
+  awayTeam: string,
+): string {
+  const isAFL = sport === 'AFL';
+
+  if (bookmaker === 'tab') {
+    const comp = isAFL
+      ? 'Australian%20Rules/competitions/AFL'
+      : 'Rugby%20League/competitions/NRL';
+    return `https://www.tab.com.au/sports/betting/${comp}/matches/${slugify(homeTeam)}-v-${slugify(awayTeam)}`;
+  }
+
+  if (bookmaker === 'tabtouch') {
+    const comp = isAFL ? 'australian-rules/afl' : 'rugby-league/national-rugby-league';
+    return `https://www.tabtouch.com.au/sports/${comp}/${slugify(homeTeam).toLowerCase()}-vs-${slugify(awayTeam).toLowerCase()}`;
+  }
+
+  if (bookmaker === 'sportsbet') {
+    const q = encodeURIComponent(`${shortName(homeTeam)} ${shortName(awayTeam)}`);
+    return `https://www.sportsbet.com.au/search?term=${q}`;
+  }
+
+  if (bookmaker === 'neds') {
+    const q = encodeURIComponent(`${shortName(homeTeam)} ${shortName(awayTeam)}`);
+    return `https://www.neds.com.au/search?q=${q}`;
+  }
+
+  if (bookmaker === 'ladbrokes_au') {
+    const q = encodeURIComponent(`${shortName(homeTeam)} ${shortName(awayTeam)}`);
+    return `https://www.ladbrokes.com.au/search?q=${q}`;
+  }
+
+  // Betright, Betr, PointsBet, Unibet, Betfair all use internal event IDs — competition page is best we can do
+  const map = isAFL ? AFL_URLS : NRL_URLS;
+  return map[bookmaker] ?? '';
+}

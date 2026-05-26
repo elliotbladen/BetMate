@@ -10,10 +10,10 @@ import type { MovementMap, Movement } from '@/lib/oddsMovement';
 import type { EVSignal } from '@/lib/matrixEV';
 import { getVenue } from '@/lib/venues';
 import { getTeamMeta } from '@/lib/teams';
-import { getAffiliateUrl, APP_STORE_LINKS } from '@/lib/affiliate';
+import { buildGameUrl, APP_STORE_LINKS } from '@/lib/affiliate';
 import WeatherBadge from './WeatherBadge';
 
-// â”€â”€â”€ Betfair commission â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Betfair commission â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 const BETFAIR_KEY = 'betfair_ex_au';
 const BETFAIR_COMMISSION = 0.05;
 
@@ -22,7 +22,7 @@ function effectivePrice(key: string, price: number): number {
   return 1 + (price - 1) * (1 - BETFAIR_COMMISSION);
 }
 
-// â”€â”€â”€ Logo â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Logo â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function BookmakerLogo({ domain, abbr }: { domain: string; abbr: string }) {
   return (
     <Image
@@ -36,7 +36,7 @@ function BookmakerLogo({ domain, abbr }: { domain: string; abbr: string }) {
   );
 }
 
-// â”€â”€â”€ Team name + badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Team name + badge â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function TeamName({ name }: { name: string }) {
   const meta = getTeamMeta(name);
   return (
@@ -56,7 +56,7 @@ function TeamName({ name }: { name: string }) {
   );
 }
 
-// â”€â”€â”€ Countdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Countdown â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function CountdownTimer({ commenceTime }: { commenceTime: string }) {
   const [label, setLabel] = useState('');
   const [diff, setDiff]   = useState(Infinity);
@@ -104,7 +104,7 @@ function CountdownTimer({ commenceTime }: { commenceTime: string }) {
   );
 }
 
-// â”€â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Types â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 type SpreadsOdds = Record<string, { home: number; away: number; homePoint: number; awayPoint: number }>;
 type TotalsOdds  = Record<string, { over: number; under: number; point: number }>;
 
@@ -179,12 +179,14 @@ function sortBookmakers<T>(entries: [string, T][]): [string, T][] {
   });
 }
 
-// â”€â”€â”€ Bookmaker card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Bookmaker card â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function BmCard({
-  bmKey, sport, isBest, evPct, userPlan, isLoggedIn = false, movement, refreshCount, children,
+  bmKey, sport, homeTeam, awayTeam, isBest, evPct, userPlan, isLoggedIn = false, movement, refreshCount, children,
 }: {
   bmKey: string;
   sport: string;
+  homeTeam: string;
+  awayTeam: string;
   isBest: boolean;
   evPct?: number;
   userPlan: 'free' | 'pro';
@@ -203,7 +205,7 @@ function BmCard({
   const locked = isBest && userPlan === 'free' && !isLoggedIn;
   const hasEV = isBest && evPct != null;
   const isStrongShortener = movement?.shortenedStrong ?? false;
-  const webHref = getAffiliateUrl(bmKey, sport);
+  const webHref = buildGameUrl(bmKey, sport as 'NRL' | 'AFL', homeTeam, awayTeam);
   const baseClass = [
     'relative flex flex-col items-center pt-6 pb-4 px-2 rounded-md shrink-0 w-[110px] sm:w-auto sm:min-w-[64px] sm:pt-4 sm:pb-2.5',
     'cursor-pointer transition-all duration-150 group/bm',
@@ -259,7 +261,7 @@ function BmCard({
               strokeWidth={2.5}
               aria-label={`Price shortened ${Math.abs(movement.changePct).toFixed(0)} percent`}
             />
-          ) : movement.direction === 'up' ? 'â†‘' : 'â†“'}
+          ) : movement.direction === 'up' ? 'â†‘' : 'â†"'}
         </span>
       )}
       <div className={[
@@ -283,7 +285,7 @@ function BmCard({
   );
 }
 
-// â”€â”€â”€ Margin row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Margin row â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function MarginRow({ entries }: { entries: { key: string; margin: number }[] }) {
   const sorted = [...entries].sort((a, b) => a.margin - b.margin);
   const lowest = sorted[0]?.margin;
@@ -303,10 +305,10 @@ function MarginRow({ entries }: { entries: { key: string; margin: number }[] }) 
   );
 }
 
-// â”€â”€â”€ Row components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-function OddsRow({ label, odds, side, best, evPct, userPlan, isLoggedIn, gameId, market, sport, movements, refreshCount }: {
+// â"€â"€â"€ Row components â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
+function OddsRow({ label, odds, side, best, evPct, userPlan, isLoggedIn, gameId, market, sport, homeTeam, awayTeam, movements, refreshCount }: {
   label: string; odds: Game['odds']; side: 'home' | 'away'; best: number; evPct?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
-  gameId: string; market: string; sport: string; movements?: MovementMap; refreshCount?: number;
+  gameId: string; market: string; sport: string; homeTeam: string; awayTeam: string; movements?: MovementMap; refreshCount?: number;
 }) {
   const entries = sortBookmakers(Object.entries(odds))
     .map(([key, o]) => ({ key, price: effectivePrice(key, o[side]) }))
@@ -320,7 +322,7 @@ function OddsRow({ label, odds, side, best, evPct, userPlan, isLoggedIn, gameId,
           const isBest = price === best;
           const movement = movements?.[`${gameId}:${market}:${key}:${side}`];
           return (
-            <BmCard key={key} bmKey={key} sport={sport} isBest={isBest} evPct={isBest ? evPct : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
+            <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evPct : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
               <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
               <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
               <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>
@@ -334,9 +336,9 @@ function OddsRow({ label, odds, side, best, evPct, userPlan, isLoggedIn, gameId,
   );
 }
 
-function SpreadsRow({ label, odds, side, evPct, userPlan, isLoggedIn, gameId, sport, movements, refreshCount }: {
+function SpreadsRow({ label, odds, side, evPct, userPlan, isLoggedIn, gameId, sport, homeTeam, awayTeam, movements, refreshCount }: {
   label: string; odds: SpreadsOdds; side: 'home' | 'away'; evPct?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
-  gameId: string; sport: string; movements?: MovementMap; refreshCount?: number;
+  gameId: string; sport: string; homeTeam: string; awayTeam: string; movements?: MovementMap; refreshCount?: number;
 }) {
   const entries = sortBookmakers(Object.entries(odds))
     .map(([key, o]) => ({ key, price: effectivePrice(key, o[side]), point: side === 'home' ? o.homePoint : o.awayPoint }));
@@ -352,7 +354,7 @@ function SpreadsRow({ label, odds, side, evPct, userPlan, isLoggedIn, gameId, sp
           const sign = point > 0 ? '+' : '';
           const movement = movements?.[`${gameId}:spreads:${key}:${side}`];
           return (
-            <BmCard key={key} bmKey={key} sport={sport} isBest={isBest} evPct={isBest ? evPct : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
+            <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evPct : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
               <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
               <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
               <span className="text-[#9CA3AF] text-[13px] sm:text-[10px] font-mono leading-none">{sign}{point}</span>
@@ -367,9 +369,9 @@ function SpreadsRow({ label, odds, side, evPct, userPlan, isLoggedIn, gameId, sp
   );
 }
 
-function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport, movements, refreshCount }: {
+function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport, homeTeam, awayTeam, movements, refreshCount }: {
   odds: TotalsOdds; evOver?: number; evUnder?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
-  gameId: string; sport: string; movements?: MovementMap; refreshCount?: number;
+  gameId: string; sport: string; homeTeam: string; awayTeam: string; movements?: MovementMap; refreshCount?: number;
 }) {
   const entries = sortBookmakers(Object.entries(odds));
   const bestOver  = Math.max(...entries.map(([key, o]) => effectivePrice(key, o.over)));
@@ -392,7 +394,7 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
             const isBest = adjOver === bestOver;
             const movement = movements?.[`${gameId}:totals:${key}:over`];
             return (
-              <BmCard key={key} bmKey={key} sport={sport} isBest={isBest} evPct={isBest ? evOver : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
+              <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evOver : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
                 <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
                 <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
                 <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>${adjOver.toFixed(2)}</span>
@@ -410,7 +412,7 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
             const isBest = adjUnder === bestUnder;
             const movement = movements?.[`${gameId}:totals:${key}:under`];
             return (
-              <BmCard key={key} bmKey={key} sport={sport} isBest={isBest} evPct={isBest ? evUnder : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
+              <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evUnder : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
                 <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
                 <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
                 <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>${adjUnder.toFixed(2)}</span>
@@ -423,7 +425,7 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
   );
 }
 
-// â”€â”€â”€ Helpers for EV signal lookup â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Helpers for EV signal lookup â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function pickSignal(signals: EVSignal[], market: EVSignal['market'], side: EVSignal['side']): EVSignal | undefined {
   return signals.find(s => s.market === market && s.side === side);
@@ -434,7 +436,7 @@ function freeEV(sig: EVSignal | undefined): number | undefined {
   return sig.tier === 'free' ? sig.edgePct : undefined;
 }
 
-// â”€â”€â”€ Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Card â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 export default function GameCard({ game, userPlan, isLoggedIn = false, movements, refreshCount }: GameCardProps) {
   const [tab, setTab] = useState<MarketTab>('H2H');
   const [evSignals, setEvSignals] = useState<EVSignal[]>([]);
@@ -469,7 +471,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
   return (
     <article className="border border-[#E2E8F0] rounded-lg bg-white overflow-hidden shadow-sm">
 
-      {/* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Header â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <div className="px-5 pt-5 pb-4 flex items-start justify-between gap-4">
         <div className="min-w-0 overflow-hidden">
           <div className="flex items-center gap-2.5 flex-wrap">
@@ -493,12 +495,12 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
             {game.referee ? game.referee.toUpperCase() : 'TBA'}
           </p>
           <p className={`text-[11px] font-mono font-bold uppercase tracking-wide leading-snug ${bucketColor}`}>
-            {game.refereeBucket ? game.refereeBucket.toUpperCase() : 'â€”'}
+            {game.refereeBucket ? game.refereeBucket.toUpperCase() : 'â€"'}
           </p>
         </div>
       </div>
 
-      {/* â”€â”€ Market tabs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Market tabs â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <div className="border-t border-[#E2E8F0] grid grid-cols-3">
         {MARKET_TABS.map((t, i) => (
           <button
@@ -520,7 +522,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
         ))}
       </div>
 
-      {/* â”€â”€ Odds grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Odds grid â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {tab === 'H2H' ? (() => {
         const h2hMargins = Object.entries(game.odds).map(([key, o]) => ({
           key,
@@ -528,8 +530,8 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
         }));
         return (
           <div className="px-5 py-4 space-y-4">
-            <OddsRow label={`HOME â€” ${game.homeShort}`} odds={game.odds} side="home" best={bestHome} evPct={freeEV(evH2hHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} movements={movements} refreshCount={refreshCount} />
-            <OddsRow label={`AWAY â€” ${game.awayShort}`} odds={game.odds} side="away" best={bestAway} evPct={freeEV(evH2hAway)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} movements={movements} refreshCount={refreshCount} />
+            <OddsRow label={`HOME — ${game.homeShort}`} odds={game.odds} side="home" best={bestHome} evPct={freeEV(evH2hHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+            <OddsRow label={`AWAY — ${game.awayShort}`} odds={game.odds} side="away" best={bestAway} evPct={freeEV(evH2hAway)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
             <MarginRow entries={h2hMargins} />
           </div>
         );
@@ -541,8 +543,8 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
           }));
           return (
             <div className="px-5 py-4 space-y-4">
-              <SpreadsRow label={`HOME â€” ${game.homeShort}`} odds={game.spreadsOdds!} side="home" evPct={freeEV(evHcapHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} movements={movements} refreshCount={refreshCount} />
-              <SpreadsRow label={`AWAY â€” ${game.awayShort}`} odds={game.spreadsOdds!} side="away" evPct={freeEV(evHcapAway)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} movements={movements} refreshCount={refreshCount} />
+              <SpreadsRow label={`HOME — ${game.homeShort}`} odds={game.spreadsOdds!} side="home" evPct={freeEV(evHcapHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+              <SpreadsRow label={`AWAY — ${game.awayShort}`} odds={game.spreadsOdds!} side="away" evPct={freeEV(evHcapAway)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
               <MarginRow entries={spreadMargins} />
             </div>
           );
@@ -557,7 +559,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
           }));
           return (
             <div className="px-5 py-4 space-y-4">
-              <TotalsRow odds={game.totalsOdds!} evOver={freeEV(evTotOver)} evUnder={freeEV(evTotUnder)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} movements={movements} refreshCount={refreshCount} />
+              <TotalsRow odds={game.totalsOdds!} evOver={freeEV(evTotOver)} evUnder={freeEV(evTotUnder)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
               <MarginRow entries={totalsMargins} />
             </div>
           );
@@ -566,14 +568,14 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
         )
       )}
 
-      {/* â”€â”€ Betfair footnote â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Betfair footnote â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {Object.keys(game.odds).includes(BETFAIR_KEY) && (
         <div className="px-5 pb-2">
           <p className="text-[#9CA3AF] text-[10px] font-mono">* Betfair odds adjusted for 5% commission</p>
         </div>
       )}
 
-      {/* â”€â”€ Value Edge strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Value Edge strip â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <div className="border-t border-[#E2E8F0] px-5 pt-3 pb-2 flex flex-wrap items-center gap-2">
         {/* Free-tier value edge signals */}
         {evSignals.filter(s => s.tier === 'free').map((s, i) => {
@@ -589,7 +591,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
           );
         })}
 
-        {/* PRO-tier value edge signals â€” blurred for free users */}
+        {/* PRO-tier value edge signals â€" blurred for free users */}
         {evSignals.filter(s => s.tier === 'pro').map((s, i) => {
           const label =
             s.market === 'h2h'      ? `H2H ${s.side.toUpperCase()}` :
@@ -630,17 +632,17 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
       {evSignals.length > 0 && (
         <div className="px-5 pb-3">
           <p className="text-[#9CA3AF] text-[9px] font-mono leading-snug">
-            <span className="text-[#9CA3AF]">Value edge signals are derived from 4 years of NRL data (2022â€“2025). Backing the flagged side has historically returned positive value over this period. Past performance does not guarantee future results.</span>
+            <span className="text-[#9CA3AF]">Value edge signals are derived from 4 years of NRL data (2022â€"2025). Backing the flagged side has historically returned positive value over this period. Past performance does not guarantee future results.</span>
           </p>
         </div>
       )}
 
-      {/* â”€â”€ PRO upgrade strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ PRO upgrade strip â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {userPlan === 'free' && (
         <div className="border-t border-[#E2E8F0] px-5 py-3 flex items-center justify-between gap-4">
           <p className="text-[10px] font-mono uppercase tracking-wide">
             <span className="text-[#7C3AED] font-bold">PRO</span>
-            <span className="text-[#9CA3AF]"> â€” Model breakdown Â· full edge signals Â· sentiment</span>
+            <span className="text-[#9CA3AF]"> â€" Model breakdown Â· full edge signals Â· sentiment</span>
           </p>
           <button className="shrink-0 text-[#9CA3AF] text-[10px] font-mono font-bold uppercase tracking-widest hover:text-[#00DEB8] transition-colors">
             Upgrade
