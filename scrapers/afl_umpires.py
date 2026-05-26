@@ -1,4 +1,4 @@
-"""
+﻿"""
 Scrape AFL umpire appointments from AFLUA round PDFs.
 
 Outputs:
@@ -28,7 +28,7 @@ import requests
 from bs4 import BeautifulSoup
 from pypdf import PdfReader
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 BASE_DIR = ROOT / "data" / "afl" / "umpires"
 RAW_DIR = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

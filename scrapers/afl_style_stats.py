@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/afl_style_stats.py
 
 Scrapes AFL team style stats from afltables.com and saves as CSV.
@@ -30,7 +30,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-ROOT          = Path(__file__).resolve().parents[2]
+ROOT          = Path(__file__).resolve().parents[1]
 BASE_DIR      = ROOT / "data" / "afl" / "style-stats"
 RAW_DIR       = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

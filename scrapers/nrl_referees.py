@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_referees.py
 
 Scrapes NRL referee appointments from the NRL.com draw page.
@@ -31,7 +31,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-ROOT          = Path(__file__).resolve().parents[2]
+ROOT          = Path(__file__).resolve().parents[1]
 BASE_DIR      = ROOT / "data" / "nrl" / "referees"
 RAW_DIR       = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

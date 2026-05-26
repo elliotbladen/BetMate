@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_home_advantage.py
 
 Scrapes NRL home/away win percentages from aussportstipping.com and saves
@@ -23,7 +23,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "data" / "nrl" / "home-away" / "processed"
 OUT = OUT_DIR / "latest-home-away.json"
 URL = "https://www.aussportstipping.com/sports/nrl/home_advantage/"

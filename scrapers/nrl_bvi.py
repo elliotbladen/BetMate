@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_bvi.py
 
 Scrapes the NRL Betting Value Index from aussportstipping.com and saves it
@@ -27,7 +27,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-ROOT    = Path(__file__).resolve().parents[2]
+ROOT    = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "data" / "nrl" / "bvi" / "processed"
 OUT     = OUT_DIR / "latest-bvi.json"
 URL     = "https://www.aussportstipping.com/sports/nrl/betting_value_index/"

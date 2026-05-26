@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_emotional.py
 
 Generates T7 emotional flags for the upcoming NRL round.
@@ -44,7 +44,7 @@ from pathlib import Path
 
 import anthropic
 
-ROOT      = Path(__file__).resolve().parents[2]
+ROOT      = Path(__file__).resolve().parents[1]
 BASE_DIR  = ROOT / "data" / "nrl" / "emotional"
 RAW_DIR   = BASE_DIR / "raw"
 PROC_DIR  = BASE_DIR / "processed"

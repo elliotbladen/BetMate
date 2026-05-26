@@ -1,4 +1,4 @@
-"""
+﻿"""
 Weekly NRL style-stat scraper.
 
 This stores the T2 inputs BetMate will later expose to BettingEngine.
@@ -30,7 +30,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 BASE_DIR = ROOT / "data" / "nrl" / "style-stats"
 RAW_DIR = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

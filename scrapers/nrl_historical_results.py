@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_historical_results.py
 
 Downloads the NRL historical results & odds Excel file from aussportsbetting.com.
@@ -32,7 +32,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT          = Path(__file__).resolve().parents[2]
+ROOT          = Path(__file__).resolve().parents[1]
 BASE_DIR      = ROOT / "data" / "nrl" / "historical"
 RAW_DIR       = BASE_DIR / "raw"
 LOG_DIR       = BASE_DIR / "logs"

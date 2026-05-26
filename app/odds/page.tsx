@@ -37,6 +37,7 @@ import { getAFLVenue } from '@/lib/aflVenues';
 import { getTeamMeta } from '@/lib/teams';
 import { getVenue, getVenueByName } from '@/lib/venues';
 import { getSpecialRoundVenue } from '@/lib/specialRounds';
+import { LEGACY_BETS } from '@/lib/researchData';
 
 type Sport = 'NRL' | 'AFL';
 type MarketTab = 'H2H' | 'Line' | 'Totals';
@@ -1018,6 +1019,86 @@ function OddsBoardCard({
   );
 }
 
+function HistoryTab({ homeTeam, awayTeam, sport }: { homeTeam: string; awayTeam: string; sport: string }) {
+  function keywords(name: string): string[] {
+    const base = name.replace(/-/g, ' ').split(/\s+/).filter(w => w.length >= 3);
+    const extras: string[] = [];
+    if (name.includes('Greater Western Sydney')) extras.push('GWS');
+    if (name.includes('Rabbitohs')) extras.push('Souths');
+    if (name.includes('North Melbourne') || name.includes('Kangaroos')) extras.push('North');
+    if (name.includes('Collingwood')) extras.push('Pies');
+    return Array.from(new Set([...base, ...extras]));
+  }
+
+  const hasTeam = (match: string, kws: string[]) =>
+    kws.some(k => match.toLowerCase().includes(k.toLowerCase()));
+
+  const homeKw = keywords(homeTeam);
+  const awayKw = keywords(awayTeam);
+
+  const related = [...LEGACY_BETS]
+    .filter(b => b.sport === sport && (hasTeam(b.match, homeKw) || hasTeam(b.match, awayKw)))
+    .sort((a, b) => new Date(b.date ?? '2000').getTime() - new Date(a.date ?? '2000').getTime())
+    .slice(0, 15);
+
+  const h2hCount = related.filter(b => hasTeam(b.match, homeKw) && hasTeam(b.match, awayKw)).length;
+  const wins = related.filter(b => b.result === 'win').length;
+  const losses = related.filter(b => b.result === 'loss').length;
+
+  if (related.length === 0) {
+    return (
+      <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-6 text-center">
+        <History className="h-5 w-5 text-[#9CA3AF] mx-auto mb-2" />
+        <p className="text-xs text-[#9CA3AF] font-mono uppercase tracking-widest">No bet history on these teams</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-3">
+      <div className="grid grid-cols-3 gap-2">
+        {([
+          ['Bets', related.length.toString()],
+          ['W / L', `${wins} / ${losses}`],
+          ['H2H', h2hCount.toString()],
+        ] as [string, string][]).map(([label, value]) => (
+          <div key={label} className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2">
+            <p className="text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest">{label}</p>
+            <p className="text-sm font-mono font-bold text-[#111827]">{value}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="border-b border-[#E2E8F0]">
+              {['Date', 'Match', 'Market', 'Odds', 'Res'].map(h => (
+                <th key={h} className="pb-1.5 pr-3 text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {related.map(bet => (
+              <tr key={bet.id} className="border-b border-[#E2E8F0] hover:bg-[#F8FAFC]">
+                <td className="py-1.5 pr-3 text-[10px] font-mono text-[#9CA3AF] whitespace-nowrap">{bet.date ? bet.date.slice(5) : '—'}</td>
+                <td className="py-1.5 pr-3 text-[11px] font-mono text-[#374151] max-w-[130px] truncate" title={bet.match}>{bet.match}</td>
+                <td className="py-1.5 pr-3 text-[10px] font-mono text-[#6B7280] whitespace-nowrap max-w-[90px] truncate" title={bet.market}>{bet.market}</td>
+                <td className="py-1.5 pr-3 text-[10px] font-mono tabular-nums text-[#6B7280]">{bet.odds ?? '—'}</td>
+                <td className="py-1.5">
+                  {bet.result === 'win'  && <span className="px-1 py-0.5 rounded text-[9px] font-mono font-bold bg-[#00DEB8]/15 text-[#00DEB8]">W</span>}
+                  {bet.result === 'loss' && <span className="px-1 py-0.5 rounded text-[9px] font-mono font-bold bg-red-500/15 text-red-500">L</span>}
+                  {bet.result === 'push' && <span className="px-1 py-0.5 rounded text-[9px] font-mono font-bold bg-[#E2E8F0] text-[#9CA3AF]">P</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="text-[9px] font-mono text-[#9CA3AF]">Last {related.length} bets involving these teams. Full history on Research page.</p>
+    </div>
+  );
+}
 function DetailDrawer({
   game,
   market,
@@ -1179,15 +1260,7 @@ function DetailDrawer({
         )}
 
         {tab === 'History' && (
-          <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4">
-            <div className="mb-2 flex items-center gap-2">
-              <History className="h-5 w-5 text-[#00B899]" />
-              <h3 className="font-display font-bold text-[#111827]">Historical context</h3>
-            </div>
-            <p className="text-sm leading-6 text-[#6B7280]">
-              This is where historical records, recent form, line history, totals trends and CLV notes will sit. It stays off the default board so the scan remains fast.
-            </p>
-          </div>
+          <HistoryTab homeTeam={game.homeTeam} awayTeam={game.awayTeam} sport={game.sport} />
         )}
       </div>
     </div>

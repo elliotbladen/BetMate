@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_postgame_scout.py
 
 Scout v1: post-game NRL intelligence scan.
@@ -39,7 +39,7 @@ from typing import Iterable
 import requests
 from bs4 import BeautifulSoup
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 BASE_DIR = ROOT / "data" / "nrl" / "scout" / "postgame"
 RAW_DIR = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

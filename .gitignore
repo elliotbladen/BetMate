@@ -30,3 +30,5 @@ tsconfig.tsbuildinfo
 .DS_Store
 BettingEngine/
 .claude/
+
+.vercel

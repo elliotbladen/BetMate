@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/afl_injuries.py
 
 Scrapes the AFL injury list from footywire.com.
@@ -29,7 +29,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-ROOT          = Path(__file__).resolve().parents[2]
+ROOT          = Path(__file__).resolve().parents[1]
 BASE_DIR      = ROOT / "data" / "afl" / "injuries"
 RAW_DIR       = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

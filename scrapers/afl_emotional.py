@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/afl_emotional.py
 
 Generates emotional flags for the upcoming AFL round.
@@ -41,7 +41,7 @@ from pathlib import Path
 
 import anthropic
 
-ROOT      = Path(__file__).resolve().parents[2]
+ROOT      = Path(__file__).resolve().parents[1]
 BASE_DIR  = ROOT / "data" / "afl" / "emotional"
 RAW_DIR   = BASE_DIR / "raw"
 PROC_DIR  = BASE_DIR / "processed"

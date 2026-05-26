@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/afl_round_prep.py
 
 Orchestrator — runs AFL round-prep scrapers in sequence:
@@ -16,7 +16,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT     = Path(__file__).resolve().parents[2]
+ROOT     = Path(__file__).resolve().parents[1]
 LOG_DIR  = ROOT / "data" / "afl" / "logs"
 LOG_PATH = LOG_DIR / "round_prep.log"
 

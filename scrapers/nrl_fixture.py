@@ -28,7 +28,7 @@ from pathlib import Path
 
 import requests
 
-ROOT        = Path(__file__).resolve().parents[2]
+ROOT        = Path(__file__).resolve().parents[1]
 BASE_DIR    = ROOT / "data" / "nrl" / "fixture"
 RAW_DIR     = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

@@ -1,4 +1,4 @@
-# /// script
+﻿# /// script
 # dependencies = ["tzdata", "requests"]
 # ///
 """
@@ -28,7 +28,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-ROOT          = Path(__file__).resolve().parents[2]
+ROOT          = Path(__file__).resolve().parents[1]
 INJURIES_PATH = ROOT / "data" / "nrl" / "injuries" / "processed" / "latest-injuries.json"
 TEAM_NEWS_PATH = ROOT / "data" / "nrl" / "team-news" / "latest.json"
 LOCAL_TZ      = ZoneInfo("Australia/Sydney")

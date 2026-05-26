@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-26 (end of session)
+**Last updated:** 2026-05-26 evening (bookmaker links live)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -164,17 +164,21 @@ cd C:\Users\ElliotBladen\Apps
 & C:\Users\ElliotBladen\.local\bin\uv.exe run --with requests python scripts/seed_test_baseline.py
 ```
 
-### Cloudflare Tunnel — IN PROGRESS
-- `cloudflared` installed at `C:\Program Files (x86)\cloudflared\cloudflared.exe` ✅
-- Logged in to Cloudflare account ✅
-- **Blocked:** no domain added to Cloudflare yet — waiting on domain
-- **Next steps when domain ready:**
-  1. Add domain to Cloudflare, update nameservers at registrar
-  2. `cloudflared tunnel create betmate-baz`
-  3. Configure tunnel → localhost:8765
-  4. Add `BAZ_TUNNEL_URL` to Vercel env vars
-  5. Update `app/api/chat/route.ts` to use tunnel URL on Vercel
-  6. Point custom domain at Vercel
+### Cloudflare Tunnel — LIVE ✅
+- Tunnel: `betmate-baz` (ID: `ce4bfb19-82f6-4ffe-af06-e2c65636a323`)
+- DNS: `baz.betmate.au` → Cloudflare IPs → `localhost:8765` ✅
+- Config: `C:\Users\ElliotBladen\.cloudflared\config.yml`
+- `BAZ_TUNNEL_URL=https://baz.betmate.au` set in Vercel production env ✅
+- `app/api/chat/route.ts` uses `BAZ_TUNNEL_URL ?? BAZ_LOCAL_API ?? localhost:8765`
+- Start script: `scripts/start_baz.ps1` — kills stale cloudflared, starts Baz server, starts tunnel, health checks
+- **Baz is ONLINE on betmate.au** — `X-Baz-Brain: online` confirmed ✅
+
+**To start Baz + tunnel:**
+```powershell
+& C:\Users\ElliotBladen\Apps\scripts\start_baz.ps1
+```
+
+**If tunnel drops:** re-run `start_baz.ps1`. Baz will show "Brain offline" banner on site until tunnel reconnects.
 
 ### Supabase Push — Weekly scraper updates
 Scrapers now push to Supabase automatically after local write:

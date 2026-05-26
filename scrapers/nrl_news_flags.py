@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_news_flags.py
 
 Nightly NRL market news scanner.
@@ -37,7 +37,7 @@ from typing import Iterable
 import requests
 from bs4 import BeautifulSoup
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 BASE_DIR = ROOT / "data" / "nrl" / "news_flags"
 RAW_DIR = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

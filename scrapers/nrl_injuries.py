@@ -1,4 +1,4 @@
-"""
+﻿"""
 lib/scraper/nrl_injuries.py
 
 Scrapes the NRL casualty ward from NRL.com (server-rendered, no JS required).
@@ -31,7 +31,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-ROOT          = Path(__file__).resolve().parents[2]
+ROOT          = Path(__file__).resolve().parents[1]
 BASE_DIR      = ROOT / "data" / "nrl" / "injuries"
 RAW_DIR       = BASE_DIR / "raw"
 PROCESSED_DIR = BASE_DIR / "processed"

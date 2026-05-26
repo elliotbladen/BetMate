@@ -22,7 +22,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT     = Path(__file__).resolve().parents[2]
+ROOT     = Path(__file__).resolve().parents[1]
 LOG_DIR  = ROOT / "data" / "nrl" / "logs"
 LOG_PATH = LOG_DIR / "round_prep.log"
 
