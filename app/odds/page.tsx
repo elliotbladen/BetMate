@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -28,6 +28,7 @@ import { createClient } from '@/lib/supabase';
 import ChatPanel from '@/components/chat/ChatPanel';
 import type { Game } from '@/components/odds/GameCard';
 import type { OddsApiEvent } from '@/lib/oddsApi';
+import { buildGameUrl } from '@/lib/affiliate';
 import { BOOKMAKER_META, extractH2HOdds, extractSpreadsOdds, extractTotalsOdds } from '@/lib/oddsApi';
 import { computeMovementsFromOpening } from '@/lib/oddsMovement';
 import type { Movement, MovementMap, OpeningPriceMap } from '@/lib/oddsMovement';
@@ -329,9 +330,10 @@ function TeamBadge({ name, label }: { name: string; label?: string }) {
   );
 }
 
-function BookLogo({ bmKey }: { bmKey: string }) {
+function BookLogo({ bmKey, homeTeam, awayTeam, sport }: { bmKey: string; homeTeam: string; awayTeam: string; sport: string }) {
   const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
-  return (
+  const href = buildGameUrl(bmKey, sport as 'NRL' | 'AFL', homeTeam, awayTeam);
+  const inner = (
     <div className="flex flex-col items-center justify-center gap-1">
       <span className="flex h-8 w-8 items-center justify-center rounded-md bg-white shadow-sm ring-1 ring-black/5">
         <img
@@ -343,6 +345,9 @@ function BookLogo({ bmKey }: { bmKey: string }) {
       <span className="text-[9px] font-mono font-black uppercase tracking-wide text-[#6B7280]">{meta.abbr}</span>
     </div>
   );
+  return href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity" title={`Bet at ${meta.name}`}>{inner}</a>
+  ) : inner;
 }
 
 function Chip({
@@ -422,14 +427,17 @@ function PriceCell({
 }
 
 function MobilePriceTile({
-  bmKey, price, point, isBest, movement, isTotal = false,
+  bmKey, price, point, isBest, movement, isTotal = false, homeTeam, awayTeam, sport,
 }: {
-  bmKey: string; price: number; point: number | null; isBest: boolean; movement?: Movement; isTotal?: boolean;
+  bmKey: string; price: number; point: number | null; isBest: boolean; movement?: Movement; isTotal?: boolean; homeTeam: string; awayTeam: string; sport: string;
 }) {
   const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
   const adj = netPrice(price, bmKey);
+  const href = buildGameUrl(bmKey, sport as 'NRL' | 'AFL', homeTeam, awayTeam);
+  const Tag = href ? 'a' : 'div';
+  const tagProps = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : {};
   return (
-    <div className={[
+    <Tag {...tagProps as any} className={[
       'relative flex shrink-0 w-[72px] flex-col items-center gap-1.5 rounded-xl border px-2 py-3',
       isBest
         ? 'border-[#00DEB8]/50 bg-[#00DEB8]/10 shadow-[inset_0_0_0_1px_rgba(0,222,184,0.3)]'
@@ -452,7 +460,7 @@ function MobilePriceTile({
       <span className={`text-[15px] font-bold font-mono tabular-nums leading-tight ${isBest ? 'text-[#00866F]' : 'text-[#111827]'}`}>
         {adj.toFixed(2)}
       </span>
-    </div>
+    </Tag>
   );
 }
 
@@ -860,6 +868,9 @@ function OddsBoardCard({
                 isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
                 movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
                 isTotal={market === 'Totals'}
+                homeTeam={game.homeTeam}
+                awayTeam={game.awayTeam}
+                sport={game.sport}
               />
             ))}
           </div>
@@ -892,6 +903,9 @@ function OddsBoardCard({
                 isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
                 movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
                 isTotal={market === 'Totals'}
+                homeTeam={game.homeTeam}
+                awayTeam={game.awayTeam}
+                sport={game.sport}
               />
             ))}
           </div>
@@ -910,7 +924,7 @@ function OddsBoardCard({
           <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
           {displayEntries.map((entry) => (
             <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
-              <BookLogo bmKey={entry.key} />
+              <BookLogo bmKey={entry.key} homeTeam={game.homeTeam} awayTeam={game.awayTeam} sport={game.sport} />
             </div>
           ))}
 
