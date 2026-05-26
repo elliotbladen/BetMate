@@ -1018,10 +1018,85 @@ function OddsBoardCard({
   );
 }
 
+interface HFG { date: string; opponent: string; teamScore: number; oppScore: number; won: boolean; isHome: boolean; venue: string; }
+interface HRM { date: string; homeTeam: string; awayTeam: string; homeScore: number; awayScore: number; venue: string; }
+
+function FormTable({ games, label }: { games: HFG[]; label: string }) {
+  if (games.length === 0) {
+    return <div className="text-[10px] font-mono text-[#9CA3AF] text-center py-2">No data</div>;
+  }
+  return (
+    <div>
+      <p className="text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1.5">{label} — Last {games.length}</p>
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="border-b border-[#E2E8F0]">
+            {['Date', 'Opponent', 'Score', 'H/A', 'Res'].map(h => (
+              <th key={h} className="pb-1 pr-2 text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {games.map((g, i) => (
+            <tr key={i} className="border-b border-[#E2E8F0] hover:bg-[#F8FAFC]">
+              <td className="py-1 pr-2 text-[10px] font-mono text-[#9CA3AF] whitespace-nowrap">{g.date.slice(5)}</td>
+              <td className="py-1 pr-2 text-[10px] font-mono text-[#374151] max-w-[100px] truncate" title={g.opponent}>{g.opponent.split(' ').pop()}</td>
+              <td className="py-1 pr-2 text-[10px] font-mono tabular-nums text-[#374151] whitespace-nowrap">{g.teamScore}&#8211;{g.oppScore}</td>
+              <td className="py-1 pr-2 text-[9px] font-mono text-[#9CA3AF]">{g.isHome ? 'H' : 'A'}</td>
+              <td className="py-1">
+                {g.won
+                  ? <span className="px-1 py-0.5 rounded text-[9px] font-mono font-bold bg-[#00DEB8]/15 text-[#00DEB8]">W</span>
+                  : <span className="px-1 py-0.5 rounded text-[9px] font-mono font-bold bg-red-500/15 text-red-500">L</span>
+                }
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function H2HTable({ matches, homeTeamName }: { matches: HRM[]; homeTeamName: string }) {
+  if (matches.length === 0) {
+    return <div className="text-[10px] font-mono text-[#9CA3AF] text-center py-2">No H2H data</div>;
+  }
+  const hNick = (homeTeamName.split(' ').pop() ?? '').toLowerCase();
+  return (
+    <div>
+      <p className="text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1.5">H2H — Last {matches.length}</p>
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="border-b border-[#E2E8F0]">
+            {['Date', 'Home', 'Away', 'Score'].map(h => (
+              <th key={h} className="pb-1 pr-2 text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {matches.map((m, i) => {
+            const ourHomeWon = m.homeTeam.toLowerCase().includes(hNick) ? m.homeScore > m.awayScore : m.awayScore > m.homeScore;
+            return (
+              <tr key={i} className="border-b border-[#E2E8F0] hover:bg-[#F8FAFC]">
+                <td className="py-1 pr-2 text-[10px] font-mono text-[#9CA3AF] whitespace-nowrap">{m.date.slice(5)}</td>
+                <td className="py-1 pr-2 text-[10px] font-mono text-[#374151] max-w-[80px] truncate" title={m.homeTeam}>{m.homeTeam.split(' ').pop()}</td>
+                <td className="py-1 pr-2 text-[10px] font-mono text-[#374151] max-w-[80px] truncate" title={m.awayTeam}>{m.awayTeam.split(' ').pop()}</td>
+                <td className="py-1">
+                  <span className={ourHomeWon ? 'text-[#00DEB8] font-bold text-[10px] font-mono tabular-nums' : 'text-red-400 font-bold text-[10px] font-mono tabular-nums'}>
+                    {m.homeScore}&#8211;{m.awayScore}
+                  </span>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function HistoryTab({ homeTeam, awayTeam, sport }: { homeTeam: string; awayTeam: string; sport: string }) {
-  interface FG { date: string; opponent: string; teamScore: number; oppScore: number; won: boolean; isHome: boolean; venue: string; }
-  interface RM { date: string; homeTeam: string; awayTeam: string; homeScore: number; awayScore: number; venue: string; }
-  const [formData, setFormData] = useState<{ homeForm: FG[]; awayForm: FG[]; h2h: RM[]; note?: string } | null>(null);
+  const [formData, setFormData] = useState<{ homeForm: HFG[]; awayForm: HFG[]; h2h: HRM[]; note?: string } | null>(null);
   const [formLoading, setFormLoading] = useState(true);
 
   useEffect(() => {
@@ -1034,80 +1109,6 @@ function HistoryTab({ homeTeam, awayTeam, sport }: { homeTeam: string; awayTeam:
 
   const homeNick = homeTeam.split(' ').pop() ?? homeTeam;
   const awayNick = awayTeam.split(' ').pop() ?? awayTeam;
-
-  function FormTable({ games, label }: { games: FG[]; label: string }) {
-    if (games.length === 0) {
-      return <div className="text-[10px] font-mono text-[#9CA3AF] text-center py-2">No data</div>;
-    }
-    return (
-      <div>
-        <p className="text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1.5">{label} — Last {games.length}</p>
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="border-b border-[#E2E8F0]">
-              {['Date', 'Opponent', 'Score', 'H/A', 'Res'].map(h => (
-                <th key={h} className="pb-1 pr-2 text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {games.map((g, i) => (
-              <tr key={i} className="border-b border-[#E2E8F0] hover:bg-[#F8FAFC]">
-                <td className="py-1 pr-2 text-[10px] font-mono text-[#9CA3AF] whitespace-nowrap">{g.date.slice(5)}</td>
-                <td className="py-1 pr-2 text-[10px] font-mono text-[#374151] max-w-[100px] truncate" title={g.opponent}>{g.opponent.split(' ').pop()}</td>
-                <td className="py-1 pr-2 text-[10px] font-mono tabular-nums text-[#374151] whitespace-nowrap">{g.teamScore}&#8211;{g.oppScore}</td>
-                <td className="py-1 pr-2 text-[9px] font-mono text-[#9CA3AF]">{g.isHome ? 'H' : 'A'}</td>
-                <td className="py-1">
-                  {g.won
-                    ? <span className="px-1 py-0.5 rounded text-[9px] font-mono font-bold bg-[#00DEB8]/15 text-[#00DEB8]">W</span>
-                    : <span className="px-1 py-0.5 rounded text-[9px] font-mono font-bold bg-red-500/15 text-red-500">L</span>
-                  }
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-
-  function H2HTable({ matches }: { matches: RM[] }) {
-    if (matches.length === 0) {
-      return <div className="text-[10px] font-mono text-[#9CA3AF] text-center py-2">No H2H data</div>;
-    }
-    const hNick = homeTeam.split(' ').pop()!.toLowerCase();
-    return (
-      <div>
-        <p className="text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1.5">H2H — Last {matches.length}</p>
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="border-b border-[#E2E8F0]">
-              {['Date', 'Home', 'Away', 'Score'].map(h => (
-                <th key={h} className="pb-1 pr-2 text-[9px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {matches.map((m, i) => {
-              const ourHomeWon = m.homeTeam.toLowerCase().includes(hNick) ? m.homeScore > m.awayScore : m.awayScore > m.homeScore;
-              return (
-                <tr key={i} className="border-b border-[#E2E8F0] hover:bg-[#F8FAFC]">
-                  <td className="py-1 pr-2 text-[10px] font-mono text-[#9CA3AF] whitespace-nowrap">{m.date.slice(5)}</td>
-                  <td className="py-1 pr-2 text-[10px] font-mono text-[#374151] max-w-[80px] truncate" title={m.homeTeam}>{m.homeTeam.split(' ').pop()}</td>
-                  <td className="py-1 pr-2 text-[10px] font-mono text-[#374151] max-w-[80px] truncate" title={m.awayTeam}>{m.awayTeam.split(' ').pop()}</td>
-                  <td className="py-1">
-                    <span className={ourHomeWon ? 'text-[#00DEB8] font-bold text-[10px] font-mono tabular-nums' : 'text-red-400 font-bold text-[10px] font-mono tabular-nums'}>
-                      {m.homeScore}&#8211;{m.awayScore}
-                    </span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
 
   if (formLoading) {
     return (
@@ -1139,7 +1140,7 @@ function HistoryTab({ homeTeam, awayTeam, sport }: { homeTeam: string; awayTeam:
     <div className="space-y-5">
       <FormTable games={formData.homeForm} label={homeNick} />
       <FormTable games={formData.awayForm} label={awayNick} />
-      <H2HTable matches={formData.h2h} />
+      <H2HTable matches={formData.h2h} homeTeamName={homeTeam} />
     </div>
   );
 }
