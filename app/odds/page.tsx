@@ -1657,7 +1657,7 @@ function OddsPageContent() {
       </div>
 
       <main className="mx-auto grid max-w-7xl gap-5 px-4 py-5 pb-28 sm:px-6 xl:grid-cols-[1fr_320px]">
-        <div>
+        <div className="min-w-0">
           <OddsBoard
             activeSport={activeSport}
             market={market}
