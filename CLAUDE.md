@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-22 (end of session)
+**Last updated:** 2026-05-26 (end of session)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -19,6 +19,7 @@
 - Build: passing ✅
 - Theme: dark (RacingZone-inspired, black/white/green) — do not revert
 - Working pages: `/odds` (NRL + AFL tabs), `/research`, `/tools`
+- **Mobile layout: FIXED 2026-05-26** ✅ Root cause was missing `min-w-0` on the CSS Grid item wrapping OddsBoard — chips bar text was inflating the grid track to 978px on a 375px phone, making half of every button row off-screen. All mobile controls (Ask Baz, Details, BVI, H/A Value) now visible and correctly sized. Verified with Playwright.
 
 ### Scheduled Tasks (Task Scheduler)
 | Task | Schedule | Status |
