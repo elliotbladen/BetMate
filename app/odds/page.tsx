@@ -1127,11 +1127,11 @@ function HistoryTab({ homeTeam, awayTeam, sport }: { homeTeam: string; awayTeam:
     );
   }
 
-  if (formData.note) {
+  if (formData.note || !Array.isArray(formData.homeForm)) {
     return (
       <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-6 text-center">
         <History className="h-5 w-5 text-[#9CA3AF] mx-auto mb-2" />
-        <p className="text-xs text-[#9CA3AF] font-mono uppercase tracking-widest">{formData.note}</p>
+        <p className="text-xs text-[#9CA3AF] font-mono uppercase tracking-widest">{formData.note ?? "Form data unavailable"}</p>
       </div>
     );
   }
