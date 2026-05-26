@@ -89,8 +89,9 @@ export function buildGameUrl(
   }
 
   if (bookmaker === 'sportsbet') {
-    const q = encodeURIComponent(`${shortName(homeTeam)} ${shortName(awayTeam)}`);
-    return `https://www.sportsbet.com.au/search?term=${q}`;
+    return isAFL
+      ? 'https://www.sportsbet.com.au/betting/australian-rules/afl'
+      : 'https://www.sportsbet.com.au/betting/rugby-league/nrl';
   }
 
   if (bookmaker === 'neds') {
