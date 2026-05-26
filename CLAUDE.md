@@ -41,6 +41,7 @@
 | "BetMate NRL Team News" | Tuesday 10:30 | ✅ NEW — scrapers/nrl_team_news.py (auto-generates injuries section; suspensions stay manual) |
 | "BetMate AFL Style Stats Scrape" | Tuesday 16:15 | ✅ NEW — scrapers/afl_style_stats.py |
 | "BetMate AFL Round Prep" | Tuesday 16:20 | ✅ NEW — scrapers/afl_round_prep.py |
+| "BetMate Baz Brain" | At logon | ✅ NEW — scripts/start_baz.ps1 (Baz server + CF tunnel) |
 
 **Pipeline day is now TUESDAY** (shifted 2026-05-11 — historical odds not ready until Tuesday).
 All BetMate tasks use full path `C:\Users\ElliotBladen\.local\bin\uv.exe`.
@@ -264,18 +265,25 @@ cd C:\Users\ElliotBladen\Apps\BettingEngine
 - **T9 Matrix tier:** end-of-2026 review. Weighted by sample size (N<10=0.3, N10-25=0.6, N25+=1.0). Triple confluence cap 10%. See memory file.
 - **Supabase UNIQUE constraint:** Add UNIQUE constraint on `key` column in `betmate_data_store` so `resolution=merge-duplicates` actually merges instead of inserting duplicates. Currently `getDataStore` works around this with `.limit(1)` but the root cause should be fixed in Supabase SQL editor: `ALTER TABLE betmate_data_store ADD CONSTRAINT betmate_data_store_key_unique UNIQUE (key);`
 
-### Baz Agent — BUILT 2026-05-15
+### Baz Agent — BUILT 2026-05-15, TUNNEL LIVE 2026-05-26
 - `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round`, `/context/game`, `/signals`, `/clv`, `/context/team`
-- `app/api/chat/route.ts` — updated to fetch from `BAZ_LOCAL_API` before calling Claude. 1.5s timeout, graceful fallback.
-- `.env.local` — `BAZ_LOCAL_API=http://127.0.0.1:8765` added
+- `app/api/chat/route.ts` — fetches from `BAZ_TUNNEL_URL` (Vercel) or `BAZ_LOCAL_API` (local). 1.5s timeout, graceful fallback.
+- `BAZ_TUNNEL_URL=https://baz.betmate.au` — set in Vercel ✅
+- Cloudflare tunnel: `betmate-baz` (ID: ce4bfb19-82f6-4ffe-af06-e2c65636a323) → `baz.betmate.au` → `localhost:8765` ✅
 - `components/chat/ChatPanel.tsx` — parses brain status token from stream, shows "Brain offline" amber banner when BettingEngine is down
-- FastAPI + uvicorn installed into `.venv` (bootstrapped pip first — bare venv had no pip)
 - ChatPanel.tsx has a double-encoding issue with box-drawing chars (pre-existing, not introduced here). Future edits to this file: use PowerShell file manipulation, NOT the Edit tool — it inserts curly quotes.
 
-**To start Baz's brain:**
+**Baz auto-starts on login via Task Scheduler ("BetMate Baz Brain")**
+Script: `scripts/start_baz.ps1` — starts baz_server.py + cloudflared tunnel
+
+**To start Baz manually (if task didn't fire):**
 ```powershell
-cd C:\Users\ElliotBladen\Apps\BettingEngine
-& .\.venv\Scripts\python.exe baz_server.py
+& C:\Users\ElliotBladen\Apps\scripts\start_baz.ps1
+```
+
+**To verify Baz is online:**
+```powershell
+Invoke-RestMethod https://baz.betmate.au/health
 ```
 
 ### Product Vision — SaaS + Crypto Agent
