@@ -2,7 +2,7 @@ import { appendFile, access, mkdir, writeFile } from 'fs/promises';
 import { NextRequest, NextResponse } from 'next/server';
 import { join } from 'path';
 
-export const revalidate = 3600; // 1-hour server cache
+export const revalidate = 1800; // 30-min server cache
 
 export interface WeatherData {
   temperature: number;
@@ -121,7 +121,7 @@ export async function GET(req: NextRequest) {
 
   const url = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=${apiKey}&fields=${fields}&timesteps=1h&units=metric`;
 
-  const res = await fetch(url, { next: { revalidate: 3600 } });
+  const res = await fetch(url, { next: { revalidate: 1800 } });
   if (!res.ok) return NextResponse.json({ error: `Tomorrow.io error: ${res.status}` }, { status: res.status });
 
   const json = await res.json();
