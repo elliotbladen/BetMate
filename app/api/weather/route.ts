@@ -29,12 +29,14 @@ function classifyCondition(
   const isDewWindow = localHour == null || localHour >= 18 || localHour <= 7;
 
   if (precipIntensity > 2 || precipProbability > 60) flags.push('RAIN');
-  else if (precipProbability > 30) flags.push('SHOWERS');
+  else if (precipProbability > 20 || precipIntensity > 0.2) flags.push('SHOWERS');
 
   if (windSpeed > 60) flags.push('STRONG WIND');
   else if (windSpeed > 35) flags.push('WIND');
 
-  const hasDewConditions = isDewWindow && humidity >= 80 && temperature <= 22;
+  // Dew is irrelevant when it's already raining
+  const hasRain = flags.includes('RAIN') || flags.includes('SHOWERS');
+  const hasDewConditions = !hasRain && isDewWindow && humidity >= 80 && temperature <= 22;
   if (hasDewConditions && dewSpread < 3) flags.push('DEW RISK');
   else if (hasDewConditions && dewSpread < 5) flags.push('MILD DEW');
 
