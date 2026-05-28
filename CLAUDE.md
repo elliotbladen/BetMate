@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-28 afternoon (Model predicted scores live on NRL odds board)
+**Last updated:** 2026-05-29 (Baz AFL support complete)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -238,6 +238,7 @@ $env:BETMATE_ROOT = "C:\Users\ElliotBladen\Apps"; $env:PYTHONUTF8 = "1"
   - **Broncos/Dragons UNDER 54.5** — model 43.8 (T8 wind included) = 10.7pt gap. HIGH.
   - **Parramatta +14.5** — model Knights by 12.7 vs market 14.5 (1.8pt gap, narrowed from 4.85 after T5). MEDIUM-HIGH.
   - **Panthers -7.5** — model 12.7 vs market 7.5. MEDIUM.
+- **T9 confluence (2026-05-28):** 5 games flagged. Cronulla/Manly: 7-way H2H + 7-way handicap ⚡. Raiders/Cowboys: 3-way H2H + 3-way handicap ⚡. Newcastle/Parra: 3+3 ⚡. Tigers/Bulldogs conflicted (5-way BACK AWAY vs 4-way HOME COVERS). Broncos/Dragons: 3-way handicap only.
 - Pricing files: `BettingEngine/results/r13_pricing_2026.csv` + `BettingEngine/outputs/results/r13_nrl_pricing_2026.md`
 - Note: CSV locked when last export ran — close Excel and re-run `export_round_csv.py --season 2026 --round 13`
 
@@ -317,12 +318,15 @@ cd C:\Users\ElliotBladen\Apps\BettingEngine
 - **T9 Matrix tier:** end-of-2026 review. Weighted by sample size (N<10=0.3, N10-25=0.6, N25+=1.0). Triple confluence cap 10%. See memory file.
 - **Supabase UNIQUE constraint:** Add UNIQUE constraint on `key` column in `betmate_data_store` so `resolution=merge-duplicates` actually merges instead of inserting duplicates. Currently `getDataStore` works around this with `.limit(1)` but the root cause should be fixed in Supabase SQL editor: `ALTER TABLE betmate_data_store ADD CONSTRAINT betmate_data_store_key_unique UNIQUE (key);`
 
-### Baz Agent — BUILT 2026-05-15, TUNNEL LIVE 2026-05-26
-- `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round`, `/context/game`, `/signals`, `/clv`, `/context/team`
-- `app/api/chat/route.ts` — fetches from `BAZ_TUNNEL_URL` (Vercel) or `BAZ_LOCAL_API` (local). 1.5s timeout, graceful fallback.
+### Baz Agent — BUILT 2026-05-15, TUNNEL LIVE 2026-05-26, AFL SUPPORT 2026-05-29
+- `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round?sport=NRL|AFL`, `/context/game`, `/signals`, `/clv`, `/context/team`
+- **AFL context:** `/context/round?sport=AFL` reads latest `r*_afl_*.csv` from `BettingEngine/results/`, includes ML model data (`ml_model.margin`, `.total`, `.home_odds`, `.away_odds`) alongside rules model
+- **AFL confluence:** reads `outputs/afl_t9_confluence_latest.json` (run `matrix_confluence.py --season 2026 --round 12 --sport afl` — check if AFL flag exists)
+- `app/api/chat/route.ts` — fetches from `BAZ_TUNNEL_URL` (Vercel) or `BAZ_LOCAL_API` (local). 1.5s timeout, graceful fallback. `sport` param read from request body, forwarded to baz_server.
+- **Matrix filter (both NRL + AFL):** only surfaces signals where H2H is clean (exactly 1 direction ≥3 edges), handicap is clean (exactly 1 direction ≥3 edges), AND both point the SAME side (HOME_WIN + HOME_COVERS, or AWAY_WIN + AWAY_COVERS). Conflicted or misaligned = suppressed.
 - `BAZ_TUNNEL_URL=https://baz.betmate.au` — set in Vercel ✅
 - Cloudflare tunnel: `betmate-baz` (ID: ce4bfb19-82f6-4ffe-af06-e2c65636a323) → `baz.betmate.au` → `localhost:8765` ✅
-- `components/chat/ChatPanel.tsx` — parses brain status token from stream, shows "Brain offline" amber banner when BettingEngine is down
+- `components/chat/ChatPanel.tsx` — parses brain status token from stream, shows "Brain offline" amber banner when BettingEngine is down. Sends `sport: games[0]?.sport ?? 'NRL'` in every fetch body.
 - ChatPanel.tsx has a double-encoding issue with box-drawing chars (pre-existing, not introduced here). Future edits to this file: use PowerShell file manipulation, NOT the Edit tool — it inserts curly quotes.
 
 **Baz auto-starts on login via Task Scheduler ("BetMate Baz Brain")**
@@ -414,6 +418,7 @@ BetMate is a Next.js frontend that:
 | `scrapers/afl_bvi.py` | Scrapes AFL BVI from aussportstipping.com — run weekly |
 | `app/api/afl-bvi/route.ts` | Serves BVI JSON to the odds page |
 | `data/afl/bvi/processed/latest-bvi.json` | BVI data (18 teams, rank + score + tier) |
+| `BettingEngine/scripts/matrix_confluence.py` | T9 confluence analyser — run after fixture loads, flags games with 3+ matrix edges ≥20% same direction |
 | `BettingEngine/scripts/generate_clv_txt.py` | Generates formatted CLV TXT from weekly CLV report CSV — `python generate_clv_txt.py --sport NRL --season 2026 --round 11` |
 | `BettingEngine/scripts/rolling_clv_summary.py` | Rolling CLV across rounds — reads ml_comparison CSVs, writes `outputs/clv_running/running_clv_summary.csv` |
 | `BettingEngine/outputs/clv_running/running_clv_summary.csv` | Running CLV R9–R11 (NRL). Update after each round's ml_comparison is generated. |

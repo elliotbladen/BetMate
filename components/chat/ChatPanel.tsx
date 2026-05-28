@@ -55,6 +55,12 @@ function buildOddsContext(games: Game[]): string {
     const bestAway = oddsEntries.length ? Math.max(...oddsEntries.map(([, o]) => o.away)) : 0;
     const oddsHomeStr = oddsEntries.map(([k, o]) => `${k.toUpperCase()} ${o.home}`).join(' | ');
     const oddsAwayStr = oddsEntries.map(([k, o]) => `${k.toUpperCase()} ${o.away}`).join(' | ');
+    const spreadEntries = Object.entries(g.spreadsOdds ?? {});
+    const bestSpread = spreadEntries.length ? spreadEntries.reduce((a, b) => a[1].home > b[1].home ? a : b) : null;
+    const totalEntries = Object.entries(g.totalsOdds ?? {});
+    const bestOver = totalEntries.length ? Math.max(...totalEntries.map(([, o]) => o.over)) : 0;
+    const bestUnder = totalEntries.length ? Math.max(...totalEntries.map(([, o]) => o.under)) : 0;
+    const bestTotalPoint = totalEntries.length ? totalEntries[0][1].point : null;
     return `
 GAME: ${g.homeTeam} vs ${g.awayTeam}
 Round: ${g.round} | Kickoff: ${g.kickoffTime}${g.venue ? ` | Venue: ${g.venue}` : ''}
@@ -62,6 +68,8 @@ ${g.referee ? `Referee: ${g.referee}${g.refereeBucket ? ` (${g.refereeBucket})` 
 H2H Odds:
   ${g.homeTeam}: ${oddsHomeStr} | BEST ${bestHome.toFixed(2)}
   ${g.awayTeam}: ${oddsAwayStr} | BEST ${bestAway.toFixed(2)}
+${bestSpread ? `Handicap (live market): ${g.homeTeam} ${bestSpread[1].homePoint > 0 ? '+' : ''}${bestSpread[1].homePoint}pts @ ${bestSpread[1].home.toFixed(2)} | ${g.awayTeam} ${bestSpread[1].awayPoint > 0 ? '+' : ''}${bestSpread[1].awayPoint}pts @ ${bestSpread[1].away.toFixed(2)}` : ''}
+${bestTotalPoint != null ? `Totals (live market): Line ${bestTotalPoint} | Best Over ${bestOver.toFixed(2)} / Best Under ${bestUnder.toFixed(2)}` : ''}
 ${g.evLine ? `EV: Line ${g.evLine.label} (${g.evLine.tier})${g.evTotal ? ` | Total ${g.evTotal.label} (${g.evTotal.tier})` : ''}` : ''}
 ${g.modelLine ? `Model: Line ${g.modelLine}${g.totalPts ? ` | Total ${g.totalPts}` : ''}${g.marketLine ? ` | Market ${g.marketLine}` : ''}` : ''}
 ${g.publicPct ? `Public: ${g.publicPct}% ${g.publicTeam}${g.lineMoveSummary ? ` | Line move: ${g.lineMoveSummary}` : ''}` : ''}
@@ -161,6 +169,7 @@ export default function ChatPanel({
         body: JSON.stringify({
           messages: history.slice(1).map((m) => ({ role: m.role, content: m.content })),
           oddsContext: buildOddsContext(games),
+          sport: games[0]?.sport ?? 'NRL',
         }),
       });
 
