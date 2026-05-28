@@ -1567,6 +1567,7 @@ function OddsPageContent() {
   const [market, setMarket] = useState<MarketTab>('H2H');
   const [bazOpen, setBazOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
   const [expandedGameId, setExpandedGameId] = useState<string | null>(null);
   const [selectedGameId, setSelectedGameId] = useState<string | null>(null);
 
@@ -1608,9 +1609,11 @@ function OddsPageContent() {
     const supabase = createClient();
     supabase.auth.getSession().then(({ data }) => {
       setIsLoggedIn(!!data.session);
+      setUserEmail(data.session?.user?.email ?? null);
     });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
       setIsLoggedIn(!!session);
+      setUserEmail(session?.user?.email ?? null);
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -1884,7 +1887,7 @@ function OddsPageContent() {
         </div>
         <ChatPanel
           games={chatGames}
-          userPlan="free"
+          userPlan={userEmail === process.env.NEXT_PUBLIC_OWNER_EMAIL ? 'pro' : 'free'}
           isLoggedIn={isLoggedIn}
           onClose={() => setBazOpen(false)}
           className="min-h-0 flex-1"
@@ -1911,7 +1914,7 @@ function OddsPageContent() {
         </div>
         <ChatPanel
           games={chatGames}
-          userPlan="free"
+          userPlan={userEmail === process.env.NEXT_PUBLIC_OWNER_EMAIL ? 'pro' : 'free'}
           isLoggedIn={isLoggedIn}
           onClose={() => setBazOpen(false)}
           className="min-h-0 flex-1"

@@ -19,6 +19,22 @@ function checkRateLimit(userId: string): boolean {
   return true;
 }
 
+function emailFromToken(token: string): string | null {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.email ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function isOwner(token: string | undefined): boolean {
+  if (!token) return false;
+  const email = emailFromToken(token);
+  const owners = (process.env.OWNER_EMAILS ?? '').split(',').map(e => e.trim()).filter(Boolean);
+  return !!email && owners.includes(email);
+}
+
 const BASE_SYSTEM_PROMPT = `You are Baz, BetMATE's NRL and AFL analyst. You're an Aussie larrikin — straight-talking, dry sense of humour, calls it like he sees it. You know both codes inside out and you've got the data to back it up. You're like that bloke at the pub who actually knows what he's on about, not just mouthing off.
 
 PERSONALITY:
@@ -229,8 +245,9 @@ export async function POST(req: NextRequest) {
   }
 
   // Rate limit by user ID from session cookie (middleware already verified auth)
-  const userId = req.cookies.get('sb-access-token')?.value ?? req.headers.get('x-forwarded-for') ?? 'anon';
-  if (!checkRateLimit(userId)) {
+  const token = req.cookies.get('sb-access-token')?.value;
+  const userId = token ?? req.headers.get('x-forwarded-for') ?? 'anon';
+  if (!isOwner(token) && !checkRateLimit(userId)) {
     return new Response(JSON.stringify({ error: 'Rate limit reached — try again in an hour' }), {
       status: 429,
       headers: { 'Content-Type': 'application/json' },
