@@ -36,6 +36,8 @@ import logging
 import os
 import re
 import sys
+import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -43,6 +45,21 @@ import anthropic
 
 ROOT      = Path(__file__).resolve().parents[1]
 BASE_DIR  = ROOT / "data" / "afl" / "emotional"
+
+def _load_env() -> None:
+    env_file = ROOT / '.env.local'
+    if not env_file.exists():
+        return
+    for line in env_file.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if '=' in line and not line.startswith('#'):
+            k, v = line.split('=', 1)
+            k = k.strip()
+            v = v.strip().strip('"').strip("'")
+            if k and k not in os.environ:
+                os.environ[k] = v
+
+_load_env()
 RAW_DIR   = BASE_DIR / "raw"
 PROC_DIR  = BASE_DIR / "processed"
 LOG_DIR   = BASE_DIR / "logs"
@@ -182,6 +199,32 @@ def load_fixture(round_number: int, season: int) -> list[dict]:
     return games
 
 
+def fetch_afl_news(round_number: int, season: int) -> str:
+    """Fetch recent AFL news headlines from Google News RSS."""
+    queries = [
+        f'AFL+Round+{round_number}+{season}',
+        f'AFL+{season}+milestone+farewell+emotional',
+        f'AFL+{season}+personal+tragedy+must+win',
+    ]
+    headlines: list[str] = []
+    seen: set[str] = set()
+    for query in queries:
+        url = f'https://news.google.com/rss/search?q={query}&hl=en-AU&gl=AU&ceid=AU:en'
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                root = ET.fromstring(resp.read())
+            for item in root.findall('.//item')[:10]:
+                title = item.findtext('title', '').split(' - ')[0].strip()
+                if title and title not in seen:
+                    seen.add(title)
+                    headlines.append(f'- {title}')
+        except Exception as exc:
+            log.warning('News fetch failed for query "%s": %s', query, exc)
+    log.info('Fetched %d AFL news headlines', len(headlines))
+    return '\n'.join(headlines) if headlines else '(no news fetched)'
+
+
 def detect_rivalry_derby(fixture: list[dict]) -> list[dict]:
     flags = []
     for game in fixture:
@@ -208,6 +251,7 @@ def build_claude_prompt(
     injuries: list[dict],
     team_news: dict,
     auto_flags: list[dict],
+    news_headlines: str = '',
 ) -> str:
     fixture_lines = '\n'.join(
         f"  {g.get('home_team')} vs {g.get('away_team')}  ({g.get('kickoff_local', '')[:10]})"
@@ -251,6 +295,9 @@ INJURY LIST:
 
 TEAM NEWS:
 {news_section or '  (none loaded)'}
+
+RECENT AFL NEWS HEADLINES (use these to identify milestones, farewells, personal tragedies, must-win situations not captured above):
+{news_headlines or '  (none fetched)'}
 
 AUTO-DETECTED EMOTIONAL FLAGS (already confirmed — do NOT repeat these):
 {auto_section}
@@ -298,7 +345,7 @@ def call_claude(prompt: str, dry_run: bool) -> list[dict]:
         return []
 
 
-def validate_flag(flag: dict, season: int, round_number: int) -> dict | None:
+def validate_flag(flag: dict, season: int, round_number: int, playing_teams: set[str] | None = None) -> dict | None:
     ftype    = str(flag.get('flag_type', '')).strip().lower()
     strength = str(flag.get('flag_strength', 'normal')).strip().lower()
     team     = str(flag.get('team', '')).strip()
@@ -310,6 +357,9 @@ def validate_flag(flag: dict, season: int, round_number: int) -> dict | None:
         return None
     if strength not in VALID_STRENGTHS:
         strength = 'normal'
+    if playing_teams and team not in playing_teams:
+        log.warning('Flag for "%s" rejected — team not in fixture this round (bye?)', team)
+        return None
 
     return {
         'season':        season,
@@ -355,9 +405,10 @@ def write_outputs(flags: list[dict], raw_payload: dict, season: int, round_numbe
 
 
 def run(season: int, round_number: int, dry_run: bool) -> int:
-    fixture  = load_fixture(round_number, season)
-    injuries = load_json(ROOT / 'data' / 'afl' / 'injuries' / 'processed' / 'latest-injuries.json') or []
+    fixture   = load_fixture(round_number, season)
+    injuries  = load_json(ROOT / 'data' / 'afl' / 'injuries' / 'processed' / 'latest-injuries.json') or []
     team_news = load_json(ROOT / 'data' / 'afl' / 'team-news' / 'latest.json') or {}
+    news_headlines = fetch_afl_news(round_number, season)
 
     if not fixture:
         log.warning('No fixture data — emotional flags may be incomplete')
@@ -365,14 +416,20 @@ def run(season: int, round_number: int, dry_run: bool) -> int:
     auto_flags = detect_rivalry_derby(fixture)
     log.info('Auto-detected: %d rivalry_derby', len(auto_flags))
 
-    prompt = build_claude_prompt(season, round_number, fixture, injuries, team_news, auto_flags)
+    prompt = build_claude_prompt(season, round_number, fixture, injuries, team_news, auto_flags, news_headlines)
     claude_flags = call_claude(prompt, dry_run)
     log.info('Claude returned %d additional flags', len(claude_flags))
+
+    playing_teams: set[str] = set()
+    for g in fixture:
+        playing_teams.add(g.get('home_team', ''))
+        playing_teams.add(g.get('away_team', ''))
+    playing_teams.discard('')
 
     all_raw = auto_flags + claude_flags
     validated: list[dict] = []
     for flag in all_raw:
-        v = validate_flag(flag, season, round_number)
+        v = validate_flag(flag, season, round_number, playing_teams or None)
         if v:
             validated.append(v)
 

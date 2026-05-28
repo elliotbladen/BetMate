@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-26 evening (bookmaker links live)
+**Last updated:** 2026-05-28 afternoon (Model predicted scores live on NRL odds board)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -30,8 +30,8 @@
 | "BetMate NRL Style Stats Scrape" | Tuesday 16:15 | ✅ Fixed path |
 | "BetMate NRL Round Prep" | Tuesday 16:20 | ✅ Fixed path, time 16:20 |
 | "BettingEngine NRL Pricing" | Tuesday 16:40 | ✅ FIXED — now uses wrapper scripts/run_nrl_pricing.ps1 with BETMATE_ROOT |
-| "BetMate NRL Emotional Flags" | Tuesday 14:00 | ✅ Updated to 14:00; fixed stale BetMate/ path in wrapper |
-| "BetMate AFL Emotional Flags" | Tuesday 14:30 | ✅ NEW — scrapers/afl_emotional.py |
+| "BetMate NRL Emotional Flags" | Tuesday 16:45 | ✅ Rescheduled 14:00→16:45; added _load_env, Google News feed, bye-team validation |
+| "BetMate AFL Emotional Flags" | Tuesday 16:45 | ✅ Fixed — _load_env, Google News feed, bye-team validation, rescheduled to 16:45 |
 | "BetMate AFL BVI" | Monday 08:00 | ✅ Weekly — scrapers/afl_bvi.py → Supabase afl_bvi |
 | "BetMate AFL Home Away Value" | Monday 08:10 | ✅ Weekly — scrapers/afl_home_advantage.py → Supabase afl_home_away |
 | "BetMate NRL BVI" | Monday 08:20 | ✅ Weekly — scrapers/nrl_bvi.py → Supabase nrl_bvi |
@@ -42,6 +42,7 @@
 | "BetMate AFL Style Stats Scrape" | Tuesday 16:15 | ✅ NEW — scrapers/afl_style_stats.py |
 | "BetMate AFL Round Prep" | Tuesday 16:20 | ✅ NEW — scrapers/afl_round_prep.py |
 | "BetMate Baz Brain" | At logon | ✅ NEW — scripts/start_baz.ps1 (Baz server + CF tunnel) |
+| "BetMate NRL History Push" | Wednesday 08:00 | ✅ NEW — scripts/run_push_nrl_history.ps1 → Supabase nrl_match_history |
 
 **Pipeline day is now TUESDAY** (shifted 2026-05-11 — historical odds not ready until Tuesday).
 All BetMate tasks use full path `C:\Users\ElliotBladen\.local\bin\uv.exe`.
@@ -74,7 +75,7 @@ Last scraped: 2026-05-19 (R12, 109 records)
 ### Weather System
 
 **Provider:** Tomorrow.io (`TOMORROW_API_KEY` in `.env.local`)
-**API route:** `app/api/weather/route.ts` — server-side 1-hour cache (`revalidate = 3600`)
+**API route:** `app/api/weather/route.ts` — server-side 30-min cache (`revalidate = 1800`, inner fetch is `cache: 'no-store'`)
 **Venue lookups:**
 - NRL → `lib/venues.ts` (`getVenue`)
 - AFL → `lib/aflVenues.ts` (`getAFLVenue`) — all 18 venues wired
@@ -117,6 +118,24 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 - API: `/api/afl-bvi` → serves `data/afl/bvi/processed/latest-bvi.json`
 - Scraper: `scrapers/afl_bvi.py` — run manually or via Task Scheduler
 - **Pending:** weekly Task Scheduler task to auto-refresh BVI data (not yet installed)
+
+### Model Predicted Scores — LIVE 2026-05-28
+- `data/nrl/predictions/latest.json` — NRL predictions (keyed by Odds API home team name)
+- `app/api/nrl-predictions/route.ts` — GET `/api/nrl-predictions` → returns `{ predictions: [...] }`
+- `OddsBoardCard` — shows "Model: SHARKS 28.9 – EAGLES 23.9" line below venue on each card (mobile + desktop)
+- **Team name mapping critical:** Odds API names differ from BettingEngine CSV names:
+  - `"Cronulla-Sutherland Sharks"` → `"Cronulla Sutherland Sharks"` (no hyphen)
+  - `"Manly-Warringah Sea Eagles"` → `"Manly Warringah Sea Eagles"` (no hyphen)
+  - `"Canterbury-Bankstown Bulldogs"` → `"Canterbury Bulldogs"` (short form)
+  - `"St. George Illawarra Dragons"` → `"St George Illawarra Dragons"` (no period/hyphen)
+- **To update each round:** edit `data/nrl/predictions/latest.json` with new round scores (use Odds API names, not BettingEngine CSV names). AFL automation TBD.
+
+### History Tab — LIVE 2026-05-27
+- `app/api/form/route.ts` — GET `/api/form?home=X&away=Y&sport=S` → reads `nrl_match_history` from Supabase, returns `{ homeForm, awayForm, h2h }` (last 6 each)
+- `scripts/push_nrl_history.py` — reads `data/nrl/historical/latest.xlsx` (2024+), pushes 514 matches to Supabase key `nrl_match_history`. Re-run weekly after Tuesday download.
+- `HistoryTab` in `app/odds/page.tsx` — fetches `/api/form` on mount, shows three tables: home team last 6, away team last 6, H2H last 6
+- Nickname matching: last word of full Odds API name (e.g. "Cowboys") used for case-insensitive contains match against Excel team strings
+- AFL: returns "coming soon" note — no data source yet
 
 ### Team News System — BUILT 2026-05-18
 - `data/nrl/team-news/latest.json` — NRL R12 fresh news (Rabbitohs, Wests Tigers, Manly)
@@ -205,9 +224,38 @@ Scrapers now push to Supabase automatically after local write:
 cd C:\Users\ElliotBladen\Apps\BettingEngine
 $env:BETMATE_ROOT = "C:\Users\ElliotBladen\Apps"; $env:PYTHONUTF8 = "1"
 & ".\.venv\Scripts\python.exe" ml\afl\game_log.py --xlsx outputs\afl_weekly_review\historical\latest.xlsx
-& ".\.venv\Scripts\python.exe" scripts\prepare_afl_round.py --season 2026 --round 11
+& ".\.venv\Scripts\python.exe" scripts\prepare_afl_round.py --season 2026 --round 12
 & ".\.venv\Scripts\python.exe" scripts\_export_afl_prices.py
 ```
+
+### NRL R13 — Key Pricing Notes (2026-05-28) ✅ FULL TIERS
+- **T5 loaded** — 93 injury records (2026-05-28 scrape)
+- **T6 loaded** — 4/7 refs: Gough (flow+2.0), Atkins (flow+2.0), Klein (whistle-2.0), Sutton (neutral). Cronulla/Manly, Newcastle/Parra, Broncos/Dragons missing.
+- **T8 weather loaded** — Tomorrow.io. Only weather effect: Suncorp moderate_wind (-2.0 on Broncos/Dragons total → 43.8).
+- **Top signals:**
+  - **Cronulla -2.5** — 7-way matrix confluence + model -4.9 vs market -2.5. HIGH.
+  - **Panthers/Warriors UNDER 48.5** — 8-way matrix confluence + model 44.1. HIGH.
+  - **Broncos/Dragons UNDER 54.5** — model 43.8 (T8 wind included) = 10.7pt gap. HIGH.
+  - **Parramatta +14.5** — model Knights by 12.7 vs market 14.5 (1.8pt gap, narrowed from 4.85 after T5). MEDIUM-HIGH.
+  - **Panthers -7.5** — model 12.7 vs market 7.5. MEDIUM.
+- Pricing files: `BettingEngine/results/r13_pricing_2026.csv` + `BettingEngine/outputs/results/r13_nrl_pricing_2026.md`
+- Note: CSV locked when last export ran — close Excel and re-run `export_round_csv.py --season 2026 --round 13`
+
+### AFL R12 — Key Pricing Notes (2026-05-28) ✅ FULL TIERS
+- 7 games (byes: Adelaide, Gold Coast, North Melbourne, Port Adelaide)
+- **T6 emotional loaded** — Essendon "new_coach_bounce" normal → -2.5 hcap (Bombers get +2.5). Flips Eagles win → Bombers by 0.5.
+- **T7 weather loaded** — Tomorrow.io. Only effect: Optus Stadium moderate_wind (25.6 km/h) → -2.8 on Eagles/Bombers total (149.0).
+- **Top signals:**
+  - **Collingwood +7.5** — Bulldogs ruck crisis (Darcy + English both out). HIGH.
+  - **Bulldogs/Magpies UNDER 180.5** — model 160.3 vs market. HIGH.
+  - **Eagles +10.5** — rules Bombers by 0.5, ML Bombers by 7.6, market -10.5. Both models well inside. HIGH.
+  - **Eagles/Bombers UNDER 165.5** — rules 149.0, ML 158.5 both below market 165.5 (upgraded from skip — ML now aligned). MEDIUM.
+  - **Carlton +23.5** — ML divergence play (rules -44.1 vs ML -2.3). MEDIUM.
+  - **Geelong/Carlton OVER 179.5** — 8-way Geelong OVER confluence. MEDIUM.
+  - **Hawks -12.5** — model -30.4, ML -16.3. MEDIUM.
+- Monitor Sean Darcy (Fremantle, doubtful) before Brisbane/Fremantle bet.
+- T6 umpires: no data for AFL R12. All T6 = 0.
+- Pricing files: `BettingEngine/results/r12_afl_2026.csv` + `BettingEngine/outputs/results/r12_afl_pricing_2026.md`
 
 ### NRL R12 — Key Pricing Notes (2026-05-21)
 - Refs confirmed: Todd Smith (Raiders/Dolphins), Wyatt Raymond (Bulldogs/Storm), Grant Atkins (Cowboys/Rabbitohs)
@@ -220,7 +268,7 @@ $env:BETMATE_ROOT = "C:\Users\ElliotBladen\Apps"; $env:PYTHONUTF8 = "1"
 - **T9 note:** ML shadow divergences are the key signal this round — rules model overcooks home teams
 - Top signals: Cats/Swans UNDERS (ML 158 vs rules 209, 51pt gap) | Giants cover vs Lions | Kangaroos cover vs Suns | Crows cover vs Hawks
 - Injury scraper classifies all players as "average" — manual overlays needed for elite absences (Connor Rozee out for Port, Sean Darcy out for Fremantle, Tim English out for Bulldogs)
-- AFL totals model has same known bias as NRL — rules consistently 10–30pts above market
+- AFL totals model runs ~5.8pts BELOW actual after 2026-05-27 retrain (was ~8pts). On a game-by-game basis direction varies significantly.
 
 ### BettingEngine Data Folder Structure (updated 2026-05-25)
 
@@ -262,7 +310,7 @@ cd C:\Users\ElliotBladen\Apps\BettingEngine
 - **EV signals on Vercel:** wire via Cloudflare Tunnel once domain + tunnel ready
 - ~~BVI weekly task~~ ✅ All 4 tasks installed — "BetMate NRL BVI" (Mon 08:20) + "BetMate NRL Home Away Value" (Mon 08:30) first run 2026-05-25
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
-- **AFL totals model:** Model accuracy running file confirms rules AND ML both systematically underprice AFL totals by 8–25pts. Needs T1 expected-points review.
+- **AFL ML model RETRAINED 2026-05-27** on 2022–2023 data (modern-rule era). Key changes: `--min-year 2022` in `game_log.py` (ELO still warms up from 2009; records filtered to 2022+, 2020 excluded); `season_year` added as feature; XGBoost `sample_weight` exponential decay (decay=1.5, newest game weighted 4.5x oldest). Results vs old model: total MAE 24.6 (was 25.2), totals bias -5.8 pts (was -8 pts), totals strike ±10pt edge 61.3%. Next retrain: add 2024 to training window after 2026 season ends.
 - **NRL H2H home bias:** Rules model overrates home teams by +9–11% vs market. ML shadow much better (+1–6%). Consider T4 venue calibration review.
 - **R12 CLV:** Not yet filed — opening/closing lines pending. Run scripts after filing.
 - **Refs on Vercel:** wire `lib/referees.ts` to an API route + Supabase key so ref badges show on live site

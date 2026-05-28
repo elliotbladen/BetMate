@@ -39,6 +39,8 @@ import os
 import re
 import sqlite3
 import sys
+import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -89,7 +91,46 @@ ORIGIN_BOOST_WINDOWS_2026: list[tuple[str, str, str]] = [
     ('2026-07-23', '2026-08-02', 'Post-Origin Game 3 camp window'),
 ]
 
+def _load_env() -> None:
+    env_file = ROOT / '.env.local'
+    if not env_file.exists():
+        return
+    for line in env_file.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if '=' in line and not line.startswith('#'):
+            k, v = line.split('=', 1)
+            k = k.strip()
+            v = v.strip().strip('"').strip("'")
+            if k and k not in os.environ:
+                os.environ[k] = v
+
+_load_env()
+
 log = logging.getLogger(__name__)
+
+def fetch_nrl_news(round_number: int, season: int) -> str:
+    queries = [
+        f'NRL+Round+{round_number}+{season}',
+        f'NRL+{season}+milestone+farewell+emotional',
+        f'NRL+{season}+personal+tragedy+must+win',
+    ]
+    headlines: list[str] = []
+    seen: set[str] = set()
+    for query in queries:
+        url = f'https://news.google.com/rss/search?q={query}&hl=en-AU&gl=AU&ceid=AU:en'
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                root = ET.fromstring(resp.read())
+            for item in root.findall('.//item')[:10]:
+                title = item.findtext('title', '').split(' - ')[0].strip()
+                if title and title not in seen:
+                    seen.add(title)
+                    headlines.append(f'- {title}')
+        except Exception as exc:
+            log.warning('News fetch failed for query "%s": %s', query, exc)
+    return '\n'.join(headlines) if headlines else '(no news fetched)'
+
 
 SYSTEM_PROMPT = """\
 You are the NRL emotional context analyst for a sports pricing engine.
@@ -262,6 +303,7 @@ def build_claude_prompt(
     prev_results: list[dict],
     news_flags: list[dict],
     auto_flags: list[dict],
+    news_headlines: str = '',
 ) -> str:
     fixture_lines = '\n'.join(
         f"  {g.get('home_team')} vs {g.get('away_team')}  ({g.get('kickoff_local', '')[:16]})"
@@ -290,6 +332,8 @@ def build_claude_prompt(
         if auto_flags else '  (none detected)'
     )
 
+    headlines_section = news_headlines.strip() if news_headlines.strip() else '(no news fetched)'
+
     return f"""UPCOMING ROUND: Season {season}, Round {round_number}
 
 FIXTURE:
@@ -300,6 +344,9 @@ PREVIOUS ROUND RESULTS:
 
 CURRENT NEWS FLAGS FROM BETMATE:
 {news_section}
+
+RECENT NRL NEWS HEADLINES:
+{headlines_section}
 
 AUTO-DETECTED EMOTIONAL FLAGS (already confirmed — do NOT repeat these):
 {auto_section}
@@ -348,7 +395,7 @@ def call_claude(prompt: str, dry_run: bool) -> list[dict]:
         return []
 
 
-def validate_flag(flag: dict, season: int, round_number: int) -> dict | None:
+def validate_flag(flag: dict, season: int, round_number: int, playing_teams: set[str] | None = None) -> dict | None:
     """Validate and normalise a flag dict. Returns None if invalid."""
     ftype    = str(flag.get('flag_type', '')).strip().lower()
     strength = str(flag.get('flag_strength', 'normal')).strip().lower()
@@ -361,6 +408,9 @@ def validate_flag(flag: dict, season: int, round_number: int) -> dict | None:
         return None
     if strength not in VALID_STRENGTHS:
         strength = 'normal'
+    if playing_teams is not None and team not in playing_teams:
+        log.warning('Flag for "%s" rejected — team not in fixture this round (bye?)', team)
+        return None
 
     return {
         'season':       season,
@@ -449,6 +499,15 @@ def run(season: int, round_number: int, db_path: str | None, dry_run: bool) -> i
     if not fixture:
         log.warning('No fixture data — emotional flags may be incomplete')
 
+    # Build set of teams playing this round for bye-team validation
+    playing_teams: set[str] = set()
+    for game in fixture:
+        if game.get('home_team'):
+            playing_teams.add(game['home_team'])
+        if game.get('away_team'):
+            playing_teams.add(game['away_team'])
+    log.info('Playing teams this round: %s', sorted(playing_teams))
+
     # ── Deterministic detections ──────────────────────────────────────────
     auto_flags: list[dict] = []
 
@@ -468,8 +527,11 @@ def run(season: int, round_number: int, db_path: str | None, dry_run: bool) -> i
     )
 
     # ── Claude analysis ───────────────────────────────────────────────────
+    news_headlines = fetch_nrl_news(round_number, season)
+    log.info('Fetched %d news headlines', news_headlines.count('\n') + 1 if news_headlines != '(no news fetched)' else 0)
+
     prompt = build_claude_prompt(
-        season, round_number, fixture, prev_results, news_flags, auto_flags,
+        season, round_number, fixture, prev_results, news_flags, auto_flags, news_headlines,
     )
     if origin_active:
         prompt += f"\n\nNOTE: This round falls in a post-Origin camp window ({origin_result[0]['_origin_window']}). Consider origin_boost flags for teams with high Origin representation."
@@ -481,7 +543,7 @@ def run(season: int, round_number: int, db_path: str | None, dry_run: bool) -> i
     all_raw = auto_flags + claude_flags
     validated: list[dict] = []
     for flag in all_raw:
-        v = validate_flag(flag, season, round_number)
+        v = validate_flag(flag, season, round_number, playing_teams or None)
         if v:
             validated.append(v)
 

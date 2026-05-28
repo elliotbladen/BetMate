@@ -65,6 +65,9 @@ interface TeamNewsEntry {
 type TeamNewsMap = Record<string, TeamNewsEntry>;
 type DetailTab = 'Intelligence' | 'Team News' | 'Weather / Ref' | 'History';
 
+interface PredictionEntry { predHomeScore: number; predAwayScore: number; }
+type PredictionsMap = Record<string, PredictionEntry>;
+
 interface WeatherData {
   temperature: number;
   windSpeed: number;
@@ -516,6 +519,8 @@ function OddsBoardCard({
   homeAwayAwayEntry,
   teamNewsHomeEntry,
   teamNewsAwayEntry,
+  predHomeScore,
+  predAwayScore,
 }: {
   game: Game;
   market: MarketTab;
@@ -529,6 +534,8 @@ function OddsBoardCard({
   homeAwayAwayEntry?: HomeAwayValueEntry | null;
   teamNewsHomeEntry?: TeamNewsEntry | null;
   teamNewsAwayEntry?: TeamNewsEntry | null;
+  predHomeScore?: number | null;
+  predAwayScore?: number | null;
 }) {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
@@ -663,6 +670,13 @@ function OddsBoardCard({
           <HomeAwayValueBadge type="away" pct={awayValuePct} />
         </div>
         {venue && <p className="mb-2 text-[10px] text-[#9CA3AF]">{venue.name}</p>}
+        {predHomeScore != null && predAwayScore != null && (
+          <p className="mb-1 text-[10px] font-mono text-[#6B7280]">
+            Model: <span className="font-bold text-[#111827]">{game.homeShort} {predHomeScore.toFixed(1)}</span>
+            <span className="mx-1 text-[#9CA3AF]">-</span>
+            <span className="font-bold text-[#111827]">{game.awayShort} {predAwayScore.toFixed(1)}</span>
+          </p>
+        )}
         <div className="flex w-full gap-2 mt-2">
           <button
             onClick={onAskBaz}
@@ -734,6 +748,13 @@ function OddsBoardCard({
               <HomeAwayValueBadge type="away" pct={awayValuePct} />
             </h2>
             {venue && <p className="mt-1 text-xs text-[#9CA3AF]">{venue.name}</p>}
+            {predHomeScore != null && predAwayScore != null && (
+              <p className="mt-1 text-[11px] font-mono text-[#6B7280]">
+                Model: <span className="font-bold text-[#111827]">{game.homeShort} {predHomeScore.toFixed(1)}</span>
+                <span className="mx-1 text-[#9CA3AF]">-</span>
+                <span className="font-bold text-[#111827]">{game.awayShort} {predAwayScore.toFixed(1)}</span>
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col gap-2 lg:items-end">
@@ -1473,6 +1494,7 @@ function OddsBoard({
   bviData,
   homeAwayValueData,
   teamNewsData,
+  predictionsMap,
 }: {
   activeSport: Sport;
   market: MarketTab;
@@ -1486,6 +1508,7 @@ function OddsBoard({
   bviData?: BviMap;
   homeAwayValueData?: HomeAwayValueMap;
   teamNewsData?: TeamNewsMap;
+  predictionsMap?: PredictionsMap;
 }) {
   if (loading) {
     return (
@@ -1529,6 +1552,8 @@ function OddsBoard({
           homeAwayAwayEntry={homeAwayValueData?.[game.awayTeam] ?? null}
           teamNewsHomeEntry={teamNewsData?.[game.homeTeam] ?? null}
           teamNewsAwayEntry={teamNewsData?.[game.awayTeam] ?? null}
+          predHomeScore={predictionsMap?.[game.homeTeam]?.predHomeScore ?? null}
+          predAwayScore={predictionsMap?.[game.homeTeam]?.predAwayScore ?? null}
         />
       ))}
     </div>
@@ -1558,6 +1583,7 @@ function OddsPageContent() {
   const [nrlHomeAwayValueData, setNrlHomeAwayValueData] = useState<HomeAwayValueMap>({});
   const [nrlTeamNews, setNrlTeamNews] = useState<TeamNewsMap>({});
   const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
+  const [nrlPredictions, setNrlPredictions] = useState<PredictionsMap>({});
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
@@ -1722,6 +1748,20 @@ function OddsPageContent() {
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    fetch('/api/nrl-predictions')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (data?.predictions) {
+          const map: PredictionsMap = {};
+          for (const p of data.predictions) {
+            map[p.homeTeam] = { predHomeScore: p.predHomeScore, predAwayScore: p.predAwayScore };
+          }
+          setNrlPredictions(map);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     setError(null);
@@ -1803,6 +1843,7 @@ function OddsPageContent() {
             bviData={activeSport === 'AFL' ? bviData : nrlBviData}
             homeAwayValueData={activeSport === 'AFL' ? homeAwayValueData : nrlHomeAwayValueData}
             teamNewsData={activeSport === 'NRL' ? nrlTeamNews : aflTeamNews}
+            predictionsMap={activeSport === 'NRL' ? nrlPredictions : undefined}
           />
           <CompletedSection
             games={activeSport === 'NRL' ? nrlCompleted : aflCompleted}
