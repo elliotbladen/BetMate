@@ -1,0 +1,143 @@
+{
+  "NRL": [
+    {
+      "matrix_key": "Brisbane Broncos",
+      "odds_api":   "Brisbane Broncos",
+      "db":         "Brisbane Broncos",
+      "abbr":       "BRI",
+      "aliases":    ["brisbane broncos"]
+    },
+    {
+      "matrix_key": "Canberra Raiders",
+      "odds_api":   "Canberra Raiders",
+      "db":         "Canberra Raiders",
+      "abbr":       "CAN",
+      "aliases":    ["canberra raiders"]
+    },
+    {
+      "matrix_key": "Canterbury Bulldogs",
+      "odds_api":   "Canterbury Bulldogs",
+      "db":         "Canterbury-Bankstown Bulldogs",
+      "abbr":       "CBY",
+      "aliases":    ["canterbury bulldogs", "canterbury-bankstown bulldogs", "canterbury bankstown bulldogs"]
+    },
+    {
+      "matrix_key": "Cronulla Sharks",
+      "odds_api":   "Cronulla Sutherland Sharks",
+      "db":         "Cronulla-Sutherland Sharks",
+      "abbr":       "CSH",
+      "aliases":    ["cronulla sharks", "cronulla sutherland sharks", "cronulla-sutherland sharks"]
+    },
+    {
+      "matrix_key": "Dolphins",
+      "odds_api":   "Dolphins",
+      "db":         "Dolphins",
+      "abbr":       "DOL",
+      "aliases":    ["dolphins", "redcliffe dolphins"]
+    },
+    {
+      "matrix_key": "Gold Coast Titans",
+      "odds_api":   "Gold Coast Titans",
+      "db":         "Gold Coast Titans",
+      "abbr":       "GCT",
+      "aliases":    ["gold coast titans"]
+    },
+    {
+      "matrix_key": "Manly Sea Eagles",
+      "odds_api":   "Manly Warringah Sea Eagles",
+      "db":         "Manly-Warringah Sea Eagles",
+      "abbr":       "MAN",
+      "aliases":    ["manly sea eagles", "manly warringah sea eagles", "manly-warringah sea eagles"]
+    },
+    {
+      "matrix_key": "Melbourne Storm",
+      "odds_api":   "Melbourne Storm",
+      "db":         "Melbourne Storm",
+      "abbr":       "MEL",
+      "aliases":    ["melbourne storm"]
+    },
+    {
+      "matrix_key": "New Zealand Warriors",
+      "odds_api":   "New Zealand Warriors",
+      "db":         "New Zealand Warriors",
+      "abbr":       "NZW",
+      "aliases":    ["new zealand warriors", "warriors"]
+    },
+    {
+      "matrix_key": "Newcastle Knights",
+      "odds_api":   "Newcastle Knights",
+      "db":         "Newcastle Knights",
+      "abbr":       "NEW",
+      "aliases":    ["newcastle knights"]
+    },
+    {
+      "matrix_key": "North QLD Cowboys",
+      "odds_api":   "North Queensland Cowboys",
+      "db":         "North Queensland Cowboys",
+      "abbr":       "NQC",
+      "aliases":    ["north qld cowboys", "north queensland cowboys", "north qld"]
+    },
+    {
+      "matrix_key": "Parramatta Eels",
+      "odds_api":   "Parramatta Eels",
+      "db":         "Parramatta Eels",
+      "abbr":       "PAR",
+      "aliases":    ["parramatta eels"]
+    },
+    {
+      "matrix_key": "Penrith Panthers",
+      "odds_api":   "Penrith Panthers",
+      "db":         "Penrith Panthers",
+      "abbr":       "PEN",
+      "aliases":    ["penrith panthers"]
+    },
+    {
+      "matrix_key": "South Sydney Rabbitohs",
+      "odds_api":   "South Sydney Rabbitohs",
+      "db":         "South Sydney Rabbitohs",
+      "abbr":       "SSR",
+      "aliases":    ["south sydney rabbitohs"]
+    },
+    {
+      "matrix_key": "St George Dragons",
+      "odds_api":   "St. George Illawarra Dragons",
+      "db":         "St George Illawarra Dragons",
+      "abbr":       "SGI",
+      "aliases":    ["st george dragons", "st george illawarra dragons", "st. george illawarra dragons", "st george illawarra"]
+    },
+    {
+      "matrix_key": "Sydney Roosters",
+      "odds_api":   "Sydney Roosters",
+      "db":         "Sydney Roosters",
+      "abbr":       "SYD",
+      "aliases":    ["sydney roosters"]
+    },
+    {
+      "matrix_key": "Wests Tigers",
+      "odds_api":   "Wests Tigers",
+      "db":         "Wests Tigers",
+      "abbr":       "WST",
+      "aliases":    ["wests tigers", "west tigers"]
+    }
+  ],
+  "AFL": [
+    { "matrix_key": "Adelaide Crows",              "odds_api": "Adelaide Crows",              "db": "Adelaide Crows",              "abbr": "ADE", "aliases": ["adelaide crows"] },
+    { "matrix_key": "Brisbane Lions",              "odds_api": "Brisbane Lions",              "db": "Brisbane Lions",              "abbr": "BRL", "aliases": ["brisbane lions"] },
+    { "matrix_key": "Carlton Blues",               "odds_api": "Carlton Blues",               "db": "Carlton Blues",               "abbr": "CAR", "aliases": ["carlton blues", "carlton"] },
+    { "matrix_key": "Collingwood Magpies",         "odds_api": "Collingwood Magpies",         "db": "Collingwood Magpies",         "abbr": "COL", "aliases": ["collingwood magpies", "collingwood"] },
+    { "matrix_key": "Essendon Bombers",            "odds_api": "Essendon Bombers",            "db": "Essendon Bombers",            "abbr": "ESS", "aliases": ["essendon bombers", "essendon"] },
+    { "matrix_key": "Fremantle Dockers",           "odds_api": "Fremantle Dockers",           "db": "Fremantle Dockers",           "abbr": "FRE", "aliases": ["fremantle dockers", "fremantle"] },
+    { "matrix_key": "Geelong Cats",                "odds_api": "Geelong Cats",                "db": "Geelong Cats",                "abbr": "GEE", "aliases": ["geelong cats", "geelong"] },
+    { "matrix_key": "Gold Coast Suns",             "odds_api": "Gold Coast Suns",             "db": "Gold Coast Suns",             "abbr": "GCS", "aliases": ["gold coast suns"] },
+    { "matrix_key": "Greater Western Sydney Giants","odds_api": "Greater Western Sydney Giants","db": "Greater Western Sydney Giants","abbr": "GWS", "aliases": ["greater western sydney giants", "gws giants", "gws"] },
+    { "matrix_key": "Hawthorn Hawks",              "odds_api": "Hawthorn Hawks",              "db": "Hawthorn Hawks",              "abbr": "HAW", "aliases": ["hawthorn hawks", "hawthorn"] },
+    { "matrix_key": "Melbourne Demons",            "odds_api": "Melbourne Demons",            "db": "Melbourne Demons",            "abbr": "MEL", "aliases": ["melbourne demons", "melbourne"] },
+    { "matrix_key": "North Melbourne Kangaroos",   "odds_api": "North Melbourne Kangaroos",   "db": "North Melbourne Kangaroos",   "abbr": "NME", "aliases": ["north melbourne kangaroos", "north melbourne"] },
+    { "matrix_key": "Port Adelaide Power",         "odds_api": "Port Adelaide Power",         "db": "Port Adelaide Power",         "abbr": "POR", "aliases": ["port adelaide power", "port adelaide"] },
+    { "matrix_key": "Richmond Tigers",             "odds_api": "Richmond Tigers",             "db": "Richmond Tigers",             "abbr": "RIC", "aliases": ["richmond tigers", "richmond"] },
+    { "matrix_key": "St Kilda Saints",             "odds_api": "St Kilda Saints",             "db": "St Kilda Saints",             "abbr": "STK", "aliases": ["st kilda saints", "st kilda"] },
+    { "matrix_key": "Sydney Swans",                "odds_api": "Sydney Swans",                "db": "Sydney Swans",                "abbr": "SWA", "aliases": ["sydney swans"] },
+    { "matrix_key": "West Coast Eagles",           "odds_api": "West Coast Eagles",           "db": "West Coast Eagles",           "abbr": "WCE", "aliases": ["west coast eagles", "west coast"] },
+    { "matrix_key": "Western Bulldogs",            "odds_api": "Western Bulldogs",            "db": "Western Bulldogs",            "abbr": "WBD", "aliases": ["western bulldogs"] }
+  ]
+}

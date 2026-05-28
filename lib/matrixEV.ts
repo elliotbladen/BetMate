@@ -25,36 +25,22 @@ type MatrixData = Record<string, SheetData>;
 type HandicapData = Record<string, Record<string, { edgePct: number; direction: string }>>;
 
 // ─── Team name normalisation ──────────────────────────────────────────────────
+// Built from shared/teams.json — single source of truth for all team name variants.
+// aliases → matrix_key (what BettingEngine writes as XLSX sheet/row names).
 
-const CANONICAL: Record<string, string> = {
-  'brisbane broncos':                    'Brisbane Broncos',
-  'canberra raiders':                    'Canberra Raiders',
-  'canterbury bulldogs':                 'Canterbury Bulldogs',
-  'canterbury-bankstown bulldogs':       'Canterbury Bulldogs',
-  'cronulla sharks':                     'Cronulla Sharks',
-  'cronulla sutherland sharks':          'Cronulla Sharks',
-  'cronulla-sutherland sharks':          'Cronulla Sharks',
-  'dolphins':                            'Dolphins',
-  'redcliffe dolphins':                  'Dolphins',
-  'gold coast titans':                   'Gold Coast Titans',
-  'manly sea eagles':                    'Manly Sea Eagles',
-  'manly warringah sea eagles':          'Manly Sea Eagles',
-  'manly-warringah sea eagles':          'Manly Sea Eagles',
-  'melbourne storm':                     'Melbourne Storm',
-  'new zealand warriors':                'New Zealand Warriors',
-  'newcastle knights':                   'Newcastle Knights',
-  'north queensland cowboys':            'North QLD Cowboys',
-  'north qld cowboys':                   'North QLD Cowboys',
-  'parramatta eels':                     'Parramatta Eels',
-  'penrith panthers':                    'Penrith Panthers',
-  'south sydney rabbitohs':              'South Sydney Rabbitohs',
-  'st george illawarra dragons':         'St George Dragons',
-  'st. george illawarra dragons':        'St George Dragons',
-  'st george dragons':                   'St George Dragons',
-  'sydney roosters':                     'Sydney Roosters',
-  'wests tigers':                        'Wests Tigers',
-  'west tigers':                         'Wests Tigers',
-};
+import teamsData from '@/shared/teams.json';
+
+type TeamEntry = { matrix_key: string; aliases: string[] };
+const _allTeams: TeamEntry[] = [
+  ...(teamsData.NRL as TeamEntry[]),
+  ...(teamsData.AFL as TeamEntry[]),
+];
+const CANONICAL: Record<string, string> = {};
+for (const t of _allTeams) {
+  for (const alias of t.aliases) {
+    CANONICAL[alias.toLowerCase()] = t.matrix_key;
+  }
+}
 
 function canonicalise(name: string): string {
   return CANONICAL[name.toLowerCase().trim()] ?? name;
