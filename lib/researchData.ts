@@ -492,5 +492,6 @@ export const MODEL_BETS: ModelBet[] = [
   { id:37, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Under 47.5',        predictedLine:44.1, takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,  runningTotal:7.15  },
   { id:38, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Panthers -3.5',     predictedLine:12.7, takenPrice:1.83, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:6.15  },
   { id:39, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Panthers -5.5',     predictedLine:12.7, takenPrice:1.72, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:5.15  },
-  { id:40, date:'2026-05-31', match:'Canberra Raiders vs Cowboys',             market:'Cowboys +4.5',      predictedLine:null, takenPrice:1.73, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:4.15  },
+  { id:40, date:'2026-05-30', match:'Wests Tigers vs Canterbury Bulldogs',     market:'Over 48.5',         predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:3.15  },
+  { id:41, date:'2026-05-31', match:'Canberra Raiders vs Cowboys',             market:'Cowboys +4.5',      predictedLine:null, takenPrice:1.73, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:2.15  },
 ];
