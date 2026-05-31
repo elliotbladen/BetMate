@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-05-29 (Baz AFL support complete)
+**Last updated:** 2026-06-01 (MCP Phase 1: Claude Tool Use loop live)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -29,9 +29,9 @@
 | "BetMate NRL Historical Results" | Tuesday 16:00 | ✅ Fixed — also runs AFL download |
 | "BetMate NRL Style Stats Scrape" | Tuesday 16:15 | ✅ Fixed path |
 | "BetMate NRL Round Prep" | Tuesday 16:20 | ✅ Fixed path, time 16:20 |
-| "BettingEngine NRL Pricing" | Tuesday 16:40 | ✅ FIXED — now uses wrapper scripts/run_nrl_pricing.ps1 with BETMATE_ROOT |
-| "BetMate NRL Emotional Flags" | Tuesday 16:45 | ✅ Rescheduled 14:00→16:45; added _load_env, Google News feed, bye-team validation |
-| "BetMate AFL Emotional Flags" | Tuesday 16:45 | ✅ Fixed — _load_env, Google News feed, bye-team validation, rescheduled to 16:45 |
+| "BettingEngine NRL Pricing" | Tuesday 16:45 | ✅ FIXED — now uses wrapper scripts/run_nrl_pricing.ps1 with BETMATE_ROOT |
+| "BetMate NRL Emotional Flags" | Tuesday 16:40 | ✅ Runs before pricing so T7 flags are ready; added _load_env, Google News feed, bye-team validation |
+| "BetMate AFL Emotional Flags" | Tuesday 16:40 | ✅ Fixed — _load_env, Google News feed, bye-team validation, runs before pricing |
 | "BetMate AFL BVI" | Monday 08:00 | ✅ Weekly — scrapers/afl_bvi.py → Supabase afl_bvi |
 | "BetMate AFL Home Away Value" | Monday 08:10 | ✅ Weekly — scrapers/afl_home_advantage.py → Supabase afl_home_away |
 | "BetMate NRL BVI" | Monday 08:20 | ✅ Weekly — scrapers/nrl_bvi.py → Supabase nrl_bvi |
@@ -318,12 +318,13 @@ cd C:\Users\ElliotBladen\Apps\BettingEngine
 - **T9 Matrix tier:** end-of-2026 review. Weighted by sample size (N<10=0.3, N10-25=0.6, N25+=1.0). Triple confluence cap 10%. See memory file.
 - **Supabase UNIQUE constraint:** Add UNIQUE constraint on `key` column in `betmate_data_store` so `resolution=merge-duplicates` actually merges instead of inserting duplicates. Currently `getDataStore` works around this with `.limit(1)` but the root cause should be fixed in Supabase SQL editor: `ALTER TABLE betmate_data_store ADD CONSTRAINT betmate_data_store_key_unique UNIQUE (key);`
 
-### Baz Agent — BUILT 2026-05-15, TUNNEL LIVE 2026-05-26, AFL SUPPORT 2026-05-29
-- `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/context/round?sport=NRL|AFL`, `/context/game`, `/signals`, `/clv`, `/context/team`
-- **AFL context:** `/context/round?sport=AFL` reads latest `r*_afl_*.csv` from `BettingEngine/results/`, includes ML model data (`ml_model.margin`, `.total`, `.home_odds`, `.away_odds`) alongside rules model
-- **AFL confluence:** reads `outputs/afl_t9_confluence_latest.json` (run `matrix_confluence.py --season 2026 --round 12 --sport afl` — check if AFL flag exists)
-- `app/api/chat/route.ts` — fetches from `BAZ_TUNNEL_URL` (Vercel) or `BAZ_LOCAL_API` (local). 1.5s timeout, graceful fallback. `sport` param read from request body, forwarded to baz_server.
-- **Matrix filter (both NRL + AFL):** only surfaces signals where H2H is clean (exactly 1 direction ≥3 edges), handicap is clean (exactly 1 direction ≥3 edges), AND both point the SAME side (HOME_WIN + HOME_COVERS, or AWAY_WIN + AWAY_COVERS). Conflicted or misaligned = suppressed.
+### Baz Agent — MCP PHASE 1 LIVE 2026-06-01
+- `BettingEngine/baz_server.py` — FastAPI local context server, localhost:8765. Endpoints: `/health`, `/meta?sport=`, `/context/round?sport=NRL|AFL`, `/context/game`, `/signals?sport=`, `/clv`, `/context/team`
+- **MCP Phase 1 (2026-06-01):** `app/api/chat/route.ts` now uses Claude Tool Use agentic loop. Slim system prompt (~600 tokens) + 4 tools: `get_round_signals`, `get_game_context`, `get_team_context`, `get_performance`. Claude fetches only what it needs per question instead of a static full-round data dump.
+- **`/signals?sport=` enriched:** returns matrix signals (H2H + handicap aligned) + totals signals (clean confluence) + H2H EV signals ≥20% + games summary with model lines
+- **`/meta?sport=`:** returns `{round, season, sport}` only — ~5ms call to seed system prompt round number
+- **AFL context:** `/context/round?sport=AFL` reads latest `r*_afl_*.csv`, includes ML model data alongside rules model. AFL confluence from `outputs/afl_t9_confluence_latest.json`
+- `app/api/chat/route.ts` — fetches from `BAZ_TUNNEL_URL` (Vercel) or `BAZ_LOCAL_API` (local). Tool executor `bazFetch()` has 3s timeout. `sport` forwarded to all tool calls.
 - `BAZ_TUNNEL_URL=https://baz.betmate.au` — set in Vercel ✅
 - Cloudflare tunnel: `betmate-baz` (ID: ce4bfb19-82f6-4ffe-af06-e2c65636a323) → `baz.betmate.au` → `localhost:8765` ✅
 - `components/chat/ChatPanel.tsx` — parses brain status token from stream, shows "Brain offline" amber banner when BettingEngine is down. Sends `sport: games[0]?.sport ?? 'NRL'` in every fetch body.
