@@ -228,34 +228,20 @@ $env:BETMATE_ROOT = "C:\Users\ElliotBladen\Apps"; $env:PYTHONUTF8 = "1"
 & ".\.venv\Scripts\python.exe" scripts\_export_afl_prices.py
 ```
 
-### NRL R13 — Key Pricing Notes (2026-05-28) ✅ FULL TIERS
-- **T5 loaded** — 93 injury records (2026-05-28 scrape)
-- **T6 loaded** — 4/7 refs: Gough (flow+2.0), Atkins (flow+2.0), Klein (whistle-2.0), Sutton (neutral). Cronulla/Manly, Newcastle/Parra, Broncos/Dragons missing.
-- **T8 weather loaded** — Tomorrow.io. Only weather effect: Suncorp moderate_wind (-2.0 on Broncos/Dragons total → 43.8).
-- **Top signals:**
-  - **Cronulla -2.5** — 7-way matrix confluence + model -4.9 vs market -2.5. HIGH.
-  - **Panthers/Warriors UNDER 48.5** — 8-way matrix confluence + model 44.1. HIGH.
-  - **Broncos/Dragons UNDER 54.5** — model 43.8 (T8 wind included) = 10.7pt gap. HIGH.
-  - **Parramatta +14.5** — model Knights by 12.7 vs market 14.5 (1.8pt gap, narrowed from 4.85 after T5). MEDIUM-HIGH.
-  - **Panthers -7.5** — model 12.7 vs market 7.5. MEDIUM.
-- **T9 confluence (2026-05-28):** 5 games flagged. Cronulla/Manly: 7-way H2H + 7-way handicap ⚡. Raiders/Cowboys: 3-way H2H + 3-way handicap ⚡. Newcastle/Parra: 3+3 ⚡. Tigers/Bulldogs conflicted (5-way BACK AWAY vs 4-way HOME COVERS). Broncos/Dragons: 3-way handicap only.
+### NRL R13 — Results + CLV (2026-05-29–31) ⚠️ NEGATIVE CLV ROUND
+- **Net result: -$38.50 (~-0.77 units). All lines/totals/H2H moved against bets placed.**
+- **CLV flag:** Every market (H2H, handicap, totals) shifted in the unfavourable direction after bets were placed. Pattern to watch — if this repeats across R14/R15 it suggests timing issue (betting too early before sharp money arrives) or model overconfidence on handicap signals.
+- **What landed:** Cronulla H2H ✅ (7-way confluence paid off), Under 46.5/47.5 Panthers/Warriors ✅ (model 44.1 was correct)
+- **What missed:** Panthers -3.5/-5.5 ❌ (model had by 12.7 — significant miss), Cowboys +4.5 ❌ (Raiders/Cowboys 3-way matrix failed), Carlton/Geelong OVER 178.5 AFL ❌
+- **Key pricing notes (original):** 4/7 refs loaded, T8 weather Suncorp wind -2.0 on Broncos/Dragons total. Cronulla -2.5 HIGH (7-way matrix + model -4.9). Panthers/Warriors UNDER 48.5 HIGH (8-way matrix + model 44.1). Panthers -7.5 MEDIUM (model 12.7 — market was right, Panthers barely won or lost).
 - Pricing files: `BettingEngine/results/r13_pricing_2026.csv` + `BettingEngine/outputs/results/r13_nrl_pricing_2026.md`
-- Note: CSV locked when last export ran — close Excel and re-run `export_round_csv.py --season 2026 --round 13`
 
-### AFL R12 — Key Pricing Notes (2026-05-28) ✅ FULL TIERS
-- 7 games (byes: Adelaide, Gold Coast, North Melbourne, Port Adelaide)
-- **T6 emotional loaded** — Essendon "new_coach_bounce" normal → -2.5 hcap (Bombers get +2.5). Flips Eagles win → Bombers by 0.5.
-- **T7 weather loaded** — Tomorrow.io. Only effect: Optus Stadium moderate_wind (25.6 km/h) → -2.8 on Eagles/Bombers total (149.0).
-- **Top signals:**
-  - **Collingwood +7.5** — Bulldogs ruck crisis (Darcy + English both out). HIGH.
-  - **Bulldogs/Magpies UNDER 180.5** — model 160.3 vs market. HIGH.
-  - **Eagles +10.5** — rules Bombers by 0.5, ML Bombers by 7.6, market -10.5. Both models well inside. HIGH.
-  - **Eagles/Bombers UNDER 165.5** — rules 149.0, ML 158.5 both below market 165.5 (upgraded from skip — ML now aligned). MEDIUM.
-  - **Carlton +23.5** — ML divergence play (rules -44.1 vs ML -2.3). MEDIUM.
-  - **Geelong/Carlton OVER 179.5** — 8-way Geelong OVER confluence. MEDIUM.
-  - **Hawks -12.5** — model -30.4, ML -16.3. MEDIUM.
-- Monitor Sean Darcy (Fremantle, doubtful) before Brisbane/Fremantle bet.
-- T6 umpires: no data for AFL R12. All T6 = 0.
+### AFL R12 — Results + CLV (2026-05-28–31) ⚠️ MIXED
+- **Net result (AFL bets only): -$57.52. Lines moved against positions.**
+- **What landed:** Hawthorn -19.5 ✅ ($25), Essendon H2H cash out ✅ (+$19.98 — smart exit, Eagles won the game)
+- **What missed:** Carlton/Geelong OVER 178.5 ❌ (4-way confluence failed), Collingwood H2H vs Bulldogs ❌, Essendon H2H @ 2.39 ❌ (West Coast won — model Bombers by 0.5 was wrong)
+- **CLV note:** Eagles +10.5 was the strong signal but user didn't take it — instead backed Essendon H2H which was against the model's handicap signal. The model correctly priced West Coast as live but was beat.
+- **Key pricing notes (original):** T6 emotional (Essendon new_coach_bounce +2.5). T7 weather Optus wind -2.8 on total. Collingwood +7.5 HIGH (ruck crisis). Eagles +10.5 HIGH. Hawks -12.5 MEDIUM.
 - Pricing files: `BettingEngine/results/r12_afl_2026.csv` + `BettingEngine/outputs/results/r12_afl_pricing_2026.md`
 
 ### NRL R12 — Key Pricing Notes (2026-05-21)

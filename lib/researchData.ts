@@ -417,6 +417,35 @@ LEGACY_BETS.push(
   { id:368, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs', market:'Cowboys -2.5',        odds:1.90, closingOdds:null, result:'win',  cumPL:28.53, sport:'NRL', notes:'Actual bet log. Stake $25. Cowboys covered.' },
 );
 
+// ─── Section 6: Week ending 2026-06-01 (NRL R13 + AFL R12) ──────────────────
+LEGACY_BETS.push(
+  // AFL R12 — Thu 28 May
+  { id:369, date:'2026-05-28', match:'St Kilda vs Hawthorn',                   market:'Hawthorn -19.5',      odds:1.90, closingOdds:null, result:'win',  cumPL:28.98, sport:'AFL', notes:'Actual bet log. Stake $25. Hawthorn won.' },
+  // NRL R13 — Fri 29 May (Cronulla vs Manly)
+  { id:370, date:'2026-05-29', match:'Cronulla Sharks vs Manly',               market:'Cronulla Win',         odds:1.87, closingOdds:null, result:'win',  cumPL:29.85, sport:'NRL', notes:'Actual bet log. Stake $50. Cronulla won. 7-way H2H matrix confluence.' },
+  { id:371, date:'2026-05-29', match:'Cronulla Sharks vs Manly',               market:'Over 44.5 alt total',  odds:1.77, closingOdds:null, result:'win',  cumPL:30.12, sport:'NRL', notes:'Actual bet log. Stake $17.50. Alternative total line won.' },
+  { id:372, date:'2026-05-29', match:'Cronulla Sharks vs Manly',               market:'Under 46.5',           odds:1.89, closingOdds:null, result:'loss', cumPL:29.62, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  { id:373, date:'2026-05-29', match:'Cronulla Sharks vs Manly',               market:'Under 50.5',           odds:1.81, closingOdds:null, result:'win',  cumPL:30.03, sport:'NRL', notes:'Actual bet log. Stake $25. Under landed.' },
+  { id:374, date:'2026-05-29', match:'Cronulla Sharks vs Manly',               market:'Manly Win',            odds:1.98, closingOdds:null, result:'loss', cumPL:29.63, sport:'NRL', notes:'Actual bet log. Stake $20.' },
+  // AFL R12 — Fri 29 May (Carlton vs Geelong)
+  { id:375, date:'2026-05-29', match:'Carlton vs Geelong Cats',                market:'Over 178.5',           odds:1.89, closingOdds:null, result:'loss', cumPL:29.13, sport:'AFL', notes:'Actual bet log. Stake $25. 4-way OVERS matrix confluence — did not land.' },
+  // NRL R13 — Sat 30 May (Tigers vs Bulldogs)
+  { id:376, date:'2026-05-30', match:'Wests Tigers vs Canterbury Bulldogs',    market:'Over 48.5',            odds:1.90, closingOdds:null, result:'loss', cumPL:28.63, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  { id:377, date:'2026-05-30', match:'Wests Tigers vs Canterbury Bulldogs',    market:'Canterbury Win',        odds:1.98, closingOdds:null, result:'win',  cumPL:28.99, sport:'NRL', notes:'Actual bet log. Stake $25. Cashed out +$18.09.' },
+  // AFL R12 — Sat 30 May (Bulldogs vs Collingwood)
+  { id:378, date:'2026-05-30', match:'Western Bulldogs vs Collingwood',        market:'Collingwood Win',       odds:2.26, closingOdds:null, result:'loss', cumPL:28.49, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  // NRL R13 — Sun 31 May (Panthers vs Warriors)
+  { id:379, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',        market:'Under 47.5',           odds:1.90, closingOdds:null, result:'win',  cumPL:28.94, sport:'NRL', notes:'Actual bet log. Stake $25. Under landed. Model predicted 44.1.' },
+  { id:380, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',        market:'Under 46.5',           odds:1.84, closingOdds:null, result:'win',  cumPL:29.36, sport:'NRL', notes:'Actual bet log. Stake $25. Under landed.' },
+  { id:381, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',        market:'Panthers -3.5',        odds:1.83, closingOdds:null, result:'loss', cumPL:28.86, sport:'NRL', notes:'Actual bet log. Stake $25. Model had Panthers by 12.7 — missed.' },
+  { id:382, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',        market:'Panthers -5.5',        odds:1.72, closingOdds:null, result:'loss', cumPL:28.36, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  // NRL R13 — Sun 31 May (Raiders vs Cowboys)
+  { id:383, date:'2026-05-31', match:'Canberra Raiders vs Cowboys',            market:'Cowboys +4.5',         odds:1.73, closingOdds:null, result:'loss', cumPL:27.86, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  // AFL R12 — Sun 31 May (West Coast vs Essendon)
+  { id:384, date:'2026-05-31', match:'West Coast Eagles vs Essendon',          market:'Essendon Win',         odds:2.31, closingOdds:null, result:'win',  cumPL:28.26, sport:'AFL', notes:'Actual bet log. Stake $25. Cashed out +$19.98. Eagles won the game.' },
+  { id:385, date:'2026-05-31', match:'West Coast Eagles vs Essendon',          market:'Essendon Win',         odds:2.39, closingOdds:null, result:'loss', cumPL:27.76, sport:'AFL', notes:'Actual bet log. Stake $25. Eagles won.' },
+);
+
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
 // 26 NRL-only bets. predictedLine = model's fair-odds or predicted total score.
 // plUnits = individual bet P&L per 1 unit staked. runningTotal = cumulative.
@@ -457,4 +486,8 @@ export const MODEL_BETS: ModelBet[] = [
   { id:32, date:'2026-05-22', match:'Canterbury Bulldogs vs Melbourne Storm',  market:'Bulldogs -3.5',     predictedLine:3.5,  takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,  runningTotal:2.97  },
   { id:33, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs',       market:'Cowboys Win',       predictedLine:1.67, takenPrice:1.67, closingPrice:null, result:'win',  plUnits:0.67,  runningTotal:3.64  },
   { id:34, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs',       market:'Cowboys -2.5',      predictedLine:2.5,  takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,  runningTotal:4.54  },
+  // R13
+  { id:35, date:'2026-05-29', match:'Cronulla Sharks vs Manly Sea Eagles',     market:'Cronulla Win',      predictedLine:1.72, takenPrice:1.87, closingPrice:null, result:'win',  plUnits:0.87,  runningTotal:5.41  },
+  { id:36, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Under 48.5',        predictedLine:44.1, takenPrice:1.84, closingPrice:null, result:'win',  plUnits:0.84,  runningTotal:6.25  },
+  { id:37, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Panthers -7.5',     predictedLine:12.7, takenPrice:null, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:5.25  },
 ];
