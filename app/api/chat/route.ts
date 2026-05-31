@@ -255,22 +255,31 @@ function formatGameContext(data: Record<string, unknown>): string {
   const lines: string[] = [];
   const home = data.home as string;
   const away = data.away as string;
-  lines.push(`=== ${home} vs ${away} ===`);
+  const sport = (data.sport as string | undefined) ?? 'NRL';
+  lines.push(`=== ${home} vs ${away} (${sport}) ===`);
 
   const model = data.model as
     | { fair_home_odds?: number; fair_away_odds?: number; hcap_line?: number; total_line?: number }
+    | undefined;
+  const mlModel = data.ml_model as
+    | { margin?: number; total?: number; home_odds?: number; away_odds?: number }
     | undefined;
   const market = data.market as { h2h_home?: number; h2h_away?: number } | undefined;
   const ev = data.ev as { home_h2h_pct?: number; away_h2h_pct?: number } | undefined;
 
   if (model) {
-    lines.push(`Model H2H: ${home} ${model.fair_home_odds} / ${away} ${model.fair_away_odds}`);
-    lines.push(`Model: hcap ${model.hcap_line}, total ${model.total_line}`);
+    lines.push(`Rules model H2H: ${home} ${model.fair_home_odds} / ${away} ${model.fair_away_odds}`);
+    lines.push(`Rules model: hcap ${model.hcap_line}, total ${model.total_line}`);
   }
-  if (market) {
+  if (mlModel && (mlModel.margin !== undefined || mlModel.total !== undefined)) {
+    lines.push(
+      `ML model: ${home} by ${mlModel.margin} | total ${mlModel.total} | home odds ${mlModel.home_odds} / away ${mlModel.away_odds}`,
+    );
+  }
+  if (market && (market.h2h_home || market.h2h_away)) {
     lines.push(`Market H2H: ${home} ${market.h2h_home} / ${away} ${market.h2h_away}`);
   }
-  if (ev) {
+  if (ev && (ev.home_h2h_pct || ev.away_h2h_pct)) {
     lines.push(`EV: ${home} ${ev.home_h2h_pct}% / ${away} ${ev.away_h2h_pct}%`);
   }
 
@@ -286,6 +295,25 @@ function formatGameContext(data: Record<string, unknown>): string {
     | { condition?: string; temp_c?: number; wind_kmh?: number }
     | undefined;
   if (wx?.condition) lines.push(`Weather: ${wx.condition}, ${wx.temp_c}C, wind ${wx.wind_kmh}km/h`);
+
+  // Matrix/totals confluence for this game
+  const conf = data.confluence as Record<string, { count: number }> | undefined;
+  if (conf && Object.keys(conf).length > 0) {
+    const entries = Object.entries(conf) as [string, { count: number }][];
+    const h2hClean = entries.filter(([k, v]) => k.startsWith('h2h_') && v.count >= 3);
+    const hcapClean = entries.filter(([k, v]) => k.startsWith('handicap_') && v.count >= 3);
+    const totalsClean = entries.filter(([k, v]) => k.startsWith('totals_') && v.count >= 3);
+    const h2hSide = h2hClean.length === 1 ? (h2hClean[0][0].includes('HOME') ? 'HOME' : 'AWAY') : null;
+    const hcapSide = hcapClean.length === 1 ? (hcapClean[0][0].includes('HOME') ? 'HOME' : 'AWAY') : null;
+    const matrixAligned = h2hClean.length === 1 && hcapClean.length === 1 && h2hSide === hcapSide;
+    if (matrixAligned) {
+      const top = [...h2hClean, ...hcapClean].sort((a, b) => b[1].count - a[1].count);
+      lines.push(`Matrix T9: ${top.map(([k, v]) => `${v.count}-way ${k.replace(/_/g, ' ')}`).join(' | ')}`);
+    }
+    if (totalsClean.length === 1) {
+      lines.push(`Totals T9: ${totalsClean[0][1].count}-way ${totalsClean[0][0].replace(/_/g, ' ')}`);
+    }
+  }
 
   const exp = data.explanation as string | undefined;
   if (exp) lines.push(`Notes: ${exp}`);
@@ -337,7 +365,7 @@ async function executeTool(
     case 'get_game_context': {
       const h = encodeURIComponent(input.home as string);
       const a = encodeURIComponent(input.away as string);
-      const data = (await bazFetch(`/context/game?home=${h}&away=${a}`)) as Record<
+      const data = (await bazFetch(`/context/game?home=${h}&away=${a}&sport=${sport}`)) as Record<
         string,
         unknown
       > | null;
