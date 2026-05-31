@@ -488,6 +488,9 @@ export const MODEL_BETS: ModelBet[] = [
   { id:34, date:'2026-05-24', match:'Cowboys vs South Sydney Rabbitohs',       market:'Cowboys -2.5',      predictedLine:2.5,  takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,  runningTotal:4.54  },
   // R13
   { id:35, date:'2026-05-29', match:'Cronulla Sharks vs Manly Sea Eagles',     market:'Cronulla Win',      predictedLine:1.72, takenPrice:1.87, closingPrice:null, result:'win',  plUnits:0.87,  runningTotal:5.41  },
-  { id:36, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Under 48.5',        predictedLine:44.1, takenPrice:1.84, closingPrice:null, result:'win',  plUnits:0.84,  runningTotal:6.25  },
-  { id:37, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Panthers -7.5',     predictedLine:12.7, takenPrice:null, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:5.25  },
+  { id:36, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Under 46.5',        predictedLine:44.1, takenPrice:1.84, closingPrice:null, result:'win',  plUnits:0.84,  runningTotal:6.25  },
+  { id:37, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Under 47.5',        predictedLine:44.1, takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,  runningTotal:7.15  },
+  { id:38, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Panthers -3.5',     predictedLine:12.7, takenPrice:1.83, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:6.15  },
+  { id:39, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Panthers -5.5',     predictedLine:12.7, takenPrice:1.72, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:5.15  },
+  { id:40, date:'2026-05-31', match:'Canberra Raiders vs Cowboys',             market:'Cowboys +4.5',      predictedLine:null, takenPrice:1.73, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:4.15  },
 ];
