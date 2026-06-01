@@ -441,8 +441,7 @@ LEGACY_BETS.push(
   // NRL R13 — Sun 31 May (Raiders vs Cowboys)
   { id:383, date:'2026-05-31', match:'Canberra Raiders vs Cowboys',            market:'Cowboys +4.5',         odds:1.73, closingOdds:null, result:'loss', cumPL:27.50, sport:'NRL', notes:'Actual bet log. Stake $25.' },
   // AFL R12 — Sun 31 May (West Coast vs Essendon)
-  { id:384, date:'2026-05-31', match:'West Coast Eagles vs Essendon',          market:'Essendon Win',         odds:2.31, closingOdds:null, result:'win',  cumPL:27.90, sport:'AFL', notes:'Actual bet log. Stake $25. Cashed out +$19.98. Eagles won the game.' },
-  { id:385, date:'2026-05-31', match:'West Coast Eagles vs Essendon',          market:'Essendon Win',         odds:2.39, closingOdds:null, result:'loss', cumPL:27.40, sport:'AFL', notes:'Actual bet log. Stake $25. Eagles won.' },
+  { id:385, date:'2026-05-31', match:'West Coast Eagles vs Essendon',          market:'Essendon Win',         odds:2.39, closingOdds:null, result:'loss', cumPL:27.00, sport:'AFL', notes:'Actual bet log. Stake $25. Eagles won.' },
 );
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
