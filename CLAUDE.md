@@ -32,6 +32,8 @@
 | "BettingEngine NRL Pricing" | Tuesday 16:45 | ✅ FIXED — now uses wrapper scripts/run_nrl_pricing.ps1 with BETMATE_ROOT |
 | "BetMate NRL Emotional Flags" | Tuesday 16:40 | ✅ Runs before pricing so T7 flags are ready; added _load_env, Google News feed, bye-team validation |
 | "BetMate AFL Emotional Flags" | Tuesday 16:40 | ✅ Fixed — _load_env, Google News feed, bye-team validation, runs before pricing |
+| "BetMate NRL Weekend Injuries" | Monday 07:30 | ✅ NEW — run_weekend_injuries_nrl.ps1 — NRL only (casualty ward updates Sun/Mon) |
+| "BetMate AFL Weekend Injuries" | Monday 15:00 | ✅ NEW — run_weekend_injuries_afl.ps1 — scrapes Fox Sports match report articles (server-rendered, available Mon afternoon). Footywire/AFL.com.au don't update until Tue/Wed so we read game write-ups instead. |
 | "BetMate AFL BVI" | Monday 08:00 | ✅ Weekly — scrapers/afl_bvi.py → Supabase afl_bvi |
 | "BetMate AFL Home Away Value" | Monday 08:10 | ✅ Weekly — scrapers/afl_home_advantage.py → Supabase afl_home_away |
 | "BetMate NRL BVI" | Monday 08:20 | ✅ Weekly — scrapers/nrl_bvi.py → Supabase nrl_bvi |
@@ -59,6 +61,9 @@ BettingEngine's `_find_betmate_root()` was resolving to `Apps\BetMate` (old spli
 | `scrapers/odds_snapshot.py` | `data/odds_snapshots/YYYY/YYYY-MM-DD.csv` | UI + study |
 | `scrapers/odds_movement_tracker.py` | `data/odds_movements/YYYY/YYYY-MM-DD.csv` | UI alerts |
 | `scrapers/nrl_injuries.py` | `data/nrl/injuries/processed/latest-injuries.json` | BettingEngine T5 |
+| `scrapers/weekend_injury_diff.py` | `data/{nrl\|afl}/injuries/processed/new-this-week.json` + updates `latest-injuries.json` | Monday pipeline step 1 |
+| `scrapers/afl_match_reports.py` | `data/afl/injuries/processed/new-this-week.json` | Scrapes Fox Sports AFL Report Card for injury mentions per team. Server-rendered, available Mon afternoon. Known limitation: cross-team mentions in game write-ups may mis-attribute a player. |
+| `scripts/update_team_news_injuries.py` | `data/{nrl\|afl}/team-news/latest.json` + Supabase `team_news_nrl`/`team_news_afl` | Monday pipeline step 2 — auto-populates injury section, preserves manual suspensions |
 | `scrapers/nrl_emotional.py` | `data/nrl/emotional/processed/latest-emotional.json` | BettingEngine T7 |
 | `scrapers/afl_emotional.py` | `data/afl/emotional/processed/latest-emotional.json` | future AFL BettingEngine T7 |
 | `scrapers/afl_bvi.py` | `data/afl/bvi/processed/latest-bvi.json` | `/api/afl-bvi` → odds page BVI filter |
@@ -137,13 +142,19 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 - Nickname matching: last word of full Odds API name (e.g. "Cowboys") used for case-insensitive contains match against Excel team strings
 - AFL: returns "coming soon" note — no data source yet
 
-### Team News System — BUILT 2026-05-18
-- `data/nrl/team-news/latest.json` — NRL R12 fresh news (Rabbitohs, Wests Tigers, Manly)
-- `data/afl/team-news/latest.json` — AFL R11 fresh news (Richmond, West Coast, Gold Coast)
+### Team News System — AUTO-INJURIES 2026-06-01
+- `data/nrl/team-news/latest.json` — NRL team news (injuries auto-populated, suspensions manual)
+- `data/afl/team-news/latest.json` — AFL team news (injuries auto-populated, suspensions manual)
 - `app/api/team-news/nrl/route.ts` + `app/api/team-news/afl/route.ts` — API routes (public)
 - UI: DetailDrawer Team News tab shows real data; chip shows Alert/Monitor status
-- **Update weekly:** manually edit JSON files after weekend games (Monday for NRL, Wednesday after AFL tribunal)
-- **Future automation:** `scrapers/nrl_team_news.py` — auto-generate injuries section from `latest-injuries.json`; suspensions stay manual
+- **Monday 07:30 (automated):** `scripts/run_weekend_injuries.ps1` runs two steps:
+  1. `scrapers/weekend_injury_diff.py` — scrapes fresh, diffs vs last known, writes `new-this-week.json`
+  2. `scripts/update_team_news_injuries.py` — reads `new-this-week.json`, puts ONLY weekend-new injuries into team news, pushes to Supabase
+- **Source is `new-this-week.json` (the diff), NOT the full casualty ward** — team news = what's fresh this weekend only
+- Each Monday resets injury items to that week's new/worsened batch. Old injuries drop off automatically.
+- **Suspensions stay manual** — edit `latest.json` directly, then run `scripts/update_team_news_injuries.py --sport NRL` to push
+- Severity: NRL uses `importance_tier` from scraper (elite→high, key→medium, rotation→low). AFL defaults to low.
+- Teams with any high/medium severity item → status `"alert"`. Others → `"monitor"`.
 
 ### BVI + H/A Value Controls — moved to per-card (2026-05-18)
 - Removed from global header (no more header toggles or Search button)

@@ -1249,9 +1249,9 @@ function DetailDrawer({
                     <Stethoscope className={`h-4 w-4 ${hasAlert ? 'text-amber-700' : 'text-[#00B899]'}`} />
                     <p className="text-sm font-bold text-[#111827]">{team}</p>
                   </div>
-                  {hasAlert ? (
+                  {newsEntry?.items && newsEntry.items.length > 0 ? (
                     <ul className="space-y-2">
-                      {newsEntry!.items.map((item, i) => (
+                      {newsEntry.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span className={`mt-0.5 shrink-0 rounded px-1 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest ${item.type === 'suspension' ? 'bg-amber-200 text-amber-900' : 'bg-red-100 text-red-700'}`}>
                             {item.type === 'suspension' ? 'SUSP' : 'OUT'}

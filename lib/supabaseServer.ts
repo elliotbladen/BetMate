@@ -13,6 +13,7 @@ export async function getDataStore(key: string): Promise<unknown | null> {
     .from('betmate_data_store')
     .select('data')
     .eq('key', key)
+    .order('updated_at', { ascending: false })
     .limit(1);
 
   if (error || !data || data.length === 0) return null;
