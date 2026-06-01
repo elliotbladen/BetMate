@@ -68,7 +68,7 @@ export default function RegisterPage() {
     <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
-          <span className="text-[#00DEB8] font-mono font-bold text-2xl tracking-tight">BetMate</span>
+          <img src="/logo.png" alt="BetMate" style={{height:'80px', width:'auto', margin:'0 auto'}} />
           <p className="text-[#6B7280] text-sm mt-2">Create your free account</p>
         </div>
 

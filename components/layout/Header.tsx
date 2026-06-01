@@ -48,10 +48,12 @@ export default function Header() {
         <div className="px-5 sm:px-8 h-[60px] flex items-center gap-6">
 
           {/* Logo */}
-          <Link href="/odds" className="flex items-center shrink-0 select-none">
-            <span className="font-display font-extrabold text-[20px] tracking-tight text-white leading-none">
-              Bet<span className="text-[#00DEB8]">Mate</span>
-            </span>
+          <Link href="/odds" className="shrink-0 select-none" style={{display:'block', height:'34px', width:'140px', position:'relative', overflow:'hidden'}}>
+            <img
+              src="/logo.png"
+              alt="BetMate"
+              style={{position:'absolute', bottom:0, left:0, height:'115px', width:'auto'}}
+            />
           </Link>
 
           {/* Sport tabs â€” only on odds page */}
