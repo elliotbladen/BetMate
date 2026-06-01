@@ -50,7 +50,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/odds" className="flex items-center shrink-0 select-none">
             <span className="font-display font-extrabold text-[20px] tracking-tight text-white leading-none">
-              Bet<span className="text-[#00DEB8]">MATE</span>
+              Bet<span className="text-[#00DEB8]">Mate</span>
             </span>
           </Link>
 
