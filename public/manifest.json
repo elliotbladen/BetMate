@@ -1,6 +1,6 @@
 {
-  "name": "BetMATE",
-  "short_name": "BetMATE",
+  "name": "BetMate",
+  "short_name": "BetMate",
   "description": "Best odds. Quantitative edge.",
   "start_url": "/odds",
   "display": "standalone",

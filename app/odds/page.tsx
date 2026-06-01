@@ -1230,7 +1230,7 @@ function DetailDrawer({
             <div className="rounded-lg border border-[#00DEB8]/35 bg-[#00DEB8]/8 p-4">
               <p className="mb-2 text-[10px] font-mono uppercase tracking-widest text-[#00866F]">Why this matters</p>
               <p className="text-sm leading-6 text-[#374151]">
-                BetMATE keeps the odds board simple, then uses movement, price gaps, referee, weather and team-news context to explain what may matter before kickoff.
+                BetMate keeps the odds board simple, then uses movement, price gaps, referee, weather and team-news context to explain what may matter before kickoff.
               </p>
             </div>
           </div>
@@ -1356,7 +1356,7 @@ function BoardSummary({ games, market, movements }: { games: Game[]; market: Mar
         </div>
 
         <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
-          <p className="section-label mb-2">BetMATE brain</p>
+          <p className="section-label mb-2">BetMate brain</p>
           <div className="rounded-lg border border-[#00DEB8]/35 bg-[#00DEB8]/8 p-3">
             <div className="mb-2 flex items-center gap-2">
               <Bot className="h-5 w-5 text-[#00B899]" />
@@ -1905,7 +1905,7 @@ function OddsPageContent() {
           <div>
             <p className="font-display font-bold text-[#111827]">Baz</p>
             <p className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">
-              {selectedGame ? `${selectedGame.homeShort} vs ${selectedGame.awayShort}` : 'BetMATE AI betting brain'}
+              {selectedGame ? `${selectedGame.homeShort} vs ${selectedGame.awayShort}` : 'BetMate AI betting brain'}
             </p>
           </div>
           <button onClick={() => setBazOpen(false)} aria-label="Close Baz" className="rounded-md border border-[#E2E8F0] p-2 text-[#6B7280] hover:text-[#111827]">
