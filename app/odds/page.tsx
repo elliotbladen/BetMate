@@ -1585,6 +1585,7 @@ function OddsPageContent() {
   const [nrlTeamNews, setNrlTeamNews] = useState<TeamNewsMap>({});
   const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
   const [nrlPredictions, setNrlPredictions] = useState<PredictionsMap>({});
+  const [aflPredictions, setAflPredictions] = useState<PredictionsMap>({});
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
@@ -1767,6 +1768,21 @@ function OddsPageContent() {
   }, []);
 
   useEffect(() => {
+    fetch('/api/afl-predictions')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (data?.predictions) {
+          const map: PredictionsMap = {};
+          for (const p of data.predictions) {
+            map[p.homeTeam] = { predHomeScore: p.predHomeScore, predAwayScore: p.predAwayScore };
+          }
+          setAflPredictions(map);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
     setError(null);
     setLoading(true);
     setExpandedGameId(null);
@@ -1846,7 +1862,7 @@ function OddsPageContent() {
             bviData={activeSport === 'AFL' ? bviData : nrlBviData}
             homeAwayValueData={activeSport === 'AFL' ? homeAwayValueData : nrlHomeAwayValueData}
             teamNewsData={activeSport === 'NRL' ? nrlTeamNews : aflTeamNews}
-            predictionsMap={activeSport === 'NRL' ? nrlPredictions : undefined}
+            predictionsMap={activeSport === 'NRL' ? nrlPredictions : aflPredictions}
           />
           <CompletedSection
             games={activeSport === 'NRL' ? nrlCompleted : aflCompleted}
