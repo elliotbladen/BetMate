@@ -31,6 +31,7 @@ const PUBLIC_PATHS = [
   '/api/odds/afl',
   '/api/odds/opening',
   '/api/nrl-predictions',
+  '/api/afl-predictions',
 ];
 
 export async function middleware(request: NextRequest) {
