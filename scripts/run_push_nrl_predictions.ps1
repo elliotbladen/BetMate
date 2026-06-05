@@ -1,0 +1,4 @@
+$env:BETMATE_ROOT  = "C:\Users\ElliotBladen\Apps"
+$env:PYTHONUTF8   = "1"
+
+& C:\Users\ElliotBladen\.local\bin\uv.exe run --with requests python "$env:BETMATE_ROOT\scripts\push_nrl_predictions.py"

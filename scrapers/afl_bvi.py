@@ -112,7 +112,18 @@ def scrape() -> list[dict]:
     Profit (%) as the overall ranking score.
     """
     log.info("Fetching BVI from %s", URL)
-    resp = requests.get(URL, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
+    hdrs = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Accept-Language": "en-AU,en;q=0.9",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+    }
+    session = requests.Session()
+    session.verify = False
+    session.headers.update(hdrs)
+    session.get("https://www.aussportstipping.com/", timeout=20)
+    resp = session.get(URL, headers={"Referer": "https://www.aussportstipping.com/"}, timeout=20)
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, "html.parser")

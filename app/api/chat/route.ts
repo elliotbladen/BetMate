@@ -53,10 +53,12 @@ You have 4 tools. Use them whenever a question touches on current round data. Do
 
 When to call tools:
 - "who should I back?" / "what's the play?" / "any value this round?" → get_round_signals
-- "what about [team] vs [team]?" / "should I bet [game]?" → get_game_context
+- "what about [team] vs [team]?" / "should I bet [game]?" → get_game_context (pass sport=AFL when on AFL tab)
 - "how are [team] going?" / "what's [team]'s form?" → get_team_context
 - "how's the model tracking?" / "what's the ROI?" → get_performance
 - General NRL/AFL knowledge, referee tendencies, rules questions → answer directly, no tool needed
+
+CHAINING RULE: If a game appears in MATRIX SIGNALS after calling get_round_signals, IMMEDIATELY call get_game_context for that game in the same turn. Do not answer on signals alone — always drill into the game for model lines, injuries, and ML vs rules divergence before responding.
 
 HOW TO ANSWER AFTER FETCHING DATA:
 - Lead with the signal. If a game is listed under MATRIX SIGNALS, say that first: matrix count, model line vs market line, the gap.
@@ -113,6 +115,11 @@ const BAZ_TOOLS: Anthropic.Tool[] = [
         away: {
           type: 'string',
           description: 'Away team name or partial name',
+        },
+        sport: {
+          type: 'string',
+          enum: ['NRL', 'AFL'],
+          description: 'Sport: NRL or AFL. Defaults to current context sport if omitted.',
         },
       },
       required: ['home', 'away'],
@@ -239,12 +246,27 @@ function formatSignalsResponse(data: Record<string, unknown>): string {
   }
 
   const games = data.games_summary as
-    | Array<{ home: string; away: string; model_hcap: number; model_total: number }>
+    | Array<{
+        home: string;
+        away: string;
+        model_hcap: number;
+        model_total: number;
+        ml_hcap?: number;
+        ml_total?: number;
+        injuries_home?: string;
+        injuries_away?: string;
+      }>
     | undefined;
   if (games && games.length > 0) {
     lines.push('\nALL GAMES (model lines):');
     for (const g of games) {
-      lines.push(`  ${g.home} vs ${g.away}: hcap ${g.model_hcap}, total ${g.model_total}`);
+      const mlParts: string[] = [];
+      if (g.ml_hcap !== undefined) mlParts.push(`ML hcap ${g.ml_hcap}`);
+      if (g.ml_total !== undefined) mlParts.push(`ML total ${g.ml_total}`);
+      const mlStr = mlParts.length > 0 ? ` [${mlParts.join(', ')}]` : '';
+      lines.push(`  ${g.home} vs ${g.away}: hcap ${g.model_hcap}, total ${g.model_total}${mlStr}`);
+      if (g.injuries_home) lines.push(`    ${g.home} outs: ${g.injuries_home}`);
+      if (g.injuries_away) lines.push(`    ${g.away} outs: ${g.injuries_away}`);
     }
   }
 
@@ -365,7 +387,8 @@ async function executeTool(
     case 'get_game_context': {
       const h = encodeURIComponent(input.home as string);
       const a = encodeURIComponent(input.away as string);
-      const data = (await bazFetch(`/context/game?home=${h}&away=${a}&sport=${sport}`)) as Record<
+      const gameSport = (input.sport as string | undefined) ?? sport;
+      const data = (await bazFetch(`/context/game?home=${h}&away=${a}&sport=${gameSport}`)) as Record<
         string,
         unknown
       > | null;

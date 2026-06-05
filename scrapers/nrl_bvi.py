@@ -112,10 +112,21 @@ def scrape() -> list[dict]:
     now   = datetime.now(timezone.utc)
     start = now.replace(year=now.year - LOOKBACK_YEARS)
     log.info("Fetching NRL BVI from %s (1-year window: %s → %s)", URL, start.date(), now.date())
-    resp = requests.post(
+    hdrs = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Accept-Language": "en-AU,en;q=0.9",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+    }
+    session = requests.Session()
+    session.verify = False
+    session.headers.update(hdrs)
+    session.get("https://www.aussportstipping.com/", timeout=20)
+    resp = session.post(
         URL,
         timeout=20,
-        headers={"User-Agent": "Mozilla/5.0"},
+        headers={"Referer": "https://www.aussportstipping.com/"},
         data={
             "start_day":   f"{start.day:02d}",
             "start_month": f"{start.month:02d}",

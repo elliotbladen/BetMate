@@ -45,9 +45,15 @@
 | "BetMate AFL Round Prep" | Tuesday 16:20 | ✅ NEW — scrapers/afl_round_prep.py |
 | "BetMate Baz Brain" | At logon | ✅ NEW — scripts/start_baz.ps1 (Baz server + CF tunnel) |
 | "BetMate NRL History Push" | Wednesday 08:00 | ✅ NEW — scripts/run_push_nrl_history.ps1 → Supabase nrl_match_history |
+| "BetMate AFL History Push" | Tuesday 12:00 | ✅ NEW — scripts/run_push_afl_history.ps1 → Supabase afl_match_history (30 min after AusSportsBetting AFL Download at 11:30) |
+| "BetMate NRL Predictions Push" | Thursday 09:00 | ✅ NEW — scripts/run_push_nrl_predictions.ps1 → reads r{round}_pricing_2026.csv via fixture, writes data/nrl/predictions/latest.json + Supabase nrl_predictions |
+| "BetMate AFL Predictions Push" | Thursday 09:00 | ✅ NEW — scripts/run_push_afl_predictions.ps1 → reads r{round}_afl_2026.csv (highest round by filename), derives scores from rules margin+total, writes data/afl/predictions/latest.json + Supabase afl_predictions |
 
 **Pipeline day is now TUESDAY** (shifted 2026-05-11 — historical odds not ready until Tuesday).
 All BetMate tasks use full path `C:\Users\ElliotBladen\.local\bin\uv.exe`.
+
+**CRITICAL RULE — MIDDLEWARE PUBLIC_PATHS (learned 2026-06-04)**
+Any new `/api/*` route that a public page fetches MUST be added to `PUBLIC_PATHS` in `middleware.ts` or it returns 401 silently. Client-side fetches catch the error and return null — predictions/data simply don't appear with no visible error. Always add the route to `middleware.ts` in the same commit as the route itself. Both push scripts now run a live endpoint health-check after each push — if you see a WARNING in the log, check middleware first.
 
 **CRITICAL FIX 2026-05-19: BETMATE_ROOT**
 BettingEngine's `_find_betmate_root()` was resolving to `Apps\BetMate` (old split repo, no data) instead of `Apps` (actual data location). Fixed by:
@@ -140,7 +146,7 @@ BVI JSON fields per team: `rank`, `score` (Profit %), `tier`, `fav_profit`, `und
 - `scripts/push_nrl_history.py` — reads `data/nrl/historical/latest.xlsx` (2024+), pushes 514 matches to Supabase key `nrl_match_history`. Re-run weekly after Tuesday download.
 - `HistoryTab` in `app/odds/page.tsx` — fetches `/api/form` on mount, shows three tables: home team last 6, away team last 6, H2H last 6
 - Nickname matching: last word of full Odds API name (e.g. "Cowboys") used for case-insensitive contains match against Excel team strings
-- AFL: returns "coming soon" note — no data source yet
+- AFL: **LIVE 2026-06-05** ✅ — `scripts/push_afl_history.py` pushes 961 matches (2022+) to Supabase `afl_match_history`. Team name mapping critical: xlsx uses short names ("Hawthorn") → push script normalises to full Odds API names ("Hawthorn Hawks") so nickname matching works for all 18 teams. Automation TBD (discuss with user).
 
 ### Team News System — AUTO-INJURIES 2026-06-01
 - `data/nrl/team-news/latest.json` — NRL team news (injuries auto-populated, suspensions manual)
@@ -308,7 +314,7 @@ cd C:\Users\ElliotBladen\Apps\BettingEngine
 - **EV signals on Vercel:** wire via Cloudflare Tunnel once domain + tunnel ready
 - ~~BVI weekly task~~ ✅ All 4 tasks installed — "BetMate NRL BVI" (Mon 08:20) + "BetMate NRL Home Away Value" (Mon 08:30) first run 2026-05-25
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
-- **AFL ML model RETRAINED 2026-05-27** on 2022–2023 data (modern-rule era). Key changes: `--min-year 2022` in `game_log.py` (ELO still warms up from 2009; records filtered to 2022+, 2020 excluded); `season_year` added as feature; XGBoost `sample_weight` exponential decay (decay=1.5, newest game weighted 4.5x oldest). Results vs old model: total MAE 24.6 (was 25.2), totals bias -5.8 pts (was -8 pts), totals strike ±10pt edge 61.3%. Next retrain: add 2024 to training window after 2026 season ends.
+- **AFL ML model RETRAINED 2026-06-04** — training window extended to **2022–2024** (was 2022–2023). Train games: 639 (was 423, +51%). Test holdout: 2025 (n=216). New metrics: Margin MAE 30.45 (was 31.72), Total MAE 24.31 (was 24.61), H2H Acc 66.7% (was 65.7%), H2H LogLoss 0.673 (was 0.830). Fresh xlsx (`outputs/afl_weekly_review/historical/latest.xlsx`, Jun 2 download, 816KB, covers R1–R12 2026) used — deploy set now 106 games (was 63). `game_log.py` default XLSX now points to `outputs/afl_weekly_review/historical/latest.xlsx` (auto-uses weekly download). End-of-season retrain (Oct 2026): add 2025 to train, make 2026 test.
 - **NRL H2H home bias:** Rules model overrates home teams by +9–11% vs market. ML shadow much better (+1–6%). Consider T4 venue calibration review.
 - **R12 CLV:** Not yet filed — opening/closing lines pending. Run scripts after filing.
 - **Refs on Vercel:** wire `lib/referees.ts` to an API route + Supabase key so ref badges show on live site

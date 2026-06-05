@@ -27,5 +27,9 @@ if (Test-Path $envFile) {
 
 $env:PYTHONUTF8 = "1"
 
-& $uvExe run --with requests --with beautifulsoup4 python $ScraperPath
+# Resolve certifi CA bundle so requests can verify SSL on Windows
+$certPath = & $uvExe run --with certifi python -c "import certifi; print(certifi.where())" 2>$null
+if ($certPath) { $env:REQUESTS_CA_BUNDLE = $certPath.Trim() }
+
+& $uvExe run --with requests --with beautifulsoup4 --with certifi python $ScraperPath
 exit $LASTEXITCODE

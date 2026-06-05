@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
 """
-scripts/push_nrl_predictions.py
+scripts/push_afl_predictions.py
 
-Reads the latest NRL pricing CSV from BettingEngine/results/,
-converts team names to Odds API format, writes data/nrl/predictions/latest.json,
-and pushes to Supabase under key 'nrl_predictions'.
+Reads the latest AFL pricing CSV from BettingEngine/results/,
+derives home/away scores from rules margin + total,
+writes data/afl/predictions/latest.json, and pushes to Supabase
+under key 'afl_predictions'.
 
-Run every Thursday at 09:00 after pricing is complete.
+Run every Thursday at 09:00 alongside NRL predictions push.
+
+Round detection:
+  1. Reads round_number from inside the highest-numbered r{N}_afl_2026.csv
+  2. Fallback: highest N from filename regex
 """
 
 import csv
 import json
 import os
+import re
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -22,77 +28,50 @@ from datetime import datetime
 BETMATE_ROOT    = Path(os.environ.get('BETMATE_ROOT', Path(__file__).resolve().parent.parent))
 ENGINE_ROOT     = BETMATE_ROOT / 'BettingEngine'
 RESULTS_DIR     = ENGINE_ROOT / 'results'
-PREDICTIONS_OUT = BETMATE_ROOT / 'data' / 'nrl' / 'predictions' / 'latest.json'
-FIXTURE_PATH    = BETMATE_ROOT / 'data' / 'nrl' / 'fixture' / 'processed' / 'latest-fixture.json'
-
-# ---------------------------------------------------------------------------
-# Team name mapping: BettingEngine CSV name -> Odds API name
-# ---------------------------------------------------------------------------
-TEAM_MAP = {
-    'Manly-Warringah Sea Eagles':       'Manly Warringah Sea Eagles',
-    'Cronulla-Sutherland Sharks':       'Cronulla Sutherland Sharks',
-    'Canterbury-Bankstown Bulldogs':    'Canterbury Bulldogs',
-    'St. George Illawarra Dragons':     'St George Illawarra Dragons',
-}
-
-def to_odds_api_name(name: str) -> str:
-    return TEAM_MAP.get(name.strip(), name.strip())
+PREDICTIONS_OUT = BETMATE_ROOT / 'data' / 'afl' / 'predictions' / 'latest.json'
 
 
 # ---------------------------------------------------------------------------
-# Find pricing CSV for the current round
+# Find latest AFL pricing CSV (by highest round number in filename)
 # ---------------------------------------------------------------------------
-def find_current_csv() -> Path:
-    # Read round + season from BetMate fixture (same source the pricing pipeline uses)
-    if FIXTURE_PATH.exists():
-        fixture = json.loads(FIXTURE_PATH.read_text(encoding='utf-8'))
-        season  = fixture.get('season', 2026)
-        round_  = fixture.get('round')
-        if round_:
-            candidate = RESULTS_DIR / f'r{round_}_pricing_{season}.csv'
-            if candidate.exists():
-                print(f'  Round {round_} from fixture — using: {candidate.name}')
-                return candidate
-            else:
-                print(f'  WARNING: Fixture says R{round_} but {candidate.name} not found — falling back to highest round')
-    else:
-        print(f'  WARNING: Fixture not found at {FIXTURE_PATH} — falling back to highest round')
-
-    # Fallback: highest round number in filename (not mtime — avoids stale edits)
-    import re
-    csvs = list(RESULTS_DIR.glob('r*_pricing_*.csv'))
-    if not csvs:
-        print('ERROR: No pricing CSV found in BettingEngine/results/')
-        sys.exit(1)
+def find_latest_csv() -> Path:
     def round_num(p: Path) -> int:
-        m = re.match(r'r(\d+)_pricing_', p.name)
-        return int(m.group(1)) if m else 0
+        m = re.match(r'r(\d+)_afl_\d+\.csv$', p.name)
+        return int(m.group(1)) if m else -1
+
+    csvs = [p for p in RESULTS_DIR.glob('r*_afl_*.csv') if round_num(p) >= 0]
+    if not csvs:
+        print('ERROR: No AFL pricing CSV found in BettingEngine/results/')
+        sys.exit(1)
     latest = max(csvs, key=round_num)
-    print(f'  Fallback — using: {latest.name}')
+    print(f'  Using: {latest.name}  (round {round_num(latest)})')
     return latest
 
 
 # ---------------------------------------------------------------------------
 # Parse CSV -> predictions list
+# Scores derived from rules model: home = (total + margin) / 2
 # ---------------------------------------------------------------------------
 def parse_predictions(csv_path: Path) -> list:
     predictions = []
     with open(csv_path, newline='', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            home = to_odds_api_name(row['home_team'])
-            away = to_odds_api_name(row['away_team'])
+            home = row['home_team'].strip()
+            away = row['away_team'].strip()
             try:
-                pred_home = round(float(row['pred_home_score']), 1)
-                pred_away = round(float(row['pred_away_score']), 1)
+                margin = float(row['rules_margin'])
+                total  = float(row['rules_total'])
+                home_score = round((total + margin) / 2, 1)
+                away_score = round((total - margin) / 2, 1)
             except (ValueError, KeyError):
                 print(f'  SKIP: {home} vs {away} -- missing score data')
                 continue
             predictions.append({
                 'homeTeam':      home,
                 'awayTeam':      away,
-                'predHomeScore': pred_home,
-                'predAwayScore': pred_away,
+                'predHomeScore': home_score,
+                'predAwayScore': away_score,
             })
     return predictions
 
@@ -118,7 +97,7 @@ def push_supabase(predictions: list) -> bool:
                 k, _, v = line.partition('=')
                 os.environ.setdefault(k.strip(), v.strip())
 
-    url = os.environ.get('NEXT_PUBLIC_SUPABASE_URL', '').rstrip('/')
+    url     = os.environ.get('NEXT_PUBLIC_SUPABASE_URL', '').rstrip('/')
     svc_key = os.environ.get('SUPABASE_SERVICE_ROLE_KEY', '')
     if not url or not svc_key:
         print('  Supabase env vars not set -- skipping push')
@@ -126,9 +105,8 @@ def push_supabase(predictions: list) -> bool:
 
     try:
         import requests
-        from datetime import timezone
         payload = [{
-            'key':        'nrl_predictions',
+            'key':        'afl_predictions',
             'data':       {'predictions': predictions},
             'updated_at': datetime.now(timezone.utc).isoformat(),
         }]
@@ -156,9 +134,9 @@ def push_supabase(predictions: list) -> bool:
 # ---------------------------------------------------------------------------
 def verify_endpoint(predictions: list) -> None:
     """
-    Hit the live Vercel endpoint and confirm at least one prediction comes back.
+    Hit the live Vercel endpoint and confirm predictions come back.
     Catches 401 (missing from middleware PUBLIC_PATHS), 404 (route not deployed),
-    or empty response — all of which would cause silent failures on the odds board.
+    or empty response — all of which cause silent failures on the odds board.
     """
     env_path = BETMATE_ROOT / '.env.local'
     vercel_url = None
@@ -169,19 +147,18 @@ def verify_endpoint(predictions: list) -> None:
                 vercel_url = line.split('=', 1)[1].strip()
                 break
 
-    # Fallback to known production URL
     if not vercel_url:
         vercel_url = 'https://bet-mate-ten.vercel.app'
 
     try:
         import requests
-        url = f'{vercel_url.rstrip("/")}/api/nrl-predictions'
+        url = f'{vercel_url.rstrip("/")}/api/afl-predictions'
         resp = requests.get(url, timeout=10)
         if resp.status_code == 401:
-            print(f'  WARNING: /api/nrl-predictions returned 401 -- route is missing from middleware.ts PUBLIC_PATHS!')
-            print(f'  ACTION:  Add "/api/nrl-predictions" to PUBLIC_PATHS in middleware.ts and redeploy.')
+            print(f'  WARNING: /api/afl-predictions returned 401 -- route is missing from middleware.ts PUBLIC_PATHS!')
+            print(f'  ACTION:  Add "/api/afl-predictions" to PUBLIC_PATHS in middleware.ts and redeploy.')
         elif resp.status_code == 404:
-            print(f'  WARNING: /api/nrl-predictions returned 404 -- route not deployed to Vercel yet.')
+            print(f'  WARNING: /api/afl-predictions returned 404 -- route not deployed to Vercel yet.')
         elif resp.ok:
             data = resp.json()
             count = len(data.get('predictions', []))
@@ -199,10 +176,10 @@ def verify_endpoint(predictions: list) -> None:
 # Main
 # ---------------------------------------------------------------------------
 def main():
-    print(f'\n[{datetime.now().strftime("%Y-%m-%d %H:%M")}] push_nrl_predictions.py')
+    print(f'\n[{datetime.now().strftime("%Y-%m-%d %H:%M")}] push_afl_predictions.py')
     print(f'  BETMATE_ROOT: {BETMATE_ROOT}')
 
-    csv_path    = find_current_csv()
+    csv_path    = find_latest_csv()
     predictions = parse_predictions(csv_path)
 
     if not predictions:
