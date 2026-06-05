@@ -35,11 +35,8 @@ export async function GET(req: NextRequest) {
   const away = searchParams.get('away') ?? '';
   const sport = searchParams.get('sport') ?? 'NRL';
 
-  if (sport !== 'NRL') {
-    return NextResponse.json({ homeForm: [], awayForm: [], h2h: [], note: 'AFL history coming soon' });
-  }
-
-  const allMatches = await getDataStore('nrl_match_history') as MatchRecord[] | null;
+  const historyKey = sport === 'AFL' ? 'afl_match_history' : 'nrl_match_history';
+  const allMatches = await getDataStore(historyKey) as MatchRecord[] | null;
   if (!allMatches) {
     return NextResponse.json({ homeForm: [], awayForm: [], h2h: [] });
   }
