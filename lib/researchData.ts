@@ -444,6 +444,40 @@ LEGACY_BETS.push(
   { id:385, date:'2026-05-31', match:'West Coast Eagles vs Essendon',          market:'Essendon Win',         odds:2.39, closingOdds:null, result:'loss', cumPL:27.00, sport:'AFL', notes:'Actual bet log. Stake $25. Eagles won.' },
 );
 
+// ─── Section 7: Week ending 2026-06-08 (NRL R14 + AFL R13) ──────────────────
+LEGACY_BETS.push(
+  // NRL R14 — Fri 5 Jun (Melbourne Storm vs Newcastle Knights)
+  { id:386, date:'2026-06-05', match:'Melbourne Storm vs Newcastle Knights',     market:'Newcastle +4.5',   odds:1.85, closingOdds:null, result:'win',  cumPL:27.43, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  // AFL R13 — Fri 5 Jun (Hawthorn vs Western Bulldogs) — three bets, two lines
+  { id:387, date:'2026-06-05', match:'Hawthorn vs Western Bulldogs',             market:'Hawthorn -11.5',   odds:1.90, closingOdds:null, result:'loss', cumPL:26.93, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  { id:388, date:'2026-06-05', match:'Hawthorn vs Western Bulldogs',             market:'Hawthorn -20.5',   odds:1.91, closingOdds:null, result:'loss', cumPL:26.53, sport:'AFL', notes:'Actual bet log. Stake $20.' },
+  { id:389, date:'2026-06-05', match:'Hawthorn vs Western Bulldogs',             market:'Hawthorn -20.5',   odds:1.91, closingOdds:null, result:'loss', cumPL:26.03, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  // AFL R13 — Sat 6 Jun (Gold Coast Suns vs Brisbane Lions)
+  { id:390, date:'2026-06-06', match:'Gold Coast Suns vs Brisbane Lions',        market:'Under 188.5',      odds:1.88, closingOdds:null, result:'win',  cumPL:26.47, sport:'AFL', notes:'Actual bet log. Stake $25. Under landed.' },
+  // NRL R14 — Sat 6 Jun (North Queensland Cowboys vs Dolphins)
+  { id:391, date:'2026-06-06', match:'North Queensland Cowboys vs Dolphins',     market:'Cowboys Win',      odds:2.38, closingOdds:null, result:'loss', cumPL:26.07, sport:'NRL', notes:'Actual bet log. Stake $20.' },
+  // AFL R13 — Sat 6 Jun (West Coast Eagles vs Port Adelaide) — two lines
+  { id:392, date:'2026-06-06', match:'West Coast Eagles vs Port Adelaide',       market:'Port Adelaide -6.5', odds:1.88, closingOdds:null, result:'loss', cumPL:25.47, sport:'AFL', notes:'Actual bet log. Stake $30.' },
+  { id:393, date:'2026-06-06', match:'West Coast Eagles vs Port Adelaide',       market:'Port Adelaide -7.5', odds:1.90, closingOdds:null, result:'loss', cumPL:24.97, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  // NRL R14 — Sat 6 Jun (Brisbane Broncos vs Gold Coast Titans)
+  { id:394, date:'2026-06-06', match:'Brisbane Broncos vs Gold Coast Titans',    market:'Under 50.5',       odds:1.90, closingOdds:null, result:'loss', cumPL:24.47, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  // NRL R14 — Sun 7 Jun (Wests Tigers vs Penrith Panthers)
+  { id:395, date:'2026-06-07', match:'Wests Tigers vs Penrith Panthers',         market:'Under 49.5',       odds:1.91, closingOdds:null, result:'loss', cumPL:23.97, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  // AFL R13 — Sun 7 Jun (Sydney Swans vs St Kilda)
+  { id:396, date:'2026-06-07', match:'Sydney Swans vs St Kilda',                 market:'Sydney -29.5',     odds:1.89, closingOdds:null, result:'loss', cumPL:23.47, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  // NRL R14 — Sun 7 Jun (Cronulla Sharks vs St George Illawarra)
+  { id:397, date:'2026-06-07', match:'Cronulla Sharks vs St George Illawarra',   market:'Cronulla -10.5',   odds:1.91, closingOdds:null, result:'win',  cumPL:23.83, sport:'NRL', notes:'Actual bet log. Stake $20.' },
+  // AFL R13 — Sun 7 Jun (Essendon vs Carlton) — two under lines
+  { id:398, date:'2026-06-07', match:'Essendon vs Carlton',                      market:'Under 168.5',      odds:1.89, closingOdds:null, result:'win',  cumPL:24.28, sport:'AFL', notes:'Actual bet log. Stake $25. Under landed.' },
+  { id:399, date:'2026-06-07', match:'Essendon vs Carlton',                      market:'Under 173.5',      odds:1.88, closingOdds:null, result:'win',  cumPL:24.72, sport:'AFL', notes:'Actual bet log. Stake $25. Under landed.' },
+  // AFL R13 — Mon 8 Jun (Collingwood vs Melbourne) — two bets
+  { id:400, date:'2026-06-08', match:'Collingwood vs Melbourne',                 market:'Collingwood Win',  odds:1.90, closingOdds:null, result:'loss', cumPL:24.32, sport:'AFL', notes:'Actual bet log. Stake $20.' },
+  { id:401, date:'2026-06-08', match:'Collingwood vs Melbourne',                 market:'Collingwood Win',  odds:1.90, closingOdds:null, result:'loss', cumPL:23.82, sport:'AFL', notes:'Actual bet log. Stake $25.' },
+  // NRL R14 — Mon 8 Jun (Canterbury Bulldogs vs Parramatta Eels) — two lines
+  { id:402, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -5.5',    odds:1.88, closingOdds:null, result:'loss', cumPL:23.32, sport:'NRL', notes:'Actual bet log. Stake $25.' },
+  { id:403, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -6.5',    odds:1.97, closingOdds:null, result:'loss', cumPL:22.92, sport:'NRL', notes:'Actual bet log. Stake $20.' },
+);
+
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
 // 26 NRL-only bets. predictedLine = model's fair-odds or predicted total score.
 // plUnits = individual bet P&L per 1 unit staked. runningTotal = cumulative.
@@ -492,4 +526,12 @@ export const MODEL_BETS: ModelBet[] = [
   { id:39, date:'2026-05-31', match:'Penrith Panthers vs NZ Warriors',         market:'Panthers -5.5',     predictedLine:12.7, takenPrice:1.72, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:5.15  },
   { id:40, date:'2026-05-30', match:'Wests Tigers vs Canterbury Bulldogs',     market:'Over 48.5',         predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:4.15  },
   { id:41, date:'2026-05-31', match:'Canberra Raiders vs Cowboys',             market:'Cowboys +4.5',      predictedLine:null, takenPrice:1.73, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:3.15  },
+  // R14
+  { id:42, date:'2026-06-05', match:'Melbourne Storm vs Newcastle Knights',     market:'Newcastle +4.5',    predictedLine:null, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.85,  runningTotal:4.00  },
+  { id:43, date:'2026-06-06', match:'North Queensland Cowboys vs Dolphins',     market:'Cowboys Win',       predictedLine:null, takenPrice:2.38, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:3.00  },
+  { id:44, date:'2026-06-06', match:'Brisbane Broncos vs Gold Coast Titans',    market:'Under 50.5',        predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:2.00  },
+  { id:45, date:'2026-06-07', match:'Wests Tigers vs Penrith Panthers',         market:'Under 49.5',        predictedLine:null, takenPrice:1.91, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:1.00  },
+  { id:46, date:'2026-06-07', match:'Cronulla Sharks vs St George Illawarra',   market:'Cronulla -10.5',    predictedLine:null, takenPrice:1.91, closingPrice:null, result:'win',  plUnits:0.91,  runningTotal:1.91  },
+  { id:47, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -5.5',     predictedLine:null, takenPrice:1.88, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:0.91  },
+  { id:48, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -6.5',     predictedLine:null, takenPrice:1.97, closingPrice:null, result:'loss', plUnits:-1,    runningTotal:-0.09 },
 ];
