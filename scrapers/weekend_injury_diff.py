@@ -213,14 +213,13 @@ def run_nrl(season: int, round_number: int) -> None:
     latest_path = ROOT / "data" / "nrl" / "injuries" / "processed" / "latest-injuries.json"
     known = load_known(latest_path)
 
-    url  = nrl.nrl_casualty_url(season)
-    html = nrl.fetch_html(url)
-    if not html:
-        log.error("NRL: fetch failed -- %s", url)
-        print("\n[NRL] ERROR: Could not fetch the casualty ward page. Skipping NRL diff.")
+    # NRL.com casualty ward now requires login — scrape Zero Tackle team pages instead
+    fresh = nrl.scrape_zero_tackle(season, round_number)
+    if not fresh:
+        log.error("NRL: Zero Tackle returned 0 records -- check connectivity or site structure")
+        print("\n[NRL] ERROR: Could not fetch injury data from Zero Tackle. Skipping NRL diff.")
         return
 
-    fresh = nrl.parse_nrl_casualty_ward(html, season, round_number)
     log.info("NRL: scraped %d fresh records", len(fresh))
 
     new_injuries, worse, cleared = compute_diff(known, fresh)
@@ -229,7 +228,7 @@ def run_nrl(season: int, round_number: int) -> None:
     write_diff_json(diff_path, new_injuries, worse, cleared)
 
     # Update full latest + round-specific file
-    nrl.write_outputs(fresh, html, season, round_number, url)
+    nrl.write_outputs(fresh, "", season, round_number, nrl.ZERO_TACKLE_BASE)
 
     print_summary("NRL", new_injuries, worse, cleared)
 

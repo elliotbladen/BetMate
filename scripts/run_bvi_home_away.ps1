@@ -8,7 +8,7 @@
 
 param([string]$ScraperPath)
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 
 $repoRoot = "C:\Users\ElliotBladen\Apps"
 $uvExe    = "C:\Users\ElliotBladen\.local\bin\uv.exe"
@@ -27,9 +27,8 @@ if (Test-Path $envFile) {
 
 $env:PYTHONUTF8 = "1"
 
-# Resolve certifi CA bundle so requests can verify SSL on Windows
-$certPath = & $uvExe run --with certifi python -c "import certifi; print(certifi.where())" 2>$null
-if ($certPath) { $env:REQUESTS_CA_BUNDLE = $certPath.Trim() }
+# Scrapers use session.verify=False — do not set REQUESTS_CA_BUNDLE as it overrides verify=False in newer requests
+Remove-Item Env:\REQUESTS_CA_BUNDLE -ErrorAction SilentlyContinue
 
-& $uvExe run --with requests --with beautifulsoup4 --with certifi python $ScraperPath
+& $uvExe run --with requests --with beautifulsoup4 python -W ignore $ScraperPath
 exit $LASTEXITCODE

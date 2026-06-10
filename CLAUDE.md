@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-06-01 (MCP Phase 1: Claude Tool Use loop live)
+**Last updated:** 2026-06-10 (AFL T5 injury table recalibration + GWS R14 injuries added)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -309,11 +309,51 @@ cd C:\Users\ElliotBladen\Apps\BettingEngine
 & C:\Users\ElliotBladen\.local\bin\uv.exe run python scripts\convert_pricing_files.py
 ```
 
+### AFL Pricing Model — Calibration State (updated 2026-06-10)
+**Key constants in `BettingEngine/scripts/prepare_afl_round.py`:**
+| Constant | Value | Notes |
+|----------|-------|-------|
+| `POINTS_PER_ELO` | `0.09` | was 0.13 — reduced to stop mid-range ELO gaps overcooking margins |
+| `HOME_ADV_ELO` | `46.0` | used for dedicated venues (~4.1 pts) |
+| `VENUE_HOME_ADV_OVERRIDES` | MCG/Marvel = 15 | shared venues get 1.4 pts home advantage |
+| `T2_MAX` | `4.0` | was 7.0 — was hitting cap constantly and piling 7pts onto already-large T1 |
+| `T2_TOT_MAX` | `2.0` | was 3.0 |
+
+**T5 Injury Impact Table — current values (`BettingEngine/pricing/afl_tier5_injury.py`):**
+| Position | Elite | Good | Average |
+|----------|-------|------|---------|
+| key_forward | -5.0 hcp / -4.0 tot | -3.0 / -2.0 | -2.0 / -1.5 |
+| ruck | -3.5 / -2.0 | -2.0 / -1.0 | -1.0 / -0.5 |
+| key_defender | -2.5 / +1.5 | -1.5 / +1.0 | -0.5 / +0.5 |
+| midfielder | -3.0 / -1.5 | -1.5 / -0.5 | -0.5 / -0.5 |
+| small_forward | -1.5 / -0.5 | -1.0 / -0.5 | -0.5 / 0.0 |
+| winger | -1.5 / -0.5 | -1.0 / -0.5 | -0.5 / 0.0 |
+
+Changes made 2026-06-10: key_forward good −3.5→−3.0, midfielder elite −3.5→−3.0, midfielder good −2.0→−1.5. Research shows midfielder importance declining in modern AFL (contested ball only 60% predictive vs 70%+ historical). Cap remains ±8 hcp / ±6 tot. Compound dampener 0.85× at 2+ key players out.
+
+**CRITICAL DATA ENTRY RULE — INJURIES:** Season-ending injuries (knee — season, ACL etc.) must be re-entered in EVERY subsequent round's INJURIES dict manually. They do NOT carry forward automatically. Missing a season-ender (e.g. Tom Green missing from R14) can inflate the injury delta by 3-4pts. Check each round's GWS, Brisbane, Bulldogs etc. for known season-enders.
+
+**Known remaining gap vs market:** ~9-10pt average after all fixes. Root cause is linear ELO→margin conversion can't handle both moderate and extreme ELO gaps simultaneously. True fix is probability-based sigmoid mapping (`(win_prob-0.5) × 95`) — flagged for next AFL session.
+
+**AFL R14 final prices (post all fixes):**
+| Game | Model | Market |
+|------|-------|--------|
+| Bulldogs vs Crows | Crows -7.4 | Bulldogs -4.5 |
+| Cats vs Suns | Cats -36.8 | Cats -25.5 |
+| Demons vs Bombers | Demons -34.9 | Demons -30.5 ✅ |
+| Kangaroos vs Eagles | NM -27.4 | NM -6.5 |
+| Power vs Swans | Swans -16.2 | Swans -17.5 ✅ |
+| Tigers vs Lions | Lions -30.5 | Lions -46.5 |
+| Saints vs Giants | Giants -12.2 | Giants -2.5 |
+
 ### Pending Work
+- ~~**T10 Origin Layer**~~ ✅ **LIVE 2026-06-09** — `BettingEngine/pricing/tier10_origin.py` + `data/nrl/origin/2026.json`. Auto-detects Origin camp windows, applies same formula as T5. G1 squad fully populated. G2 (Jun 17, camp Jun 12) + G3 (Jul 8, camp Jul 3) squads need populating before those rounds. DB migration 024 applied. See handover `2026-06-09_t10-origin-layer.md`.
 - **Custom domain betmate.au:** DNS resolving ✅, SSL cert provisioning. `www.betmate.au` CNAME still points to wrong site — needs updating in Cloudflare + Vercel domain added
 - **EV signals on Vercel:** wire via Cloudflare Tunnel once domain + tunnel ready
 - ~~BVI weekly task~~ ✅ All 4 tasks installed — "BetMate NRL BVI" (Mon 08:20) + "BetMate NRL Home Away Value" (Mon 08:30) first run 2026-05-25
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
+- **AFL rules model — sigmoid ELO scaling (next AFL session):** `POINTS_PER_ELO` linear mapping can't calibrate both moderate and extreme ELO gaps simultaneously. Replace with `(win_prob - 0.5) × SCALE` where win_prob is logistic from ELO diff. Calibrate SCALE against 2026 closing lines after R18. Estimate SCALE ≈ 90-100. See handover `2026-06-10_afl-calibration-overhaul.md`.
+- **AFL rules model — set-shot conversion tracker (medium term):** pull weekly team kicking % from AFL Tables, apply ±2-3pt adjustment per 5% deviation from 52.5% league average. AFL-specific, no NRL equivalent.
 - **AFL ML model RETRAINED 2026-06-04** — training window extended to **2022–2024** (was 2022–2023). Train games: 639 (was 423, +51%). Test holdout: 2025 (n=216). New metrics: Margin MAE 30.45 (was 31.72), Total MAE 24.31 (was 24.61), H2H Acc 66.7% (was 65.7%), H2H LogLoss 0.673 (was 0.830). Fresh xlsx (`outputs/afl_weekly_review/historical/latest.xlsx`, Jun 2 download, 816KB, covers R1–R12 2026) used — deploy set now 106 games (was 63). `game_log.py` default XLSX now points to `outputs/afl_weekly_review/historical/latest.xlsx` (auto-uses weekly download). End-of-season retrain (Oct 2026): add 2025 to train, make 2026 test.
 - **NRL H2H home bias:** Rules model overrates home teams by +9–11% vs market. ML shadow much better (+1–6%). Consider T4 venue calibration review.
 - **R12 CLV:** Not yet filed — opening/closing lines pending. Run scripts after filing.

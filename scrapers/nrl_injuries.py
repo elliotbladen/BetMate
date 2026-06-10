@@ -1,11 +1,11 @@
 ﻿"""
 lib/scraper/nrl_injuries.py
 
-Scrapes the NRL casualty ward from NRL.com (server-rendered, no JS required).
-Outputs JSON in the exact format BettingEngine's prepare_round.py expects.
+Primary source: Zero Tackle team pages (server-rendered, no login required).
+Fallback: NRL.com casualty ward (now requires login — kept for reference).
 
-Source URL pattern:
-  https://www.nrl.com/news/{season}/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-{season}/
+Source URLs:
+  https://www.zerotackle.com/nrl/teams/{slug}/   (primary, all 17 teams)
 
 Outputs:
   data/nrl/injuries/raw/YYYY/round-N.json
@@ -121,6 +121,34 @@ KEY_PLAYERS = {
     "Jake Turpin", "Reece Walsh", "Selwyn Cobbo", "Corey Oates",
     "Jamayne Isaako", "Hamiso Tabuai-Fidow", "Connelly Lemuelu",
     "Mitchell Moses", "Dylan Brown", "Jaeman Salmon",
+}
+
+# ---------------------------------------------------------------------------
+# Zero Tackle — primary source (NRL.com now requires login)
+# ---------------------------------------------------------------------------
+
+ZERO_TACKLE_BASE = "https://www.zerotackle.com/nrl/teams/"
+
+_REST_KEYWORDS = {"rested", "rest", "managed", "load management"}
+
+ZERO_TACKLE_TEAMS: dict[str, str] = {
+    "brisbane-broncos":         "Brisbane Broncos",
+    "canberra-raiders":         "Canberra Raiders",
+    "canterbury-bankstown-bulldogs": "Canterbury-Bankstown Bulldogs",
+    "cronulla-sharks":          "Cronulla-Sutherland Sharks",
+    "dolphins":                 "Dolphins",
+    "gold-coast-titans":        "Gold Coast Titans",
+    "manly-sea-eagles":         "Manly-Warringah Sea Eagles",
+    "melbourne-storm":          "Melbourne Storm",
+    "newcastle-knights":        "Newcastle Knights",
+    "new-zealand-warriors":     "New Zealand Warriors",
+    "north-queensland-cowboys": "North Queensland Cowboys",
+    "parramatta-eels":          "Parramatta Eels",
+    "penrith-panthers":         "Penrith Panthers",
+    "south-sydney-rabbitohs":   "South Sydney Rabbitohs",
+    "st-george-illawarra-dragons": "St. George Illawarra Dragons",
+    "sydney-roosters":          "Sydney Roosters",
+    "wests-tigers":             "Wests Tigers",
 }
 
 log = logging.getLogger(__name__)
@@ -277,6 +305,101 @@ def parse_nrl_casualty_ward(html: str, season: int, round_number: int) -> list[d
     return records
 
 
+def _parse_return_status_zt(returning: str, current_round: int) -> str | None:
+    """
+    Parse Zero Tackle return format: 'TBC', 'Round 15', 'Round 15-17', 'Season', 'Immediate'.
+    Returns 'out', 'doubtful', or None (already returned — skip).
+    """
+    r = returning.strip().upper()
+    if not r or r in ("TBC", "INDEFINITE", "SEASON", ""):
+        return "out"
+    if r in ("IMMEDIATE", "TEST"):
+        return "doubtful"
+    m = re.search(r"ROUND[^\d]*(\d+)", r)
+    if m:
+        return_round = int(m.group(1))
+        if return_round < current_round:
+            return None  # already returned
+        if return_round == current_round:
+            return "doubtful"
+        return "out"
+    return "out"
+
+
+def parse_zt_team_injuries(html: str, team: str, season: int, round_number: int) -> list[dict]:
+    """Parse the Injuries & Suspensions table from a Zero Tackle team page."""
+    soup = BeautifulSoup(html, "html.parser")
+    records = []
+    scraped_at = datetime.now(timezone.utc).isoformat()
+
+    # Find the table that follows the "Injuries & Suspensions" heading
+    inj_table = None
+    for heading in soup.find_all(["h2", "h4"]):
+        if "Injuries" in heading.get_text():
+            # Walk forward through siblings/descendants to find the next table
+            for el in heading.find_all_next("table"):
+                inj_table = el
+                break
+            break
+
+    if inj_table is None:
+        log.debug("No Injuries & Suspensions table found for %s", team)
+        return []
+
+    for row in inj_table.find_all("tr")[1:]:  # skip header row
+        cells = row.find_all("td")
+        if len(cells) < 4:
+            continue
+        # cols: [image/icon (hide-mobile), player, injury, return]
+        player    = cells[1].get_text(separator=" ", strip=True)
+        injury    = cells[2].get_text(strip=True)
+        returning = cells[3].get_text(strip=True)
+
+        if not player or player in ("Player", ""):
+            continue
+
+        # Skip pure resting/load management entries
+        if injury.lower() in _REST_KEYWORDS:
+            continue
+
+        status = _parse_return_status_zt(returning, round_number)
+        if status is None:
+            log.debug("  Skipping %s (%s) -- already returned (%s)", player, team, returning)
+            continue
+
+        records.append({
+            "season":          season,
+            "round":           round_number,
+            "team":            team,
+            "player":          player,
+            "role":            "other",
+            "importance_tier": importance_tier(player, ""),
+            "status":          status,
+            "notes":           f"{injury} | Return: {returning}",
+            "scraped_at":      scraped_at,
+            "source":          "zero_tackle",
+        })
+        log.debug("  %s %-30s [%s] %s", team, player, status, injury)
+
+    return records
+
+
+def scrape_zero_tackle(season: int, round_number: int) -> list[dict]:
+    """Fetch injury data for all NRL teams from Zero Tackle team pages."""
+    all_records: list[dict] = []
+    for slug, team_name in ZERO_TACKLE_TEAMS.items():
+        url = f"{ZERO_TACKLE_BASE}{slug}/"
+        html = fetch_html(url)
+        if not html:
+            log.warning("Failed to fetch Zero Tackle page for %s", team_name)
+            continue
+        records = parse_zt_team_injuries(html, team_name, season, round_number)
+        log.info("  %-40s %d injuries", team_name, len(records))
+        all_records.extend(records)
+    log.info("Zero Tackle total: %d records across %d teams", len(all_records), len(ZERO_TACKLE_TEAMS))
+    return all_records
+
+
 def write_outputs(records: list[dict], raw_html: str, season: int, round_number: int,
                   source_url: str) -> None:
     scraped_at = datetime.now(timezone.utc).isoformat()
@@ -302,17 +425,16 @@ def write_outputs(records: list[dict], raw_html: str, season: int, round_number:
 
 
 def scrape(season: int, round_number: int, max_attempts: int, retry_delay: int) -> int:
-    url = nrl_casualty_url(season)
+    # Primary: Zero Tackle team pages (NRL.com casualty ward requires login since ~2026-06)
     for attempt in range(1, max_attempts + 1):
-        log.info("Attempt %d/%d -- injuries R%d %d -- %s", attempt, max_attempts, round_number, season, url)
-        html = fetch_html(url)
-        if html:
-            records = parse_nrl_casualty_ward(html, season, round_number)
-            write_outputs(records, html, season, round_number, url)
+        log.info("Attempt %d/%d -- Zero Tackle injuries R%d %d", attempt, max_attempts, round_number, season)
+        records = scrape_zero_tackle(season, round_number)
+        if records:
+            write_outputs(records, "", season, round_number, ZERO_TACKLE_BASE)
             log.info("Injuries scraped -- %d records", len(records))
             return len(records)
         if attempt < max_attempts:
-            log.warning("Fetch failed, retrying in %ds", retry_delay)
+            log.warning("Zero Tackle returned 0 records, retrying in %ds", retry_delay)
             time.sleep(retry_delay)
     log.error("All attempts exhausted -- no injury data")
     return 0
