@@ -507,7 +507,7 @@ export const MODEL_BETS: ModelBet[] = [
   { id:23, date:'2026-04-16', match:'Wests Tigers vs Brisbane',                market:'Brisbane Win',      predictedLine:2.0,  takenPrice:2.5,  closingPrice:2.45, result:'win',  plUnits:1.5,   runningTotal:0.25  },
   { id:24, date:'2026-04-24', match:'Wests Tigers vs Canberra',                market:'Canberra Win',      predictedLine:2.0,  takenPrice:2.0,  closingPrice:2.65, result:'loss', plUnits:-1,    runningTotal:-0.75 },
   { id:25, date:'2026-04-24', match:'Wests Tigers vs Canberra',                market:'Under 52.5',        predictedLine:51.5, takenPrice:1.9,  closingPrice:2.05, result:'win',  plUnits:0.90,  runningTotal:0.15  },
-  { id:26, date:'2026-04-24', match:'St George vs Penrith',                    market:'St George Win',     predictedLine:2.2,  takenPrice:1.9,  closingPrice:null, result:'loss', plUnits:-1,    runningTotal:-0.85 },
+  { id:26, date:'2026-04-24', match:'St George vs Penrith',                    market:'St George Win',     predictedLine:2.2,  takenPrice:1.9,  closingPrice:9.50, result:'loss', plUnits:-1,    runningTotal:-0.85 },
   // R11 Magic Round
   { id:27, date:'2026-05-15', match:'Cronulla vs Canterbury',                  market:'Under 49',          predictedLine:49.0, takenPrice:1.90, closingPrice:2.12, result:'loss', plUnits:-1,    runningTotal:-1.85 },
   { id:28, date:'2026-05-15', match:'Rabbitohs vs Dolphins',                   market:'Dolphins Win',      predictedLine:null, takenPrice:1.85, closingPrice:1.74, result:'win',  plUnits:0.85,  runningTotal:-1.00 },
