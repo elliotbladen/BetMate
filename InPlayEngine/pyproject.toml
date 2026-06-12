@@ -1,0 +1,15 @@
+[project]
+name = "inplay-engine"
+version = "0.1.0"
+description = "In-play and halftime pricing engine — NRL, AFL, and future sports"
+requires-python = ">=3.11"
+dependencies = [
+    "requests",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "python-dotenv",
+]
+
+[tool.uv]
+cache-dir = "../.uv-cache"

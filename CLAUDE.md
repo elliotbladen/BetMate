@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-06-10 (AFL T5 injury table recalibration + GWS R14 injuries added)
+**Last updated:** 2026-06-10 (Research page unit fixes + predictedLine backfill R12-R14)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
