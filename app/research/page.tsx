@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import { useState, useMemo } from 'react';
-import { LEGACY_BETS, MODEL_BETS } from '@/lib/researchData';
+import { LEGACY_BETS, MODEL_BETS, AFL_MODEL_BETS } from '@/lib/researchData';
 import type { Sport, BetResult, LegacyBet, ModelBet } from '@/lib/researchData';
 
 function resultBadge(r: BetResult) {
@@ -40,7 +40,7 @@ function statsFor(bets: LegacyBet[]) {
   return { total, wins, losses, decisive, winRate };
 }
 
-function modelStatsFor(bets: typeof MODEL_BETS) {
+function modelStatsFor(bets: ModelBet[]) {
   const wins     = bets.filter(b => b.result === 'win').length;
   const losses   = bets.filter(b => b.result === 'loss').length;
   const total    = bets.length;
@@ -106,11 +106,11 @@ function AllBetsTab() {
   );
 }
 
-// -- NRL Model tab -------------------------------------------------------------
-function ModelTab() {
-  const stats = modelStatsFor(MODEL_BETS);
+// -- Model tab (shared by NRL + AFL) ------------------------------------------
+function ModelTab({ bets }: { bets: ModelBet[] }) {
+  const stats = modelStatsFor(bets);
 
-  const clvBets   = MODEL_BETS.filter(b => b.takenPrice !== null && b.closingPrice !== null);
+  const clvBets   = bets.filter(b => b.takenPrice !== null && b.closingPrice !== null);
   const clvBeaten = clvBets.filter(b => (b.takenPrice ?? 0) > (b.closingPrice ?? 0)).length;
   const clvPct    = clvBets.length > 0 ? (clvBeaten / clvBets.length) * 100 : 0;
 
@@ -144,7 +144,7 @@ function ModelTab() {
             </tr>
           </thead>
           <tbody>
-            {MODEL_BETS.map((bet: ModelBet) => (
+            {bets.map((bet: ModelBet) => (
               <tr key={bet.id} className="border-b border-[#E2E8F0] hover:bg-[#F8FAFC] transition-colors">
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#9CA3AF]">{bet.id}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#9CA3AF] whitespace-nowrap">{bet.date || '—'}</td>
@@ -171,7 +171,7 @@ function ModelTab() {
 }
 
 // -- Page ----------------------------------------------------------------------
-const TABS = ['Sports Betting', 'NRL Model'] as const;
+const TABS = ['Sports Betting', 'NRL Model', 'AFL Model'] as const;
 type Tab = typeof TABS[number];
 
 export default function ResearchPage() {
@@ -217,7 +217,8 @@ export default function ResearchPage() {
         </div>
 
         {activeTab === 'Sports Betting' && <AllBetsTab />}
-        {activeTab === 'NRL Model'      && <ModelTab />}
+        {activeTab === 'NRL Model'      && <ModelTab bets={MODEL_BETS} />}
+        {activeTab === 'AFL Model'      && <ModelTab bets={AFL_MODEL_BETS} />}
 
       </div>
     </div>

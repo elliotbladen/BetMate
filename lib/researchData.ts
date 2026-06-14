@@ -501,6 +501,77 @@ LEGACY_BETS.push(
   { id:415, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',              market:'Under 185.5',          odds:1.89, closingOdds:null, result:'win',  cumPL:26.83, sport:'AFL',      notes:'Actual bet log. Stake $28.95. Matrix unders call paid off.' },
 );
 
+// ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
+// All AFL bets from LEGACY_BETS with date >= 2026-04-15.
+// plUnits = (stake/$50) × (odds-1) for win, -(stake/$50) for loss.
+// Bets pre-id:326 have no explicit stake recorded — assumed 1.0u.
+export const AFL_MODEL_BETS: ModelBet[] = [
+  // R5-R6 (Apr 15-18)
+  { id:1,  date:'2026-04-15', match:'Collingwood vs Carlton',                  market:'Game 2.12',            predictedLine:null, takenPrice:2.12, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:-1.00  },
+  { id:2,  date:'2026-04-15', match:'Collingwood vs Carlton',                  market:'Game 2.6',             predictedLine:null, takenPrice:2.60, closingPrice:null, result:'win',  plUnits:1.60,   runningTotal:0.60   },
+  { id:3,  date:'2026-04-16', match:'GWS vs Sydney',                           market:'Under 170.5',          predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:-0.40  },
+  { id:4,  date:'2026-04-17', match:'Geelong vs Western Bulldogs',             market:'Geelong -10.5',        predictedLine:null, takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,   runningTotal:0.50   },
+  { id:5,  date:'2026-04-17', match:'Port Adelaide vs Hawthorn',               market:'Port Adelaide Win',    predictedLine:null, takenPrice:3.00, closingPrice:null, result:'win',  plUnits:2.00,   runningTotal:2.50   },
+  { id:6,  date:'2026-04-18', match:'Brisbane vs Melbourne',                   market:'Over 168.5',           predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:1.50   },
+  { id:7,  date:'2026-04-18', match:'Brisbane vs Melbourne',                   market:'Brisbane Win (Live)',  predictedLine:null, takenPrice:4.20, closingPrice:null, result:'win',  plUnits:3.20,   runningTotal:4.70   },
+  // R7 (Apr 24-25)
+  { id:8,  date:'2026-04-24', match:'Fremantle vs Carlton',                    market:'Under 159.5',          predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:3.70   },
+  { id:9,  date:'2026-04-25', match:'Eagles vs Saints',                        market:'Over 153.5',           predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:2.70   },
+  { id:10, date:'2026-04-25', match:'Eagles vs Saints',                        market:'Game 1.8',             predictedLine:null, takenPrice:1.80, closingPrice:null, result:'win',  plUnits:0.80,   runningTotal:3.50   },
+  { id:11, date:'2026-04-25', match:'Brisbane vs Adelaide Crows',              market:'Under 189.5',          predictedLine:null, takenPrice:2.00, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:2.50   },
+  // R8 (Apr 30 - May 2)
+  { id:12, date:'2026-04-30', match:'Adelaide vs Port Adelaide',               market:'Under 149.5',          predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:1.50   },
+  { id:13, date:'2026-05-01', match:'Western Bulldogs vs Fremantle',           market:'Bulldogs Win',         predictedLine:null, takenPrice:3.21, closingPrice:null, result:'loss', plUnits:-0.66,  runningTotal:0.84   },
+  { id:14, date:'2026-05-01', match:'Adelaide vs Port Adelaide',               market:'Adelaide -9.5',        predictedLine:null, takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:-0.16  },
+  { id:15, date:'2026-05-02', match:'Carlton vs St Kilda',                     market:'Carlton Win',          predictedLine:null, takenPrice:2.55, closingPrice:null, result:'loss', plUnits:-0.80,  runningTotal:-0.96  },
+  { id:16, date:'2026-05-02', match:'Carlton vs St Kilda',                     market:'Under 183.5',          predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.89,   runningTotal:-0.07  },
+  // R9 (May 8-9)
+  { id:17, date:'2026-05-08', match:'Port Adelaide vs Western Bulldogs',       market:'Port Adelaide Win',    predictedLine:null, takenPrice:1.96, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:-1.07  },
+  { id:18, date:'2026-05-09', match:'Gold Coast vs St Kilda',                  market:'Gold Coast -17.5',     predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.89,   runningTotal:-0.18  },
+  { id:19, date:'2026-05-09', match:'Geelong vs Collingwood',                  market:'Geelong -11.5',        predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.89,   runningTotal:0.71   },
+  { id:20, date:'2026-05-09', match:'GWS vs Essendon',                         market:'Under 193.5',          predictedLine:null, takenPrice:1.87, closingPrice:null, result:'win',  plUnits:0.87,   runningTotal:1.58   },
+  // R10 (May 15-16)
+  { id:21, date:'2026-05-15', match:'Sydney Swans vs Collingwood',             market:'Under 181.5',          predictedLine:null, takenPrice:1.86, closingPrice:null, result:'win',  plUnits:0.86,   runningTotal:2.44   },
+  { id:22, date:'2026-05-15', match:'Sydney Swans vs Collingwood',             market:'Collingwood +35.5',    predictedLine:null, takenPrice:1.91, closingPrice:null, result:'win',  plUnits:0.46,   runningTotal:2.90   },
+  { id:23, date:'2026-05-15', match:'Gold Coast vs Port Adelaide',             market:'Gold Coast -26.5',     predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:1.90   },
+  { id:24, date:'2026-05-16', match:'Carlton vs Western Bulldogs',             market:'Carlton Win',          predictedLine:null, takenPrice:2.56, closingPrice:null, result:'win',  plUnits:0.78,   runningTotal:2.68   },
+  { id:25, date:'2026-05-16', match:'Melbourne vs Hawthorn',                   market:'Hawthorn -18.5',       predictedLine:null, takenPrice:1.91, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:1.68   },
+  { id:26, date:'2026-05-16', match:'Adelaide vs North Melbourne',             market:'Adelaide -18.5',       predictedLine:null, takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.90,   runningTotal:2.58   },
+  // R11 (May 21-23)
+  { id:27, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',             market:'Hawthorn Win',          predictedLine:null, takenPrice:1.41, closingPrice:null, result:'win',  plUnits:0.45,   runningTotal:3.03   },
+  { id:28, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',             market:'Adelaide Crows Win',    predictedLine:null, takenPrice:2.88, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:2.53   },
+  { id:29, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',             market:'Hawthorn -15.5',        predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:2.03   },
+  { id:30, date:'2026-05-21', match:'Hawthorn vs Adelaide Crows',             market:'Adelaide +19.5',        predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.45,   runningTotal:2.48   },
+  { id:31, date:'2026-05-22', match:'Richmond vs Essendon',                   market:'Under 176.5',           predictedLine:null, takenPrice:1.88, closingPrice:null, result:'win',  plUnits:0.44,   runningTotal:2.92   },
+  { id:32, date:'2026-05-23', match:'Geelong Cats vs Sydney Swans',           market:'Swans +10.5',           predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:2.42   },
+  { id:33, date:'2026-05-23', match:'Collingwood vs West Coast Eagles',       market:'Under 180.5',           predictedLine:null, takenPrice:1.87, closingPrice:null, result:'win',  plUnits:0.44,   runningTotal:2.86   },
+  // R12 (May 28 - Jun 1)
+  { id:34, date:'2026-05-28', match:'St Kilda vs Hawthorn',                   market:'Hawthorn -19.5',        predictedLine:null, takenPrice:1.90, closingPrice:null, result:'win',  plUnits:0.45,   runningTotal:3.31   },
+  { id:35, date:'2026-05-29', match:'Carlton vs Geelong Cats',                market:'Over 178.5',            predictedLine:null, takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:2.81   },
+  { id:36, date:'2026-05-30', match:'Western Bulldogs vs Collingwood',        market:'Collingwood Win',        predictedLine:null, takenPrice:2.26, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:2.31   },
+  { id:37, date:'2026-05-31', match:'West Coast Eagles vs Essendon',          market:'Essendon Win',           predictedLine:null, takenPrice:2.39, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:1.81   },
+  // R13 (Jun 5-8)
+  { id:38, date:'2026-06-05', match:'Hawthorn vs Western Bulldogs',           market:'Hawthorn -11.5',         predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:1.31   },
+  { id:39, date:'2026-06-05', match:'Hawthorn vs Western Bulldogs',           market:'Hawthorn -20.5',         predictedLine:null, takenPrice:1.91, closingPrice:null, result:'loss', plUnits:-0.40,  runningTotal:0.91   },
+  { id:40, date:'2026-06-05', match:'Hawthorn vs Western Bulldogs',           market:'Hawthorn -20.5',         predictedLine:null, takenPrice:1.91, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:0.41   },
+  { id:41, date:'2026-06-06', match:'Gold Coast Suns vs Brisbane Lions',      market:'Under 188.5',            predictedLine:null, takenPrice:1.88, closingPrice:null, result:'win',  plUnits:0.44,   runningTotal:0.85   },
+  { id:42, date:'2026-06-06', match:'West Coast Eagles vs Port Adelaide',     market:'Port Adelaide -6.5',     predictedLine:null, takenPrice:1.88, closingPrice:null, result:'loss', plUnits:-0.60,  runningTotal:0.25   },
+  { id:43, date:'2026-06-06', match:'West Coast Eagles vs Port Adelaide',     market:'Port Adelaide -7.5',     predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:-0.25  },
+  { id:44, date:'2026-06-07', match:'Sydney Swans vs St Kilda',               market:'Sydney -29.5',           predictedLine:null, takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:-0.75  },
+  { id:45, date:'2026-06-07', match:'Essendon vs Carlton',                    market:'Under 168.5',            predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.45,   runningTotal:-0.30  },
+  { id:46, date:'2026-06-07', match:'Essendon vs Carlton',                    market:'Under 173.5',            predictedLine:null, takenPrice:1.88, closingPrice:null, result:'win',  plUnits:0.44,   runningTotal:0.14   },
+  { id:47, date:'2026-06-08', match:'Collingwood vs Melbourne',               market:'Collingwood Win',         predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.40,  runningTotal:-0.26  },
+  { id:48, date:'2026-06-08', match:'Collingwood vs Melbourne',               market:'Collingwood Win',         predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:-0.76  },
+  // R14 (Jun 11-14)
+  { id:49, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',     market:'Adelaide Crows Win',      predictedLine:null, takenPrice:2.10, closingPrice:null, result:'win',  plUnits:0.55,   runningTotal:-0.21  },
+  { id:50, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',     market:'Adelaide Crows Win',      predictedLine:null, takenPrice:2.07, closingPrice:null, result:'win',  plUnits:0.54,   runningTotal:0.33   },
+  { id:51, date:'2026-06-13', match:'Melbourne Demons vs Essendon Bombers',   market:'Under 162.5',             predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.89,   runningTotal:1.22   },
+  { id:52, date:'2026-06-13', match:'Melbourne Demons vs Essendon Bombers',   market:'Over 79.5 2nd Half',      predictedLine:null, takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-0.45,  runningTotal:0.77   },
+  { id:53, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:null, takenPrice:2.10, closingPrice:null, result:'loss', plUnits:-0.21,  runningTotal:0.56   },
+  { id:54, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:null, takenPrice:2.08, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:0.06   },
+  { id:55, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'Under 185.5',             predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.52,   runningTotal:0.58   },
+];
+
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
 // 26 NRL-only bets. predictedLine = model's fair-odds or predicted total score.
 // plUnits = individual bet P&L per 1 unit staked. runningTotal = cumulative.
