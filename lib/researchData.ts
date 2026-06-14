@@ -478,6 +478,29 @@ LEGACY_BETS.push(
   { id:403, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -6.5',    odds:1.97, closingOdds:null, result:'loss', cumPL:22.92, sport:'NRL', notes:'Actual bet log. Stake $20.' },
 );
 
+// ─── Section 8: Week ending 2026-06-15 (NRL R15 + AFL R14 + Soccer) ──────────
+LEGACY_BETS.push(
+  // AFL R14 — Thu 11 Jun (Western Bulldogs vs Adelaide Crows)
+  { id:404, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',         market:'Adelaide Crows Win',  odds:2.10, closingOdds:null, result:'win',  cumPL:23.47, sport:'AFL',      notes:'Actual bet log. Stake $25. Crows won — model had Crows favoured.' },
+  { id:405, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',         market:'Adelaide Crows Win',  odds:2.07, closingOdds:null, result:'win',  cumPL:24.01, sport:'AFL',      notes:'Actual bet log. Stake $25 alt book.' },
+  // NRL R15 — Thu 11 Jun (South Sydney Rabbitohs vs Brisbane Broncos)
+  { id:406, date:'2026-06-11', match:'South Sydney Rabbitohs vs Brisbane Broncos', market:'Souths Win',           odds:1.48, closingOdds:null, result:'win',  cumPL:24.49, sport:'NRL',      notes:'Actual bet log. Stake $50. T10 Origin: Broncos lost Haas/Walsh/Staggs.' },
+  // NRL R15 — Fri 12 Jun (Dolphins vs Sydney Roosters)
+  { id:407, date:'2026-06-12', match:'Dolphins vs Sydney Roosters',                market:'Dolphins -3.5',        odds:1.85, closingOdds:null, result:'win',  cumPL:25.34, sport:'NRL',      notes:'Actual bet log. Stake $50. T10 Origin: Roosters lost Tedesco + Walker.' },
+  // AFL R14 — Sat 13 Jun (Melbourne Demons vs Essendon Bombers)
+  { id:408, date:'2026-06-13', match:'Melbourne Demons vs Essendon Bombers',       market:'Under 162.5',          odds:1.89, closingOdds:null, result:'win',  cumPL:26.23, sport:'AFL',      notes:'Actual bet log. Stake $50. Matrix unders call: Melbourne short rest + June pattern.' },
+  { id:409, date:'2026-06-13', match:'Melbourne Demons vs Essendon Bombers',       market:'Over 79.5 2nd Half',   odds:1.89, closingOdds:null, result:'loss', cumPL:25.78, sport:'AFL',      notes:'Actual bet log. Stake $22.50.' },
+  // NRL R15 — Sat 13 Jun (New Zealand Warriors vs Cronulla Sharks)
+  { id:410, date:'2026-06-13', match:'New Zealand Warriors vs Cronulla Sharks',    market:'Sharks +4.5',          odds:1.87, closingOdds:null, result:'win',  cumPL:26.22, sport:'NRL',      notes:'Actual bet log. Stake $25.' },
+  // Soccer — Sun 14 Jun (World Cup)
+  { id:411, date:'2026-06-14', match:'Brazil vs Morocco',                          market:'Draw',                 odds:3.60, closingOdds:null, result:'win',  cumPL:27.52, sport:'FOOTBALL', notes:'Actual bet log. Stake $25. World Cup.' },
+  { id:412, date:'2026-06-14', match:'Australia vs Turkey',                        market:'Draw',                 odds:3.75, closingOdds:null, result:'loss', cumPL:27.02, sport:'FOOTBALL', notes:'Actual bet log. Stake $25. World Cup.' },
+  // AFL R14 — Sun 14 Jun (St Kilda Saints vs GWS Giants)
+  { id:413, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',              market:'GWS Win',              odds:2.10, closingOdds:null, result:'loss', cumPL:26.81, sport:'AFL',      notes:'Actual bet log. Stake $10.38. Saints upset — model had GWS -12.2.' },
+  { id:414, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',              market:'GWS Win',              odds:2.08, closingOdds:null, result:'loss', cumPL:26.31, sport:'AFL',      notes:'Actual bet log. Stake $25.' },
+  { id:415, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',              market:'Under 185.5',          odds:1.89, closingOdds:null, result:'win',  cumPL:26.83, sport:'AFL',      notes:'Actual bet log. Stake $28.95. Matrix unders call paid off.' },
+);
+
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
 // 26 NRL-only bets. predictedLine = model's fair-odds or predicted total score.
 // plUnits = individual bet P&L per 1 unit staked. runningTotal = cumulative.
@@ -534,4 +557,8 @@ export const MODEL_BETS: ModelBet[] = [
   { id:46, date:'2026-06-07', match:'Cronulla Sharks vs St George Illawarra',   market:'Cronulla -10.5',    predictedLine:16.7, takenPrice:1.91, closingPrice:1.90, result:'win',  plUnits:0.46,  runningTotal:3.07  },
   { id:47, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -5.5',     predictedLine:9.6,  takenPrice:1.88, closingPrice:1.85, result:'loss', plUnits:-0.50, runningTotal:2.57  },
   { id:48, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -6.5',     predictedLine:9.6,  takenPrice:1.97, closingPrice:1.85, result:'loss', plUnits:-0.50, runningTotal:2.07  },
+  // R15 — all 3 bets won. T10 Origin overlay fired (Broncos & Roosters depleted).
+  { id:49, date:'2026-06-11', match:'South Sydney Rabbitohs vs Brisbane Broncos', market:'Souths Win',         predictedLine:null, takenPrice:1.48, closingPrice:null, result:'win',  plUnits:0.48,  runningTotal:2.55  },
+  { id:50, date:'2026-06-12', match:'Dolphins vs Sydney Roosters',                market:'Dolphins -3.5',      predictedLine:null, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.85,  runningTotal:3.40  },
+  { id:51, date:'2026-06-13', match:'New Zealand Warriors vs Cronulla Sharks',    market:'Sharks +4.5',        predictedLine:null, takenPrice:1.87, closingPrice:null, result:'win',  plUnits:0.44,  runningTotal:3.84  },
 ];
