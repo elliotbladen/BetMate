@@ -520,7 +520,7 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   // R7 (Apr 24-25)
   { id:8,  date:'2026-04-24', match:'Fremantle vs Carlton',                    market:'Under 159.5',          predictedLine:145.6, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:3.70   },
   { id:9,  date:'2026-04-25', match:'Eagles vs Saints',                        market:'Over 153.5',           predictedLine:168.1, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:2.70   },
-  { id:10, date:'2026-04-25', match:'Eagles vs Saints',                        market:'Game 1.8',             predictedLine:null, takenPrice:1.80, closingPrice:1.1, result:'win',  plUnits:0.80,   runningTotal:3.50   },
+  { id:10, date:'2026-04-25', match:'Eagles vs Saints',                        market:'Game 1.8',             predictedLine:1.11, takenPrice:1.80, closingPrice:1.1, result:'win',  plUnits:0.80,   runningTotal:3.50   },
   { id:11, date:'2026-04-25', match:'Brisbane vs Adelaide Crows',              market:'Under 189.5',          predictedLine:154, takenPrice:2.00, closingPrice:1.90, result:'loss', plUnits:-1.00,  runningTotal:2.50   },
   // R8 (Apr 30 - May 2)
   { id:12, date:'2026-04-30', match:'Adelaide vs Port Adelaide',               market:'Under 149.5',          predictedLine:168, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:1.50   },
