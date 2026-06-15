@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-06-10 (Research page unit fixes + predictedLine backfill R12-R14)
+**Last updated:** 2026-06-15 (AFL_MODEL_BETS backfill complete — predictedLine + closingPrice filled for ids 6-9, 12, 52; id:53 null no 2nd-half data; R10 ids 21-26 predictedLine still null)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
