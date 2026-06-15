@@ -566,13 +566,15 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:47, date:'2026-06-07', match:'Essendon vs Carlton',                    market:'Under 173.5',            predictedLine:null, takenPrice:1.88, closingPrice:null, result:'win',  plUnits:0.44,   runningTotal:0.54   },
   { id:48, date:'2026-06-08', match:'Collingwood vs Melbourne',               market:'Collingwood Win',         predictedLine:null, takenPrice:1.90, closingPrice:1.90, result:'loss', plUnits:-0.40,  runningTotal:0.14   },
   { id:49, date:'2026-06-08', match:'Collingwood vs Melbourne',               market:'Collingwood Win',         predictedLine:null, takenPrice:1.90, closingPrice:1.90, result:'loss', plUnits:-0.50,  runningTotal:-0.36  },
-  // R14 (Jun 11-14) — closing prices pending Tuesday xlsx download (2026-06-17)
-  { id:50, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',     market:'Adelaide Crows Win',      predictedLine:null, takenPrice:2.10, closingPrice:null, result:'win',  plUnits:0.55,   runningTotal:0.19   },
-  { id:51, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',     market:'Adelaide Crows Win',      predictedLine:null, takenPrice:2.07, closingPrice:null, result:'win',  plUnits:0.54,   runningTotal:0.73   },
+  // R14 (Jun 11-14) — closes from web research (approximate, preview site odds)
+  // Adelaide close ~$2.07 (range 2.05-2.08 across books). GWS close ~$2.08 (range 2.02-2.10).
+  // Melb/Ess total closed ~168.5 (6pt gap vs Under 162.5 bet → null). SK/GWS total 184.5-186.5 → null.
+  { id:50, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',     market:'Adelaide Crows Win',      predictedLine:null, takenPrice:2.10, closingPrice:2.07, result:'win',  plUnits:0.55,   runningTotal:0.19   },
+  { id:51, date:'2026-06-11', match:'Western Bulldogs vs Adelaide Crows',     market:'Adelaide Crows Win',      predictedLine:null, takenPrice:2.07, closingPrice:2.07, result:'win',  plUnits:0.54,   runningTotal:0.73   },
   { id:52, date:'2026-06-13', match:'Melbourne Demons vs Essendon Bombers',   market:'Under 162.5',             predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.89,   runningTotal:1.62   },
   { id:53, date:'2026-06-13', match:'Melbourne Demons vs Essendon Bombers',   market:'Over 79.5 2nd Half',      predictedLine:null, takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-0.45,  runningTotal:1.17   },
-  { id:54, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:null, takenPrice:2.10, closingPrice:null, result:'loss', plUnits:-0.21,  runningTotal:0.96   },
-  { id:55, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:null, takenPrice:2.08, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:0.46   },
+  { id:54, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:null, takenPrice:2.10, closingPrice:2.08, result:'loss', plUnits:-0.21,  runningTotal:0.96   },
+  { id:55, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:null, takenPrice:2.08, closingPrice:2.08, result:'loss', plUnits:-0.50,  runningTotal:0.46   },
   { id:56, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'Under 185.5',             predictedLine:null, takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.52,   runningTotal:0.98   },
 ];
 
