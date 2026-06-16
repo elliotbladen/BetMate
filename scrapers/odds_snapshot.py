@@ -156,8 +156,32 @@ def _load_supabase_env() -> tuple[str, str]:
     )
 
 
+def _baseline_already_set_today(sport: str, today_str: str, url: str, service_key: str) -> bool:
+    """Return True if the opening baseline for this sport was already captured today."""
+    try:
+        resp = requests.get(
+            f"{url}/rest/v1/betmate_data_store",
+            headers={"apikey": service_key, "Authorization": f"Bearer {service_key}"},
+            params={"key": f"eq.{sport.lower()}_opening_baseline", "select": "data"},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        rows = resp.json()
+        if rows:
+            captured = rows[0].get("data", {}).get("captured_at", "")
+            return captured[:10] == today_str
+    except Exception:
+        pass
+    return False
+
+
 def push_opening_baseline(all_rows: list[dict], now: datetime) -> None:
-    """On Monday, push a price map per sport to Supabase as the week's baseline."""
+    """On Monday, push a price map per sport to Supabase as the week's baseline.
+
+    Only pushes once per day — skips if the baseline was already captured today
+    so that the 09:00 snapshot isn't overwritten by 12:00/18:00 snapshots,
+    which would cause the movement tracker to always compare against itself.
+    """
     if now.weekday() != MONDAY:
         return
 
@@ -166,7 +190,12 @@ def push_opening_baseline(all_rows: list[dict], now: datetime) -> None:
         log.warning("Supabase env vars not set — skipping opening baseline push")
         return
 
+    today_str = now.strftime("%Y-%m-%d")
+
     for sport in ("NRL", "AFL"):
+        if _baseline_already_set_today(sport, today_str, url, service_key):
+            log.info("Monday baseline already captured today for %s — skipping", sport)
+            continue
         sport_rows = [r for r in all_rows if r["sport"] == sport]
         prices: dict[str, dict] = {}
         for row in sport_rows:
@@ -190,18 +219,18 @@ def push_opening_baseline(all_rows: list[dict], now: datetime) -> None:
             },
         }]
 
+        base    = f"{url}/rest/v1/betmate_data_store"
+        headers = {
+            "apikey":        service_key,
+            "Authorization": f"Bearer {service_key}",
+            "Content-Type":  "application/json",
+        }
         try:
-            resp = requests.post(
-                f"{url}/rest/v1/betmate_data_store",
-                headers={
-                    "apikey":        service_key,
-                    "Authorization": f"Bearer {service_key}",
-                    "Content-Type":  "application/json",
-                    "Prefer":        "resolution=merge-duplicates",
-                },
-                data=json.dumps(payload),
-                timeout=10,
-            )
+            # Always DELETE then INSERT — guarantees exactly 1 baseline row per sport
+            requests.delete(base, headers=headers,
+                params={"key": f"eq.{sport.lower()}_opening_baseline"}, timeout=10)
+            resp = requests.post(base, headers=headers,
+                data=json.dumps(payload), timeout=10)
             resp.raise_for_status()
             log.info("Monday baseline pushed to Supabase: %s_opening_baseline (%d prices)", sport.lower(), len(prices))
         except Exception as exc:

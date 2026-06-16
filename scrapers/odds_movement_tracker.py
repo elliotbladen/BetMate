@@ -185,25 +185,26 @@ def _push_movements_to_supabase(movements: list[dict], url: str, service_key: st
     for m in movements:
         change_pct = float(m["change_pct"])
         movement_map[m["key"]] = {
-            "direction":      m["direction"],
-            "changePct":      change_pct,
-            "oldPrice":       float(m["old_price"]),
-            "newPrice":       float(m["new_price"]),
+            "direction":       m["direction"],
+            "changePct":       change_pct,
+            "oldPrice":        float(m["old_price"]),
+            "newPrice":        float(m["new_price"]),
             "shortenedStrong": m["direction"] == "down" and abs(change_pct) >= 10,
         }
 
+    base    = f"{url}/rest/v1/betmate_data_store"
+    headers = {
+        "apikey":        service_key,
+        "Authorization": f"Bearer {service_key}",
+        "Content-Type":  "application/json",
+    }
     try:
-        resp = _requests.post(
-            f"{url}/rest/v1/betmate_data_store",
-            headers={
-                "apikey":        service_key,
-                "Authorization": f"Bearer {service_key}",
-                "Content-Type":  "application/json",
-                "Prefer":        "resolution=merge-duplicates",
-            },
+        # Always DELETE then INSERT — prevents duplicate rows accumulating
+        # (merge-duplicates requires a UNIQUE constraint which we don't have)
+        _requests.delete(base, headers=headers, params={"key": "eq.odds_movements"}, timeout=10)
+        resp = _requests.post(base, headers=headers,
             data=json.dumps([{"key": "odds_movements", "data": movement_map}]),
-            timeout=10,
-        )
+            timeout=10)
         resp.raise_for_status()
         print(f"Pushed odds_movements to Supabase ({len(movement_map)} entries)")
     except Exception as exc:
