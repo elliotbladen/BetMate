@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const data = await getDataStore('odds_movements');
-  if (data) return NextResponse.json(data);
-  return NextResponse.json({});
+  const headers = { 'Cache-Control': 'no-store, no-cache' };
+  if (data) return NextResponse.json(data, { headers });
+  return NextResponse.json({}, { headers });
 }
