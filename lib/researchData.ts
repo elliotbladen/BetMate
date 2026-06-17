@@ -1,4 +1,4 @@
-export type BetResult = 'win' | 'loss' | 'push';
+﻿export type BetResult = 'win' | 'loss' | 'push';
 export type Sport = 'NRL' | 'AFL' | 'FOOTBALL' | 'OTHER';
 
 export interface LegacyBet {
@@ -609,7 +609,7 @@ export const MODEL_BETS: ModelBet[] = [
   { id:26, date:'2026-04-24', match:'St George vs Penrith',                    market:'St George Win',     predictedLine:2.2,  takenPrice:1.9,  closingPrice:9.50, result:'loss', plUnits:-1,    runningTotal:-0.85 },
   // R11 Magic Round
   { id:27, date:'2026-05-15', match:'Cronulla vs Canterbury',                  market:'Under 49',          predictedLine:49.0, takenPrice:1.90, closingPrice:2.12, result:'loss', plUnits:-1,    runningTotal:-1.85 },
-  { id:28, date:'2026-05-15', match:'Rabbitohs vs Dolphins',                   market:'Dolphins Win',      predictedLine:null, takenPrice:1.85, closingPrice:1.74, result:'win',  plUnits:0.85,  runningTotal:-1.00 },
+  { id:28, date:'2026-05-15', match:'Rabbitohs vs Dolphins',                   market:'Dolphins Win',      predictedLine:1.86, takenPrice:1.85, closingPrice:1.74, result:'win',  plUnits:0.85,  runningTotal:-1.00 },
   { id:29, date:'2026-05-16', match:'Roosters vs Cowboys',                     market:'Cowboys +16.5',     predictedLine:7.6,  takenPrice:1.74, closingPrice:1.85, result:'win',  plUnits:0.74,  runningTotal:-0.26 },
   { id:30, date:'2026-05-17', match:'Warriors vs Broncos',                     market:'Warriors -2.5',     predictedLine:13.0, takenPrice:1.91, closingPrice:1.90, result:'win',  plUnits:0.91,  runningTotal:0.65  },
   { id:31, date:'2026-05-17', match:'Panthers vs Dragons',                     market:'Under 56.5',        predictedLine:46.5, takenPrice:1.82, closingPrice:2.12, result:'win',  plUnits:0.82,  runningTotal:1.47  },
@@ -634,7 +634,7 @@ export const MODEL_BETS: ModelBet[] = [
   { id:47, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -5.5',     predictedLine:9.6,  takenPrice:1.88, closingPrice:1.85, result:'loss', plUnits:-0.50, runningTotal:2.57  },
   { id:48, date:'2026-06-08', match:'Canterbury Bulldogs vs Parramatta Eels',   market:'Bulldogs -6.5',     predictedLine:9.6,  takenPrice:1.97, closingPrice:1.85, result:'loss', plUnits:-0.50, runningTotal:2.07  },
   // R15 — all 3 bets won. T10 Origin overlay fired (Broncos & Roosters depleted).
-  { id:49, date:'2026-06-11', match:'South Sydney Rabbitohs vs Brisbane Broncos', market:'Souths Win',         predictedLine:null, takenPrice:1.48, closingPrice:null, result:'win',  plUnits:0.48,  runningTotal:2.55  },
-  { id:50, date:'2026-06-12', match:'Dolphins vs Sydney Roosters',                market:'Dolphins -3.5',      predictedLine:null, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.85,  runningTotal:3.40  },
-  { id:51, date:'2026-06-13', match:'New Zealand Warriors vs Cronulla Sharks',    market:'Sharks +4.5',        predictedLine:null, takenPrice:1.87, closingPrice:null, result:'win',  plUnits:0.44,  runningTotal:3.84  },
+  { id:49, date:'2026-06-11', match:'South Sydney Rabbitohs vs Brisbane Broncos', market:'Souths Win',         predictedLine:1.19, takenPrice:1.48, closingPrice:1.43, result:'win',  plUnits:0.48,  runningTotal:2.55  },
+  { id:50, date:'2026-06-12', match:'Dolphins vs Sydney Roosters',                market:'Dolphins -3.5',      predictedLine:6.7,  takenPrice:1.85, closingPrice:1.548, result:'win',  plUnits:0.85,  runningTotal:3.40  },
+  { id:51, date:'2026-06-13', match:'New Zealand Warriors vs Cronulla Sharks',    market:'Sharks +4.5',        predictedLine:-10.4, takenPrice:1.87, closingPrice:2.203, result:'win',  plUnits:0.44,  runningTotal:3.84  },
 ];
