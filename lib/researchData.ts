@@ -674,10 +674,10 @@ export const MODEL_BETS: ModelBet[] = [
   // R15 — all 3 bets won. T10 Origin overlay fired (Broncos & Roosters depleted).
   { id:49, date:'2026-06-11', match:'South Sydney Rabbitohs vs Brisbane Broncos', market:'Souths Win',         predictedLine:1.19, takenPrice:1.48, closingPrice:1.43, result:'win',  plUnits:0.48,  runningTotal:2.55  },
   { id:50, date:'2026-06-12', match:'Dolphins vs Sydney Roosters',                market:'Dolphins -3.5',      predictedLine:6.7,  takenPrice:1.85, closingPrice:1.548, result:'win',  plUnits:0.85,  runningTotal:3.40  },
-  { id:51, date:'2026-06-13', match:'New Zealand Warriors vs Cronulla Sharks',    market:'Sharks +4.5',        predictedLine:-10.4, takenPrice:1.87, closingPrice:2.203, result:'win',  plUnits:0.44,  runningTotal:3.84  },
+  { id:51, date:'2026-06-13', match:'New Zealand Warriors vs Cronulla Sharks',    market:'Sharks +4.5 (Live)', predictedLine:-10.4, takenPrice:1.87, closingPrice:null,  result:'win',  plUnits:0.44,  runningTotal:3.84  },
   // R16 — Origin G2 depleted. T10 over-penalised Storm/Roosters. Live bets included.
   { id:52, date:'2026-06-20', match:'Canterbury Bulldogs vs Manly Sea Eagles',    market:'Under 48.5',         predictedLine:38.6,  takenPrice:1.83, closingPrice:1.88, result:'win',  plUnits:0.83,  runningTotal:4.67  },
-  { id:53, date:'2026-06-20', match:'Wests Tigers vs Dolphins',                  market:'Tigers Win (Live)',   predictedLine:2.07,  takenPrice:1.83, closingPrice:2.88, result:'loss', plUnits:-0.44, runningTotal:4.23  },
+  { id:53, date:'2026-06-20', match:'Wests Tigers vs Dolphins',                  market:'Tigers Win (Live)',   predictedLine:2.07,  takenPrice:1.83, closingPrice:null, result:'loss', plUnits:-0.44, runningTotal:4.23  },
   { id:54, date:'2026-06-21', match:'Melbourne Storm vs Canberra Raiders',        market:'Raiders +8.5',       predictedLine:-1.9,  takenPrice:1.90, closingPrice:1.89, result:'loss', plUnits:-1.00, runningTotal:3.23  },
   { id:55, date:'2026-06-21', match:'Melbourne Storm vs Canberra Raiders',        market:'Under 67.5 (Live)',  predictedLine:44.3,  takenPrice:2.05, closingPrice:null, result:'win',  plUnits:0.53,  runningTotal:3.76  },
   { id:56, date:'2026-06-21', match:'Sydney Roosters vs Cronulla Sharks',         market:'Sharks Win',         predictedLine:2.04,  takenPrice:2.53, closingPrice:2.48, result:'loss', plUnits:-1.00, runningTotal:2.76  },
