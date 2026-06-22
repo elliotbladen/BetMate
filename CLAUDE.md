@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-06-15 (AFL_MODEL_BETS backfill complete — predictedLine + closingPrice filled for ids 6-9, 12, 52; id:53 null no 2nd-half data; R10 ids 21-26 predictedLine still null)
+**Last updated:** 2026-06-23 (R16 NRL + R15 AFL bets logged: 16 bets total (0092-0107). AFL R15 +$90.04 (6W 1L), NRL R16 -$54.25 (2W 3L incl 2 live bets), Soccer -$19.79 (1W 3L). CLV filed for 8 pre-game standard bets, avg +0.50%. 2 live bets identified (Tigers H2H @ 1.83 vs market 2.88, Under 67.5 Storm @ 2.05 vs market 50.5). 2 Pick Your Line bets (Adelaide -4.5, Geelong +33.5) no CLV. Historical xlsx refreshed: NRL 3541 rows (R16 included), AFL 3481 rows (R15 included). Pushed to Supabase — history tab current. Running CLV: NRL +4.99% (58 bets), AFL +0.77% (48 bets).)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -289,8 +289,8 @@ BettingEngine/data/
 │   └── running/
 │       ├── actual_bets_clv_2026.csv      per-bet CLV (fill after each round)
 │       ├── model_clv_supplement_nrl_2026.csv  R8/R9 model CLV (no actual bets)
-│       ├── NRL_CLV_running_2026.csv      running total — currently +7.94% (R8–R11)
-│       └── AFL_CLV_running_2026.csv      running total — currently +0.72% (R8–R9)
+│       ├── NRL_CLV_running_2026.csv      running total — currently +5.27% LINE-ADJ (R8–R15, 55 bets, 70.9% +ve)
+│       └── AFL_CLV_running_2026.csv      running total — currently +0.76% LINE-ADJ (R8–R14, 43 bets, 46.5% +ve)
 ├── model_accuracy/
 │   ├── nrl/                              NRL_MODEL_ACCURACY_R{rr}_{date}.csv
 │   ├── afl/                              AFL_MODEL_ACCURACY_R{rr}_{date}.csv
@@ -346,6 +346,14 @@ Changes made 2026-06-10: key_forward good −3.5→−3.0, midfielder elite −3
 | Tigers vs Lions | Lions -30.5 | Lions -46.5 |
 | Saints vs Giants | Giants -12.2 | Giants -2.5 |
 
+### BETTING RULE — Model Alignment Required (established 2026-06-17)
+Only take a handicap, H2H, or totals bet if **both** the rules model AND the ML model agree on the direction:
+- **Handicap:** both `rules_margin` and `ml_margin` must point to the same team winning
+- **H2H:** both `rules_home_odds` and `ml_h2h` must favour the same side
+- **Totals:** both `rules_total` and `ml_total` must be on the same side of the market line
+- If models disagree (e.g. rules has GWS -28, ML has Carlton +5) → **DO NOT BET** either side
+- Reason: CLV analysis showed AFL handicap at -2.41% avg. Several misses involved rules/ML disagreement.
+
 ### Pending Work
 - ~~**T10 Origin Layer**~~ ✅ **LIVE 2026-06-09** — `BettingEngine/pricing/tier10_origin.py` + `data/nrl/origin/2026.json`. Auto-detects Origin camp windows, applies same formula as T5. G1 squad fully populated. G2 (Jun 17, camp Jun 12) + G3 (Jul 8, camp Jul 3) squads need populating before those rounds. DB migration 024 applied. See handover `2026-06-09_t10-origin-layer.md`.
 - **Custom domain betmate.au:** DNS resolving ✅, SSL cert provisioning. `www.betmate.au` CNAME still points to wrong site — needs updating in Cloudflare + Vercel domain added
@@ -354,6 +362,7 @@ Changes made 2026-06-10: key_forward good −3.5→−3.0, midfielder elite −3
 - Odds movement alerts: add threshold filter (only alert if change_pct >= 10%)
 - **AFL rules model — sigmoid ELO scaling (next AFL session):** `POINTS_PER_ELO` linear mapping can't calibrate both moderate and extreme ELO gaps simultaneously. Replace with `(win_prob - 0.5) × SCALE` where win_prob is logistic from ELO diff. Calibrate SCALE against 2026 closing lines after R18. Estimate SCALE ≈ 90-100. See handover `2026-06-10_afl-calibration-overhaul.md`.
 - **AFL rules model — set-shot conversion tracker (medium term):** pull weekly team kicking % from AFL Tables, apply ±2-3pt adjustment per 5% deviation from 52.5% league average. AFL-specific, no NRL equivalent.
+- **AFL rules model — xScore ELO inputs (next pre-season, Oct 2026):** Currently ELO updates on raw score margin, which bakes in kicking accuracy variance. Replace with expected score margin: `xScore = scoring_shots × 3.70` (where 3.70 = 6×0.54 + 1×0.46, league avg conversion). Freo R15 example: 29 shots = 107 xScore vs actual 99 — ELO would correctly reflect their dominance. Data needed: scoring shots per team per game (already in AFL Tables xlsx). No new data source required for basic version. Enhanced version (per-shot distance/angle) needs Champion Data or scraping AFL.com.au shot maps. Build basic version first, assess improvement before investing in per-shot data. Mid-season accuracy dip (R13-17) is seasonal/weather-driven not streak-based — xScore normalises this automatically.
 - **AFL ML model RETRAINED 2026-06-04** — training window extended to **2022–2024** (was 2022–2023). Train games: 639 (was 423, +51%). Test holdout: 2025 (n=216). New metrics: Margin MAE 30.45 (was 31.72), Total MAE 24.31 (was 24.61), H2H Acc 66.7% (was 65.7%), H2H LogLoss 0.673 (was 0.830). Fresh xlsx (`outputs/afl_weekly_review/historical/latest.xlsx`, Jun 2 download, 816KB, covers R1–R12 2026) used — deploy set now 106 games (was 63). `game_log.py` default XLSX now points to `outputs/afl_weekly_review/historical/latest.xlsx` (auto-uses weekly download). End-of-season retrain (Oct 2026): add 2025 to train, make 2026 test.
 - **NRL H2H home bias:** Rules model overrates home teams by +9–11% vs market. ML shadow much better (+1–6%). Consider T4 venue calibration review.
 - **R12 CLV:** Not yet filed — opening/closing lines pending. Run scripts after filing.

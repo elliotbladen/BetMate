@@ -70,6 +70,7 @@ BETENGINE = ROOT / "BettingEngine"
 VALID_FLAG_TYPES = {
     'milestone', 'new_coach', 'star_return',
     'farewell', 'personal_tragedy', 'rivalry_derby', 'must_win',
+    'shame_blowout', 'losing_streak',
 }
 VALID_STRENGTHS = {'minor', 'normal', 'major'}
 
@@ -102,24 +103,34 @@ SYSTEM_PROMPT = """\
 You are the AFL emotional context analyst for a sports pricing engine.
 
 Your job is to identify MEANINGFUL emotional/motivational storylines that will materially
-affect a team's performance in the upcoming round. You are conservative — most games have
-no emotional flags. Expect 0–2 per round total.
+affect a team's performance in the upcoming round. A typical round has 2–5 flags.
+Be thorough — missing a real flag is worse than including a borderline one.
 
 You will receive:
 1. The upcoming round fixture
-2. Current injury/suspension/team news from BetMate
-3. Auto-detected flags (rivalry_derby) already confirmed
+2. Current injury/suspension/team news
+3. Recent form (last 2 results per team including margin)
+4. Auto-detected flags (rivalry_derby) already confirmed
+5. Recent AFL news headlines
 
-Your task: identify any ADDITIONAL flags from these types only:
+Your task: identify any ADDITIONAL flags from these types:
   milestone        — 100th/150th/200th/250th/300th AFL game, debut, first game as captain
   new_coach        — first game under a newly appointed head coach
   star_return      — elite/key player returning from 3+ weeks injured
   farewell         — confirmed retirement game, player's last season announcement
   personal_tragedy — team rallying around a recent death, serious illness, family tragedy
-  must_win         — team effectively eliminated without a win, OR team in bottom 4 of
-                     ladder with ≤6 rounds left and on a 3+ game losing streak
+  must_win         — team needs a win to stay in finals contention, OR 3+ game losing
+                     streak with finals implications
+  shame_blowout    — team lost by 40+ points last week and must respond; flag the LOSING
+                     team only (they feel the shame, not the winner)
+  losing_streak    — team on 3+ consecutive losses heading into this game
 
-For each flag you identify, return a JSON object:
+Flag strength guide:
+  major  — loss by 60+, 3+ game streak, captain tragedy, elimination game
+  normal — loss by 40-59, 2-game streak, milestone 200th+, must-win but not eliminated
+  minor  — loss by 30-39, borderline must-win, star return from shorter absence
+
+For each flag return a JSON object:
   {
     "season": <int>,
     "round": <int>,
@@ -131,8 +142,7 @@ For each flag you identify, return a JSON object:
     "confidence": "<high|medium|low>"
   }
 
-Return a JSON array. Return [] if no additional flags apply.
-Only include flags you are CONFIDENT about from the provided data. Do not speculate.
+Return a JSON array. Return [] if genuinely nothing applies.
 Do not repeat flags already in the auto-detected list.
 Use full canonical AFL team names (e.g. "Collingwood Magpies" not "Magpies").
 """
@@ -244,6 +254,94 @@ def detect_rivalry_derby(fixture: list[dict]) -> list[dict]:
     return flags
 
 
+def load_recent_form(fixture: list[dict], round_number: int) -> str:
+    """Pull last 2 results per team from AFL history xlsx."""
+    try:
+        from openpyxl import load_workbook
+        from datetime import datetime as _dt
+        xlsx = BETENGINE / 'outputs' / 'afl_weekly_review' / 'historical' / 'latest.xlsx'
+        if not xlsx.exists():
+            return '  (history not available)'
+        wb = load_workbook(xlsx, read_only=True)
+        ws = wb.active
+        games = []
+        for row in ws.iter_rows(values_only=True):
+            if not isinstance(row[0], _dt):
+                continue
+            if row[2] is None or row[3] is None:
+                continue
+            try:
+                hs = int(row[5]) if row[5] is not None else None
+                aws = int(row[6]) if row[6] is not None else None
+            except (TypeError, ValueError):
+                hs, aws = None, None
+            games.append({
+                'date': row[0].date(),
+                'home': str(row[2]).strip(),
+                'away': str(row[3]).strip(),
+                'home_score': hs,
+                'away_score': aws,
+            })
+        games.sort(key=lambda g: g['date'])
+
+        # Short name → full name mapping for lookup
+        SHORT_TO_FULL = {
+            'Adelaide':        'Adelaide Crows',
+            'Brisbane':        'Brisbane Lions',
+            'Carlton':         'Carlton Blues',
+            'Collingwood':     'Collingwood Magpies',
+            'Essendon':        'Essendon Bombers',
+            'Fremantle':       'Fremantle Dockers',
+            'Geelong':         'Geelong Cats',
+            'Gold Coast':      'Gold Coast Suns',
+            'GWS Giants':      'Greater Western Sydney Giants',
+            'Hawthorn':        'Hawthorn Hawks',
+            'Melbourne':       'Melbourne Demons',
+            'North Melbourne': 'North Melbourne Kangaroos',
+            'Port Adelaide':   'Port Adelaide Power',
+            'Richmond':        'Richmond Tigers',
+            'St Kilda':        'St Kilda Saints',
+            'Sydney':          'Sydney Swans',
+            'West Coast':      'West Coast Eagles',
+            'Western Bulldogs':'Western Bulldogs',
+        }
+
+        all_teams = set()
+        for g in fixture:
+            all_teams.add(g.get('home_team', ''))
+            all_teams.add(g.get('away_team', ''))
+
+        lines = []
+        for full_name in sorted(all_teams):
+            if not full_name:
+                continue
+            # find short name
+            short = next((s for s, f in SHORT_TO_FULL.items() if f == full_name), full_name)
+            team_games = [
+                g for g in games
+                if g['home'] == short or g['away'] == short
+            ][-2:]
+            if not team_games:
+                continue
+            results = []
+            for g in team_games:
+                if g['home_score'] is None:
+                    continue
+                if g['home'] == short:
+                    margin = g['home_score'] - g['away_score']
+                    result = 'W' if margin > 0 else ('L' if margin < 0 else 'D')
+                    results.append(f"{result} {'+' if margin >= 0 else ''}{margin} vs {SHORT_TO_FULL.get(g['away'], g['away'])}")
+                else:
+                    margin = g['away_score'] - g['home_score']
+                    result = 'W' if margin > 0 else ('L' if margin < 0 else 'D')
+                    results.append(f"{result} {'+' if margin >= 0 else ''}{margin} vs {SHORT_TO_FULL.get(g['home'], g['home'])}")
+            if results:
+                lines.append(f"  {full_name}: {' | '.join(results)}")
+        return '\n'.join(lines) if lines else '  (none)'
+    except Exception as exc:
+        return f'  (form load failed: {exc})'
+
+
 def build_claude_prompt(
     season: int,
     round_number: int,
@@ -269,7 +367,7 @@ def build_claude_prompt(
     for team, lines in sorted(by_team.items()):
         injury_section += f"\n{team}:\n" + '\n'.join(lines)
 
-    # Team news (different format — nested dict by team with items list)
+    # Team news
     news_section = ''
     if isinstance(team_news, dict):
         teams_data = team_news.get('teams', team_news)
@@ -285,10 +383,15 @@ def build_claude_prompt(
         if auto_flags else '  (none detected)'
     )
 
+    form_section = load_recent_form(fixture, round_number)
+
     return f"""UPCOMING ROUND: Season {season}, Round {round_number}
 
 FIXTURE:
 {fixture_lines}
+
+RECENT FORM (last 2 results per team — margin from team's perspective, positive = win):
+{form_section}
 
 INJURY LIST:
 {injury_section or '  (none loaded)'}
@@ -296,13 +399,15 @@ INJURY LIST:
 TEAM NEWS:
 {news_section or '  (none loaded)'}
 
-RECENT AFL NEWS HEADLINES (use these to identify milestones, farewells, personal tragedies, must-win situations not captured above):
+RECENT AFL NEWS HEADLINES:
 {news_headlines or '  (none fetched)'}
 
 AUTO-DETECTED EMOTIONAL FLAGS (already confirmed — do NOT repeat these):
 {auto_section}
 
-Based on the above, identify any ADDITIONAL emotional flags for Round {round_number}.
+Based on the above, identify ADDITIONAL emotional flags for Round {round_number}.
+Pay particular attention to: teams off 40+ point losses (shame_blowout), teams on 3+ losing streaks, \
+must-win finals situations, milestones in the news headlines.
 
 Return a JSON array only. No prose. No markdown. No explanation outside the JSON.
 """

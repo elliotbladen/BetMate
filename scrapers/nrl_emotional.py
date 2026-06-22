@@ -87,8 +87,8 @@ ORIGIN_BOOST_WINDOWS_2026: list[tuple[str, str, str]] = [
     # (first_round_after_camp, last_round_after_camp, notes)
     # Game 1 ~June 4, players back for round ~15-16
     ('2026-06-05', '2026-06-14', 'Post-Origin Game 1 camp window'),
-    ('2026-07-02', '2026-07-12', 'Post-Origin Game 2 camp window'),
-    ('2026-07-23', '2026-08-02', 'Post-Origin Game 3 camp window'),
+    ('2026-06-18', '2026-06-28', 'Post-Origin Game 2 camp window'),
+    ('2026-07-09', '2026-07-19', 'Post-Origin Game 3 camp window'),
 ]
 
 def _load_env() -> None:

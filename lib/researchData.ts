@@ -501,6 +501,36 @@ LEGACY_BETS.push(
   { id:415, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',              market:'Under 185.5',          odds:1.89, closingOdds:null, result:'win',  cumPL:26.83, sport:'AFL',      notes:'Actual bet log. Stake $28.95. Matrix unders call paid off.' },
 );
 
+// ─── Section 9: Week ending 2026-06-22 (NRL R16 + AFL R15 + Soccer) ──────────
+LEGACY_BETS.push(
+  // AFL R15 — Thu 18 Jun (Fremantle vs Geelong)
+  { id:416, date:'2026-06-18', match:'Fremantle Dockers vs Geelong Cats',          market:'Geelong +33.5 PYL',    odds:1.50, closingOdds:null, result:'win',  cumPL:27.08, sport:'AFL',      notes:'Actual bet log. Stake $25. Pick Your Line safety bet — Freo model -14.9, Geelong got +33.5 cushion. Freo won by 9.' },
+  // AFL R15 — Fri 19 Jun (Gold Coast Suns vs Hawthorn)
+  { id:417, date:'2026-06-19', match:'Gold Coast Suns vs Hawthorn Hawks',          market:'Under 180.5',          odds:1.90, closingOdds:1.90, result:'loss', cumPL:26.08, sport:'AFL',      notes:'Actual bet log. Stake $50. Model total 175.1 (rules) / 132.1 (ML). Market closed 178.5. Total went over.' },
+  { id:418, date:'2026-06-19', match:'Gold Coast Suns vs Hawthorn Hawks',          market:'Hawthorn Win',         odds:1.77, closingOdds:1.70, result:'win',  cumPL:26.47, sport:'AFL',      notes:'Actual bet log. Stake $25. Model fair odds 1.69. Got 1.77 — +4.1% CLV.' },
+  // Soccer — Fri 19 Jun (World Cup)
+  { id:419, date:'2026-06-19', match:'Mexico vs South Korea',                      market:'Draw',                 odds:3.30, closingOdds:null, result:'loss', cumPL:26.10, sport:'FOOTBALL', notes:'Actual bet log. Stake $18.50. World Cup. CLV exempt.' },
+  // AFL R15 — Sat 20 Jun (Adelaide vs Melbourne, Collingwood vs Port Adelaide)
+  { id:420, date:'2026-06-20', match:'Adelaide Crows vs Melbourne Demons',         market:'Adelaide -4.5 PYL',    odds:1.82, closingOdds:null, result:'win',  cumPL:26.46, sport:'AFL',      notes:'Actual bet log. Stake $22. Pick Your Line — model Adelaide by 31.8. Market close was -19.5. Custom safe line.' },
+  { id:421, date:'2026-06-20', match:'Collingwood Magpies vs Port Adelaide Power', market:'Collingwood -13.5',    odds:1.90, closingOdds:1.90, result:'win',  cumPL:26.91, sport:'AFL',      notes:'Actual bet log. Stake $25. Model Collingwood by 26.8. Won by 26.' },
+  // NRL R16 — Sat 20 Jun (Bulldogs vs Sea Eagles, Tigers vs Dolphins)
+  { id:422, date:'2026-06-20', match:'Canterbury Bulldogs vs Manly Sea Eagles',    market:'Under 48.5',           odds:1.83, closingOdds:1.88, result:'win',  cumPL:27.74, sport:'NRL',      notes:'Actual bet log. Stake $50. Model fair total 38.6. Bulldogs won 1pt — low scoring game as expected.' },
+  { id:423, date:'2026-06-20', match:'Wests Tigers vs Dolphins',                   market:'Tigers Win',           odds:1.83, closingOdds:2.88, result:'loss', cumPL:27.30, sport:'NRL',      notes:'Actual bet log. Stake $22. LIVE BET — pre-game market had Tigers at 2.88. Bet at 1.83 in-play. Tigers lost by 14.' },
+  // Soccer — Sat 20 Jun (World Cup)
+  { id:424, date:'2026-06-20', match:'USA vs Australia',                           market:'Draw',                 odds:4.10, closingOdds:null, result:'loss', cumPL:26.92, sport:'FOOTBALL', notes:'Actual bet log. Stake $19. World Cup. CLV exempt.' },
+  // AFL R15 — Sun 21 Jun (Richmond vs North Melbourne)
+  { id:425, date:'2026-06-21', match:'Richmond Tigers vs North Melbourne Kangaroos', market:'NM -17.5',           odds:1.89, closingOdds:1.90, result:'win',  cumPL:27.37, sport:'AFL',      notes:'Actual bet log. Stake $25. Model NM by 18.7 (rules) / 37.3 (ML). Close was -21.5. NM won by 25.' },
+  { id:426, date:'2026-06-21', match:'Richmond Tigers vs North Melbourne Kangaroos', market:'Under 176.5',        odds:1.91, closingOdds:1.90, result:'win',  cumPL:28.28, sport:'AFL',      notes:'Actual bet log. Stake $50. Model total 152.6 (rules). Close was 174.5. Under landed easily.' },
+  // NRL R16 — Sun 21 Jun (Storm vs Raiders, Roosters vs Sharks)
+  { id:427, date:'2026-06-21', match:'Melbourne Storm vs Canberra Raiders',        market:'Raiders +8.5',         odds:1.90, closingOdds:1.89, result:'loss', cumPL:27.28, sport:'NRL',      notes:'Actual bet log. Stake $50. Model Storm -1.9 (Raiders should cover). Storm won by 22 — T10 over-penalised Origin absences.' },
+  { id:428, date:'2026-06-21', match:'Melbourne Storm vs Canberra Raiders',        market:'Under 67.5',           odds:2.05, closingOdds:null, result:'win',  cumPL:27.81, sport:'NRL',      notes:'Actual bet log. Stake $25. LIVE BET — standard market line 50.5. Model total 44.3. Under landed.' },
+  { id:429, date:'2026-06-21', match:'Sydney Roosters vs Cronulla Sharks',         market:'Sharks Win',           odds:2.53, closingOdds:2.48, result:'loss', cumPL:26.81, sport:'NRL',      notes:'Actual bet log. Stake $50. Model near-50/50 (Roosters +0.3). Roosters won by 19 — T10 again: massive Origin absences underestimated Roosters depth.' },
+  // Soccer — Sun 21 Jun (World Cup)
+  { id:430, date:'2026-06-21', match:'Tunisia vs Japan',                           market:'Under 2.5 Goals',      odds:1.77, closingOdds:null, result:'loss', cumPL:26.42, sport:'FOOTBALL', notes:'Actual bet log. Stake $19.29. World Cup. CLV exempt.' },
+  // Soccer — Mon 22 Jun (World Cup)
+  { id:431, date:'2026-06-22', match:'Belgium vs Iran',                            market:'Iran And Draw DC',     odds:2.85, closingOdds:null, result:'win',  cumPL:27.16, sport:'FOOTBALL', notes:'Actual bet log. Stake $20. Double Chance. World Cup. CLV exempt.' },
+);
+
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
 // All AFL bets from LEGACY_BETS with date >= 2026-04-15.
 // plUnits = (stake/$50) × (odds-1) for win, -(stake/$50) for loss.
@@ -575,6 +605,14 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:54, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:1.58, takenPrice:2.10, closingPrice:2.08, result:'loss', plUnits:-0.21,  runningTotal:0.96   },
   { id:55, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'GWS Win',                 predictedLine:1.58, takenPrice:2.08, closingPrice:2.08, result:'loss', plUnits:-0.50,  runningTotal:0.46   },
   { id:56, date:'2026-06-14', match:'St Kilda Saints vs GWS Giants',          market:'Under 185.5',             predictedLine:187.8, takenPrice:1.89, closingPrice:1.91, result:'win',  plUnits:0.52,   runningTotal:0.98   },
+  // R15 (Jun 18-21) — 6W 1L. PYL bets both won with large cushions. NM total model-accurate.
+  { id:57, date:'2026-06-18', match:'Fremantle Dockers vs Geelong Cats',          market:'Geelong +33.5 PYL',       predictedLine:14.9,  takenPrice:1.50, closingPrice:null, result:'win',  plUnits:0.25,   runningTotal:1.23   },
+  { id:58, date:'2026-06-19', match:'Gold Coast Suns vs Hawthorn Hawks',          market:'Under 180.5',             predictedLine:175.1, takenPrice:1.90, closingPrice:1.90, result:'loss', plUnits:-1.00,  runningTotal:0.23   },
+  { id:59, date:'2026-06-19', match:'Gold Coast Suns vs Hawthorn Hawks',          market:'Hawthorn Win',            predictedLine:1.69,  takenPrice:1.77, closingPrice:1.70, result:'win',  plUnits:0.39,   runningTotal:0.62   },
+  { id:60, date:'2026-06-20', match:'Adelaide Crows vs Melbourne Demons',         market:'Adelaide -4.5 PYL',       predictedLine:31.8,  takenPrice:1.82, closingPrice:null, result:'win',  plUnits:0.36,   runningTotal:0.98   },
+  { id:61, date:'2026-06-20', match:'Collingwood Magpies vs Port Adelaide Power', market:'Collingwood -13.5',       predictedLine:26.8,  takenPrice:1.90, closingPrice:1.90, result:'win',  plUnits:0.45,   runningTotal:1.43   },
+  { id:62, date:'2026-06-21', match:'Richmond Tigers vs North Melbourne Kangaroos', market:'NM -17.5',              predictedLine:-18.7, takenPrice:1.89, closingPrice:1.90, result:'win',  plUnits:0.45,   runningTotal:1.88   },
+  { id:63, date:'2026-06-21', match:'Richmond Tigers vs North Melbourne Kangaroos', market:'Under 176.5',           predictedLine:152.6, takenPrice:1.91, closingPrice:1.90, result:'win',  plUnits:0.91,   runningTotal:2.79   },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
@@ -637,4 +675,10 @@ export const MODEL_BETS: ModelBet[] = [
   { id:49, date:'2026-06-11', match:'South Sydney Rabbitohs vs Brisbane Broncos', market:'Souths Win',         predictedLine:1.19, takenPrice:1.48, closingPrice:1.43, result:'win',  plUnits:0.48,  runningTotal:2.55  },
   { id:50, date:'2026-06-12', match:'Dolphins vs Sydney Roosters',                market:'Dolphins -3.5',      predictedLine:6.7,  takenPrice:1.85, closingPrice:1.548, result:'win',  plUnits:0.85,  runningTotal:3.40  },
   { id:51, date:'2026-06-13', match:'New Zealand Warriors vs Cronulla Sharks',    market:'Sharks +4.5',        predictedLine:-10.4, takenPrice:1.87, closingPrice:2.203, result:'win',  plUnits:0.44,  runningTotal:3.84  },
+  // R16 — Origin G2 depleted. T10 over-penalised Storm/Roosters. Live bets included.
+  { id:52, date:'2026-06-20', match:'Canterbury Bulldogs vs Manly Sea Eagles',    market:'Under 48.5',         predictedLine:38.6,  takenPrice:1.83, closingPrice:1.88, result:'win',  plUnits:0.83,  runningTotal:4.67  },
+  { id:53, date:'2026-06-20', match:'Wests Tigers vs Dolphins',                  market:'Tigers Win (Live)',   predictedLine:2.07,  takenPrice:1.83, closingPrice:2.88, result:'loss', plUnits:-0.44, runningTotal:4.23  },
+  { id:54, date:'2026-06-21', match:'Melbourne Storm vs Canberra Raiders',        market:'Raiders +8.5',       predictedLine:-1.9,  takenPrice:1.90, closingPrice:1.89, result:'loss', plUnits:-1.00, runningTotal:3.23  },
+  { id:55, date:'2026-06-21', match:'Melbourne Storm vs Canberra Raiders',        market:'Under 67.5 (Live)',  predictedLine:44.3,  takenPrice:2.05, closingPrice:null, result:'win',  plUnits:0.53,  runningTotal:3.76  },
+  { id:56, date:'2026-06-21', match:'Sydney Roosters vs Cronulla Sharks',         market:'Sharks Win',         predictedLine:2.04,  takenPrice:2.53, closingPrice:2.48, result:'loss', plUnits:-1.00, runningTotal:2.76  },
 ];
