@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import { getDataStore } from '@/lib/supabaseServer';
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export async function GET() {
   // Try Supabase first (works on Vercel)
