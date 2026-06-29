@@ -31,6 +31,25 @@ function clvDelta(taken: number, closing: number | null) {
   return <span className={`font-mono text-xs ${cls}`}>{delta > 0 ? '+' : ''}{delta.toFixed(1)}%</span>;
 }
 
+function clvCell(bet: { takenPrice?: number | null; closingPrice?: number | null; odds?: number | null; closingOdds?: number | null; clv?: number | null; clvLabel?: string }) {
+  if (bet.clvLabel) {
+    const value = bet.clv ?? 0;
+    const cls = value > 0 ? 'text-[#00DEB8]' : value < 0 ? 'text-red-500' : 'text-[#9CA3AF]';
+    return <span className={`font-mono text-xs ${cls}`}>{bet.clvLabel}</span>;
+  }
+
+  const taken = bet.takenPrice ?? bet.odds ?? null;
+  const closing = bet.closingPrice ?? bet.closingOdds ?? null;
+  if (taken === null) return <span className="text-[#D1D5DB]">—</span>;
+  return clvDelta(taken, closing);
+}
+
+function clvScore(bet: ModelBet) {
+  if (bet.clv !== undefined && bet.clv !== null) return bet.clv;
+  if (bet.takenPrice === null || bet.closingPrice === null) return null;
+  return ((bet.takenPrice - bet.closingPrice) / bet.closingPrice) * 100;
+}
+
 function statsFor(bets: LegacyBet[]) {
   const wins     = bets.filter(b => b.result === 'win').length;
   const losses   = bets.filter(b => b.result === 'loss').length;
@@ -79,7 +98,7 @@ function AllBetsTab() {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-[#E2E8F0]">
-              {['#', 'Date', 'Match', 'Market', 'Odds', 'Result', 'Cum P&L', 'Sport'].map(h => (
+              {['#', 'Date', 'Match', 'Market', 'Odds', 'CLV', 'Result', 'Cum P&L', 'Sport'].map(h => (
                 <th key={h} className="pb-2 pr-4 text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
               ))}
             </tr>
@@ -92,6 +111,7 @@ function AllBetsTab() {
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827] whitespace-nowrap max-w-[180px] truncate">{bet.match}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280] whitespace-nowrap">{bet.market}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280]">{bet.odds ?? '—'}</td>
+                <td className="py-2 pr-4">{clvCell(bet)}</td>
                 <td className="py-2 pr-4">{resultBadge(bet.result)}</td>
                 <td className={`py-2 pr-4 text-[12px] font-mono font-bold ${bet.cumPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500'}`}>
                   {bet.cumPL > 0 ? '+' : ''}{bet.cumPL.toFixed(2)}u
@@ -110,8 +130,8 @@ function AllBetsTab() {
 function ModelTab({ bets }: { bets: ModelBet[] }) {
   const stats = modelStatsFor(bets);
 
-  const clvBets   = bets.filter(b => b.takenPrice !== null && b.closingPrice !== null);
-  const clvBeaten = clvBets.filter(b => (b.takenPrice ?? 0) > (b.closingPrice ?? 0)).length;
+  const clvBets   = bets.filter(b => clvScore(b) !== null);
+  const clvBeaten = clvBets.filter(b => (clvScore(b) ?? 0) > 0).length;
   const clvPct    = clvBets.length > 0 ? (clvBeaten / clvBets.length) * 100 : 0;
 
   return (
@@ -153,7 +173,7 @@ function ModelTab({ bets }: { bets: ModelBet[] }) {
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280]">{bet.predictedLine ?? '—'}</td>
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827]">{bet.takenPrice?.toFixed(2) ?? '—'}</td>
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#6B7280]">{bet.closingPrice?.toFixed(2) ?? '—'}</td>
-                <td className="py-2 pr-4">{bet.takenPrice !== null ? clvDelta(bet.takenPrice, bet.closingPrice) : <span className="text-[#D1D5DB]">—</span>}</td>
+                <td className="py-2 pr-4">{clvCell(bet)}</td>
                 <td className="py-2 pr-4">{resultBadge(bet.result)}</td>
                 <td className={`py-2 pr-4 text-[12px] font-mono font-bold ${bet.plUnits >= 0 ? 'text-[#00DEB8]' : 'text-red-500'}`}>
                   {bet.plUnits > 0 ? '+' : ''}{bet.plUnits.toFixed(2)}u

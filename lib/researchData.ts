@@ -8,6 +8,8 @@ export interface LegacyBet {
   market: string;
   odds: number | null;
   closingOdds: number | null;
+  clv?: number | null;
+  clvLabel?: string;
   result: BetResult;
   cumPL: number;
   sport: Sport;
@@ -23,6 +25,8 @@ export interface ModelBet {
   predictedLine: number | null;  // model's predicted line or fair-odds estimate
   takenPrice: number | null;
   closingPrice: number | null;
+  clv?: number | null;
+  clvLabel?: string;
   result: BetResult;
   plUnits: number;               // individual bet P&L per unit staked
   runningTotal: number;          // cumulative P&L
@@ -536,20 +540,20 @@ LEGACY_BETS.push(
   // Soccer — Wed 24 Jun (World Cup)
   { id:432, date:'2026-06-24', match:'Panama vs Croatia',                           market:'Panama And Draw DC',   odds:2.90, closingOdds:null, result:'loss', cumPL:26.88, sport:'FOOTBALL', notes:'Actual bet log. Stake $14. Double Chance. No return.' },
   // NRL R17 — Thu 25 Jun (Parramatta vs South Sydney)
-  { id:433, date:'2026-06-25', match:'Parramatta Eels vs South Sydney Rabbitohs',   market:'Souths -5.5',          odds:1.85, closingOdds:1.85, result:'win',  cumPL:27.25, sport:'NRL',      notes:'Actual bet log. Stake $21.82. Return $40.37. Model Souths by 10.3.' },
+  { id:433, date:'2026-06-25', match:'Parramatta Eels vs South Sydney Rabbitohs',   market:'Souths -5.5',          odds:1.85, closingOdds:1.85, clv:0.0,  clvLabel:'0.0 pts',   result:'win',  cumPL:27.25, sport:'NRL',      notes:'Actual bet log. Stake $21.82. Return $40.37. Model Souths by 10.3. Closed Souths -5.5.' },
   // NRL R17 — Fri 26 Jun (Gold Coast vs Canterbury)
-  { id:434, date:'2026-06-26', match:'Gold Coast Titans vs Canterbury Bulldogs',    market:'Under 46.5',           odds:1.90, closingOdds:1.87, result:'win',  cumPL:28.15, sport:'NRL',      notes:'Actual bet log. Stake $50. Return $95.00. Model total 35.7.' },
+  { id:434, date:'2026-06-26', match:'Gold Coast Titans vs Canterbury Bulldogs',    market:'Under 46.5',           odds:1.90, closingOdds:1.87, clv:2.0,  clvLabel:'+2.0 pts',  result:'win',  cumPL:28.15, sport:'NRL',      notes:'Actual bet log. Stake $50. Return $95.00. Model total 35.7. Closed total 44.5.' },
   { id:435, date:'2026-06-26', match:'Gold Coast Titans vs Canterbury Bulldogs',    market:'Bulldogs 1 to 12',     odds:3.05, closingOdds:null, result:'loss', cumPL:28.15, sport:'NRL',      notes:'Actual bet log. Bonus bet stake $12.32. No cash P&L impact.' },
   // AFL R16 — Fri 26 Jun (Hawthorn vs GWS)
-  { id:436, date:'2026-06-26', match:'Hawthorn Hawks vs GWS Giants',                market:'Hawthorn -19.5',       odds:1.90, closingOdds:1.90, result:'loss', cumPL:27.65, sport:'AFL',      notes:'Actual bet log. Stake $25. Model Hawthorn by 28.0. No return.' },
+  { id:436, date:'2026-06-26', match:'Hawthorn Hawks vs GWS Giants',                market:'Hawthorn -19.5',       odds:1.90, closingOdds:1.90, clv:2.0,  clvLabel:'+2.0 pts',  result:'loss', cumPL:27.65, sport:'AFL',      notes:'Actual bet log. Stake $25. Model Hawthorn by 28.0. No return. Closed Hawthorn -21.5.' },
   // AFL R16 — Sat 27 Jun (Collingwood vs Richmond)
-  { id:437, date:'2026-06-27', match:'Collingwood Magpies vs Richmond Tigers',      market:'Under 170.5',          odds:1.87, closingOdds:1.90, result:'loss', cumPL:26.65, sport:'AFL',      notes:'Actual bet log. Stake $50. No return. Model total 155.1, but game cleared the number.' },
+  { id:437, date:'2026-06-27', match:'Collingwood Magpies vs Richmond Tigers',      market:'Under 170.5',          odds:1.87, closingOdds:1.90, clv:6.0,  clvLabel:'+6.0 pts',  result:'loss', cumPL:26.65, sport:'AFL',      notes:'Actual bet log. Stake $50. No return. Model total 155.1, but game cleared the number. Closed total 164.5.' },
   // NRL R17 — Sat 27 Jun (Manly vs Melbourne)
-  { id:438, date:'2026-06-27', match:'Manly Sea Eagles vs Melbourne Storm',         market:'Manly -3.5 PYL',       odds:1.73, closingOdds:null, result:'win',  cumPL:27.02, sport:'NRL',      notes:'Actual bet log. Stake $25. Return $43.25. Model Manly by 13.1.' },
+  { id:438, date:'2026-06-27', match:'Manly Sea Eagles vs Melbourne Storm',         market:'Manly -3.5 PYL',       odds:1.73, closingOdds:null, clv:2.0,  clvLabel:'+2.0 pts',  result:'win',  cumPL:27.02, sport:'NRL',      notes:'Actual bet log. Stake $25. Return $43.25. Model Manly by 13.1. Standard line closed Manly -5.5; PYL price not apples-to-apples.' },
   // AFL R16 — Sat 27 Jun (Carlton vs West Coast)
-  { id:439, date:'2026-06-27', match:'Carlton Blues vs West Coast Eagles',          market:'Carlton -32.5',        odds:1.90, closingOdds:1.89, result:'win',  cumPL:27.38, sport:'AFL',      notes:'Actual bet log. Stake $20.23. Return $38.44. Model Carlton by 30.9.' },
+  { id:439, date:'2026-06-27', match:'Carlton Blues vs West Coast Eagles',          market:'Carlton -32.5',        odds:1.90, closingOdds:1.89, clv:4.0,  clvLabel:'+4.0 pts',  result:'win',  cumPL:27.38, sport:'AFL',      notes:'Actual bet log. Stake $20.23. Return $38.44. Model Carlton by 30.9. Closed Carlton -36.5.' },
   // AFL R16 — Sun 28 Jun (North Melbourne vs Essendon)
-  { id:440, date:'2026-06-28', match:'North Melbourne Kangaroos vs Essendon Bombers', market:'North Melbourne -15.5', odds:1.90, closingOdds:1.91, result:'loss', cumPL:27.06, sport:'AFL',      notes:'Actual bet log. Stake $15.82. Model North Melbourne by 29.1. No return.' },
+  { id:440, date:'2026-06-28', match:'North Melbourne Kangaroos vs Essendon Bombers', market:'North Melbourne -15.5', odds:1.90, closingOdds:1.91, clv:-2.0, clvLabel:'-2.0 pts',  result:'loss', cumPL:27.06, sport:'AFL',      notes:'Actual bet log. Stake $15.82. Model North Melbourne by 29.1. No return. Closed North Melbourne -13.5.' },
   // Soccer — Sun 28 Jun (World Cup)
   { id:441, date:'2026-06-28', match:'Croatia vs Ghana',                            market:'Draw',                 odds:3.20, closingOdds:null, result:'loss', cumPL:26.60, sport:'FOOTBALL', notes:'Actual bet log. Stake $23. Win-Draw-Win. No return.' },
 );
@@ -637,10 +641,10 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:62, date:'2026-06-21', match:'Richmond Tigers vs North Melbourne Kangaroos', market:'NM -17.5',              predictedLine:-18.7, takenPrice:1.89, closingPrice:1.90, result:'win',  plUnits:0.45,   runningTotal:1.88   },
   { id:63, date:'2026-06-21', match:'Richmond Tigers vs North Melbourne Kangaroos', market:'Under 176.5',           predictedLine:152.6, takenPrice:1.91, closingPrice:1.90, result:'win',  plUnits:0.91,   runningTotal:2.79   },
   // R16 (Jun 26-28)
-  { id:64, date:'2026-06-26', match:'Hawthorn Hawks vs GWS Giants',                market:'Hawthorn -19.5',         predictedLine:28.0,  takenPrice:1.90, closingPrice:1.90, result:'loss', plUnits:-0.50,  runningTotal:2.29   },
-  { id:65, date:'2026-06-27', match:'Carlton Blues vs West Coast Eagles',          market:'Carlton -32.5',          predictedLine:30.9,  takenPrice:1.90, closingPrice:1.89, result:'win',  plUnits:0.36,   runningTotal:2.65   },
-  { id:66, date:'2026-06-27', match:'Collingwood Magpies vs Richmond Tigers',      market:'Under 170.5',            predictedLine:155.1, takenPrice:1.87, closingPrice:1.90, result:'loss', plUnits:-1.00,  runningTotal:1.65   },
-  { id:67, date:'2026-06-28', match:'North Melbourne Kangaroos vs Essendon Bombers', market:'North Melbourne -15.5', predictedLine:29.1,  takenPrice:1.90, closingPrice:1.91, result:'loss', plUnits:-0.32,  runningTotal:1.33   },
+  { id:64, date:'2026-06-26', match:'Hawthorn Hawks vs GWS Giants',                market:'Hawthorn -19.5',         predictedLine:28.0,  takenPrice:1.90, closingPrice:1.90, clv:2.0,  clvLabel:'+2.0 pts', result:'loss', plUnits:-0.50,  runningTotal:2.29   },
+  { id:65, date:'2026-06-27', match:'Carlton Blues vs West Coast Eagles',          market:'Carlton -32.5',          predictedLine:30.9,  takenPrice:1.90, closingPrice:1.89, clv:4.0,  clvLabel:'+4.0 pts', result:'win',  plUnits:0.36,   runningTotal:2.65   },
+  { id:66, date:'2026-06-27', match:'Collingwood Magpies vs Richmond Tigers',      market:'Under 170.5',            predictedLine:155.1, takenPrice:1.87, closingPrice:1.90, clv:6.0,  clvLabel:'+6.0 pts', result:'loss', plUnits:-1.00,  runningTotal:1.65   },
+  { id:67, date:'2026-06-28', match:'North Melbourne Kangaroos vs Essendon Bombers', market:'North Melbourne -15.5', predictedLine:29.1,  takenPrice:1.90, closingPrice:1.91, clv:-2.0, clvLabel:'-2.0 pts', result:'loss', plUnits:-0.32,  runningTotal:1.33   },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
@@ -710,7 +714,7 @@ export const MODEL_BETS: ModelBet[] = [
   { id:55, date:'2026-06-21', match:'Melbourne Storm vs Canberra Raiders',        market:'Under 67.5 (Live)',  predictedLine:44.3,  takenPrice:2.05, closingPrice:null, result:'win',  plUnits:0.53,  runningTotal:3.76  },
   { id:56, date:'2026-06-21', match:'Sydney Roosters vs Cronulla Sharks',         market:'Sharks Win',         predictedLine:2.04,  takenPrice:2.53, closingPrice:2.48, result:'loss', plUnits:-1.00, runningTotal:2.76  },
   // R17
-  { id:57, date:'2026-06-25', match:'Parramatta Eels vs South Sydney Rabbitohs',   market:'Souths -5.5',        predictedLine:-10.3, takenPrice:1.85, closingPrice:1.85, result:'win',  plUnits:0.37,  runningTotal:3.13  },
-  { id:58, date:'2026-06-26', match:'Gold Coast Titans vs Canterbury Bulldogs',    market:'Under 46.5',         predictedLine:35.7,  takenPrice:1.90, closingPrice:1.87, result:'win',  plUnits:0.90,  runningTotal:4.03  },
-  { id:59, date:'2026-06-27', match:'Manly Sea Eagles vs Melbourne Storm',         market:'Manly -3.5 PYL',     predictedLine:13.1,  takenPrice:1.73, closingPrice:null, result:'win',  plUnits:0.37,  runningTotal:4.40  },
+  { id:57, date:'2026-06-25', match:'Parramatta Eels vs South Sydney Rabbitohs',   market:'Souths -5.5',        predictedLine:-10.3, takenPrice:1.85, closingPrice:1.85, clv:0.0, clvLabel:'0.0 pts',  result:'win',  plUnits:0.37,  runningTotal:3.13  },
+  { id:58, date:'2026-06-26', match:'Gold Coast Titans vs Canterbury Bulldogs',    market:'Under 46.5',         predictedLine:35.7,  takenPrice:1.90, closingPrice:1.87, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.90,  runningTotal:4.03  },
+  { id:59, date:'2026-06-27', match:'Manly Sea Eagles vs Melbourne Storm',         market:'Manly -3.5 PYL',     predictedLine:13.1,  takenPrice:1.73, closingPrice:null, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.37,  runningTotal:4.40  },
 ];
