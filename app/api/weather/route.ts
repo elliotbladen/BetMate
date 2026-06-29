@@ -106,8 +106,26 @@ export async function GET(req: NextRequest) {
   const commenceTime = searchParams.get('time'); // ISO string
 
   const apiKey = process.env.TOMORROW_API_KEY;
-  if (!apiKey) return NextResponse.json({ error: 'TOMORROW_API_KEY not configured' }, { status: 500 });
   if (!lat || !lon) return NextResponse.json({ error: 'lat/lon required' }, { status: 400 });
+
+  if (!apiKey) {
+    return NextResponse.json({
+      temperature: 0,
+      windSpeed: 0,
+      windGust: 0,
+      precipProbability: 0,
+      precipIntensity: 0,
+      dewPoint: 0,
+      humidity: 0,
+      condition: 'good',
+      flags: [],
+    } satisfies WeatherData, {
+      headers: {
+        'x-betmate-weather-source': 'local-placeholder',
+        'x-betmate-upstream-status': 'missing-api-key',
+      },
+    });
+  }
 
   const fields = [
     'temperature',
@@ -122,7 +140,24 @@ export async function GET(req: NextRequest) {
   const url = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=${apiKey}&fields=${fields}&timesteps=1h&units=metric`;
 
   const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) return NextResponse.json({ error: `Tomorrow.io error: ${res.status}` }, { status: res.status });
+  if (!res.ok) {
+    return NextResponse.json({
+      temperature: 0,
+      windSpeed: 0,
+      windGust: 0,
+      precipProbability: 0,
+      precipIntensity: 0,
+      dewPoint: 0,
+      humidity: 0,
+      condition: 'good',
+      flags: [],
+    } satisfies WeatherData, {
+      headers: {
+        'x-betmate-weather-source': 'local-placeholder',
+        'x-betmate-upstream-status': String(res.status),
+      },
+    });
+  }
 
   const json = await res.json();
   const hourly: { time: string; values: Record<string, number> }[] = json.timelines?.hourly ?? [];
@@ -137,7 +172,24 @@ export async function GET(req: NextRequest) {
     });
   }
 
-  if (!target) return NextResponse.json({ error: 'No weather data' }, { status: 404 });
+  if (!target) {
+    return NextResponse.json({
+      temperature: 0,
+      windSpeed: 0,
+      windGust: 0,
+      precipProbability: 0,
+      precipIntensity: 0,
+      dewPoint: 0,
+      humidity: 0,
+      condition: 'good',
+      flags: [],
+    } satisfies WeatherData, {
+      headers: {
+        'x-betmate-weather-source': 'local-placeholder',
+        'x-betmate-upstream-status': 'no-weather-data',
+      },
+    });
+  }
 
   const v = target.values;
   const windSpeedKmh = (v.windSpeed ?? 0) * 3.6;

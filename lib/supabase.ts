@@ -1,9 +1,44 @@
 import { createBrowserClient } from '@supabase/ssr';
 
+function createNoopClient() {
+  const authError = 'Supabase is not configured in this local environment.';
+  return {
+    auth: {
+      async getSession() {
+        return { data: { session: null }, error: null };
+      },
+      onAuthStateChange() {
+        return {
+          data: {
+            subscription: {
+              unsubscribe() {},
+            },
+          },
+        };
+      },
+      async signOut() {
+        return { error: new Error(authError) };
+      },
+      async signInWithOAuth() {
+        return { data: null, error: new Error(authError) };
+      },
+      async signInWithPassword() {
+        return { data: null, error: new Error(authError) };
+      },
+      async signUp() {
+        return { data: null, error: new Error(authError) };
+      },
+    },
+  };
+}
+
 export function createClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+  if (!url || !key) return createNoopClient() as ReturnType<typeof createBrowserClient>;
   return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    url,
+    key,
   );
 }
 

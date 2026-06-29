@@ -36,6 +36,8 @@ import { getAFLVenue } from '@/lib/aflVenues';
 import { getTeamMeta } from '@/lib/teams';
 import { getVenue, getVenueByName } from '@/lib/venues';
 import { getSpecialRoundVenue } from '@/lib/specialRounds';
+import { isLocalDemoMode } from '@/lib/authMode';
+import { isOwnerEmail } from '@/lib/owner';
 
 type Sport = 'NRL' | 'AFL';
 type MarketTab = 'H2H' | 'Line' | 'Totals';
@@ -1375,6 +1377,11 @@ function OddsPageContent() {
 
   useEffect(() => {
     const supabase = createClient();
+    if (isLocalDemoMode()) {
+      setIsLoggedIn(true);
+      setUserEmail('demo@local');
+      return;
+    }
     supabase.auth.getSession().then(({ data }) => {
       setIsLoggedIn(!!data.session);
       setUserEmail(data.session?.user?.email ?? null);
@@ -1640,7 +1647,7 @@ function OddsPageContent() {
         </div>
         <ChatPanel
           games={chatGames}
-          userPlan={userEmail === process.env.NEXT_PUBLIC_OWNER_EMAIL ? 'pro' : 'free'}
+          userPlan={isOwnerEmail(userEmail) ? 'pro' : 'free'}
           isLoggedIn={isLoggedIn}
           onClose={() => setBazOpen(false)}
           className="min-h-0 flex-1"
@@ -1667,7 +1674,7 @@ function OddsPageContent() {
         </div>
         <ChatPanel
           games={chatGames}
-          userPlan={userEmail === process.env.NEXT_PUBLIC_OWNER_EMAIL ? 'pro' : 'free'}
+          userPlan={isOwnerEmail(userEmail) ? 'pro' : 'free'}
           isLoggedIn={isLoggedIn}
           onClose={() => setBazOpen(false)}
           className="min-h-0 flex-1"

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase';
+import { isLocalDemoMode } from '@/lib/authMode';
 
 const NAV = [
   { label: 'Odds',     href: '/odds'     },
@@ -32,6 +33,9 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    if (isLocalDemoMode()) {
+      return;
+    }
     const supabase = createClient();
     supabase.auth.getSession().then(({ data }) => {
       setEmail(data.session?.user.email ?? null);
@@ -121,12 +125,9 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <Link
-                href="/auth/login"
-                className="text-[13px] font-medium text-[#5C5C5C] hover:text-white transition-colors tracking-wide"
-              >
-                Sign in
-              </Link>
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280]">
+                Demo mode
+              </span>
             )}
           </div>
 
@@ -174,13 +175,9 @@ export default function Header() {
                 Sign Out
               </button>
             ) : (
-              <Link
-                href="/auth/login"
-                className="text-[13px] font-medium text-[#5C5C5C] hover:text-white transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                Sign in
-              </Link>
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280]">
+                Demo mode
+              </span>
             )}
           </div>
         </div>

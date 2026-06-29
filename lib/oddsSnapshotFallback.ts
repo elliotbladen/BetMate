@@ -29,6 +29,17 @@ const SPORT_TITLE: Record<SnapshotSport, string> = {
   AFL: 'AFL',
 };
 
+function snapshotRoots(): string[] {
+  const roots = [
+    process.env.ODDS_SNAPSHOT_PATH?.trim(),
+    path.join(process.cwd(), 'data', 'odds_snapshots'),
+    path.join(process.cwd(), '..', 'betmate-web', 'data', 'odds_snapshots'),
+    path.join(process.cwd(), '..', 'BetMate', 'data', 'odds_snapshots'),
+  ];
+
+  return roots.filter((root): root is string => !!root && fs.existsSync(root));
+}
+
 function parseCsvLine(line: string): string[] {
   const values: string[] = [];
   let current = '';
@@ -78,15 +89,16 @@ function readSnapshotFile(file: string): SnapshotRow[] {
 }
 
 function snapshotFiles(): string[] {
-  const root = path.join(process.cwd(), 'data', 'odds_snapshots');
-  if (!fs.existsSync(root)) return [];
+  const files: string[] = [];
 
-  const files = [path.join(root, 'latest.csv')];
-  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    const yearDir = path.join(root, entry.name);
-    for (const file of fs.readdirSync(yearDir)) {
-      if (file.endsWith('.csv')) files.push(path.join(yearDir, file));
+  for (const root of snapshotRoots()) {
+    files.push(path.join(root, 'latest.csv'));
+    for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const yearDir = path.join(root, entry.name);
+      for (const file of fs.readdirSync(yearDir)) {
+        if (file.endsWith('.csv')) files.push(path.join(yearDir, file));
+      }
     }
   }
 

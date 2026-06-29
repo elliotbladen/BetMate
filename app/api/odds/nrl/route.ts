@@ -6,8 +6,20 @@ export const revalidate = 300; // 5-min server cache
 
 export async function GET() {
   const apiKey = process.env.ODDS_API_KEY;
+  const fallback = readLatestOddsSnapshot('NRL');
   if (!apiKey) {
-    return NextResponse.json({ error: 'ODDS_API_KEY not configured' }, { status: 500 });
+    if (fallback.length > 0) {
+      return NextResponse.json(fallback, {
+        headers: {
+          'x-betmate-odds-source': 'local-snapshot',
+          'x-betmate-upstream-status': 'missing-api-key',
+        },
+      });
+    }
+
+    return NextResponse.json({
+      error: 'ODDS_API_KEY not configured and no local NRL snapshot was found',
+    }, { status: 500 });
   }
 
   const url = new URL('https://api.the-odds-api.com/v4/sports/rugbyleague_nrl/odds/');
@@ -18,7 +30,6 @@ export async function GET() {
 
   const res = await fetch(url.toString(), { next: { revalidate: 300 } });
   if (!res.ok) {
-    const fallback = readLatestOddsSnapshot('NRL');
     if (fallback.length > 0) {
       return NextResponse.json(fallback, {
         headers: {

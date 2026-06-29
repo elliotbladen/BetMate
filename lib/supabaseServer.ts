@@ -1,9 +1,42 @@
 import { createClient } from '@supabase/supabase-js';
 
+function createNoopServerClient() {
+  return {
+    auth: {
+      async getSession() {
+        return { data: { session: null }, error: null };
+      },
+      async exchangeCodeForSession() {
+        return { data: null, error: new Error('Supabase is not configured in this local environment.') };
+      },
+    },
+    from() {
+      return {
+        select() {
+          return {
+            eq() {
+              return {
+                order() {
+                  return {
+                    limit: async () => ({ data: [], error: null }),
+                  };
+                },
+              };
+            },
+          };
+        },
+      };
+    },
+  };
+}
+
 export function createServerClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+  if (!url || !key) return createNoopServerClient() as ReturnType<typeof createClient>;
   return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    url,
+    key,
   );
 }
 

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase';
+import { isLocalDemoMode } from '@/lib/authMode';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
@@ -13,8 +14,13 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
 
   const supabase = createClient();
+  const demoMode = isLocalDemoMode();
 
   const handleGoogleSignup = async () => {
+    if (demoMode) {
+      setError('Local demo mode is active. Add Supabase env vars to enable sign-up.');
+      return;
+    }
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -26,6 +32,10 @@ export default function RegisterPage() {
 
   const handleEmailSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (demoMode) {
+      setError('Local demo mode is active. Add Supabase env vars to enable sign-up.');
+      return;
+    }
     if (password !== confirm) {
       setError('Passwords do not match.');
       return;
@@ -73,9 +83,16 @@ export default function RegisterPage() {
         </div>
 
         <div className="border border-[#E2E8F0] rounded-lg bg-white p-6">
+          {demoMode && (
+            <div className="mb-6 rounded border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-900">
+              Local demo mode is active. Use <Link href="/odds" className="underline">Odds</Link> and Baz without signing up, or add Supabase env vars to enable auth.
+            </div>
+          )}
+
           {/* Google OAuth */}
           <button
             onClick={handleGoogleSignup}
+            disabled={demoMode}
             className="w-full flex items-center justify-center gap-3 border border-[#E2E8F0] hover:border-[#00DEB8]/50 bg-[#F8FAFC] text-[#111827] font-medium py-2.5 rounded transition-colors duration-150 mb-6"
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -141,10 +158,10 @@ export default function RegisterPage() {
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || demoMode}
               className="w-full bg-[#00DEB8] hover:bg-[#00C9A6] disabled:opacity-50 text-black font-semibold py-2.5 rounded transition-colors duration-150"
             >
-              {loading ? 'Creating accountâ€¦' : 'Create free account'}
+              {demoMode ? 'Demo mode' : loading ? 'Creating accountâ€¦' : 'Create free account'}
             </button>
           </form>
 

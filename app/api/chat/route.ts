@@ -1,5 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { NextRequest } from 'next/server';
+import { isOwnerEmail } from '@/lib/owner';
 
 // ── Rate limiting ─────────────────────────────────────────────────────────────
 const rateLimits = new Map<string, { count: number; resetAt: number }>();
@@ -30,8 +31,7 @@ function emailFromToken(token: string): string | null {
 function isOwner(token: string | undefined): boolean {
   if (!token) return false;
   const email = emailFromToken(token);
-  const owners = (process.env.OWNER_EMAILS ?? '').split(',').map(e => e.trim()).filter(Boolean);
-  return !!email && owners.includes(email);
+  return isOwnerEmail(email);
 }
 
 // ── System prompt ─────────────────────────────────────────────────────────────
@@ -157,34 +157,127 @@ const BAZ_TOOLS: Anthropic.Tool[] = [
 ];
 
 // ── Brain API helpers ─────────────────────────────────────────────────────────
-function getBazApi(): string {
-  return process.env.BAZ_TUNNEL_URL ?? process.env.BAZ_LOCAL_API ?? 'http://127.0.0.1:8765';
-}
-
 async function bazFetch(path: string, timeoutMs = 3000): Promise<unknown> {
-  const bazApi = getBazApi();
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(`${bazApi}${path}`, { signal: controller.signal });
-    clearTimeout(timer);
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
-    clearTimeout(timer);
-    return null;
+  const local = (process.env.BAZ_LOCAL_API ?? 'http://127.0.0.1:8765').trim();
+  const tunnel = process.env.BAZ_TUNNEL_URL?.trim();
+  const bases = process.env.NODE_ENV === 'production'
+    ? [tunnel, local]
+    : [local, tunnel];
+
+  for (const bazApi of bases.filter(Boolean) as string[]) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(`${bazApi}${path}`, { signal: controller.signal });
+      if (!res.ok) continue;
+      return await res.json();
+    } catch {
+      // Try the next configured endpoint.
+    } finally {
+      clearTimeout(timer);
+    }
   }
+
+  return null;
 }
 
 async function fetchRoundMeta(
   sport: string,
 ): Promise<{ round: string; season: string } | null> {
-  const data = (await bazFetch(`/meta?sport=${sport}`)) as {
-    round?: string;
-    season?: string;
+  const data = (await bazFetch('/status')) as {
+    scope?: { sport?: string; round?: number; season?: number };
+    readiness?: string;
+    blockers?: string[];
   } | null;
-  if (!data || !data.round) return null;
-  return { round: data.round, season: data.season ?? '?' };
+  if (!data || !data.scope || (data.blockers ?? []).length > 0) return null;
+  return {
+    round: String(data.scope.round ?? '?'),
+    season: String(data.scope.season ?? '?'),
+  };
+}
+
+function inferSignalParams(messages: { role: string; content: string }[], sport: string): URLSearchParams {
+  const latestUser = [...messages].reverse().find((m) => m.role === 'user')?.content ?? '';
+  const lower = latestUser.toLowerCase();
+  const params = new URLSearchParams({ sport, season: '2026', round: '18' });
+
+  if (lower.includes('canberra') || lower.includes('raiders')) params.set('home', 'Canberra');
+  if (lower.includes('dragon') || lower.includes('st george') || lower.includes('st. george')) params.set('away', 'Dragons');
+  if (lower.includes('newcastle') || lower.includes('knights')) params.set('home', 'Newcastle');
+  if (lower.includes('wests') || lower.includes('tigers')) params.set('away', 'Wests');
+
+  return params;
+}
+
+function formatDbSignalsContext(data: Record<string, unknown> | null): string {
+  if (!data) return 'Canonical DB signals unavailable.';
+
+  const counts = data.counts as { signals?: number; by_label?: Record<string, number> } | undefined;
+  const watch = (data.watch as Array<Record<string, unknown>> | undefined) ?? [];
+  const recommendations = (data.recommendations as Array<Record<string, unknown>> | undefined) ?? [];
+  const actionable = recommendations.length > 0 ? recommendations : watch;
+
+  const lines: string[] = [];
+  lines.push(`Canonical DB signals: ${counts?.signals ?? 0} comparisons`);
+  if (counts?.by_label) {
+    lines.push(`Labels: ${Object.entries(counts.by_label).map(([k, v]) => `${k}=${v}`).join(', ')}`);
+  }
+
+  if (recommendations.length === 0) {
+    lines.push('No official recommend_small/recommend_medium/recommend_strong bets. Treat watch rows as leans only.');
+  }
+
+  if (actionable.length > 0) {
+    lines.push('Top DB-backed watch/recommendation rows:');
+    for (const row of actionable.slice(0, 8)) {
+      const market = row.market_type === 'total'
+        ? `${row.selection_name} ${row.line_value}`
+        : row.market_type === 'h2h'
+          ? `${row.selection_name} H2H`
+          : `${row.selection_name} ${row.line_value}`;
+      lines.push(
+        `  * ${row.home_team} vs ${row.away_team}: ${market} @ ${row.market_odds} ` +
+        `(${row.bookmaker_code}); model fair ${row.model_odds}; EV ${row.ev_percent}%; ` +
+        `${row.signal_label}, confidence ${row.confidence_level}`,
+      );
+    }
+  } else {
+    lines.push('No watch or recommendation rows for this query.');
+  }
+
+  return lines.join('\n');
+}
+
+async function fetchCanonicalSignalsContext(
+  messages: { role: string; content: string }[],
+  sport: string,
+): Promise<string> {
+  const params = inferSignalParams(messages, sport);
+  const data = (await bazFetch(`/db/signals?${params.toString()}`)) as Record<string, unknown> | null;
+  return formatDbSignalsContext(data);
+}
+
+function buildFallbackReply(canonicalSignalsContext: string, oddsContext?: string): string {
+  const lines: string[] = [];
+  lines.push("I'm in local demo mode, so Claude isn't in the loop. I'm answering off the Baz signal context instead.");
+
+  const row = canonicalSignalsContext
+    .split('\n')
+    .find((line) => line.trimStart().startsWith('*') || line.trimStart().startsWith('•'));
+
+  if (row) {
+    lines.push(`Top read: ${row.trim().replace(/^[-*•]\s*/, '')}`);
+  } else if (canonicalSignalsContext.includes('No official')) {
+    lines.push('No clean value signal surfaced for this game.');
+  } else {
+    lines.push('Baz signal context was available, but I could not extract a clean read.');
+  }
+
+  if (oddsContext) {
+    lines.push('The live odds board is attached in the app, so check the current price before acting.');
+  }
+
+  return lines.join('\n');
 }
 
 // ── Tool result formatters ────────────────────────────────────────────────────
@@ -380,9 +473,9 @@ async function executeTool(
   switch (name) {
     case 'get_round_signals': {
       const s = (input.sport as string | undefined) ?? sport;
-      const data = (await bazFetch(`/signals?sport=${s}`)) as Record<string, unknown> | null;
+      const data = (await bazFetch(`/db/signals?sport=${s}&season=2026&round=18`)) as Record<string, unknown> | null;
       if (!data) return 'Brain offline — signal data unavailable.';
-      return formatSignalsResponse(data);
+      return formatDbSignalsContext(data);
     }
     case 'get_game_context': {
       const h = encodeURIComponent(input.home as string);
@@ -393,7 +486,15 @@ async function executeTool(
         unknown
       > | null;
       if (!data) return `Game not found: ${input.home} vs ${input.away}`;
-      return formatGameContext(data);
+      const signalParams = new URLSearchParams({
+        sport: gameSport,
+        season: '2026',
+        round: '18',
+        home: String(input.home),
+        away: String(input.away),
+      });
+      const signalData = (await bazFetch(`/db/signals?${signalParams.toString()}`)) as Record<string, unknown> | null;
+      return `${formatGameContext(data)}\n\n${formatDbSignalsContext(signalData)}`;
     }
     case 'get_team_context': {
       const t = encodeURIComponent(input.team as string);
@@ -415,12 +516,6 @@ async function executeTool(
 // ── Request handler ───────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'ANTHROPIC_API_KEY not configured' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
 
   const token = req.cookies.get('sb-access-token')?.value;
   const userId = token ?? req.headers.get('x-forwarded-for') ?? 'anon';
@@ -442,24 +537,37 @@ export async function POST(req: NextRequest) {
 
   // Fetch minimal round metadata (~5ms, no game data) to seed system prompt
   const meta = await fetchRoundMeta(sport);
+  const canonicalSignalsContext = await fetchCanonicalSignalsContext(messages, sport);
   const brainOnline = meta !== null;
   const roundInfo = meta
-    ? `Current round context: ${sport} R${meta.round}, Season ${meta.season}. Use get_round_signals to fetch this round's signals.`
+    ? `Current round context: ${sport} R${meta.round}, Season ${meta.season}. Local Baz brain is ONLINE. Do not say "brain offline". Use the canonical DB signals below as the model-backed read.`
     : '[Brain offline — answer from general NRL/AFL knowledge only. No model data available this session.]';
 
-  let systemPrompt = `${BASE_SYSTEM_PROMPT}\n\n${roundInfo}`;
+  let systemPrompt = `${BASE_SYSTEM_PROMPT}\n\n${roundInfo}\n\n${canonicalSignalsContext}`;
   if (oddsContext) {
     systemPrompt += `\n\nLive market odds (current prices from bookmakers):\n${oddsContext}`;
   }
 
-  const client = new Anthropic({ apiKey });
+  const client = apiKey ? new Anthropic({ apiKey }) : null;
   const encoder = new TextEncoder();
 
   const stream = new ReadableStream({
     async start(controller) {
       controller.enqueue(encoder.encode(`\x00brain:${brainOnline ? 'online' : 'offline'}\x00`));
       try {
+        if (!apiKey) {
+          controller.enqueue(encoder.encode(buildFallbackReply(canonicalSignalsContext, oddsContext)));
+          controller.close();
+          return;
+        }
+
         // Agentic tool-use loop — Claude fetches what it needs, then responds
+        if (!client) {
+          controller.enqueue(encoder.encode(buildFallbackReply(canonicalSignalsContext, oddsContext)));
+          controller.close();
+          return;
+        }
+
         let convoMessages = messages as Anthropic.MessageParam[];
         let response = await client.messages.create({
           model: 'claude-sonnet-4-6',
