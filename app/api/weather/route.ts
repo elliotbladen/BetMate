@@ -102,6 +102,118 @@ async function logWeatherPing(lat: string, lon: string, commenceTime: string | n
   }
 }
 
+function localHourFromCommenceTime(commenceTime: string | null): number | null {
+  if (!commenceTime) return null;
+  const hour = Number(
+    new Intl.DateTimeFormat('en-AU', {
+      hour: 'numeric',
+      hourCycle: 'h23',
+      timeZone: 'Australia/Sydney',
+    }).format(new Date(commenceTime)),
+  );
+  return Number.isNaN(hour) ? null : hour;
+}
+
+function buildWeatherData(values: {
+  temperature?: number;
+  windSpeedKmh?: number;
+  windGustKmh?: number;
+  precipProbability?: number;
+  precipIntensity?: number;
+  dewPoint?: number;
+  humidity?: number;
+}, commenceTime: string | null): WeatherData {
+  const temperature = values.temperature ?? 0;
+  const windSpeedKmh = values.windSpeedKmh ?? 0;
+  const windGustKmh = values.windGustKmh ?? 0;
+  const precipProbability = values.precipProbability ?? 0;
+  const precipIntensity = values.precipIntensity ?? 0;
+  const dewPoint = values.dewPoint ?? 0;
+  const humidity = values.humidity ?? 0;
+  const dewSpread = temperature - dewPoint;
+
+  const { condition, flags } = classifyCondition(
+    windSpeedKmh,
+    windGustKmh,
+    precipIntensity,
+    precipProbability,
+    dewSpread,
+    localHourFromCommenceTime(commenceTime),
+    humidity,
+    temperature,
+  );
+
+  return {
+    temperature: Math.round(temperature),
+    windSpeed: Math.round(windSpeedKmh),
+    windGust: Math.round(windGustKmh),
+    precipProbability: Math.round(precipProbability),
+    precipIntensity: Math.round(precipIntensity * 10) / 10,
+    dewPoint: Math.round(dewPoint),
+    humidity: Math.round(humidity),
+    condition,
+    flags,
+  };
+}
+
+function unavailableWeather(): WeatherData {
+  return {
+    temperature: 0,
+    windSpeed: 0,
+    windGust: 0,
+    precipProbability: 0,
+    precipIntensity: 0,
+    dewPoint: 0,
+    humidity: 0,
+    condition: 'average',
+    flags: ['WEATHER UNAVAILABLE'],
+  };
+}
+
+async function fetchOpenMeteoWeather(
+  lat: string,
+  lon: string,
+  commenceTime: string | null,
+): Promise<WeatherData | null> {
+  const fields = [
+    'temperature_2m',
+    'relative_humidity_2m',
+    'dew_point_2m',
+    'precipitation',
+    'precipitation_probability',
+    'wind_speed_10m',
+    'wind_gusts_10m',
+  ].join(',');
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=${fields}&wind_speed_unit=kmh&timezone=UTC`;
+
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) return null;
+
+  const json = await res.json();
+  const hourly = json.hourly ?? {};
+  const times: string[] = hourly.time ?? [];
+  if (!times.length) return null;
+
+  let idx = 0;
+  if (commenceTime) {
+    const gameMs = new Date(commenceTime).getTime();
+    idx = times.reduce((best, time, i) => {
+      return Math.abs(new Date(time + 'Z').getTime() - gameMs) < Math.abs(new Date(times[best] + 'Z').getTime() - gameMs)
+        ? i : best;
+    }, 0);
+  }
+
+  return buildWeatherData({
+    temperature: hourly.temperature_2m?.[idx],
+    windSpeedKmh: hourly.wind_speed_10m?.[idx],
+    windGustKmh: hourly.wind_gusts_10m?.[idx],
+    precipProbability: hourly.precipitation_probability?.[idx],
+    precipIntensity: hourly.precipitation?.[idx],
+    dewPoint: hourly.dew_point_2m?.[idx],
+    humidity: hourly.relative_humidity_2m?.[idx],
+  }, commenceTime);
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const lat = searchParams.get('lat');
@@ -112,17 +224,17 @@ export async function GET(req: NextRequest) {
   if (!lat || !lon) return NextResponse.json({ error: 'lat/lon required' }, { status: 400 });
 
   if (!apiKey) {
-    return NextResponse.json({
-      temperature: 0,
-      windSpeed: 0,
-      windGust: 0,
-      precipProbability: 0,
-      precipIntensity: 0,
-      dewPoint: 0,
-      humidity: 0,
-      condition: 'average',
-      flags: ['WEATHER UNAVAILABLE'],
-    } satisfies WeatherData, {
+    const fallback = await fetchOpenMeteoWeather(lat, lon, commenceTime).catch(() => null);
+    if (fallback) {
+      logWeatherPing(lat, lon, commenceTime, fallback);
+      return NextResponse.json(fallback, {
+        headers: {
+          'x-betmate-weather-source': 'open-meteo-fallback',
+          'x-betmate-upstream-status': 'missing-tomorrow-api-key',
+        },
+      });
+    }
+    return NextResponse.json(unavailableWeather(), {
       headers: {
         'x-betmate-weather-source': 'local-placeholder',
         'x-betmate-upstream-status': 'missing-api-key',
@@ -142,22 +254,22 @@ export async function GET(req: NextRequest) {
 
   const url = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=${apiKey}&fields=${fields}&timesteps=1h&units=metric`;
 
-  const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) {
-    return NextResponse.json({
-      temperature: 0,
-      windSpeed: 0,
-      windGust: 0,
-      precipProbability: 0,
-      precipIntensity: 0,
-      dewPoint: 0,
-      humidity: 0,
-      condition: 'average',
-      flags: ['WEATHER UNAVAILABLE'],
-    } satisfies WeatherData, {
+  const res = await fetch(url, { cache: 'no-store' }).catch(() => null);
+  if (!res || !res.ok) {
+    const fallback = await fetchOpenMeteoWeather(lat, lon, commenceTime).catch(() => null);
+    if (fallback) {
+      logWeatherPing(lat, lon, commenceTime, fallback);
+      return NextResponse.json(fallback, {
+        headers: {
+          'x-betmate-weather-source': 'open-meteo-fallback',
+          'x-betmate-upstream-status': res ? String(res.status) : 'tomorrow-fetch-failed',
+        },
+      });
+    }
+    return NextResponse.json(unavailableWeather(), {
       headers: {
         'x-betmate-weather-source': 'local-placeholder',
-        'x-betmate-upstream-status': String(res.status),
+        'x-betmate-upstream-status': res ? String(res.status) : 'tomorrow-fetch-failed',
       },
     });
   }
@@ -176,17 +288,17 @@ export async function GET(req: NextRequest) {
   }
 
   if (!target) {
-    return NextResponse.json({
-      temperature: 0,
-      windSpeed: 0,
-      windGust: 0,
-      precipProbability: 0,
-      precipIntensity: 0,
-      dewPoint: 0,
-      humidity: 0,
-      condition: 'average',
-      flags: ['WEATHER UNAVAILABLE'],
-    } satisfies WeatherData, {
+    const fallback = await fetchOpenMeteoWeather(lat, lon, commenceTime).catch(() => null);
+    if (fallback) {
+      logWeatherPing(lat, lon, commenceTime, fallback);
+      return NextResponse.json(fallback, {
+        headers: {
+          'x-betmate-weather-source': 'open-meteo-fallback',
+          'x-betmate-upstream-status': 'no-tomorrow-weather-data',
+        },
+      });
+    }
+    return NextResponse.json(unavailableWeather(), {
       headers: {
         'x-betmate-weather-source': 'local-placeholder',
         'x-betmate-upstream-status': 'no-weather-data',
@@ -195,44 +307,23 @@ export async function GET(req: NextRequest) {
   }
 
   const v = target.values;
-  const windSpeedKmh = (v.windSpeed ?? 0) * 3.6;
-  const windGustKmh  = (v.windGust  ?? 0) * 3.6;
-  const dewSpread    = (v.temperature ?? 20) - (v.dewPoint ?? 10);
-  const localHour = commenceTime
-    ? Number(
-        new Intl.DateTimeFormat('en-AU', {
-          hour: 'numeric',
-          hourCycle: 'h23',
-          timeZone: 'Australia/Sydney',
-        }).format(new Date(commenceTime)),
-      )
-    : null;
-
-  const { condition, flags } = classifyCondition(
-    windSpeedKmh,
-    windGustKmh,
-    v.precipitationIntensity ?? 0,
-    v.precipitationProbability ?? 0,
-    dewSpread,
-    Number.isNaN(localHour) ? null : localHour,
-    v.humidity ?? 0,
-    v.temperature ?? 0,
-  );
-
-  const data: WeatherData = {
-    temperature:      Math.round(v.temperature ?? 0),
-    windSpeed:        Math.round(windSpeedKmh),
-    windGust:         Math.round(windGustKmh),
-    precipProbability: Math.round(v.precipitationProbability ?? 0),
-    precipIntensity:   Math.round((v.precipitationIntensity ?? 0) * 10) / 10,
-    dewPoint:          Math.round(v.dewPoint ?? 0),
-    humidity:          Math.round(v.humidity ?? 0),
-    condition,
-    flags,
-  };
+  const data = buildWeatherData({
+    temperature: v.temperature,
+    windSpeedKmh: (v.windSpeed ?? 0) * 3.6,
+    windGustKmh: (v.windGust ?? 0) * 3.6,
+    precipProbability: v.precipitationProbability,
+    precipIntensity: v.precipitationIntensity,
+    dewPoint: v.dewPoint,
+    humidity: v.humidity,
+  }, commenceTime);
 
   // Fire-and-forget — don't await so it never delays the response
   logWeatherPing(lat, lon, commenceTime, data);
 
-  return NextResponse.json(data);
+  return NextResponse.json(data, {
+    headers: {
+      'x-betmate-weather-source': 'tomorrow-io',
+      'x-betmate-upstream-status': 'ok',
+    },
+  });
 }
