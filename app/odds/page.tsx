@@ -54,7 +54,14 @@ interface TeamNewsEntry {
 type TeamNewsMap = Record<string, TeamNewsEntry>;
 type DetailTab = 'Intelligence' | 'Team News' | 'Weather / Ref' | 'History';
 
-interface PredictionEntry { predHomeScore: number; predAwayScore: number; }
+interface PredictionEntry {
+  predHomeScore: number;
+  predAwayScore: number;
+  h2hHome105?: number | null;
+  h2hAway105?: number | null;
+  hcapLine105?: number | null;
+  hcapPrice105?: number | null;
+}
 type PredictionsMap = Record<string, PredictionEntry>;
 
 interface WeatherData {
@@ -475,8 +482,7 @@ function OddsBoardCard({
   onAskBaz,
   teamNewsHomeEntry,
   teamNewsAwayEntry,
-  predHomeScore,
-  predAwayScore,
+  prediction,
 }: {
   game: Game;
   market: MarketTab;
@@ -486,8 +492,7 @@ function OddsBoardCard({
   onAskBaz: () => void;
   teamNewsHomeEntry?: TeamNewsEntry | null;
   teamNewsAwayEntry?: TeamNewsEntry | null;
-  predHomeScore?: number | null;
-  predAwayScore?: number | null;
+  prediction?: PredictionEntry | null;
 }) {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
@@ -569,11 +574,25 @@ function OddsBoardCard({
           <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
         </div>
         {venue && <p className="mb-2 text-[10px] text-[#9CA3AF]">{venue.name}</p>}
-        {predHomeScore != null && predAwayScore != null && (
+        {prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
           <p className="mb-1 text-[10px] font-mono text-[#6B7280]">
-            Model: <span className="font-bold text-[#111827]">{game.homeShort} {predHomeScore.toFixed(1)}</span>
+            Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
             <span className="mx-1 text-[#9CA3AF]">-</span>
-            <span className="font-bold text-[#111827]">{game.awayShort} {predAwayScore.toFixed(1)}</span>
+            <span className="font-bold text-[#111827]">{game.awayShort} {prediction.predAwayScore.toFixed(1)}</span>
+            {prediction.h2hHome105 != null && prediction.h2hAway105 != null && (
+              <span className="block mt-1">
+                H2H 105%: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
+                <span className="mx-1 text-[#9CA3AF]">/</span>
+                <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
+                {prediction.hcapLine105 != null && prediction.hcapPrice105 != null && (
+                  <span className="ml-2">
+                    HCAP: <span className="font-bold text-[#111827]">{prediction.hcapLine105 > 0 ? '+' : ''}{prediction.hcapLine105.toFixed(1)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">@</span>
+                    <span className="font-bold text-[#111827]">{prediction.hcapPrice105.toFixed(3)}</span>
+                  </span>
+                )}
+              </span>
+            )}
           </p>
         )}
         <div className="flex w-full gap-2 mt-2">
@@ -609,11 +628,25 @@ function OddsBoardCard({
               <TeamBadge name={game.awayTeam} />
             </h2>
             {venue && <p className="mt-1 text-xs text-[#9CA3AF]">{venue.name}</p>}
-            {predHomeScore != null && predAwayScore != null && (
+            {prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
               <p className="mt-1 text-[11px] font-mono text-[#6B7280]">
-                Model: <span className="font-bold text-[#111827]">{game.homeShort} {predHomeScore.toFixed(1)}</span>
+                Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
                 <span className="mx-1 text-[#9CA3AF]">-</span>
-                <span className="font-bold text-[#111827]">{game.awayShort} {predAwayScore.toFixed(1)}</span>
+                <span className="font-bold text-[#111827]">{game.awayShort} {prediction.predAwayScore.toFixed(1)}</span>
+                {prediction.h2hHome105 != null && prediction.h2hAway105 != null && (
+                  <span className="block mt-1">
+                    H2H 105%: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">/</span>
+                    <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
+                    {prediction.hcapLine105 != null && prediction.hcapPrice105 != null && (
+                      <span className="ml-2">
+                        HCAP: <span className="font-bold text-[#111827]">{prediction.hcapLine105 > 0 ? '+' : ''}{prediction.hcapLine105.toFixed(1)}</span>
+                        <span className="mx-1 text-[#9CA3AF]">@</span>
+                        <span className="font-bold text-[#111827]">{prediction.hcapPrice105.toFixed(3)}</span>
+                      </span>
+                    )}
+                  </span>
+                )}
               </p>
             )}
           </div>
@@ -1325,8 +1358,7 @@ function OddsBoard({
           onAskBaz={() => onAskBaz(game.id)}
           teamNewsHomeEntry={teamNewsData?.[game.homeTeam] ?? null}
           teamNewsAwayEntry={teamNewsData?.[game.awayTeam] ?? null}
-          predHomeScore={predictionsMap?.[game.homeTeam]?.predHomeScore ?? null}
-          predAwayScore={predictionsMap?.[game.homeTeam]?.predAwayScore ?? null}
+          prediction={predictionsMap?.[game.homeTeam] ?? null}
         />
       ))}
     </div>
@@ -1505,7 +1537,14 @@ function OddsPageContent() {
         if (data?.predictions) {
           const map: PredictionsMap = {};
           for (const p of data.predictions) {
-            map[p.homeTeam] = { predHomeScore: p.predHomeScore, predAwayScore: p.predAwayScore };
+            map[p.homeTeam] = {
+              predHomeScore: p.predHomeScore,
+              predAwayScore: p.predAwayScore,
+              h2hHome105: p.h2hHome105 ?? null,
+              h2hAway105: p.h2hAway105 ?? null,
+              hcapLine105: p.hcapLine105 ?? null,
+              hcapPrice105: p.hcapPrice105 ?? null,
+            };
           }
           setNrlPredictions(map);
         }
@@ -1520,7 +1559,14 @@ function OddsPageContent() {
         if (data?.predictions) {
           const map: PredictionsMap = {};
           for (const p of data.predictions) {
-            map[p.homeTeam] = { predHomeScore: p.predHomeScore, predAwayScore: p.predAwayScore };
+            map[p.homeTeam] = {
+              predHomeScore: p.predHomeScore,
+              predAwayScore: p.predAwayScore,
+              h2hHome105: p.h2hHome105 ?? null,
+              h2hAway105: p.h2hAway105 ?? null,
+              hcapLine105: p.hcapLine105 ?? null,
+              hcapPrice105: p.hcapPrice105 ?? null,
+            };
           }
           setAflPredictions(map);
         }

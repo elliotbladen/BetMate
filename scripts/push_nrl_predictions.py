@@ -88,11 +88,27 @@ def parse_predictions(csv_path: Path) -> list:
             except (ValueError, KeyError):
                 print(f'  SKIP: {home} vs {away} -- missing score data')
                 continue
+
+            def _num(field: str):
+                try:
+                    value = float(row.get(field, ''))
+                except (TypeError, ValueError):
+                    return None
+                return round(value, 3)
+
+            fair_home_odds = _num('fair_home_odds')
+            fair_away_odds = _num('fair_away_odds')
+            fair_hcap_line = _num('fair_hcap_line')
+
             predictions.append({
                 'homeTeam':      home,
                 'awayTeam':      away,
                 'predHomeScore': pred_home,
                 'predAwayScore': pred_away,
+                'h2hHome105':    round(fair_home_odds / 1.05, 2) if fair_home_odds else None,
+                'h2hAway105':    round(fair_away_odds / 1.05, 2) if fair_away_odds else None,
+                'hcapLine105':   fair_hcap_line,
+                'hcapPrice105':   1.905,
             })
     return predictions
 
