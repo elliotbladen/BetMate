@@ -83,6 +83,7 @@ CHAINING RULE: If a game appears in MATRIX SIGNALS after calling get_round_signa
 
 HOW TO ANSWER AFTER FETCHING DATA:
 - Lead with the signal. If a game is listed under MATRIX SIGNALS, say that first: matrix count, model line vs market line, the gap.
+- When get_game_context returns T9 confluence details, use them in game answers. Mention the strongest H2H, handicap and totals buckets, then call out any counter-signal instead of hiding it.
 - NRL totals model runs 5-10pts HIGH vs actual — gaps leaning unders are more meaningful than overs.
 - AFL rules model runs ~6pts LOW vs actual market — gaps leaning overs are more meaningful in AFL.
 - AFL ML model is more conservative than rules on home team margins. When both models agree direction, stronger signal.
@@ -474,12 +475,56 @@ function formatGameContext(data: Record<string, unknown>): string {
     if (totalsClean.length === 1) {
       lines.push(`Totals T9: ${totalsClean[0][1].count}-way ${totalsClean[0][0].replace(/_/g, ' ')}`);
     }
+
+    lines.push(...formatConfluenceDetails(conf, home, away));
   }
 
   const exp = data.explanation as string | undefined;
   if (exp) lines.push(`Notes: ${exp}`);
 
   return lines.join('\n');
+}
+
+function formatConfluenceKey(key: string, home: string, away: string): string {
+  const [market, ...rest] = key.split('_');
+  const direction = rest.join('_');
+  const side = direction.includes('HOME') ? home : direction.includes('AWAY') ? away : '';
+
+  if (market === 'h2h') {
+    return `H2H ${side || direction.toLowerCase().replace(/_/g, ' ')}`;
+  }
+  if (market === 'handicap') {
+    return `Handicap ${side ? `${side} cover` : direction.toLowerCase().replace(/_/g, ' ')}`;
+  }
+  if (market === 'totals') {
+    return `Totals ${direction.toLowerCase()}`;
+  }
+  return key.replace(/_/g, ' ');
+}
+
+function formatConfluenceDetails(
+  conf: Record<string, { count: number; edges?: Array<{ edge_pct?: number; row?: string; team?: string }> }>,
+  home: string,
+  away: string,
+): string[] {
+  const strong = Object.entries(conf)
+    .filter(([, value]) => value.count >= 3)
+    .sort((a, b) => b[1].count - a[1].count);
+
+  if (strong.length === 0) return [];
+
+  const lines = ['T9 confluence details:'];
+  for (const [key, value] of strong) {
+    lines.push(`  * ${formatConfluenceKey(key, home, away)}: ${value.count}-way`);
+    for (const edge of (value.edges ?? []).slice(0, 6)) {
+      const pct = typeof edge.edge_pct === 'number' ? `${edge.edge_pct}%` : 'edge';
+      const team = edge.team ? `${edge.team} — ` : '';
+      const row = edge.row ?? 'matrix row';
+      lines.push(`    - ${team}${row}: ${pct}`);
+    }
+  }
+
+  return lines;
 }
 
 function formatTeamContext(data: Record<string, unknown>): string {
