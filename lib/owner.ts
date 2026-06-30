@@ -1,4 +1,8 @@
-const DEFAULT_OWNER_EMAILS = ['elliotbladen@gmail.com'];
+const DEFAULT_OWNER_EMAILS = [
+  'elliotbladen@gmail.com',
+  'e_bladen@hotmail.com',
+  'e_bladen@hotmail.con',
+];
 
 function normalize(value: string): string {
   return value.trim().toLowerCase();

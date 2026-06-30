@@ -17,6 +17,7 @@ export default function Header() {
   const searchParams = useSearchParams();
   const isOdds       = pathname === '/odds' || pathname.startsWith('/odds/');
   const activeSport  = searchParams.get('sport')?.toUpperCase() === 'AFL' ? 'AFL' : 'NRL';
+  const demoMode     = isLocalDemoMode();
   const [email, setEmail] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    if (isLocalDemoMode()) {
+    if (demoMode) {
       return;
     }
     const supabase = createClient();
@@ -44,7 +45,7 @@ export default function Header() {
       setEmail(session?.user.email ?? null);
     });
     return () => subscription.unsubscribe();
-  }, []);
+  }, [demoMode]);
 
   return (
     <>
@@ -125,9 +126,15 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280]">
-                Demo mode
-              </span>
+              demoMode ? (
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280]">
+                  Demo mode
+                </span>
+              ) : (
+                <Link href="/auth/login" className="text-[11px] font-mono uppercase tracking-widest text-[#00DEB8] hover:underline">
+                  Sign in
+                </Link>
+              )
             )}
           </div>
 
@@ -175,9 +182,15 @@ export default function Header() {
                 Sign Out
               </button>
             ) : (
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280]">
-                Demo mode
-              </span>
+              demoMode ? (
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280]">
+                  Demo mode
+                </span>
+              ) : (
+                <Link href="/auth/login" className="text-[12px] font-mono uppercase tracking-widest text-[#00DEB8]">
+                  Sign in
+                </Link>
+              )
             )}
           </div>
         </div>

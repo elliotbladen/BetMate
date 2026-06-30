@@ -1,4 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk';
+import { createServerClient } from '@supabase/ssr';
 import { NextRequest } from 'next/server';
 import { isOwnerEmail } from '@/lib/owner';
 
@@ -28,10 +29,30 @@ function emailFromToken(token: string): string | null {
   }
 }
 
-function isOwner(token: string | undefined): boolean {
-  if (!token) return false;
-  const email = emailFromToken(token);
-  return isOwnerEmail(email);
+async function getRequestUserEmail(req: NextRequest): Promise<string | null> {
+  const legacyToken = req.cookies.get('sb-access-token')?.value;
+  const legacyEmail = legacyToken ? emailFromToken(legacyToken) : null;
+  if (legacyEmail) return legacyEmail;
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+  if (!supabaseUrl || !supabaseAnonKey) return null;
+
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return req.cookies.getAll();
+      },
+      setAll() {
+        // API chat only needs to identify the current user for owner/rate-limit checks.
+      },
+    },
+  });
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  return user?.email ?? null;
 }
 
 // ── System prompt ─────────────────────────────────────────────────────────────
@@ -517,9 +538,10 @@ async function executeTool(
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
 
-  const token = req.cookies.get('sb-access-token')?.value;
-  const userId = token ?? req.headers.get('x-forwarded-for') ?? 'anon';
-  if (!isOwner(token) && !checkRateLimit(userId)) {
+  const userEmail = await getRequestUserEmail(req);
+  const ownerUser = isOwnerEmail(userEmail);
+  const userId = userEmail ?? req.headers.get('x-forwarded-for') ?? 'anon';
+  if (!ownerUser && !checkRateLimit(userId)) {
     return new Response(JSON.stringify({ error: 'Rate limit reached — try again in an hour' }), {
       status: 429,
       headers: { 'Content-Type': 'application/json' },
