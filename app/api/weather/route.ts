@@ -18,6 +18,7 @@ export interface WeatherData {
 
 function classifyCondition(
   windSpeed: number,
+  windGust: number,
   precipIntensity: number,
   precipProbability: number,
   dewSpread: number,  // temp - dewPoint
@@ -27,12 +28,14 @@ function classifyCondition(
 ): { condition: WeatherData['condition']; flags: string[] } {
   const flags: string[] = [];
   const isDewWindow = localHour == null || localHour >= 18 || localHour <= 7;
+  const effectiveWind = Math.max(windSpeed, windGust * 0.65);
 
   if (precipIntensity > 2 || precipProbability > 60) flags.push('RAIN');
   else if (precipProbability > 20 || precipIntensity > 0.2) flags.push('SHOWERS');
 
-  if (windSpeed > 60) flags.push('STRONG WIND');
-  else if (windSpeed > 35) flags.push('WIND');
+  if (effectiveWind > 60 || windGust >= 70) flags.push('STRONG WIND');
+  else if (effectiveWind > 35 || windGust >= 45) flags.push('WIND');
+  else if (windGust >= 35) flags.push('GUSTS');
 
   // Dew is irrelevant when it's already raining
   const hasRain = flags.includes('RAIN') || flags.includes('SHOWERS');
@@ -47,9 +50,9 @@ function classifyCondition(
   else if (precipProbability > 60) score += 2;
   else if (precipProbability > 30) score += 1;
 
-  if (windSpeed > 60)      score += 3;
-  else if (windSpeed > 40) score += 2;
-  else if (windSpeed > 25) score += 1;
+  if (effectiveWind > 60 || windGust >= 70)      score += 3;
+  else if (effectiveWind > 40 || windGust >= 55) score += 2;
+  else if (effectiveWind > 25 || windGust >= 35) score += 1;
 
   if (hasDewConditions && dewSpread < 3)  score += 2;
   else if (hasDewConditions && dewSpread < 5) score += 1;
@@ -117,8 +120,8 @@ export async function GET(req: NextRequest) {
       precipIntensity: 0,
       dewPoint: 0,
       humidity: 0,
-      condition: 'good',
-      flags: [],
+      condition: 'average',
+      flags: ['WEATHER UNAVAILABLE'],
     } satisfies WeatherData, {
       headers: {
         'x-betmate-weather-source': 'local-placeholder',
@@ -149,8 +152,8 @@ export async function GET(req: NextRequest) {
       precipIntensity: 0,
       dewPoint: 0,
       humidity: 0,
-      condition: 'good',
-      flags: [],
+      condition: 'average',
+      flags: ['WEATHER UNAVAILABLE'],
     } satisfies WeatherData, {
       headers: {
         'x-betmate-weather-source': 'local-placeholder',
@@ -181,8 +184,8 @@ export async function GET(req: NextRequest) {
       precipIntensity: 0,
       dewPoint: 0,
       humidity: 0,
-      condition: 'good',
-      flags: [],
+      condition: 'average',
+      flags: ['WEATHER UNAVAILABLE'],
     } satisfies WeatherData, {
       headers: {
         'x-betmate-weather-source': 'local-placeholder',
@@ -207,6 +210,7 @@ export async function GET(req: NextRequest) {
 
   const { condition, flags } = classifyCondition(
     windSpeedKmh,
+    windGustKmh,
     v.precipitationIntensity ?? 0,
     v.precipitationProbability ?? 0,
     dewSpread,

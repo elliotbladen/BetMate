@@ -831,7 +831,7 @@ function OddsBoardCard({
               weatherLoading ? '...' :
               !weather ? 'N/A' :
               weather.flags.length > 0 ? `${weather.flags[0]} · ${weather.temperature}°` :
-              `${weather.temperature}° · Clear`
+              `${weather.temperature}° · No flags`
             }
             tone={
               !weather ? 'neutral' :

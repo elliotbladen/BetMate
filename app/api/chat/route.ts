@@ -580,9 +580,14 @@ function formatGameContext(data: Record<string, unknown>): string {
   if (inj?.away) lines.push(`${away} outs: ${inj.away}`);
 
   const wx = data.weather as
-    | { condition?: string; temp_c?: number; wind_kmh?: number }
+    | { condition?: string; temp_c?: number; wind_kmh?: number; wind_gust_kmh?: number; wind_for_t7_kmh?: number; precip_mm?: number }
     | undefined;
-  if (wx?.condition) lines.push(`Weather: ${wx.condition}, ${wx.temp_c}C, wind ${wx.wind_kmh}km/h`);
+  if (wx?.condition) {
+    const gust = wx.wind_gust_kmh ? `, gust ${wx.wind_gust_kmh}km/h` : "";
+    const effective = wx.wind_for_t7_kmh ? `, T7 wind ${wx.wind_for_t7_kmh}km/h` : "";
+    const rain = wx.precip_mm ? `, rain ${wx.precip_mm}mm/hr` : "";
+    lines.push(`Weather: ${wx.condition}, ${wx.temp_c}C, wind ${wx.wind_kmh}km/h${gust}${effective}${rain}`);
+  }
 
   // Matrix/totals confluence for this game
   const conf = data.confluence as Record<string, { count: number }> | undefined;
