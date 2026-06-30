@@ -17,15 +17,20 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from importlib import util as importlib_util
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
 BETMATE_ROOT = Path(os.environ.get("BETMATE_ROOT", Path(__file__).resolve().parent.parent))
 BAZ_LOCAL_API = os.environ.get("BAZ_LOCAL_API", "http://127.0.0.1:8765").rstrip("/")
+try:
+    SYDNEY_TZ = ZoneInfo("Australia/Sydney")
+except ZoneInfoNotFoundError:
+    SYDNEY_TZ = timezone(timedelta(hours=10))
 
 GAME_FIELDS = {
     "sport",
@@ -127,8 +132,6 @@ def build_afl_under_watch() -> dict[tuple[str, str], list[dict[str, Any]]]:
             return 13
         return 14
 
-    from datetime import date
-
     by_game: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for game in games:
         game_date = date.fromisoformat(game["date"])
@@ -177,6 +180,50 @@ def build_afl_under_watch() -> dict[tuple[str, str], list[dict[str, Any]]]:
     return by_game
 
 
+def today_aest() -> date:
+    return datetime.now(SYDNEY_TZ).date()
+
+
+def parse_game_date(game: dict[str, Any]) -> date | None:
+    raw = str(game.get("date") or game.get("game_date") or "").strip()
+    if not raw:
+        return None
+    try:
+        return date.fromisoformat(raw[:10])
+    except ValueError:
+        return None
+
+
+def is_active_game(game: dict[str, Any], cutoff: date) -> bool:
+    game_date = parse_game_date(game)
+    if game_date is None:
+        return True
+    return game_date >= cutoff
+
+
+def pair_key(home: Any, away: Any) -> tuple[str, str]:
+    return (str(home or "").strip().lower(), str(away or "").strip().lower())
+
+
+def filter_signals_to_active_games(signals: dict[str, Any], active_pairs: set[tuple[str, str]]) -> dict[str, Any]:
+    filtered = dict(signals)
+
+    def keep_game_row(row: dict[str, Any]) -> bool:
+        return pair_key(row.get("home"), row.get("away")) in active_pairs
+
+    for key in ("matrix_signals", "totals_signals", "games_summary"):
+        rows = filtered.get(key)
+        if isinstance(rows, list):
+            filtered[key] = [row for row in rows if isinstance(row, dict) and keep_game_row(row)]
+
+    h2h_rows = filtered.get("h2h_signals")
+    if isinstance(h2h_rows, list):
+        # H2H rows are selection/opponent based, so keep them unless we can confidently map them.
+        filtered["h2h_signals"] = h2h_rows
+
+    return filtered
+
+
 def build_context(sport: str) -> dict[str, Any]:
     round_ctx = get_json(f"/context/round?{urlencode({'sport': sport})}")
     signals = get_json(f"/signals?{urlencode({'sport': sport})}")
@@ -185,9 +232,16 @@ def build_context(sport: str) -> dict[str, Any]:
     except Exception:
         clv = {}
 
+    cutoff = today_aest()
+    source_games = [
+        game for game in round_ctx.get("games", [])
+        if isinstance(game, dict) and is_active_game(game, cutoff)
+    ]
+    stale_count = len(round_ctx.get("games", [])) - len(source_games)
+
     under_watch = build_afl_under_watch() if sport == "AFL" else {}
     detailed_games: list[dict[str, Any]] = []
-    for game in round_ctx.get("games", []):
+    for game in source_games:
         home = str(game.get("home", ""))
         away = str(game.get("away", ""))
         if not home or not away:
@@ -203,6 +257,9 @@ def build_context(sport: str) -> dict[str, Any]:
             }
         detailed_games.append(sanitize_game(detail))
 
+    active_pairs = {pair_key(game.get("home"), game.get("away")) for game in detailed_games}
+    filtered_signals = filter_signals_to_active_games(signals, active_pairs)
+
     return {
         "sport": round_ctx.get("sport", sport),
         "season": round_ctx.get("season"),
@@ -216,6 +273,10 @@ def build_context(sport: str) -> dict[str, Any]:
             "contains_raw_database": False,
             "contains_matrix_workbooks": False,
         },
+        "expiry": {
+            "cutoff_date_aest": cutoff.isoformat(),
+            "stale_games_removed": stale_count,
+        },
         "round_context": {
             "sport": round_ctx.get("sport", sport),
             "season": round_ctx.get("season"),
@@ -226,7 +287,7 @@ def build_context(sport: str) -> dict[str, Any]:
             "games": detailed_games,
             "clv_last_4_rounds": clv,
         },
-        "signals": signals,
+        "signals": filtered_signals,
         "clv": clv,
     }
 
