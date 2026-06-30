@@ -603,6 +603,19 @@ function formatGameContext(data: Record<string, unknown>): string {
     lines.push(...formatConfluenceDetails(conf, home, away));
   }
 
+  const underWatch = data.totals_under_watch_0_10 as
+    | { count?: number; edges?: Array<{ edge_pct?: number; row?: string; team?: string }> }
+    | undefined;
+  if (underWatch?.count && underWatch.count > 0) {
+    lines.push(`AFL 0-10% under watch: ${underWatch.count} under-leaning matrix rows`);
+    for (const edge of (underWatch.edges ?? []).slice(0, 10)) {
+      const pct = typeof edge.edge_pct === 'number' ? `${edge.edge_pct}%` : 'edge';
+      const team = edge.team ? `${edge.team} — ` : '';
+      const row = edge.row ?? 'matrix row';
+      lines.push(`  - ${team}${row}: ${pct}`);
+    }
+  }
+
   const exp = data.explanation as string | undefined;
   if (exp) lines.push(`Notes: ${exp}`);
 

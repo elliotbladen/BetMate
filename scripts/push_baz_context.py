@@ -18,6 +18,7 @@ import json
 import os
 import sys
 from datetime import datetime, timezone
+from importlib import util as importlib_util
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
@@ -43,6 +44,7 @@ GAME_FIELDS = {
     "weather",
     "explanation",
     "confluence",
+    "totals_under_watch_0_10",
 }
 
 
@@ -89,6 +91,92 @@ def sanitize_game(game: dict[str, Any]) -> dict[str, Any]:
     return clean
 
 
+def _load_afl_matrix_module() -> Any:
+    path = BETMATE_ROOT / "BettingEngine" / "scripts" / "afl_matrix_confluence.py"
+    spec = importlib_util.spec_from_file_location("afl_matrix_confluence", path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Could not load {path}")
+    module = importlib_util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def build_afl_under_watch() -> dict[tuple[str, str], list[dict[str, Any]]]:
+    """Return under edges in the 0-10% band for each current AFL fixture."""
+    try:
+        amc = _load_afl_matrix_module()
+        fixture_path = (
+            BETMATE_ROOT
+            / "BettingEngine"
+            / "outputs"
+            / "afl_round_prep"
+            / "r17_2026"
+            / "fixture_r17_2026.csv"
+        )
+        games = amc.load_fixture_csv(fixture_path)
+        totals = amc.load_xlsx_matrix(BETMATE_ROOT / "BettingEngine" / "outputs" / "afl_team_totals_matrix.xlsx")
+        history = amc.load_afl_history(amc.HIST_XLSX)
+    except Exception as exc:
+        print(f"  WARNING: AFL under-watch unavailable: {exc}")
+        return {}
+
+    def kickoff_hour_for_weekday(weekday: int) -> int:
+        if weekday in (3, 4):
+            return 19
+        if weekday == 6:
+            return 13
+        return 14
+
+    from datetime import date
+
+    by_game: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for game in games:
+        game_date = date.fromisoformat(game["date"])
+        weekday = game_date.weekday()
+        kickoff_hour = kickoff_hour_for_weekday(weekday)
+        home_key = amc.fixture_to_key(game["home_team"])
+        away_key = amc.fixture_to_key(game["away_team"])
+        home_ctx = amc.get_afl_team_context(history, home_key, game_date)
+        away_ctx = amc.get_afl_team_context(history, away_key, game_date)
+        edges: list[dict[str, Any]] = []
+
+        for team_key, team_label, role, generic_row, ctx in [
+            (home_key, game["home_team"], "home", amc.GENERIC_ROWS["totals"][0], home_ctx),
+            (away_key, game["away_team"], "away", amc.GENERIC_ROWS["totals"][1], away_ctx),
+        ]:
+            row_names = amc.applicable_row_names(
+                kickoff_hour,
+                weekday,
+                game_date,
+                role,
+                home_key,
+                away_key,
+                game["venue"],
+                ctx["rest_days"],
+                ctx["last_result"],
+                generic_row,
+            )
+            seen: set[str] = set()
+            for row_name in row_names:
+                if row_name in seen:
+                    continue
+                seen.add(row_name)
+                value = totals.get(team_key, {}).get(row_name)
+                if not value:
+                    continue
+                edge_pct, direction = value
+                if direction and "unders" in direction.lower() and 0 < edge_pct <= 10:
+                    edges.append({
+                        "team": team_label,
+                        "row": row_name,
+                        "edge_pct": edge_pct,
+                    })
+
+        by_game[(game["home_team"], game["away_team"])] = sorted(edges, key=lambda item: -item["edge_pct"])
+
+    return by_game
+
+
 def build_context(sport: str) -> dict[str, Any]:
     round_ctx = get_json(f"/context/round?{urlencode({'sport': sport})}")
     signals = get_json(f"/signals?{urlencode({'sport': sport})}")
@@ -97,6 +185,7 @@ def build_context(sport: str) -> dict[str, Any]:
     except Exception:
         clv = {}
 
+    under_watch = build_afl_under_watch() if sport == "AFL" else {}
     detailed_games: list[dict[str, Any]] = []
     for game in round_ctx.get("games", []):
         home = str(game.get("home", ""))
@@ -106,6 +195,12 @@ def build_context(sport: str) -> dict[str, Any]:
         detail = get_json(
             f"/context/game?{urlencode({'home': home, 'away': away, 'sport': sport})}"
         )
+        under_edges = under_watch.get((home, away), [])
+        if under_edges:
+            detail["totals_under_watch_0_10"] = {
+                "count": len(under_edges),
+                "edges": under_edges,
+            }
         detailed_games.append(sanitize_game(detail))
 
     return {
