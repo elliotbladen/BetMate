@@ -2,6 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { createServerClient } from '@supabase/ssr';
 import { NextRequest } from 'next/server';
 import { isOwnerEmail } from '@/lib/owner';
+import { getDataStore } from '@/lib/supabaseServer';
 
 // ── Rate limiting ─────────────────────────────────────────────────────────────
 const rateLimits = new Map<string, { count: number; resetAt: number }>();
@@ -204,7 +205,130 @@ const BAZ_TOOLS: Anthropic.Tool[] = [
 ];
 
 // ── Brain API helpers ─────────────────────────────────────────────────────────
+type StoredBazContext = {
+  sport?: string;
+  season?: string | number;
+  round?: string | number;
+  generated_at?: string;
+  round_context?: {
+    games?: Array<Record<string, unknown>>;
+    signals?: Array<Record<string, unknown>>;
+    clv_last_4_rounds?: Record<string, unknown>;
+  };
+  signals?: Record<string, unknown>;
+  clv?: Record<string, unknown>;
+};
+
+function getQueryParam(path: string, name: string): string {
+  try {
+    return new URL(path, 'http://baz.local').searchParams.get(name) ?? '';
+  } catch {
+    return '';
+  }
+}
+
+function teamMatches(candidate: unknown, query: string): boolean {
+  const c = String(candidate ?? '').toLowerCase();
+  const q = query.toLowerCase();
+  return Boolean(c && q && (c.includes(q) || q.includes(c)));
+}
+
+function findStoredGame(ctx: StoredBazContext, home: string, away: string): Record<string, unknown> | null {
+  const games = ctx.round_context?.games ?? [];
+  return games.find((game) => {
+    const gameHome = game.home;
+    const gameAway = game.away;
+    return (
+      (teamMatches(gameHome, home) || teamMatches(gameAway, home)) &&
+      (teamMatches(gameHome, away) || teamMatches(gameAway, away))
+    );
+  }) ?? null;
+}
+
+function storedContextToDbSignals(ctx: StoredBazContext, path: string): Record<string, unknown> {
+  const home = getQueryParam(path, 'home');
+  const away = getQueryParam(path, 'away');
+  const games = ctx.round_context?.games ?? [];
+  const scopedGames = home || away
+    ? games.filter((game) => {
+        const gameHome = String(game.home ?? '');
+        const gameAway = String(game.away ?? '');
+        return (!home || teamMatches(gameHome, home) || teamMatches(gameAway, home)) &&
+          (!away || teamMatches(gameHome, away) || teamMatches(gameAway, away));
+      })
+    : games;
+
+  const rows: Record<string, unknown>[] = [];
+  for (const game of scopedGames) {
+    const conf = (game.confluence ?? {}) as Record<string, { count?: number }>;
+    for (const [key, value] of Object.entries(conf)) {
+      if ((value.count ?? 0) < 3) continue;
+      rows.push({
+        home_team: game.home,
+        away_team: game.away,
+        market_type: key.startsWith('totals_') ? 'total' : key.startsWith('h2h_') ? 'h2h' : 'handicap',
+        selection_name: key,
+        line_value: '',
+        market_odds: '',
+        bookmaker_code: 'T9',
+        model_odds: '',
+        ev_percent: '',
+        signal_label: 'matrix_watch',
+        confidence_level: (value.count ?? 0) >= 5 ? 'high' : 'medium',
+      });
+    }
+  }
+
+  return {
+    counts: {
+      signals: rows.length,
+      by_label: rows.length > 0 ? { matrix_watch: rows.length } : {},
+    },
+    recommendations: [],
+    watch: rows,
+  };
+}
+
+async function bazFetchStored(path: string): Promise<unknown> {
+  const sport = (getQueryParam(path, 'sport') || 'NRL').toUpperCase();
+  const ctx = await getDataStore(`baz_context_${sport.toLowerCase()}_latest`) as StoredBazContext | null;
+  if (!ctx) return null;
+
+  if (path.startsWith('/status') || path.startsWith('/meta')) {
+    return {
+      scope: {
+        sport: ctx.sport ?? sport,
+        round: ctx.round,
+        season: ctx.season,
+      },
+      readiness: 'ready',
+      blockers: [],
+    };
+  }
+
+  if (path.startsWith('/context/game')) {
+    return findStoredGame(ctx, getQueryParam(path, 'home'), getQueryParam(path, 'away'));
+  }
+
+  if (path.startsWith('/signals')) {
+    return ctx.signals ?? null;
+  }
+
+  if (path.startsWith('/db/signals')) {
+    return storedContextToDbSignals(ctx, path);
+  }
+
+  if (path.startsWith('/clv')) {
+    return ctx.clv ?? ctx.round_context?.clv_last_4_rounds ?? null;
+  }
+
+  return null;
+}
+
 async function bazFetch(path: string, timeoutMs = 3000): Promise<unknown> {
+  const stored = await bazFetchStored(path);
+  if (stored) return stored;
+
   const local = (process.env.BAZ_LOCAL_API ?? 'http://127.0.0.1:8765').trim();
   const tunnel = process.env.BAZ_TUNNEL_URL?.trim();
   const bases = process.env.NODE_ENV === 'production'
@@ -231,7 +355,7 @@ async function bazFetch(path: string, timeoutMs = 3000): Promise<unknown> {
 async function fetchRoundMeta(
   sport: string,
 ): Promise<{ round: string; season: string } | null> {
-  const data = (await bazFetch('/status')) as {
+  const data = (await bazFetch(`/status?sport=${encodeURIComponent(sport)}`)) as {
     scope?: { sport?: string; round?: number; season?: number };
     readiness?: string;
     blockers?: string[];
