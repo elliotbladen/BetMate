@@ -836,10 +836,42 @@ async function duckDuckGoSearch(query: string): Promise<PublicLookupResult[]> {
   return results;
 }
 
+async function googleNewsSearch(query: string): Promise<PublicLookupResult[]> {
+  const url = new URL('https://news.google.com/rss/search');
+  url.searchParams.set('q', query);
+  url.searchParams.set('hl', 'en-AU');
+  url.searchParams.set('gl', 'AU');
+  url.searchParams.set('ceid', 'AU:en');
+
+  const res = await fetch(url, {
+    headers: {
+      Accept: 'application/rss+xml,text/xml',
+      'User-Agent': 'BetMateBaz/1.0',
+    },
+    cache: 'no-store',
+  }).catch(() => null);
+  if (!res?.ok) return [];
+
+  const xml = await res.text();
+  const results: PublicLookupResult[] = [];
+  const itemRegex = /<item>[\s\S]*?<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>[\s\S]*?<link>([\s\S]*?)<\/link>[\s\S]*?<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>[\s\S]*?<\/item>/g;
+  let match: RegExpExecArray | null;
+  while ((match = itemRegex.exec(xml)) && results.length < 5) {
+    results.push({
+      title: stripHtml(match[1]),
+      url: stripHtml(match[2]),
+      snippet: stripHtml(match[3]),
+    });
+  }
+  return results;
+}
+
 async function lookupPublicSportsInfo(query: string, sport: string): Promise<string> {
   const cleanSport = sport.toUpperCase() === 'AFL' ? 'AFL' : 'NRL';
   const searchQuery = `${query} ${cleanSport} Australia`;
-  const results = (await braveSearch(searchQuery)).concat(await duckDuckGoSearch(searchQuery));
+  const results = (await braveSearch(searchQuery))
+    .concat(await googleNewsSearch(searchQuery))
+    .concat(await duckDuckGoSearch(searchQuery));
   const deduped: PublicLookupResult[] = [];
   const seen = new Set<string>();
 
