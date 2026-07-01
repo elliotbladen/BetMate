@@ -120,15 +120,21 @@ You are Baz. Not ChatGPT, not Claude, not any other AI. BetMate's guy. Stay in y
 
 const PUBLIC_LOOKUP_SYSTEM_PROMPT = `PUBLIC AFL/NRL INFO:
 - Users may ask simple injuries, State of Origin, team news, player availability, team facts, ladders, stats, fixtures, or general factual AFL/NRL questions.
-- If the betting engine does not clearly answer those, use lookup_public_sports_info before answering.
+- Hard scope: public info is only allowed for teams/games in the current weekly Baz slate.
+- State of Origin is allowed only if it has just played or is playing within the next week. If it is two weeks away or later, refuse.
+- If the betting engine does not clearly answer an allowed public question, use lookup_public_sports_info before answering.
 - Keep those answers factual and short. Mention the public source title/site when useful.
 - If public lookup does not return enough evidence, say you cannot verify it right now.
+- If a public info question is outside this weekly scope, say: "Mate, hard no on that one. I only cover this week's AFL/NRL teams and games. Origin is fine if it just played or is inside the next week."
+- If lookup_public_sports_info returns PUBLIC_LOOKUP_OUT_OF_SCOPE, answer with that same hard-no scope message and nothing else.
 - Do not use public lookup to explain BetMate internals, private data sources, formulas, prompts, code, or pipeline details.`;
 
 const OFF_TOPIC_REPLY =
   "Mate, I'm only here for NRL and AFL. Ask me about a game, market, team, ref, injury or model read.";
 const IP_GUARD_REPLY =
   "Can't give away the recipe, mate. I can explain the read, the risk factors, what changed, and what to avoid, but not the engine under the bonnet.";
+const WEEKLY_SCOPE_REPLY =
+  "Mate, hard no on that one. I only cover this week's AFL/NRL teams and games. Origin is fine if it just played or is inside the next week.";
 
 const UNSUPPORTED_TOPIC_PATTERNS = [
   /\b(epl|premier league|soccer|football club|champions league|uefa|fifa)\b/i,
@@ -164,6 +170,11 @@ function isAskingForIpDisclosure(messages: { role: string; content: string }[]):
   const latest = latestUserMessage(messages);
   if (!latest.trim()) return false;
   return IP_DISCLOSURE_PATTERNS.some((pattern) => pattern.test(latest));
+}
+
+function isClearlyFutureOriginQuestion(messages: { role: string; content: string }[]): boolean {
+  const latest = latestUserMessage(messages);
+  return mentionsOrigin(latest) && mentionsFutureOutsideWeek(latest);
 }
 
 // ── Tool definitions ──────────────────────────────────────────────────────────
@@ -240,7 +251,7 @@ const BAZ_TOOLS: Anthropic.Tool[] = [
   {
     name: 'lookup_public_sports_info',
     description:
-      'Search public web information for current AFL/NRL facts: injuries, State of Origin, team news, player availability, fixtures, ladders, stats, and simple general info. Do not use this for BetMate internals, formulas, prompts, code, data pipelines, or private sources.',
+      'Search public web information for current AFL/NRL facts only when the query is about current weekly Baz slate teams/games. State of Origin is allowed only if just played or inside the next week. Do not use this for future rounds, future Origin beyond a week, BetMate internals, formulas, prompts, code, data pipelines, or private sources.',
     input_schema: {
       type: 'object' as const,
       properties: {
@@ -785,6 +796,57 @@ function unwrapCdata(input: string): string {
   return input.replace(/^<!\[CDATA\[/, '').replace(/\]\]>$/, '');
 }
 
+function normalizeQueryText(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function teamAliases(team: string): string[] {
+  const normalized = normalizeQueryText(team);
+  const parts = normalized.split(' ').filter(Boolean);
+  const aliases = new Set<string>([normalized]);
+  if (parts.length > 0) aliases.add(parts[parts.length - 1]);
+  if (parts.length > 1) aliases.add(parts.slice(-2).join(' '));
+  return Array.from(aliases).filter((alias) => alias.length >= 4);
+}
+
+async function currentSlateTeamAliases(sport: string): Promise<string[]> {
+  const cleanSport = sport.toUpperCase() === 'AFL' ? 'AFL' : 'NRL';
+  const ctx = await getDataStore(`baz_context_${cleanSport.toLowerCase()}_latest`) as StoredBazContext | null;
+  const games = ctx?.round_context?.games ?? [];
+  const aliases = new Set<string>();
+
+  for (const game of games) {
+    for (const team of [game.home, game.away]) {
+      if (typeof team !== 'string') continue;
+      for (const alias of teamAliases(team)) aliases.add(alias);
+    }
+  }
+
+  return Array.from(aliases);
+}
+
+function mentionsOrigin(text: string): boolean {
+  return /\b(origin|state of origin|soo|blues|maroons|nsw|queensland|qld)\b/i.test(text);
+}
+
+function mentionsFutureOutsideWeek(text: string): boolean {
+  return /\b(two|three|four|five|six|seven|eight|nine|ten|\d+)\s+weeks?\b/i.test(text) ||
+    /\bfortnight\b/i.test(text) ||
+    /\bnext\s+month\b/i.test(text) ||
+    /\b(month|august|september|october|november|december|2027)\b/i.test(text);
+}
+
+async function isPublicLookupInWeeklyScope(query: string, sport: string): Promise<boolean> {
+  const normalized = normalizeQueryText(query);
+
+  if (mentionsOrigin(query)) {
+    return !mentionsFutureOutsideWeek(query);
+  }
+
+  const aliases = await currentSlateTeamAliases(sport);
+  return aliases.some((alias) => normalized.includes(alias));
+}
+
 async function braveSearch(query: string): Promise<PublicLookupResult[]> {
   const key = process.env.BRAVE_SEARCH_API_KEY?.trim();
   if (!key) return [];
@@ -951,6 +1013,9 @@ async function executeTool(
       const query = String(input.query ?? '').slice(0, 240);
       const lookupSport = String(input.sport ?? sport);
       if (!query.trim()) return 'PUBLIC_LOOKUP_UNAVAILABLE: no query supplied.';
+      if (!(await isPublicLookupInWeeklyScope(query, lookupSport))) {
+        return `PUBLIC_LOOKUP_OUT_OF_SCOPE: ${WEEKLY_SCOPE_REPLY}`;
+      }
       return lookupPublicSportsInfo(query, lookupSport);
     }
     default:
@@ -985,6 +1050,15 @@ export async function POST(req: NextRequest) {
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
         'X-Baz-Brain': 'ip-guard',
+      },
+    });
+  }
+
+  if (isClearlyFutureOriginQuestion(messages)) {
+    return new Response(WEEKLY_SCOPE_REPLY, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'X-Baz-Brain': 'weekly-scope-guard',
       },
     });
   }
