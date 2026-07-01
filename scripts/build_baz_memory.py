@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -70,6 +71,46 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 def write_json(path: Path, data: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, sort_keys=True), encoding="utf-8")
+
+
+def load_env() -> None:
+    env_path = ROOT / ".env.local"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        os.environ.setdefault(key.strip(), value.strip())
+
+
+def push_data_store_key(key: str, data: dict[str, Any]) -> None:
+    import requests
+
+    load_env()
+    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
+    svc_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not url or not svc_key:
+        raise RuntimeError("NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY is missing")
+
+    payload = [{
+        "key": key,
+        "data": data,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }]
+    resp = requests.post(
+        f"{url}/rest/v1/betmate_data_store",
+        headers={
+            "apikey": svc_key,
+            "Authorization": f"Bearer {svc_key}",
+            "Content-Type": "application/json",
+            "Prefer": "resolution=merge-duplicates",
+        },
+        json=payload,
+        timeout=30,
+    )
+    resp.raise_for_status()
 
 
 def game_id(sport: str, season: Any, round_number: Any, date: Any, home: Any, away: Any) -> str:
@@ -480,6 +521,7 @@ def build_memory(year: int) -> dict[str, Any]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build sanitized Baz historical game memory.")
     parser.add_argument("--year", type=int, default=2026)
+    parser.add_argument("--push-supabase", action="store_true", help="Publish sanitized memory to betmate_data_store.")
     args = parser.parse_args()
 
     payload = build_memory(args.year)
@@ -490,6 +532,10 @@ def main() -> int:
     print(f"Wrote {year_path.relative_to(ROOT)}")
     print(f"Wrote {latest_path.relative_to(ROOT)}")
     print(json.dumps(payload["counts"], indent=2, sort_keys=True))
+    if args.push_supabase:
+        push_data_store_key(f"baz_memory_{args.year}", payload)
+        push_data_store_key("baz_memory_latest", payload)
+        print(f"Pushed Supabase keys: baz_memory_{args.year}, baz_memory_latest")
     return 0
 
 

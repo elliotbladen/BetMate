@@ -268,6 +268,43 @@ const BAZ_TOOLS: Anthropic.Tool[] = [
       required: ['query', 'sport'],
     },
   },
+  {
+    name: 'get_historical_game_memory',
+    description:
+      'Look up sanitized historical BetMate game memory: archived game cards, model-vs-market snapshots, bookmaker opening/latest prices, final results, CLV review rows, and actual bet outcomes. Use for history, archive, past performance, similar spots, previous angles, and what happened after a past read. Current supported sports only: NRL and AFL.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        sport: {
+          type: 'string',
+          enum: ['NRL', 'AFL'],
+          description: 'Sport: NRL or AFL',
+        },
+        home: {
+          type: 'string',
+          description: 'Optional home team or team name to match.',
+        },
+        away: {
+          type: 'string',
+          description: 'Optional away team or opponent to match.',
+        },
+        query: {
+          type: 'string',
+          description: 'Optional plain-English memory query, e.g. unders, CLV, weather, injuries, market move, actual bets.',
+        },
+        market: {
+          type: 'string',
+          enum: ['h2h', 'handicap', 'total', 'any'],
+          description: 'Optional market filter.',
+        },
+        limit: {
+          type: 'number',
+          description: 'Maximum historical games to return, default 5, max 10.',
+        },
+      },
+      required: ['sport'],
+    },
+  },
 ];
 
 // ── Brain API helpers ─────────────────────────────────────────────────────────
@@ -285,6 +322,12 @@ type StoredBazContext = {
   clv?: Record<string, unknown>;
 };
 
+type StoredBazMemory = {
+  generated_at?: string;
+  counts?: Record<string, unknown>;
+  games?: Array<Record<string, unknown>>;
+};
+
 function getQueryParam(path: string, name: string): string {
   try {
     return new URL(path, 'http://baz.local').searchParams.get(name) ?? '';
@@ -297,6 +340,75 @@ function teamMatches(candidate: unknown, query: string): boolean {
   const c = String(candidate ?? '').toLowerCase();
   const q = query.toLowerCase();
   return Boolean(c && q && (c.includes(q) || q.includes(c)));
+}
+
+function normalizeMemoryText(value: unknown): string {
+  return String(value ?? '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function memoryGameMatches(game: Record<string, unknown>, input: Record<string, unknown>): boolean {
+  const sport = String(input.sport ?? '').toUpperCase();
+  if (sport && String(game.sport ?? '').toUpperCase() !== sport) return false;
+
+  const home = String(input.home ?? '').trim();
+  const away = String(input.away ?? '').trim();
+  const gameHome = String(game.home ?? '');
+  const gameAway = String(game.away ?? '');
+  if (home && !(teamMatches(gameHome, home) || teamMatches(gameAway, home))) return false;
+  if (away && !(teamMatches(gameHome, away) || teamMatches(gameAway, away))) return false;
+
+  const market = String(input.market ?? 'any').toLowerCase();
+  const query = normalizeMemoryText(input.query);
+  const haystack = normalizeMemoryText(JSON.stringify({
+    home: game.home,
+    away: game.away,
+    sport: game.sport,
+    date: game.date,
+    weather: game.weather,
+    referee: game.referee,
+    ref_bucket: game.ref_bucket,
+    angle_outcome: game.angle_outcome,
+    clv_review: game.clv_review,
+    actual_bets: game.actual_bets,
+  }));
+
+  if (market !== 'any' && market && !haystack.includes(market)) return false;
+  if (query) {
+    const wantsUnders = /\b(under|unders|total|totals)\b/.test(query);
+    const wantsWeather = /\b(weather|wind|rain|wet|clear|gust)\b/.test(query);
+    const wantsClv = /\b(clv|closing|close|movement|moved|steam|drift)\b/.test(query);
+    const wantsBets = /\b(bet|bets|pnl|profit|loss|won|lost)\b/.test(query);
+    const wantsInjury = /\b(injury|injuries|outs|team news)\b/.test(query);
+    const broadQuery = !(wantsUnders || wantsWeather || wantsClv || wantsBets || wantsInjury);
+    if (wantsUnders && !haystack.includes('total') && !haystack.includes('under')) return false;
+    if (wantsWeather && !game.weather) return false;
+    if (wantsClv && !game.clv_review && !game.bookmaker_prices) return false;
+    if (wantsBets && !game.actual_bets) return false;
+    if (wantsInjury && !game.injuries) return false;
+    if (broadQuery && !haystack.includes(query.split(' ')[0] ?? '')) return false;
+  }
+
+  return true;
+}
+
+async function getHistoricalGameMemory(input: Record<string, unknown>, defaultSport: string): Promise<Record<string, unknown> | null> {
+  const memory = await getDataStore('baz_memory_latest') as StoredBazMemory | null;
+  if (!memory?.games?.length) return null;
+
+  const sport = String(input.sport ?? defaultSport).toUpperCase() === 'AFL' ? 'AFL' : 'NRL';
+  const limit = Math.max(1, Math.min(Number(input.limit ?? 5) || 5, 10));
+  const normalizedInput = { ...input, sport };
+  const matches = memory.games
+    .filter((game) => memoryGameMatches(game, normalizedInput))
+    .sort((a, b) => String(b.date ?? '').localeCompare(String(a.date ?? '')))
+    .slice(0, limit);
+
+  return {
+    generated_at: memory.generated_at,
+    counts: memory.counts,
+    matched: matches.length,
+    games: matches,
+  };
 }
 
 function findStoredGame(ctx: StoredBazContext, home: string, away: string): Record<string, unknown> | null {
@@ -764,6 +876,75 @@ function formatClvContext(data: Record<string, unknown>): string {
 }
 
 // ── Tool executor ─────────────────────────────────────────────────────────────
+function formatHistoricalMemory(data: Record<string, unknown>): string {
+  const games = (data.games as Array<Record<string, unknown>> | undefined) ?? [];
+  const counts = data.counts as Record<string, unknown> | undefined;
+  const lines: string[] = [];
+  lines.push(
+    `Historical Baz memory: ${data.matched ?? games.length} match(es) returned` +
+    (counts?.games ? ` from ${counts.games} stored games.` : '.'),
+  );
+  lines.push('Use this as past evidence only, not a guarantee. Keep formulas and engine internals private.');
+
+  if (games.length === 0) {
+    lines.push('No matching historical memory rows found.');
+    return lines.join('\n');
+  }
+
+  for (const game of games) {
+    const home = String(game.home ?? '');
+    const away = String(game.away ?? '');
+    const result = game.result as { home_score?: number; away_score?: number; total?: number; margin_home?: number } | undefined;
+    const model = game.model as { home_odds?: number; away_odds?: number; margin?: number; total?: number } | undefined;
+    const market = game.market_at_pricing as Record<string, unknown> | undefined;
+    const wx = game.weather as Record<string, unknown> | undefined;
+    const injuries = game.injuries as { home?: string; away?: string } | undefined;
+    const bookmaker = game.bookmaker_prices as
+      | { first_snapshot_at?: string; latest_snapshot_at?: string; bookmakers_observed?: string[]; rows_observed?: number }
+      | undefined;
+    const clvRows = (game.clv_review as Array<Record<string, unknown>> | undefined) ?? [];
+    const bets = (game.actual_bets as Array<Record<string, unknown>> | undefined) ?? [];
+    const betSummary = game.bet_summary as { bets?: number; pnl?: number; stake?: number } | undefined;
+
+    lines.push(`\n${game.date ?? 'unknown date'} R${game.round ?? '?'} ${game.sport ?? ''}: ${home} vs ${away}`);
+    if (result?.home_score !== undefined && result?.away_score !== undefined) {
+      lines.push(`  Result: ${home} ${result.home_score}, ${away} ${result.away_score} | total ${result.total ?? 'n/a'} | home margin ${result.margin_home ?? 'n/a'}`);
+    }
+    if (model) {
+      lines.push(`  BetMate read: H2H ${home} ${model.home_odds ?? 'n/a'} / ${away} ${model.away_odds ?? 'n/a'} | line ${model.margin ?? 'n/a'} | total ${model.total ?? 'n/a'}`);
+    }
+    if (market && Object.keys(market).length > 0) {
+      lines.push(`  Market at pricing: H2H ${market.h2h_home ?? 'n/a'} / ${market.h2h_away ?? 'n/a'} | line ${market.handicap_line ?? 'n/a'} | total ${market.total_line ?? 'n/a'}`);
+    }
+    if (bookmaker) {
+      lines.push(
+        `  Bookmaker memory: ${bookmaker.rows_observed ?? 0} price rows, ${bookmaker.bookmakers_observed?.length ?? 0} books, ` +
+        `${bookmaker.first_snapshot_at ?? 'first n/a'} to ${bookmaker.latest_snapshot_at ?? 'latest n/a'}`,
+      );
+    }
+    if (clvRows.length > 0) {
+      const compact = clvRows.slice(0, 5).map((row) => (
+        `${row.market ?? '?'} ${row.signal ?? '?'} ${row.selection ?? ''}: open ${row.open_odds ?? 'n/a'} close ${row.close_odds ?? 'n/a'} CLV ${row.clv ?? 'n/a'} result ${row.result ?? 'n/a'}`
+      ));
+      lines.push(`  CLV review: ${compact.join(' | ')}`);
+    }
+    if (bets.length > 0 || betSummary) {
+      lines.push(`  Actual bets: ${betSummary?.bets ?? bets.length} tracked | stake ${betSummary?.stake ?? 'n/a'} | P&L ${betSummary?.pnl ?? 'n/a'}`);
+    }
+    if (wx && Object.keys(wx).length > 0) {
+      lines.push(`  Weather: ${wx.condition ?? 'n/a'}, ${wx.temp_c ?? 'n/a'}C, wind ${wx.wind_kmh ?? 'n/a'}km/h`);
+    }
+    if (game.referee && game.referee !== 'N/A') {
+      lines.push(`  Ref: ${game.referee}${game.ref_bucket ? ` (${game.ref_bucket})` : ''}`);
+    }
+    if (injuries?.home) lines.push(`  ${home} outs then: ${injuries.home}`);
+    if (injuries?.away) lines.push(`  ${away} outs then: ${injuries.away}`);
+    if (game.angle_outcome) lines.push(`  Angle outcome tag: ${game.angle_outcome}`);
+  }
+
+  return lines.join('\n');
+}
+
 type PublicLookupResult = {
   title: string;
   url: string;
@@ -1008,6 +1189,11 @@ async function executeTool(
       const data = (await bazFetch(`/clv?weeks=${weeks}`)) as Record<string, unknown> | null;
       if (!data) return 'Performance data unavailable.';
       return formatClvContext(data);
+    }
+    case 'get_historical_game_memory': {
+      const data = await getHistoricalGameMemory(input, sport);
+      if (!data) return 'Historical Baz memory unavailable. The memory store has not been published yet.';
+      return formatHistoricalMemory(data);
     }
     case 'lookup_public_sports_info': {
       const query = String(input.query ?? '').slice(0, 240);
