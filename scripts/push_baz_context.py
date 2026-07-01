@@ -14,8 +14,10 @@ raw pipeline inputs.
 
 from __future__ import annotations
 
+import csv
 import json
 import os
+import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 from importlib import util as importlib_util
@@ -50,6 +52,34 @@ GAME_FIELDS = {
     "explanation",
     "confluence",
     "totals_under_watch_0_10",
+}
+
+ARCHIVE_DIR = BETMATE_ROOT / "data" / "card_archive"
+ODDS_SNAPSHOT_DIR = BETMATE_ROOT / "data" / "odds_snapshots"
+ODDS_MOVEMENT_DIR = BETMATE_ROOT / "data" / "odds_movements"
+ODDS_ROW_LIMIT = 300
+ODDS_ARCHIVE_FIELDS = {
+    "snapshot_date",
+    "snapshot_time",
+    "detected_date",
+    "detected_time",
+    "from_snapshot_time",
+    "to_snapshot_time",
+    "sport",
+    "game_id",
+    "home_team",
+    "away_team",
+    "commence_time",
+    "bookmaker",
+    "market",
+    "outcome",
+    "price",
+    "point",
+    "old_price",
+    "new_price",
+    "change",
+    "change_pct",
+    "direction",
 }
 
 
@@ -94,6 +124,204 @@ def sanitize_game(game: dict[str, Any]) -> dict[str, Any]:
             if isinstance(value, dict)
         }
     return clean
+
+
+def normalize_name(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(value or "").lower())
+
+
+def slug(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", str(value or "").lower()).strip("-") or "unknown"
+
+
+def archive_id_for_game(sport: str, season: Any, round_number: Any, game: dict[str, Any]) -> str:
+    game_date = parse_game_date(game)
+    date_part = game_date.isoformat() if game_date else "unknown-date"
+    return (
+        f"{sport.lower()}-{season or 'unknown-season'}-"
+        f"r{round_number or 'unknown-round'}-{date_part}-"
+        f"{slug(game.get('home'))}-v-{slug(game.get('away'))}"
+    )
+
+
+def csv_archive_paths(directory: Path) -> list[Path]:
+    paths: list[Path] = []
+    latest = directory / "latest.csv"
+    if latest.exists():
+        paths.append(latest)
+    if directory.exists():
+        paths.extend(
+            sorted(
+                [path for path in directory.glob("*/*.csv") if path.name != "latest.csv"],
+                key=lambda path: str(path),
+                reverse=True,
+            )
+        )
+    return paths
+
+
+def row_matches_game(row: dict[str, Any], sport: str, home: str, away: str) -> bool:
+    if str(row.get("sport") or "").upper() != sport.upper():
+        return False
+    row_home = normalize_name(row.get("home_team") or row.get("home"))
+    row_away = normalize_name(row.get("away_team") or row.get("away"))
+    home_key = normalize_name(home)
+    away_key = normalize_name(away)
+    return row_home == home_key and row_away == away_key
+
+
+def sanitize_csv_row(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: value
+        for key, value in row.items()
+        if key in ODDS_ARCHIVE_FIELDS and value not in (None, "")
+    }
+
+
+def load_matching_csv_rows(directory: Path, sport: str, home: str, away: str) -> tuple[list[dict[str, Any]], str | None]:
+    for path in csv_archive_paths(directory):
+        rows: list[dict[str, Any]] = []
+        try:
+            with path.open("r", encoding="utf-8-sig", newline="") as handle:
+                reader = csv.DictReader(handle)
+                for row in reader:
+                    if row_matches_game(row, sport, home, away):
+                        rows.append(sanitize_csv_row(row))
+                        if len(rows) >= ODDS_ROW_LIMIT:
+                            break
+        except OSError as exc:
+            print(f"  WARNING: could not read odds archive {path}: {exc}")
+            continue
+        if rows:
+            return rows, str(path.relative_to(BETMATE_ROOT))
+    return [], None
+
+
+def load_existing_archive(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def save_archive_file(sport: str, season: Any, round_number: Any, cards: list[dict[str, Any]]) -> dict[str, Any]:
+    year = str(season or today_aest().year)
+    archive_path = ARCHIVE_DIR / year / f"{sport.lower()}_r{round_number or 'unknown'}.json"
+    existing = load_existing_archive(archive_path)
+    by_id = {
+        str(card.get("archive_id")): card
+        for card in existing.get("cards", [])
+        if isinstance(card, dict) and card.get("archive_id")
+    }
+    for card in cards:
+        by_id[str(card["archive_id"])] = card
+
+    payload = {
+        "sport": sport,
+        "season": season,
+        "round": round_number,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "safety": {
+            "public_blob": True,
+            "contains_engine_code": False,
+            "contains_model_weights": False,
+            "contains_raw_database": False,
+            "contains_matrix_workbooks": False,
+        },
+        "cards": sorted(by_id.values(), key=lambda item: str(item.get("archive_id", ""))),
+    }
+    archive_path.parent.mkdir(parents=True, exist_ok=True)
+    archive_path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+    print(f"  Archived completed cards locally: {archive_path.relative_to(BETMATE_ROOT)} ({len(cards)} updated)")
+    return payload
+
+
+def push_data_store_key(key: str, data: dict[str, Any]) -> None:
+    import requests
+
+    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
+    svc_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+    if not url or not svc_key:
+        raise RuntimeError("NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY is missing")
+
+    payload = [{
+        "key": key,
+        "data": data,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }]
+    resp = requests.post(
+        f"{url}/rest/v1/betmate_data_store",
+        headers={
+            "apikey": svc_key,
+            "Authorization": f"Bearer {svc_key}",
+            "Content-Type": "application/json",
+            "Prefer": "resolution=merge-duplicates",
+        },
+        json=payload,
+        timeout=15,
+    )
+    resp.raise_for_status()
+
+
+def archive_completed_cards(
+    sport: str,
+    round_ctx: dict[str, Any],
+    cutoff: date,
+) -> list[dict[str, Any]]:
+    completed = [
+        game for game in round_ctx.get("games", [])
+        if isinstance(game, dict) and not is_active_game(game, cutoff)
+    ]
+    if not completed:
+        return []
+
+    season = round_ctx.get("season")
+    round_number = round_ctx.get("round")
+    archived_at = datetime.now(timezone.utc).isoformat()
+    cards: list[dict[str, Any]] = []
+
+    for game in completed:
+        home = str(game.get("home", "")).strip()
+        away = str(game.get("away", "")).strip()
+        if not home or not away:
+            continue
+        try:
+            detail = get_json(
+                f"/context/game?{urlencode({'home': home, 'away': away, 'sport': sport})}"
+            )
+        except Exception as exc:
+            print(f"  WARNING: archive detail unavailable for {home} v {away}: {exc}")
+            detail = game
+
+        card = sanitize_game({**game, **detail})
+        card["archive_id"] = archive_id_for_game(sport, season, round_number, {**game, **card})
+        card["archived_at"] = archived_at
+        card["archive_reason"] = "completed_removed_from_weekly_baz_slate"
+        card["season"] = season
+        card["round"] = round_number
+
+        price_rows, price_source = load_matching_csv_rows(ODDS_SNAPSHOT_DIR, sport, home, away)
+        movement_rows, movement_source = load_matching_csv_rows(ODDS_MOVEMENT_DIR, sport, home, away)
+        card["bookmaker_prices"] = {
+            "source": price_source,
+            "rows": price_rows,
+        }
+        card["odds_movements"] = {
+            "source": movement_source,
+            "rows": movement_rows,
+        }
+        cards.append(card)
+
+    if cards:
+        archive_payload = save_archive_file(sport, season, round_number, cards)
+        archive_key = f"baz_card_archive_{sport.lower()}_{season or 'unknown'}_r{round_number or 'unknown'}"
+        push_data_store_key(archive_key, archive_payload)
+        push_data_store_key(f"baz_card_archive_{sport.lower()}_latest", archive_payload)
+        print(f"  Supabase archive OK: {archive_key} ({len(cards)} cards updated)")
+    return cards
 
 
 def _load_afl_matrix_module() -> Any:
@@ -233,6 +461,7 @@ def build_context(sport: str) -> dict[str, Any]:
         clv = {}
 
     cutoff = today_aest()
+    archived_cards = archive_completed_cards(sport, round_ctx, cutoff)
     source_games = [
         game for game in round_ctx.get("games", [])
         if isinstance(game, dict) and is_active_game(game, cutoff)
@@ -276,6 +505,7 @@ def build_context(sport: str) -> dict[str, Any]:
         "expiry": {
             "cutoff_date_aest": cutoff.isoformat(),
             "stale_games_removed": stale_count,
+            "completed_cards_archived": len(archived_cards),
         },
         "round_context": {
             "sport": round_ctx.get("sport", sport),
@@ -293,31 +523,8 @@ def build_context(sport: str) -> dict[str, Any]:
 
 
 def push_context(sport: str, context: dict[str, Any]) -> None:
-    import requests
-
-    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL", "").rstrip("/")
-    svc_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-    if not url or not svc_key:
-        raise RuntimeError("NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY is missing")
-
     key = f"baz_context_{sport.lower()}_latest"
-    payload = [{
-        "key": key,
-        "data": context,
-        "updated_at": datetime.now(timezone.utc).isoformat(),
-    }]
-    resp = requests.post(
-        f"{url}/rest/v1/betmate_data_store",
-        headers={
-            "apikey": svc_key,
-            "Authorization": f"Bearer {svc_key}",
-            "Content-Type": "application/json",
-            "Prefer": "resolution=merge-duplicates",
-        },
-        json=payload,
-        timeout=15,
-    )
-    resp.raise_for_status()
+    push_data_store_key(key, context)
     print(f"  Supabase push OK: {key} ({len(context['round_context']['games'])} games)")
 
 
