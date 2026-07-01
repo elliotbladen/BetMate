@@ -781,6 +781,10 @@ function decodeDuckDuckGoUrl(url: string): string {
   }
 }
 
+function unwrapCdata(input: string): string {
+  return input.replace(/^<!\[CDATA\[/, '').replace(/\]\]>$/, '');
+}
+
 async function braveSearch(query: string): Promise<PublicLookupResult[]> {
   const key = process.env.BRAVE_SEARCH_API_KEY?.trim();
   if (!key) return [];
@@ -854,13 +858,13 @@ async function googleNewsSearch(query: string): Promise<PublicLookupResult[]> {
 
   const xml = await res.text();
   const results: PublicLookupResult[] = [];
-  const itemRegex = /<item>[\s\S]*?<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>[\s\S]*?<link>([\s\S]*?)<\/link>[\s\S]*?<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>[\s\S]*?<\/item>/g;
+  const itemRegex = /<item>[\s\S]*?<title>([\s\S]*?)<\/title>[\s\S]*?<link>([\s\S]*?)<\/link>[\s\S]*?<description>([\s\S]*?)<\/description>[\s\S]*?<\/item>/g;
   let match: RegExpExecArray | null;
   while ((match = itemRegex.exec(xml)) && results.length < 5) {
     results.push({
-      title: stripHtml(match[1]),
+      title: stripHtml(unwrapCdata(match[1])),
       url: stripHtml(match[2]),
-      snippet: stripHtml(match[3]),
+      snippet: stripHtml(unwrapCdata(match[3])),
     });
   }
   return results;
