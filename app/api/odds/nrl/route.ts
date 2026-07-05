@@ -17,9 +17,12 @@ export async function GET() {
       });
     }
 
-    return NextResponse.json({
-      error: 'ODDS_API_KEY not configured and no local NRL snapshot was found',
-    }, { status: 500 });
+    return NextResponse.json([], {
+      headers: {
+        'x-betmate-odds-source': 'empty-fallback',
+        'x-betmate-upstream-status': 'missing-api-key',
+      },
+    });
   }
 
   const url = new URL('https://api.the-odds-api.com/v4/sports/rugbyleague_nrl/odds/');
@@ -39,7 +42,12 @@ export async function GET() {
       });
     }
 
-    return NextResponse.json({ error: `Odds API error: ${res.status}` }, { status: res.status });
+    return NextResponse.json([], {
+      headers: {
+        'x-betmate-odds-source': 'empty-fallback',
+        'x-betmate-upstream-status': String(res.status),
+      },
+    });
   }
 
   const data = await res.json();
