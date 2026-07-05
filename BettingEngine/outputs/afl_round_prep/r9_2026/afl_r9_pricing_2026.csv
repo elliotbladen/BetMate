@@ -1,0 +1,10 @@
+season,round,date,venue,home_team,away_team,fair_margin_home,fair_handicap,fair_total,fair_home_odds,fair_away_odds,rules_home_prob,ml_margin_home,ml_total,ml_home_prob,agreement_flag,run_date
+2026,9,2026-05-07,Optus Stadium,Fremantle Dockers,Hawthorn Hawks,4.6,Fremantle Dockers -4.6,184.8,1.81,2.23,0.5513,3.9,148.1,0.7597,direction,2026-05-06
+2026,9,2026-05-08,The Gabba,Brisbane Lions,Carlton Blues,60.8,Brisbane Lions -60.8,183.6,1.05,21.88,0.9543,65.6,195.7,0.9834,direction,2026-05-06
+2026,9,2026-05-08,Adelaide Oval,Port Adelaide Power,Western Bulldogs,-14.8,Western Bulldogs -14.8,172.1,2.94,1.52,0.3401,18.1,167.8,0.6482,disagree,2026-05-06
+2026,9,2026-05-09,Marvel Stadium,North Melbourne Kangaroos,Sydney Swans,-21.6,Sydney Swans -21.6,203.0,3.64,1.38,0.2747,-4.2,182.8,0.2916,direction,2026-05-06
+2026,9,2026-05-09,ENGIE Stadium,Greater Western Sydney Giants,Essendon Bombers,45.2,Greater Western Sydney Giants -45.2,174.3,1.12,9.58,0.8956,42.7,187.2,0.9443,strong,2026-05-06
+2026,9,2026-05-09,TIO Stadium,Gold Coast Suns,St Kilda Saints,48.9,Gold Coast Suns -48.9,180.2,1.1,11.49,0.913,50.8,162.1,0.9123,strong,2026-05-06
+2026,9,2026-05-09,MCG,Geelong Cats,Collingwood Magpies,23.2,Geelong Cats -23.2,174.8,1.35,3.85,0.7403,8.4,174.3,0.6377,direction,2026-05-06
+2026,9,2026-05-10,Marvel Stadium,Melbourne Demons,West Coast Eagles,45.2,Melbourne Demons -45.2,167.2,1.12,9.55,0.8953,41.9,192.9,0.966,direction,2026-05-06
+2026,9,2026-05-10,MCG,Richmond Tigers,Adelaide Crows,-52.9,Adelaide Crows -52.9,150.0,14.12,1.08,0.0708,-22.6,165.3,0.0954,direction,2026-05-06

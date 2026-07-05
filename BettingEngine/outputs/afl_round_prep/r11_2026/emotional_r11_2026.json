@@ -1,0 +1,12 @@
+{
+  "round": 11,
+  "season": 2026,
+  "flags": {
+    "Richmond Tigers": [
+      {"flag_type": "shame_blowout", "flag_strength": "normal", "player_name": null, "notes": "Off 36-pt loss to St Kilda R10 — home redemption game"}
+    ],
+    "Essendon Bombers": [
+      {"flag_type": "shame_blowout", "flag_strength": "major", "player_name": null, "notes": "Off 43-pt demolition by Freo R10, led 34-9 after one quarter. Must respond."}
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+
+Loading data...
+Style data: R10 snapshot  (18 teams)
+Rules T1 calibration (2026, n=81):  margin +1.3 pts,  total +3.7 pts
+ML total bias (2022–2025, n=855):  +12.9 pts  (MAE 23.3 pts)  — correction applied to shadow totals
+
+========================================================================================================================================================
+  AFL R10 2026 — Rules Engine (T1–T7)  |  Fair Prices
+  T1: ELO margin + team scoring rates  |  T2–T7: style / situational / venue / injury / emotional / weather
+========================================================================================================================================================
+
+  Matchup                                             ELO   T1 Mrg     T2     T3     T4     T5     T6     T7  FinalMrg  FinalTot   HomeOdds  AwayOdds
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                      +141    +28.1   -4.8   +4.4   +2.0   -5.7   +0.0   +0.0     +24.0     195.1       1.34      3.96 ⚑
+  Swans vs Magpies                                    +99    +22.6   +6.8   -0.3   +3.0   -4.8   +0.0   +0.0     +27.2     186.8       1.29      4.44 ⚑
+  Suns vs Power                                      +134    +27.3   +3.8   -4.0   +0.0   +2.6   +0.0   +0.0     +29.7     174.6       1.26      4.89 ⚑
+  Crows vs Kangaroos                                 +253    +42.7   +2.6   -0.4   +0.0   +0.5   +0.0   +0.0     +45.4     181.0       1.12      9.65 ⚑
+  Demons vs Hawks                                    -326    -32.6   -3.3   -1.5   +0.0   -6.0   +0.0   +0.0     -43.4     191.1       8.77      1.13 ⚑
+  Blues vs Bulldogs                                  -256    -23.4   +1.8   +0.0   +0.0   +8.0   +0.0   +0.0     -13.6     169.8       2.84      1.54 ⚑
+  Bombers vs Dockers                                 -375    -39.0   -6.9   +2.0   +0.0   +1.0   +0.0   +0.0     -42.9     173.7       8.58      1.13 ⚑
+  Saints vs Tigers                                   +312    +50.4   +7.0   +0.0   +0.0   -2.1   +0.0   +0.0     +55.3     164.5       1.07     16.03 ⚑
+  Eagles vs Giants                                   -383    -40.0   -7.0   +3.0   -3.0   +4.9   +0.0   +0.0     -42.1     154.7       8.26      1.14 ⚑
+
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Matchup                                          A:Cont   B:Terr    C:Fwd    D:Def  E:Press   T2 Hcp   T2 Tot
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                     -0.41     +0.14     -1.94     -1.21     -1.33    -4.76    -1.43
+  Swans vs Magpies                                  +3.00     -1.21     +4.00     +2.05     -1.09    +6.76    +2.03
+  Suns vs Power                                     +1.99     -0.84     +1.57     +1.21     -0.17    +3.76    +1.13
+  Crows vs Kangaroos                                +2.37     +0.02     -1.75     +3.00     -1.01    +2.62    +0.79
+  Demons vs Hawks                                   -0.33     -1.57     +0.87     -1.44     -0.82    -3.29    -0.99
+  Blues vs Bulldogs                                 +1.34     +0.97     -2.07     +2.30     -0.79    +1.76    +0.53
+  Bombers vs Dockers                                -3.00     -0.55     -0.85     -3.00     +0.45    -6.94    -2.08
+  Saints vs Tigers                                  +2.71     +3.00     +1.58     +2.52     +0.52    +7.00    +3.00
+  Eagles vs Giants                                  -1.40     -2.28     -3.63     -2.72     +1.22    -7.00    -2.64
+
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Matchup                                         3A Rest  3B Trvl  3C Comp  3D Form   3E Occ   T3 Hcp   T3 Tot
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                     +0.00     +2.39     +1.00     +1.00     +0.00    +4.39    -3.00  away short+travel (1435km) | away flat-spot (won by 54)
+  Swans vs Magpies                                  +0.00     +1.19     +0.00     -1.50     +0.00    -0.31    -3.00  away bounce-back (lost by 54)
+  Suns vs Power                                     -1.50     -0.49     -2.00     +0.00     +0.00    -3.99    -1.50  home short+travel (2911km)
+  Crows vs Kangaroos                                -1.50     +1.09     +0.00     +0.00     +0.00    -0.41    -1.50
+  Demons vs Hawks                                   -1.50     +0.00     +0.00     +0.00     +0.00    -1.50    -1.50
+  Blues vs Bulldogs                                 +0.00     +0.00     +0.00     +0.00     +0.00    +0.00    +0.00
+  Bombers vs Dockers                                -1.00     +3.00     +0.00     +0.00     +0.00    +2.00    +0.00
+  Saints vs Tigers                                  +0.00     +0.00     +0.00     +0.00     +0.00    +0.00    +0.00
+  Eagles vs Giants                                  +0.00     +3.00     +0.00     +0.00     +0.00    +3.00    +0.00
+
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Matchup                                         4A Fortress  4B VenScore   T4 Hcp   T4 Tot  Notes
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                         +2.00        -1.00    +2.00    -1.00  Lions fortress (+2.0)
+  Swans vs Magpies                                      +3.00        +0.50    +3.00    +0.50  Swans fortress (+3.0)
+  Suns vs Power                                         +0.00        -3.00    +0.00    -3.00
+  Crows vs Kangaroos                                    +0.00        +0.00    +0.00    +0.00
+  Demons vs Hawks                                       +0.00        +0.00    +0.00    +0.00
+  Blues vs Bulldogs                                     +0.00        +1.90    +0.00    +1.90
+  Bombers vs Dockers                                    +0.00        +0.00    +0.00    +0.00
+  Saints vs Tigers                                      +0.00        +1.90    +0.00    +1.90
+  Eagles vs Giants                                      -3.00        -0.90    -3.00    -0.90  Eagles fortress (-3.0)
+
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Matchup                                        Home Outs                    Away Outs                      T5 Hcp   T5 Tot
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                  Oscar Allen (G key_), Eric Hipwood (G key_), Lincoln McCarthy (G wing), Noah Answerth (A key_) Tyson Stengle (G smal), Jay Polkinghorne (A key_), Toby Conway (A ruck)    -5.72    -4.25 ⚡
+  Swans vs Magpies                               Errol Gulden (E midf), Max King (G key_), Taylor Adams (G midf), Braeden Campbell (G midf) Darcy Moore (G key_), Tim Membrey (A key_), Harry Perryman (A midf), Pat Lipinski (A midf)    -4.85    -5.75 ⚡
+  Suns vs Power                                  Elliott Himmelberg (G key_), Jy Farrar (G wing), Sam Clohesy (A midf) Connor Rozee (E midf), Sam Powell-Pepper (G midf), Jack Lukosius (G key_)    +2.65    -6.00 ⚡
+  Crows vs Kangaroos                             Mark Keane (A key_)          Jackson Archer (A key_), River Stevens (A key_)    +0.50    +1.50
+  Demons vs Hawks                                Jack Viney (E midf), Christian Salem (G key_), Brody Mihocek (A key_), Xavier Lindsay (A midf) Tom Barrass (G key_)            -6.00    -1.50
+  Blues vs Bulldogs                              Jesse Motlop (G smal)        Sam Darcy (E ruck), Tim English (G ruck), Rory Lobb (G ruck), Tom Liberatore (G midf), James O'Donnell (A key_)    +8.00    -3.40 ⚡
+  Bombers vs Dockers                             Nic Martin (G midf), Jordan Ridley (G key_), Isaac Kako (A midf) Sean Darcy (E ruck), Alex Pearce (G key_)    +1.00    -1.00
+  Saints vs Tigers                               Max King (G key_), Hunter Clark (G midf), Jack Higgins (G midf), Dan Butler (A smal) Toby Nankervis (G ruck), Dion Prestia (G midf), Sam Banks (A midf), Hugo Ralphsmith (A midf)    -2.13    -5.10 ⚡
+  Eagles vs Giants                               Sam Allen (A key_), Harry Edwards (A key_), Brandon Starcevich (A key_) Tom Green (E midf), Sam Taylor (G key_), Josh Kelly (G midf), Cody Angove (A midf)    +4.88    +0.23 ⚡
+
+  ⚑ = injury adjustment active.  ⚡ = compound penalty (2+ key players out).
+  Update INJURIES dict in prepare_afl_round.py before each round.
+==========================================================================================================================================
+
+==========================================================================================
+  AFL R10 2026 — TOTALS (Over/Under)  |  std=22.7 pts
+==========================================================================================
+
+  Matchup                                         Fair Line   P(Over)  P(Under)   Odds Over  Odds Under
+  ────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                       195.0     0.502     0.498        1.99        2.01
+  Swans vs Magpies                                    187.0     0.496     0.504        2.02        1.98
+  Suns vs Power                                       174.5     0.502     0.498        1.99        2.01
+  Crows vs Kangaroos                                  181.0     0.500     0.500        2.00        2.00
+  Demons vs Hawks                                     191.0     0.502     0.498        1.99        2.01
+  Blues vs Bulldogs                                   170.0     0.497     0.503        2.01        1.99
+  Bombers vs Dockers                                  173.5     0.504     0.496        1.98        2.02
+  Saints vs Tigers                                    164.5     0.500     0.500        2.00        2.00
+  Eagles vs Giants                                    154.5     0.503     0.497        1.99        2.01
+
+  Fair line = model total (T1+T2+T3) rounded to nearest 0.5.
+  At fair line, P(Over) ≈ P(Under) ≈ 0.500 — both sides ~2.00.
+  Compare market line vs fair line to find value. Each 5pt gap ≈ 59% edge.
+==========================================================================================
+
+==============================================================================================================
+  AFL R10 2026 — PRICING SHEET  (T1+T2+T3+T4 fair prices)
+==============================================================================================================
+
+  Matchup                                  H2H Home  H2H Away  Hdcp Line             Total    O Odds   U Odds
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                1.34      3.96  Lions -24.0           195.0      1.99     2.01
+  Swans vs Magpies                             1.29      4.44  Swans -27.2           187.0      2.02     1.98
+  Suns vs Power                                1.26      4.89  Suns -29.7            174.5      1.99     2.01
+  Crows vs Kangaroos                           1.12      9.65  Crows -45.4           181.0      2.00     2.00
+  Demons vs Hawks                              8.77      1.13  Hawks -43.4           191.0      1.99     2.01
+  Blues vs Bulldogs                            2.84      1.54  Bulldogs -13.6        170.0      2.01     1.99
+  Bombers vs Dockers                           8.58      1.13  Dockers -42.9         173.5      1.98     2.02
+  Saints vs Tigers                             1.07     16.03  Saints -55.3          164.5      2.00     2.00
+  Eagles vs Giants                             8.26      1.14  Giants -42.1          154.5      1.99     2.01
+
+  Hdcp = fair handicap line.  H2H = fair win odds.  Total = fair O/U line.
+  O/U odds at model line are ~2.00 by definition — compare vs market line for EV.
+==============================================================================================================
+
+========================================================================================================================
+  AFL R10 2026 — ML Shadow Mode  (XGBoost trained 2009–2023)
+  Rules = T1–T7 full stack above.  ML = XGBoost (bias-corrected +12.9 pts, n=855) + T2 + T5 + T6 + T7.
+  Divergence flags: margin ≥6pt  |  H2H ≥8%  |  total ≥8pt
+========================================================================================================================
+
+  Matchup                                         Rules Mrg   ML Mrg    MrgΔ   Rules Tot   ML Tot    TotΔ   Rules H%    ML H%     H%Δ
+  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                       +24.0    +17.6    -6.4       195.1    160.2   -34.9      74.8%    88.9%  +14.1% ◆margin+H2H+total
+  Swans vs Magpies                                    +27.2    +14.9   -12.3       186.8    148.8   -38.0      77.5%    85.1%   +7.6% ◆margin+total
+  Suns vs Power                                       +29.7    +34.5    +4.8       174.6    163.9   -10.7      79.5%    85.0%   +5.5% ◆total
+  Crows vs Kangaroos                                  +45.4    +46.9    +1.5       181.0    184.4    +3.4      89.6%    86.0%   -3.6%
+  Demons vs Hawks                                     -43.4     -1.5   +41.9       191.1    167.5   -23.6      11.4%    74.1%  +62.7% ◆margin+H2H+total
+  Blues vs Bulldogs                                   -13.6     +7.6   +21.2       169.8    165.5    -4.3      35.2%    61.4%  +26.2% ◆margin+H2H
+  Bombers vs Dockers                                  -42.9    -11.8   +31.1       173.7    158.9   -14.8      11.7%    69.5%  +57.9% ◆margin+H2H+total
+  Saints vs Tigers                                    +55.3    +35.2   -20.1       164.5    160.9    -3.6      93.8%    90.7%   -3.0% ◆margin
+  Eagles vs Giants                                    -42.1    -29.0   +13.1       154.7    157.6    +2.9      12.1%    21.9%   +9.8% ◆margin+H2H
+
+  DIVERGENCE SUMMARY  (rules vs ML gap beyond thresholds)
+  ────────────────────────────────────────────────────────────────────────────────
+  Lions vs Cats                                   ML more bearish home  |  margin: 6.4  H2H: 0.1  total: 34.9
+  Swans vs Magpies                                ML more bearish home  |  margin: 12.3  total: 38.0
+  Suns vs Power                                   ML more bullish home  |  total: 10.7
+  Demons vs Hawks                                 ML more bullish home  |  margin: 41.9  H2H: 0.6  total: 23.6
+  Blues vs Bulldogs                               ML more bullish home  |  margin: 21.2  H2H: 0.3
+  Bombers vs Dockers                              ML more bullish home  |  margin: 31.1  H2H: 0.6  total: 14.8
+  Saints vs Tigers                                ML more bearish home  |  margin: 20.1
+  Eagles vs Giants                                ML more bullish home  |  margin: 13.1  H2H: 0.1
+
+  ◆ = divergence flag.  ML is independent cross-check only — not used in pricing.
+========================================================================================================================
+
+DB: 9 rows stored in afl_shadow_predictions (season=2026, round=10)

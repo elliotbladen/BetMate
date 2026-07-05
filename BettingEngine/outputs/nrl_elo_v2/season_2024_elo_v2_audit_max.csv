@@ -1,0 +1,214 @@
+date,home_team,away_team,actual_margin,standard_home_delta,adjusted_home_delta,multiplier,adjustment_type,hard_done_by,lucky_winner,pregame_home_elo_v2,pregame_away_elo_v2,postgame_home_elo_v2,postgame_away_elo_v2
+2024-03-03,Sydney Roosters,Brisbane Broncos,10.0,10.77,10.77,1.0,normal,,,1543.08,1569.9,1553.85,1559.13
+2024-03-03,Manly-Warringah Sea Eagles,South Sydney Rabbitohs,12.0,11.155,11.155,1.0,normal,,,1483.81,1524.11,1494.96,1512.96
+2024-03-07,Newcastle Knights,Canberra Raiders,-16.0,-9.94,-9.94,1.0,normal,,,1506.22,1508.32,1496.28,1518.26
+2024-03-08,Melbourne Storm,Penrith Panthers,8.0,12.169,0.0,0.0,stat_reversal,Penrith Panthers,Melbourne Storm,1578.37,1654.94,1578.37,1654.94
+2024-03-08,New Zealand Warriors,Cronulla-Sutherland Sharks,-4.0,-9.317,-0.0,0.0,stat_reversal,New Zealand Warriors,Cronulla-Sutherland Sharks,1505.5,1529.26,1505.5,1529.26
+2024-03-09,Gold Coast Titans,St. George Illawarra Dragons,-24.0,-10.688,-10.688,1.0,normal,,,1431.67,1407.73,1420.98,1418.42
+2024-03-09,Parramatta Eels,Canterbury-Bankstown Bulldogs,18.0,6.225,6.225,1.0,normal,,,1533.43,1395.45,1539.66,1389.22
+2024-03-10,Dolphins,North Queensland Cowboys,-25.0,-8.44,-8.44,1.0,normal,,,1455.24,1509.87,1446.8,1518.31
+2024-03-14,Brisbane Broncos,South Sydney Rabbitohs,10.0,8.679,8.679,1.0,normal,,,1559.13,1512.96,1567.81,1504.28
+2024-03-15,Penrith Panthers,Parramatta Eels,8.0,6.798,6.798,1.0,normal,,,1654.94,1539.66,1661.74,1532.86
+2024-03-15,Cronulla-Sutherland Sharks,Canterbury-Bankstown Bulldogs,19.0,6.174,6.174,1.0,normal,,,1529.26,1389.22,1535.43,1383.05
+2024-03-16,Melbourne Storm,New Zealand Warriors,4.0,7.933,3.966,0.5,close_game_tension,New Zealand Warriors,Melbourne Storm,1578.37,1505.5,1582.34,1501.53
+2024-03-16,North Queensland Cowboys,Newcastle Knights,1.0,9.367,9.367,1.0,normal,,,1518.31,1496.28,1527.68,1486.91
+2024-03-16,Canberra Raiders,Wests Tigers,20.0,5.809,5.809,1.0,normal,,,1518.26,1363.1,1524.07,1357.29
+2024-03-17,Dolphins,St. George Illawarra Dragons,38.0,9.185,9.185,1.0,normal,,,1446.8,1418.42,1455.98,1409.23
+2024-03-17,Manly-Warringah Sea Eagles,Sydney Roosters,7.0,11.679,11.679,1.0,normal,,,1494.96,1553.85,1506.64,1542.17
+2024-03-21,Penrith Panthers,Brisbane Broncos,22.0,7.36,7.36,1.0,normal,,,1661.74,1567.81,1669.1,1560.45
+2024-03-22,Sydney Roosters,South Sydney Rabbitohs,42.0,8.914,8.914,1.0,normal,,,1542.17,1504.28,1551.09,1495.36
+2024-03-22,New Zealand Warriors,Canberra Raiders,8.0,10.648,10.648,1.0,normal,,,1501.53,1524.07,1512.18,1513.42
+2024-03-23,Wests Tigers,Cronulla-Sutherland Sharks,26.0,14.721,14.721,1.0,normal,,,1357.29,1535.43,1372.01,1520.71
+2024-03-23,St. George Illawarra Dragons,North Queensland Cowboys,-22.0,-6.717,-6.717,1.0,normal,,,1409.23,1527.68,1402.52,1534.39
+2024-03-23,Canterbury-Bankstown Bulldogs,Gold Coast Titans,32.0,11.087,11.087,1.0,normal,,,1383.05,1420.98,1394.14,1409.89
+2024-03-24,Newcastle Knights,Melbourne Storm,2.0,12.679,6.34,0.5,close_game_tension,Melbourne Storm,Newcastle Knights,1486.91,1582.34,1493.25,1576.0
+2024-03-24,Parramatta Eels,Manly-Warringah Sea Eagles,4.0,9.247,9.247,1.0,normal,,,1532.86,1506.64,1542.1,1497.4
+2024-03-28,Sydney Roosters,Penrith Panthers,-6.0,-6.728,-6.728,1.0,normal,,,1551.09,1669.1,1544.36,1675.83
+2024-03-29,Brisbane Broncos,North Queensland Cowboys,26.0,9.252,9.252,1.0,normal,,,1560.45,1534.39,1569.7,1525.14
+2024-03-29,South Sydney Rabbitohs,Canterbury-Bankstown Bulldogs,4.0,7.166,7.166,1.0,normal,,,1495.36,1394.14,1502.53,1386.97
+2024-03-30,Gold Coast Titans,Dolphins,-16.0,-8.681,-8.681,1.0,normal,,,1409.89,1455.98,1401.21,1464.67
+2024-03-30,St. George Illawarra Dragons,Manly-Warringah Sea Eagles,8.0,12.665,6.332,0.5,close_game_tension,Manly-Warringah Sea Eagles,St. George Illawarra Dragons,1402.52,1497.4,1408.85,1491.06
+2024-03-31,Cronulla-Sutherland Sharks,Canberra Raiders,14.0,9.79,9.79,1.0,normal,,,1520.71,1513.42,1530.5,1503.63
+2024-03-31,New Zealand Warriors,Newcastle Knights,8.0,9.456,9.456,1.0,normal,,,1512.18,1493.25,1521.64,1483.8
+2024-04-01,Parramatta Eels,Wests Tigers,-1.0,-14.539,-0.0,0.0,stat_reversal,Parramatta Eels,Wests Tigers,1542.1,1372.01,1542.1,1372.01
+2024-04-04,Melbourne Storm,Brisbane Broncos,2.0,9.819,9.819,1.0,normal,,,1576.0,1569.7,1585.82,1559.88
+2024-04-05,Newcastle Knights,St. George Illawarra Dragons,20.0,7.876,7.876,1.0,normal,,,1483.8,1408.85,1491.67,1400.97
+2024-04-05,Canterbury-Bankstown Bulldogs,Sydney Roosters,4.0,14.244,14.244,1.0,normal,,,1386.97,1544.36,1401.22,1530.11
+2024-04-06,Dolphins,Wests Tigers,10.0,7.395,7.395,1.0,normal,,,1464.67,1372.01,1472.06,1364.62
+2024-04-06,Manly-Warringah Sea Eagles,Penrith Panthers,14.0,14.867,14.867,1.0,normal,,,1491.06,1675.83,1505.93,1660.96
+2024-04-06,South Sydney Rabbitohs,New Zealand Warriors,-30.0,-9.451,-9.451,1.0,normal,,,1502.53,1521.64,1493.08,1531.09
+2024-04-07,Canberra Raiders,Parramatta Eels,33.0,11.103,11.103,1.0,normal,,,1503.63,1542.1,1514.73,1531.0
+2024-04-07,North Queensland Cowboys,Gold Coast Titans,13.0,6.577,6.577,1.0,normal,,,1525.14,1401.21,1531.72,1394.64
+2024-04-11,Newcastle Knights,Sydney Roosters,-2.0,-8.898,-8.898,1.0,normal,,,1491.67,1530.11,1482.78,1539.01
+2024-04-12,Brisbane Broncos,Dolphins,14.0,7.525,7.525,1.0,normal,,,1559.88,1472.06,1567.41,1464.54
+2024-04-12,Melbourne Storm,Canterbury-Bankstown Bulldogs,2.0,5.136,5.136,1.0,normal,,,1585.82,1401.22,1590.95,1396.08
+2024-04-13,South Sydney Rabbitohs,Cronulla-Sutherland Sharks,-12.0,-8.927,-8.927,1.0,normal,,,1493.08,1530.5,1484.15,1539.43
+2024-04-13,Parramatta Eels,North Queensland Cowboys,7.0,10.021,5.01,0.5,close_game_tension,North Queensland Cowboys,Parramatta Eels,1531.0,1531.72,1536.01,1526.71
+2024-04-13,New Zealand Warriors,Manly-Warringah Sea Eagles,0.0,-0.723,-0.723,1.0,normal,,,1531.09,1505.93,1530.36,1506.65
+2024-04-14,Canberra Raiders,Gold Coast Titans,1.0,6.675,6.675,1.0,normal,,,1514.73,1394.64,1521.41,1387.96
+2024-04-14,Wests Tigers,St. George Illawarra Dragons,-12.0,-8.957,-8.957,1.0,normal,,,1364.62,1400.97,1355.66,1409.93
+2024-04-18,Sydney Roosters,Melbourne Storm,-6.0,-8.516,-4.258,0.5,report_context_tension,Sydney Roosters,Melbourne Storm,1539.01,1590.95,1534.75,1595.21
+2024-04-19,Parramatta Eels,Dolphins,-28.0,-12.029,-12.029,1.0,normal,,,1536.01,1464.54,1523.98,1476.56
+2024-04-19,St. George Illawarra Dragons,New Zealand Warriors,18.0,13.334,13.334,1.0,normal,,,1409.93,1530.36,1423.26,1517.03
+2024-04-20,Brisbane Broncos,Canberra Raiders,24.0,8.684,8.684,1.0,normal,,,1567.41,1521.41,1576.09,1512.72
+2024-04-20,Gold Coast Titans,Manly-Warringah Sea Eagles,-4.0,-6.711,-6.711,1.0,normal,,,1387.96,1506.65,1381.25,1513.37
+2024-04-20,Penrith Panthers,Wests Tigers,16.0,2.942,2.942,1.0,normal,,,1660.96,1355.66,1663.9,1352.72
+2024-04-21,Cronulla-Sutherland Sharks,North Queensland Cowboys,36.0,9.634,9.634,1.0,normal,,,1539.43,1526.71,1549.06,1517.08
+2024-04-21,Canterbury-Bankstown Bulldogs,Newcastle Knights,24.0,12.445,12.445,1.0,normal,,,1396.08,1482.78,1408.52,1470.33
+2024-04-25,Melbourne Storm,South Sydney Rabbitohs,34.0,6.908,6.908,1.0,normal,,,1595.21,1484.15,1602.12,1477.24
+2024-04-25,St. George Illawarra Dragons,Sydney Roosters,-42.0,-6.897,-6.897,1.0,normal,,,1423.26,1534.75,1416.37,1541.65
+2024-04-25,New Zealand Warriors,Gold Coast Titans,-3.0,-13.721,-0.0,0.0,stat_reversal,New Zealand Warriors,Gold Coast Titans,1517.03,1381.25,1517.03,1381.25
+2024-04-26,Manly-Warringah Sea Eagles,Parramatta Eels,14.0,10.305,10.305,1.0,normal,,,1513.37,1523.98,1523.67,1513.68
+2024-04-27,North Queensland Cowboys,Penrith Panthers,-6.0,-6.009,-0.0,0.0,stat_reversal,North Queensland Cowboys,Penrith Panthers,1517.08,1663.9,1517.08,1663.9
+2024-04-27,Wests Tigers,Brisbane Broncos,-24.0,-4.331,-4.331,1.0,normal,,,1352.72,1576.09,1348.39,1580.42
+2024-04-28,Canberra Raiders,Cronulla-Sutherland Sharks,-40.0,-8.958,-8.958,1.0,normal,,,1512.72,1549.06,1503.77,1558.02
+2024-04-28,Dolphins,Newcastle Knights,-4.0,-10.179,-10.179,1.0,normal,,,1476.56,1470.33,1466.38,1480.51
+2024-05-02,South Sydney Rabbitohs,Penrith Panthers,-30.0,-5.091,-5.091,1.0,normal,,,1477.24,1663.9,1472.15,1668.99
+2024-05-03,Brisbane Broncos,Sydney Roosters,-22.0,-11.111,-11.111,1.0,normal,,,1580.42,1541.65,1569.31,1552.76
+2024-05-03,Manly-Warringah Sea Eagles,Canberra Raiders,-2.0,-10.572,-5.286,0.5,close_game_tension,Manly-Warringah Sea Eagles,Canberra Raiders,1523.67,1503.77,1518.38,1509.05
+2024-05-04,North Queensland Cowboys,Dolphins,-2.0,-11.449,-11.449,1.0,normal,,,1517.08,1466.38,1505.63,1477.83
+2024-05-04,Gold Coast Titans,Melbourne Storm,-2.0,-4.38,-0.0,0.0,stat_reversal,Gold Coast Titans,Melbourne Storm,1381.25,1602.12,1381.25,1602.12
+2024-05-04,Canterbury-Bankstown Bulldogs,Wests Tigers,8.0,8.286,8.286,1.0,normal,,,1408.52,1348.39,1416.81,1340.1
+2024-05-05,Cronulla-Sutherland Sharks,St. George Illawarra Dragons,10.0,6.135,6.135,1.0,normal,,,1558.02,1416.37,1564.16,1410.23
+2024-05-05,Newcastle Knights,New Zealand Warriors,6.0,11.047,11.047,1.0,normal,,,1480.51,1517.03,1491.56,1505.98
+2024-05-09,Dolphins,Manly-Warringah Sea Eagles,6.0,11.162,5.581,0.5,close_game_tension,Manly-Warringah Sea Eagles,Dolphins,1477.83,1518.38,1483.41,1512.8
+2024-05-10,Parramatta Eels,Brisbane Broncos,-16.0,-8.412,-8.412,1.0,normal,,,1513.68,1569.31,1505.26,1577.72
+2024-05-10,Penrith Panthers,Canterbury-Bankstown Bulldogs,6.0,3.795,3.795,1.0,normal,,,1668.99,1416.81,1672.79,1413.02
+2024-05-11,Melbourne Storm,Cronulla-Sutherland Sharks,-7.0,-11.088,-11.088,1.0,normal,,,1602.12,1564.16,1591.03,1575.25
+2024-05-11,St. George Illawarra Dragons,South Sydney Rabbitohs,14.0,11.764,11.764,1.0,normal,,,1410.23,1472.15,1422.0,1460.39
+2024-05-11,Wests Tigers,Newcastle Knights,-6.0,-5.897,-5.897,1.0,normal,,,1340.1,1491.56,1334.2,1497.45
+2024-05-12,Gold Coast Titans,North Queensland Cowboys,2.0,13.434,13.434,1.0,normal,,,1381.25,1505.63,1394.69,1492.19
+2024-05-12,Sydney Roosters,New Zealand Warriors,20.0,8.662,8.662,1.0,normal,,,1552.76,1505.98,1561.42,1497.32
+2024-05-17,Manly-Warringah Sea Eagles,Brisbane Broncos,-1.0,-8.153,-8.153,1.0,normal,,,1512.8,1577.72,1504.65,1585.87
+2024-05-17,Canberra Raiders,Canterbury-Bankstown Bulldogs,4.0,7.304,0.0,0.0,stat_reversal,Canterbury-Bankstown Bulldogs,Canberra Raiders,1509.05,1413.02,1509.05,1413.02
+2024-05-18,South Sydney Rabbitohs,North Queensland Cowboys,-6.0,-9.087,-9.087,1.0,normal,,,1460.39,1492.19,1451.3,1501.28
+2024-05-18,Cronulla-Sutherland Sharks,Sydney Roosters,8.0,9.602,9.602,1.0,normal,,,1575.25,1561.42,1584.85,1551.82
+2024-05-18,Gold Coast Titans,Newcastle Knights,-4.0,-7.125,-7.125,1.0,normal,,,1394.69,1497.45,1387.56,1504.58
+2024-05-19,Wests Tigers,Dolphins,-12.0,-5.951,-5.951,1.0,normal,,,1334.2,1483.41,1328.25,1489.37
+2024-05-19,Melbourne Storm,Parramatta Eels,32.0,7.58,7.58,1.0,normal,,,1591.03,1505.26,1598.61,1497.68
+2024-05-19,New Zealand Warriors,Penrith Panthers,2.0,14.661,14.661,1.0,normal,,,1497.32,1672.79,1511.98,1658.13
+2024-05-23,Canterbury-Bankstown Bulldogs,St. George Illawarra Dragons,32.0,10.258,10.258,1.0,normal,,,1413.02,1422.0,1423.27,1411.74
+2024-05-24,Manly-Warringah Sea Eagles,Melbourne Storm,6.0,12.64,12.64,1.0,normal,,,1504.65,1598.61,1517.29,1585.97
+2024-05-24,North Queensland Cowboys,Wests Tigers,14.0,5.394,5.394,1.0,normal,,,1501.28,1328.25,1506.67,1322.86
+2024-05-25,South Sydney Rabbitohs,Parramatta Eels,16.0,11.327,11.327,1.0,normal,,,1451.3,1497.68,1462.63,1486.36
+2024-05-25,Cronulla-Sutherland Sharks,Penrith Panthers,-42.0,-7.922,-7.922,1.0,normal,,,1584.85,1658.13,1576.93,1666.05
+2024-05-25,Canberra Raiders,Sydney Roosters,-28.0,-8.775,-8.775,1.0,normal,,,1509.05,1551.82,1500.28,1560.6
+2024-05-26,New Zealand Warriors,Dolphins,4.0,9.35,9.35,1.0,normal,,,1511.98,1489.37,1521.33,1480.02
+2024-05-26,Brisbane Broncos,Gold Coast Titans,-2.0,-15.159,-7.58,0.5,close_game_tension,Brisbane Broncos,Gold Coast Titans,1585.87,1387.56,1578.29,1395.14
+2024-05-30,Parramatta Eels,Cronulla-Sutherland Sharks,12.0,12.549,12.549,1.0,normal,,,1486.36,1576.93,1498.91,1564.38
+2024-05-31,Newcastle Knights,Canterbury-Bankstown Bulldogs,-30.0,-12.298,-12.298,1.0,normal,,,1504.58,1423.27,1492.28,1435.57
+2024-06-01,Dolphins,Canberra Raiders,-1.0,-9.417,-4.709,0.5,close_game_tension,Dolphins,Canberra Raiders,1480.02,1500.28,1475.31,1504.99
+2024-06-01,Penrith Panthers,St. George Illawarra Dragons,-12.0,-16.243,-16.243,1.0,normal,,,1666.05,1411.74,1649.81,1427.98
+2024-06-02,Sydney Roosters,North Queensland Cowboys,-2.0,-11.54,-11.54,1.0,normal,,,1560.6,1506.67,1549.06,1518.21
+2024-06-07,St. George Illawarra Dragons,Wests Tigers,42.0,7.063,7.063,1.0,normal,,,1427.98,1322.86,1435.04,1315.79
+2024-06-08,Brisbane Broncos,Cronulla-Sutherland Sharks,-10.0,-10.4,-10.4,1.0,normal,,,1578.29,1564.38,1567.89,1574.78
+2024-06-08,North Queensland Cowboys,New Zealand Warriors,-30.0,-9.91,-9.91,1.0,normal,,,1518.21,1521.33,1508.3,1531.24
+2024-06-08,Gold Coast Titans,South Sydney Rabbitohs,-34.0,-8.082,-8.082,1.0,normal,,,1395.14,1462.63,1387.06,1470.71
+2024-06-09,Penrith Panthers,Manly-Warringah Sea Eagles,10.0,6.361,6.361,1.0,normal,,,1649.81,1517.29,1656.17,1510.93
+2024-06-09,Melbourne Storm,Newcastle Knights,8.0,7.367,7.367,1.0,normal,,,1585.97,1492.28,1593.34,1484.91
+2024-06-10,Canterbury-Bankstown Bulldogs,Parramatta Eels,4.0,11.803,5.901,0.5,close_game_tension,Parramatta Eels,Canterbury-Bankstown Bulldogs,1435.57,1498.91,1441.47,1493.0
+2024-06-13,Cronulla-Sutherland Sharks,Dolphins,-2.0,-12.787,-12.787,1.0,normal,,,1574.78,1475.31,1561.99,1488.09
+2024-06-14,South Sydney Rabbitohs,Brisbane Broncos,10.0,12.726,12.726,1.0,normal,,,1470.71,1567.89,1483.44,1555.17
+2024-06-14,Canberra Raiders,North Queensland Cowboys,-18.0,-9.905,-9.905,1.0,normal,,,1504.99,1508.3,1495.08,1518.21
+2024-06-15,Parramatta Eels,Sydney Roosters,-10.0,-8.401,-8.401,1.0,normal,,,1493.0,1549.06,1484.6,1557.46
+2024-06-15,New Zealand Warriors,Melbourne Storm,-14.0,-8.232,-8.232,1.0,normal,,,1531.24,1593.34,1523.01,1601.57
+2024-06-15,Wests Tigers,Gold Coast Titans,8.0,12.023,0.0,0.0,stat_reversal,Gold Coast Titans,Wests Tigers,1315.79,1387.06,1315.79,1387.06
+2024-06-16,Newcastle Knights,Penrith Panthers,-8.0,-5.435,-5.435,1.0,normal,,,1484.91,1656.17,1479.48,1661.6
+2024-06-16,Manly-Warringah Sea Eagles,St. George Illawarra Dragons,16.0,7.85,7.85,1.0,normal,,,1510.93,1435.04,1518.78,1427.19
+2024-06-21,Dolphins,Melbourne Storm,-6.0,-6.845,-6.845,1.0,normal,,,1488.09,1601.57,1481.25,1608.41
+2024-06-22,South Sydney Rabbitohs,Manly-Warringah Sea Eagles,14.0,11.014,11.014,1.0,normal,,,1483.44,1518.78,1494.45,1507.77
+2024-06-22,Sydney Roosters,Canterbury-Bankstown Bulldogs,18.0,6.78,6.78,1.0,normal,,,1557.46,1441.47,1564.24,1434.69
+2024-06-22,Gold Coast Titans,New Zealand Warriors,60.0,13.725,13.725,1.0,normal,,,1387.06,1523.01,1400.78,1509.29
+2024-06-23,Wests Tigers,Canberra Raiders,24.0,14.746,0.0,0.0,stat_reversal,Canberra Raiders,Wests Tigers,1315.79,1495.08,1315.79,1495.08
+2024-06-28,Canterbury-Bankstown Bulldogs,Cronulla-Sutherland Sharks,1.0,13.508,0.0,0.0,stat_reversal,Cronulla-Sutherland Sharks,Canterbury-Bankstown Bulldogs,1434.69,1561.99,1434.69,1561.99
+2024-06-29,Melbourne Storm,Canberra Raiders,10.0,6.849,6.849,1.0,normal,,,1608.41,1495.08,1615.26,1488.23
+2024-06-29,Newcastle Knights,Parramatta Eels,8.0,10.147,10.147,1.0,normal,,,1479.48,1484.6,1489.63,1474.46
+2024-06-29,New Zealand Warriors,Brisbane Broncos,16.0,11.313,11.313,1.0,normal,,,1509.29,1555.17,1520.6,1543.85
+2024-06-30,Sydney Roosters,Wests Tigers,34.0,3.861,3.861,1.0,normal,,,1564.24,1315.79,1568.1,1311.93
+2024-06-30,Penrith Panthers,North Queensland Cowboys,-10.0,-13.908,-13.908,1.0,normal,,,1661.6,1518.21,1647.69,1532.12
+2024-06-30,St. George Illawarra Dragons,Dolphins,20.0,11.543,11.543,1.0,normal,,,1427.19,1481.25,1438.74,1469.71
+2024-07-04,Parramatta Eels,South Sydney Rabbitohs,-16.0,-9.425,-9.425,1.0,normal,,,1474.46,1494.45,1465.03,1503.88
+2024-07-05,Brisbane Broncos,Penrith Panthers,-8.0,-7.097,-7.097,1.0,normal,,,1543.85,1647.69,1536.76,1654.79
+2024-07-05,Cronulla-Sutherland Sharks,Gold Coast Titans,-4.0,-14.333,-14.333,1.0,normal,,,1561.99,1400.78,1547.66,1415.12
+2024-07-06,North Queensland Cowboys,Manly-Warringah Sea Eagles,-1.0,-10.7,-0.0,0.0,stat_reversal,North Queensland Cowboys,Manly-Warringah Sea Eagles,1532.12,1507.77,1532.12,1507.77
+2024-07-06,Wests Tigers,Melbourne Storm,-12.0,-2.971,-2.971,1.0,normal,,,1311.93,1615.26,1308.96,1618.23
+2024-07-06,Canterbury-Bankstown Bulldogs,New Zealand Warriors,1.0,12.423,0.0,0.0,stat_reversal,New Zealand Warriors,Canterbury-Bankstown Bulldogs,1434.69,1520.6,1434.69,1520.6
+2024-07-07,Canberra Raiders,Newcastle Knights,-4.0,-9.96,-9.96,1.0,normal,,,1488.23,1489.63,1478.27,1499.59
+2024-07-07,Sydney Roosters,St. George Illawarra Dragons,30.0,6.44,6.44,1.0,normal,,,1568.1,1438.74,1574.54,1432.3
+2024-07-11,Dolphins,South Sydney Rabbitohs,8.0,10.98,0.0,0.0,stat_reversal,South Sydney Rabbitohs,Dolphins,1469.71,1503.88,1469.71,1503.88
+2024-07-12,Cronulla-Sutherland Sharks,Wests Tigers,52.0,4.039,4.039,1.0,normal,,,1547.66,1308.96,1551.7,1304.92
+2024-07-13,Brisbane Broncos,St. George Illawarra Dragons,-4.0,-12.919,-12.919,1.0,normal,,,1536.76,1432.3,1523.84,1445.22
+2024-07-13,Gold Coast Titans,Parramatta Eels,8.0,11.427,11.427,1.0,normal,,,1415.12,1465.03,1426.54,1453.6
+2024-07-14,Manly-Warringah Sea Eagles,Newcastle Knights,38.0,9.765,9.765,1.0,normal,,,1507.77,1499.59,1517.53,1489.82
+2024-07-19,Canberra Raiders,New Zealand Warriors,2.0,11.212,0.0,0.0,stat_reversal,New Zealand Warriors,Canberra Raiders,1478.27,1520.6,1478.27,1520.6
+2024-07-20,Melbourne Storm,Sydney Roosters,16.0,8.749,8.749,1.0,normal,,,1618.23,1574.54,1626.98,1565.79
+2024-07-20,Newcastle Knights,Brisbane Broncos,-16.0,-9.024,-9.024,1.0,normal,,,1489.82,1523.84,1480.8,1532.86
+2024-07-20,South Sydney Rabbitohs,Wests Tigers,14.0,4.827,4.827,1.0,normal,,,1503.88,1304.92,1508.7,1300.09
+2024-07-21,North Queensland Cowboys,Canterbury-Bankstown Bulldogs,2.0,7.267,7.267,1.0,normal,,,1532.12,1434.69,1539.38,1427.43
+2024-07-21,Manly-Warringah Sea Eagles,Gold Coast Titans,30.0,7.439,7.439,1.0,normal,,,1517.53,1426.54,1524.97,1419.1
+2024-07-21,Penrith Panthers,Dolphins,2.0,5.125,2.563,0.5,close_game_tension,Dolphins,Penrith Panthers,1654.79,1469.71,1657.35,1467.14
+2024-07-26,Parramatta Eels,Melbourne Storm,-18.0,-5.387,-1.347,0.25,margin_exaggeration,Parramatta Eels,Melbourne Storm,1453.6,1626.98,1452.26,1628.33
+2024-07-26,New Zealand Warriors,Wests Tigers,12.0,4.387,4.387,1.0,normal,,,1520.6,1300.09,1524.99,1295.71
+2024-07-27,Sydney Roosters,Manly-Warringah Sea Eagles,4.0,8.831,8.831,1.0,normal,,,1565.79,1524.97,1574.62,1516.14
+2024-07-27,North Queensland Cowboys,Cronulla-Sutherland Sharks,8.0,10.354,10.354,1.0,normal,,,1539.38,1551.7,1549.74,1541.34
+2024-07-27,Brisbane Broncos,Canterbury-Bankstown Bulldogs,-25.0,-12.945,-12.945,1.0,normal,,,1532.86,1427.43,1519.92,1440.37
+2024-07-28,Canberra Raiders,South Sydney Rabbitohs,20.0,10.874,10.874,1.0,normal,,,1478.27,1508.7,1489.15,1497.83
+2024-07-28,Dolphins,Gold Coast Titans,-7.0,-11.374,-11.374,1.0,normal,,,1467.14,1419.1,1455.77,1430.48
+2024-07-28,St. George Illawarra Dragons,Penrith Panthers,-36.0,-4.555,-4.555,1.0,normal,,,1445.22,1657.35,1440.66,1661.91
+2024-08-01,Wests Tigers,North Queensland Cowboys,-18.0,-3.762,-3.762,1.0,normal,,,1295.71,1549.74,1291.95,1553.5
+2024-08-02,Dolphins,Sydney Roosters,-6.0,-6.707,-6.707,1.0,normal,,,1455.77,1574.62,1449.06,1581.33
+2024-08-02,New Zealand Warriors,Parramatta Eels,-10.0,-12.063,-0.0,0.0,stat_reversal,New Zealand Warriors,Parramatta Eels,1524.99,1452.26,1524.99,1452.26
+2024-08-03,Cronulla-Sutherland Sharks,South Sydney Rabbitohs,14.0,8.754,8.754,1.0,normal,,,1541.34,1497.83,1550.1,1489.08
+2024-08-03,Melbourne Storm,St. George Illawarra Dragons,-2.0,-14.931,-0.0,0.0,stat_reversal,Melbourne Storm,St. George Illawarra Dragons,1628.33,1440.66,1628.33,1440.66
+2024-08-03,Gold Coast Titans,Brisbane Broncos,28.0,12.519,12.519,1.0,normal,,,1430.48,1519.92,1443.0,1507.4
+2024-08-04,Canterbury-Bankstown Bulldogs,Canberra Raiders,4.0,11.395,11.395,1.0,normal,,,1440.37,1489.15,1451.77,1477.75
+2024-08-04,Penrith Panthers,Newcastle Knights,8.0,5.213,5.213,1.0,normal,,,1661.91,1480.8,1667.12,1475.59
+2024-08-08,South Sydney Rabbitohs,Melbourne Storm,-12.0,-6.194,-6.194,1.0,normal,,,1489.08,1628.33,1482.88,1634.52
+2024-08-09,Parramatta Eels,Penrith Panthers,-2.0,-4.5,-4.5,1.0,normal,,,1452.26,1667.12,1447.76,1671.62
+2024-08-09,Gold Coast Titans,Cronulla-Sutherland Sharks,-44.0,-7.011,-7.011,1.0,normal,,,1443.0,1550.1,1435.99,1557.11
+2024-08-10,St. George Illawarra Dragons,Canterbury-Bankstown Bulldogs,-18.0,-9.681,-9.681,1.0,normal,,,1440.66,1451.77,1430.98,1461.45
+2024-08-10,North Queensland Cowboys,Brisbane Broncos,-24.0,-11.319,-11.319,1.0,normal,,,1553.5,1507.4,1542.18,1518.72
+2024-08-10,Canberra Raiders,Manly-Warringah Sea Eagles,-22.0,-8.9,-8.9,1.0,normal,,,1477.75,1516.14,1468.85,1525.04
+2024-08-11,Newcastle Knights,Wests Tigers,16.0,5.157,5.157,1.0,normal,,,1475.59,1291.95,1480.74,1286.79
+2024-08-11,Dolphins,New Zealand Warriors,2.0,12.151,6.076,0.5,close_game_tension,New Zealand Warriors,Dolphins,1449.06,1524.99,1455.14,1518.91
+2024-08-15,Penrith Panthers,Melbourne Storm,-2.0,-11.064,-5.532,0.5,close_game_tension,Penrith Panthers,Melbourne Storm,1671.62,1634.52,1666.09,1640.05
+2024-08-16,Sydney Roosters,Parramatta Eels,24.0,6.334,6.334,1.0,normal,,,1581.33,1447.76,1587.66,1441.42
+2024-08-16,Manly-Warringah Sea Eagles,New Zealand Warriors,14.0,9.824,9.824,1.0,normal,,,1525.04,1518.91,1534.86,1509.09
+2024-08-17,Wests Tigers,South Sydney Rabbitohs,2.0,15.112,0.0,0.0,stat_reversal,South Sydney Rabbitohs,Wests Tigers,1286.79,1482.88,1286.79,1482.88
+2024-08-17,North Queensland Cowboys,Canberra Raiders,38.0,7.92,7.92,1.0,normal,,,1542.18,1468.85,1550.1,1460.93
+2024-08-17,Canterbury-Bankstown Bulldogs,Dolphins,20.0,9.818,9.818,1.0,normal,,,1461.45,1455.14,1471.26,1445.32
+2024-08-18,Cronulla-Sutherland Sharks,Newcastle Knights,1.0,7.837,7.837,1.0,normal,,,1557.11,1480.74,1564.94,1472.91
+2024-08-18,St. George Illawarra Dragons,Gold Coast Titans,16.0,10.144,10.144,1.0,normal,,,1430.98,1435.99,1441.13,1425.84
+2024-08-22,Wests Tigers,Manly-Warringah Sea Eagles,8.0,16.132,16.132,1.0,normal,,,1286.79,1534.86,1302.92,1518.73
+2024-08-23,Brisbane Broncos,Parramatta Eels,6.0,7.811,7.811,1.0,normal,,,1518.72,1441.42,1526.53,1433.61
+2024-08-23,New Zealand Warriors,Canterbury-Bankstown Bulldogs,-16.0,-11.084,-11.084,1.0,normal,,,1509.09,1471.26,1498.0,1482.35
+2024-08-24,South Sydney Rabbitohs,Newcastle Knights,-20.0,-10.287,-10.287,1.0,normal,,,1482.88,1472.91,1472.59,1483.19
+2024-08-24,Melbourne Storm,Dolphins,42.0,4.917,4.917,1.0,normal,,,1640.05,1445.32,1644.97,1440.4
+2024-08-24,Canberra Raiders,Penrith Panthers,4.0,15.302,0.0,0.0,stat_reversal,Penrith Panthers,Canberra Raiders,1460.93,1666.09,1460.93,1666.09
+2024-08-25,St. George Illawarra Dragons,Cronulla-Sutherland Sharks,-28.0,-6.58,-6.58,1.0,normal,,,1441.13,1564.94,1434.55,1571.52
+2024-08-25,Gold Coast Titans,Sydney Roosters,-26.0,-5.652,-5.652,1.0,normal,,,1425.84,1587.66,1420.19,1593.31
+2024-08-29,North Queensland Cowboys,Melbourne Storm,8.0,12.665,0.0,0.0,stat_reversal,Melbourne Storm,North Queensland Cowboys,1550.1,1644.97,1550.1,1644.97
+2024-08-30,Penrith Panthers,South Sydney Rabbitohs,22.0,4.943,4.943,1.0,normal,,,1666.09,1472.59,1671.03,1467.65
+2024-08-30,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,-12.0,-8.957,-8.957,1.0,normal,,,1482.35,1518.73,1473.39,1527.69
+2024-08-31,Cronulla-Sutherland Sharks,New Zealand Warriors,-2.0,-12.085,-12.085,1.0,normal,,,1571.52,1498.0,1559.44,1510.09
+2024-08-31,Dolphins,Brisbane Broncos,34.0,12.429,12.429,1.0,normal,,,1440.4,1526.53,1452.83,1514.1
+2024-08-31,Parramatta Eels,St. George Illawarra Dragons,4.0,10.027,10.027,1.0,normal,,,1433.61,1434.55,1443.64,1424.52
+2024-09-01,Sydney Roosters,Canberra Raiders,-2.0,-13.636,-0.0,0.0,stat_reversal,Sydney Roosters,Canberra Raiders,1593.31,1460.93,1593.31,1460.93
+2024-09-01,Newcastle Knights,Gold Coast Titans,22.0,8.206,8.206,1.0,normal,,,1483.19,1420.19,1491.4,1411.98
+2024-09-05,Brisbane Broncos,Melbourne Storm,-38.0,-6.402,-6.402,1.0,normal,,,1514.1,1644.97,1507.7,1651.37
+2024-09-06,South Sydney Rabbitohs,Sydney Roosters,-8.0,-6.533,-6.533,1.0,normal,,,1467.65,1593.31,1461.12,1599.85
+2024-09-06,Wests Tigers,Parramatta Eels,-34.0,-6.158,-6.158,1.0,normal,,,1302.92,1443.64,1296.76,1449.8
+2024-09-07,Penrith Panthers,Gold Coast Titans,6.0,3.675,3.675,1.0,normal,,,1671.03,1411.98,1674.71,1408.31
+2024-09-07,Canterbury-Bankstown Bulldogs,North Queensland Cowboys,-38.0,-7.827,-7.827,1.0,normal,,,1473.39,1550.1,1465.56,1557.93
+2024-09-07,St. George Illawarra Dragons,Canberra Raiders,-2.0,-8.956,-4.478,0.5,close_game_tension,St. George Illawarra Dragons,Canberra Raiders,1424.52,1460.93,1420.04,1465.41
+2024-09-08,Newcastle Knights,Dolphins,8.0,8.894,8.894,1.0,normal,,,1491.4,1452.83,1500.29,1443.94
+2024-09-08,Manly-Warringah Sea Eagles,Cronulla-Sutherland Sharks,-20.0,-9.089,-9.089,1.0,normal,,,1527.69,1559.44,1518.6,1568.53
+2024-09-13,Penrith Panthers,Sydney Roosters,20.0,7.878,7.878,1.0,normal,,,1674.71,1599.85,1682.59,1591.97
+2024-09-14,North Queensland Cowboys,Newcastle Knights,12.0,8.356,8.356,1.0,normal,,,1557.93,1500.29,1566.28,1491.94
+2024-09-14,Melbourne Storm,Cronulla-Sutherland Sharks,27.0,7.66,7.66,1.0,normal,,,1651.37,1568.53,1659.03,1560.87
+2024-09-15,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,-2.0,-8.485,-4.243,0.5,close_game_tension,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,1465.56,1518.6,1461.32,1522.84
+2024-09-20,Cronulla-Sutherland Sharks,North Queensland Cowboys,8.0,10.156,10.156,1.0,normal,,,1560.87,1566.28,1571.02,1556.13
+2024-09-21,Sydney Roosters,Manly-Warringah Sea Eagles,24.0,8.036,8.036,1.0,normal,,,1591.97,1522.84,1600.0,1514.81
+2024-09-27,Melbourne Storm,Sydney Roosters,30.0,8.317,8.317,1.0,normal,,,1659.03,1600.0,1667.35,1591.69
+2024-09-28,Penrith Panthers,Cronulla-Sutherland Sharks,20.0,6.895,6.895,1.0,normal,,,1682.59,1571.02,1689.48,1564.13
+2024-10-06,Melbourne Storm,Penrith Panthers,-8.0,-9.364,-9.364,1.0,normal,,,1667.35,1689.48,1657.99,1698.84

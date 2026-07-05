@@ -1,0 +1,970 @@
+year,game_date,home_team,away_team,ht_home_score,ht_away_score,ht_home_goals,ht_home_behinds,ht_away_goals,ht_away_behinds,ft_home_score_afl,ft_away_score_afl
+2022,2022-03-16,Melbourne,Western Bulldogs,42,51,6,6,8,3,97,71
+2022,2022-03-17,Carlton,Richmond,39,31,5,9,4,7,101,76
+2022,2022-03-18,St Kilda,Collingwood,36,51,5,6,7,9,85,102
+2022,2022-03-19,Geelong,Essendon,81,21,12,9,3,3,138,72
+2022,2022-03-19,GWS,Sydney,67,58,10,7,9,4,92,112
+2022,2022-03-19,Brisbane,Port Adelaide,30,34,4,6,5,4,80,69
+2022,2022-03-20,Hawthorn,North Melbourne,31,38,4,7,5,8,78,58
+2022,2022-03-20,Adelaide,Fremantle,32,57,5,2,8,9,82,83
+2022,2022-03-20,West Coast,Gold Coast,45,36,7,3,5,6,80,107
+2022,2022-03-24,Western Bulldogs,Carlton,45,76,7,3,12,4,90,102
+2022,2022-03-25,Sydney,Geelong,69,43,11,3,6,7,107,77
+2022,2022-03-26,Collingwood,Adelaide,47,24,7,5,3,6,100,58
+2022,2022-03-26,Essendon,Brisbane,39,44,5,9,7,2,75,97
+2022,2022-03-26,Port Adelaide,Hawthorn,24,52,3,6,8,4,56,120
+2022,2022-03-26,Gold Coast,Melbourne,41,55,6,5,9,1,69,82
+2022,2022-03-27,North Melbourne,West Coast,46,28,6,10,4,4,74,59
+2022,2022-03-27,Richmond,GWS,49,29,7,7,4,5,109,73
+2022,2022-03-27,Fremantle,St Kilda,31,19,5,1,2,7,55,65
+2022,2022-03-31,Western Bulldogs,Sydney,34,9,4,10,1,3,71,60
+2022,2022-04-01,Melbourne,Essendon,32,23,4,8,3,5,99,70
+2022,2022-04-01,Adelaide,Port Adelaide,45,61,7,3,9,7,96,92
+2022,2022-04-02,GWS,Gold Coast,55,23,8,7,3,5,83,57
+2022,2022-04-02,Collingwood,Geelong,35,40,4,11,6,4,91,104
+2022,2022-04-02,Brisbane,North Melbourne,72,33,11,6,5,3,156,48
+2022,2022-04-03,Carlton,Hawthorn,59,29,9,5,4,5,74,73
+2022,2022-04-03,St Kilda,Richmond,52,65,8,4,10,5,117,84
+2022,2022-04-03,West Coast,Fremantle,8,42,1,2,6,6,47,102
+2022,2022-04-07,Port Adelaide,Melbourne,5,42,0,5,6,6,36,68
+2022,2022-04-08,Geelong,Brisbane,48,39,7,6,6,3,80,70
+2022,2022-04-09,Sydney,North Melbourne,40,37,6,4,6,1,86,75
+2022,2022-04-09,Collingwood,West Coast,42,44,6,6,7,2,74,87
+2022,2022-04-09,Fremantle,GWS,37,31,5,7,5,1,88,54
+2022,2022-04-09,Richmond,Western Bulldogs,45,34,7,3,4,10,99,61
+2022,2022-04-10,Essendon,Adelaide,60,52,9,6,8,4,103,99
+2022,2022-04-10,Hawthorn,St Kilda,38,75,5,8,12,3,73,142
+2022,2022-04-10,Gold Coast,Carlton,49,35,7,7,5,5,92,62
+2022,2022-04-14,Brisbane,Collingwood,58,45,9,4,7,3,98,91
+2022,2022-04-15,North Melbourne,Western Bulldogs,38,64,6,2,10,4,71,139
+2022,2022-04-15,West Coast,Sydney,12,70,2,0,10,10,58,121
+2022,2022-04-16,St Kilda,Gold Coast,43,37,6,7,6,1,87,61
+2022,2022-04-16,Adelaide,Richmond,58,39,9,4,6,3,101,82
+2022,2022-04-16,Melbourne,GWS,38,24,6,2,3,6,120,53
+2022,2022-04-17,Carlton,Port Adelaide,78,29,12,6,4,5,94,91
+2022,2022-04-17,Essendon,Fremantle,38,41,5,8,6,5,59,107
+2022,2022-04-18,Hawthorn,Geelong,52,42,8,4,6,6,92,80
+2022,2022-04-22,GWS,St Kilda,49,38,7,7,5,8,60,77
+2022,2022-04-23,Western Bulldogs,Adelaide,25,25,3,7,3,7,62,63
+2022,2022-04-23,Port Adelaide,West Coast,53,10,8,5,1,4,117,33
+2022,2022-04-23,Fremantle,Carlton,48,29,7,6,4,5,97,62
+2022,2022-04-24,North Melbourne,Geelong,16,53,2,4,7,11,61,121
+2022,2022-04-24,Gold Coast,Brisbane,34,57,4,10,9,3,80,132
+2022,2022-04-24,Richmond,Melbourne,33,30,5,3,3,12,54,76
+2022,2022-04-25,Hawthorn,Sydney,47,32,7,5,4,8,68,109
+2022,2022-04-25,Essendon,Collingwood,30,38,4,6,6,2,82,93
+2022,2022-04-29,West Coast,Richmond,16,79,2,4,12,7,56,165
+2022,2022-04-30,Geelong,Fremantle,31,31,5,1,4,7,66,69
+2022,2022-04-30,Adelaide,GWS,15,74,2,3,11,8,54,113
+2022,2022-04-30,Melbourne,Hawthorn,47,38,7,5,5,8,91,81
+2022,2022-04-30,Carlton,North Melbourne,53,45,8,5,7,3,114,64
+2022,2022-04-30,St Kilda,Port Adelaide,24,10,3,6,1,4,42,43
+2022,2022-05-01,Collingwood,Gold Coast,71,50,11,5,8,2,115,90
+2022,2022-05-01,Western Bulldogs,Essendon,39,25,6,3,3,7,103,71
+2022,2022-05-01,Sydney,Brisbane,16,49,2,4,7,7,89,113
+2022,2022-05-06,Port Adelaide,Western Bulldogs,46,42,7,4,6,6,86,69
+2022,2022-05-06,Fremantle,North Melbourne,53,15,8,5,2,3,102,24
+2022,2022-05-07,Richmond,Collingwood,61,37,9,7,5,7,113,86
+2022,2022-05-07,Sydney,Gold Coast,31,48,4,7,7,6,61,75
+2022,2022-05-07,GWS,Geelong,23,43,3,5,6,7,35,88
+2022,2022-05-07,Essendon,Hawthorn,39,57,6,3,8,9,108,81
+2022,2022-05-07,Brisbane,West Coast,36,7,5,6,1,1,105,30
+2022,2022-05-08,Melbourne,St Kilda,57,22,9,3,3,4,93,55
+2022,2022-05-08,Carlton,Adelaide,60,34,9,6,5,4,116,68
+2022,2022-05-13,Collingwood,Western Bulldogs,18,52,2,6,7,10,51,99
+2022,2022-05-14,Hawthorn,Richmond,53,59,8,5,9,5,94,117
+2022,2022-05-14,North Melbourne,Port Adelaide,25,56,3,7,8,8,46,115
+2022,2022-05-14,St Kilda,Geelong,28,44,4,4,6,8,90,80
+2022,2022-05-14,Sydney,Essendon,66,28,9,12,4,4,105,47
+2022,2022-05-14,Adelaide,Brisbane,48,45,7,6,7,3,66,102
+2022,2022-05-15,Gold Coast,Fremantle,35,16,5,5,2,4,69,33
+2022,2022-05-15,GWS,Carlton,47,47,7,5,7,5,75,105
+2022,2022-05-15,West Coast,Melbourne,9,51,1,3,7,9,38,112
+2022,2022-05-20,Carlton,Sydney,80,42,12,8,7,0,102,87
+2022,2022-05-21,Western Bulldogs,Gold Coast,48,41,6,12,6,5,106,87
+2022,2022-05-21,Geelong,Port Adelaide,32,33,4,8,5,3,82,47
+2022,2022-05-21,North Melbourne,Melbourne,37,57,6,1,8,9,53,100
+2022,2022-05-21,Adelaide,St Kilda,32,21,4,8,3,3,69,90
+2022,2022-05-21,Richmond,Essendon,47,21,7,5,3,3,80,48
+2022,2022-05-22,GWS,West Coast,87,34,14,3,5,4,138,86
+2022,2022-05-22,Hawthorn,Brisbane,63,62,10,3,9,8,117,112
+2022,2022-05-22,Fremantle,Collingwood,16,33,2,4,5,3,44,80
+2022,2022-05-27,Sydney,Richmond,43,68,6,7,11,2,106,100
+2022,2022-05-28,Geelong,Adelaide,53,25,8,5,3,7,97,55
+2022,2022-05-28,Brisbane,GWS,58,61,9,4,10,1,110,96
+2022,2022-05-28,Melbourne,Fremantle,44,19,6,8,2,7,56,94
+2022,2022-05-28,West Coast,Western Bulldogs,35,67,5,5,10,7,60,161
+2022,2022-05-28,Gold Coast,Hawthorn,68,27,10,8,4,3,121,54
+2022,2022-05-29,St Kilda,North Melbourne,41,15,6,5,2,3,103,50
+2022,2022-05-29,Collingwood,Carlton,32,38,4,8,6,2,79,75
+2022,2022-05-29,Port Adelaide,Essendon,52,21,8,4,2,9,66,50
+2022,2022-06-03,Western Bulldogs,Geelong,30,54,4,6,8,6,70,83
+2022,2022-06-04,Adelaide,West Coast,60,22,9,6,3,4,88,57
+2022,2022-06-04,Gold Coast,North Melbourne,59,27,8,11,4,3,109,47
+2022,2022-06-04,Melbourne,Sydney,43,45,7,1,6,9,61,73
+2022,2022-06-05,Hawthorn,Collingwood,28,51,4,4,7,9,68,72
+2022,2022-06-05,Fremantle,Brisbane,27,28,4,3,4,4,99,85
+2022,2022-06-09,Richmond,Port Adelaide,40,32,6,4,5,2,77,65
+2022,2022-06-10,Essendon,Carlton,34,58,5,4,9,4,54,80
+2022,2022-06-11,Fremantle,Hawthorn,42,52,6,6,8,4,95,82
+2022,2022-06-11,Brisbane,St Kilda,24,36,3,6,5,6,78,57
+2022,2022-06-12,North Melbourne,GWS,17,64,2,5,10,4,53,102
+2022,2022-06-13,Collingwood,Melbourne,26,34,3,8,5,4,82,56
+2022,2022-06-16,Richmond,Carlton,48,23,7,6,3,5,81,66
+2022,2022-06-17,St Kilda,Essendon,21,49,3,3,7,7,72,107
+2022,2022-06-18,Port Adelaide,Sydney,42,38,6,6,5,8,82,59
+2022,2022-06-18,West Coast,Geelong,41,41,6,5,6,5,63,81
+2022,2022-06-18,GWS,Western Bulldogs,61,66,9,7,10,6,105,125
+2022,2022-06-19,Gold Coast,Adelaide,47,24,7,5,3,6,116,73
+2022,2022-06-23,Melbourne,Brisbane,58,28,8,10,4,4,117,53
+2022,2022-06-24,Western Bulldogs,Hawthorn,42,37,6,6,5,7,125,83
+2022,2022-06-24,West Coast,Essendon,57,52,9,3,7,10,107,97
+2022,2022-06-25,Carlton,Fremantle,41,26,6,5,4,2,81,50
+2022,2022-06-25,Geelong,Richmond,53,33,8,5,5,3,89,86
+2022,2022-06-25,Sydney,St Kilda,30,14,4,6,2,2,83,32
+2022,2022-06-26,North Melbourne,Adelaide,28,48,4,4,7,6,58,115
+2022,2022-06-26,Collingwood,GWS,39,16,5,9,2,4,88,77
+2022,2022-06-26,Port Adelaide,Gold Coast,44,39,6,8,5,9,93,91
+2022,2022-06-30,Brisbane,Western Bulldogs,45,37,6,9,5,7,108,67
+2022,2022-07-01,Carlton,St Kilda,43,48,6,7,7,6,78,93
+2022,2022-07-02,Essendon,Sydney,44,48,7,2,7,6,95,86
+2022,2022-07-02,Adelaide,Melbourne,38,39,6,2,6,3,65,94
+2022,2022-07-02,Gold Coast,Collingwood,36,45,5,6,6,9,62,67
+2022,2022-07-02,Geelong,North Melbourne,56,25,8,8,4,1,144,32
+2022,2022-07-03,Richmond,West Coast,70,36,11,4,5,6,128,93
+2022,2022-07-03,GWS,Hawthorn,38,30,6,2,4,6,72,50
+2022,2022-07-03,Fremantle,Port Adelaide,64,39,10,4,6,3,99,91
+2022,2022-07-07,Geelong,Melbourne,38,34,5,8,5,4,91,63
+2022,2022-07-08,Sydney,Western Bulldogs,65,36,9,11,5,6,120,67
+2022,2022-07-09,Collingwood,North Melbourne,32,52,5,2,8,4,88,81
+2022,2022-07-09,Gold Coast,Richmond,28,62,4,4,9,8,94,92
+2022,2022-07-09,St Kilda,Fremantle,48,40,7,6,6,4,70,111
+2022,2022-07-09,Port Adelaide,GWS,54,16,8,6,2,4,84,29
+2022,2022-07-10,Brisbane,Essendon,32,48,4,8,7,6,90,100
+2022,2022-07-10,Hawthorn,Adelaide,58,20,9,4,3,2,86,54
+2022,2022-07-10,West Coast,Carlton,45,55,7,3,8,7,53,116
+2022,2022-07-15,Western Bulldogs,St Kilda,52,16,8,4,2,4,84,56
+2022,2022-07-16,Adelaide,Collingwood,48,39,7,6,6,3,86,91
+2022,2022-07-16,GWS,Brisbane,32,39,5,2,6,3,59,99
+2022,2022-07-16,North Melbourne,Richmond,62,30,10,2,3,12,92,88
+2022,2022-07-16,Carlton,Geelong,31,48,5,1,7,6,55,85
+2022,2022-07-16,Fremantle,Sydney,41,26,6,5,3,8,65,82
+2022,2022-07-17,Hawthorn,West Coast,57,45,9,3,7,3,102,77
+2022,2022-07-17,Melbourne,Port Adelaide,37,33,5,7,5,3,83,69
+2022,2022-07-17,Essendon,Gold Coast,64,34,9,10,5,4,103,55
+2022,2022-07-22,Richmond,Fremantle,38,35,5,8,5,5,52,52
+2022,2022-07-23,Sydney,Adelaide,73,41,11,7,6,5,118,85
+2022,2022-07-23,North Melbourne,Hawthorn,17,58,2,5,9,4,75,121
+2022,2022-07-23,Port Adelaide,Geelong,35,69,5,5,11,3,94,106
+2022,2022-07-23,Brisbane,Gold Coast,45,51,6,9,8,3,110,93
+2022,2022-07-23,Western Bulldogs,Melbourne,56,71,9,2,11,5,110,100
+2022,2022-07-24,Carlton,GWS,36,33,5,6,5,3,90,54
+2022,2022-07-24,Collingwood,Essendon,46,33,7,4,5,3,80,76
+2022,2022-07-24,West Coast,St Kilda,43,59,7,1,9,5,62,90
+2022,2022-07-29,Fremantle,Melbourne,22,49,3,4,7,7,39,85
+2022,2022-07-30,Collingwood,Port Adelaide,47,42,7,5,6,6,88,82
+2022,2022-07-30,Sydney,GWS,60,23,9,6,3,5,112,39
+2022,2022-07-30,St Kilda,Hawthorn,37,11,5,7,1,5,75,63
+2022,2022-07-30,Geelong,Western Bulldogs,30,41,4,6,6,5,94,66
+2022,2022-07-30,Adelaide,Carlton,36,32,5,6,5,2,84,55
+2022,2022-07-31,Gold Coast,West Coast,65,35,10,5,5,5,107,104
+2022,2022-07-31,Richmond,Brisbane,36,72,5,6,11,6,104,97
+2022,2022-07-31,Essendon,North Melbourne,59,36,9,5,5,6,114,66
+2022,2022-08-05,Melbourne,Collingwood,67,50,10,7,8,2,89,96
+2022,2022-08-06,Hawthorn,Gold Coast,56,35,8,8,5,5,70,63
+2022,2022-08-06,GWS,Essendon,49,47,7,7,7,5,96,69
+2022,2022-08-06,Western Bulldogs,Fremantle,35,58,5,5,9,4,78,95
+2022,2022-08-06,Geelong,St Kilda,53,43,8,5,7,1,110,65
+2022,2022-08-06,Port Adelaide,Richmond,40,48,6,4,7,6,71,109
+2022,2022-08-07,North Melbourne,Sydney,31,58,5,1,8,10,88,126
+2022,2022-08-07,Brisbane,Carlton,57,22,8,9,3,4,114,81
+2022,2022-08-07,West Coast,Adelaide,46,44,7,4,7,2,86,102
+2022,2022-08-12,St Kilda,Brisbane,26,48,4,2,7,6,66,81
+2022,2022-08-13,Western Bulldogs,GWS,25,21,4,1,3,3,62,57
+2022,2022-08-13,Adelaide,North Melbourne,49,57,7,7,8,9,103,74
+2022,2022-08-13,Gold Coast,Geelong,26,77,4,2,12,5,59,119
+2022,2022-08-13,Melbourne,Carlton,30,22,4,6,3,4,79,74
+2022,2022-08-13,Fremantle,West Coast,36,32,5,6,5,2,71,47
+2022,2022-08-14,Richmond,Hawthorn,57,29,9,3,4,5,128,67
+2022,2022-08-14,Sydney,Collingwood,37,22,5,7,3,4,77,50
+2022,2022-08-14,Essendon,Port Adelaide,23,74,3,5,12,2,62,146
+2022,2022-08-19,Brisbane,Melbourne,15,81,2,3,13,3,57,115
+2022,2022-08-20,GWS,Fremantle,46,35,7,4,5,5,69,89
+2022,2022-08-20,North Melbourne,Gold Coast,24,44,3,6,6,8,47,114
+2022,2022-08-20,Geelong,West Coast,79,28,12,7,4,4,131,46
+2022,2022-08-20,Essendon,Richmond,48,67,7,6,10,7,75,141
+2022,2022-08-20,Port Adelaide,Adelaide,37,30,5,7,4,6,111,55
+2022,2022-08-21,Hawthorn,Western Bulldogs,49,52,8,1,8,4,64,87
+2022,2022-08-21,Carlton,Collingwood,17,36,2,5,5,6,74,75
+2022,2022-08-21,St Kilda,Sydney,35,57,5,5,9,3,74,88
+2022,2022-09-01,Brisbane,Richmond,53,59,8,5,9,5,106,104
+2022,2022-09-02,Melbourne,Sydney,34,40,5,4,6,4,69,91
+2022,2022-09-03,Geelong,Collingwood,31,32,4,7,4,8,78,72
+2022,2022-09-03,Fremantle,Western Bulldogs,27,42,4,3,6,6,73,60
+2022,2022-09-09,Melbourne,Brisbane,44,22,6,8,3,4,79,92
+2022,2022-09-10,Collingwood,Fremantle,42,14,6,6,2,2,79,59
+2022,2022-09-16,Geelong,Brisbane,49,19,7,7,3,1,120,49
+2022,2022-09-17,Sydney,Collingwood,73,43,11,7,7,1,95,94
+2022,2022-09-24,Geelong,Sydney,62,26,9,8,4,2,133,52
+2023,2023-03-16,Richmond,Carlton,16,30,2,4,4,6,58,58
+2023,2023-03-17,Geelong,Collingwood,73,60,12,1,9,6,103,125
+2023,2023-03-18,North Melbourne,West Coast,49,28,7,7,4,4,87,82
+2023,2023-03-18,Port Adelaide,Brisbane,39,51,5,9,8,3,126,72
+2023,2023-03-18,Melbourne,Western Bulldogs,58,39,9,4,5,9,115,65
+2023,2023-03-18,Gold Coast,Sydney,20,49,3,2,7,7,61,110
+2023,2023-03-19,GWS,Adelaide,32,60,4,8,8,12,106,90
+2023,2023-03-19,Hawthorn,Essendon,37,53,5,7,8,5,65,124
+2023,2023-03-19,St Kilda,Fremantle,34,34,5,4,5,4,67,52
+2023,2023-03-23,Carlton,Geelong,44,36,6,8,5,6,90,82
+2023,2023-03-24,Brisbane,Melbourne,52,32,8,4,5,2,93,82
+2023,2023-03-25,Collingwood,Port Adelaide,83,34,13,5,5,4,135,64
+2023,2023-03-25,Adelaide,Richmond,24,69,3,6,11,3,76,108
+2023,2023-03-25,Western Bulldogs,St Kilda,29,34,4,5,5,4,41,92
+2023,2023-03-25,Fremantle,North Melbourne,24,32,3,6,5,2,72,73
+2023,2023-03-26,Sydney,Hawthorn,55,19,8,7,2,7,118,37
+2023,2023-03-26,Essendon,Gold Coast,48,42,7,6,6,6,108,80
+2023,2023-03-26,West Coast,GWS,66,35,10,6,5,5,100,81
+2023,2023-03-30,Western Bulldogs,Brisbane,27,19,4,3,2,7,67,53
+2023,2023-03-31,Collingwood,Richmond,28,9,3,10,1,3,63,49
+2023,2023-04-01,Hawthorn,North Melbourne,52,27,8,4,4,3,80,61
+2023,2023-04-01,GWS,Carlton,41,53,6,5,7,11,64,74
+2023,2023-04-01,St Kilda,Essendon,47,29,7,5,4,5,92,74
+2023,2023-04-01,Port Adelaide,Adelaide,57,57,9,3,9,3,86,117
+2023,2023-04-02,Gold Coast,Geelong,27,24,3,9,3,6,73,54
+2023,2023-04-02,Melbourne,Sydney,57,42,9,3,6,6,134,84
+2023,2023-04-02,Fremantle,West Coast,59,37,9,5,5,7,108,67
+2023,2023-04-06,Brisbane,Collingwood,58,36,9,4,5,6,116,83
+2023,2023-04-07,North Melbourne,Carlton,38,36,5,8,5,6,84,107
+2023,2023-04-08,Adelaide,Fremantle,64,28,10,4,4,4,111,72
+2023,2023-04-08,Richmond,Western Bulldogs,67,53,10,7,8,5,84,89
+2023,2023-04-08,Sydney,Port Adelaide,30,30,4,6,4,6,64,66
+2023,2023-04-08,St Kilda,Gold Coast,54,32,8,6,4,8,113,60
+2023,2023-04-09,Essendon,GWS,31,41,3,13,6,5,88,75
+2023,2023-04-09,West Coast,Melbourne,28,52,4,4,8,4,63,126
+2023,2023-04-10,Geelong,Hawthorn,27,36,4,3,5,6,127,45
+2023,2023-04-13,Adelaide,Carlton,65,34,10,5,5,4,118,62
+2023,2023-04-14,Fremantle,Gold Coast,38,61,6,2,9,7,100,90
+2023,2023-04-14,Richmond,Sydney,26,47,3,8,7,5,78,122
+2023,2023-04-15,Brisbane,North Melbourne,66,43,10,6,7,1,152,77
+2023,2023-04-15,Essendon,Melbourne,64,47,9,10,7,5,104,77
+2023,2023-04-15,Port Adelaide,Western Bulldogs,38,29,5,8,4,5,70,56
+2023,2023-04-16,Geelong,West Coast,89,25,14,5,3,7,136,89
+2023,2023-04-16,GWS,Hawthorn,37,29,5,7,4,5,77,75
+2023,2023-04-16,Collingwood,St Kilda,28,27,4,4,4,3,70,64
+2023,2023-04-21,Fremantle,Western Bulldogs,38,57,6,2,8,9,69,118
+2023,2023-04-22,Port Adelaide,West Coast,60,24,9,6,3,6,109,69
+2023,2023-04-22,GWS,Brisbane,40,59,6,4,9,5,87,108
+2023,2023-04-22,Geelong,Sydney,69,34,11,3,5,4,130,37
+2023,2023-04-23,Hawthorn,Adelaide,34,37,5,4,5,7,76,79
+2023,2023-04-23,Carlton,St Kilda,43,39,6,7,6,3,60,82
+2023,2023-04-23,Gold Coast,North Melbourne,48,27,7,6,4,3,97,54
+2023,2023-04-24,Melbourne,Richmond,38,52,6,2,8,4,96,78
+2023,2023-04-25,Collingwood,Essendon,37,35,5,7,5,5,90,77
+2023,2023-04-28,St Kilda,Port Adelaide,36,43,5,6,6,7,76,83
+2023,2023-04-29,Brisbane,Fremantle,55,24,8,7,3,6,115,67
+2023,2023-04-29,Sydney,GWS,47,57,7,5,9,3,106,107
+2023,2023-04-29,Western Bulldogs,Hawthorn,45,48,7,3,7,6,94,65
+2023,2023-04-29,Melbourne,North Melbourne,81,15,13,3,2,3,139,49
+2023,2023-04-29,West Coast,Carlton,22,62,3,4,9,8,44,152
+2023,2023-04-30,Essendon,Geelong,44,88,7,2,14,4,104,132
+2023,2023-04-30,Richmond,Gold Coast,21,26,2,9,4,2,48,72
+2023,2023-04-30,Adelaide,Collingwood,28,22,3,10,3,4,58,59
+2023,2023-05-05,Carlton,Brisbane,39,49,6,3,7,7,74,100
+2023,2023-05-06,Richmond,West Coast,38,29,5,8,4,5,104,58
+2023,2023-05-06,Geelong,Adelaide,56,40,8,8,6,4,98,72
+2023,2023-05-06,Gold Coast,Melbourne,46,53,7,4,8,5,85,90
+2023,2023-05-06,Fremantle,Hawthorn,64,33,10,4,5,3,117,48
+2023,2023-05-06,GWS,Western Bulldogs,34,46,5,4,7,4,71,86
+2023,2023-05-07,Port Adelaide,Essendon,41,55,5,11,9,1,92,87
+2023,2023-05-07,Collingwood,Sydney,30,38,4,6,5,8,77,48
+2023,2023-05-07,North Melbourne,St Kilda,7,27,0,7,3,9,34,64
+2023,2023-05-12,Richmond,Geelong,51,41,8,3,5,11,102,78
+2023,2023-05-12,West Coast,Gold Coast,23,73,3,5,11,7,43,113
+2023,2023-05-13,Sydney,Fremantle,32,45,5,2,7,3,86,103
+2023,2023-05-13,North Melbourne,Port Adelaide,28,73,4,4,11,7,65,135
+2023,2023-05-13,Hawthorn,Melbourne,9,54,1,3,8,6,49,103
+2023,2023-05-13,Brisbane,Essendon,19,29,2,7,4,5,87,45
+2023,2023-05-13,Carlton,Western Bulldogs,10,28,1,4,4,4,59,79
+2023,2023-05-14,Adelaide,St Kilda,62,35,10,2,5,5,121,69
+2023,2023-05-14,Collingwood,GWS,58,26,9,4,3,8,120,55
+2023,2023-05-19,Port Adelaide,Melbourne,37,23,5,7,3,5,80,76
+2023,2023-05-20,North Melbourne,Sydney,33,49,5,3,7,7,90,93
+2023,2023-05-20,Western Bulldogs,Adelaide,43,22,5,13,3,4,85,40
+2023,2023-05-20,Fremantle,Geelong,52,43,8,4,6,7,106,77
+2023,2023-05-20,Brisbane,Gold Coast,42,36,6,6,5,6,107,64
+2023,2023-05-20,Essendon,Richmond,37,42,5,7,6,6,71,70
+2023,2023-05-21,Hawthorn,West Coast,70,24,11,4,4,0,142,26
+2023,2023-05-21,Carlton,Collingwood,30,65,4,6,10,5,57,85
+2023,2023-05-21,GWS,St Kilda,51,51,8,3,8,3,80,92
+2023,2023-05-26,Sydney,Carlton,38,32,6,2,4,8,77,51
+2023,2023-05-27,St Kilda,Hawthorn,34,34,5,4,4,10,78,88
+2023,2023-05-27,Melbourne,Fremantle,29,27,4,5,4,3,72,79
+2023,2023-05-27,Geelong,GWS,24,41,3,6,6,5,74,81
+2023,2023-05-27,Gold Coast,Western Bulldogs,51,29,8,3,4,5,84,77
+2023,2023-05-27,West Coast,Essendon,29,53,4,5,8,5,46,96
+2023,2023-05-28,Richmond,Port Adelaide,28,39,3,10,5,9,67,77
+2023,2023-05-28,Collingwood,North Melbourne,47,20,7,5,2,8,105,70
+2023,2023-05-28,Adelaide,Brisbane,49,38,7,7,5,8,95,78
+2023,2023-06-02,Melbourne,Carlton,36,17,5,6,2,5,61,44
+2023,2023-06-03,Port Adelaide,Hawthorn,105,23,16,9,3,5,151,96
+2023,2023-06-03,West Coast,Collingwood,27,53,4,3,8,5,57,120
+2023,2023-06-03,Western Bulldogs,Geelong,55,53,8,7,8,5,75,97
+2023,2023-06-03,Gold Coast,Adelaide,35,52,5,5,8,4,112,87
+2023,2023-06-04,GWS,Richmond,45,58,6,9,9,4,104,110
+2023,2023-06-04,Essendon,North Melbourne,42,40,6,6,6,4,105,99
+2023,2023-06-08,Sydney,St Kilda,35,26,5,5,4,2,66,80
+2023,2023-06-09,Western Bulldogs,Port Adelaide,47,51,7,5,8,3,85,107
+2023,2023-06-10,Hawthorn,Brisbane,34,51,5,4,8,3,98,73
+2023,2023-06-10,Adelaide,West Coast,92,26,14,8,4,2,174,52
+2023,2023-06-10,Fremantle,Richmond,28,43,4,4,6,7,70,85
+2023,2023-06-11,North Melbourne,GWS,42,47,6,6,7,5,75,103
+2023,2023-06-11,Carlton,Essendon,28,30,3,10,4,6,52,86
+2023,2023-06-12,Melbourne,Collingwood,26,34,3,8,5,4,66,62
+2023,2023-06-15,Port Adelaide,Geelong,38,45,5,8,7,3,110,72
+2023,2023-06-16,Brisbane,Sydney,47,42,7,5,6,6,97,81
+2023,2023-06-17,GWS,Fremantle,52,22,8,4,3,4,106,36
+2023,2023-06-17,Richmond,St Kilda,67,50,10,7,8,2,90,70
+2023,2023-06-18,Carlton,Gold Coast,65,21,10,5,2,9,120,61
+2023,2023-06-18,North Melbourne,Western Bulldogs,32,38,5,2,5,8,84,105
+2023,2023-06-22,Geelong,Melbourne,31,32,4,7,4,8,78,63
+2023,2023-06-23,St Kilda,Brisbane,15,38,2,3,5,8,56,84
+2023,2023-06-24,Sydney,West Coast,93,25,14,9,4,1,205,34
+2023,2023-06-24,Fremantle,Essendon,55,33,8,7,5,3,93,61
+2023,2023-06-25,Collingwood,Adelaide,47,20,7,5,2,8,82,80
+2023,2023-06-25,Gold Coast,Hawthorn,32,22,4,8,3,4,101,34
+2023,2023-06-29,Brisbane,Richmond,61,13,9,7,1,7,134,53
+2023,2023-06-30,Sydney,Geelong,36,28,4,12,4,4,54,54
+2023,2023-07-01,Adelaide,North Melbourne,77,51,12,5,8,3,138,72
+2023,2023-07-01,Western Bulldogs,Fremantle,45,39,7,3,6,3,102,73
+2023,2023-07-01,Gold Coast,Collingwood,10,72,1,4,11,6,42,120
+2023,2023-07-01,Essendon,Port Adelaide,32,38,4,8,5,8,74,78
+2023,2023-07-02,Hawthorn,Carlton,5,55,0,5,8,7,52,112
+2023,2023-07-02,Melbourne,GWS,21,21,2,9,3,3,45,47
+2023,2023-07-02,West Coast,St Kilda,56,32,9,2,5,2,77,85
+2023,2023-07-06,Richmond,Sydney,36,54,5,6,8,6,88,75
+2023,2023-07-07,Western Bulldogs,Collingwood,41,36,6,5,5,6,77,89
+2023,2023-07-08,Brisbane,West Coast,68,14,10,8,2,2,116,35
+2023,2023-07-08,GWS,Hawthorn,51,49,7,9,7,7,85,72
+2023,2023-07-08,St Kilda,Melbourne,31,44,4,7,7,2,58,79
+2023,2023-07-08,Port Adelaide,Gold Coast,33,39,5,3,6,3,106,73
+2023,2023-07-09,Geelong,North Melbourne,71,16,11,5,2,4,125,63
+2023,2023-07-09,Essendon,Adelaide,81,44,12,9,7,2,115,97
+2023,2023-07-09,Fremantle,Carlton,19,44,2,7,6,8,45,98
+2023,2023-07-13,Sydney,Western Bulldogs,43,40,6,7,6,4,78,76
+2023,2023-07-14,Melbourne,Brisbane,51,52,8,3,8,4,105,104
+2023,2023-07-15,Collingwood,Fremantle,86,33,14,2,5,3,113,67
+2023,2023-07-15,Gold Coast,St Kilda,36,14,5,6,2,2,77,51
+2023,2023-07-15,Carlton,Port Adelaide,62,31,9,8,4,7,122,72
+2023,2023-07-15,Geelong,Essendon,64,20,9,10,3,2,122,45
+2023,2023-07-15,Adelaide,GWS,41,24,6,5,3,6,57,71
+2023,2023-07-16,North Melbourne,Hawthorn,25,31,4,1,3,13,40,88
+2023,2023-07-16,West Coast,Richmond,17,39,2,5,5,9,60,98
+2023,2023-07-21,Essendon,Western Bulldogs,33,47,5,3,7,5,49,90
+2023,2023-07-22,Richmond,Hawthorn,42,63,6,6,10,3,96,95
+2023,2023-07-22,Carlton,West Coast,98,16,15,8,2,4,140,69
+2023,2023-07-22,Brisbane,Geelong,32,11,4,8,1,5,64,53
+2023,2023-07-22,Fremantle,Sydney,31,65,5,1,10,5,76,105
+2023,2023-07-22,Port Adelaide,Collingwood,40,33,6,4,5,3,83,85
+2023,2023-07-23,GWS,Gold Coast,43,41,6,7,6,5,103,63
+2023,2023-07-23,Melbourne,Adelaide,40,27,6,4,3,9,97,93
+2023,2023-07-23,St Kilda,North Melbourne,25,37,3,7,6,1,69,61
+2023,2023-07-28,Collingwood,Carlton,30,47,4,6,7,5,76,93
+2023,2023-07-29,Western Bulldogs,GWS,46,17,6,10,2,5,73,78
+2023,2023-07-29,Geelong,Fremantle,34,35,5,4,5,5,64,71
+2023,2023-07-29,Gold Coast,Brisbane,33,30,5,3,4,6,96,55
+2023,2023-07-29,Essendon,Sydney,46,65,7,4,10,5,99,101
+2023,2023-07-29,Adelaide,Port Adelaide,56,27,8,8,4,3,112,65
+2023,2023-07-30,Hawthorn,St Kilda,40,69,6,4,11,3,93,122
+2023,2023-07-30,Richmond,Melbourne,61,53,9,7,8,5,98,130
+2023,2023-07-30,West Coast,North Melbourne,47,40,7,5,6,4,72,67
+2023,2023-08-04,Western Bulldogs,Richmond,77,35,12,5,5,5,126,71
+2023,2023-08-05,Essendon,West Coast,50,27,7,8,4,3,73,72
+2023,2023-08-05,Adelaide,Gold Coast,52,24,8,4,3,6,89,61
+2023,2023-08-05,Hawthorn,Collingwood,40,29,6,4,4,5,105,73
+2023,2023-08-05,Geelong,Port Adelaide,59,42,9,5,6,6,97,85
+2023,2023-08-05,GWS,Sydney,48,66,7,6,11,0,85,96
+2023,2023-08-06,North Melbourne,Melbourne,56,52,8,8,8,4,71,103
+2023,2023-08-06,St Kilda,Carlton,44,22,7,2,3,4,54,73
+2023,2023-08-06,Fremantle,Brisbane,34,23,5,4,3,5,74,77
+2023,2023-08-11,Collingwood,Geelong,50,51,7,8,8,3,109,101
+2023,2023-08-12,North Melbourne,Essendon,37,32,6,1,5,2,77,86
+2023,2023-08-12,Sydney,Gold Coast,56,58,9,2,9,4,114,90
+2023,2023-08-12,Brisbane,Adelaide,48,49,7,6,7,7,99,93
+2023,2023-08-12,Carlton,Melbourne,23,21,3,5,3,3,60,56
+2023,2023-08-12,West Coast,Fremantle,17,68,2,5,10,8,33,134
+2023,2023-08-13,Hawthorn,Western Bulldogs,32,41,4,8,6,5,67,64
+2023,2023-08-13,St Kilda,Richmond,62,33,10,2,5,3,93,57
+2023,2023-08-13,Port Adelaide,GWS,67,26,10,7,4,2,136,85
+2023,2023-08-18,Collingwood,Brisbane,41,57,6,5,9,3,100,124
+2023,2023-08-19,Richmond,North Melbourne,65,43,10,5,6,7,101,72
+2023,2023-08-19,Gold Coast,Carlton,49,47,7,7,7,5,87,91
+2023,2023-08-19,GWS,Essendon,83,13,13,5,2,1,162,36
+2023,2023-08-19,St Kilda,Geelong,44,28,6,8,4,4,88,55
+2023,2023-08-19,Adelaide,Sydney,27,59,4,3,9,5,73,74
+2023,2023-08-20,Western Bulldogs,West Coast,37,48,5,7,7,6,85,92
+2023,2023-08-20,Melbourne,Hawthorn,41,39,6,5,6,3,87,60
+2023,2023-08-20,Fremantle,Port Adelaide,31,40,4,7,6,4,58,74
+2023,2023-08-25,Essendon,Collingwood,16,74,2,4,12,2,31,101
+2023,2023-08-26,Hawthorn,Fremantle,25,54,4,1,8,6,56,93
+2023,2023-08-26,North Melbourne,Gold Coast,48,54,7,6,8,6,132,97
+2023,2023-08-26,Brisbane,St Kilda,35,21,4,11,3,3,72,60
+2023,2023-08-26,Geelong,Western Bulldogs,53,38,7,11,6,2,79,104
+2023,2023-08-26,West Coast,Adelaide,51,40,8,3,5,10,78,123
+2023,2023-08-27,Port Adelaide,Richmond,43,41,6,7,5,11,94,63
+2023,2023-08-27,Sydney,Melbourne,26,34,3,8,5,4,56,77
+2023,2023-08-27,Carlton,GWS,47,52,7,5,8,4,73,105
+2023,2023-09-07,Collingwood,Melbourne,33,16,5,3,2,4,60,53
+2023,2023-09-08,Carlton,Sydney,47,18,7,5,2,6,74,68
+2023,2023-09-09,St Kilda,GWS,42,65,6,6,10,5,77,101
+2023,2023-09-09,Brisbane,Port Adelaide,52,36,8,4,5,6,123,75
+2023,2023-09-15,Melbourne,Carlton,31,33,4,7,5,3,71,73
+2023,2023-09-16,Port Adelaide,GWS,36,65,5,6,9,11,70,93
+2023,2023-09-22,Collingwood,GWS,18,28,2,6,4,4,58,57
+2023,2023-09-23,Brisbane,Carlton,42,39,6,6,6,3,79,63
+2023,2023-09-30,Collingwood,Brisbane,63,57,9,9,9,3,90,86
+2024,2024-03-07,Sydney,Melbourne,27,20,4,3,2,8,86,64
+2024,2024-03-08,Brisbane,Carlton,59,28,9,5,4,4,85,86
+2024,2024-03-09,Gold Coast,Richmond,74,13,11,8,2,1,99,60
+2024,2024-03-09,GWS,Collingwood,65,46,10,5,6,10,114,82
+2024,2024-03-14,Carlton,Richmond,45,46,6,9,7,4,86,81
+2024,2024-03-15,Collingwood,Sydney,32,50,5,2,7,8,69,102
+2024,2024-03-16,Essendon,Hawthorn,45,41,7,3,5,11,107,83
+2024,2024-03-16,GWS,North Melbourne,67,48,10,7,8,0,121,82
+2024,2024-03-16,Geelong,St Kilda,43,30,6,7,4,6,76,68
+2024,2024-03-16,Gold Coast,Adelaide,34,8,5,4,1,2,60,54
+2024,2024-03-17,Melbourne,Western Bulldogs,53,41,8,5,6,5,109,64
+2024,2024-03-17,Port Adelaide,West Coast,64,33,9,10,5,3,120,70
+2024,2024-03-17,Fremantle,Brisbane,47,29,7,5,4,5,93,70
+2024,2024-03-21,St Kilda,Collingwood,38,46,6,2,7,4,94,79
+2024,2024-03-22,Adelaide,Geelong,35,47,5,5,7,5,77,96
+2024,2024-03-23,North Melbourne,Fremantle,52,35,8,4,5,5,76,102
+2024,2024-03-23,Hawthorn,Melbourne,15,41,2,3,6,5,38,93
+2024,2024-03-23,Sydney,Essendon,57,53,8,9,8,5,131,101
+2024,2024-03-24,Western Bulldogs,Gold Coast,63,35,10,3,5,5,115,67
+2024,2024-03-24,Richmond,Port Adelaide,50,39,7,8,5,9,92,122
+2024,2024-03-24,West Coast,GWS,17,56,2,5,8,8,43,108
+2024,2024-03-28,Brisbane,Collingwood,38,33,5,8,5,3,72,92
+2024,2024-03-29,North Melbourne,Carlton,39,68,6,3,10,8,81,137
+2024,2024-03-29,Fremantle,Adelaide,31,23,4,7,3,5,69,34
+2024,2024-03-30,Essendon,St Kilda,33,44,5,3,6,8,71,67
+2024,2024-03-30,Port Adelaide,Melbourne,45,45,7,3,7,3,89,96
+2024,2024-03-31,Western Bulldogs,West Coast,54,15,8,6,2,3,106,30
+2024,2024-03-31,Richmond,Sydney,39,47,5,9,7,5,82,77
+2024,2024-04-01,Hawthorn,Geelong,39,50,6,3,8,2,70,106
+2024,2024-04-04,Adelaide,Melbourne,26,43,3,8,6,7,63,78
+2024,2024-04-05,Brisbane,North Melbourne,75,19,11,9,3,1,112,42
+2024,2024-04-05,Port Adelaide,Essendon,63,28,10,3,4,4,111,42
+2024,2024-04-06,West Coast,Sydney,48,43,7,6,6,7,78,104
+2024,2024-04-06,Fremantle,Carlton,26,23,4,2,3,5,63,73
+2024,2024-04-06,Western Bulldogs,Geelong,39,48,6,3,7,6,91,95
+2024,2024-04-07,Gold Coast,GWS,49,51,7,7,8,3,89,117
+2024,2024-04-07,Richmond,St Kilda,33,11,5,3,1,5,60,67
+2024,2024-04-07,Collingwood,Hawthorn,58,20,9,4,3,2,77,72
+2024,2024-04-11,Melbourne,Brisbane,16,46,2,4,7,4,60,82
+2024,2024-04-12,Western Bulldogs,Essendon,42,50,6,6,8,2,67,96
+2024,2024-04-13,GWS,St Kilda,48,29,7,6,4,5,80,79
+2024,2024-04-13,Carlton,Adelaide,50,44,8,2,7,2,98,100
+2024,2024-04-13,Port Adelaide,Fremantle,29,35,4,5,5,5,66,63
+2024,2024-04-13,Gold Coast,Hawthorn,44,22,6,8,3,4,109,56
+2024,2024-04-14,Geelong,North Melbourne,78,27,12,6,4,3,139,64
+2024,2024-04-14,West Coast,Richmond,68,49,11,2,7,7,109,70
+2024,2024-04-18,St Kilda,Western Bulldogs,27,76,4,3,12,4,64,124
+2024,2024-04-19,Adelaide,Essendon,34,39,5,4,5,9,75,78
+2024,2024-04-20,Collingwood,Port Adelaide,63,51,9,9,8,3,123,81
+2024,2024-04-20,Carlton,GWS,49,58,7,7,9,4,117,98
+2024,2024-04-20,Brisbane,Geelong,26,28,3,8,4,4,37,63
+2024,2024-04-20,West Coast,Fremantle,58,21,9,4,3,3,105,68
+2024,2024-04-21,Sydney,Gold Coast,34,23,5,4,3,5,110,57
+2024,2024-04-21,North Melbourne,Hawthorn,35,72,5,5,11,6,68,113
+2024,2024-04-24,Richmond,Melbourne,24,23,3,6,3,5,42,85
+2024,2024-04-25,Essendon,Collingwood,48,47,7,6,6,11,85,85
+2024,2024-04-25,GWS,Brisbane,52,44,8,4,6,8,113,59
+2024,2024-04-26,Port Adelaide,St Kilda,45,35,6,9,5,5,82,72
+2024,2024-04-27,North Melbourne,Adelaide,40,75,6,4,11,9,81,138
+2024,2024-04-27,Geelong,Carlton,64,45,10,4,6,9,118,105
+2024,2024-04-27,Fremantle,Western Bulldogs,48,45,7,6,7,3,95,71
+2024,2024-04-28,Gold Coast,West Coast,47,44,7,5,7,2,112,75
+2024,2024-04-28,Hawthorn,Sydney,24,66,3,6,10,6,42,118
+2024,2024-05-02,Adelaide,Port Adelaide,44,25,7,2,3,7,78,48
+2024,2024-05-03,Carlton,Collingwood,41,52,6,5,8,4,79,85
+2024,2024-05-04,Sydney,GWS,44,35,6,8,5,5,98,69
+2024,2024-05-04,St Kilda,North Melbourne,54,26,8,6,4,2,103,65
+2024,2024-05-04,Melbourne,Geelong,25,20,3,7,2,8,74,66
+2024,2024-05-04,West Coast,Essendon,26,48,4,2,7,6,71,77
+2024,2024-05-05,Richmond,Fremantle,13,44,1,7,6,8,49,103
+2024,2024-05-05,Western Bulldogs,Hawthorn,39,47,6,3,7,5,91,98
+2024,2024-05-05,Brisbane,Gold Coast,56,16,8,8,2,4,79,45
+2024,2024-05-09,Carlton,Melbourne,50,19,8,2,3,1,77,76
+2024,2024-05-10,Geelong,Port Adelaide,36,77,5,6,12,5,95,101
+2024,2024-05-10,Fremantle,Sydney,14,54,1,8,9,0,39,87
+2024,2024-05-11,Hawthorn,St Kilda,38,28,6,2,4,4,58,53
+2024,2024-05-11,Essendon,GWS,30,42,4,6,6,6,82,62
+2024,2024-05-11,Gold Coast,North Melbourne,42,17,5,12,2,5,120,52
+2024,2024-05-11,Richmond,Western Bulldogs,20,67,3,2,9,13,42,133
+2024,2024-05-12,Collingwood,West Coast,74,19,11,8,3,1,103,37
+2024,2024-05-12,Adelaide,Brisbane,45,43,6,9,6,7,90,90
+2024,2024-05-16,Gold Coast,Geelong,71,38,11,5,6,2,164,100
+2024,2024-05-17,Sydney,Carlton,50,36,7,8,5,6,117,65
+2024,2024-05-18,Collingwood,Adelaide,50,39,8,2,6,3,78,74
+2024,2024-05-18,GWS,Western Bulldogs,28,33,4,4,4,9,43,70
+2024,2024-05-18,St Kilda,Fremantle,33,36,5,3,5,6,55,72
+2024,2024-05-18,Brisbane,Richmond,83,18,13,5,2,6,163,44
+2024,2024-05-19,Essendon,North Melbourne,47,40,7,5,6,4,106,66
+2024,2024-05-19,Port Adelaide,Hawthorn,29,51,4,5,8,3,80,79
+2024,2024-05-19,West Coast,Melbourne,50,37,7,8,6,1,105,70
+2024,2024-05-23,Western Bulldogs,Sydney,50,46,7,8,7,4,88,102
+2024,2024-05-24,Fremantle,Collingwood,40,27,6,4,3,9,75,75
+2024,2024-05-25,Carlton,Gold Coast,33,26,4,9,4,2,102,73
+2024,2024-05-25,North Melbourne,Port Adelaide,27,47,4,3,7,5,48,107
+2024,2024-05-25,Geelong,GWS,38,57,6,2,8,9,74,78
+2024,2024-05-25,Richmond,Essendon,43,49,6,7,7,7,74,86
+2024,2024-05-26,Hawthorn,Brisbane,59,35,9,5,5,5,100,75
+2024,2024-05-26,Melbourne,St Kilda,39,27,5,9,4,3,100,62
+2024,2024-05-26,Adelaide,West Coast,83,22,13,5,3,4,137,38
+2024,2024-05-30,Port Adelaide,Carlton,32,35,4,8,5,5,71,107
+2024,2024-05-31,Collingwood,Western Bulldogs,56,53,8,8,8,5,82,100
+2024,2024-06-01,Hawthorn,Adelaide,47,18,7,5,2,6,107,80
+2024,2024-06-01,West Coast,St Kilda,42,28,6,6,4,4,68,82
+2024,2024-06-01,Geelong,Richmond,33,49,5,3,7,7,99,69
+2024,2024-06-02,Melbourne,Fremantle,21,71,3,3,11,5,49,141
+2024,2024-06-02,Gold Coast,Essendon,40,32,6,4,4,8,91,80
+2024,2024-06-06,Adelaide,Richmond,36,35,5,6,5,5,71,79
+2024,2024-06-07,Western Bulldogs,Brisbane,34,67,5,4,10,7,71,114
+2024,2024-06-08,Hawthorn,GWS,19,38,2,7,6,2,85,79
+2024,2024-06-08,West Coast,North Melbourne,21,29,2,9,4,5,65,74
+2024,2024-06-08,St Kilda,Gold Coast,29,15,4,5,2,3,51,48
+2024,2024-06-09,Sydney,Geelong,36,41,5,6,6,5,112,82
+2024,2024-06-09,Essendon,Carlton,25,57,3,7,9,3,70,96
+2024,2024-06-10,Collingwood,Melbourne,45,18,7,3,2,6,89,51
+2024,2024-06-14,Brisbane,St Kilda,65,42,10,5,6,6,126,106
+2024,2024-06-15,Western Bulldogs,Fremantle,62,34,9,8,5,4,149,82
+2024,2024-06-15,Richmond,Hawthorn,29,48,4,5,7,6,49,97
+2024,2024-06-15,Adelaide,Sydney,46,42,7,4,6,6,67,109
+2024,2024-06-16,North Melbourne,Collingwood,86,38,14,2,6,2,118,119
+2024,2024-06-16,GWS,Port Adelaide,32,25,4,8,3,7,73,51
+2024,2024-06-21,Carlton,Geelong,71,35,11,5,5,5,138,75
+2024,2024-06-22,Port Adelaide,Brisbane,35,80,5,5,12,8,73,152
+2024,2024-06-22,GWS,Sydney,21,61,3,3,9,7,75,102
+2024,2024-06-22,Melbourne,North Melbourne,40,25,6,4,3,7,70,67
+2024,2024-06-23,Essendon,West Coast,64,41,10,4,6,5,122,92
+2024,2024-06-23,Fremantle,Gold Coast,43,20,6,7,3,2,85,65
+2024,2024-06-28,Brisbane,Melbourne,38,61,5,8,9,7,86,81
+2024,2024-06-29,North Melbourne,Western Bulldogs,19,38,3,1,5,8,60,77
+2024,2024-06-29,Sydney,Fremantle,32,59,4,8,9,5,98,99
+2024,2024-06-29,Gold Coast,Collingwood,54,34,8,6,5,4,101,90
+2024,2024-06-29,Adelaide,GWS,63,30,9,9,5,0,94,78
+2024,2024-06-29,Geelong,Essendon,40,45,6,4,7,3,105,60
+2024,2024-06-30,St Kilda,Port Adelaide,42,42,6,6,6,6,60,62
+2024,2024-06-30,Richmond,Carlton,38,50,6,2,7,8,70,131
+2024,2024-06-30,West Coast,Hawthorn,18,35,2,6,5,5,33,94
+2024,2024-07-05,Collingwood,Essendon,52,44,8,4,6,8,80,92
+2024,2024-07-06,Port Adelaide,Western Bulldogs,65,21,10,5,3,3,102,54
+2024,2024-07-06,North Melbourne,Gold Coast,51,45,8,3,7,3,87,83
+2024,2024-07-06,Geelong,Hawthorn,61,27,9,7,4,3,110,59
+2024,2024-07-06,GWS,Carlton,62,64,10,2,10,4,116,104
+2024,2024-07-06,Fremantle,Richmond,47,23,7,5,3,5,105,54
+2024,2024-07-07,Melbourne,West Coast,71,22,11,5,3,4,112,58
+2024,2024-07-07,St Kilda,Sydney,28,53,4,4,8,5,84,82
+2024,2024-07-07,Brisbane,Adelaide,54,39,8,6,6,3,97,86
+2024,2024-07-12,Collingwood,Geelong,44,48,6,8,7,6,71,91
+2024,2024-07-13,Hawthorn,Fremantle,42,35,6,6,5,5,87,74
+2024,2024-07-13,Sydney,North Melbourne,70,28,10,10,4,4,138,59
+2024,2024-07-13,Western Bulldogs,Carlton,51,48,7,9,7,6,100,86
+2024,2024-07-13,Adelaide,St Kilda,35,31,5,5,4,7,71,39
+2024,2024-07-13,Melbourne,Essendon,42,29,6,6,4,5,84,67
+2024,2024-07-14,Gold Coast,Port Adelaide,52,35,8,4,5,5,96,82
+2024,2024-07-14,Richmond,GWS,43,58,6,7,9,4,84,108
+2024,2024-07-14,West Coast,Brisbane,39,49,6,3,7,7,93,106
+2024,2024-07-19,Essendon,Adelaide,47,70,7,5,11,4,113,115
+2024,2024-07-20,St Kilda,West Coast,47,28,7,5,4,4,113,41
+2024,2024-07-20,GWS,Gold Coast,49,33,8,1,4,9,89,50
+2024,2024-07-20,Hawthorn,Collingwood,50,17,7,8,1,11,133,67
+2024,2024-07-20,Port Adelaide,Richmond,50,42,7,8,6,6,116,75
+2024,2024-07-20,Geelong,Western Bulldogs,15,34,2,3,4,10,48,95
+2024,2024-07-21,Brisbane,Sydney,39,46,6,3,7,4,79,77
+2024,2024-07-21,Fremantle,Melbourne,51,21,7,9,3,3,116,66
+2024,2024-07-21,Carlton,North Melbourne,44,55,7,2,9,1,107,88
+2024,2024-07-26,Carlton,Port Adelaide,54,29,8,6,4,5,65,79
+2024,2024-07-27,North Melbourne,Geelong,27,41,4,3,6,5,66,106
+2024,2024-07-27,St Kilda,Essendon,44,35,7,2,5,5,108,55
+2024,2024-07-27,Gold Coast,Brisbane,38,55,5,8,8,7,65,93
+2024,2024-07-27,Melbourne,GWS,43,40,6,7,6,4,83,85
+2024,2024-07-27,Fremantle,West Coast,45,58,7,3,9,4,110,75
+2024,2024-07-28,Collingwood,Richmond,59,34,9,5,5,4,93,67
+2024,2024-07-28,Sydney,Western Bulldogs,13,49,2,1,7,7,48,87
+2024,2024-07-28,Adelaide,Hawthorn,42,57,6,6,9,3,58,124
+2024,2024-08-02,Western Bulldogs,Melbourne,49,31,6,13,5,1,110,59
+2024,2024-08-02,West Coast,Gold Coast,38,55,6,2,8,7,97,87
+2024,2024-08-03,North Melbourne,Richmond,45,46,7,3,6,10,90,77
+2024,2024-08-03,Geelong,Adelaide,47,39,7,5,6,3,90,85
+2024,2024-08-03,Port Adelaide,Sydney,86,9,13,8,1,3,148,36
+2024,2024-08-03,Collingwood,Carlton,42,29,6,6,3,11,84,81
+2024,2024-08-04,GWS,Hawthorn,27,47,3,9,7,5,84,82
+2024,2024-08-04,Essendon,Fremantle,42,55,6,6,9,1,90,89
+2024,2024-08-04,St Kilda,Brisbane,10,57,1,4,9,3,39,124
+2024,2024-08-09,Sydney,Collingwood,41,44,6,5,6,8,89,86
+2024,2024-08-10,North Melbourne,West Coast,48,26,7,6,3,8,97,102
+2024,2024-08-10,Brisbane,GWS,44,33,6,8,5,3,64,82
+2024,2024-08-10,Fremantle,Geelong,34,40,5,4,6,4,62,73
+2024,2024-08-10,Essendon,Gold Coast,58,47,9,4,7,5,86,87
+2024,2024-08-10,Melbourne,Port Adelaide,29,26,4,5,3,8,51,53
+2024,2024-08-11,Carlton,Hawthorn,24,57,3,6,8,9,38,112
+2024,2024-08-11,Richmond,St Kilda,32,46,5,2,7,4,51,99
+2024,2024-08-11,Adelaide,Western Bulldogs,60,34,9,6,4,10,111,72
+2024,2024-08-16,Essendon,Sydney,29,22,4,5,3,4,59,98
+2024,2024-08-17,GWS,Fremantle,43,52,6,7,8,4,101,92
+2024,2024-08-17,Gold Coast,Melbourne,47,53,7,5,8,5,63,117
+2024,2024-08-17,Collingwood,Brisbane,36,41,5,6,6,5,79,78
+2024,2024-08-17,Port Adelaide,Adelaide,33,42,4,9,6,6,80,58
+2024,2024-08-17,St Kilda,Geelong,24,57,3,6,9,3,107,89
+2024,2024-08-18,Western Bulldogs,North Melbourne,64,23,9,10,3,5,138,42
+2024,2024-08-18,Hawthorn,Richmond,78,41,12,6,6,5,131,68
+2024,2024-08-18,West Coast,Carlton,14,45,2,2,6,9,34,99
+2024,2024-08-23,Melbourne,Collingwood,28,53,4,4,8,5,57,103
+2024,2024-08-24,Hawthorn,North Melbourne,81,26,12,9,4,2,170,46
+2024,2024-08-24,Geelong,West Coast,114,14,18,6,2,2,168,75
+2024,2024-08-24,Richmond,Gold Coast,34,66,5,4,10,6,66,94
+2024,2024-08-24,Brisbane,Essendon,51,23,7,9,3,5,87,67
+2024,2024-08-24,Sydney,Adelaide,84,47,13,6,7,5,121,90
+2024,2024-08-25,Western Bulldogs,GWS,49,32,7,7,5,2,98,61
+2024,2024-08-25,Carlton,St Kilda,27,37,4,3,5,7,74,76
+2024,2024-08-25,Fremantle,Port Adelaide,44,45,6,8,7,3,67,87
+2024,2024-09-05,Port Adelaide,Geelong,43,63,6,7,9,9,54,138
+2024,2024-09-06,Western Bulldogs,Hawthorn,34,45,5,4,7,3,62,99
+2024,2024-09-07,Sydney,GWS,29,50,4,5,7,8,88,82
+2024,2024-09-07,Brisbane,Carlton,61,13,9,7,2,1,99,71
+2024,2024-09-13,Port Adelaide,Hawthorn,36,27,5,6,4,3,75,72
+2024,2024-09-14,GWS,Brisbane,55,34,8,7,4,10,100,105
+2024,2024-09-20,Sydney,Port Adelaide,55,30,9,1,4,6,95,59
+2024,2024-09-21,Geelong,Brisbane,55,36,8,7,5,6,85,95
+2024,2024-09-28,Sydney,Brisbane,27,73,4,3,11,7,60,120
+2025,2025-03-07,Sydney,Hawthorn,40,60,6,4,9,6,76,96
+2025,2025-03-09,GWS,Collingwood,55,32,8,7,4,8,104,52
+2025,2025-03-29,Brisbane,Geelong,22,48,3,4,7,6,70,61
+2025,2025-08-27,Gold Coast,Essendon,64,22,9,10,3,4,153,58
+2025,2025-03-13,Richmond,Carlton,25,50,4,1,7,8,82,69
+2025,2025-03-14,Hawthorn,Essendon,64,29,10,4,4,5,111,85
+2025,2025-03-15,Geelong,Fremantle,76,22,12,4,3,4,147,69
+2025,2025-03-15,Sydney,Brisbane,45,32,7,3,4,8,82,86
+2025,2025-03-15,Collingwood,Port Adelaide,61,27,9,7,4,3,136,45
+2025,2025-03-15,Western Bulldogs,North Melbourne,53,43,8,5,6,7,113,97
+2025,2025-03-16,Adelaide,St Kilda,64,27,10,4,4,3,135,72
+2025,2025-03-16,Melbourne,GWS,34,41,5,4,6,5,74,77
+2025,2025-03-16,West Coast,Gold Coast,16,61,2,4,9,7,49,136
+2025,2025-03-20,Carlton,Hawthorn,40,35,6,4,5,5,60,80
+2025,2025-03-21,Western Bulldogs,Collingwood,43,38,6,7,5,8,70,76
+2025,2025-03-22,Essendon,Adelaide,34,74,5,4,11,8,100,161
+2025,2025-03-22,Port Adelaide,Richmond,89,24,13,11,3,6,140,68
+2025,2025-03-22,St Kilda,Geelong,65,36,10,5,5,6,98,91
+2025,2025-03-23,Brisbane,West Coast,27,51,4,3,8,3,94,75
+2025,2025-03-23,North Melbourne,Melbourne,57,45,8,9,6,9,125,66
+2025,2025-03-23,Fremantle,Sydney,35,26,5,5,3,8,65,68
+2025,2025-03-27,Essendon,Port Adelaide,27,30,3,9,4,6,72,60
+2025,2025-03-28,Carlton,Western Bulldogs,47,29,7,5,4,5,75,83
+2025,2025-03-29,Melbourne,Gold Coast,21,38,2,9,5,8,62,120
+2025,2025-03-29,St Kilda,Richmond,42,34,6,6,5,4,135,53
+2025,2025-03-29,Hawthorn,GWS,46,39,6,10,5,9,76,64
+2025,2025-03-30,Adelaide,North Melbourne,53,35,8,5,5,5,114,78
+2025,2025-03-30,West Coast,Fremantle,28,54,4,4,8,6,68,106
+2025,2025-04-03,Collingwood,Carlton,25,29,3,7,4,5,63,46
+2025,2025-04-04,Geelong,Melbourne,44,29,6,8,4,5,85,46
+2025,2025-04-05,Gold Coast,Adelaide,39,40,5,9,6,4,91,90
+2025,2025-04-05,Richmond,Brisbane,40,66,6,4,10,6,90,118
+2025,2025-04-05,North Melbourne,Sydney,31,53,5,1,8,5,52,117
+2025,2025-04-06,GWS,West Coast,73,22,11,7,3,4,132,51
+2025,2025-04-06,Port Adelaide,St Kilda,37,60,5,7,9,6,72,89
+2025,2025-04-06,Fremantle,Western Bulldogs,71,39,11,5,6,3,97,81
+2025,2025-04-10,Adelaide,Geelong,72,60,11,6,9,6,100,119
+2025,2025-04-11,Collingwood,Sydney,67,50,10,7,8,2,109,78
+2025,2025-04-12,North Melbourne,Gold Coast,51,59,7,9,9,5,89,141
+2025,2025-04-12,Carlton,West Coast,53,24,7,11,3,6,121,50
+2025,2025-04-12,Western Bulldogs,Brisbane,62,29,9,8,4,5,97,118
+2025,2025-04-12,Melbourne,Essendon,17,46,2,5,7,4,57,96
+2025,2025-04-13,Richmond,Fremantle,39,49,6,3,7,7,47,108
+2025,2025-04-13,St Kilda,GWS,34,54,5,4,8,6,82,110
+2025,2025-04-13,Port Adelaide,Hawthorn,79,20,12,7,3,2,121,91
+2025,2025-04-17,Brisbane,Collingwood,32,51,4,8,8,3,53,105
+2025,2025-04-18,North Melbourne,Carlton,39,59,6,3,9,5,71,153
+2025,2025-04-18,West Coast,Essendon,45,27,7,3,4,3,75,77
+2025,2025-04-19,Melbourne,Fremantle,74,53,12,2,8,5,107,97
+2025,2025-04-19,Adelaide,GWS,23,10,3,5,1,4,52,34
+2025,2025-04-19,Richmond,Gold Coast,41,27,6,5,3,9,80,69
+2025,2025-04-20,Sydney,Port Adelaide,19,46,2,7,7,4,77,85
+2025,2025-04-20,Western Bulldogs,St Kilda,56,28,8,8,4,4,127,56
+2025,2025-04-21,Geelong,Hawthorn,50,40,7,8,5,10,86,79
+2025,2025-04-24,Melbourne,Richmond,34,30,5,4,4,6,83,63
+2025,2025-04-25,Collingwood,Essendon,41,33,6,5,5,3,107,66
+2025,2025-04-25,Fremantle,Adelaide,54,34,8,6,5,4,85,67
+2025,2025-04-26,St Kilda,Brisbane,22,56,3,4,8,8,73,118
+2025,2025-04-26,Port Adelaide,North Melbourne,59,47,9,5,7,5,97,88
+2025,2025-04-26,GWS,Western Bulldogs,48,53,7,6,8,5,81,113
+2025,2025-04-27,Gold Coast,Sydney,42,59,6,6,9,5,117,79
+2025,2025-04-27,Carlton,Geelong,53,34,8,5,5,4,94,76
+2025,2025-04-27,Hawthorn,West Coast,64,29,9,10,4,5,124,74
+2025,2025-05-01,Essendon,North Melbourne,47,22,7,5,3,4,65,62
+2025,2025-05-02,St Kilda,Fremantle,27,7,4,3,1,1,94,33
+2025,2025-05-03,Western Bulldogs,Port Adelaide,51,25,8,3,3,7,131,41
+2025,2025-05-03,Adelaide,Carlton,55,22,8,7,3,4,110,50
+2025,2025-05-03,West Coast,Melbourne,31,25,4,7,3,7,76,108
+2025,2025-05-03,Collingwood,Geelong,49,42,7,7,6,6,87,90
+2025,2025-05-04,Sydney,GWS,41,35,6,5,5,5,87,73
+2025,2025-05-04,Hawthorn,Richmond,50,16,7,8,2,4,109,44
+2025,2025-05-04,Brisbane,Gold Coast,32,21,4,8,3,3,66,49
+2025,2025-05-08,Fremantle,Collingwood,47,57,7,5,9,3,83,97
+2025,2025-05-09,St Kilda,Carlton,40,54,6,4,8,6,62,77
+2025,2025-05-10,Melbourne,Hawthorn,34,35,4,10,5,5,56,91
+2025,2025-05-10,Essendon,Sydney,55,16,9,1,2,4,71,63
+2025,2025-05-10,Gold Coast,Western Bulldogs,44,37,6,8,5,7,106,96
+2025,2025-05-10,Port Adelaide,Adelaide,45,50,7,3,7,8,84,89
+2025,2025-05-11,Richmond,West Coast,49,48,7,7,7,6,81,79
+2025,2025-05-11,Geelong,GWS,62,61,9,8,9,7,101,105
+2025,2025-05-11,North Melbourne,Brisbane,20,40,3,2,6,4,71,71
+2025,2025-05-15,Gold Coast,Hawthorn,58,44,9,4,7,2,104,96
+2025,2025-05-16,Sydney,Carlton,33,40,5,3,6,4,78,62
+2025,2025-05-17,Collingwood,Adelaide,43,38,6,7,6,2,78,68
+2025,2025-05-17,Port Adelaide,Geelong,24,33,3,6,5,3,39,115
+2025,2025-05-17,GWS,Fremantle,29,40,4,5,5,10,61,95
+2025,2025-05-17,Western Bulldogs,Essendon,68,9,10,8,1,3,127,36
+2025,2025-05-18,Richmond,North Melbourne,38,43,6,2,7,1,74,78
+2025,2025-05-18,Brisbane,Melbourne,55,42,8,7,6,6,88,99
+2025,2025-05-18,West Coast,St Kilda,47,28,7,5,4,4,108,80
+2025,2025-05-22,Geelong,Western Bulldogs,70,45,11,4,6,9,127,113
+2025,2025-05-23,Essendon,Richmond,40,31,6,4,4,7,81,58
+2025,2025-05-24,Carlton,GWS,42,52,6,6,8,4,82,110
+2025,2025-05-24,Hawthorn,Brisbane,34,57,5,4,9,3,60,93
+2025,2025-05-24,North Melbourne,Collingwood,42,33,6,6,4,9,63,108
+2025,2025-05-24,Fremantle,Port Adelaide,42,34,6,6,5,4,100,51
+2025,2025-05-25,Adelaide,West Coast,53,36,8,5,5,6,128,62
+2025,2025-05-25,Melbourne,Sydney,47,25,6,11,4,1,131,78
+2025,2025-05-25,St Kilda,Gold Coast,28,57,4,4,9,3,61,80
+2025,2025-05-29,Brisbane,Essendon,51,25,7,9,4,1,90,72
+2025,2025-05-30,Collingwood,Hawthorn,63,39,10,3,6,3,107,56
+2025,2025-05-31,Gold Coast,Fremantle,35,41,5,5,6,5,64,75
+2025,2025-05-31,GWS,Richmond,27,53,4,3,7,11,80,77
+2025,2025-05-31,Sydney,Adelaide,10,75,1,4,12,3,41,131
+2025,2025-06-01,Melbourne,St Kilda,45,58,6,9,9,4,63,91
+2025,2025-06-01,West Coast,Geelong,44,55,7,2,8,7,73,116
+2025,2025-06-05,Western Bulldogs,Hawthorn,29,52,4,5,8,4,59,81
+2025,2025-06-06,Adelaide,Brisbane,25,33,3,7,5,3,68,63
+2025,2025-06-07,Richmond,Sydney,25,39,3,7,5,9,36,80
+2025,2025-06-07,Geelong,Gold Coast,28,21,4,4,3,3,61,37
+2025,2025-06-07,GWS,Port Adelaide,40,37,6,4,5,7,50,66
+2025,2025-06-08,North Melbourne,West Coast,21,14,3,3,1,8,62,52
+2025,2025-06-08,Carlton,Essendon,54,26,8,6,4,2,78,70
+2025,2025-06-09,Melbourne,Collingwood,30,38,4,6,6,2,71,72
+2025,2025-06-12,St Kilda,Western Bulldogs,36,64,5,6,10,4,60,132
+2025,2025-06-13,Hawthorn,Adelaide,16,31,2,4,4,7,47,44
+2025,2025-06-14,Brisbane,GWS,64,48,9,10,8,0,96,107
+2025,2025-06-14,Essendon,Geelong,25,60,3,7,9,6,56,151
+2025,2025-06-14,North Melbourne,Fremantle,27,48,4,3,7,6,67,73
+2025,2025-06-15,Port Adelaide,Melbourne,60,36,9,6,5,6,93,68
+2025,2025-06-15,West Coast,Carlton,22,68,3,4,10,8,52,86
+2025,2025-06-19,Fremantle,Essendon,57,41,9,3,6,5,104,63
+2025,2025-06-20,Geelong,Brisbane,23,46,3,5,7,4,51,92
+2025,2025-06-21,Carlton,North Melbourne,19,47,2,7,7,5,73,84
+2025,2025-06-21,Port Adelaide,Sydney,16,34,2,4,4,10,52,71
+2025,2025-06-21,Collingwood,St Kilda,53,41,8,5,6,5,108,74
+2025,2025-06-22,GWS,Gold Coast,43,56,6,7,8,8,106,99
+2025,2025-06-22,Western Bulldogs,Richmond,66,10,10,6,1,4,135,56
+2025,2025-06-26,Port Adelaide,Carlton,58,12,8,10,1,6,110,60
+2025,2025-06-27,Sydney,Western Bulldogs,44,53,6,8,8,5,96,105
+2025,2025-06-28,Gold Coast,Melbourne,57,33,8,9,5,3,104,85
+2025,2025-06-28,Hawthorn,North Melbourne,86,35,13,8,5,5,150,65
+2025,2025-06-28,Collingwood,West Coast,35,43,5,5,6,7,88,59
+2025,2025-06-29,Richmond,Adelaide,14,55,2,2,8,7,54,122
+2025,2025-06-29,Fremantle,St Kilda,35,32,5,5,4,8,81,69
+2025,2025-07-03,North Melbourne,Western Bulldogs,51,64,8,3,10,4,85,134
+2025,2025-07-04,Carlton,Collingwood,29,53,4,5,8,5,59,115
+2025,2025-07-04,West Coast,GWS,19,54,3,1,8,6,52,111
+2025,2025-07-05,Essendon,Gold Coast,41,45,6,5,7,3,74,115
+2025,2025-07-05,Geelong,Richmond,75,16,11,9,2,4,124,52
+2025,2025-07-05,Brisbane,Port Adelaide,62,41,9,8,6,5,120,92
+2025,2025-07-05,St Kilda,Hawthorn,24,42,3,6,6,6,74,94
+2025,2025-07-06,Sydney,Fremantle,53,36,8,5,5,6,94,83
+2025,2025-07-06,Adelaide,Melbourne,38,43,5,8,6,7,90,77
+2025,2025-07-10,Carlton,Brisbane,42,72,6,6,11,6,66,103
+2025,2025-07-11,Gold Coast,Collingwood,43,8,6,7,0,8,69,63
+2025,2025-07-12,Western Bulldogs,Adelaide,45,64,7,3,10,4,98,109
+2025,2025-07-12,GWS,Geelong,47,41,7,5,6,5,111,85
+2025,2025-07-12,Richmond,Essendon,23,24,3,5,3,6,46,37
+2025,2025-07-12,Fremantle,Hawthorn,37,46,6,1,7,4,77,64
+2025,2025-07-13,Melbourne,North Melbourne,41,36,6,5,5,6,119,83
+2025,2025-07-13,St Kilda,Sydney,46,36,7,4,5,6,87,92
+2025,2025-07-13,Port Adelaide,West Coast,36,47,5,6,7,5,87,61
+2025,2025-07-17,Essendon,GWS,14,51,1,8,8,3,56,104
+2025,2025-07-18,Brisbane,Western Bulldogs,46,33,7,4,5,3,86,76
+2025,2025-07-19,Hawthorn,Port Adelaide,40,27,6,4,4,3,87,49
+2025,2025-07-19,Sydney,North Melbourne,47,29,7,5,4,5,84,53
+2025,2025-07-19,Carlton,Melbourne,40,21,6,4,3,3,78,70
+2025,2025-07-19,West Coast,Richmond,30,39,4,6,6,3,56,105
+2025,2025-07-20,Geelong,St Kilda,62,47,10,2,7,5,113,82
+2025,2025-07-20,Collingwood,Fremantle,54,47,8,6,7,5,78,79
+2025,2025-07-20,Adelaide,Gold Coast,59,4,9,5,0,4,107,46
+2025,2025-07-24,Hawthorn,Carlton,51,21,8,3,3,3,85,61
+2025,2025-07-25,Essendon,Western Bulldogs,17,65,2,5,10,5,50,143
+2025,2025-07-25,GWS,Sydney,22,50,3,4,7,8,102,58
+2025,2025-07-26,Gold Coast,Brisbane,63,30,10,3,4,6,130,64
+2025,2025-07-26,Fremantle,West Coast,52,30,7,10,5,0,126,77
+2025,2025-07-26,North Melbourne,Geelong,22,76,3,4,11,10,49,150
+2025,2025-07-26,Adelaide,Port Adelaide,50,21,7,8,3,3,133,35
+2025,2025-07-27,Richmond,Collingwood,28,48,4,4,7,6,57,93
+2025,2025-07-27,St Kilda,Melbourne,28,58,4,4,9,4,96,90
+2025,2025-07-31,Western Bulldogs,GWS,81,20,12,9,3,2,132,44
+2025,2025-08-01,Adelaide,Hawthorn,49,33,7,7,5,3,101,87
+2025,2025-08-02,Melbourne,West Coast,43,21,6,7,3,3,139,56
+2025,2025-08-02,Gold Coast,Richmond,41,5,6,5,0,5,107,23
+2025,2025-08-02,Sydney,Essendon,45,18,6,9,2,6,68,54
+2025,2025-08-02,Collingwood,Brisbane,45,46,7,3,7,4,65,92
+2025,2025-08-03,St Kilda,North Melbourne,30,29,4,6,4,5,78,69
+2025,2025-08-03,Geelong,Port Adelaide,59,29,8,11,4,5,153,65
+2025,2025-08-03,Fremantle,Carlton,25,49,4,1,8,1,94,67
+2025,2025-08-07,Hawthorn,Collingwood,63,24,10,3,3,6,110,46
+2025,2025-08-08,Geelong,Essendon,52,15,7,10,2,3,109,65
+2025,2025-08-09,Richmond,St Kilda,29,33,4,5,5,3,52,56
+2025,2025-08-09,Brisbane,Sydney,46,55,7,4,8,7,90,92
+2025,2025-08-09,Carlton,Gold Coast,31,55,5,1,8,7,74,93
+2025,2025-08-09,Port Adelaide,Fremantle,53,51,8,5,7,9,86,92
+2025,2025-08-10,GWS,North Melbourne,66,28,10,6,4,4,133,79
+2025,2025-08-10,Melbourne,Western Bulldogs,30,40,4,6,5,10,99,105
+2025,2025-08-10,West Coast,Adelaide,40,34,6,4,5,4,78,87
+2025,2025-08-15,Essendon,St Kilda,36,35,5,6,5,5,75,77
+2025,2025-08-15,Fremantle,Brisbane,26,34,3,8,5,4,44,101
+2025,2025-08-16,Gold Coast,GWS,40,62,6,4,9,8,76,111
+2025,2025-08-16,Carlton,Port Adelaide,83,28,13,5,4,4,118,64
+2025,2025-08-16,Hawthorn,Melbourne,49,15,7,7,2,3,92,56
+2025,2025-08-16,Adelaide,Collingwood,39,34,6,3,5,4,59,56
+2025,2025-08-17,North Melbourne,Richmond,47,39,6,11,6,3,135,87
+2025,2025-08-17,Sydney,Geelong,46,55,7,4,8,7,68,111
+2025,2025-08-17,Western Bulldogs,West Coast,73,17,11,7,2,5,126,32
+2025,2025-08-21,Essendon,Carlton,18,48,2,6,7,6,56,90
+2025,2025-08-22,Collingwood,Melbourne,46,33,6,10,5,3,82,76
+2025,2025-08-22,Port Adelaide,Gold Coast,31,46,4,7,6,10,71,67
+2025,2025-08-23,North Melbourne,Adelaide,48,59,7,6,9,5,100,113
+2025,2025-08-23,Richmond,Geelong,15,78,2,3,11,12,64,103
+2025,2025-08-23,West Coast,Sydney,42,35,6,6,5,5,51,118
+2025,2025-08-24,GWS,St Kilda,42,43,6,6,6,7,104,93
+2025,2025-08-24,Western Bulldogs,Fremantle,32,58,4,8,9,4,97,112
+2025,2025-08-24,Brisbane,Hawthorn,46,41,6,10,6,5,89,79
+2025,2025-09-04,Adelaide,Collingwood,31,37,5,1,5,7,55,79
+2025,2025-09-05,Geelong,Brisbane,59,44,8,11,7,2,112,74
+2025,2025-09-06,GWS,Hawthorn,41,69,6,5,11,3,88,107
+2025,2025-09-06,Fremantle,Gold Coast,32,57,5,2,8,9,79,80
+2025,2025-09-12,Adelaide,Hawthorn,24,43,3,6,6,7,67,101
+2025,2025-09-13,Brisbane,Gold Coast,60,35,9,6,5,5,100,47
+2025,2025-09-19,Geelong,Hawthorn,43,42,6,7,6,6,115,85
+2025,2025-09-20,Collingwood,Brisbane,43,30,7,1,4,6,71,100
+2025,2025-09-27,Geelong,Brisbane,36,36,5,6,5,6,75,122
+2026,2026-03-05,Sydney,Carlton,18,28,2,6,4,4,132,69
+2026,2026-03-06,Gold Coast,Geelong,71,29,11,5,4,5,125,69
+2026,2026-03-07,GWS,Hawthorn,82,47,13,4,7,5,122,95
+2026,2026-03-07,Brisbane,Western Bulldogs,43,40,6,7,5,10,106,111
+2026,2026-03-08,St Kilda,Collingwood,37,35,5,7,5,5,66,78
+2026,2026-03-12,Carlton,Richmond,63,36,9,9,5,6,75,71
+2026,2026-03-13,Essendon,Hawthorn,39,83,6,3,12,11,83,145
+2026,2026-03-14,Western Bulldogs,GWS,67,29,11,1,4,5,134,53
+2026,2026-03-14,Geelong,Fremantle,52,74,8,4,11,8,110,100
+2026,2026-03-14,Sydney,Brisbane,66,18,10,6,2,6,104,60
+2026,2026-03-14,Collingwood,Adelaide,32,35,4,8,5,5,79,93
+2026,2026-03-15,North Melbourne,Port Adelaide,53,28,8,5,4,4,113,67
+2026,2026-03-15,Melbourne,St Kilda,61,59,9,7,9,5,120,107
+2026,2026-03-15,Gold Coast,West Coast,84,22,13,6,3,4,131,72
+2026,2026-03-19,Hawthorn,Sydney,43,44,6,7,7,2,99,82
+2026,2026-03-20,Adelaide,Western Bulldogs,32,47,5,2,7,5,88,94
+2026,2026-03-21,Richmond,Gold Coast,34,65,5,4,10,5,60,128
+2026,2026-03-21,GWS,St Kilda,24,56,3,6,8,8,74,78
+2026,2026-03-21,Fremantle,Melbourne,65,34,9,11,5,4,118,70
+2026,2026-03-22,Port Adelaide,Essendon,67,18,10,7,2,6,133,70
+2026,2026-03-22,West Coast,North Melbourne,48,55,7,6,9,1,111,94
+2026,2026-03-26,Geelong,Adelaide,41,33,6,5,5,3,68,60
+2026,2026-03-27,Collingwood,GWS,39,30,6,3,4,6,87,54
+2026,2026-03-28,St Kilda,Brisbane,39,31,5,9,4,7,80,113
+2026,2026-03-28,Fremantle,Richmond,39,33,5,9,5,3,103,43
+2026,2026-03-28,Essendon,North Melbourne,32,44,4,8,7,2,69,81
+2026,2026-03-29,Port Adelaide,West Coast,54,46,8,6,7,4,90,92
+2026,2026-03-29,Carlton,Melbourne,46,12,7,4,1,6,77,100
+2026,2026-04-02,Brisbane,Collingwood,62,33,9,8,5,3,119,65
+2026,2026-04-03,North Melbourne,Carlton,37,40,5,7,6,4,96,86
+2026,2026-04-03,Adelaide,Fremantle,29,54,4,5,8,6,76,78
+2026,2026-04-04,Richmond,Port Adelaide,22,37,3,4,5,7,48,90
+2026,2026-04-04,West Coast,Sydney,20,83,2,8,13,5,35,163
+2026,2026-04-05,Melbourne,Gold Coast,56,50,8,8,8,2,109,89
+2026,2026-04-05,Western Bulldogs,Essendon,67,13,10,7,1,7,99,65
+2026,2026-04-06,Hawthorn,Geelong,47,56,7,5,9,2,92,91
+2026,2026-04-09,Adelaide,Carlton,78,54,12,6,8,6,114,86
+2026,2026-04-10,Collingwood,Fremantle,23,14,3,5,2,2,39,45
+2026,2026-04-11,North Melbourne,Brisbane,36,32,5,6,4,8,66,92
+2026,2026-04-11,Essendon,Melbourne,44,50,6,8,8,2,113,68
+2026,2026-04-11,Sydney,Gold Coast,51,35,7,9,5,5,100,68
+2026,2026-04-11,Hawthorn,Western Bulldogs,47,19,7,5,2,7,104,64
+2026,2026-04-12,Geelong,West Coast,68,38,10,8,5,8,122,76
+2026,2026-04-12,GWS,Richmond,73,40,11,7,6,4,131,75
+2026,2026-04-12,Port Adelaide,St Kilda,29,56,4,5,8,8,67,81
+2026,2026-04-16,Carlton,Collingwood,41,27,6,5,3,9,83,88
+2026,2026-04-17,Geelong,Western Bulldogs,78,21,12,6,3,3,131,56
+2026,2026-04-17,Sydney,GWS,45,26,7,3,3,8,107,66
+2026,2026-04-18,Gold Coast,Essendon,58,61,8,10,10,1,119,110
+2026,2026-04-18,Hawthorn,Port Adelaide,47,56,7,5,9,2,89,86
+2026,2026-04-18,Adelaide,St Kilda,52,44,8,4,6,8,103,102
+2026,2026-04-19,North Melbourne,Richmond,63,24,10,3,2,12,130,55
+2026,2026-04-19,Melbourne,Brisbane,36,52,5,6,8,4,104,102
+2026,2026-04-19,West Coast,Fremantle,20,42,2,8,6,6,41,97
+2026,2026-04-23,Western Bulldogs,Sydney,39,52,6,3,7,10,60,126
+2026,2026-04-24,Richmond,Melbourne,44,65,7,2,10,5,72,126
+2026,2026-04-25,Hawthorn,Gold Coast,62,39,9,8,6,3,112,63
+2026,2026-04-25,Essendon,Collingwood,22,36,3,4,5,6,60,137
+2026,2026-04-25,Port Adelaide,Geelong,50,37,7,8,6,1,95,65
+2026,2026-04-25,Fremantle,Carlton,52,41,8,4,6,5,103,89
+2026,2026-04-26,St Kilda,West Coast,52,12,7,10,1,6,143,42
+2026,2026-04-26,Brisbane,Adelaide,62,39,9,8,6,3,127,75
+2026,2026-04-26,GWS,North Melbourne,49,49,7,7,7,7,105,98
+2026,2026-04-30,Collingwood,Hawthorn,45,40,7,3,5,10,93,93
+2026,2026-05-01,Western Bulldogs,Fremantle,60,46,9,6,7,4,102,114
+2026,2026-05-01,Adelaide,Port Adelaide,22,28,3,4,4,4,76,75
+2026,2026-05-02,Essendon,Brisbane,32,65,4,8,10,5,79,143
+2026,2026-05-02,West Coast,Richmond,42,52,6,6,8,4,88,99
+2026,2026-05-02,Geelong,North Melbourne,36,35,5,6,5,5,135,86
+2026,2026-05-02,Carlton,St Kilda,49,37,7,7,5,7,69,108
+2026,2026-05-03,Sydney,Melbourne,68,46,10,8,7,4,131,114
+2026,2026-05-03,Gold Coast,GWS,32,28,4,8,3,10,83,63
+2026,2026-05-07,Fremantle,Hawthorn,44,59,6,8,9,5,88,73
+2026,2026-05-08,Brisbane,Carlton,56,18,8,8,2,6,100,89
+2026,2026-05-08,Port Adelaide,Western Bulldogs,41,59,6,5,9,5,72,74
+2026,2026-05-09,North Melbourne,Sydney,56,55,8,8,9,1,97,105
+2026,2026-05-09,GWS,Essendon,32,47,5,2,7,5,103,89
+2026,2026-05-09,Gold Coast,St Kilda,46,36,7,4,5,6,89,60
+2026,2026-05-09,Geelong,Collingwood,48,38,7,6,5,8,122,68
+2026,2026-05-10,Melbourne,West Coast,54,23,8,6,3,5,99,67
+2026,2026-05-10,Richmond,Adelaide,46,36,7,4,5,6,61,98
+2026,2026-05-14,Brisbane,Geelong,45,57,7,3,8,9,76,117
+2026,2026-05-15,Sydney,Collingwood,24,45,3,6,6,9,81,75
+2026,2026-05-15,Gold Coast,Port Adelaide,69,42,11,3,6,6,98,73
+2026,2026-05-16,Adelaide,North Melbourne,90,24,14,6,3,6,133,65
+2026,2026-05-16,Melbourne,Hawthorn,42,36,6,6,5,6,120,81
+2026,2026-05-16,Carlton,Western Bulldogs,24,34,3,6,5,4,74,62
+2026,2026-05-17,Essendon,Fremantle,14,66,1,8,10,6,61,104
+2026,2026-05-17,St Kilda,Richmond,65,39,10,5,6,3,109,73
+2026,2026-05-17,West Coast,GWS,46,32,7,4,4,8,88,71
+2026,2026-05-21,Hawthorn,Adelaide,47,34,7,5,5,4,75,66
+2026,2026-05-22,Richmond,Essendon,49,34,7,7,5,4,74,56
+2026,2026-05-22,Fremantle,St Kilda,44,45,7,2,7,3,104,74
+2026,2026-05-23,North Melbourne,Gold Coast,37,75,6,1,12,3,111,105
+2026,2026-05-23,Geelong,Sydney,58,38,8,10,6,2,107,80
+2026,2026-05-23,Collingwood,West Coast,45,35,6,9,5,5,92,82
+2026,2026-05-23,Port Adelaide,Carlton,23,58,3,5,9,4,58,92
+2026,2026-05-24,GWS,Brisbane,59,53,9,5,8,5,166,88
+2026,2026-05-24,Western Bulldogs,Melbourne,51,43,8,3,6,7,93,90
+2026,2026-05-28,St Kilda,Hawthorn,5,55,0,5,8,7,67,119
+2026,2026-05-29,Carlton,Geelong,39,44,5,9,6,8,88,84
+2026,2026-05-30,Sydney,Richmond,97,46,15,7,7,4,170,56
+2026,2026-05-30,Brisbane,Fremantle,28,49,3,10,7,7,78,103
+2026,2026-05-30,Western Bulldogs,Collingwood,49,32,7,7,4,8,97,93
+2026,2026-05-31,Melbourne,GWS,44,56,6,8,9,2,70,119
+2026,2026-05-31,West Coast,Essendon,36,16,5,6,2,4,85,55
+2026,2026-06-04,Adelaide,Geelong,39,33,6,3,4,9,75,74
+2026,2026-06-05,Hawthorn,Western Bulldogs,54,27,8,6,4,3,71,77
+2026,2026-06-06,North Melbourne,Fremantle,28,82,4,4,13,4,31,155
+2026,2026-06-06,Gold Coast,Brisbane,46,62,7,4,9,8,75,106
+2026,2026-06-06,West Coast,Port Adelaide,32,43,5,2,6,7,71,77
+2026,2026-06-07,Sydney,St Kilda,63,71,9,9,11,5,104,102
+2026,2026-06-07,Essendon,Carlton,39,25,6,3,3,7,67,72
+2026,2026-06-08,Collingwood,Melbourne,39,37,6,3,5,7,75,83

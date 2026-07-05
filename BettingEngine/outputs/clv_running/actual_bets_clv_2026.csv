@@ -1,0 +1,16 @@
+bet_id,sport,round,match,market,selection,line,odds_taken,close_line,open_line,line_move,close_odds,clv_pct,clv_line,result,pnl
+2026-0001,AFL,8,Carlton Blues v St Kilda Saints,h2h,Carlton Blues,,2.55,,,,2.45,4.08,,loss,-40.0
+2026-0002,AFL,8,Western Bulldogs v Fremantle Dockers,h2h,Western Bulldogs,,3.21,,,,3.15,1.9,,loss,-33.0
+2026-0003,AFL,8,Adelaide Crows v Port Adelaide Power,handicap,Adelaide Crows,-9.5,1.89,-8.5,-11.5,-3.0,1.95,-3.08,-1.0,loss,-50.0
+2026-0004,AFL,8,Carlton Blues v St Kilda Saints,total,under,183.5,1.89,183.5,180.5,-3.0,1.85,2.16,0.0,win,44.5
+2026-0005,NRL,10,Dolphins v Melbourne Storm,total,under,54.5,1.84,52.5,52.5,0.0,2.05,-10.24,2.0,win,42.0
+2026-0006,NRL,10,Dolphins v Melbourne Storm,handicap,Dolphins,-3.5,1.89,-3.5,-2.5,1.0,1.85,2.16,0.0,win,44.5
+2026-0007,NRL,10,Cronulla Sharks v Wests Tigers,handicap,Cronulla Sharks,-7.5,1.9,-7.5,-4.5,3.0,1.9,0.0,0.0,win,45.0
+2026-0008,AFL,9,Gold Coast SUNS v St Kilda,handicap,Gold Coast SUNS,-17.5,1.89,-20.5,-15.5,5.0,1.85,2.16,3.0,win,44.5
+2026-0009,AFL,9,Geelong Cats v Collingwood,handicap,Geelong Cats,-11.5,1.89,-13.5,-12.5,1.0,1.9,-0.53,2.0,win,44.5
+2026-0010,AFL,9,Port Adelaide v Western Bulldogs,h2h,Port Adelaide,,1.96,,,,2,-2.0,,loss,-50.0
+2026-0011,AFL,9,GWS GIANTS v Essendon,total,under,193.5,1.87,190.5,190.5,0.0,1.85,1.08,3.0,win,43.5
+2026-0012,NRL,11,St George/Illa Dragons v Newcastle Knights,handicap,St George Illawarra Dragons,8.5,1.89,10.5,9.5,-1.0,1.9,-0.53,-2.0,loss,-50.0
+2026-0013,NRL,11,Dolphins v Canterbury Bulldogs,handicap,Dolphins,-5.5,1.84,-6.5,-5.5,1.0,1.9,-3.16,1.0,win,42.0
+2026-0014,NRL,11,Canberra Raiders v Penrith Panthers,h2h,Canberra Raiders,,3.62,,,,3.35,8.06,,loss,-50.0
+2026-0015,NRL,11,Melbourne Storm v Wests Tigers,handicap,Melbourne Storm,-5.5,1.9,-9.5,-4.5,5.0,1.8,5.56,4.0,win,45.0

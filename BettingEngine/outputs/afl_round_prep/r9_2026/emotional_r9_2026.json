@@ -1,0 +1,36 @@
+{
+  "source": "https://www.afl.com.au/news/1513224/medical-room-the-full-afl-injury-list-r9/amp",
+  "source_date": "2026-05-05",
+  "round": 9,
+  "season": 2026,
+  "flags": {
+    "Adelaide Crows": [
+      {"flag_type": "star_return", "flag_strength": "minor", "player_name": "Callum Ah Chee", "notes": "AFL.com.au says Ah Chee is set to play his first game since round two after hamstring recovery."}
+    ],
+    "Collingwood Magpies": [
+      {"flag_type": "star_return", "flag_strength": "normal", "player_name": "Scott Pendlebury", "notes": "Expected to return after being managed."},
+      {"flag_type": "star_return", "flag_strength": "minor", "player_name": "Jeremy Howe", "notes": "Expected to return after being managed."}
+    ],
+    "Essendon Bombers": [
+      {"flag_type": "star_return", "flag_strength": "minor", "player_name": "Darcy Parish", "notes": "Set to be available after being managed."}
+    ],
+    "Fremantle Dockers": [
+      {"flag_type": "star_return", "flag_strength": "minor", "player_name": "Judd McVee", "notes": "Expected to return after missing with illness."}
+    ],
+    "Gold Coast Suns": [
+      {"flag_type": "star_return", "flag_strength": "normal", "player_name": "Jarrod Witts", "notes": "Expected to return after being rested."}
+    ],
+    "North Melbourne Kangaroos": [
+      {"flag_type": "star_return", "flag_strength": "minor", "player_name": "George Wardlaw", "notes": "Recovered from illness and expected to play."}
+    ],
+    "Port Adelaide Power": [
+      {"flag_type": "star_return", "flag_strength": "minor", "player_name": "Esava Ratugolea", "notes": "Available for first time since round three after knee injury."}
+    ],
+    "Richmond Tigers": [
+      {"flag_type": "star_return", "flag_strength": "normal", "player_name": "Tim Taranto", "notes": "AFL.com.au says Taranto should be right to return after concussion symptoms."}
+    ],
+    "Western Bulldogs": [
+      {"flag_type": "club_drama", "flag_strength": "minor", "player_name": "Marcus Bontempelli", "notes": "Bontempelli carried a knee issue across the past fortnight but is expected to face Port Adelaide."}
+    ]
+  }
+}

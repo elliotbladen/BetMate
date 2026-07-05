@@ -1,0 +1,50 @@
+{
+  "train_seasons": [
+    "2017/18",
+    "2018/19",
+    "2019/20",
+    "2020/21"
+  ],
+  "test_seasons": [
+    "2021/22",
+    "2022/23",
+    "2023/24"
+  ],
+  "overall": {
+    "rps_base": 0.1335,
+    "rps_catboost": 0.1356,
+    "rps_delta": 0.0021,
+    "h2h_acc": 0.5452,
+    "brier_totals": 0.2618,
+    "n": 1139
+  },
+  "per_season": [
+    {
+      "rps_base": 0.1319,
+      "rps_catboost": 0.1354,
+      "rps_delta": 0.0034,
+      "h2h_acc": 0.5435,
+      "brier_totals": 0.2574,
+      "n": 379,
+      "season": "2021/22"
+    },
+    {
+      "rps_base": 0.1399,
+      "rps_catboost": 0.1421,
+      "rps_delta": 0.0022,
+      "h2h_acc": 0.5184,
+      "brier_totals": 0.264,
+      "n": 380,
+      "season": "2022/23"
+    },
+    {
+      "rps_base": 0.1287,
+      "rps_catboost": 0.13,
+      "rps_delta": 0.0013,
+      "h2h_acc": 0.5632,
+      "brier_totals": 0.263,
+      "n": 380,
+      "season": "2023/24"
+    }
+  ]
+}

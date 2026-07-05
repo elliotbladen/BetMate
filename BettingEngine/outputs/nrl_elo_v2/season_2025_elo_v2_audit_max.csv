@@ -1,0 +1,214 @@
+date,home_team,away_team,actual_margin,standard_home_delta,adjusted_home_delta,multiplier,adjustment_type,hard_done_by,lucky_winner,pregame_home_elo_v2,pregame_away_elo_v2,postgame_home_elo_v2,postgame_away_elo_v2
+2025-03-02,Penrith Panthers,Cronulla-Sutherland Sharks,6.0,7.443,7.443,1.0,normal,,,1633.78,1542.91,1641.22,1535.47
+2025-03-02,Canberra Raiders,New Zealand Warriors,22.0,8.977,8.977,1.0,normal,,,1505.44,1469.78,1514.42,1460.8
+2025-03-06,Sydney Roosters,Brisbane Broncos,-36.0,-11.606,-11.606,1.0,normal,,,1557.8,1501.52,1546.19,1513.13
+2025-03-07,South Sydney Rabbitohs,Dolphins,2.0,10.38,0.0,0.0,stat_reversal,Dolphins,South Sydney Rabbitohs,1453.77,1466.97,1453.77,1466.97
+2025-03-07,Wests Tigers,Newcastle Knights,-2.0,-6.785,-6.785,1.0,normal,,,1380.6,1496.39,1373.81,1503.18
+2025-03-08,Manly-Warringah Sea Eagles,North Queensland Cowboys,30.0,10.806,10.806,1.0,normal,,,1512.42,1540.49,1523.23,1529.68
+2025-03-08,St. George Illawarra Dragons,Canterbury-Bankstown Bulldogs,-8.0,-9.102,-9.102,1.0,normal,,,1450.27,1481.54,1441.17,1490.64
+2025-03-09,Melbourne Storm,Parramatta Eels,38.0,5.887,5.887,1.0,normal,,,1612.93,1461.03,1618.82,1455.14
+2025-03-13,Newcastle Knights,Dolphins,14.0,8.962,8.962,1.0,normal,,,1503.18,1466.97,1512.14,1458.01
+2025-03-14,Penrith Panthers,Sydney Roosters,-6.0,-12.669,-12.669,1.0,normal,,,1641.22,1546.19,1628.55,1558.86
+2025-03-14,New Zealand Warriors,Manly-Warringah Sea Eagles,20.0,11.778,11.778,1.0,normal,,,1460.8,1523.23,1472.58,1511.45
+2025-03-15,Canberra Raiders,Brisbane Broncos,10.0,9.963,9.963,1.0,normal,,,1514.42,1513.13,1524.38,1503.16
+2025-03-15,North Queensland Cowboys,Cronulla-Sutherland Sharks,-24.0,-9.834,-9.834,1.0,normal,,,1529.68,1535.47,1519.85,1545.3
+2025-03-15,St. George Illawarra Dragons,South Sydney Rabbitohs,-1.0,-9.637,-0.0,0.0,stat_reversal,St. George Illawarra Dragons,South Sydney Rabbitohs,1441.17,1453.77,1441.17,1453.77
+2025-03-16,Canterbury-Bankstown Bulldogs,Gold Coast Titans,16.0,8.338,8.338,1.0,normal,,,1490.64,1432.37,1498.98,1424.03
+2025-03-16,Parramatta Eels,Wests Tigers,-26.0,-12.299,-12.299,1.0,normal,,,1455.14,1373.81,1442.84,1386.11
+2025-03-20,Melbourne Storm,Penrith Panthers,6.0,10.28,0.0,0.0,stat_reversal,Penrith Panthers,Melbourne Storm,1618.82,1628.55,1618.82,1628.55
+2025-03-21,Brisbane Broncos,North Queensland Cowboys,10.0,10.48,10.48,1.0,normal,,,1503.16,1519.85,1513.64,1509.37
+2025-03-21,New Zealand Warriors,Sydney Roosters,8.0,12.434,12.434,1.0,normal,,,1472.58,1558.86,1485.01,1546.43
+2025-03-22,Gold Coast Titans,Newcastle Knights,20.0,12.483,12.483,1.0,normal,,,1424.03,1512.14,1436.51,1499.65
+2025-03-22,Dolphins,Wests Tigers,-12.0,-12.04,-12.04,1.0,normal,,,1458.01,1386.11,1445.97,1398.15
+2025-03-22,Cronulla-Sutherland Sharks,South Sydney Rabbitohs,15.0,7.425,7.425,1.0,normal,,,1545.3,1453.77,1552.73,1446.35
+2025-03-23,Manly-Warringah Sea Eagles,Canberra Raiders,28.0,10.372,10.372,1.0,normal,,,1511.45,1524.38,1521.82,1514.01
+2025-03-23,Parramatta Eels,Canterbury-Bankstown Bulldogs,-8.0,-8.398,-8.398,1.0,normal,,,1442.84,1498.98,1434.45,1507.38
+2025-03-27,South Sydney Rabbitohs,Penrith Panthers,10.0,14.811,14.811,1.0,normal,,,1446.35,1628.55,1461.16,1613.74
+2025-03-28,Dolphins,Brisbane Broncos,-8.0,-8.076,-8.076,1.0,normal,,,1445.97,1513.64,1437.89,1521.72
+2025-03-28,Sydney Roosters,Gold Coast Titans,-18.0,-13.062,-0.0,0.0,stat_reversal,Sydney Roosters,Gold Coast Titans,1546.43,1436.51,1546.43,1436.51
+2025-03-29,Cronulla-Sutherland Sharks,Canterbury-Bankstown Bulldogs,-14.0,-11.298,-11.298,1.0,normal,,,1552.73,1507.38,1541.43,1518.68
+2025-03-29,North Queensland Cowboys,Canberra Raiders,10.0,10.133,10.133,1.0,normal,,,1509.37,1514.01,1519.5,1503.87
+2025-03-29,St. George Illawarra Dragons,Melbourne Storm,6.0,14.71,0.0,0.0,stat_reversal,Melbourne Storm,St. George Illawarra Dragons,1441.17,1618.82,1441.17,1618.82
+2025-03-30,Wests Tigers,New Zealand Warriors,-2.0,-7.551,-7.551,1.0,normal,,,1398.15,1485.01,1390.6,1492.56
+2025-03-30,Manly-Warringah Sea Eagles,Parramatta Eels,14.0,7.537,7.537,1.0,normal,,,1521.82,1434.45,1529.36,1426.91
+2025-04-03,Canberra Raiders,Cronulla-Sutherland Sharks,4.0,11.077,5.538,0.5,close_game_tension,Cronulla-Sutherland Sharks,Canberra Raiders,1503.87,1541.43,1509.41,1535.89
+2025-04-04,South Sydney Rabbitohs,Sydney Roosters,6.0,12.406,12.406,1.0,normal,,,1461.16,1546.43,1473.56,1534.02
+2025-04-04,Penrith Panthers,North Queensland Cowboys,-4.0,-12.648,-12.648,1.0,normal,,,1613.74,1519.5,1601.09,1532.15
+2025-04-05,Brisbane Broncos,Wests Tigers,22.0,6.396,1.599,0.25,margin_exaggeration,Wests Tigers,Brisbane Broncos,1521.72,1390.6,1523.32,1389.0
+2025-04-05,Gold Coast Titans,Dolphins,-26.0,-9.96,-9.96,1.0,normal,,,1436.51,1437.89,1426.55,1447.85
+2025-04-05,Parramatta Eels,St. George Illawarra Dragons,1.0,10.41,10.41,1.0,normal,,,1426.91,1441.17,1437.32,1430.76
+2025-04-06,Canterbury-Bankstown Bulldogs,Newcastle Knights,20.0,9.453,9.453,1.0,normal,,,1518.68,1499.65,1528.13,1490.2
+2025-04-06,Manly-Warringah Sea Eagles,Melbourne Storm,-24.0,-7.481,-7.481,1.0,normal,,,1529.36,1618.82,1521.88,1626.3
+2025-04-10,Dolphins,Penrith Panthers,18.0,14.145,3.536,0.25,margin_exaggeration,Penrith Panthers,Dolphins,1447.85,1601.09,1451.39,1597.56
+2025-04-11,Brisbane Broncos,Sydney Roosters,-10.0,-9.692,-9.692,1.0,normal,,,1523.32,1534.02,1513.63,1543.72
+2025-04-11,St. George Illawarra Dragons,Gold Coast Titans,22.0,9.879,9.879,1.0,normal,,,1430.76,1426.55,1440.64,1416.68
+2025-04-12,Parramatta Eels,Canberra Raiders,-38.0,-7.954,-7.954,1.0,normal,,,1437.32,1509.41,1429.37,1517.37
+2025-04-12,South Sydney Rabbitohs,North Queensland Cowboys,-8.0,-8.329,-8.329,1.0,normal,,,1473.56,1532.15,1465.23,1540.48
+2025-04-12,Cronulla-Sutherland Sharks,Manly-Warringah Sea Eagles,6.0,9.597,9.597,1.0,normal,,,1535.89,1521.88,1545.49,1512.28
+2025-04-13,Newcastle Knights,Wests Tigers,-16.0,-12.833,-12.833,1.0,normal,,,1490.2,1389.0,1477.37,1401.84
+2025-04-13,Melbourne Storm,New Zealand Warriors,28.0,6.33,6.33,1.0,normal,,,1626.3,1492.56,1632.63,1486.23
+2025-04-17,Manly-Warringah Sea Eagles,St. George Illawarra Dragons,-2.0,-12.033,-12.033,1.0,normal,,,1512.28,1440.64,1500.25,1452.67
+2025-04-18,Dolphins,Melbourne Storm,20.0,14.79,14.79,1.0,normal,,,1451.39,1632.63,1466.18,1617.84
+2025-04-18,Canterbury-Bankstown Bulldogs,South Sydney Rabbitohs,32.0,8.209,8.209,1.0,normal,,,1528.13,1465.23,1536.34,1457.02
+2025-04-19,Sydney Roosters,Penrith Panthers,-28.0,-8.463,-8.463,1.0,normal,,,1543.72,1597.56,1535.25,1606.02
+2025-04-19,New Zealand Warriors,Brisbane Broncos,2.0,10.787,5.393,0.5,close_game_tension,Brisbane Broncos,New Zealand Warriors,1486.23,1513.63,1491.63,1508.23
+2025-04-20,Newcastle Knights,Cronulla-Sutherland Sharks,-20.0,-8.064,-8.064,1.0,normal,,,1477.37,1545.49,1469.3,1553.55
+2025-04-20,Gold Coast Titans,Canberra Raiders,-10.0,-7.18,-7.18,1.0,normal,,,1416.68,1517.37,1409.49,1524.55
+2025-04-21,Wests Tigers,Parramatta Eels,-16.0,-9.209,-9.209,1.0,normal,,,1401.84,1429.37,1392.63,1438.57
+2025-04-24,Brisbane Broncos,Canterbury-Bankstown Bulldogs,24.0,10.807,10.807,1.0,normal,,,1508.23,1536.34,1519.04,1525.53
+2025-04-25,Melbourne Storm,South Sydney Rabbitohs,8.0,5.676,5.676,1.0,normal,,,1617.84,1457.02,1623.51,1451.35
+2025-04-25,New Zealand Warriors,Newcastle Knights,14.0,9.358,9.358,1.0,normal,,,1491.63,1469.3,1500.99,1459.95
+2025-04-25,Sydney Roosters,St. George Illawarra Dragons,28.0,7.667,7.667,1.0,normal,,,1535.25,1452.67,1542.92,1445.0
+2025-04-26,Penrith Panthers,Manly-Warringah Sea Eagles,-16.0,-12.954,-12.954,1.0,normal,,,1606.02,1500.25,1593.07,1513.2
+2025-04-26,North Queensland Cowboys,Gold Coast Titans,32.0,6.399,6.399,1.0,normal,,,1540.48,1409.49,1546.88,1403.1
+2025-04-27,Wests Tigers,Cronulla-Sutherland Sharks,2.0,14.327,7.163,0.5,close_game_tension,Cronulla-Sutherland Sharks,Wests Tigers,1392.63,1553.55,1399.79,1546.39
+2025-04-27,Canberra Raiders,Dolphins,12.0,8.336,8.336,1.0,normal,,,1524.55,1466.18,1532.88,1457.84
+2025-05-02,Sydney Roosters,Dolphins,10.0,7.599,7.599,1.0,normal,,,1542.92,1457.84,1550.52,1450.24
+2025-05-02,Cronulla-Sutherland Sharks,Parramatta Eels,10.0,6.993,6.993,1.0,normal,,,1546.39,1438.57,1553.38,1431.58
+2025-05-03,Wests Tigers,St. George Illawarra Dragons,6.0,11.294,0.0,0.0,stat_reversal,St. George Illawarra Dragons,Wests Tigers,1399.79,1445.0,1399.79,1445.0
+2025-05-03,New Zealand Warriors,North Queensland Cowboys,4.0,11.313,0.0,0.0,stat_reversal,North Queensland Cowboys,New Zealand Warriors,1500.99,1546.88,1500.99,1546.88
+2025-05-03,South Sydney Rabbitohs,Newcastle Knights,-26.0,-9.753,-9.753,1.0,normal,,,1451.35,1459.95,1441.6,1469.7
+2025-05-04,Melbourne Storm,Canberra Raiders,-2.0,-12.551,-12.551,1.0,normal,,,1623.51,1532.88,1610.96,1545.43
+2025-05-04,Penrith Panthers,Brisbane Broncos,24.0,7.901,7.901,1.0,normal,,,1593.07,1519.04,1600.97,1511.14
+2025-05-04,Gold Coast Titans,Canterbury-Bankstown Bulldogs,-20.0,-6.615,-6.615,1.0,normal,,,1403.1,1525.53,1396.48,1532.15
+2025-05-08,Parramatta Eels,Dolphins,-4.0,-9.463,-9.463,1.0,normal,,,1431.58,1450.24,1422.12,1459.71
+2025-05-09,South Sydney Rabbitohs,Brisbane Broncos,8.0,11.975,0.0,0.0,stat_reversal,Brisbane Broncos,South Sydney Rabbitohs,1441.6,1511.14,1441.6,1511.14
+2025-05-09,Newcastle Knights,Gold Coast Titans,-4.0,-12.077,-12.077,1.0,normal,,,1469.7,1396.48,1457.62,1408.56
+2025-05-10,North Queensland Cowboys,Penrith Panthers,0.0,1.544,1.544,1.0,normal,,,1546.88,1600.97,1548.42,1599.42
+2025-05-10,St. George Illawarra Dragons,New Zealand Warriors,-1.0,-8.402,-0.0,0.0,stat_reversal,St. George Illawarra Dragons,New Zealand Warriors,1445.0,1500.99,1445.0,1500.99
+2025-05-10,Canberra Raiders,Canterbury-Bankstown Bulldogs,-12.0,-10.382,-10.382,1.0,normal,,,1545.43,1532.15,1535.05,1542.53
+2025-05-11,Manly-Warringah Sea Eagles,Cronulla-Sutherland Sharks,-16.0,-8.849,-8.849,1.0,normal,,,1513.2,1553.38,1504.35,1562.23
+2025-05-11,Melbourne Storm,Wests Tigers,64.0,4.574,4.574,1.0,normal,,,1610.96,1399.79,1615.54,1395.22
+2025-05-16,Canterbury-Bankstown Bulldogs,Sydney Roosters,4.0,10.23,5.115,0.5,close_game_tension,Sydney Roosters,Canterbury-Bankstown Bulldogs,1542.53,1550.52,1547.64,1545.4
+2025-05-16,Newcastle Knights,Parramatta Eels,-22.0,-11.018,-11.018,1.0,normal,,,1457.62,1422.12,1446.6,1433.14
+2025-05-17,Cronulla-Sutherland Sharks,Melbourne Storm,5.0,11.522,11.522,1.0,normal,,,1562.23,1615.54,1573.75,1604.01
+2025-05-17,North Queensland Cowboys,Manly-Warringah Sea Eagles,-18.0,-11.262,-11.262,1.0,normal,,,1548.42,1504.35,1537.16,1515.61
+2025-05-17,Dolphins,New Zealand Warriors,-4.0,-8.817,-8.817,1.0,normal,,,1459.71,1500.99,1450.89,1509.8
+2025-05-18,Wests Tigers,South Sydney Rabbitohs,-10.0,-8.673,-8.673,1.0,normal,,,1395.22,1441.6,1386.54,1450.27
+2025-05-18,Canberra Raiders,Gold Coast Titans,16.0,6.512,6.512,1.0,normal,,,1535.05,1408.56,1541.56,1402.05
+2025-05-18,Brisbane Broncos,St. George Illawarra Dragons,-4.0,-11.881,-0.0,0.0,stat_reversal,Brisbane Broncos,St. George Illawarra Dragons,1511.14,1445.0,1511.14,1445.0
+2025-05-22,Canterbury-Bankstown Bulldogs,Dolphins,-36.0,-12.715,-12.715,1.0,normal,,,1547.64,1450.89,1534.93,1463.6
+2025-05-23,Parramatta Eels,Manly-Warringah Sea Eagles,20.0,12.33,3.083,0.25,margin_exaggeration,Manly-Warringah Sea Eagles,Parramatta Eels,1433.14,1515.61,1436.22,1512.53
+2025-05-24,Sydney Roosters,Cronulla-Sutherland Sharks,26.0,10.814,10.814,1.0,normal,,,1545.4,1573.75,1556.22,1562.94
+2025-05-24,Penrith Panthers,Newcastle Knights,-19.0,-14.135,-14.135,1.0,normal,,,1599.42,1446.6,1585.29,1460.74
+2025-05-25,New Zealand Warriors,Canberra Raiders,-6.0,-9.088,-9.088,1.0,normal,,,1509.8,1541.56,1500.72,1550.65
+2025-05-30,St. George Illawarra Dragons,Newcastle Knights,14.0,10.453,10.453,1.0,normal,,,1445.0,1460.74,1455.46,1450.29
+2025-05-31,Manly-Warringah Sea Eagles,Brisbane Broncos,28.0,9.96,9.96,1.0,normal,,,1512.53,1511.14,1522.49,1501.18
+2025-05-31,North Queensland Cowboys,Wests Tigers,4.0,5.917,5.917,1.0,normal,,,1537.16,1386.54,1543.08,1380.63
+2025-05-31,Gold Coast Titans,Melbourne Storm,-12.0,-4.764,-4.764,1.0,normal,,,1402.05,1604.01,1397.28,1608.78
+2025-06-01,Sydney Roosters,Canberra Raiders,-2.0,-10.16,-10.16,1.0,normal,,,1556.22,1550.65,1546.06,1560.81
+2025-06-01,Penrith Panthers,Parramatta Eels,8.0,5.955,2.977,0.5,close_game_tension,Parramatta Eels,Penrith Panthers,1585.29,1436.22,1588.27,1433.24
+2025-06-01,South Sydney Rabbitohs,New Zealand Warriors,-6.0,-8.558,-8.558,1.0,normal,,,1450.27,1500.72,1441.71,1509.27
+2025-06-05,Newcastle Knights,Manly-Warringah Sea Eagles,4.0,12.049,0.0,0.0,stat_reversal,Manly-Warringah Sea Eagles,Newcastle Knights,1450.29,1522.49,1450.29,1522.49
+2025-06-06,Dolphins,St. George Illawarra Dragons,50.0,9.766,9.766,1.0,normal,,,1463.6,1455.46,1473.37,1445.69
+2025-06-06,Melbourne Storm,North Queensland Cowboys,24.0,8.131,8.131,1.0,normal,,,1608.78,1543.08,1616.91,1534.95
+2025-06-07,Brisbane Broncos,Gold Coast Titans,30.0,7.096,7.096,1.0,normal,,,1501.18,1397.28,1508.27,1390.19
+2025-06-07,Cronulla-Sutherland Sharks,New Zealand Warriors,-30.0,-11.532,-11.532,1.0,normal,,,1562.94,1509.27,1551.4,1520.81
+2025-06-08,Wests Tigers,Penrith Panthers,-4.0,-4.646,-4.646,1.0,normal,,,1380.63,1588.27,1375.98,1592.91
+2025-06-08,Canberra Raiders,South Sydney Rabbitohs,24.0,6.7,6.7,1.0,normal,,,1560.81,1441.71,1567.51,1435.01
+2025-06-09,Canterbury-Bankstown Bulldogs,Parramatta Eels,18.0,7.154,7.154,1.0,normal,,,1534.93,1433.24,1542.08,1426.09
+2025-06-12,Cronulla-Sutherland Sharks,St. George Illawarra Dragons,12.0,7.048,7.048,1.0,normal,,,1551.4,1445.69,1558.45,1438.64
+2025-06-13,Gold Coast Titans,Manly-Warringah Sea Eagles,20.0,13.634,13.634,1.0,normal,,,1390.19,1522.49,1403.82,1508.86
+2025-06-14,North Queensland Cowboys,Dolphins,-54.0,-11.754,-11.754,1.0,normal,,,1534.95,1473.37,1523.19,1485.12
+2025-06-14,Newcastle Knights,Sydney Roosters,-4.0,-7.311,-0.0,0.0,stat_reversal,Newcastle Knights,Sydney Roosters,1450.29,1546.06,1450.29,1546.06
+2025-06-15,South Sydney Rabbitohs,Canterbury-Bankstown Bulldogs,-6.0,-7.012,-7.012,1.0,normal,,,1435.01,1542.08,1428.0,1549.1
+2025-06-20,Wests Tigers,Canberra Raiders,-4.0,-4.985,-0.0,0.0,stat_reversal,Wests Tigers,Canberra Raiders,1375.98,1567.51,1375.98,1567.51
+2025-06-21,South Sydney Rabbitohs,Melbourne Storm,-1.0,-5.042,-5.042,1.0,normal,,,1428.0,1616.91,1422.96,1621.95
+2025-06-21,Dolphins,Newcastle Knights,-6.0,-10.999,-0.0,0.0,stat_reversal,Dolphins,Newcastle Knights,1485.12,1450.29,1485.12,1450.29
+2025-06-21,New Zealand Warriors,Penrith Panthers,-10.0,-7.954,-7.954,1.0,normal,,,1520.81,1592.91,1512.85,1600.87
+2025-06-22,Parramatta Eels,Gold Coast Titans,16.0,9.36,9.36,1.0,normal,,,1426.09,1403.82,1435.45,1394.46
+2025-06-22,Sydney Roosters,North Queensland Cowboys,34.0,9.343,9.343,1.0,normal,,,1546.06,1523.19,1555.4,1513.85
+2025-06-22,Brisbane Broncos,Cronulla-Sutherland Sharks,6.0,11.434,11.434,1.0,normal,,,1508.27,1558.45,1519.71,1547.02
+2025-06-26,Penrith Panthers,Canterbury-Bankstown Bulldogs,2.0,8.521,8.521,1.0,normal,,,1600.87,1549.1,1609.39,1540.57
+2025-06-27,Newcastle Knights,Canberra Raiders,-4.0,-6.748,-6.748,1.0,normal,,,1450.29,1567.51,1443.54,1574.26
+2025-06-27,Manly-Warringah Sea Eagles,Wests Tigers,18.0,6.352,6.352,1.0,normal,,,1508.86,1375.98,1515.21,1369.63
+2025-06-28,Dolphins,South Sydney Rabbitohs,22.0,8.23,8.23,1.0,normal,,,1485.12,1422.96,1493.35,1414.73
+2025-06-28,St. George Illawarra Dragons,Parramatta Eels,14.0,9.908,9.908,1.0,normal,,,1438.64,1435.45,1448.55,1425.54
+2025-06-28,Brisbane Broncos,New Zealand Warriors,14.0,9.803,9.803,1.0,normal,,,1519.71,1512.85,1529.51,1503.05
+2025-06-29,Gold Coast Titans,North Queensland Cowboys,-6.0,-6.693,-0.0,0.0,stat_reversal,Gold Coast Titans,North Queensland Cowboys,1394.46,1513.85,1394.46,1513.85
+2025-06-29,Melbourne Storm,Cronulla-Sutherland Sharks,24.0,7.876,7.876,1.0,normal,,,1621.95,1547.02,1629.83,1539.14
+2025-07-04,Canterbury-Bankstown Bulldogs,Brisbane Broncos,-4.0,-10.318,-10.318,1.0,normal,,,1540.57,1529.51,1530.26,1539.83
+2025-07-05,North Queensland Cowboys,Melbourne Storm,-6.0,-6.781,-6.781,1.0,normal,,,1513.85,1629.83,1507.07,1636.61
+2025-07-05,Canberra Raiders,St. George Illawarra Dragons,4.0,6.532,6.532,1.0,normal,,,1574.26,1448.55,1580.79,1442.02
+2025-07-06,Manly-Warringah Sea Eagles,South Sydney Rabbitohs,18.0,7.186,7.186,1.0,normal,,,1515.21,1414.73,1522.39,1407.54
+2025-07-06,Sydney Roosters,Wests Tigers,-2.0,-14.89,-7.445,0.5,close_game_tension,Sydney Roosters,Wests Tigers,1555.4,1369.63,1547.96,1377.07
+2025-07-11,Cronulla-Sutherland Sharks,Dolphins,12.0,8.69,8.69,1.0,normal,,,1539.14,1493.35,1547.83,1484.66
+2025-07-12,North Queensland Cowboys,Canterbury-Bankstown Bulldogs,-4.0,-9.334,-0.0,0.0,stat_reversal,North Queensland Cowboys,Canterbury-Bankstown Bulldogs,1507.07,1530.26,1507.07,1530.26
+2025-07-12,St. George Illawarra Dragons,Sydney Roosters,-7.0,-7.042,-3.521,0.5,close_game_tension,St. George Illawarra Dragons,Sydney Roosters,1442.02,1547.96,1438.5,1551.48
+2025-07-12,Newcastle Knights,Melbourne Storm,-18.0,-4.952,-4.952,1.0,normal,,,1443.54,1636.61,1438.59,1641.56
+2025-07-13,Gold Coast Titans,Brisbane Broncos,-12.0,-6.044,-6.044,1.0,normal,,,1394.46,1539.83,1388.42,1545.87
+2025-07-13,Parramatta Eels,Penrith Panthers,-22.0,-5.153,-5.153,1.0,normal,,,1425.54,1609.39,1420.39,1614.54
+2025-07-13,New Zealand Warriors,Wests Tigers,20.0,6.525,6.525,1.0,normal,,,1503.05,1377.07,1509.57,1370.55
+2025-07-17,Dolphins,North Queensland Cowboys,19.0,10.644,10.644,1.0,normal,,,1484.66,1507.07,1495.31,1496.43
+2025-07-18,Penrith Panthers,South Sydney Rabbitohs,20.0,4.66,1.165,0.25,margin_exaggeration,South Sydney Rabbitohs,Penrith Panthers,1614.54,1407.54,1615.7,1406.38
+2025-07-18,Cronulla-Sutherland Sharks,Sydney Roosters,13.0,10.105,10.105,1.0,normal,,,1547.83,1551.48,1557.94,1541.37
+2025-07-19,Melbourne Storm,Manly-Warringah Sea Eagles,-2.0,-13.301,-13.301,1.0,normal,,,1641.56,1522.39,1628.26,1535.7
+2025-07-19,Canterbury-Bankstown Bulldogs,St. George Illawarra Dragons,2.0,7.419,7.419,1.0,normal,,,1530.26,1438.5,1537.67,1431.08
+2025-07-19,Canberra Raiders,Parramatta Eels,24.0,5.685,5.685,1.0,normal,,,1580.79,1420.39,1586.48,1414.7
+2025-07-20,Newcastle Knights,New Zealand Warriors,-5.0,-7.985,-7.985,1.0,normal,,,1438.59,1509.57,1430.6,1517.56
+2025-07-20,Wests Tigers,Gold Coast Titans,1.0,10.514,10.514,1.0,normal,,,1370.55,1388.42,1381.06,1377.9
+2025-07-24,Sydney Roosters,Melbourne Storm,-4.0,-7.55,-3.775,0.5,close_game_tension,Sydney Roosters,Melbourne Storm,1541.37,1628.26,1537.6,1632.03
+2025-07-25,Brisbane Broncos,Parramatta Eels,-2.0,-13.606,-6.803,0.5,close_game_tension,Brisbane Broncos,Parramatta Eels,1545.87,1414.7,1539.07,1421.5
+2025-07-25,North Queensland Cowboys,St. George Illawarra Dragons,6.0,8.141,8.141,1.0,normal,,,1496.43,1431.08,1504.57,1422.94
+2025-07-26,South Sydney Rabbitohs,Cronulla-Sutherland Sharks,-2.0,-5.895,-5.895,1.0,normal,,,1406.38,1557.94,1400.48,1563.83
+2025-07-26,Penrith Panthers,Wests Tigers,34.0,4.115,4.115,1.0,normal,,,1615.7,1381.06,1619.82,1376.95
+2025-07-26,New Zealand Warriors,Gold Coast Titans,-8.0,-13.816,-13.816,1.0,normal,,,1517.56,1377.9,1503.74,1391.72
+2025-07-27,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,38.0,9.943,9.943,1.0,normal,,,1537.67,1535.7,1547.62,1525.75
+2025-07-27,Canberra Raiders,Newcastle Knights,26.0,5.792,5.792,1.0,normal,,,1586.48,1430.6,1592.27,1424.81
+2025-07-31,Parramatta Eels,Melbourne Storm,-6.0,-4.587,-4.587,1.0,normal,,,1421.5,1632.03,1416.92,1636.62
+2025-08-01,Brisbane Broncos,South Sydney Rabbitohs,46.0,6.21,6.21,1.0,normal,,,1539.07,1400.48,1545.28,1394.27
+2025-08-01,New Zealand Warriors,Dolphins,-2.0,-10.243,-0.0,0.0,stat_reversal,New Zealand Warriors,Dolphins,1503.74,1495.31,1503.74,1495.31
+2025-08-02,Manly-Warringah Sea Eagles,Sydney Roosters,-16.0,-9.659,-9.659,1.0,normal,,,1525.75,1537.6,1516.09,1547.26
+2025-08-02,St. George Illawarra Dragons,Canberra Raiders,6.0,14.521,14.521,1.0,normal,,,1422.94,1592.27,1437.46,1577.75
+2025-08-02,Gold Coast Titans,Penrith Panthers,-4.0,-4.24,-0.0,0.0,stat_reversal,Gold Coast Titans,Penrith Panthers,1391.72,1619.82,1391.72,1619.82
+2025-08-03,Cronulla-Sutherland Sharks,North Queensland Cowboys,20.0,8.311,8.311,1.0,normal,,,1563.83,1504.57,1572.14,1496.26
+2025-08-03,Wests Tigers,Canterbury-Bankstown Bulldogs,14.0,14.552,14.552,1.0,normal,,,1376.95,1547.62,1391.5,1533.07
+2025-08-07,Melbourne Storm,Brisbane Broncos,20.0,7.43,7.43,1.0,normal,,,1636.62,1545.28,1644.05,1537.85
+2025-08-08,Canberra Raiders,Manly-Warringah Sea Eagles,16.0,8.244,8.244,1.0,normal,,,1577.75,1516.09,1585.99,1507.85
+2025-08-08,Newcastle Knights,Penrith Panthers,-36.0,-4.911,-4.911,1.0,normal,,,1424.81,1619.82,1419.9,1624.73
+2025-08-09,Canterbury-Bankstown Bulldogs,New Zealand Warriors,18.0,9.158,9.158,1.0,normal,,,1533.07,1503.74,1542.22,1494.58
+2025-08-09,Dolphins,Sydney Roosters,-52.0,-8.516,-8.516,1.0,normal,,,1495.31,1547.26,1486.79,1555.77
+2025-08-09,St. George Illawarra Dragons,Cronulla-Sutherland Sharks,8.0,13.693,13.693,1.0,normal,,,1437.46,1572.14,1451.15,1558.45
+2025-08-10,Parramatta Eels,North Queensland Cowboys,1.0,12.245,12.245,1.0,normal,,,1416.92,1496.26,1429.16,1484.01
+2025-08-10,Gold Coast Titans,South Sydney Rabbitohs,-2.0,-9.927,-0.0,0.0,stat_reversal,Gold Coast Titans,South Sydney Rabbitohs,1391.72,1394.27,1391.72,1394.27
+2025-08-14,Penrith Panthers,Melbourne Storm,-4.0,-9.444,-0.0,0.0,stat_reversal,Penrith Panthers,Melbourne Storm,1624.73,1644.05,1624.73,1644.05
+2025-08-15,Sydney Roosters,Canterbury-Bankstown Bulldogs,20.0,9.61,9.61,1.0,normal,,,1555.77,1542.22,1565.38,1532.61
+2025-08-15,New Zealand Warriors,St. George Illawarra Dragons,4.0,8.756,8.756,1.0,normal,,,1494.58,1451.15,1503.34,1442.4
+2025-08-16,South Sydney Rabbitohs,Parramatta Eels,4.0,11.001,0.0,0.0,stat_reversal,Parramatta Eels,South Sydney Rabbitohs,1394.27,1429.16,1394.27,1429.16
+2025-08-16,Brisbane Broncos,Dolphins,10.0,8.541,8.541,1.0,normal,,,1537.85,1486.79,1546.39,1478.25
+2025-08-16,Cronulla-Sutherland Sharks,Gold Coast Titans,32.0,5.538,5.538,1.0,normal,,,1558.45,1391.72,1563.99,1386.18
+2025-08-17,North Queensland Cowboys,Newcastle Knights,34.0,8.175,8.175,1.0,normal,,,1484.01,1419.9,1492.19,1411.72
+2025-08-17,Wests Tigers,Manly-Warringah Sea Eagles,14.0,13.229,13.229,1.0,normal,,,1391.5,1507.85,1404.73,1494.62
+2025-08-21,South Sydney Rabbitohs,St. George Illawarra Dragons,40.0,11.376,11.376,1.0,normal,,,1394.27,1442.4,1405.65,1431.02
+2025-08-22,Melbourne Storm,Canterbury-Bankstown Bulldogs,6.0,6.898,0.0,0.0,stat_reversal,Canterbury-Bankstown Bulldogs,Melbourne Storm,1644.05,1532.61,1644.05,1532.61
+2025-08-22,Penrith Panthers,Canberra Raiders,-4.0,-11.11,-11.11,1.0,normal,,,1624.73,1585.99,1613.62,1597.1
+2025-08-23,Parramatta Eels,Sydney Roosters,20.0,13.731,13.731,1.0,normal,,,1429.16,1565.38,1442.89,1551.65
+2025-08-23,Gold Coast Titans,New Zealand Warriors,-14.0,-6.75,-6.75,1.0,normal,,,1386.18,1503.34,1379.43,1510.09
+2025-08-23,Manly-Warringah Sea Eagles,Dolphins,28.0,9.529,9.529,1.0,normal,,,1494.62,1478.25,1504.15,1468.72
+2025-08-24,Wests Tigers,North Queensland Cowboys,-6.0,-7.535,-7.535,1.0,normal,,,1404.73,1492.19,1397.19,1499.72
+2025-08-24,Newcastle Knights,Brisbane Broncos,-34.0,-6.307,-6.307,1.0,normal,,,1411.72,1546.39,1405.42,1552.7
+2025-08-28,Canterbury-Bankstown Bulldogs,Penrith Panthers,24.0,12.29,12.29,1.0,normal,,,1532.61,1613.62,1544.9,1601.33
+2025-08-29,Melbourne Storm,Sydney Roosters,-30.0,-12.599,-12.599,1.0,normal,,,1644.05,1551.65,1631.45,1564.25
+2025-08-29,New Zealand Warriors,Parramatta Eels,-4.0,-11.91,-0.0,0.0,stat_reversal,New Zealand Warriors,Parramatta Eels,1510.09,1442.89,1510.09,1442.89
+2025-08-30,North Queensland Cowboys,Brisbane Broncos,-8.0,-8.487,-8.487,1.0,normal,,,1499.72,1552.7,1491.24,1561.19
+2025-08-30,St. George Illawarra Dragons,Manly-Warringah Sea Eagles,-16.0,-7.926,-7.926,1.0,normal,,,1431.02,1504.15,1423.09,1512.08
+2025-08-30,Canberra Raiders,Wests Tigers,14.0,4.807,4.807,1.0,normal,,,1597.1,1397.19,1601.91,1392.39
+2025-08-31,Dolphins,Gold Coast Titans,6.0,7.485,7.485,1.0,normal,,,1468.72,1379.43,1476.21,1371.94
+2025-08-31,Cronulla-Sutherland Sharks,Newcastle Knights,24.0,5.728,5.728,1.0,normal,,,1563.99,1405.42,1569.72,1399.69
+2025-09-04,Brisbane Broncos,Melbourne Storm,16.0,11.995,11.995,1.0,normal,,,1561.19,1631.45,1573.18,1619.46
+2025-09-05,Sydney Roosters,South Sydney Rabbitohs,30.0,5.728,5.728,1.0,normal,,,1564.25,1405.65,1569.98,1399.92
+2025-09-05,Manly-Warringah Sea Eagles,New Zealand Warriors,1.0,9.943,0.0,0.0,stat_reversal,New Zealand Warriors,Manly-Warringah Sea Eagles,1512.08,1510.09,1512.08,1510.09
+2025-09-06,Canterbury-Bankstown Bulldogs,Cronulla-Sutherland Sharks,-18.0,-9.287,-9.287,1.0,normal,,,1544.9,1569.72,1535.62,1579.0
+2025-09-06,Gold Coast Titans,Wests Tigers,8.0,10.588,10.588,1.0,normal,,,1371.94,1392.39,1382.53,1381.8
+2025-09-06,St. George Illawarra Dragons,Penrith Panthers,-20.0,-5.277,-5.277,1.0,normal,,,1423.09,1601.33,1417.82,1606.61
+2025-09-07,Parramatta Eels,Newcastle Knights,56.0,8.763,8.763,1.0,normal,,,1442.89,1399.69,1451.66,1390.92
+2025-09-07,Dolphins,Canberra Raiders,38.0,13.468,13.468,1.0,normal,,,1476.21,1601.91,1489.67,1588.44
+2025-09-12,Melbourne Storm,Canterbury-Bankstown Bulldogs,8.0,7.633,7.633,1.0,normal,,,1619.46,1535.62,1627.09,1527.98
+2025-09-13,Cronulla-Sutherland Sharks,Sydney Roosters,10.0,9.74,9.74,1.0,normal,,,1579.0,1569.98,1588.74,1560.24
+2025-09-13,New Zealand Warriors,Penrith Panthers,-16.0,-7.291,-7.291,1.0,normal,,,1510.09,1606.61,1502.8,1613.9
+2025-09-14,Canberra Raiders,Brisbane Broncos,-1.0,-10.439,-10.439,1.0,normal,,,1588.44,1573.18,1578.0,1583.62
+2025-09-20,Canterbury-Bankstown Bulldogs,Penrith Panthers,-20.0,-7.576,-7.576,1.0,normal,,,1527.98,1613.9,1520.41,1621.47
+2025-09-20,Canberra Raiders,Cronulla-Sutherland Sharks,-20.0,-9.691,-9.691,1.0,normal,,,1578.0,1588.74,1568.31,1598.43
+2025-09-26,Melbourne Storm,Cronulla-Sutherland Sharks,8.0,9.177,9.177,1.0,normal,,,1627.09,1598.43,1636.27,1589.26
+2025-09-28,Brisbane Broncos,Penrith Panthers,2.0,11.085,11.085,1.0,normal,,,1583.62,1621.47,1594.71,1610.39
+2025-10-05,Melbourne Storm,Brisbane Broncos,-4.0,-11.191,-11.191,1.0,normal,,,1636.27,1594.71,1625.08,1605.9

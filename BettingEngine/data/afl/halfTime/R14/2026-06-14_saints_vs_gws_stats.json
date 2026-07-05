@@ -1,0 +1,18 @@
+{
+  "season": 2026,
+  "round": 14,
+  "game_date": "2026-06-14",
+  "home_team": "St Kilda",
+  "away_team": "Greater Western Sydney",
+  "venue": "Docklands",
+  "source": "squiggle_api",
+  "collected_at": "2026-06-14T06:26:15+00:00",
+  "home_ht_score": 52,
+  "away_ht_score": 51,
+  "home_goals": 8,
+  "home_behinds": 4,
+  "away_goals": 8,
+  "away_behinds": 3,
+  "timestr": "1/2 Time",
+  "notes": ""
+}

@@ -1,0 +1,493 @@
+{
+  "season": 2026,
+  "round": 14,
+  "generated_at": "2026-06-10T10:17:40.984930",
+  "games": [
+    {
+      "home": "Western Bulldogs",
+      "away": "Adelaide Crows",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 64.1,
+              "row": "vs Adelaide",
+              "team": "Western Bulldogs"
+            },
+            {
+              "edge_pct": 116.1,
+              "row": "vs Western Bulldogs",
+              "team": "Adelaide Crows"
+            },
+            {
+              "edge_pct": 29.8,
+              "row": "Marvel Stadium",
+              "team": "Adelaide Crows"
+            }
+          ]
+        },
+        "h2h_HOME_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 20.2,
+              "row": "Win % \u2014 Away",
+              "team": "Adelaide Crows"
+            },
+            {
+              "edge_pct": 31.6,
+              "row": "Thursday / Friday Games",
+              "team": "Adelaide Crows"
+            },
+            {
+              "edge_pct": 23.5,
+              "row": "June",
+              "team": "Adelaide Crows"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 7.3,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Western Bulldogs"
+            },
+            {
+              "edge_pct": 7.8,
+              "row": "June",
+              "team": "Western Bulldogs"
+            },
+            {
+              "edge_pct": 12.1,
+              "row": "Marvel Stadium",
+              "team": "Adelaide Crows"
+            }
+          ]
+        },
+        "totals_UNDERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 6.9,
+              "row": "vs Adelaide",
+              "team": "Western Bulldogs"
+            },
+            {
+              "edge_pct": 5.8,
+              "row": "Thursday / Friday Games",
+              "team": "Adelaide Crows"
+            },
+            {
+              "edge_pct": 6.9,
+              "row": "vs Western Bulldogs",
+              "team": "Adelaide Crows"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 28.6,
+              "row": "June",
+              "team": "Western Bulldogs"
+            },
+            {
+              "edge_pct": 50.0,
+              "row": "vs Adelaide",
+              "team": "Western Bulldogs"
+            },
+            {
+              "edge_pct": 50.0,
+              "row": "vs Western Bulldogs",
+              "team": "Adelaide Crows"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Melbourne Demons",
+      "away": "Essendon Bombers",
+      "confluence": {
+        "h2h_HOME_WIN": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 28.7,
+              "row": "Win % \u2014 Away",
+              "team": "Essendon Bombers"
+            },
+            {
+              "edge_pct": 33.2,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Essendon Bombers"
+            },
+            {
+              "edge_pct": 33.2,
+              "row": "June",
+              "team": "Essendon Bombers"
+            },
+            {
+              "edge_pct": 33.1,
+              "row": "MCG",
+              "team": "Essendon Bombers"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 21.8,
+              "row": "Cover Rate \u2014 Away",
+              "team": "Essendon Bombers"
+            },
+            {
+              "edge_pct": 28.2,
+              "row": "Saturday Games",
+              "team": "Essendon Bombers"
+            },
+            {
+              "edge_pct": 54.8,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Essendon Bombers"
+            },
+            {
+              "edge_pct": 53.8,
+              "row": "June",
+              "team": "Essendon Bombers"
+            },
+            {
+              "edge_pct": 25.0,
+              "row": "MCG",
+              "team": "Essendon Bombers"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "North Melbourne Kangaroos",
+      "away": "West Coast Eagles",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 24.0,
+              "row": "Win % \u2014 Home",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 28.0,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 21.6,
+              "row": "Saturday Games",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 29.4,
+              "row": "After a Loss",
+              "team": "North Melbourne Kangaroos"
+            }
+          ]
+        },
+        "h2h_HOME_WIN": {
+          "count": 8,
+          "edges": [
+            {
+              "edge_pct": 51.5,
+              "row": "Optus Stadium",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 56.7,
+              "row": "Win % \u2014 Away",
+              "team": "West Coast Eagles"
+            },
+            {
+              "edge_pct": 50.5,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "West Coast Eagles"
+            },
+            {
+              "edge_pct": 56.7,
+              "row": "Saturday Games",
+              "team": "West Coast Eagles"
+            },
+            {
+              "edge_pct": 44.9,
+              "row": "After a Loss",
+              "team": "West Coast Eagles"
+            },
+            {
+              "edge_pct": 70.9,
+              "row": "June",
+              "team": "West Coast Eagles"
+            },
+            {
+              "edge_pct": 30.2,
+              "row": "vs North Melbourne",
+              "team": "West Coast Eagles"
+            },
+            {
+              "edge_pct": 40.1,
+              "row": "Optus Stadium",
+              "team": "West Coast Eagles"
+            }
+          ]
+        },
+        "totals_UNDERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 13.0,
+              "row": "vs West Coast",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 15.5,
+              "row": "Optus Stadium",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 13.0,
+              "row": "vs North Melbourne",
+              "team": "West Coast Eagles"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 28.6,
+              "row": "June",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "Optus Stadium",
+              "team": "North Melbourne Kangaroos"
+            },
+            {
+              "edge_pct": 24.4,
+              "row": "Saturday Games",
+              "team": "West Coast Eagles"
+            },
+            {
+              "edge_pct": 20.8,
+              "row": "Optus Stadium",
+              "team": "West Coast Eagles"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Port Adelaide Power",
+      "away": "Sydney Swans",
+      "confluence": {
+        "h2h_HOME_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 32.1,
+              "row": "June",
+              "team": "Port Adelaide Power"
+            },
+            {
+              "edge_pct": 59.2,
+              "row": "vs Sydney",
+              "team": "Port Adelaide Power"
+            },
+            {
+              "edge_pct": 46.4,
+              "row": "vs Port Adelaide",
+              "team": "Sydney Swans"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 23.0,
+              "row": "June",
+              "team": "Port Adelaide Power"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "vs Sydney",
+              "team": "Port Adelaide Power"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "vs Port Adelaide",
+              "team": "Sydney Swans"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Richmond Tigers",
+      "away": "Brisbane Lions",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 34.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 33.5,
+              "row": "Sunday Games",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 23.1,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 22.1,
+              "row": "After a Loss",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 36.9,
+              "row": "vs Brisbane",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 55.3,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Brisbane Lions"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 34.6,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 35.4,
+              "row": "Sunday Games",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 46.6,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "vs Brisbane",
+              "team": "Richmond Tigers"
+            },
+            {
+              "edge_pct": 80.0,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Brisbane Lions"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "vs Richmond",
+              "team": "Brisbane Lions"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "St Kilda Saints",
+      "away": "Greater Western Sydney Giants",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 29.7,
+              "row": "June",
+              "team": "St Kilda Saints"
+            },
+            {
+              "edge_pct": 32.2,
+              "row": "New Moon (\u00b11 day)",
+              "team": "St Kilda Saints"
+            },
+            {
+              "edge_pct": 35.0,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Greater Western Sydney Giants"
+            }
+          ]
+        },
+        "totals_UNDERS": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 6.1,
+              "row": "After a Loss",
+              "team": "St Kilda Saints"
+            },
+            {
+              "edge_pct": 6.0,
+              "row": "June",
+              "team": "St Kilda Saints"
+            },
+            {
+              "edge_pct": 5.1,
+              "row": "New Moon (\u00b11 day)",
+              "team": "St Kilda Saints"
+            },
+            {
+              "edge_pct": 5.1,
+              "row": "Marvel Stadium",
+              "team": "Greater Western Sydney Giants"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 28.6,
+              "row": "June",
+              "team": "St Kilda Saints"
+            },
+            {
+              "edge_pct": 25.0,
+              "row": "New Moon (\u00b11 day)",
+              "team": "St Kilda Saints"
+            },
+            {
+              "edge_pct": 53.8,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Greater Western Sydney Giants"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Greater Western Sydney Giants"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

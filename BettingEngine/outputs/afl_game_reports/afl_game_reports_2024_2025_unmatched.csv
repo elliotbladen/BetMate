@@ -1,0 +1,138 @@
+game_id,season,game_number,match_date,home_team,away_team,home_score,away_score,source_slot,reason
+122120240316,2024,8,2024-03-16,Greater Western Sydney Giants,North Melbourne Kangaroos,121,82,fox,no Fox sitemap candidate above threshold
+031220240329,2024,23,2024-03-29,North Melbourne Kangaroos,Carlton Blues,81,137,fox,no Fox sitemap candidate above threshold
+010820240329,2024,24,2024-03-29,Fremantle Dockers,Adelaide Crows,69,34,fox,no Fox sitemap candidate above threshold
+111320240330,2024,26,2024-03-30,Port Adelaide Power,Melbourne Demons,89,96,fox,no Fox sitemap candidate above threshold
+071820240331,2024,27,2024-03-31,Western Bulldogs,West Coast Eagles,106,30,fox,no Fox sitemap candidate above threshold
+091020240401,2024,29,2024-04-01,Hawthorn Hawks,Geelong Cats,70,106,fox,no Fox sitemap candidate above threshold
+121920240405,2024,31,2024-04-05,Brisbane Lions,North Melbourne Kangaroos,112,42,fox,no Fox sitemap candidate above threshold
+161820240406,2024,33,2024-04-06,West Coast Eagles,Sydney Swans,78,104,fox,no Fox sitemap candidate above threshold
+070920240406,2024,35,2024-04-06,Western Bulldogs,Geelong Cats,91,95,fox,no Fox sitemap candidate above threshold
+141520240407,2024,37,2024-04-07,Richmond Tigers,St Kilda Saints,60,67,fox,no Fox sitemap candidate above threshold
+050720240412,2024,40,2024-04-12,Western Bulldogs,Essendon Bombers,67,96,fox,no Fox sitemap candidate above threshold
+010320240413,2024,42,2024-04-13,Carlton Blues,Adelaide Crows,98,100,fox,no Fox sitemap candidate above threshold
+091220240414,2024,45,2024-04-14,Geelong Cats,North Melbourne Kangaroos,139,64,fox,no Fox sitemap candidate above threshold
+141820240414,2024,46,2024-04-14,West Coast Eagles,Richmond Tigers,109,70,fox,no Fox sitemap candidate above threshold
+091920240420,2024,51,2024-04-20,Brisbane Lions,Geelong Cats,37,63,fox,no Fox sitemap candidate above threshold
+101220240421,2024,54,2024-04-21,North Melbourne Kangaroos,Hawthorn Hawks,68,113,fox,no Fox sitemap candidate above threshold
+011220240427,2024,59,2024-04-27,North Melbourne Kangaroos,Adelaide Crows,81,138,fox,no Fox sitemap candidate above threshold
+030920240427,2024,60,2024-04-27,Geelong Cats,Carlton Blues,118,105,fox,no Fox sitemap candidate above threshold
+070820240427,2024,61,2024-04-27,Fremantle Dockers,Western Bulldogs,95,71,fox,no Fox sitemap candidate above threshold
+182020240428,2024,62,2024-04-28,Gold Coast Suns,West Coast Eagles,112,75,fox,no Fox sitemap candidate above threshold
+101620240428,2024,63,2024-04-28,Hawthorn Hawks,Sydney Swans,42,118,fox,no Fox sitemap candidate above threshold
+011320240502,2024,64,2024-05-02,Adelaide Crows,Port Adelaide Power,78,48,fox,no Fox sitemap candidate above threshold
+162120240504,2024,66,2024-05-04,Sydney Swans,Greater Western Sydney Giants,98,69,fox,no Fox sitemap candidate above threshold
+081420240505,2024,70,2024-05-05,Richmond Tigers,Fremantle Dockers,49,103,fox,no Fox sitemap candidate above threshold
+071020240505,2024,71,2024-05-05,Western Bulldogs,Hawthorn Hawks,91,98,fox,no Fox sitemap candidate above threshold
+192020240505,2024,72,2024-05-05,Brisbane Lions,Gold Coast Suns,79,45,fox,no Fox sitemap candidate above threshold
+081620240510,2024,75,2024-05-10,Fremantle Dockers,Sydney Swans,39,87,fox,no Fox sitemap candidate above threshold
+052120240511,2024,77,2024-05-11,Essendon Bombers,Greater Western Sydney Giants,82,62,fox,no Fox sitemap candidate above threshold
+071420240511,2024,79,2024-05-11,Richmond Tigers,Western Bulldogs,42,133,fox,no Fox sitemap candidate above threshold
+041820240512,2024,80,2024-05-12,Collingwood Magpies,West Coast Eagles,103,37,fox,no Fox sitemap candidate above threshold
+092020240516,2024,82,2024-05-16,Gold Coast Suns,Geelong Cats,164,100,fox,no Fox sitemap candidate above threshold
+010420240518,2024,84,2024-05-18,Collingwood Magpies,Adelaide Crows,78,74,fox,no Fox sitemap candidate above threshold
+072120240518,2024,85,2024-05-18,Greater Western Sydney Giants,Western Bulldogs,43,70,fox,no Fox sitemap candidate above threshold
+081520240518,2024,86,2024-05-18,St Kilda Saints,Fremantle Dockers,55,72,fox,no Fox sitemap candidate above threshold
+141920240518,2024,87,2024-05-18,Brisbane Lions,Richmond Tigers,163,44,fox,no Fox sitemap candidate above threshold
+051220240519,2024,88,2024-05-19,Essendon Bombers,North Melbourne Kangaroos,106,66,fox,no Fox sitemap candidate above threshold
+101320240519,2024,89,2024-05-19,Port Adelaide Power,Hawthorn Hawks,80,79,fox,no Fox sitemap candidate above threshold
+071620240523,2024,91,2024-05-23,Western Bulldogs,Sydney Swans,88,102,fox,no Fox sitemap candidate above threshold
+032020240525,2024,93,2024-05-25,Carlton Blues,Gold Coast Suns,102,73,fox,no Fox sitemap candidate above threshold
+121320240525,2024,94,2024-05-25,North Melbourne Kangaroos,Port Adelaide Power,48,107,fox,no Fox sitemap candidate above threshold
+092120240525,2024,95,2024-05-25,Geelong Cats,Greater Western Sydney Giants,74,78,fox,no Fox sitemap candidate above threshold
+051420240525,2024,96,2024-05-25,Richmond Tigers,Essendon Bombers,74,86,fox,no Fox sitemap candidate above threshold
+101920240526,2024,97,2024-05-26,Hawthorn Hawks,Brisbane Lions,100,75,fox,no Fox sitemap candidate above threshold
+111520240526,2024,98,2024-05-26,Melbourne Demons,St Kilda Saints,100,62,fox,no Fox sitemap candidate above threshold
+011820240526,2024,99,2024-05-26,Adelaide Crows,West Coast Eagles,137,38,fox,no Fox sitemap candidate above threshold
+011020240601,2024,102,2024-06-01,Hawthorn Hawks,Adelaide Crows,107,80,fox,no Fox sitemap candidate above threshold
+151820240601,2024,103,2024-06-01,West Coast Eagles,St Kilda Saints,68,82,fox,no Fox sitemap candidate above threshold
+091420240601,2024,104,2024-06-01,Geelong Cats,Richmond Tigers,99,69,fox,no Fox sitemap candidate above threshold
+052020240602,2024,106,2024-06-02,Gold Coast Suns,Essendon Bombers,91,80,fox,no Fox sitemap candidate above threshold
+011420240606,2024,107,2024-06-06,Adelaide Crows,Richmond Tigers,71,79,fox,no Fox sitemap candidate above threshold
+152020240608,2024,111,2024-06-08,St Kilda Saints,Gold Coast Suns,51,48,fox,no Fox sitemap candidate above threshold
+091620240609,2024,112,2024-06-09,Sydney Swans,Geelong Cats,112,82,fox,no Fox sitemap candidate above threshold
+030520240609,2024,113,2024-06-09,Essendon Bombers,Carlton Blues,70,96,fox,no Fox sitemap candidate above threshold
+101420240615,2024,117,2024-06-15,Richmond Tigers,Hawthorn Hawks,49,97,fox,no Fox sitemap candidate above threshold
+011620240615,2024,118,2024-06-15,Adelaide Crows,Sydney Swans,67,109,fox,no Fox sitemap candidate above threshold
+132120240616,2024,120,2024-06-16,Greater Western Sydney Giants,Port Adelaide Power,73,51,fox,no Fox sitemap candidate above threshold
+030920240621,2024,121,2024-06-21,Carlton Blues,Geelong Cats,138,75,fox,no Fox sitemap candidate above threshold
+131920240622,2024,122,2024-06-22,Port Adelaide Power,Brisbane Lions,73,152,fox,no Fox sitemap candidate above threshold
+162120240622,2024,123,2024-06-22,Greater Western Sydney Giants,Sydney Swans,75,102,fox,no Fox sitemap candidate above threshold
+071220240629,2024,128,2024-06-29,North Melbourne Kangaroos,Western Bulldogs,60,77,fox,no Fox sitemap candidate above threshold
+042020240629,2024,130,2024-06-29,Gold Coast Suns,Collingwood Magpies,101,90,fox,no Fox sitemap candidate above threshold
+012120240629,2024,131,2024-06-29,Adelaide Crows,Greater Western Sydney Giants,94,78,fox,no Fox sitemap candidate above threshold
+071320240706,2024,137,2024-07-06,Port Adelaide Power,Western Bulldogs,102,54,fox,no Fox sitemap candidate above threshold
+111820240707,2024,142,2024-07-07,Melbourne Demons,West Coast Eagles,112,58,fox,no Fox sitemap candidate above threshold
+081020240713,2024,146,2024-07-13,Hawthorn Hawks,Fremantle Dockers,87,74,fox,no Fox sitemap candidate above threshold
+121620240713,2024,147,2024-07-13,Sydney Swans,North Melbourne Kangaroos,138,59,fox,no Fox sitemap candidate above threshold
+030720240713,2024,148,2024-07-13,Western Bulldogs,Carlton Blues,100,86,fox,no Fox sitemap candidate above threshold
+011520240713,2024,149,2024-07-13,Adelaide Crows,St Kilda Saints,71,39,fox,no Fox sitemap candidate above threshold
+142120240714,2024,152,2024-07-14,Richmond Tigers,Greater Western Sydney Giants,84,108,fox,no Fox sitemap candidate above threshold
+181920240714,2024,153,2024-07-14,West Coast Eagles,Brisbane Lions,93,106,fox,no Fox sitemap candidate above threshold
+202120240720,2024,156,2024-07-20,Greater Western Sydney Giants,Gold Coast Suns,89,50,fox,no Fox sitemap candidate above threshold
+131420240720,2024,158,2024-07-20,Port Adelaide Power,Richmond Tigers,116,75,fox,no Fox sitemap candidate above threshold
+070920240720,2024,159,2024-07-20,Geelong Cats,Western Bulldogs,48,95,fox,no Fox sitemap candidate above threshold
+081120240721,2024,161,2024-07-21,Fremantle Dockers,Melbourne Demons,116,66,fox,no Fox sitemap candidate above threshold
+031220240721,2024,162,2024-07-21,Carlton Blues,North Melbourne Kangaroos,107,88,fox,no Fox sitemap candidate above threshold
+091220240727,2024,164,2024-07-27,North Melbourne Kangaroos,Geelong Cats,66,106,fox,no Fox sitemap candidate above threshold
+051520240727,2024,165,2024-07-27,St Kilda Saints,Essendon Bombers,108,55,fox,no Fox sitemap candidate above threshold
+192020240727,2024,166,2024-07-27,Gold Coast Suns,Brisbane Lions,65,93,fox,no Fox sitemap candidate above threshold
+112120240727,2024,167,2024-07-27,Melbourne Demons,Greater Western Sydney Giants,83,85,fox,no Fox sitemap candidate above threshold
+081820240727,2024,168,2024-07-27,Fremantle Dockers,West Coast Eagles,110,75,fox,no Fox sitemap candidate above threshold
+041420240728,2024,169,2024-07-28,Collingwood Magpies,Richmond Tigers,93,67,fox,no Fox sitemap candidate above threshold
+011020240728,2024,171,2024-07-28,Adelaide Crows,Hawthorn Hawks,58,124,fox,no Fox sitemap candidate above threshold
+121420240803,2024,174,2024-08-03,North Melbourne Kangaroos,Richmond Tigers,90,77,fox,no Fox sitemap candidate above threshold
+010920240803,2024,175,2024-08-03,Geelong Cats,Adelaide Crows,90,85,fox,no Fox sitemap candidate above threshold
+030420240803,2024,177,2024-08-03,Collingwood Magpies,Carlton Blues,84,81,fox,no Fox sitemap candidate above threshold
+050820240804,2024,179,2024-08-04,Essendon Bombers,Fremantle Dockers,90,89,fox,no Fox sitemap candidate above threshold
+151920240804,2024,180,2024-08-04,St Kilda Saints,Brisbane Lions,39,124,fox,no Fox sitemap candidate above threshold
+041620240809,2024,181,2024-08-09,Sydney Swans,Collingwood Magpies,89,86,fox,no Fox sitemap candidate above threshold
+121820240810,2024,182,2024-08-10,North Melbourne Kangaroos,West Coast Eagles,97,102,fox,no Fox sitemap candidate above threshold
+192120240810,2024,183,2024-08-10,Brisbane Lions,Greater Western Sydney Giants,64,82,fox,no Fox sitemap candidate above threshold
+080920240810,2024,184,2024-08-10,Fremantle Dockers,Geelong Cats,62,73,fox,no Fox sitemap candidate above threshold
+111320240810,2024,186,2024-08-10,Melbourne Demons,Port Adelaide Power,51,53,fox,no Fox sitemap candidate above threshold
+141520240811,2024,188,2024-08-11,Richmond Tigers,St Kilda Saints,51,99,fox,no Fox sitemap candidate above threshold
+112020240817,2024,192,2024-08-17,Gold Coast Suns,Melbourne Demons,63,117,fox,no Fox sitemap candidate above threshold
+091520240817,2024,195,2024-08-17,St Kilda Saints,Geelong Cats,107,89,fox,no Fox sitemap candidate above threshold
+071220240818,2024,196,2024-08-18,Western Bulldogs,North Melbourne Kangaroos,138,42,fox,no Fox sitemap candidate above threshold
+101420240818,2024,197,2024-08-18,Hawthorn Hawks,Richmond Tigers,131,68,fox,no Fox sitemap candidate above threshold
+031820240818,2024,198,2024-08-18,West Coast Eagles,Carlton Blues,34,99,fox,no Fox sitemap candidate above threshold
+101220240824,2024,200,2024-08-24,Hawthorn Hawks,North Melbourne Kangaroos,170,46,fox,no Fox sitemap candidate above threshold
+091820240824,2024,201,2024-08-24,Geelong Cats,West Coast Eagles,168,75,fox,no Fox sitemap candidate above threshold
+051920240824,2024,203,2024-08-24,Brisbane Lions,Essendon Bombers,87,67,fox,no Fox sitemap candidate above threshold
+011620240824,2024,204,2024-08-24,Sydney Swans,Adelaide Crows,121,90,fox,no Fox sitemap candidate above threshold
+072120240825,2024,205,2024-08-25,Western Bulldogs,Greater Western Sydney Giants,98,61,fox,no Fox sitemap candidate above threshold
+081320240825,2024,207,2024-08-25,Fremantle Dockers,Port Adelaide Power,67,87,fox,no Fox sitemap candidate above threshold
+101620250307,2025,1,2025-03-07,Sydney Swans,Hawthorn Hawks,76,96,fox,no Fox sitemap candidate above threshold
+011520250316,2025,11,2025-03-16,Adelaide Crows,St Kilda Saints,135,72,fox,no Fox sitemap candidate above threshold
+112120250316,2025,12,2025-03-16,Melbourne Demons,Greater Western Sydney Giants,74,77,fox,no Fox sitemap candidate above threshold
+182020250316,2025,13,2025-03-16,West Coast Eagles,Gold Coast Suns,49,136,fox,no Fox sitemap candidate above threshold
+091520250322,2025,18,2025-03-22,St Kilda Saints,Geelong Cats,98,91,fox,no Fox sitemap candidate above threshold
+111220250323,2025,20,2025-03-23,North Melbourne Kangaroos,Melbourne Demons,125,66,fox,no Fox sitemap candidate above threshold
+081620250323,2025,21,2025-03-23,Fremantle Dockers,Sydney Swans,65,68,fox,no Fox sitemap candidate above threshold
+141520250329,2025,25,2025-03-29,St Kilda Saints,Richmond Tigers,135,53,fox,no Fox sitemap candidate above threshold
+070820250406,2025,36,2025-04-06,Fremantle Dockers,Western Bulldogs,97,81,fox,no Fox sitemap candidate above threshold
+122020250412,2025,39,2025-04-12,North Melbourne Kangaroos,Gold Coast Suns,89,141,fox,no Fox sitemap candidate above threshold
+081420250413,2025,43,2025-04-13,Richmond Tigers,Fremantle Dockers,47,108,fox,no Fox sitemap candidate above threshold
+152120250413,2025,44,2025-04-13,St Kilda Saints,Greater Western Sydney Giants,82,110,fox,no Fox sitemap candidate above threshold
+010320250503,2025,67,2025-05-03,Adelaide Crows,Carlton Blues,110,50,fox,no Fox sitemap candidate above threshold
+192020250504,2025,72,2025-05-04,Brisbane Lions,Gold Coast Suns,66,49,fox,no Fox sitemap candidate above threshold
+082020250531,2025,102,2025-05-31,Gold Coast Suns,Fremantle Dockers,64,75,fox,no Fox sitemap candidate above threshold
+141620250607,2025,109,2025-06-07,Richmond Tigers,Sydney Swans,36,80,fox,no Fox sitemap candidate above threshold
+092020250607,2025,110,2025-06-07,Geelong Cats,Gold Coast Suns,61,37,fox,no Fox sitemap candidate above threshold
+132120250607,2025,111,2025-06-07,Greater Western Sydney Giants,Port Adelaide Power,50,66,fox,no Fox sitemap candidate above threshold
+101220250628,2025,132,2025-06-28,Hawthorn Hawks,North Melbourne Kangaroos,150,65,fox,no Fox sitemap candidate above threshold
+041820250628,2025,133,2025-06-28,Collingwood Magpies,West Coast Eagles,88,59,fox,no Fox sitemap candidate above threshold
+011420250629,2025,134,2025-06-29,Richmond Tigers,Adelaide Crows,54,122,fox,no Fox sitemap candidate above threshold
+202120250816,2025,192,2025-08-16,Gold Coast Suns,Greater Western Sydney Giants,76,111,fox,no Fox sitemap candidate above threshold
+031320250816,2025,193,2025-08-16,Carlton Blues,Port Adelaide Power,118,64,fox,no Fox sitemap candidate above threshold
+101120250816,2025,194,2025-08-16,Hawthorn Hawks,Melbourne Demons,92,56,fox,no Fox sitemap candidate above threshold
+121420250817,2025,196,2025-08-17,North Melbourne Kangaroos,Richmond Tigers,135,87,fox,no Fox sitemap candidate above threshold
+071820250817,2025,198,2025-08-17,Western Bulldogs,West Coast Eagles,126,32,fox,no Fox sitemap candidate above threshold
+030520250821,2025,199,2025-08-21,Essendon Bombers,Carlton Blues,56,90,fox,no Fox sitemap candidate above threshold
+041120250822,2025,200,2025-08-22,Collingwood Magpies,Melbourne Demons,82,76,fox,no Fox sitemap candidate above threshold
+011220250823,2025,202,2025-08-23,North Melbourne Kangaroos,Adelaide Crows,100,113,fox,no Fox sitemap candidate above threshold
+091420250823,2025,203,2025-08-23,Richmond Tigers,Geelong Cats,64,103,fox,no Fox sitemap candidate above threshold
+161820250823,2025,204,2025-08-23,West Coast Eagles,Sydney Swans,51,118,fox,no Fox sitemap candidate above threshold
+152120250824,2025,205,2025-08-24,Greater Western Sydney Giants,St Kilda Saints,104,93,fox,no Fox sitemap candidate above threshold
+041920250920,2025,215,2025-09-20,Collingwood Magpies,Brisbane Lions,71,100,fox,no Fox sitemap candidate above threshold

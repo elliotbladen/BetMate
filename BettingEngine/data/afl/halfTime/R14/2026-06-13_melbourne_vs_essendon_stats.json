@@ -1,0 +1,19 @@
+{
+  "season": 2026,
+  "round": 14,
+  "game_date": "2026-06-13",
+  "home_team": "Melbourne",
+  "away_team": "Essendon",
+  "venue": "M.C.G.",
+  "source": "squiggle_api",
+  "collected_at": "2026-06-13T04:40:38.569693+00:00",
+  "home_ht_score": 64,
+  "away_ht_score": 23,
+  "home_goals": 9,
+  "home_behinds": 10,
+  "away_goals": 3,
+  "away_behinds": 5,
+  "squiggle_id": 38610,
+  "timestr": "1/2 Time",
+  "notes": ""
+}

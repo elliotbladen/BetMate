@@ -1,0 +1,99 @@
+# Baz operating contract.
+# This is intentionally conservative: Baz operates the pricing system, but does
+# not place bets or rewrite model parameters without approval.
+
+agent:
+  name: Baz
+  role: pricing_agent_quant_modeller
+  mode: decision_support
+  human_approval_required_for:
+    - bet_placement
+    - bankroll_changes
+    - model_promotion
+    - config_parameter_changes
+    - destructive_file_operations
+
+paths:
+  betmate_root: "C:\\Users\\ElliotBladen\\Apps"
+  engine_root: "C:\\Users\\ElliotBladen\\Apps\\BettingEngine"
+  database: "data/model.db"
+  logs: "logs/baz"
+
+commands:
+  preflight:
+    command:
+      - ".\\.venv\\Scripts\\python.exe"
+      - "scripts\\betmate_auto_price.py"
+      - "--dry-run"
+    cwd: "C:\\Users\\ElliotBladen\\Apps\\BettingEngine"
+  price_nrl:
+    command:
+      - ".\\.venv\\Scripts\\python.exe"
+      - "scripts\\prepare_round.py"
+      - "--season"
+      - "2026"
+      - "--round"
+      - "0"
+    cwd: "C:\\Users\\ElliotBladen\\Apps\\BettingEngine"
+  ml_shadow:
+    command:
+      - ".\\.venv\\Scripts\\python.exe"
+      - "ml\\run_r9_shadow.py"
+      - "--season"
+      - "2026"
+      - "--round"
+      - "{round}"
+    cwd: "C:\\Users\\ElliotBladen\\Apps\\BettingEngine"
+  rolling_clv:
+    command:
+      - ".\\.venv\\Scripts\\python.exe"
+      - "scripts\\rolling_clv_summary.py"
+      - "--sport"
+      - "ALL"
+    cwd: "C:\\Users\\ElliotBladen\\Apps\\BettingEngine"
+  learning_review:
+    command:
+      - ".\\.venv\\Scripts\\python.exe"
+      - "scripts\\baz_learning_review.py"
+      - "--season"
+      - "2026"
+      - "--output"
+      - "outputs\\baz\\latest_learning_review.json"
+    cwd: "C:\\Users\\ElliotBladen\\Apps\\BettingEngine"
+
+guardrails:
+  stale_odds_max_minutes: 30
+  max_referee_missing_games: 0
+  require_previous_round_results: true
+  require_model_runs_before_signals: true
+  require_signals_before_recommendations: true
+  require_bankroll_for_staking: true
+  max_single_bet_bankroll_pct: 2.0
+  extreme_ev_manual_review_pct: 80.0
+
+self_learning:
+  cadence: weekly_after_results
+  allowed_actions:
+    - update_actuals
+    - calculate_clv
+    - compare_rules_vs_ml
+    - write_learning_report
+    - propose_parameter_change
+  blocked_actions:
+    - auto_apply_parameter_change
+    - auto_promote_model
+    - auto_place_bet
+  promotion_gates:
+    min_completed_games: 80
+    require_positive_clv: true
+    require_holdout_improvement: true
+    require_human_approval: true
+
+reporting:
+  default_outputs:
+    - data_quality
+    - pricing_summary
+    - signals
+    - ml_disagreements
+    - learning_notes
+    - blockers

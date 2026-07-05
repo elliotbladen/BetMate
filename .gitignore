@@ -28,8 +28,16 @@ tsconfig.tsbuildinfo
 
 # misc
 .DS_Store
-BettingEngine/
 .claude/
+
+# BettingEngine is tracked in this monorepo again. Keep local/runtime artifacts out.
+/BettingEngine/.git/
+/BettingEngine/.venv/
+/BettingEngine/.pytest_cache/
+/BettingEngine/**/__pycache__/
+/BettingEngine/**/*.pyc
+/BettingEngine/baz_server*.log
+/BettingEngine/betmate.db
 
 # InPlayEngine — ignore model artifacts and analysis outputs (large/regenerable)
 InPlayEngine/models/

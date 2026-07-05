@@ -1,0 +1,34 @@
+{
+  "ok": false,
+  "errors": [
+    "Betmate injuries-suspensions manifest missing: C:\\Users\\ElliotBladen\\Apps\\injuries-suspensions\\latest\\manifest.json",
+    "Betmate referees manifest missing: C:\\Users\\ElliotBladen\\Apps\\referees\\latest\\manifest.json",
+    "Betmate emotional-flags manifest missing: C:\\Users\\ElliotBladen\\Apps\\emotional-flags\\latest\\manifest.json",
+    "Betmate historical-odds manifest missing: C:\\Users\\ElliotBladen\\Apps\\historical-odds\\latest\\manifest.json"
+  ],
+  "warnings": [],
+  "details": {
+    "betmate": {},
+    "engine": {
+      "target_round": {
+        "first_date": "2026-05-15",
+        "last_date": "2026-05-17",
+        "games": 8
+      },
+      "previous_round_results": {
+        "games": 8,
+        "final_games": 8,
+        "last_date": "2026-05-10"
+      },
+      "team_stats": {
+        "expected_as_of": "2026-05-14",
+        "teams": 17,
+        "max_as_of": "2026-05-14"
+      },
+      "elo": {
+        "expected_as_of": "2026-05-14",
+        "teams": 17
+      }
+    }
+  }
+}

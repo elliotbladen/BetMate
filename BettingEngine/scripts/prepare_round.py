@@ -1,0 +1,2126 @@
+#!/usr/bin/env python3
+"""
+scripts/prepare_round.py
+
+Single entry point for all pre-round pricing.
+
+Runs in this order:
+  1  Verify previous round results exist in DB
+  2  Rebuild team_stats from DB results through previous round
+  3  Rebuild ELO from latest prior snapshot through previous round
+  4  Load injuries from --injury-json into injury_reports
+  5  Load referees from --referee-csv into weekly_ref_assignments
+  6  Validate all required data is present for every game
+  7  Run full-model pricing and print tables
+
+Fails loudly at the first missing dependency.
+
+USAGE
+-----
+    python scripts/prepare_round.py --season 2026 --round 8 \\
+        --injury-json data/import/injuries_r8.json \\
+        --referee-csv data/import/referees_r8.csv
+
+    # Dry-run (no DB writes, pricing still runs)
+    python scripts/prepare_round.py --season 2026 --round 8 \\
+        --injury-json data/import/injuries_r8.json \\
+        --referee-csv data/import/referees_r8.csv \\
+        --dry-run
+
+    # Skip injury/referee loading if already loaded
+    python scripts/prepare_round.py --season 2026 --round 8 --skip-load
+
+REFEREE CSV FORMAT
+------------------
+    home_team,away_team,referee
+    Brisbane Broncos,North Queensland Cowboys,Ashley Klein
+    Melbourne Storm,New Zealand Warriors,Todd Smith
+
+INJURY JSON FORMAT
+------------------
+    [
+      {"season":2026,"round":8,"team":"Brisbane Broncos",
+       "player":"Adam Reynolds","role":"halfback",
+       "importance_tier":"elite","status":"out","notes":"hamstring"},
+      ...
+    ]
+    Valid roles:    fullback, halfback, five_eighth, hooker, pack, other
+    Valid tiers:    elite, key, rotation
+    Valid statuses: out, doubtful, managed, available
+"""
+
+import argparse
+import csv
+import json
+import os
+import sqlite3
+import subprocess
+import sys
+import yaml
+from collections import defaultdict
+from datetime import datetime, timedelta, date
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from utils.supabase_push import push as _sb_push, load_env as _load_env
+from pricing.tier10_origin import (
+    find_active_origin_game, compute_team_origin_pts, compute_origin_adjustments,
+)
+
+# ---------------------------------------------------------------------------
+# BetMate integration — BetMate is the information hub for fixtures,
+# injuries, and referee data. BettingEngine reads from its processed/ dirs.
+# ---------------------------------------------------------------------------
+
+def _find_betmate_root() -> Path | None:
+    """
+    Locate the BetMate directory. Checks (in order):
+      1. BETMATE_ROOT env var
+      2. Sibling directory named 'BetMate' next to this project's root
+    """
+    env = os.environ.get("BETMATE_ROOT")
+    if env:
+        p = Path(env)
+        if p.is_dir():
+            return p
+    project_root = Path(__file__).resolve().parents[1]
+    candidate = project_root.parent / "BetMate"
+    if candidate.is_dir():
+        return candidate
+    return None
+
+
+def _betmate_path(subpath: str) -> Path | None:
+    root = _find_betmate_root()
+    if root is None:
+        return None
+    return root / subpath
+
+
+def betmate_latest_fixture() -> Path | None:
+    return _betmate_path("data/nrl/fixture/processed/latest-fixture.json")
+
+
+def _load_origin_data(season: int) -> dict | None:
+    """Load Origin squad JSON for the season from BetMate data root."""
+    root = _find_betmate_root()
+    if root:
+        p = root / f'data/nrl/origin/{season}.json'
+        if p.exists():
+            try:
+                return json.loads(p.read_text(encoding='utf-8'))
+            except Exception as exc:
+                warn(f'T10: could not load origin data for {season}: {exc}')
+    return None
+
+
+def betmate_latest_injuries() -> Path | None:
+    return _betmate_path("data/nrl/injuries/processed/latest-injuries.json")
+
+
+def betmate_latest_referees() -> Path | None:
+    return _betmate_path("data/nrl/referees/processed/latest-referees.csv")
+
+
+def betmate_latest_emotional() -> Path | None:
+    return _betmate_path("data/nrl/emotional/processed/latest-emotional.json")
+
+from pricing.tier1_baseline import compute_baseline
+from pricing.tier2_matchup import (
+    compute_family_a, compute_family_b, compute_family_c, compute_family_d,
+)
+from pricing.tier3_situational import compute_situational_adjustments
+from pricing.tier4_venue import compute_venue_adjustments
+from pricing.tier5_injury import compute_injury_adjustments
+from pricing.tier6_referee import get_ref_context, compute_referee_adjustments
+from pricing.tier7_emotional import compute_emotional_adjustments
+from pricing.tier8_weather import compute_weather_adjustments
+from pricing.engine import derive_final_prices
+from decision.signals import generate_signals
+from db.queries import (
+    get_team_stats, get_prior_season_stats,
+    get_team_style_stats, get_style_league_norms,
+    get_situational_context,
+    get_team_venue_edge, get_venue_total_edge, get_venue_name,
+    get_team_injury_pts,
+    get_emotional_flags,
+    get_weather_conditions,
+    get_or_create_referee,
+    get_match_by_id,
+    get_latest_snapshots_for_match,
+    insert_model_run,
+    insert_model_adjustment,
+    insert_signal,
+    insert_tier2_performance, update_tier2_results,
+)
+
+MODEL_VERSION  = '1.0.0-abc'
+TOTALS_FLOOR   = 30.0
+TOTALS_CEILING = 70.0
+ELO_K          = 20.0
+ELO_START      = 1500.0
+
+# Canonical team name mapping
+NAME_MAP = {
+    'Canterbury Bulldogs':      'Canterbury-Bankstown Bulldogs',
+    'Cronulla Sharks':          'Cronulla-Sutherland Sharks',
+    'Manly Sea Eagles':         'Manly-Warringah Sea Eagles',
+    'North QLD Cowboys':        'North Queensland Cowboys',
+    'St George Dragons':        'St. George Illawarra Dragons',
+    'Broncos':                  'Brisbane Broncos',
+    'Bulldogs':                 'Canterbury-Bankstown Bulldogs',
+    'Cowboys':                  'North Queensland Cowboys',
+    'Dolphins':                 'Dolphins',
+    'Dragons':                  'St. George Illawarra Dragons',
+    'Eels':                     'Parramatta Eels',
+    'Knights':                  'Newcastle Knights',
+    'Panthers':                 'Penrith Panthers',
+    'Rabbitohs':                'South Sydney Rabbitohs',
+    'Raiders':                  'Canberra Raiders',
+    'Roosters':                 'Sydney Roosters',
+    'Sea Eagles':               'Manly-Warringah Sea Eagles',
+    'Sharks':                   'Cronulla-Sutherland Sharks',
+    'Storm':                    'Melbourne Storm',
+    'Titans':                   'Gold Coast Titans',
+    'Warriors':                 'New Zealand Warriors',
+    'Wests Tigers':             'Wests Tigers',
+}
+
+VALID_ROLES    = {'fullback', 'halfback', 'five_eighth', 'hooker', 'pack', 'other'}
+VALID_TIERS    = {'elite', 'key', 'rotation'}
+VALID_STATUSES = {'out', 'doubtful', 'managed', 'available'}
+
+_INJURY_PTS = {'elite': 3.0, 'key': 1.5, 'rotation': 0.5}
+
+
+# =============================================================================
+# Utilities
+# =============================================================================
+
+def canon(name: str) -> str:
+    return NAME_MAP.get(name.strip(), name.strip())
+
+
+def sep(char='─', n=100):
+    print(char * n)
+
+
+def header(title: str, char='═'):
+    print()
+    sep(char)
+    print(f'  {title}')
+    sep(char)
+
+
+def die(msg: str):
+    print(f'\n  ✗ FATAL: {msg}', file=sys.stderr)
+    sys.exit(1)
+
+
+def warn(msg: str):
+    print(f'  ⚠  WARNING: {msg}')
+
+
+def ok(msg: str):
+    print(f'  ✓  {msg}')
+
+
+# =============================================================================
+# Step 0 — Load fixtures from BetMate (if not already in DB)
+# =============================================================================
+
+def step0_load_fixture_from_betmate(conn, season: int, round_number: int,
+                                    dry_run: bool) -> int:
+    """
+    Read BetMate's latest-fixture.json and insert any missing matches into
+    the DB. Safe to re-run — uses INSERT OR IGNORE on source_match_key.
+    Returns number of rows inserted.
+    """
+    header(f'STEP 0 — Load R{round_number} fixture from BetMate')
+
+    fixture_path = betmate_latest_fixture()
+    if not fixture_path or not fixture_path.exists():
+        warn('BetMate fixture not found — assuming fixtures already in DB.')
+        return 0
+
+    data = json.loads(fixture_path.read_text(encoding="utf-8"))
+    games = data.get("games", [])
+    bm_round = data.get("round", round_number)
+
+    if bm_round != round_number:
+        warn(f'BetMate fixture is for R{bm_round} but pricing R{round_number} — skipping fixture load.')
+        return 0
+
+    ok(f'BetMate fixture loaded — {len(games)} games, R{bm_round}, scraped {data.get("scraped_at", "?")}')
+
+    name_to_id = {r["team_name"]: r["team_id"]
+                  for r in conn.execute("SELECT team_id, team_name FROM teams").fetchall()}
+    venue_name_to_id = {r["venue_name"]: r["venue_id"]
+                        for r in conn.execute("SELECT venue_id, venue_name FROM venues").fetchall()}
+
+    now = datetime.utcnow().isoformat()
+    inserted = 0
+
+    print(f'\n  {"Home":<34}  {"Away":<34}  {"Kickoff":<22}  Result')
+    print(f'  {"─"*34}  {"─"*34}  {"─"*22}  {"─"*8}')
+
+    for g in games:
+        home_name = canon(g.get("home_team", ""))
+        away_name = canon(g.get("away_team", ""))
+        venue_raw = g.get("venue", "")
+        kickoff   = g.get("kickoff_utc") or g.get("kickoff_local") or ""
+        match_date = kickoff[:10] if kickoff else ""
+
+        home_id = name_to_id.get(home_name)
+        away_id = name_to_id.get(away_name)
+
+        if not home_id:
+            warn(f'Unknown home team: "{home_name}" — skipping')
+            continue
+        if not away_id:
+            warn(f'Unknown away team: "{away_name}" — skipping')
+            continue
+
+        # Try exact venue name match first, then fuzzy
+        venue_id = venue_name_to_id.get(venue_raw)
+        if not venue_id:
+            for vname, vid in venue_name_to_id.items():
+                if venue_raw.lower() in vname.lower() or vname.lower() in venue_raw.lower():
+                    venue_id = vid
+                    break
+
+        source_key = f"betmate-{season}-r{round_number}-{home_id}-{away_id}"
+
+        exists = conn.execute(
+            "SELECT match_id FROM matches WHERE source_match_key=?", (source_key,)
+        ).fetchone()
+        if exists:
+            print(f'  {home_name:<34}  {away_name:<34}  {kickoff[:19]:<22}  EXISTS')
+            continue
+
+        if not dry_run:
+            conn.execute('''
+                INSERT INTO matches
+                    (sport, competition, season, round_number, match_date,
+                     kickoff_datetime, home_team_id, away_team_id, venue_id,
+                     status, source_match_key, created_at, updated_at)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+            ''', (
+                "NRL", "NRL Premiership", season, round_number, match_date,
+                kickoff, home_id, away_id, venue_id,
+                "scheduled", source_key, now, now,
+            ))
+            print(f'  {home_name:<34}  {away_name:<34}  {kickoff[:19]:<22}  INSERTED')
+            inserted += 1
+        else:
+            print(f'  {home_name:<34}  {away_name:<34}  {kickoff[:19]:<22}  DRY-RUN')
+            inserted += 1
+
+    if not dry_run and inserted:
+        conn.commit()
+
+    ok(f'{inserted} fixture rows {"staged" if dry_run else "inserted"} from BetMate.')
+    return inserted
+
+
+# =============================================================================
+# Step 0b — Import style stats from BetMate CSV
+# =============================================================================
+
+_STYLE_COL_MAP = {
+    'completion_rate':          'completion_rate',
+    'kick_metres_pg':           'kick_metres_pg',
+    'errors_pg':                'errors_pg',
+    'penalties_pg':             'penalties_pg',
+    'line_breaks_pg':           'lb_pg',
+    'tackle_breaks_pg':         'tb_pg',
+    'missed_tackles_pg':        'mt_pg',
+    'line_breaks_conceded_pg':  'lbc_pg',
+    'run_metres_pg':            'run_metres_pg',
+    'forced_dropouts_pg':       'fdo_pg',
+    'kick_return_metres_pg':    'krm_pg',
+}
+
+
+def step0b_import_style_stats(conn, season: int, dry_run: bool) -> int:
+    """
+    Read BetMate's latest-style-stats.csv and upsert into team_style_stats.
+    Safe to re-run — uses INSERT OR REPLACE keyed on (team_id, season, as_of_date).
+    Returns number of rows written.
+    """
+    header('STEP 0b — Import style stats from BetMate')
+
+    csv_path = _betmate_path("data/nrl/style-stats/processed/latest-style-stats.csv")
+    if not csv_path or not csv_path.exists():
+        warn('BetMate style-stats CSV not found — team_style_stats unchanged.')
+        return 0
+
+    with open(csv_path, newline='', encoding='utf-8') as fh:
+        reader = csv.DictReader(fh)
+        rows = list(reader)
+
+    if not rows:
+        warn('Style-stats CSV is empty.')
+        return 0
+
+    name_to_id = {r['team_name']: r['team_id']
+                  for r in conn.execute('SELECT team_id, team_name FROM teams').fetchall()}
+
+    now = datetime.utcnow().isoformat()
+    written = skipped = 0
+
+    print(f'\n  {"Team":<42}  {"AsOf":>10}  {"Rnd":>4}  Result')
+    print(f'  {"─"*42}  {"─"*10}  {"─"*4}  {"─"*8}')
+
+    for row in rows:
+        team_name = str(row.get('team', '')).strip()
+        as_of = str(row.get('as_of_date', '')).strip()
+        rnd   = row.get('round', '?')
+
+        team_id = name_to_id.get(canon(team_name)) or name_to_id.get(team_name)
+        if not team_id:
+            warn(f'Unknown team: "{team_name}" — skipping')
+            skipped += 1
+            continue
+
+        # Build update dict from mapped columns
+        updates = {}
+        for csv_col, db_col in _STYLE_COL_MAP.items():
+            val = row.get(csv_col)
+            if val not in (None, ''):
+                try:
+                    updates[db_col] = float(val)
+                except ValueError:
+                    pass
+
+        if not updates:
+            warn(f'No numeric data for {team_name} — skipping')
+            skipped += 1
+            continue
+
+        existing = conn.execute(
+            'SELECT style_stat_id FROM team_style_stats '
+            'WHERE team_id=? AND season=? AND as_of_date=?',
+            (team_id, season, as_of)
+        ).fetchone()
+
+        if not dry_run:
+            if existing:
+                set_clause = ', '.join(f'{col}=?' for col in updates)
+                vals = list(updates.values()) + [existing['style_stat_id']]
+                conn.execute(
+                    f'UPDATE team_style_stats SET {set_clause} WHERE style_stat_id=?', vals
+                )
+                action = 'UPDATE'
+            else:
+                cols = ['team_id', 'season', 'as_of_date', 'source_note', 'created_at'] + list(updates.keys())
+                placeholders = ','.join(['?'] * len(cols))
+                vals = [team_id, season, as_of, f'betmate-csv-r{rnd}', now] + list(updates.values())
+                conn.execute(
+                    f'INSERT INTO team_style_stats ({", ".join(cols)}) VALUES ({placeholders})', vals
+                )
+                action = 'INSERT'
+        else:
+            action = 'DRY-RUN'
+
+        print(f'  {team_name:<42}  {as_of:>10}  {str(rnd):>4}  {action}')
+        written += 1
+
+    if not dry_run and written:
+        conn.commit()
+
+    print()
+    ok(f'{written} style-stat rows {"staged" if dry_run else "written"}, {skipped} skipped.')
+    return written
+
+
+# =============================================================================
+# Step 1 — Verify previous round results
+# =============================================================================
+
+def step1_verify_results(conn, season: int, prev_round: int) -> str:
+    """
+    Check that every game in prev_round has a final result in the DB.
+    Returns the date of the last game in prev_round (used as cutoff for stats).
+    Calls die() if any game is missing a result.
+    """
+    header(f'STEP 1 — Verify R{prev_round} results in DB')
+
+    matches = conn.execute('''
+        SELECT m.match_id, m.match_date, m.round_number,
+               h.team_name AS home, a.team_name AS away,
+               r.home_score, r.away_score, r.result_status
+        FROM   matches m
+        JOIN   teams h ON h.team_id = m.home_team_id
+        JOIN   teams a ON a.team_id = m.away_team_id
+        LEFT   JOIN results r ON r.match_id = m.match_id
+        WHERE  m.season = ? AND m.round_number = ?
+        ORDER  BY m.match_date, m.match_id
+    ''', (season, prev_round)).fetchall()
+
+    if not matches:
+        die(f'No fixtures found for season={season} round={prev_round}. '
+            f'Fixtures must be loaded before running prepare_round.')
+
+    missing = []
+    last_date = None
+    print(f'\n  {"Date":>10}  {"Home":<34}  {"Away":<34}  {"Score":>7}  Status')
+    print(f'  {"─"*10}  {"─"*34}  {"─"*34}  {"─"*7}  {"─"*10}')
+
+    for m in matches:
+        score = f'{m["home_score"]}-{m["away_score"]}' if m['home_score'] is not None else '?'
+        status = m['result_status'] or 'MISSING'
+        flag = '' if m['result_status'] == 'final' else '  ← MISSING'
+        print(f'  {m["match_date"]:>10}  {m["home"]:<34}  {m["away"]:<34}  '
+              f'{score:>7}  {status}{flag}')
+        if m['result_status'] != 'final':
+            missing.append(f'{m["home"]} vs {m["away"]} ({m["match_date"]})')
+        else:
+            if last_date is None or m['match_date'] > last_date:
+                last_date = m['match_date']
+
+    if missing:
+        die(f'R{prev_round} results missing for {len(missing)} game(s):\n'
+            + '\n'.join(f'    • {g}' for g in missing)
+            + '\n\n  Load results before running prepare_round.')
+
+    ok(f'All {len(matches)} R{prev_round} results confirmed.')
+    return last_date
+
+
+# =============================================================================
+# Step 2 — Rebuild team_stats
+# =============================================================================
+
+def step2_rebuild_team_stats(conn, season: int, as_of_date: str,
+                              cutoff_date: str, dry_run: bool):
+    """
+    Recompute team_stats from all results through cutoff_date.
+    Upserts a single snapshot at as_of_date.
+    """
+    header(f'STEP 2 — Rebuild team_stats  (as_of={as_of_date}, cutoff≤{cutoff_date})')
+
+    rows = conn.execute('''
+        SELECT m.home_team_id, m.away_team_id,
+               r.home_score, r.away_score, m.match_date
+        FROM   matches m
+        JOIN   results r ON r.match_id = m.match_id
+        WHERE  m.season = ? AND m.match_date <= ?
+          AND  r.result_status = 'final'
+        ORDER  BY m.match_date, m.match_id
+    ''', (season, cutoff_date)).fetchall()
+
+    print(f'\n  {len(rows)} results through {cutoff_date}\n')
+    if not rows:
+        die('No results found — cannot rebuild team_stats.')
+
+    pf   = defaultdict(list); pa   = defaultdict(list)
+    h_pf = defaultdict(list); h_pa = defaultdict(list)
+    a_pf = defaultdict(list); a_pa = defaultdict(list)
+    wins = defaultdict(int)
+
+    for r in rows:
+        hid, aid = r['home_team_id'], r['away_team_id']
+        hs,  aws = r['home_score'],   r['away_score']
+        pf[hid].append(hs);  pa[hid].append(aws)
+        pf[aid].append(aws); pa[aid].append(hs)
+        h_pf[hid].append(hs); h_pa[hid].append(aws)
+        a_pf[aid].append(aws); a_pa[aid].append(hs)
+        if hs > aws:  wins[hid] += 1
+        elif aws > hs: wins[aid] += 1
+
+    name_map = {r['team_id']: r['team_name']
+                for r in conn.execute('SELECT team_id, team_name FROM teams').fetchall()}
+
+    def avg(lst): return round(sum(lst) / len(lst), 4) if lst else None
+
+    stats = {}
+    for tid in set(pf.keys()):
+        gp = len(pf[tid]); w = wins[tid]
+        stats[tid] = {
+            'gp': gp, 'wins': w, 'losses': gp - w,
+            'win_pct': round(w / gp, 4),
+            'pf': avg(pf[tid]), 'pa': avg(pa[tid]),
+            'h_pf': avg(h_pf[tid]), 'h_pa': avg(h_pa[tid]),
+            'a_pf': avg(a_pf[tid]), 'a_pa': avg(a_pa[tid]),
+            '_diff': sum(pf[tid]) - sum(pa[tid]),
+        }
+
+    ranked = sorted(stats, key=lambda t: (-stats[t]['wins'], -stats[t]['_diff']))
+    for pos, tid in enumerate(ranked, 1):
+        stats[tid]['pos'] = pos
+
+    print(f'  {"#":>3}  {"Team":<42}  {"GP":>3}  {"W":>2}  {"L":>2}  '
+          f'{"PF/g":>6}  {"PA/g":>6}  {"Diff":>6}  {"Action":>8}')
+    print(f'  {"─"*3}  {"─"*42}  {"─"*3}  {"─"*2}  {"─"*2}  '
+          f'{"─"*6}  {"─"*6}  {"─"*6}  {"─"*8}')
+
+    for tid in ranked:
+        s = stats[tid]
+        name = name_map.get(tid, f'id={tid}')
+        existing = conn.execute(
+            'SELECT team_stat_id FROM team_stats '
+            'WHERE team_id=? AND season=? AND as_of_date=?',
+            (tid, season, as_of_date)
+        ).fetchone()
+        action = 'UPDATE' if existing else 'INSERT'
+        diff = round(s['_diff'] / s['gp'], 1) if s['gp'] else 0
+        print(f'  {s["pos"]:>3}  {name:<42}  {s["gp"]:>3}  {s["wins"]:>2}  {s["losses"]:>2}  '
+              f'{s["pf"]:>6.1f}  {s["pa"]:>6.1f}  {diff:>+6.1f}  '
+              f'{"(dry)" if dry_run else action:>8}')
+        if dry_run:
+            continue
+        if existing:
+            conn.execute('''
+                UPDATE team_stats SET
+                    games_played=?, wins=?, losses=?, win_pct=?, ladder_position=?,
+                    points_for_avg=?, points_against_avg=?,
+                    home_points_for_avg=?, home_points_against_avg=?,
+                    away_points_for_avg=?, away_points_against_avg=?
+                WHERE team_stat_id=?
+            ''', (s['gp'], s['wins'], s['losses'], s['win_pct'], s['pos'],
+                  s['pf'], s['pa'], s['h_pf'], s['h_pa'], s['a_pf'], s['a_pa'],
+                  existing['team_stat_id']))
+        else:
+            conn.execute('''
+                INSERT INTO team_stats (
+                    team_id, season, as_of_date,
+                    games_played, wins, losses, win_pct, ladder_position,
+                    points_for_avg, points_against_avg,
+                    home_points_for_avg, home_points_against_avg,
+                    away_points_for_avg, away_points_against_avg,
+                    elo_rating, attack_rating, defence_rating, recent_form_rating,
+                    run_metres_pg, post_contact_metres_pg, completion_rate,
+                    errors_pg, penalties_pg, kick_metres_pg, ruck_speed_score
+                ) VALUES (
+                    ?,?,?,?,?,?,?,?,?,?,?,?,?,?,
+                    NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+                )
+            ''', (tid, season, as_of_date,
+                  s['gp'], s['wins'], s['losses'], s['win_pct'], s['pos'],
+                  s['pf'], s['pa'], s['h_pf'], s['h_pa'], s['a_pf'], s['a_pa']))
+
+    if not dry_run:
+        conn.commit()
+        ok(f'Wrote {len(stats)} team_stats rows at as_of_date={as_of_date}.')
+    else:
+        ok(f'DRY RUN — would write {len(stats)} team_stats rows.')
+
+
+# =============================================================================
+# Step 3 — Rebuild ELO
+# =============================================================================
+
+def step3_rebuild_elo(conn, season: int, as_of_date: str,
+                      cutoff_date: str, dry_run: bool):
+    """
+    Find the most recent ELO snapshot in team_stats.
+    Apply all results between that snapshot and cutoff_date.
+    Write updated ELOs into the team_stats row at as_of_date.
+    """
+    header(f'STEP 3 — Rebuild ELO  (as_of={as_of_date}, cutoff≤{cutoff_date})')
+
+    # Find most recent ELO snapshot
+    prior = conn.execute('''
+        SELECT ts.team_id, ts.elo_rating, ts.as_of_date, t.team_name
+        FROM   team_stats ts
+        JOIN   teams t ON t.team_id = ts.team_id
+        WHERE  ts.season = ? AND ts.elo_rating IS NOT NULL
+          AND  ts.as_of_date < ?
+        ORDER  BY ts.as_of_date DESC
+    ''', (season, as_of_date)).fetchall()
+
+    if not prior:
+        die('No prior ELO snapshot found in team_stats. '
+            'Run bootstrap_elo_2026.py first to establish a baseline.')
+
+    prior_date = prior[0]['as_of_date']
+    ratings    = {r['team_id']: r['elo_rating'] for r in prior}
+    id_to_name = {r['team_id']: r['team_name']  for r in prior}
+
+    print(f'\n  Prior ELO snapshot: as_of_date={prior_date} ({len(ratings)} teams)')
+
+    # Games to apply: after prior_date through cutoff_date
+    new_games = conn.execute('''
+        SELECT m.match_id, m.match_date, m.round_number,
+               m.home_team_id, m.away_team_id,
+               r.home_score, r.away_score,
+               h.team_name AS home_team, a.team_name AS away_team
+        FROM   matches m
+        JOIN   results r  ON r.match_id    = m.match_id
+        JOIN   teams h    ON h.team_id     = m.home_team_id
+        JOIN   teams a    ON a.team_id     = m.away_team_id
+        WHERE  m.season = ?
+          AND  m.match_date > ? AND m.match_date <= ?
+          AND  r.result_status = 'final'
+        ORDER  BY m.match_date, m.match_id
+    ''', (season, prior_date, cutoff_date)).fetchall()
+
+    print(f'  Applying {len(new_games)} games from {prior_date} → {cutoff_date}:\n')
+    print(f'  {"Rnd":>4}  {"Date":>10}  {"Home":>34}  {"Away":>34}  '
+          f'{"Score":>7}  {"ΔHome":>7}  {"ΔAway":>7}')
+    print(f'  {"─"*4}  {"─"*10}  {"─"*34}  {"─"*34}  {"─"*7}  {"─"*7}  {"─"*7}')
+
+    for g in new_games:
+        hid, aid = g['home_team_id'], g['away_team_id']
+        hs,  aws = g['home_score'],   g['away_score']
+        if hid not in ratings:
+            ratings[hid]    = ELO_START
+            id_to_name[hid] = g['home_team']
+        if aid not in ratings:
+            ratings[aid]    = ELO_START
+            id_to_name[aid] = g['away_team']
+
+        e_h = 1.0 / (1.0 + 10.0 ** ((ratings[aid] - ratings[hid]) / 400.0))
+        s_h = 1.0 if hs > aws else (0.0 if aws > hs else 0.5)
+        delta_h = ELO_K * (s_h - e_h)
+        delta_a = -delta_h
+
+        ratings[hid] += delta_h
+        ratings[aid] += delta_a
+        print(f'  {g["round_number"]:>4}  {g["match_date"]:>10}  '
+              f'{g["home_team"]:>34}  {g["away_team"]:>34}  '
+              f'{hs:>3}-{aws:<3}  {delta_h:>+7.2f}  {delta_a:>+7.2f}')
+
+    print(f'\n  Final ELO standings entering this round:')
+    print(f'  {"Team":<42}  {"ELO":>8}  {"Δ1500":>7}')
+    print(f'  {"─"*42}  {"─"*8}  {"─"*7}')
+    for tid, elo in sorted(ratings.items(), key=lambda x: -x[1]):
+        name = id_to_name.get(tid, f'id={tid}')
+        print(f'  {name:<42}  {elo:>8.1f}  {elo - ELO_START:>+7.1f}')
+
+    if not dry_run:
+        written = 0
+        for tid, elo in ratings.items():
+            row = conn.execute(
+                'SELECT team_stat_id FROM team_stats '
+                'WHERE team_id=? AND season=? AND as_of_date=?',
+                (tid, season, as_of_date)
+            ).fetchone()
+            if row:
+                conn.execute(
+                    'UPDATE team_stats SET elo_rating=? WHERE team_stat_id=?',
+                    (round(elo, 2), row['team_stat_id'])
+                )
+                written += 1
+            else:
+                warn(f'No team_stats row at as_of_date={as_of_date} for team_id={tid} — ELO not written')
+        conn.commit()
+        ok(f'Wrote ELO for {written} teams into as_of_date={as_of_date}.')
+    else:
+        ok(f'DRY RUN — would write ELO for {len(ratings)} teams.')
+
+
+# =============================================================================
+# Step 4 — Load injuries
+# =============================================================================
+
+def step4_load_injuries(conn, season: int, round_number: int,
+                        injury_json_path: str, dry_run: bool) -> int:
+    """Load injury_reports from JSON. Returns number of players loaded."""
+    header(f'STEP 4 — Load injuries for R{round_number}')
+
+    if not injury_json_path:
+        warn('No --injury-json provided — T5 handicap and totals will be 0.0 for all games.')
+        return 0
+
+    p = Path(injury_json_path)
+    if not p.exists():
+        die(f'Injury JSON not found: {p}')
+
+    items = json.loads(p.read_text())
+    if not isinstance(items, list):
+        die('Injury JSON must be an array of player objects.')
+
+    from utils.validation import validate_injuries
+    items_before = len(items)
+    items = [r.model_dump() for r in validate_injuries(items)]
+    if len(items) < items_before:
+        warn(f'{items_before - len(items)} injury records failed validation and were skipped.')
+
+    name_to_id = {r['team_name']: r['team_id']
+                  for r in conn.execute('SELECT team_id, team_name FROM teams').fetchall()}
+
+    now = datetime.utcnow().isoformat()
+    ok_count = errors = 0
+
+    print(f'\n  {"Team":<32}  {"Player":<22}  {"Role":<14}  {"Tier":<10}  {"Status":<10}  {"Pts":>4}  Result')
+    print(f'  {"─"*32}  {"─"*22}  {"─"*14}  {"─"*10}  {"─"*10}  {"─"*4}  {"─"*8}')
+
+    for item in items:
+        item_season = int(item.get('season', season))
+        item_round  = int(item.get('round',  round_number))
+        team_name   = str(item.get('team',   '')).strip()
+        player      = str(item.get('player', '')).strip()
+        role        = str(item.get('role',   'other')).strip().lower()
+        tier        = str(item.get('importance_tier', 'rotation')).strip().lower()
+        status      = str(item.get('status', 'out')).strip().lower()
+        notes       = item.get('notes')
+
+        if not team_name or not player:
+            warn(f'Skipping entry with missing team/player: {item}')
+            errors += 1
+            continue
+
+        if role   not in VALID_ROLES:    role   = 'other'
+        if tier   not in VALID_TIERS:    tier   = 'rotation'
+        if status not in VALID_STATUSES:
+            warn(f'Invalid status "{status}" for {player} — skipping')
+            errors += 1
+            continue
+
+        team_id = name_to_id.get(canon(team_name))
+        if team_id is None:
+            warn(f'Team not found: "{team_name}"')
+            errors += 1
+            continue
+
+        match_row = conn.execute('''
+            SELECT match_id FROM matches
+            WHERE  season=? AND round_number=?
+              AND  (home_team_id=? OR away_team_id=?)
+        ''', (item_season, item_round, team_id, team_id)).fetchone()
+
+        if match_row is None:
+            warn(f'No match found for {canon(team_name)} R{item_round} — skipping {player}')
+            errors += 1
+            continue
+
+        match_id = match_row['match_id']
+        pts_base = _INJURY_PTS.get(tier, 0.5)
+        pts_eff  = pts_base * (0.5 if status == 'doubtful' else 1.0)
+
+        if not dry_run:
+            conn.execute('''
+                INSERT INTO injury_reports
+                    (match_id, team_id, player_name, player_role, importance_tier,
+                     status, notes, captured_at)
+                VALUES (?,?,?,?,?,?,?,?)
+                ON CONFLICT(match_id, team_id, player_name) DO UPDATE SET
+                    player_role     = excluded.player_role,
+                    importance_tier = excluded.importance_tier,
+                    status          = excluded.status,
+                    notes           = excluded.notes,
+                    captured_at     = excluded.captured_at
+            ''', (match_id, team_id, player, role, tier, status, notes, now))
+            result_str = 'WRITTEN'
+        else:
+            result_str = 'DRY-RUN'
+
+        print(f'  {canon(team_name):<32}  {player:<22}  {role:<14}  {tier:<10}  '
+              f'{status:<10}  {pts_eff:>4.1f}  {result_str}')
+        ok_count += 1
+
+    if not dry_run:
+        conn.commit()
+
+    print()
+    ok(f'{ok_count} injury records loaded, {errors} errors.')
+    return ok_count
+
+
+# =============================================================================
+# Step 5 — Load referees
+# =============================================================================
+
+def step5_load_referees(conn, season: int, round_number: int,
+                        referee_csv_path: str, dry_run: bool) -> int:
+    """Load weekly_ref_assignments from CSV. Returns number of assignments loaded."""
+    header(f'STEP 5 — Load referee assignments for R{round_number}')
+
+    if not referee_csv_path:
+        warn('No --referee-csv provided — T6 will be 0.0 for all games.')
+        return 0
+
+    p = Path(referee_csv_path)
+    if not p.exists():
+        die(f'Referee CSV not found: {p}')
+
+    with open(p, newline='', encoding='utf-8') as fh:
+        reader = csv.DictReader(fh)
+        rows = list(reader)
+
+    if not rows:
+        warn('Referee CSV is empty.')
+        return 0
+
+    now = datetime.utcnow().isoformat()
+    ok_count = errors = 0
+
+    print(f'\n  {"Matchup":<54}  {"Referee":<26}  {"Bucket":<16}  Result')
+    print(f'  {"─"*54}  {"─"*26}  {"─"*16}  {"─"*8}')
+
+    for row in rows:
+        home_name = str(row.get('home_team', '')).strip()
+        away_name = str(row.get('away_team', '')).strip()
+        ref_name  = str(row.get('referee',   '')).strip()
+
+        if not home_name or not away_name or not ref_name:
+            warn(f'Skipping incomplete CSV row: {row}')
+            errors += 1
+            continue
+
+        home_can = canon(home_name)
+        away_can = canon(away_name)
+        matchup  = f'{home_can} vs {away_can}'
+
+        match_row = conn.execute('''
+            SELECT m.match_id, m.home_team_id, m.away_team_id
+            FROM   matches m
+            JOIN   teams h ON h.team_id = m.home_team_id
+            JOIN   teams a ON a.team_id = m.away_team_id
+            WHERE  m.season=? AND m.round_number=?
+              AND  h.team_name=? AND a.team_name=?
+        ''', (season, round_number, home_can, away_can)).fetchone()
+
+        if match_row is None:
+            print(f'  {matchup:<54}  {ref_name:<26}  {"?":16}  ERROR (match not found)')
+            errors += 1
+            continue
+
+        match_id = match_row['match_id']
+        ref_id   = get_or_create_referee(conn, ref_name)
+
+        bucket_row = conn.execute(
+            'SELECT bucket FROM referee_profiles WHERE referee_id=?', (ref_id,)
+        ).fetchone()
+        bucket = bucket_row['bucket'] if bucket_row else 'neutral'
+
+        if not dry_run:
+            conn.execute('''
+                INSERT INTO weekly_ref_assignments
+                    (match_id, referee_id, season, round_number, source, created_at)
+                VALUES (?,?,?,?,'prepare_round',?)
+                ON CONFLICT(match_id) DO UPDATE SET
+                    referee_id   = excluded.referee_id,
+                    source       = excluded.source,
+                    season       = excluded.season,
+                    round_number = excluded.round_number
+            ''', (match_id, ref_id, season, round_number, now))
+            conn.execute(
+                'UPDATE matches SET referee_id=? WHERE match_id=?',
+                (ref_id, match_id)
+            )
+            result_str = 'WRITTEN'
+        else:
+            result_str = 'DRY-RUN'
+
+        print(f'  {matchup:<54}  {ref_name:<26}  {bucket:<16}  {result_str}')
+        ok_count += 1
+
+    if not dry_run:
+        conn.commit()
+
+    print()
+    ok(f'{ok_count} referee assignments loaded, {errors} errors.')
+    return ok_count
+
+
+# =============================================================================
+# Step 5b — Load emotional flags from BetMate
+# =============================================================================
+
+def step5b_load_emotional(conn, season: int, round_number: int, dry_run: bool) -> int:
+    """
+    Read BetMate's latest-emotional.json and upsert into emotional_flags table.
+    Only loads if the JSON is for this round. Safe to re-run.
+    Returns number of flags loaded.
+    """
+    header(f'STEP 5b — Load emotional flags for R{round_number}')
+
+    emo_path = betmate_latest_emotional()
+    if not emo_path or not emo_path.exists():
+        warn('BetMate emotional data not found — T7 will be 0.0 for all games.')
+        ok('Run: uv run python BetMate/lib/scraper/nrl_emotional.py --round ' + str(round_number))
+        return 0
+
+    data = json.loads(emo_path.read_text(encoding='utf-8'))
+    file_round = data.get('round', 0)
+    flags = data.get('flags', [])
+
+    if file_round != round_number:
+        warn(f'BetMate emotional data is for R{file_round} but pricing R{round_number} — skipping.')
+        ok('Run: uv run python BetMate/lib/scraper/nrl_emotional.py --round ' + str(round_number))
+        return 0
+
+    if not flags:
+        ok(f'BetMate emotional data for R{round_number} has 0 flags — T7 dormant this round.')
+        return 0
+
+    ok(f'BetMate emotional data loaded — {len(flags)} flags, R{file_round}, scraped {data.get("scraped_at", "?")}')
+
+    name_to_id = {r['team_name']: r['team_id']
+                  for r in conn.execute('SELECT team_id, team_name FROM teams').fetchall()}
+
+    now = datetime.utcnow().isoformat()
+    ok_count = errors = 0
+
+    print(f'\n  {"Team":<34}  {"Flag":<18}  {"Str":<6}  {"Player":<22}  Result')
+    print(f'  {"─"*34}  {"─"*18}  {"─"*6}  {"─"*22}  {"─"*8}')
+
+    for item in flags:
+        item_season = int(item.get('season', season))
+        item_round  = int(item.get('round',  round_number))
+        team_name   = str(item.get('team', '')).strip()
+        flag_type   = str(item.get('flag_type', '')).strip().lower()
+        strength    = str(item.get('flag_strength', 'normal')).strip().lower()
+        player      = item.get('player_name') or None
+        notes       = item.get('notes') or None
+        source_url  = item.get('source_url') or None
+
+        if not team_name or not flag_type:
+            warn(f'Skipping flag with missing team/flag_type: {item}')
+            errors += 1
+            continue
+
+        team_id = name_to_id.get(team_name) or name_to_id.get(canon(team_name))
+        if not team_id:
+            warn(f'Team not found: "{team_name}"')
+            errors += 1
+            continue
+
+        match_row = conn.execute(
+            'SELECT match_id FROM matches WHERE season=? AND round_number=? '
+            'AND (home_team_id=? OR away_team_id=?)',
+            (item_season, item_round, team_id, team_id),
+        ).fetchone()
+
+        if not match_row:
+            warn(f'No match for {team_name} R{item_round} — skipping')
+            errors += 1
+            continue
+
+        match_id   = match_row['match_id']
+        player_str = (player or '')[:22]
+
+        if not dry_run:
+            conn.execute(
+                'DELETE FROM emotional_flags '
+                'WHERE match_id=? AND team_id=? AND flag_type=? '
+                'AND COALESCE(player_name,"")=COALESCE(?,"")',
+                (match_id, team_id, flag_type, player),
+            )
+            conn.execute(
+                'INSERT INTO emotional_flags '
+                '(match_id, team_id, flag_type, flag_strength, player_name, notes, source_url, captured_at) '
+                'VALUES (?,?,?,?,?,?,?,?)',
+                (match_id, team_id, flag_type, strength, player, notes, source_url, now),
+            )
+            result_str = 'WRITTEN'
+        else:
+            result_str = 'DRY-RUN'
+
+        print(f'  {team_name:<34}  {flag_type:<18}  {strength:<6}  {player_str:<22}  {result_str}')
+        ok_count += 1
+
+    if not dry_run and ok_count:
+        conn.commit()
+
+    print()
+    ok(f'{ok_count} emotional flags loaded, {errors} errors.')
+    return ok_count
+
+
+# =============================================================================
+# Step 6 — Validate
+# =============================================================================
+
+def step6_validate(conn, season: int, round_number: int, strict_injuries: bool):
+    """
+    Check every game in the target round has:
+      - team_stats for both teams
+      - ELO for both teams
+      - referee assignment (die if missing)
+      - injury report (warn if missing; die only if strict_injuries=True)
+    """
+    header(f'STEP 6 — Validate data completeness for R{round_number}')
+
+    matches = conn.execute('''
+        SELECT m.match_id, m.match_date, m.round_number,
+               m.home_team_id, m.away_team_id,
+               h.team_name AS home, a.team_name AS away
+        FROM   matches m
+        JOIN   teams h ON h.team_id = m.home_team_id
+        JOIN   teams a ON a.team_id = m.away_team_id
+        WHERE  m.season=? AND m.round_number=?
+        ORDER  BY m.match_date, m.match_id
+    ''', (season, round_number)).fetchall()
+
+    if not matches:
+        die(f'No fixtures found for season={season} round={round_number}.')
+
+    errors   = []
+    warnings = []
+
+    print(f'\n  {"Matchup":<54}  {"Stats":>6}  {"ELO":>6}  {"Ref":>6}  {"Inj":>6}')
+    print(f'  {"─"*54}  {"─"*6}  {"─"*6}  {"─"*6}  {"─"*6}')
+
+    for m in matches:
+        matchup = f'{m["home"]} vs {m["away"]}'
+        mdate   = m['match_date']
+
+        h_stats = get_team_stats(conn, m['home_team_id'], season, mdate)
+        a_stats = get_team_stats(conn, m['away_team_id'], season, mdate)
+        stats_ok = bool(h_stats and a_stats)
+
+        h_elo = (h_stats or {}).get('elo_rating')
+        a_elo = (a_stats or {}).get('elo_rating')
+        elo_ok = bool(h_elo and a_elo)
+
+        ref_row = conn.execute(
+            'SELECT referee_id FROM weekly_ref_assignments WHERE match_id=?',
+            (m['match_id'],)
+        ).fetchone()
+        ref_ok = bool(ref_row)
+
+        h_inj = get_team_injury_pts(conn, m['match_id'], m['home_team_id'])
+        a_inj = get_team_injury_pts(conn, m['match_id'], m['away_team_id'])
+        # Check both injury_reports (individual) and team_injury_totals (pre-aggregated)
+        inj_loaded = conn.execute(
+            'SELECT COUNT(*) FROM injury_reports WHERE match_id=?',
+            (m['match_id'],)
+        ).fetchone()[0]
+        inj_totals = conn.execute(
+            'SELECT COUNT(*) FROM team_injury_totals WHERE match_id=?',
+            (m['match_id'],)
+        ).fetchone()[0]
+        inj_ok = (inj_loaded > 0) or (inj_totals > 0)
+
+        def tick(flag): return '✓' if flag else '✗'
+        print(f'  {matchup:<54}  {tick(stats_ok):>6}  {tick(elo_ok):>6}  '
+              f'{tick(ref_ok):>6}  {tick(inj_ok):>6}')
+
+        if not stats_ok:
+            errors.append(f'{matchup}: team_stats missing (date={mdate})')
+        if not elo_ok:
+            errors.append(f'{matchup}: ELO missing')
+        if not ref_ok:
+            warnings.append(f'{matchup}: no referee — T6=0.0 (refs typically announced Tue/Wed)')
+        if not inj_ok:
+            msg = f'{matchup}: no injury report (T5 will be 0 — assuming no outs)'
+            if strict_injuries:
+                errors.append(msg)
+            else:
+                warnings.append(msg)
+
+    if warnings:
+        print()
+        for w in warnings:
+            warn(w)
+
+    if errors:
+        print()
+        die('Validation failed:\n' + '\n'.join(f'    • {e}' for e in errors))
+
+    print()
+    ok(f'All {len(matches)} games validated.')
+
+
+# =============================================================================
+# Step 7 — Price
+# =============================================================================
+
+def _get_family_label(result: dict, direction: str) -> str:
+    d = result.get('debug', {})
+    key = 'h_attacks_a_label' if direction == 'h' else 'a_attacks_h_label'
+    return d.get(key, 'none')
+
+
+def price_match(conn, match_row, tier2_cfg, tiers_cfg, origin_data=None) -> dict:
+    match_id   = match_row['match_id']
+    home_tid   = match_row['home_team_id']
+    away_tid   = match_row['away_team_id']
+    venue_id   = match_row['venue_id']
+    match_date = match_row['match_date']
+    season     = match_row['season']
+    home_name  = match_row['home_team']
+    away_name  = match_row['away_team']
+
+    t1_cfg     = tiers_cfg.get('tier1_baseline', {})
+    home_stats = get_team_stats(conn, home_tid, season, match_date) or {}
+    away_stats = get_team_stats(conn, away_tid, season, match_date) or {}
+    home_prior = get_prior_season_stats(conn, home_tid, season)
+    away_prior = get_prior_season_stats(conn, away_tid, season)
+
+    t1 = compute_baseline(home_stats, away_stats, {}, t1_cfg,
+                          home_prior_stats=home_prior, away_prior_stats=away_prior)
+    t1_home   = t1['baseline_home_points']
+    t1_away   = t1['baseline_away_points']
+    t1_mrg    = t1['baseline_margin']
+    totals_T1 = t1.get('totals_T1', t1['baseline_total'])
+
+    home_style = get_team_style_stats(conn, home_tid, season, match_date) or {}
+    away_style = get_team_style_stats(conn, away_tid, season, match_date) or {}
+    as_of      = home_style.get('as_of_date') or away_style.get('as_of_date') or match_date
+    norms      = get_style_league_norms(conn, season, as_of)
+
+    fa = compute_family_a(home_style, away_style, norms, tier2_cfg)
+    fc = compute_family_c(home_style, away_style, norms, tier2_cfg)
+    fd = compute_family_d(home_style, away_style, norms, tier2_cfg,
+                          home_2a_delta=fa['home_delta'], away_2a_delta=fa['away_delta'])
+    fb = compute_family_b(home_style, away_style, norms, tier2_cfg)
+
+    t2a_h = fa['home_delta']; t2b_h = fb['home_delta']
+    t2c_h = fc['home_delta']; t2d_h = fd['home_delta']
+    raw_home_t2 = t2a_h + t2b_h + t2c_h + t2d_h
+    raw_away_t2 = fa['away_delta'] + fb['away_delta'] + fc['away_delta'] + fd['away_delta']
+    raw_totals_T2 = (fa.get('totals_delta', 0.0) + fb.get('totals_delta', 0.0)
+                     + fc.get('totals_delta', 0.0) + fd.get('totals_delta', 0.0))
+    totals_T2 = round(max(-3.0, min(3.0, raw_totals_T2)), 3)
+
+    cap_t2 = float(tier2_cfg.get('max_home_points_delta', 4.0))
+    scale_t2 = 1.0
+    if abs(raw_home_t2) > cap_t2 and raw_home_t2 != 0.0:
+        scale_t2 = min(scale_t2, cap_t2 / abs(raw_home_t2))
+    if abs(raw_away_t2) > cap_t2 and raw_away_t2 != 0.0:
+        scale_t2 = min(scale_t2, cap_t2 / abs(raw_away_t2))
+    t2_capped_home = round(raw_home_t2 * scale_t2, 3)
+    t2_capped_away = round(raw_away_t2 * scale_t2, 3)
+
+    fired = []
+    if t2a_h or fa['away_delta']: fired.append('A')
+    if t2b_h or fb['away_delta']: fired.append('B')
+    if t2c_h or fc['away_delta']: fired.append('C')
+    if t2d_h or fd['away_delta']: fired.append('D')
+
+    sit_ctx = get_situational_context(conn, match_id, home_tid, away_tid, venue_id, match_date, season)
+    t3      = compute_situational_adjustments(sit_ctx, tiers_cfg)
+    t3_home = t3['home_delta_capped']
+    t3_away = t3['away_delta_capped']
+    totals_T3 = t3.get('totals_delta', 0.0)
+
+    t5_cfg       = tiers_cfg.get('tier5_injury', {})
+    h_injury_pts = get_team_injury_pts(conn, match_id, home_tid)
+    a_injury_pts = get_team_injury_pts(conn, match_id, away_tid)
+    t5 = compute_injury_adjustments(h_injury_pts, a_injury_pts, t5_cfg)
+    t5_handicap_delta = t5['handicap_delta']
+    totals_T5         = t5['totals_delta']
+
+    # --- Tier 10 State of Origin overlay ---
+    t10_cfg = tiers_cfg.get('tier10_origin', {})
+    h_origin_pts = a_origin_pts = 0.0
+    h_origin_players = a_origin_players = []
+    origin_game = None
+    if t10_cfg.get('enabled', True) and origin_data:
+        origin_game = find_active_origin_game(match_date, origin_data)
+        if origin_game:
+            h_origin_pts, h_origin_players = compute_team_origin_pts(home_name, origin_game)
+            a_origin_pts, a_origin_players = compute_team_origin_pts(away_name, origin_game)
+    if origin_game:
+        t10 = compute_origin_adjustments(h_origin_pts, a_origin_pts, t10_cfg)
+    else:
+        t10 = {'handicap_delta': 0.0, 'totals_delta': 0.0}
+    t10_handicap_delta = t10['handicap_delta']
+    totals_T10         = t10['totals_delta']
+    t10_game_number    = origin_game['game_number'] if origin_game else 0
+    home_origin_outs   = '; '.join(
+        f"{p['player']} ({p['tier']})" for p in h_origin_players
+    ) or 'none'
+    away_origin_outs   = '; '.join(
+        f"{p['player']} ({p['tier']})" for p in a_origin_players
+    ) or 'none'
+
+    t4_cfg = tiers_cfg.get('tier4_venue', {})
+    home_v_edge    = get_team_venue_edge(conn, home_tid, venue_id)
+    away_v_edge    = get_team_venue_edge(conn, away_tid, venue_id)
+    venue_tot_edge = get_venue_total_edge(conn, venue_id)
+    venue_name_str = get_venue_name(conn, venue_id)
+    if t4_cfg.get('enabled', True):
+        t4 = compute_venue_adjustments(home_tid, away_tid, venue_id,
+                                       home_v_edge, away_v_edge, venue_tot_edge, t4_cfg)
+        t4_handicap_delta = t4['handicap_delta']
+        totals_T4         = t4['totals_delta']
+    else:
+        t4_handicap_delta = totals_T4 = 0.0
+
+    t6_cfg = tiers_cfg.get('tier6_referee', {})
+    t6_ctx = get_ref_context(conn, match_id, home_tid, away_tid, season)
+    if t6_ctx and t6_cfg.get('enabled', True):
+        t6 = compute_referee_adjustments(t6_ctx['home_bucket_edge'],
+                                         t6_ctx['away_bucket_edge'],
+                                         t6_ctx['bucket'], t6_cfg)
+        t6_handicap_delta = t6['handicap_delta']
+        totals_T6         = t6['totals_delta']
+        t6_bucket         = t6_ctx['bucket']
+        t6_referee_name   = t6_ctx['referee_name']
+    else:
+        t6_handicap_delta = totals_T6 = 0.0
+        t6_bucket = t6_referee_name = None
+
+    # --- Tier 7 emotional ---
+    t7_cfg         = tiers_cfg.get('tier7_emotional', {})
+    home_e_flags   = get_emotional_flags(conn, match_id, home_tid)
+    away_e_flags   = get_emotional_flags(conn, match_id, away_tid)
+    t7 = compute_emotional_adjustments(home_e_flags, away_e_flags, t7_cfg)
+    t7_handicap_delta = t7['handicap_delta']
+    totals_T7         = t7['totals_delta']
+
+    # --- Tier 8 weather (game-day pricing — 0.0 if not yet fetched) ---
+    t8_cfg      = tiers_cfg.get('tier8_weather', {})
+    kickoff_dt  = match_row['kickoff_datetime'] or ''
+    weather_row = get_weather_conditions(conn, match_id)
+    t8 = compute_weather_adjustments(weather_row, kickoff_dt, t8_cfg)
+    totals_T8          = t8['totals_delta']
+    t8_condition_type  = t8['condition_type']
+    t8_dew_risk        = int(t8['dew_risk'])
+
+    final_home = round(t1_home + t2_capped_home + t3_home, 3)
+    final_away = round(t1_away + t2_capped_away + t3_away, 3)
+    final_mrg  = round(final_home - final_away
+                       + t4_handicap_delta + t5_handicap_delta
+                       + t6_handicap_delta + t7_handicap_delta
+                       + t10_handicap_delta, 3)
+
+    raw_final_total = totals_T1 + totals_T2 + totals_T3 + totals_T4 + totals_T5 + totals_T6 + totals_T7 + totals_T8 + totals_T10
+    final_total     = round(max(TOTALS_FLOOR, min(TOTALS_CEILING, raw_final_total)), 2)
+    pred_home_score = round((final_total + final_mrg) / 2.0, 1)
+    pred_away_score = round((final_total - final_mrg) / 2.0, 1)
+
+    prices = derive_final_prices(pred_home_score, pred_away_score, t1_cfg)
+
+    return {
+        'match_id': match_id, 'model_version': MODEL_VERSION,
+        'season': season, 'round_number': match_row['round_number'],
+        'match_date': match_date,
+        'home_team_id': home_tid, 'away_team_id': away_tid,
+        'home_name': home_name, 'away_name': away_name,
+
+        't1_margin':    round(t1_mrg, 3),
+        't1_home_pts':  round(t1_home, 3),
+        't1_away_pts':  round(t1_away, 3),
+        't2_net_hcap':  round(t2_capped_home - t2_capped_away, 3),
+        't3_net_hcap':  round(t3_home - t3_away, 3),
+        't4_handicap_delta': t4_handicap_delta,
+        't5_handicap_delta': t5_handicap_delta,
+        't6_handicap_delta': t6_handicap_delta,
+        't7_handicap_delta': t7_handicap_delta,
+        't10_handicap_delta': t10_handicap_delta,
+        'final_margin': final_mrg,
+
+        'totals_T1': round(totals_T1, 2),
+        'totals_T2': totals_T2,
+        'totals_T3': round(totals_T3, 3),
+        'totals_T4': totals_T4,
+        'totals_T5': totals_T5,
+        'totals_T6': totals_T6,
+        'totals_T7': totals_T7,
+        'totals_T8': totals_T8,
+        'totals_T10': totals_T10,
+        'final_total': final_total,
+        'pred_home_score': pred_home_score,
+        'pred_away_score': pred_away_score,
+
+        'fair_home_odds':       prices['fair_home_odds'],
+        'fair_away_odds':       prices['fair_away_odds'],
+        'home_win_probability': prices['home_win_probability'],
+        'away_win_probability': prices['away_win_probability'],
+        'fair_handicap_line':   prices['fair_handicap_line'],
+        'fair_total_line':      prices['fair_total_line'],
+        'h2h_home_105':         round(prices['fair_home_odds'] / 1.05, 3),
+        'h2h_away_105':         round(prices['fair_away_odds'] / 1.05, 3),
+
+        't4_venue_name':     venue_name_str,
+        't6_referee_name':   t6_referee_name,
+        't6_bucket':         t6_bucket,
+        't5_home_injury_pts': h_injury_pts,
+        't5_away_injury_pts': a_injury_pts,
+
+        # For performance table
+        't2a_home_delta': t2a_h, 't2b_home_delta': t2b_h, 't2c_home_delta': t2c_h,
+        't2_raw_total': round(raw_home_t2, 3), 't2_capped_total': t2_capped_home,
+        't2_scale_applied': round(scale_t2, 4) if scale_t2 < 1.0 else None,
+        't2a_label_h': _get_family_label(fa, 'h'), 't2a_label_a': _get_family_label(fa, 'a'),
+        't2b_label_h': _get_family_label(fb, 'h'), 't2b_label_a': _get_family_label(fb, 'a'),
+        't2c_label_h': _get_family_label(fc, 'h'), 't2c_label_a': _get_family_label(fc, 'a'),
+        'fired_families': ','.join(fired),
+        'final_home_pts': final_home, 'final_away_pts': final_away,
+        'raw_final_total': round(raw_final_total, 2),
+        '_t3_home_delta': t3_home, '_t3_away_delta': t3_away,
+        '_t3_3a': t3.get('3a_home_delta', 0.0), '_t3_3b': t3.get('3b_home_delta', 0.0),
+        '_t3_3c_home': t3.get('3c_home_delta', 0.0), '_t3_3c_away': t3.get('3c_away_delta', 0.0),
+        '_t3_home_rest': sit_ctx.get('home_rest_days'), '_t3_away_rest': sit_ctx.get('away_rest_days'),
+        '_t3_home_km': sit_ctx.get('home_travel_km'), '_t3_away_km': sit_ctx.get('away_travel_km'),
+        '_t5_debug': t5['_debug'],
+        't10_home_origin_pts': h_origin_pts,
+        't10_away_origin_pts': a_origin_pts,
+        't10_game_number':     t10_game_number,
+        'home_origin_outs':    home_origin_outs,
+        'away_origin_outs':    away_origin_outs,
+        't4_home_edge': home_v_edge, 't4_away_edge': away_v_edge,
+        '_t2d_home_delta': t2d_h, '_t2d_away_delta': fd['away_delta'],
+        '_t2d_label_h': _get_family_label(fd, 'h'), '_t2d_label_a': _get_family_label(fd, 'a'),
+        '_t2d_2a_agree': fd['debug'].get('_2a_same_direction'),
+        '_t7_home_flags': len(home_e_flags),
+        '_t7_away_flags': len(away_e_flags),
+        '_t7_debug': t7['_debug'],
+        't7_condition_type': t8_condition_type,
+        't7_dew_risk': t8_dew_risk,
+    }
+
+
+def _load_decision_config(tiers_cfg: dict) -> dict:
+    """Merge pricing, Kelly, and tier config for signal generation."""
+    cfg = {}
+    for path in ('config/pricing.yaml', 'config/kelly.yaml'):
+        try:
+            loaded = yaml.safe_load(Path(path).read_text(encoding='utf-8')) or {}
+        except FileNotFoundError:
+            loaded = {}
+        cfg.update(loaded)
+    cfg.update(tiers_cfg)
+    return cfg
+
+
+def _model_run_row(rec: dict, notes: str) -> dict:
+    def db_decimal_odds(value) -> float:
+        return max(1.01, float(value))
+
+    return {
+        'match_id': rec['match_id'],
+        'run_timestamp': datetime.utcnow().isoformat(),
+        'model_version': rec['model_version'],
+        'baseline_home_points': rec['t1_home_pts'],
+        'baseline_away_points': rec['t1_away_pts'],
+        'baseline_margin': rec['t1_margin'],
+        'baseline_total': rec['totals_T1'],
+        'final_home_points': rec['pred_home_score'],
+        'final_away_points': rec['pred_away_score'],
+        'final_margin': rec['final_margin'],
+        'final_total': rec['final_total'],
+        'home_win_probability': rec['home_win_probability'],
+        'away_win_probability': rec['away_win_probability'],
+        'fair_home_odds': db_decimal_odds(rec['fair_home_odds']),
+        'fair_away_odds': db_decimal_odds(rec['fair_away_odds']),
+        'fair_handicap_line': rec['fair_handicap_line'],
+        'fair_total_line': rec['fair_total_line'],
+        'run_status': 'success',
+        'notes': notes,
+    }
+
+
+def _adjustment_rows(model_run_id: int, rec: dict) -> list[dict]:
+    """
+    Convert the active prepare_round pricing build-up into audit rows.
+
+    The current canonical schema allows tiers 1-7. T8 weather and T10 Origin are
+    retained in model_run notes until the schema is widened deliberately.
+    """
+    t2_home = float(rec.get('t2_capped_total', 0.0))
+    t2_net = float(rec.get('t2_net_hcap', 0.0))
+    t2_away = t2_home - t2_net
+    t3_home = float(rec.get('_t3_home_delta', 0.0))
+    t3_away = float(rec.get('_t3_away_delta', 0.0))
+
+    return [
+        {
+            'model_run_id': model_run_id,
+            'tier_number': 1,
+            'tier_name': 'tier1_baseline',
+            'adjustment_code': 'baseline',
+            'adjustment_description': 'Baseline expected points from ELO, attack/defence, form, and home advantage.',
+            'home_points_delta': 0.0,
+            'away_points_delta': 0.0,
+            'margin_delta': 0.0,
+            'total_delta': 0.0,
+        },
+        {
+            'model_run_id': model_run_id,
+            'tier_number': 2,
+            'tier_name': 'tier2_matchup',
+            'adjustment_code': 'style_matchup',
+            'adjustment_description': f"Style matchup families fired: {rec.get('fired_families') or 'none'}.",
+            'home_points_delta': t2_home,
+            'away_points_delta': t2_away,
+            'margin_delta': rec.get('t2_net_hcap', 0.0),
+            'total_delta': rec.get('totals_T2', 0.0),
+            'applied_flag': 1 if rec.get('t2_net_hcap') or rec.get('totals_T2') else 0,
+        },
+        {
+            'model_run_id': model_run_id,
+            'tier_number': 3,
+            'tier_name': 'tier3_situational',
+            'adjustment_code': 'rest_travel_momentum',
+            'adjustment_description': 'Situational rest, travel, and momentum adjustments.',
+            'home_points_delta': t3_home,
+            'away_points_delta': t3_away,
+            'margin_delta': rec.get('t3_net_hcap', 0.0),
+            'total_delta': rec.get('totals_T3', 0.0),
+            'applied_flag': 1 if rec.get('t3_net_hcap') or rec.get('totals_T3') else 0,
+        },
+        {
+            'model_run_id': model_run_id,
+            'tier_number': 4,
+            'tier_name': 'tier4_venue',
+            'adjustment_code': 'venue_edge',
+            'adjustment_description': f"Venue edge at {rec.get('t4_venue_name') or 'unknown venue'}.",
+            'margin_delta': rec.get('t4_handicap_delta', 0.0),
+            'total_delta': rec.get('totals_T4', 0.0),
+            'applied_flag': 1 if rec.get('t4_handicap_delta') or rec.get('totals_T4') else 0,
+        },
+        {
+            'model_run_id': model_run_id,
+            'tier_number': 5,
+            'tier_name': 'tier5_injury',
+            'adjustment_code': 'injury_availability',
+            'adjustment_description': (
+                f"Home injury pts={rec.get('t5_home_injury_pts', 0.0):.1f}; "
+                f"away injury pts={rec.get('t5_away_injury_pts', 0.0):.1f}."
+            ),
+            'margin_delta': rec.get('t5_handicap_delta', 0.0),
+            'total_delta': rec.get('totals_T5', 0.0),
+            'applied_flag': 1 if rec.get('t5_handicap_delta') or rec.get('totals_T5') else 0,
+        },
+        {
+            'model_run_id': model_run_id,
+            'tier_number': 6,
+            'tier_name': 'tier6_referee',
+            'adjustment_code': 'referee_profile',
+            'adjustment_description': (
+                f"{rec.get('t6_referee_name') or 'No referee'} "
+                f"({rec.get('t6_bucket') or 'neutral'})."
+            ),
+            'margin_delta': rec.get('t6_handicap_delta', 0.0),
+            'total_delta': rec.get('totals_T6', 0.0),
+            'applied_flag': 1 if rec.get('t6_handicap_delta') or rec.get('totals_T6') else 0,
+        },
+        {
+            'model_run_id': model_run_id,
+            'tier_number': 7,
+            'tier_name': 'tier7_emotional',
+            'adjustment_code': 'emotional_flags',
+            'adjustment_description': (
+                f"Home flags={rec.get('_t7_home_flags', 0)}; "
+                f"away flags={rec.get('_t7_away_flags', 0)}."
+            ),
+            'margin_delta': rec.get('t7_handicap_delta', 0.0),
+            'total_delta': rec.get('totals_T7', 0.0),
+            'applied_flag': 1 if rec.get('t7_handicap_delta') or rec.get('totals_T7') else 0,
+        },
+    ]
+
+
+def _signal_row(signal: dict, model_run_id: int, match_id: int) -> dict:
+    return {
+        'model_run_id': model_run_id,
+        'match_id': match_id,
+        'snapshot_id': signal['snapshot_id'],
+        'bookmaker_id': signal['bookmaker_id'],
+        'market_type': signal['market_type'],
+        'selection_name': signal['selection_name'],
+        'line_value': signal.get('line_value'),
+        'market_odds': signal['market_odds'],
+        'model_odds': signal.get('model_odds'),
+        'model_probability': signal['model_probability'],
+        'ev_value': signal['ev'],
+        'ev_percent': signal['ev_percent'],
+        'raw_kelly_fraction': signal.get('raw_kelly') or 0.0,
+        'applied_kelly_fraction': signal.get('applied_kelly') or 0.0,
+        'capped_stake_fraction': signal.get('capped_stake_fraction') or 0.0,
+        'recommended_stake_amount': signal.get('recommended_stake') or 0.0,
+        'confidence_level': signal['confidence'],
+        'signal_label': signal['signal_label'],
+        'veto_flag': int(signal.get('veto') or 0),
+        'veto_reason': signal.get('veto_reason'),
+    }
+
+
+def persist_baz_audit_rows(conn, records: list[dict], tiers_cfg: dict, bankroll: float = 0.0) -> tuple[int, int, int]:
+    """
+    Persist model_runs, model_adjustments, and market signals for Baz.
+
+    Returns (model_runs_count, adjustments_count, signals_count).
+    """
+    decision_cfg = _load_decision_config(tiers_cfg)
+    run_count = adjustment_count = signal_count = 0
+
+    for rec in records:
+        notes = (
+            f"T8 weather={rec.get('t7_condition_type', 'clear')} "
+            f"total_delta={rec.get('totals_T8', 0.0):+.2f}; "
+            f"T10 origin_game={rec.get('t10_game_number', 0)} "
+            f"hcap_delta={rec.get('t10_handicap_delta', 0.0):+.2f} "
+            f"total_delta={rec.get('totals_T10', 0.0):+.2f}"
+        )
+        model_run_id = insert_model_run(conn, _model_run_row(rec, notes))
+        run_count += 1
+
+        for adjustment in _adjustment_rows(model_run_id, rec):
+            insert_model_adjustment(conn, adjustment)
+            adjustment_count += 1
+
+        snapshots = get_latest_snapshots_for_match(conn, rec['match_id'])
+        if not snapshots:
+            continue
+
+        prices = {
+            'final_margin': rec['final_margin'],
+            'final_total': rec['final_total'],
+            'home_win_probability': rec['home_win_probability'],
+            'away_win_probability': rec['away_win_probability'],
+            'fair_home_odds': rec['fair_home_odds'],
+            'fair_away_odds': rec['fair_away_odds'],
+            'fair_handicap_line': rec['fair_handicap_line'],
+            'fair_total_line': rec['fair_total_line'],
+        }
+        match = get_match_by_id(conn, rec['match_id'])
+        generated = generate_signals(
+            prices=prices,
+            snapshots=snapshots,
+            match=match,
+            run_validation=None,
+            bankroll=bankroll,
+            config=decision_cfg,
+            model_version=rec['model_version'],
+            model_run_id=model_run_id,
+        )
+        bookmaker_ids = {
+            row['snapshot_id']: row['bookmaker_id']
+            for row in snapshots
+        }
+        for signal in generated:
+            if (
+                not signal.get('snapshot_id')
+                or signal.get('market_odds') is None
+                or signal.get('model_probability') is None
+                or signal.get('ev') is None
+                or signal.get('ev_percent') is None
+            ):
+                continue
+            signal['bookmaker_id'] = bookmaker_ids[signal['snapshot_id']]
+            insert_signal(conn, _signal_row(signal, model_run_id, rec['match_id']))
+            signal_count += 1
+
+    return run_count, adjustment_count, signal_count
+
+
+def step6a_fetch_weather(conn, season: int, round_number: int,
+                         dry_run: bool, skip: bool):
+    """
+    Step 6a — Fetch T8 weather conditions for every match in the round.
+
+    Uses Open-Meteo for Australian venues and MetService for Auckland.
+    Falls back to clear (0.0) on any API failure so pricing always completes.
+
+    --skip-weather: skip this step (weather already loaded or not needed).
+    --dry-run:      fetch and classify but do not write to DB.
+    """
+    from scripts.fetch_weather import (
+        fetch_weather_for_match, build_weather_row, upsert_weather,
+        _mock_clear_row,
+    )
+    header(f'STEP 6a — Fetch weather for R{round_number}')
+
+    if skip:
+        ok('Step 6a skipped (--skip-weather).')
+        return
+
+    matches = conn.execute(
+        '''
+        SELECT m.match_id, m.venue_id, m.kickoff_datetime,
+               v.venue_name, v.lat, v.lng
+        FROM matches m
+        LEFT JOIN venues v ON v.venue_id = m.venue_id
+        WHERE m.season = ? AND m.round_number = ?
+        ORDER BY m.match_date, m.match_id
+        ''',
+        (season, round_number),
+    ).fetchall()
+
+    ok_count = 0
+    for m in matches:
+        mid     = m['match_id']
+        vid     = m['venue_id']
+        vname   = m['venue_name'] or f'venue_id={vid}'
+        lat     = m['lat']
+        lng     = m['lng']
+        kickoff = m['kickoff_datetime']
+
+        if lat is None or lng is None:
+            print(f'  match={mid}  {vname}: SKIP — no lat/lng, assuming clear')
+            row = _mock_clear_row(mid, vid, kickoff)
+            upsert_weather(conn, row, dry_run=dry_run)
+            ok_count += 1
+            continue
+
+        try:
+            raw = fetch_weather_for_match(mid, vid, vname, lat, lng, kickoff)
+            row = build_weather_row(mid, vid, kickoff, raw)
+        except Exception as exc:
+            print(f'  match={mid}  {vname}: API error ({exc}) — defaulting to clear')
+            row = _mock_clear_row(mid, vid, kickoff)
+
+        upsert_weather(conn, row, dry_run=dry_run)
+        dew_str = ' [dew]' if row['dew_risk'] else ''
+        print(f'  match={mid}  {vname:<32}  '
+              f'{row["condition_type"]:<20}  '
+              f'T={row["temp_c"]}°C  W={row["wind_kmh"]}km/h  '
+              f'P={row["precipitation_mm"]}mm  '
+              f'Δtot={row["totals_delta"]:+.1f}{dew_str}  '
+              f'[{row["data_source"]}]')
+        ok_count += 1
+
+    if not dry_run:
+        conn.commit()
+    ok(f'{ok_count}/{len(matches)} weather rows {"staged" if dry_run else "written"}.')
+
+
+def step7_price(conn, season: int, round_number: int,
+                tiers_cfg: dict, dry_run: bool):
+    header(f'STEP 7 — Pricing  season={season}  R{round_number}  '
+           f'[{"DRY RUN" if dry_run else "WRITE"}]')
+
+    tier2_cfg = tiers_cfg.get('tier2_matchup', {})
+
+    matches = conn.execute('''
+        SELECT m.match_id, m.match_date, m.round_number, m.season,
+               m.home_team_id, m.away_team_id, m.venue_id,
+               m.kickoff_datetime,
+               h.team_name AS home_team, a.team_name AS away_team
+        FROM   matches m
+        JOIN   teams h ON m.home_team_id = h.team_id
+        JOIN   teams a ON m.away_team_id = a.team_id
+        WHERE  m.season=? AND m.round_number=?
+        ORDER  BY m.match_date, m.match_id
+    ''', (season, round_number)).fetchall()
+
+    origin_data = _load_origin_data(season)
+    if origin_data:
+        active = [g for g in origin_data.get('origin_games', [])
+                  if g.get('camp_start', '') <= matches[0]['match_date'] < g.get('camp_end', '') if matches]
+        if active:
+            g = active[0]
+            print(f'\n  *** T10 ORIGIN WEEK: Game {g["game_number"]} on {g["date"]} '
+                  f'(camp {g["camp_start"]} – {g["camp_end"]}) ***\n')
+        else:
+            print(f'\n  T10: origin data loaded — no active Origin camp this round.\n')
+    else:
+        print(f'\n  T10: no origin data file found for season {season} '
+              f'(data/nrl/origin/{season}.json) — Origin overlay skipped.\n')
+
+    records = []
+    for m in matches:
+        rec = price_match(conn, m, tier2_cfg, tiers_cfg, origin_data=origin_data)
+        records.append(rec)
+
+    def short(name, n=28):
+        return name if len(name) <= n else name[:n-1] + '…'
+
+    # ── Handicap build-up ───────────────────────────────���────────────────────
+    W1 = 188
+    print(f'\n{"═"*W1}')
+    print(f'  HANDICAP BUILD-UP  (home perspective)   |   H2H at 105% book')
+    print(f'{"─"*W1}')
+    print(f'  {"Matchup":<46}  '
+          f'{"T1mrg":>6}  {"T2h":>6}  {"T3h":>6}  {"T4h":>6}  {"T5h":>6}  {"T10h":>6}  {"T6h":>6}  '
+          f'{"Margin":>7}  {"Hcap":>6}  '
+          f'{"H%":>5}  {"H(fair)":>8}  {"A(fair)":>8}  {"H@105":>7}  {"A@105":>7}  {"Score":>11}')
+    print(f'{"─"*W1}')
+    for rec in records:
+        matchup  = f'{short(rec["home_name"])} vs {short(rec["away_name"])}'
+        score    = f'({rec["pred_home_score"]:.1f}-{rec["pred_away_score"]:.1f})'
+        hpct     = rec['home_win_probability'] * 100
+        t5_flag  = '*' if rec['t5_handicap_delta']  != 0.0 else ' '
+        t10_flag = '*' if rec['t10_handicap_delta'] != 0.0 else ' '
+        t6_flag  = '*' if rec['t6_handicap_delta']  != 0.0 else ' '
+        print(f'  {matchup:<46}  '
+              f'{rec["t1_margin"]:>+6.1f}  '
+              f'{rec["t2_net_hcap"]:>+6.1f}  '
+              f'{rec["t3_net_hcap"]:>+6.1f}  '
+              f'{rec["t4_handicap_delta"]:>+6.1f}  '
+              f'{rec["t5_handicap_delta"]:>+6.1f}{t5_flag} '
+              f'{rec["t10_handicap_delta"]:>+6.1f}{t10_flag} '
+              f'{rec["t6_handicap_delta"]:>+6.1f}{t6_flag} '
+              f'{rec["final_margin"]:>+7.1f}  '
+              f'{rec["fair_handicap_line"]:>+6.1f}  '
+              f'{hpct:>4.1f}%  '
+              f'{rec["fair_home_odds"]:>8.3f}  '
+              f'{rec["fair_away_odds"]:>8.3f}  '
+              f'{rec["h2h_home_105"]:>7.3f}  '
+              f'{rec["h2h_away_105"]:>7.3f}  '
+              f'{score:>11}')
+    print(f'{"═"*W1}')
+    print(f'  * = T5/T6/T10 fired (injury, referee, or Origin data present)')
+
+    # ── Totals build-up ──────────────────────────────────────────────────────
+    W2 = 195
+    print(f'\n{"═"*W2}')
+    print(f'  TOTALS BUILD-UP')
+    print(f'{"─"*W2}')
+    print(f'  {"Matchup":<46}  '
+          f'{"T1tot":>6}  {"T2t":>6}  {"T3t":>6}  {"T4t":>6}  {"T5t":>6}  {"T10t":>6}  {"T6t":>6}  {"T7t":>6}  '
+          f'{"Total":>6}  {"Score":>11}  {"Referee":<26}  {"Bucket":<14}  {"Weather"}')
+    print(f'{"─"*W2}')
+    for rec in records:
+        matchup  = f'{short(rec["home_name"])} vs {short(rec["away_name"])}'
+        score    = f'({rec["pred_home_score"]:.1f}-{rec["pred_away_score"]:.1f})'
+        ref_col  = rec.get('t6_referee_name') or '—'
+        bkt_col  = rec.get('t6_bucket') or '—'
+        dew_flag = ' [dew]' if rec.get('t7_dew_risk') else ''
+        wx_col   = f'{rec.get("t7_condition_type", "clear")}{dew_flag}'
+        print(f'  {matchup:<46}  '
+              f'{rec["totals_T1"]:>6.1f}  '
+              f'{rec["totals_T2"]:>+6.2f}  '
+              f'{rec["totals_T3"]:>+6.2f}  '
+              f'{rec["totals_T4"]:>+6.2f}  '
+              f'{rec["totals_T5"]:>+6.2f}  '
+              f'{rec["totals_T10"]:>+6.2f}  '
+              f'{rec["totals_T6"]:>+6.2f}  '
+              f'{rec["totals_T7"]:>+6.2f}  '
+              f'{rec["final_total"]:>6.1f}  '
+              f'{score:>11}  '
+              f'{ref_col:<26}  {bkt_col:<14}  {wx_col}')
+    print(f'{"═"*W2}')
+
+    # ── T5/T6 fire check ─────────────────────────────────────────────────────
+    print(f'\n  T5 Injury check:')
+    for rec in records:
+        h_pts = rec['t5_home_injury_pts']
+        a_pts = rec['t5_away_injury_pts']
+        if h_pts > 0 or a_pts > 0:
+            print(f'    {rec["home_name"]:<34} home_pts={h_pts:.1f}  '
+                  f'away_pts={a_pts:.1f}  '
+                  f'hcap_delta={rec["t5_handicap_delta"]:+.3f}  '
+                  f'totals_delta={rec["totals_T5"]:+.3f}')
+        else:
+            print(f'    {rec["home_name"]:<34} vs {rec["away_name"]:<34}  no injury data')
+
+    print(f'\n  T6 Referee check:')
+    for rec in records:
+        ref = rec.get('t6_referee_name') or '—'
+        bkt = rec.get('t6_bucket') or '—'
+        print(f'    {rec["home_name"]:<34} ref={ref:<26}  bucket={bkt:<16}  '
+              f'totals_delta={rec["totals_T6"]:+.3f}  '
+              f'hcap_delta={rec["t6_handicap_delta"]:+.3f}')
+
+    print(f'\n  T7 Weather check:')
+    for rec in records:
+        ct       = rec.get('t7_condition_type') or 'clear'
+        dew_str  = '  [dew]' if rec.get('t7_dew_risk') else ''
+        t7t      = rec.get('totals_T7', 0.0)
+        print(f'    {rec["home_name"]:<34} condition={ct:<28}  '
+              f'totals_delta={t7t:+.2f}{dew_str}')
+
+    print(f'\n  T10 Origin check:')
+    any_origin = False
+    for rec in records:
+        game_num = rec.get('t10_game_number', 0)
+        if game_num:
+            any_origin = True
+            h_pts = rec['t10_home_origin_pts']
+            a_pts = rec['t10_away_origin_pts']
+            print(f'    {rec["home_name"]:<34} *** ORIGIN G{game_num} ***  '
+                  f'home_pts={h_pts:.1f}  away_pts={a_pts:.1f}  '
+                  f'hcap_delta={rec["t10_handicap_delta"]:+.2f}  '
+                  f'totals_delta={rec["totals_T10"]:+.2f}')
+            if rec['home_origin_outs'] != 'none':
+                print(f'      HOME outs: {rec["home_origin_outs"]}')
+            if rec['away_origin_outs'] != 'none':
+                print(f'      AWAY outs: {rec["away_origin_outs"]}')
+        else:
+            print(f'    {rec["home_name"]:<34} No Origin game — T10 = 0.0')
+    if not any_origin:
+        print(f'    (No Origin camp active this round)')
+
+    if not dry_run:
+        for rec in records:
+            insert_tier2_performance(conn, rec)
+        n = update_tier2_results(conn, season, MODEL_VERSION)
+        print(f'\n  {len(records)} rows written to tier2_performance.')
+        if n:
+            print(f'  {n} rows updated with actual results.')
+        runs, adjustments, signals = persist_baz_audit_rows(conn, records, tiers_cfg)
+        print(
+            f'  Baz audit rows written: {runs} model_runs, '
+            f'{adjustments} model_adjustments, {signals} signals.'
+        )
+
+    ok(f'Pricing complete for R{round_number}.')
+
+
+# =============================================================================
+# Step 8: Regenerate matrices
+# =============================================================================
+
+def step8_regenerate_matrices():
+    """
+    Regenerate H2H, handicap, and totals matrices from the latest
+    BetMate historical xlsx. Must run AFTER fetch_aussportsbetting_nrl.py
+    has updated latest.xlsx.
+
+    Runs each matrix script as a subprocess so they remain independently
+    runnable. Failures are warnings, not fatal — stale matrices are better
+    than a blocked pipeline.
+    """
+    header('Step 8 — Regenerate matrices')
+
+    scripts_dir = Path(__file__).resolve().parent
+    matrix_scripts = [
+        'nrl_h2h_matrix.py',
+        'nrl_handicap_matrix.py',
+        'nrl_team_totals_matrix.py',
+    ]
+
+    for script in matrix_scripts:
+        script_path = scripts_dir / script
+        print(f'\n  Running {script} ...')
+        try:
+            result = subprocess.run(
+                [sys.executable, str(script_path)],
+                capture_output=True,
+                text=True,
+                timeout=120,
+            )
+            if result.returncode == 0:
+                ok(f'{script} complete')
+            else:
+                warn(f'{script} exited {result.returncode} — matrices may be stale')
+                if result.stderr:
+                    print(f'    {result.stderr.strip()[:200]}')
+        except subprocess.TimeoutExpired:
+            warn(f'{script} timed out after 120s — skipping')
+        except Exception as e:
+            warn(f'{script} failed: {e} — skipping')
+
+
+# =============================================================================
+# Main
+# =============================================================================
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Prepare and price a round — single entry point.',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument('--season',       type=int, default=2026)
+    parser.add_argument('--round',        type=int, default=0,
+                        help='Round number to price (0 = auto-detect from BetMate fixture)')
+    parser.add_argument('--injury-json',  default=None,
+                        help='JSON file of player injury data (default: BetMate latest-injuries.json)')
+    parser.add_argument('--referee-csv',  default=None,
+                        help='CSV file of referee assignments (default: BetMate latest-referees.csv)')
+    parser.add_argument('--dry-run',      action='store_true',
+                        help='Run all steps but write nothing to DB')
+    parser.add_argument('--skip-load',    action='store_true',
+                        help='Skip steps 4+5 (injuries/refs already loaded)')
+    parser.add_argument('--skip-weather', action='store_true',
+                        help='Skip step 6a (weather already fetched or mock-clear preferred)')
+    parser.add_argument('--skip-matrices', action='store_true',
+                        help='Skip step 8 (matrix regeneration) — use if historical xlsx not yet updated')
+    parser.add_argument('--strict-injuries', action='store_true',
+                        help='Treat missing injury data as a fatal error')
+    parser.add_argument('--settings',     default='config/settings.yaml')
+    args = parser.parse_args()
+
+    settings  = yaml.safe_load(open(args.settings))
+    tiers_cfg = yaml.safe_load(open('config/tiers.yaml'))
+
+    conn = sqlite3.connect(settings['database']['path'])
+    conn.row_factory = sqlite3.Row
+
+    season = args.season
+
+    # ── Auto-detect round from BetMate fixture if not supplied ───────────
+    round_num = args.round
+    if round_num == 0:
+        fx_path = betmate_latest_fixture()
+        if fx_path and fx_path.exists():
+            fx_data   = json.loads(fx_path.read_text(encoding="utf-8"))
+            round_num = fx_data.get("round", 0)
+            print(f'\n  Auto-detected round {round_num} from BetMate fixture.')
+        if round_num == 0:
+            die('Could not auto-detect round — supply --round N or run BetMate scrapers first.')
+
+    # ── Auto-resolve injury + referee paths from BetMate ─────────────────
+    injury_json = args.injury_json
+    if not injury_json:
+        bm_inj = betmate_latest_injuries()
+        if bm_inj and bm_inj.exists():
+            injury_json = str(bm_inj)
+            print(f'  Using BetMate injuries: {bm_inj}')
+
+    referee_csv = args.referee_csv
+    if not referee_csv:
+        bm_ref = betmate_latest_referees()
+        if bm_ref and bm_ref.exists():
+            referee_csv = str(bm_ref)
+            print(f'  Using BetMate referees: {bm_ref}')
+
+    prev_round = round_num - 1
+
+    print(f'\n{"═"*80}')
+    print(f'  prepare_round  season={season}  round={round_num}')
+    print(f'  mode={"DRY RUN" if args.dry_run else "WRITE"}')
+    print(f'{"═"*80}')
+
+    # ── Step 0: Load fixture from BetMate ────────────────────────────────
+    step0_load_fixture_from_betmate(conn, season, round_num, args.dry_run)
+
+    # ── Step 0b: Import style stats from BetMate ─────────────────────────
+    step0b_import_style_stats(conn, season, args.dry_run)
+
+    # ── Step 1: Verify previous round results ────────────────────────────
+    if prev_round >= 1:
+        last_result_date = step1_verify_results(conn, season, prev_round)
+    else:
+        print('\n  Round 1 — no previous round to verify.')
+        last_result_date = None
+
+    # ── Step 2 & 3: Rebuild stats and ELO ────────────────────────────────
+    if last_result_date:
+        # as_of_date = day before first game of this round
+        first_game_row = conn.execute('''
+            SELECT MIN(match_date) AS first_date FROM matches
+            WHERE season=? AND round_number=?
+        ''', (season, round_num)).fetchone()
+
+        if not first_game_row or not first_game_row['first_date']:
+            die(f'No fixtures found for season={season} round={round_num}.')
+
+        first_game_date = first_game_row['first_date']
+        as_of_date = (
+            datetime.strptime(first_game_date, '%Y-%m-%d') - timedelta(days=1)
+        ).strftime('%Y-%m-%d')
+
+        step2_rebuild_team_stats(conn, season, as_of_date, last_result_date, args.dry_run)
+        step3_rebuild_elo(conn, season, as_of_date, last_result_date, args.dry_run)
+    else:
+        print('\n  Skipping team_stats/ELO rebuild (round 1).')
+
+    # ── Step 4: Load injuries ─────────────────────────────────────────────
+    if not args.skip_load:
+        step4_load_injuries(conn, season, round_num, injury_json, args.dry_run)
+    else:
+        ok('Step 4 skipped (--skip-load).')
+
+    # ── Step 5: Load referees ─────────────────────────────────────────────
+    if not args.skip_load:
+        step5_load_referees(conn, season, round_num, referee_csv, args.dry_run)
+    else:
+        ok('Step 5 skipped (--skip-load).')
+
+    # ── Step 5b: Load emotional flags from BetMate ────────────────────────
+    if not args.skip_load:
+        step5b_load_emotional(conn, season, round_num, args.dry_run)
+    else:
+        ok('Step 5b skipped (--skip-load).')
+
+    # ── Step 6: Validate ──────────────────────────────────────────────────
+    step6_validate(conn, season, round_num, strict_injuries=args.strict_injuries)
+
+    # ── Step 6a: Fetch weather (T7) ───────────────────────────────────────
+    step6a_fetch_weather(conn, season, round_num, args.dry_run, args.skip_weather)
+
+    # ── Step 7: Price ─────────────────────────────────────────────────────
+    step7_price(conn, season, round_num, tiers_cfg, args.dry_run)
+
+    # ── Step 8: Regenerate matrices from latest historical data ───────────
+    if not args.skip_matrices and not args.dry_run:
+        step8_regenerate_matrices()
+    elif args.dry_run:
+        ok('Step 8 skipped (dry-run).')
+    else:
+        ok('Step 8 skipped (--skip-matrices).')
+
+    # ── Step 9: Push matrices to Supabase ─────────────────────────────────
+    if not args.dry_run and not args.skip_matrices:
+        step9_push_matrices()
+    elif args.dry_run:
+        ok('Step 9 skipped (dry-run).')
+    else:
+        ok('Step 9 skipped (--skip-matrices).')
+
+    conn.close()
+    print()
+
+
+# =============================================================================
+# Step 9: Push matrices to Supabase
+# =============================================================================
+
+def _parse_edge(val: str | None) -> dict | None:
+    """Parse '6.2% opposing' → {'edgePct': 6.2, 'direction': 'opposing'}. Returns None for '—'."""
+    if not val or str(val).strip() in ('—', '-', ''):
+        return None
+    import re
+    m = re.match(r'^([\d.]+)%\s+(.+)$', str(val).strip())
+    if not m:
+        return None
+    pct = float(m.group(1))
+    return {'edgePct': pct, 'direction': m.group(2).strip()}
+
+
+def _xlsx_to_matrix(path: Path) -> dict:
+    """Convert a matrix XLSX to the MatrixData JSON format expected by matrixEV.ts."""
+    import openpyxl
+    wb = openpyxl.load_workbook(path)
+    result = {}
+    for sheet_name in wb.sheetnames:
+        ws = wb[sheet_name]
+        rows = list(ws.iter_rows(values_only=True))
+        # Row 0 = title, Row 1 = column headers, Row 2+ = data
+        sheet: dict = {}
+        for row in rows[2:]:
+            category = row[0]
+            edge_raw = row[4] if len(row) > 4 else None  # col E = 'Edge % & Direction'
+            if not category:
+                continue
+            sheet[str(category)] = _parse_edge(edge_raw)
+        result[sheet_name] = sheet
+    return result
+
+
+def _handicap_csv_to_matrix(path: Path) -> dict:
+    """Convert nrl_handicap_matrix.csv to HandicapData JSON format expected by matrixEV.ts."""
+    import csv as _csv
+    result: dict = {}
+    with open(path, newline='', encoding='utf-8') as f:
+        reader = _csv.DictReader(f)
+        for row in reader:
+            team = row.get('team', '').strip()
+            category = row.get('category', '').strip()
+            try:
+                edge_pct = float(row.get('edge_pct', ''))
+                direction = row.get('direction', '').strip()
+            except (ValueError, TypeError):
+                continue
+            if not team or not category or not direction:
+                continue
+            result.setdefault(team, {})[category] = {'edgePct': edge_pct, 'direction': direction}
+    return result
+
+
+def step9_push_matrices():
+    """Push NRL matrices to Supabase so Vercel always has fresh data after pricing."""
+    header('Step 9 — Push matrices to Supabase')
+
+    _load_env()  # pull SUPABASE_* from .env.local if not already set
+
+    outputs = Path(__file__).resolve().parent.parent / 'outputs'
+    pushes = [
+        ('nrl_h2h_matrix',     outputs / 'nrl_h2h_matrix.xlsx',          'xlsx'),
+        ('nrl_totals_matrix',  outputs / 'nrl_team_totals_matrix.xlsx',   'xlsx'),
+        ('nrl_handicap_matrix', outputs / 'nrl_handicap_matrix.csv',      'csv'),
+    ]
+
+    any_ok = False
+    for key, path, fmt in pushes:
+        if not path.exists():
+            print(f'  SKIP  {key} — file not found: {path}')
+            continue
+        try:
+            data = _xlsx_to_matrix(path) if fmt == 'xlsx' else _handicap_csv_to_matrix(path)
+            if _sb_push(key, data):
+                ok(f'{key} → Supabase')
+                any_ok = True
+            else:
+                print(f'  SKIP  {key} — Supabase env vars not configured')
+        except Exception as exc:
+            print(f'  WARN  {key} push failed: {exc}')
+
+    if not any_ok:
+        print('  (Set NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY to enable auto-push)')
+
+
+if __name__ == '__main__':
+    main()

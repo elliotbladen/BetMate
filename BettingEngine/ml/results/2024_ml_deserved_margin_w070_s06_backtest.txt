@@ -1,0 +1,235 @@
+
+===========================================================================================================================================================
+  NRL 2024 - ML v1 Shadow Predictions vs Actual Results  (213 games)
+  Train: 2009-2023
+  H2H Accuracy: 131/212 = 61.8%  (1 draw excluded)
+===========================================================================================================================================================
+
+  Date         Home                             Away                              ML%  ML Pick                         Actual Winner                    H2H   ML Mgn  Act Mgn   ML Tot  Act Tot    O/U
+  -------------------------------------------------------------------------------------------------------------------------------------------------------
+  2024-03-03   Sydney Roosters                  Brisbane Broncos                  61.6% Brisbane Broncos                Sydney Roosters                   N      1.0     10.0     43.6     30.0  UNDER
+  2024-03-03   Manly-Warringah Sea Eagles       South Sydney Rabbitohs            64.2% South Sydney Rabbitohs          Manly-Warringah Sea Eagles        N     -1.8     12.0     49.9     60.0   OVER
+  2024-03-07   Newcastle Knights                Canberra Raiders                  66.5% Canberra Raiders                Canberra Raiders                  Y      4.1    -16.0     38.3     40.0   OVER
+  2024-03-08   Melbourne Storm                  Penrith Panthers                  75.5% Penrith Panthers                Melbourne Storm                   N      1.5      8.0     39.2      8.0  UNDER
+  2024-03-08   New Zealand Warriors             Cronulla-Sutherland Sharks        80.3% New Zealand Warriors            Cronulla-Sutherland Sharks        N      6.1     -4.0     32.8     28.0  UNDER
+  2024-03-09   Gold Coast Titans                St. George Illawarra Dragons      58.0% Gold Coast Titans               St. George Illawarra Dragons      N     -2.4    -24.0     36.9     32.0  UNDER
+  2024-03-09   Parramatta Eels                  Canterbury-Bankstown Bulldogs     65.4% Parramatta Eels                 Parramatta Eels                   Y     16.1     18.0     39.4     34.0  UNDER
+  2024-03-10   Dolphins                         North Queensland Cowboys          63.7% Dolphins                        North Queensland Cowboys          N     -5.6    -25.0     42.4     61.0   OVER
+  2024-03-14   Brisbane Broncos                 South Sydney Rabbitohs            83.1% Brisbane Broncos                Brisbane Broncos                  Y      6.3     10.0     46.0     46.0  UNDER
+  2024-03-15   Penrith Panthers                 Parramatta Eels                   78.2% Penrith Panthers                Penrith Panthers                  Y      5.4      8.0     39.9     44.0   OVER
+  2024-03-15   Cronulla-Sutherland Sharks       Canterbury-Bankstown Bulldogs     73.3% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     14.7     19.0     48.4     31.0  UNDER
+  2024-03-16   Melbourne Storm                  New Zealand Warriors              80.9% Melbourne Storm                 Melbourne Storm                   Y      9.8      4.0     49.8     56.0   OVER
+  2024-03-16   North Queensland Cowboys         Newcastle Knights                 78.9% North Queensland Cowboys        North Queensland Cowboys          Y      7.2      1.0     45.2     41.0  UNDER
+  2024-03-16   Canberra Raiders                 Wests Tigers                      87.9% Canberra Raiders                Canberra Raiders                  Y     22.9     20.0     37.9     44.0   OVER
+  2024-03-17   Dolphins                         St. George Illawarra Dragons      59.3% Dolphins                        Dolphins                          Y     -3.2     38.0     40.1     38.0  UNDER
+  2024-03-17   Manly-Warringah Sea Eagles       Sydney Roosters                   72.8% Sydney Roosters                 Manly-Warringah Sea Eagles        N     -9.5      7.0     37.3     35.0  UNDER
+  2024-03-21   Penrith Panthers                 Brisbane Broncos                  85.6% Penrith Panthers                Penrith Panthers                  Y     15.0     22.0     40.3     46.0   OVER
+  2024-03-22   Sydney Roosters                  South Sydney Rabbitohs            85.6% Sydney Roosters                 Sydney Roosters                   Y     12.6     42.0     46.9     54.0   OVER
+  2024-03-22   New Zealand Warriors             Canberra Raiders                  76.7% Canberra Raiders                New Zealand Warriors              N     -5.2      8.0     48.4     28.0  UNDER
+  2024-03-23   Wests Tigers                     Cronulla-Sutherland Sharks        86.7% Cronulla-Sutherland Sharks      Wests Tigers                      N    -13.5     26.0     43.4     38.0  UNDER
+  2024-03-23   St. George Illawarra Dragons     North Queensland Cowboys          52.7% North Queensland Cowboys        North Queensland Cowboys          Y     -7.7    -22.0     45.3     70.0   OVER
+  2024-03-23   Canterbury-Bankstown Bulldogs    Gold Coast Titans                 63.3% Canterbury-Bankstown Bulldogs   Canterbury-Bankstown Bulldogs     Y      1.0     32.0     50.5     32.0  UNDER
+  2024-03-24   Newcastle Knights                Melbourne Storm                   71.7% Newcastle Knights               Newcastle Knights                 Y      2.4      2.0     45.6     26.0  UNDER
+  2024-03-24   Parramatta Eels                  Manly-Warringah Sea Eagles        84.9% Parramatta Eels                 Parramatta Eels                   Y      9.5      4.0     42.3     52.0   OVER
+  2024-03-28   Sydney Roosters                  Penrith Panthers                  63.1% Penrith Panthers                Penrith Panthers                  Y     -2.3     -6.0     40.2     38.0  UNDER
+  2024-03-29   Brisbane Broncos                 North Queensland Cowboys          69.7% Brisbane Broncos                Brisbane Broncos                  Y      2.9     26.0     46.5     50.0   OVER
+  2024-03-29   South Sydney Rabbitohs           Canterbury-Bankstown Bulldogs     68.9% South Sydney Rabbitohs          South Sydney Rabbitohs            Y      3.5      4.0     51.9     36.0  UNDER
+  2024-03-30   Gold Coast Titans                Dolphins                          74.9% Dolphins                        Dolphins                          Y    -11.3    -16.0     46.7     44.0  UNDER
+  2024-03-30   St. George Illawarra Dragons     Manly-Warringah Sea Eagles        52.0% Manly-Warringah Sea Eagles      St. George Illawarra Dragons      N      2.7      8.0     46.6     32.0  UNDER
+  2024-03-31   Cronulla-Sutherland Sharks       Canberra Raiders                  51.1% Canberra Raiders                Cronulla-Sutherland Sharks        N      8.6     14.0     40.0     58.0   OVER
+  2024-03-31   New Zealand Warriors             Newcastle Knights                 92.6% New Zealand Warriors            New Zealand Warriors              Y     10.2      8.0     46.2     32.0  UNDER
+  2024-04-01   Parramatta Eels                  Wests Tigers                      63.1% Wests Tigers                    Wests Tigers                      Y     11.3     -1.0     48.6     33.0  UNDER
+  2024-04-04   Melbourne Storm                  Brisbane Broncos                  64.5% Melbourne Storm                 Melbourne Storm                   Y     12.9      2.0     47.5     66.0   OVER
+  2024-04-05   Newcastle Knights                St. George Illawarra Dragons      72.2% Newcastle Knights               Newcastle Knights                 Y      6.8     20.0     34.8     40.0   OVER
+  2024-04-05   Canterbury-Bankstown Bulldogs    Sydney Roosters                   88.3% Sydney Roosters                 Canterbury-Bankstown Bulldogs     N    -20.2      4.0     44.6     56.0   OVER
+  2024-04-06   Dolphins                         Wests Tigers                      70.6% Dolphins                        Dolphins                          Y      4.4     10.0     39.2     42.0   OVER
+  2024-04-06   Manly-Warringah Sea Eagles       Penrith Panthers                  78.5% Penrith Panthers                Manly-Warringah Sea Eagles        N     -1.6     14.0     45.9     50.0   OVER
+  2024-04-06   South Sydney Rabbitohs           New Zealand Warriors              76.6% South Sydney Rabbitohs          New Zealand Warriors              N      1.2    -30.0     47.1     38.0  UNDER
+  2024-04-07   Canberra Raiders                 Parramatta Eels                   79.1% Canberra Raiders                Canberra Raiders                  Y      7.9     33.0     46.2     49.0   OVER
+  2024-04-07   North Queensland Cowboys         Gold Coast Titans                 91.9% North Queensland Cowboys        North Queensland Cowboys          Y      5.4     13.0     51.6     57.0   OVER
+  2024-04-11   Newcastle Knights                Sydney Roosters                   51.8% Newcastle Knights               Sydney Roosters                   N      2.2     -2.0     43.0     42.0  UNDER
+  2024-04-12   Brisbane Broncos                 Dolphins                          68.5% Brisbane Broncos                Brisbane Broncos                  Y      4.0     14.0     43.5     42.0  UNDER
+  2024-04-12   Melbourne Storm                  Canterbury-Bankstown Bulldogs     75.0% Melbourne Storm                 Melbourne Storm                   Y     10.8      2.0     42.3     30.0  UNDER
+  2024-04-13   South Sydney Rabbitohs           Cronulla-Sutherland Sharks        65.6% South Sydney Rabbitohs          Cronulla-Sutherland Sharks        N      0.5    -12.0     43.0     56.0   OVER
+  2024-04-13   Parramatta Eels                  North Queensland Cowboys          85.3% Parramatta Eels                 Parramatta Eels                   Y      9.7      7.0     43.0     47.0   OVER
+  2024-04-13   New Zealand Warriors             Manly-Warringah Sea Eagles        83.8% New Zealand Warriors            Draw                              -     12.8      0.0     46.8     44.0  UNDER
+  2024-04-14   Canberra Raiders                 Gold Coast Titans                 83.7% Canberra Raiders                Canberra Raiders                  Y     11.4      1.0     45.0     41.0  UNDER
+  2024-04-14   Wests Tigers                     St. George Illawarra Dragons      66.3% Wests Tigers                    St. George Illawarra Dragons      N      3.8    -12.0     42.4     36.0  UNDER
+  2024-04-18   Sydney Roosters                  Melbourne Storm                   52.2% Sydney Roosters                 Melbourne Storm                   N     -3.8     -6.0     44.2     30.0  UNDER
+  2024-04-19   Parramatta Eels                  Dolphins                          65.2% Parramatta Eels                 Dolphins                          N      1.0    -28.0     47.5     60.0   OVER
+  2024-04-19   St. George Illawarra Dragons     New Zealand Warriors              65.2% New Zealand Warriors            St. George Illawarra Dragons      N     -6.2     18.0     45.5     42.0  UNDER
+  2024-04-20   Brisbane Broncos                 Canberra Raiders                  90.6% Brisbane Broncos                Brisbane Broncos                  Y      0.6     24.0     43.4     44.0   OVER
+  2024-04-20   Gold Coast Titans                Manly-Warringah Sea Eagles        77.2% Manly-Warringah Sea Eagles      Manly-Warringah Sea Eagles        Y    -11.4     -4.0     54.5     64.0   OVER
+  2024-04-20   Penrith Panthers                 Wests Tigers                      84.6% Penrith Panthers                Penrith Panthers                  Y      8.5     16.0     47.7     28.0  UNDER
+  2024-04-21   Cronulla-Sutherland Sharks       North Queensland Cowboys          65.3% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y      9.3     36.0     39.7     48.0   OVER
+  2024-04-21   Canterbury-Bankstown Bulldogs    Newcastle Knights                 66.6% Newcastle Knights               Canterbury-Bankstown Bulldogs     N     -8.5     24.0     40.8     48.0   OVER
+  2024-04-25   Melbourne Storm                  South Sydney Rabbitohs            57.9% Melbourne Storm                 Melbourne Storm                   Y     16.2     34.0     46.8     74.0   OVER
+  2024-04-25   St. George Illawarra Dragons     Sydney Roosters                   66.8% Sydney Roosters                 Sydney Roosters                   Y    -12.7    -42.0     41.2     78.0   OVER
+  2024-04-25   New Zealand Warriors             Gold Coast Titans                 86.8% New Zealand Warriors            Gold Coast Titans                 N      4.6     -3.0     35.5     51.0   OVER
+  2024-04-26   Manly-Warringah Sea Eagles       Parramatta Eels                   67.0% Parramatta Eels                 Manly-Warringah Sea Eagles        N     -2.4     14.0     55.8     50.0  UNDER
+  2024-04-27   North Queensland Cowboys         Penrith Panthers                  73.6% Penrith Panthers                Penrith Panthers                  Y     -8.7     -6.0     52.4     46.0  UNDER
+  2024-04-27   Wests Tigers                     Brisbane Broncos                  83.8% Brisbane Broncos                Brisbane Broncos                  Y    -14.0    -24.0     48.7     44.0  UNDER
+  2024-04-28   Canberra Raiders                 Cronulla-Sutherland Sharks        61.9% Canberra Raiders                Cronulla-Sutherland Sharks        N     -5.4    -40.0     52.3     40.0  UNDER
+  2024-04-28   Dolphins                         Newcastle Knights                 70.4% Dolphins                        Newcastle Knights                 N      1.9     -4.0     42.3     32.0  UNDER
+  2024-05-02   South Sydney Rabbitohs           Penrith Panthers                  70.3% Penrith Panthers                Penrith Panthers                  Y     -7.7    -30.0     49.3     54.0   OVER
+  2024-05-03   Brisbane Broncos                 Sydney Roosters                   62.1% Brisbane Broncos                Sydney Roosters                   N      3.4    -22.0     42.0     58.0   OVER
+  2024-05-03   Manly-Warringah Sea Eagles       Canberra Raiders                  76.2% Canberra Raiders                Canberra Raiders                  Y     -8.8     -2.0     36.8     50.0   OVER
+  2024-05-04   North Queensland Cowboys         Dolphins                          88.3% North Queensland Cowboys        Dolphins                          N     10.6     -2.0     50.3     54.0   OVER
+  2024-05-04   Gold Coast Titans                Melbourne Storm                   86.3% Melbourne Storm                 Melbourne Storm                   Y    -18.8     -2.0     51.5     42.0  UNDER
+  2024-05-04   Canterbury-Bankstown Bulldogs    Wests Tigers                      84.7% Canterbury-Bankstown Bulldogs   Canterbury-Bankstown Bulldogs     Y      0.3      8.0     39.9     36.0  UNDER
+  2024-05-05   Cronulla-Sutherland Sharks       St. George Illawarra Dragons      53.3% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     16.0     10.0     44.5     30.0  UNDER
+  2024-05-05   Newcastle Knights                New Zealand Warriors              69.1% Newcastle Knights               Newcastle Knights                 Y     12.3      6.0     51.6     22.0  UNDER
+  2024-05-09   Dolphins                         Manly-Warringah Sea Eagles        52.7% Manly-Warringah Sea Eagles      Dolphins                          N     -0.6      6.0     48.8     54.0   OVER
+  2024-05-10   Parramatta Eels                  Brisbane Broncos                  72.8% Brisbane Broncos                Brisbane Broncos                  Y    -10.0    -16.0     49.0     44.0  UNDER
+  2024-05-10   Penrith Panthers                 Canterbury-Bankstown Bulldogs     93.3% Penrith Panthers                Penrith Panthers                  Y     21.2      6.0     37.6     26.0  UNDER
+  2024-05-11   Melbourne Storm                  Cronulla-Sutherland Sharks        50.3% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y      8.9     -7.0     42.5     43.0   OVER
+  2024-05-11   St. George Illawarra Dragons     South Sydney Rabbitohs            62.1% South Sydney Rabbitohs          St. George Illawarra Dragons      N      2.6     14.0     43.8     42.0  UNDER
+  2024-05-11   Wests Tigers                     Newcastle Knights                 83.4% Newcastle Knights               Newcastle Knights                 Y    -14.8     -6.0     42.3     34.0  UNDER
+  2024-05-12   Gold Coast Titans                North Queensland Cowboys          53.9% Gold Coast Titans               Gold Coast Titans                 Y      5.1      2.0     41.7     38.0  UNDER
+  2024-05-12   Sydney Roosters                  New Zealand Warriors              91.3% Sydney Roosters                 Sydney Roosters                   Y     12.3     20.0     44.6     56.0   OVER
+  2024-05-17   Manly-Warringah Sea Eagles       Brisbane Broncos                  74.4% Brisbane Broncos                Brisbane Broncos                  Y     -8.5     -1.0     35.4     25.0  UNDER
+  2024-05-17   Canberra Raiders                 Canterbury-Bankstown Bulldogs     67.0% Canberra Raiders                Canberra Raiders                  Y      5.8      4.0     49.4     44.0  UNDER
+  2024-05-18   South Sydney Rabbitohs           North Queensland Cowboys          83.3% South Sydney Rabbitohs          North Queensland Cowboys          N     11.4     -6.0     47.9     50.0   OVER
+  2024-05-18   Cronulla-Sutherland Sharks       Sydney Roosters                   76.3% Sydney Roosters                 Cronulla-Sutherland Sharks        N     -3.5      8.0     45.8     68.0   OVER
+  2024-05-18   Gold Coast Titans                Newcastle Knights                 70.7% Newcastle Knights               Newcastle Knights                 Y     -7.6     -4.0     49.2     52.0   OVER
+  2024-05-19   Wests Tigers                     Dolphins                          82.2% Dolphins                        Dolphins                          Y    -10.2    -12.0     43.4     36.0  UNDER
+  2024-05-19   Melbourne Storm                  Parramatta Eels                   65.2% Melbourne Storm                 Melbourne Storm                   Y      2.5     32.0     44.5     64.0   OVER
+  2024-05-19   New Zealand Warriors             Penrith Panthers                  84.3% Penrith Panthers                New Zealand Warriors              N     -8.1      2.0     54.1     42.0  UNDER
+  2024-05-23   Canterbury-Bankstown Bulldogs    St. George Illawarra Dragons      53.5% St. George Illawarra Dragons    Canterbury-Bankstown Bulldogs     N     14.8     32.0     38.2     56.0   OVER
+  2024-05-24   Manly-Warringah Sea Eagles       Melbourne Storm                   86.6% Melbourne Storm                 Manly-Warringah Sea Eagles        N    -10.9      6.0     44.2     46.0   OVER
+  2024-05-24   North Queensland Cowboys         Wests Tigers                      91.5% North Queensland Cowboys        North Queensland Cowboys          Y     23.4     14.0     46.2     70.0   OVER
+  2024-05-25   South Sydney Rabbitohs           Parramatta Eels                   62.3% Parramatta Eels                 South Sydney Rabbitohs            N     -4.0     16.0     40.5     68.0   OVER
+  2024-05-25   Cronulla-Sutherland Sharks       Penrith Panthers                  76.8% Penrith Panthers                Penrith Panthers                  Y     -7.5    -42.0     41.0     42.0   OVER
+  2024-05-25   Canberra Raiders                 Sydney Roosters                   78.8% Sydney Roosters                 Sydney Roosters                   Y     -5.3    -28.0     47.9     60.0   OVER
+  2024-05-26   New Zealand Warriors             Dolphins                          72.5% New Zealand Warriors            New Zealand Warriors              Y      7.2      4.0     51.0     44.0  UNDER
+  2024-05-26   Brisbane Broncos                 Gold Coast Titans                 91.0% Brisbane Broncos                Gold Coast Titans                 N     16.1     -2.0     42.8     70.0   OVER
+  2024-05-30   Parramatta Eels                  Cronulla-Sutherland Sharks        61.0% Cronulla-Sutherland Sharks      Parramatta Eels                   N    -12.5     12.0     41.6     56.0   OVER
+  2024-05-31   Newcastle Knights                Canterbury-Bankstown Bulldogs     56.8% Newcastle Knights               Canterbury-Bankstown Bulldogs     N      4.9    -30.0     37.4     34.0  UNDER
+  2024-06-01   Dolphins                         Canberra Raiders                  56.0% Canberra Raiders                Canberra Raiders                  Y      4.0     -1.0     42.1     51.0   OVER
+  2024-06-01   Penrith Panthers                 St. George Illawarra Dragons      65.3% Penrith Panthers                St. George Illawarra Dragons      N     16.6    -12.0     39.6     32.0  UNDER
+  2024-06-02   Sydney Roosters                  North Queensland Cowboys          67.1% Sydney Roosters                 North Queensland Cowboys          N     13.3     -2.0     46.5     34.0  UNDER
+  2024-06-07   St. George Illawarra Dragons     Wests Tigers                      50.7% St. George Illawarra Dragons    St. George Illawarra Dragons      Y      7.0     42.0     48.0     70.0   OVER
+  2024-06-08   Brisbane Broncos                 Cronulla-Sutherland Sharks        70.2% Brisbane Broncos                Cronulla-Sutherland Sharks        N     12.8    -10.0     47.4     34.0  UNDER
+  2024-06-08   North Queensland Cowboys         New Zealand Warriors              71.3% North Queensland Cowboys        New Zealand Warriors              N     12.9    -30.0     51.9     54.0   OVER
+  2024-06-08   Gold Coast Titans                South Sydney Rabbitohs            82.8% South Sydney Rabbitohs          South Sydney Rabbitohs            Y     -2.8    -34.0     45.7     58.0   OVER
+  2024-06-09   Penrith Panthers                 Manly-Warringah Sea Eagles        92.7% Penrith Panthers                Penrith Panthers                  Y     23.4     10.0     43.4     54.0   OVER
+  2024-06-09   Melbourne Storm                  Newcastle Knights                 68.2% Melbourne Storm                 Melbourne Storm                   Y     17.6      8.0     55.5     64.0   OVER
+  2024-06-10   Canterbury-Bankstown Bulldogs    Parramatta Eels                   59.2% Parramatta Eels                 Canterbury-Bankstown Bulldogs     N     -1.6      4.0     47.5     40.0  UNDER
+  2024-06-13   Cronulla-Sutherland Sharks       Dolphins                          54.1% Cronulla-Sutherland Sharks      Dolphins                          N      8.4     -2.0     40.1     58.0   OVER
+  2024-06-14   South Sydney Rabbitohs           Brisbane Broncos                  73.4% Brisbane Broncos                South Sydney Rabbitohs            N    -10.6     10.0     45.0     34.0  UNDER
+  2024-06-14   Canberra Raiders                 North Queensland Cowboys          58.5% North Queensland Cowboys        North Queensland Cowboys          Y      2.6    -18.0     46.8     50.0   OVER
+  2024-06-15   Parramatta Eels                  Sydney Roosters                   73.9% Sydney Roosters                 Sydney Roosters                   Y     -8.1    -10.0     43.5     46.0   OVER
+  2024-06-15   New Zealand Warriors             Melbourne Storm                   71.2% New Zealand Warriors            Melbourne Storm                   N     -0.1    -14.0     49.5     62.0   OVER
+  2024-06-15   Wests Tigers                     Gold Coast Titans                 54.4% Gold Coast Titans               Wests Tigers                      N     -6.8      8.0     44.0     28.0  UNDER
+  2024-06-16   Newcastle Knights                Penrith Panthers                  71.0% Penrith Panthers                Penrith Panthers                  Y     -4.2     -8.0     51.6     44.0  UNDER
+  2024-06-16   Manly-Warringah Sea Eagles       St. George Illawarra Dragons      68.9% St. George Illawarra Dragons    Manly-Warringah Sea Eagles        N     -3.2     16.0     52.6     44.0  UNDER
+  2024-06-21   Dolphins                         Melbourne Storm                   60.3% Dolphins                        Melbourne Storm                   N     -7.7     -6.0     49.5     54.0   OVER
+  2024-06-22   South Sydney Rabbitohs           Manly-Warringah Sea Eagles        64.0% Manly-Warringah Sea Eagles      South Sydney Rabbitohs            N     -3.6     14.0     46.1     14.0  UNDER
+  2024-06-22   Sydney Roosters                  Canterbury-Bankstown Bulldogs     56.4% Sydney Roosters                 Sydney Roosters                   Y     -9.1     18.0     50.5     34.0  UNDER
+  2024-06-22   Gold Coast Titans                New Zealand Warriors              58.2% Gold Coast Titans               Gold Coast Titans                 Y      9.0     60.0     42.8     72.0   OVER
+  2024-06-23   Wests Tigers                     Canberra Raiders                  72.0% Canberra Raiders                Wests Tigers                      N     -7.5     24.0     44.0     72.0   OVER
+  2024-06-28   Canterbury-Bankstown Bulldogs    Cronulla-Sutherland Sharks        68.3% Cronulla-Sutherland Sharks      Canterbury-Bankstown Bulldogs     N     -3.1      1.0     47.3     29.0  UNDER
+  2024-06-29   Melbourne Storm                  Canberra Raiders                  57.0% Canberra Raiders                Melbourne Storm                   N      5.1     10.0     40.8     22.0  UNDER
+  2024-06-29   Newcastle Knights                Parramatta Eels                   79.3% Newcastle Knights               Newcastle Knights                 Y      1.7      8.0     47.6     60.0   OVER
+  2024-06-29   New Zealand Warriors             Brisbane Broncos                  60.0% New Zealand Warriors            New Zealand Warriors              Y      3.8     16.0     39.6     48.0   OVER
+  2024-06-30   Sydney Roosters                  Wests Tigers                      81.0% Sydney Roosters                 Sydney Roosters                   Y     17.1     34.0     44.3     46.0   OVER
+  2024-06-30   Penrith Panthers                 North Queensland Cowboys          83.9% Penrith Panthers                North Queensland Cowboys          N     12.4    -10.0     48.6     22.0  UNDER
+  2024-06-30   St. George Illawarra Dragons     Dolphins                          54.5% St. George Illawarra Dragons    St. George Illawarra Dragons      Y     -5.7     20.0     43.9     32.0  UNDER
+  2024-07-04   Parramatta Eels                  South Sydney Rabbitohs            58.7% Parramatta Eels                 South Sydney Rabbitohs            N      0.9    -16.0     38.3     48.0   OVER
+  2024-07-05   Brisbane Broncos                 Penrith Panthers                  64.2% Penrith Panthers                Penrith Panthers                  Y     -1.5     -8.0     47.4     20.0  UNDER
+  2024-07-05   Cronulla-Sutherland Sharks       Gold Coast Titans                 57.8% Gold Coast Titans               Gold Coast Titans                 Y      0.9     -4.0     40.2     36.0  UNDER
+  2024-07-06   North Queensland Cowboys         Manly-Warringah Sea Eagles        74.0% North Queensland Cowboys        Manly-Warringah Sea Eagles        N     11.0     -1.0     45.0     41.0  UNDER
+  2024-07-06   Wests Tigers                     Melbourne Storm                   70.6% Melbourne Storm                 Melbourne Storm                   Y     -8.6    -12.0     48.0     68.0   OVER
+  2024-07-06   Canterbury-Bankstown Bulldogs    New Zealand Warriors              69.7% New Zealand Warriors            Canterbury-Bankstown Bulldogs     N    -11.2      1.0     44.1     25.0  UNDER
+  2024-07-07   Canberra Raiders                 Newcastle Knights                 63.7% Canberra Raiders                Newcastle Knights                 N      4.8     -4.0     43.6     28.0  UNDER
+  2024-07-07   Sydney Roosters                  St. George Illawarra Dragons      81.8% Sydney Roosters                 Sydney Roosters                   Y     26.4     30.0     45.8     54.0   OVER
+  2024-07-11   Dolphins                         South Sydney Rabbitohs            79.8% Dolphins                        Dolphins                          Y      4.2      8.0     49.5     64.0   OVER
+  2024-07-12   Cronulla-Sutherland Sharks       Wests Tigers                      72.4% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     14.4     52.0     43.0     64.0   OVER
+  2024-07-13   Brisbane Broncos                 St. George Illawarra Dragons      83.1% Brisbane Broncos                St. George Illawarra Dragons      N      6.7     -4.0     49.3     56.0   OVER
+  2024-07-13   Gold Coast Titans                Parramatta Eels                   58.5% Parramatta Eels                 Gold Coast Titans                 N     -5.2      8.0     40.2     40.0  UNDER
+  2024-07-14   Manly-Warringah Sea Eagles       Newcastle Knights                 55.1% Manly-Warringah Sea Eagles      Manly-Warringah Sea Eagles        Y      9.9     38.0     47.5     50.0   OVER
+  2024-07-19   Canberra Raiders                 New Zealand Warriors              64.9% Canberra Raiders                Canberra Raiders                  Y      5.3      2.0     45.2     38.0  UNDER
+  2024-07-20   Melbourne Storm                  Sydney Roosters                   80.7% Sydney Roosters                 Melbourne Storm                   N     -6.0     16.0     42.8     32.0  UNDER
+  2024-07-20   Newcastle Knights                Brisbane Broncos                  73.7% Newcastle Knights               Brisbane Broncos                  N      4.0    -16.0     53.0     44.0  UNDER
+  2024-07-20   South Sydney Rabbitohs           Wests Tigers                      91.5% South Sydney Rabbitohs          South Sydney Rabbitohs            Y      5.2     14.0     46.9     70.0   OVER
+  2024-07-21   North Queensland Cowboys         Canterbury-Bankstown Bulldogs     75.6% North Queensland Cowboys        North Queensland Cowboys          Y      7.8      2.0     36.4     38.0   OVER
+  2024-07-21   Manly-Warringah Sea Eagles       Gold Coast Titans                 51.7% Manly-Warringah Sea Eagles      Manly-Warringah Sea Eagles        Y     -3.7     30.0     52.5     46.0  UNDER
+  2024-07-21   Penrith Panthers                 Dolphins                          89.4% Penrith Panthers                Penrith Panthers                  Y     13.1      2.0     52.5     54.0   OVER
+  2024-07-26   Parramatta Eels                  Melbourne Storm                   84.1% Melbourne Storm                 Melbourne Storm                   Y    -10.6    -18.0     59.3     46.0  UNDER
+  2024-07-26   New Zealand Warriors             Wests Tigers                      83.4% New Zealand Warriors            New Zealand Warriors              Y     16.0     12.0     46.6     44.0  UNDER
+  2024-07-27   Sydney Roosters                  Manly-Warringah Sea Eagles        62.3% Sydney Roosters                 Sydney Roosters                   Y      2.1      4.0     38.5     64.0   OVER
+  2024-07-27   North Queensland Cowboys         Cronulla-Sutherland Sharks        66.7% Cronulla-Sutherland Sharks      North Queensland Cowboys          N     -4.7      8.0     44.7     52.0   OVER
+  2024-07-27   Brisbane Broncos                 Canterbury-Bankstown Bulldogs     93.6% Brisbane Broncos                Canterbury-Bankstown Bulldogs     N     13.7    -25.0     41.0     57.0   OVER
+  2024-07-28   Canberra Raiders                 South Sydney Rabbitohs            53.1% Canberra Raiders                Canberra Raiders                  Y      7.2     20.0     38.5     44.0   OVER
+  2024-07-28   Dolphins                         Gold Coast Titans                 68.6% Gold Coast Titans               Gold Coast Titans                 Y     -2.1     -7.0     45.9     35.0  UNDER
+  2024-07-28   St. George Illawarra Dragons     Penrith Panthers                  79.8% Penrith Panthers                Penrith Panthers                  Y     -4.8    -36.0     43.2     56.0   OVER
+  2024-08-01   Wests Tigers                     North Queensland Cowboys          74.6% North Queensland Cowboys        North Queensland Cowboys          Y      1.0    -18.0     51.0     78.0   OVER
+  2024-08-02   Dolphins                         Sydney Roosters                   77.8% Sydney Roosters                 Sydney Roosters                   Y     -4.5     -6.0     52.6     74.0   OVER
+  2024-08-02   New Zealand Warriors             Parramatta Eels                   59.4% New Zealand Warriors            Parramatta Eels                   N     -5.8    -10.0     46.5     50.0   OVER
+  2024-08-03   Cronulla-Sutherland Sharks       South Sydney Rabbitohs            50.5% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y      7.9     14.0     47.9     26.0  UNDER
+  2024-08-03   Melbourne Storm                  St. George Illawarra Dragons      75.9% Melbourne Storm                 St. George Illawarra Dragons      N     17.7     -2.0     50.1     34.0  UNDER
+  2024-08-03   Gold Coast Titans                Brisbane Broncos                  66.1% Brisbane Broncos                Gold Coast Titans                 N     -7.7     28.0     39.7     64.0   OVER
+  2024-08-04   Canterbury-Bankstown Bulldogs    Canberra Raiders                  54.8% Canterbury-Bankstown Bulldogs   Canterbury-Bankstown Bulldogs     Y     -0.5      4.0     34.1     40.0   OVER
+  2024-08-04   Penrith Panthers                 Newcastle Knights                 90.0% Penrith Panthers                Penrith Panthers                  Y     17.1      8.0     44.7     36.0  UNDER
+  2024-08-08   South Sydney Rabbitohs           Melbourne Storm                   51.2% South Sydney Rabbitohs          Melbourne Storm                   N      0.7    -12.0     38.5     44.0   OVER
+  2024-08-09   Parramatta Eels                  Penrith Panthers                  60.8% Penrith Panthers                Penrith Panthers                  Y    -10.2     -2.0     42.0     70.0   OVER
+  2024-08-09   Gold Coast Titans                Cronulla-Sutherland Sharks        60.7% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     -3.0    -44.0     42.0     44.0   OVER
+  2024-08-10   St. George Illawarra Dragons     Canterbury-Bankstown Bulldogs     57.1% Canterbury-Bankstown Bulldogs   Canterbury-Bankstown Bulldogs     Y     -2.0    -18.0     40.3     38.0  UNDER
+  2024-08-10   North Queensland Cowboys         Brisbane Broncos                  55.0% North Queensland Cowboys        Brisbane Broncos                  N      1.4    -24.0     47.0     60.0   OVER
+  2024-08-10   Canberra Raiders                 Manly-Warringah Sea Eagles        53.8% Manly-Warringah Sea Eagles      Manly-Warringah Sea Eagles        Y      6.0    -22.0     44.8     70.0   OVER
+  2024-08-11   Newcastle Knights                Wests Tigers                      89.0% Newcastle Knights               Newcastle Knights                 Y     25.2     16.0     43.0     52.0   OVER
+  2024-08-11   Dolphins                         New Zealand Warriors              63.0% Dolphins                        Dolphins                          Y      3.7      2.0     31.5     66.0   OVER
+  2024-08-15   Penrith Panthers                 Melbourne Storm                   83.0% Penrith Panthers                Melbourne Storm                   N     19.1     -2.0     40.6     46.0   OVER
+  2024-08-16   Sydney Roosters                  Parramatta Eels                   82.2% Sydney Roosters                 Sydney Roosters                   Y     14.0     24.0     40.1     52.0   OVER
+  2024-08-16   Manly-Warringah Sea Eagles       New Zealand Warriors              71.8% Manly-Warringah Sea Eagles      Manly-Warringah Sea Eagles        Y     18.8     14.0     46.6     34.0  UNDER
+  2024-08-17   Wests Tigers                     South Sydney Rabbitohs            68.3% South Sydney Rabbitohs          Wests Tigers                      N     -5.9      2.0     47.6     34.0  UNDER
+  2024-08-17   North Queensland Cowboys         Canberra Raiders                  78.5% North Queensland Cowboys        North Queensland Cowboys          Y     15.9     38.0     45.9     46.0   OVER
+  2024-08-17   Canterbury-Bankstown Bulldogs    Dolphins                          80.5% Canterbury-Bankstown Bulldogs   Canterbury-Bankstown Bulldogs     Y      0.8     20.0     38.2     40.0   OVER
+  2024-08-18   Cronulla-Sutherland Sharks       Newcastle Knights                 53.8% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     20.6      1.0     41.8     37.0  UNDER
+  2024-08-18   St. George Illawarra Dragons     Gold Coast Titans                 67.2% St. George Illawarra Dragons    St. George Illawarra Dragons      Y      2.1     16.0     45.2     48.0   OVER
+  2024-08-22   Wests Tigers                     Manly-Warringah Sea Eagles        62.0% Manly-Warringah Sea Eagles      Wests Tigers                      N      3.4      8.0     47.8     60.0   OVER
+  2024-08-23   Brisbane Broncos                 Parramatta Eels                   71.3% Brisbane Broncos                Brisbane Broncos                  Y      4.5      6.0     47.2     54.0   OVER
+  2024-08-23   New Zealand Warriors             Canterbury-Bankstown Bulldogs     65.1% Canterbury-Bankstown Bulldogs   Canterbury-Bankstown Bulldogs     Y     -6.8    -16.0     34.2     52.0   OVER
+  2024-08-24   South Sydney Rabbitohs           Newcastle Knights                 62.5% South Sydney Rabbitohs          Newcastle Knights                 N      0.4    -20.0     43.2     52.0   OVER
+  2024-08-24   Melbourne Storm                  Dolphins                          83.8% Melbourne Storm                 Melbourne Storm                   Y     22.6     42.0     50.0     54.0   OVER
+  2024-08-24   Canberra Raiders                 Penrith Panthers                  61.6% Penrith Panthers                Canberra Raiders                  N     -8.7      4.0     52.6     40.0  UNDER
+  2024-08-25   St. George Illawarra Dragons     Cronulla-Sutherland Sharks        55.9% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     -2.8    -28.0     35.3     48.0   OVER
+  2024-08-25   Gold Coast Titans                Sydney Roosters                   74.3% Sydney Roosters                 Sydney Roosters                   Y    -10.6    -26.0     57.6     70.0   OVER
+  2024-08-29   North Queensland Cowboys         Melbourne Storm                   64.5% Melbourne Storm                 North Queensland Cowboys          N     -1.5      8.0     38.7     68.0   OVER
+  2024-08-30   Penrith Panthers                 South Sydney Rabbitohs            93.4% Penrith Panthers                Penrith Panthers                  Y     22.2     22.0     39.2     46.0   OVER
+  2024-08-30   Canterbury-Bankstown Bulldogs    Manly-Warringah Sea Eagles        54.9% Manly-Warringah Sea Eagles      Manly-Warringah Sea Eagles        Y     -3.6    -12.0     53.4     56.0   OVER
+  2024-08-31   Cronulla-Sutherland Sharks       New Zealand Warriors              54.5% Cronulla-Sutherland Sharks      New Zealand Warriors              N      6.0     -2.0     55.8     58.0   OVER
+  2024-08-31   Dolphins                         Brisbane Broncos                  52.8% Brisbane Broncos                Dolphins                          N    -17.3     34.0     45.3     46.0   OVER
+  2024-08-31   Parramatta Eels                  St. George Illawarra Dragons      65.6% Parramatta Eels                 Parramatta Eels                   Y     11.8      4.0     48.1     84.0   OVER
+  2024-09-01   Sydney Roosters                  Canberra Raiders                  73.5% Sydney Roosters                 Canberra Raiders                  N      8.2     -2.0     41.4     26.0  UNDER
+  2024-09-01   Newcastle Knights                Gold Coast Titans                 71.8% Newcastle Knights               Newcastle Knights                 Y      8.5     22.0     49.1     50.0   OVER
+  2024-09-05   Brisbane Broncos                 Melbourne Storm                   55.4% Brisbane Broncos                Melbourne Storm                   N      1.0    -38.0     51.8     62.0   OVER
+  2024-09-06   South Sydney Rabbitohs           Sydney Roosters                   67.0% Sydney Roosters                 Sydney Roosters                   Y    -15.9     -8.0     44.6     64.0   OVER
+  2024-09-06   Wests Tigers                     Parramatta Eels                   64.5% Wests Tigers                    Parramatta Eels                   N     -6.1    -34.0     45.9     86.0   OVER
+  2024-09-07   Penrith Panthers                 Gold Coast Titans                 89.4% Penrith Panthers                Penrith Panthers                  Y     21.1      6.0     48.1     30.0  UNDER
+  2024-09-07   Canterbury-Bankstown Bulldogs    North Queensland Cowboys          68.0% North Queensland Cowboys        North Queensland Cowboys          Y    -10.3    -38.0     43.0     50.0   OVER
+  2024-09-07   St. George Illawarra Dragons     Canberra Raiders                  65.5% Canberra Raiders                Canberra Raiders                  Y    -12.1     -2.0     47.1     50.0   OVER
+  2024-09-08   Newcastle Knights                Dolphins                          72.4% Newcastle Knights               Newcastle Knights                 Y     19.0      8.0     41.6     20.0  UNDER
+  2024-09-08   Manly-Warringah Sea Eagles       Cronulla-Sutherland Sharks        60.3% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     -7.7    -20.0     41.5     60.0   OVER
+  2024-09-13   Penrith Panthers                 Sydney Roosters                   86.9% Penrith Panthers                Penrith Panthers                  Y     25.1     20.0     36.7     40.0   OVER
+  2024-09-14   North Queensland Cowboys         Newcastle Knights                 75.5% North Queensland Cowboys        North Queensland Cowboys          Y      5.6     12.0     48.1     44.0  UNDER
+  2024-09-14   Melbourne Storm                  Cronulla-Sutherland Sharks        50.6% Cronulla-Sutherland Sharks      Melbourne Storm                   N      7.2     27.0     46.6     47.0   OVER
+  2024-09-15   Canterbury-Bankstown Bulldogs    Manly-Warringah Sea Eagles        51.6% Manly-Warringah Sea Eagles      Manly-Warringah Sea Eagles        Y     -7.1     -2.0     55.1     46.0  UNDER
+  2024-09-20   Cronulla-Sutherland Sharks       North Queensland Cowboys          60.3% Cronulla-Sutherland Sharks      Cronulla-Sutherland Sharks        Y     11.8      8.0     45.3     44.0  UNDER
+  2024-09-21   Sydney Roosters                  Manly-Warringah Sea Eagles        82.0% Sydney Roosters                 Sydney Roosters                   Y      9.8     24.0     43.7     56.0   OVER
+  2024-09-27   Melbourne Storm                  Sydney Roosters                   54.4% Melbourne Storm                 Melbourne Storm                   Y     11.1     30.0     42.1     66.0   OVER
+  2024-09-28   Penrith Panthers                 Cronulla-Sutherland Sharks        77.5% Penrith Panthers                Penrith Panthers                  Y     14.0     20.0     43.1     32.0  UNDER
+  2024-10-06   Melbourne Storm                  Penrith Panthers                  72.1% Penrith Panthers                Penrith Panthers                  Y    -14.7     -8.0     38.6     20.0  UNDER
+
+  -------------------------------------------------------------------------------------------------------------------------------------------------------
+  SUMMARY
+  H2H overall:     131/212 = 61.8%  (1 draw excluded)
+  High conf (>=65%)                   93/137 =  67.9%
+  Medium conf (55-65%)                23/48  =  47.9%
+  Toss-up (<=55%)                     15/27  =  55.6%
+  Margin MAE:      14.39 pts
+  Total MAE:       11.24 pts
+  Totals - actual OVER ml line:  120/213 = 56.3%
+  Totals - actual UNDER ml line: 93/213 = 43.7%
+
+===========================================================================================================================================================

@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "counts": {
+    "matches": 8,
+    "injuries": 100,
+    "referees": 6,
+    "emotional": 0
+  },
+  "errors": [],
+  "warnings": [
+    "Referee file has 6 assignments for 8 fixtures."
+  ],
+  "filters": {
+    "injuries_dropped_non_round_team": 7,
+    "emotional_dropped_non_round_team": 0
+  }
+}

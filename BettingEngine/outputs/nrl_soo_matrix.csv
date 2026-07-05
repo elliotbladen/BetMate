@@ -1,0 +1,953 @@
+team,section,category,type,h2h_actual,h2h_implied,h2h_edge_pct,h2h_direction,hcap_cover,hcap_edge_pct,hcap_direction,over_rate,avg_actual,avg_market,totals_edge_pct,totals_direction,n
+Brisbane Broncos,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,57.7,60.4,4.5,under,50.0,0.0,fades,,,,,,26
+Brisbane Broncos,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,50.0,45.0,46.5,0.0,unders,26
+Brisbane Broncos,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,53.8,68.7,21.7,under,38.5,23.0,fades,,,,,,13
+Brisbane Broncos,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,53.8,44.1,47.3,7.6,overs,13
+Brisbane Broncos,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,61.5,52.2,17.8,over,61.5,23.0,covers,,,,,,13
+Brisbane Broncos,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,46.2,46.0,45.7,7.6,unders,13
+Brisbane Broncos,BY SOO PHASE,Post-Game 1,h2h_hcap,50.0,57.3,12.7,under,50.0,0.0,fades,,,,,,8
+Brisbane Broncos,BY SOO PHASE,Post-Game 1,totals,,,,,,,,50.0,42.0,45.5,0.0,unders,8
+Brisbane Broncos,BY SOO PHASE,Post-Game 2,h2h_hcap,54.5,61.0,10.7,under,45.5,9.0,fades,,,,,,11
+Brisbane Broncos,BY SOO PHASE,Post-Game 2,totals,,,,,,,,45.5,44.5,47.3,9.0,unders,11
+Brisbane Broncos,BY SOO PHASE,Post-Game 3,h2h_hcap,71.4,63.1,13.2,over,57.1,14.2,covers,,,,,,7
+Brisbane Broncos,BY SOO PHASE,Post-Game 3,totals,,,,,,,,57.1,49.3,46.2,14.2,overs,7
+Brisbane Broncos,BY YEAR,2022,h2h_hcap,66.7,46.6,43.1,over,66.7,33.4,covers,,,,,,6
+Brisbane Broncos,BY YEAR,2022,totals,,,,,,,,83.3,48.0,42.8,66.6,overs,6
+Brisbane Broncos,BY YEAR,2023,h2h_hcap,83.3,66.7,24.9,over,50.0,0.0,fades,,,,,,6
+Brisbane Broncos,BY YEAR,2023,totals,,,,,,,,50.0,45.0,45.8,0.0,unders,6
+Brisbane Broncos,BY YEAR,2024,h2h_hcap,14.3,62.5,77.1,under,14.3,71.4,fades,,,,,,7
+Brisbane Broncos,BY YEAR,2024,totals,,,,,,,,42.9,41.9,47.8,14.2,unders,7
+Brisbane Broncos,BY YEAR,2025,h2h_hcap,71.4,64.7,10.4,over,71.4,42.8,covers,,,,,,7
+Brisbane Broncos,BY YEAR,2025,totals,,,,,,,,28.6,45.7,48.8,42.8,unders,7
+Brisbane Broncos,ROLE,As Favourite (H2H),h2h_hcap,63.2,68.7,8.0,under,47.4,5.2,fades,,,,,,19
+Brisbane Broncos,ROLE,As Favourite (H2H),totals,,,,,,,,52.6,45.8,47.3,5.2,overs,19
+Brisbane Broncos,ROLE,As Underdog (H2H),h2h_hcap,42.9,37.9,13.2,over,57.1,14.2,covers,,,,,,7
+Brisbane Broncos,ROLE,As Underdog (H2H),totals,,,,,,,,42.9,42.9,44.1,14.2,unders,7
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,66.7,59.7,11.7,over,66.7,33.4,covers,,,,,,3
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,66.7,55.0,45.5,33.4,overs,3
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,66.7,58.1,14.8,over,66.7,33.4,covers,,,,,,3
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,33.3,42.7,46.2,33.4,unders,3
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,75.0,74.0,1.4,over,50.0,0.0,fades,,,,,,4
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,25.0,39.0,49.2,50.0,unders,4
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Brisbane Broncos,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Canberra Raiders,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,65.2,57.7,13.0,over,43.5,13.0,fades,,,,,,23
+Canberra Raiders,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,47.8,43.1,45.5,4.4,unders,23
+Canberra Raiders,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,70.0,66.9,4.6,over,40.0,20.0,fades,,,,,,10
+Canberra Raiders,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,50.0,44.8,46.8,0.0,unders,10
+Canberra Raiders,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,61.5,50.6,21.5,over,46.2,7.6,fades,,,,,,13
+Canberra Raiders,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,46.2,41.8,44.4,7.6,unders,13
+Canberra Raiders,BY SOO PHASE,Post-Game 1,h2h_hcap,55.6,58.0,4.1,under,33.3,33.4,fades,,,,,,9
+Canberra Raiders,BY SOO PHASE,Post-Game 1,totals,,,,,,,,66.7,48.9,45.9,33.4,overs,9
+Canberra Raiders,BY SOO PHASE,Post-Game 2,h2h_hcap,66.7,60.2,10.8,over,33.3,33.4,fades,,,,,,9
+Canberra Raiders,BY SOO PHASE,Post-Game 2,totals,,,,,,,,33.3,37.8,45.4,33.4,unders,9
+Canberra Raiders,BY SOO PHASE,Post-Game 3,h2h_hcap,80.0,52.6,52.1,over,80.0,60.0,covers,,,,,,5
+Canberra Raiders,BY SOO PHASE,Post-Game 3,totals,,,,,,,,40.0,42.2,44.7,20.0,unders,5
+Canberra Raiders,BY YEAR,2022,h2h_hcap,60.0,55.5,8.1,over,20.0,60.0,fades,,,,,,5
+Canberra Raiders,BY YEAR,2022,totals,,,,,,,,20.0,35.6,41.7,60.0,unders,5
+Canberra Raiders,BY YEAR,2023,h2h_hcap,66.7,56.7,17.6,over,50.0,0.0,fades,,,,,,6
+Canberra Raiders,BY YEAR,2023,totals,,,,,,,,66.7,46.3,43.3,33.4,overs,6
+Canberra Raiders,BY YEAR,2024,h2h_hcap,33.3,47.9,30.5,under,50.0,0.0,fades,,,,,,6
+Canberra Raiders,BY YEAR,2024,totals,,,,,,,,33.3,43.5,49.0,33.4,unders,6
+Canberra Raiders,BY YEAR,2025,h2h_hcap,100.0,70.4,42.0,over,50.0,0.0,fades,,,,,,6
+Canberra Raiders,BY YEAR,2025,totals,,,,,,,,66.7,45.7,47.2,33.4,overs,6
+Canberra Raiders,ROLE,As Favourite (H2H),h2h_hcap,68.8,67.2,2.4,over,25.0,50.0,fades,,,,,,16
+Canberra Raiders,ROLE,As Favourite (H2H),totals,,,,,,,,50.0,45.2,45.8,0.0,unders,16
+Canberra Raiders,ROLE,As Underdog (H2H),h2h_hcap,57.1,36.2,57.7,over,85.7,71.4,covers,,,,,,7
+Canberra Raiders,ROLE,As Underdog (H2H),totals,,,,,,,,42.9,38.3,44.8,14.2,unders,7
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,50.0,58.5,14.5,under,50.0,0.0,fades,,,,,,4
+Canberra Raiders,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,50.0,42.2,44.0,0.0,unders,4
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,66.7,67.5,1.2,under,0.0,100.0,fades,,,,,,3
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,0.0,35.3,45.5,100.0,unders,3
+Canberra Raiders,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,66.7,71.0,6.1,under,0.0,100.0,fades,,,,,,3
+Canberra Raiders,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,66.7,45.3,42.8,33.4,overs,3
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,66.7,63.0,5.9,over,0.0,100.0,fades,,,,,,3
+Canberra Raiders,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,33.3,46.3,46.2,33.4,unders,3
+Canterbury Bulldogs,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,52.2,46.4,12.5,over,39.1,21.8,fades,,,,,,23
+Canterbury Bulldogs,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,39.1,42.7,44.5,21.8,unders,23
+Canterbury Bulldogs,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,53.8,48.1,11.9,over,38.5,23.0,fades,,,,,,13
+Canterbury Bulldogs,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,38.5,43.7,44.3,23.0,unders,13
+Canterbury Bulldogs,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,50.0,44.3,12.9,over,40.0,20.0,fades,,,,,,10
+Canterbury Bulldogs,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,40.0,41.4,44.8,20.0,unders,10
+Canterbury Bulldogs,BY SOO PHASE,Post-Game 1,h2h_hcap,60.0,41.6,44.2,over,60.0,20.0,covers,,,,,,10
+Canterbury Bulldogs,BY SOO PHASE,Post-Game 1,totals,,,,,,,,40.0,43.1,44.5,20.0,unders,10
+Canterbury Bulldogs,BY SOO PHASE,Post-Game 2,h2h_hcap,50.0,52.8,5.3,under,25.0,50.0,fades,,,,,,8
+Canterbury Bulldogs,BY SOO PHASE,Post-Game 2,totals,,,,,,,,25.0,35.8,43.9,50.0,unders,8
+Canterbury Bulldogs,BY SOO PHASE,Post-Game 3,h2h_hcap,40.0,45.9,12.9,under,20.0,60.0,fades,,,,,,5
+Canterbury Bulldogs,BY SOO PHASE,Post-Game 3,totals,,,,,,,,60.0,53.0,45.7,20.0,overs,5
+Canterbury Bulldogs,BY YEAR,2022,h2h_hcap,50.0,34.1,46.6,over,50.0,0.0,fades,,,,,,4
+Canterbury Bulldogs,BY YEAR,2022,totals,,,,,,,,50.0,43.5,42.8,0.0,unders,4
+Canterbury Bulldogs,BY YEAR,2023,h2h_hcap,16.7,33.4,50.0,under,33.3,33.4,fades,,,,,,6
+Canterbury Bulldogs,BY YEAR,2023,totals,,,,,,,,100.0,59.2,43.8,100.0,overs,6
+Canterbury Bulldogs,BY YEAR,2024,h2h_hcap,71.4,45.9,55.6,over,57.1,14.2,covers,,,,,,7
+Canterbury Bulldogs,BY YEAR,2024,totals,,,,,,,,14.3,36.7,45.9,71.4,unders,7
+Canterbury Bulldogs,BY YEAR,2025,h2h_hcap,66.7,68.4,2.5,under,16.7,66.6,fades,,,,,,6
+Canterbury Bulldogs,BY YEAR,2025,totals,,,,,,,,0.0,32.7,44.8,100.0,unders,6
+Canterbury Bulldogs,ROLE,As Favourite (H2H),h2h_hcap,77.8,64.9,19.9,over,33.3,33.4,fades,,,,,,9
+Canterbury Bulldogs,ROLE,As Favourite (H2H),totals,,,,,,,,11.1,33.7,44.5,77.8,unders,9
+Canterbury Bulldogs,ROLE,As Underdog (H2H),h2h_hcap,35.7,34.6,3.2,over,42.9,14.2,fades,,,,,,14
+Canterbury Bulldogs,ROLE,As Underdog (H2H),totals,,,,,,,,57.1,48.5,44.6,14.2,overs,14
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,33.3,45.3,26.5,under,33.3,33.4,fades,,,,,,3
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,66.7,55.0,45.5,33.4,overs,3
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,33.3,30.3,9.9,over,33.3,33.4,fades,,,,,,3
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,33.3,37.0,43.2,33.4,unders,3
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,75.0,43.0,74.4,over,75.0,50.0,covers,,,,,,4
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,25.0,41.5,45.0,50.0,unders,4
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,66.7,48.0,39.0,over,33.3,33.4,fades,,,,,,3
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,66.7,58.0,44.5,33.4,overs,3
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Canterbury Bulldogs,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Cronulla Sharks,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,53.8,63.4,15.1,under,50.0,0.0,fades,,,,,,26
+Cronulla Sharks,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,50.0,45.0,45.7,0.0,unders,26
+Cronulla Sharks,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,66.7,71.3,6.5,under,58.3,16.6,covers,,,,,,12
+Cronulla Sharks,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,58.3,46.8,45.8,16.6,overs,12
+Cronulla Sharks,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,42.9,56.7,24.3,under,42.9,14.2,fades,,,,,,14
+Cronulla Sharks,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,42.9,43.5,45.6,14.2,unders,14
+Cronulla Sharks,BY SOO PHASE,Post-Game 1,h2h_hcap,50.0,69.5,28.1,under,40.0,20.0,fades,,,,,,10
+Cronulla Sharks,BY SOO PHASE,Post-Game 1,totals,,,,,,,,70.0,48.2,45.7,40.0,overs,10
+Cronulla Sharks,BY SOO PHASE,Post-Game 2,h2h_hcap,60.0,63.7,5.8,under,60.0,20.0,covers,,,,,,10
+Cronulla Sharks,BY SOO PHASE,Post-Game 2,totals,,,,,,,,30.0,43.7,46.1,40.0,unders,10
+Cronulla Sharks,BY SOO PHASE,Post-Game 3,h2h_hcap,50.0,52.9,5.5,under,50.0,0.0,fades,,,,,,6
+Cronulla Sharks,BY SOO PHASE,Post-Game 3,totals,,,,,,,,50.0,41.8,45.2,0.0,unders,6
+Cronulla Sharks,BY YEAR,2022,h2h_hcap,83.3,59.3,40.5,over,83.3,66.6,covers,,,,,,6
+Cronulla Sharks,BY YEAR,2022,totals,,,,,,,,16.7,34.7,41.5,66.6,unders,6
+Cronulla Sharks,BY YEAR,2023,h2h_hcap,50.0,71.7,30.3,under,50.0,0.0,fades,,,,,,6
+Cronulla Sharks,BY YEAR,2023,totals,,,,,,,,66.7,54.3,45.2,33.4,overs,6
+Cronulla Sharks,BY YEAR,2024,h2h_hcap,28.6,63.8,55.2,under,28.6,42.8,fades,,,,,,7
+Cronulla Sharks,BY YEAR,2024,totals,,,,,,,,57.1,47.0,47.9,14.2,overs,7
+Cronulla Sharks,BY YEAR,2025,h2h_hcap,57.1,59.6,4.2,under,42.9,14.2,fades,,,,,,7
+Cronulla Sharks,BY YEAR,2025,totals,,,,,,,,57.1,43.9,47.6,14.2,overs,7
+Cronulla Sharks,ROLE,As Favourite (H2H),h2h_hcap,66.7,74.5,10.5,under,55.6,11.2,covers,,,,,,18
+Cronulla Sharks,ROLE,As Favourite (H2H),totals,,,,,,,,50.0,44.6,45.9,0.0,unders,18
+Cronulla Sharks,ROLE,As Underdog (H2H),h2h_hcap,25.0,38.4,34.9,under,37.5,25.0,fades,,,,,,8
+Cronulla Sharks,ROLE,As Underdog (H2H),totals,,,,,,,,50.0,46.0,45.2,0.0,unders,8
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,33.3,47.2,29.4,under,33.3,33.4,fades,,,,,,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,33.3,42.7,46.2,33.4,unders,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,66.7,74.5,10.5,under,66.7,33.4,covers,,,,,,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,33.3,37.0,43.2,33.4,unders,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,33.3,36.3,8.3,under,33.3,33.4,fades,,,,,,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,33.3,44.7,43.8,33.4,unders,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,33.3,67.9,51.0,under,33.3,33.4,fades,,,,,,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,100.0,53.3,44.5,100.0,overs,3
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Cronulla Sharks,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Dolphins,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,38.9,46.9,17.1,under,55.6,11.2,covers,,,,,,18
+Dolphins,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,61.1,53.8,48.2,22.2,overs,18
+Dolphins,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,44.4,54.1,17.9,under,55.6,11.2,covers,,,,,,9
+Dolphins,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,77.8,58.7,47.9,55.6,overs,9
+Dolphins,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,33.3,39.8,16.3,under,55.6,11.2,covers,,,,,,9
+Dolphins,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,44.4,48.9,48.4,11.2,unders,9
+Dolphins,BY SOO PHASE,Post-Game 1,h2h_hcap,42.9,46.5,7.7,under,42.9,14.2,fades,,,,,,7
+Dolphins,BY SOO PHASE,Post-Game 1,totals,,,,,,,,85.7,57.3,47.8,71.4,overs,7
+Dolphins,BY SOO PHASE,Post-Game 2,h2h_hcap,37.5,50.5,25.7,under,50.0,0.0,fades,,,,,,8
+Dolphins,BY SOO PHASE,Post-Game 2,totals,,,,,,,,37.5,51.0,49.0,25.0,unders,8
+Dolphins,BY SOO PHASE,Post-Game 3,h2h_hcap,33.3,38.4,13.3,under,100.0,100.0,covers,,,,,,3
+Dolphins,BY SOO PHASE,Post-Game 3,totals,,,,,,,,66.7,53.0,46.8,33.4,overs,3
+Dolphins,BY YEAR,2022,h2h_hcap,,,,,,,,,,,,,
+Dolphins,BY YEAR,2022,totals,,,,,,,,,,,,,
+Dolphins,BY YEAR,2023,h2h_hcap,16.7,33.9,50.7,under,50.0,0.0,fades,,,,,,6
+Dolphins,BY YEAR,2023,totals,,,,,,,,33.3,50.7,46.7,33.4,unders,6
+Dolphins,BY YEAR,2024,h2h_hcap,33.3,44.6,25.3,under,50.0,0.0,fades,,,,,,6
+Dolphins,BY YEAR,2024,totals,,,,,,,,83.3,52.2,49.3,66.6,overs,6
+Dolphins,BY YEAR,2025,h2h_hcap,66.7,62.3,7.1,over,66.7,33.4,covers,,,,,,6
+Dolphins,BY YEAR,2025,totals,,,,,,,,66.7,58.5,48.5,33.4,overs,6
+Dolphins,ROLE,As Favourite (H2H),h2h_hcap,62.5,62.3,0.3,over,62.5,25.0,covers,,,,,,8
+Dolphins,ROLE,As Favourite (H2H),totals,,,,,,,,75.0,57.8,49.2,50.0,overs,8
+Dolphins,ROLE,As Underdog (H2H),h2h_hcap,20.0,34.6,42.2,under,50.0,0.0,fades,,,,,,10
+Dolphins,ROLE,As Underdog (H2H),totals,,,,,,,,50.0,50.6,47.3,0.0,unders,10
+Dolphins,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Dolphins,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Gold Coast Titans,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,28.0,39.6,29.3,under,44.0,12.0,fades,,,,,,25
+Gold Coast Titans,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,40.0,45.6,48.8,20.0,unders,25
+Gold Coast Titans,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,30.8,41.8,26.3,under,38.5,23.0,fades,,,,,,13
+Gold Coast Titans,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,46.2,48.5,49.3,7.6,unders,13
+Gold Coast Titans,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,25.0,37.2,32.8,under,50.0,0.0,fades,,,,,,12
+Gold Coast Titans,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,33.3,42.5,48.2,33.4,unders,12
+Gold Coast Titans,BY SOO PHASE,Post-Game 1,h2h_hcap,30.0,37.5,20.0,under,40.0,20.0,fades,,,,,,10
+Gold Coast Titans,BY SOO PHASE,Post-Game 1,totals,,,,,,,,50.0,48.4,48.9,0.0,unders,10
+Gold Coast Titans,BY SOO PHASE,Post-Game 2,h2h_hcap,33.3,44.6,25.3,under,33.3,33.4,fades,,,,,,9
+Gold Coast Titans,BY SOO PHASE,Post-Game 2,totals,,,,,,,,44.4,44.2,48.7,11.2,unders,9
+Gold Coast Titans,BY SOO PHASE,Post-Game 3,h2h_hcap,16.7,35.5,53.0,under,66.7,33.4,covers,,,,,,6
+Gold Coast Titans,BY SOO PHASE,Post-Game 3,totals,,,,,,,,16.7,43.0,48.7,66.6,unders,6
+Gold Coast Titans,BY YEAR,2022,h2h_hcap,0.0,33.0,100.0,under,50.0,0.0,fades,,,,,,4
+Gold Coast Titans,BY YEAR,2022,totals,,,,,,,,50.0,38.0,43.5,0.0,unders,4
+Gold Coast Titans,BY YEAR,2023,h2h_hcap,28.6,40.1,28.7,under,42.9,14.2,fades,,,,,,7
+Gold Coast Titans,BY YEAR,2023,totals,,,,,,,,42.9,48.4,48.6,14.2,unders,7
+Gold Coast Titans,BY YEAR,2024,h2h_hcap,50.0,47.9,4.4,over,50.0,0.0,fades,,,,,,6
+Gold Coast Titans,BY YEAR,2024,totals,,,,,,,,33.3,46.7,51.2,33.4,unders,6
+Gold Coast Titans,BY YEAR,2025,h2h_hcap,25.0,36.2,30.9,under,37.5,25.0,fades,,,,,,8
+Gold Coast Titans,BY YEAR,2025,totals,,,,,,,,37.5,46.1,49.8,25.0,unders,8
+Gold Coast Titans,ROLE,As Favourite (H2H),h2h_hcap,33.3,57.6,42.2,under,33.3,33.4,fades,,,,,,6
+Gold Coast Titans,ROLE,As Favourite (H2H),totals,,,,,,,,33.3,44.3,50.3,33.4,unders,6
+Gold Coast Titans,ROLE,As Underdog (H2H),h2h_hcap,26.3,33.9,22.4,under,47.4,5.2,fades,,,,,,19
+Gold Coast Titans,ROLE,As Underdog (H2H),totals,,,,,,,,42.1,46.0,48.3,15.8,unders,19
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,25.0,31.1,19.6,under,50.0,0.0,fades,,,,,,4
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,25.0,39.0,49.2,50.0,unders,4
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,33.3,47.7,30.2,under,66.7,33.4,covers,,,,,,3
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,33.3,48.3,50.5,33.4,unders,3
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,0.0,36.7,100.0,under,0.0,100.0,fades,,,,,,3
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,100.0,59.3,48.8,100.0,overs,3
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,33.3,51.3,35.1,under,66.7,33.4,covers,,,,,,3
+Gold Coast Titans,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,0.0,36.3,48.5,100.0,unders,3
+Manly Sea Eagles,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,56.5,54.5,3.7,over,60.9,21.8,covers,,,,,,23
+Manly Sea Eagles,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,34.8,43.0,46.4,30.4,unders,23
+Manly Sea Eagles,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,83.3,60.6,37.5,over,83.3,66.6,covers,,,,,,12
+Manly Sea Eagles,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,41.7,47.6,46.6,16.6,unders,12
+Manly Sea Eagles,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,27.3,47.8,42.9,under,36.4,27.2,fades,,,,,,11
+Manly Sea Eagles,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,27.3,38.1,46.1,45.4,unders,11
+Manly Sea Eagles,BY SOO PHASE,Post-Game 1,h2h_hcap,40.0,56.4,29.1,under,50.0,0.0,fades,,,,,,10
+Manly Sea Eagles,BY SOO PHASE,Post-Game 1,totals,,,,,,,,40.0,43.8,46.0,20.0,unders,10
+Manly Sea Eagles,BY SOO PHASE,Post-Game 2,h2h_hcap,85.7,52.1,64.5,over,71.4,42.8,covers,,,,,,7
+Manly Sea Eagles,BY SOO PHASE,Post-Game 2,totals,,,,,,,,28.6,43.0,46.5,42.8,unders,7
+Manly Sea Eagles,BY SOO PHASE,Post-Game 3,h2h_hcap,50.0,54.0,7.4,under,66.7,33.4,covers,,,,,,6
+Manly Sea Eagles,BY SOO PHASE,Post-Game 3,totals,,,,,,,,33.3,41.8,46.8,33.4,unders,6
+Manly Sea Eagles,BY YEAR,2022,h2h_hcap,60.0,55.9,7.3,over,80.0,60.0,covers,,,,,,5
+Manly Sea Eagles,BY YEAR,2022,totals,,,,,,,,60.0,46.8,43.5,20.0,overs,5
+Manly Sea Eagles,BY YEAR,2023,h2h_hcap,40.0,48.2,17.0,under,20.0,60.0,fades,,,,,,5
+Manly Sea Eagles,BY YEAR,2023,totals,,,,,,,,20.0,41.0,43.9,60.0,unders,5
+Manly Sea Eagles,BY YEAR,2024,h2h_hcap,57.1,51.6,10.7,over,71.4,42.8,covers,,,,,,7
+Manly Sea Eagles,BY YEAR,2024,totals,,,,,,,,42.9,44.7,49.2,14.2,unders,7
+Manly Sea Eagles,BY YEAR,2025,h2h_hcap,66.7,61.9,7.8,over,66.7,33.4,covers,,,,,,6
+Manly Sea Eagles,BY YEAR,2025,totals,,,,,,,,16.7,39.7,47.5,66.6,unders,6
+Manly Sea Eagles,ROLE,As Favourite (H2H),h2h_hcap,76.9,67.7,13.6,over,69.2,38.4,covers,,,,,,13
+Manly Sea Eagles,ROLE,As Favourite (H2H),totals,,,,,,,,30.8,43.7,46.9,38.4,unders,13
+Manly Sea Eagles,ROLE,As Underdog (H2H),h2h_hcap,30.0,37.3,19.6,under,50.0,0.0,fades,,,,,,10
+Manly Sea Eagles,ROLE,As Underdog (H2H),totals,,,,,,,,40.0,42.2,45.7,20.0,unders,10
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,66.7,29.3,127.6,over,66.7,33.4,covers,,,,,,3
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,33.3,43.3,44.5,33.4,unders,3
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,66.7,66.8,0.1,under,66.7,33.4,covers,,,,,,3
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,100.0,50.7,45.8,100.0,overs,3
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,33.3,43.8,24.0,under,66.7,33.4,covers,,,,,,3
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,33.3,40.7,46.2,33.4,unders,3
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Manly Sea Eagles,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Melbourne Storm,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,71.4,72.1,1.0,under,46.4,7.2,fades,,,,,,28
+Melbourne Storm,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,53.6,47.1,45.7,7.2,overs,28
+Melbourne Storm,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,72.7,74.2,2.0,under,45.5,9.0,fades,,,,,,11
+Melbourne Storm,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,45.5,42.9,45.9,9.0,unders,11
+Melbourne Storm,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,70.6,70.8,0.3,under,47.1,5.8,fades,,,,,,17
+Melbourne Storm,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,58.8,49.9,45.6,17.6,overs,17
+Melbourne Storm,BY SOO PHASE,Post-Game 1,h2h_hcap,90.0,71.7,25.5,over,70.0,40.0,covers,,,,,,10
+Melbourne Storm,BY SOO PHASE,Post-Game 1,totals,,,,,,,,80.0,53.5,45.6,60.0,overs,10
+Melbourne Storm,BY SOO PHASE,Post-Game 2,h2h_hcap,70.0,74.8,6.4,under,30.0,40.0,fades,,,,,,10
+Melbourne Storm,BY SOO PHASE,Post-Game 2,totals,,,,,,,,50.0,44.7,45.7,0.0,unders,10
+Melbourne Storm,BY SOO PHASE,Post-Game 3,h2h_hcap,50.0,69.3,27.8,under,37.5,25.0,fades,,,,,,8
+Melbourne Storm,BY SOO PHASE,Post-Game 3,totals,,,,,,,,25.0,42.2,45.8,50.0,unders,8
+Melbourne Storm,BY YEAR,2022,h2h_hcap,33.3,71.5,53.4,under,16.7,66.6,fades,,,,,,6
+Melbourne Storm,BY YEAR,2022,totals,,,,,,,,50.0,44.7,41.7,0.0,unders,6
+Melbourne Storm,BY YEAR,2023,h2h_hcap,57.1,68.4,16.5,under,57.1,14.2,covers,,,,,,7
+Melbourne Storm,BY YEAR,2023,totals,,,,,,,,57.1,47.6,42.5,14.2,overs,7
+Melbourne Storm,BY YEAR,2024,h2h_hcap,100.0,72.1,38.7,over,57.1,14.2,covers,,,,,,7
+Melbourne Storm,BY YEAR,2024,totals,,,,,,,,57.1,49.7,49.4,14.2,overs,7
+Melbourne Storm,BY YEAR,2025,h2h_hcap,87.5,75.8,15.4,over,50.0,0.0,fades,,,,,,8
+Melbourne Storm,BY YEAR,2025,totals,,,,,,,,50.0,46.4,48.2,0.0,unders,8
+Melbourne Storm,ROLE,As Favourite (H2H),h2h_hcap,70.4,73.0,3.6,under,44.4,11.2,fades,,,,,,27
+Melbourne Storm,ROLE,As Favourite (H2H),totals,,,,,,,,55.6,47.7,45.6,11.2,overs,27
+Melbourne Storm,ROLE,As Underdog (H2H),h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,ROLE,As Underdog (H2H),totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,66.7,68.7,2.9,under,66.7,33.4,covers,,,,,,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,33.3,44.7,43.8,33.4,unders,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,33.3,75.5,55.9,under,33.3,33.4,fades,,,,,,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,33.3,43.3,44.5,33.4,unders,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,66.7,78.5,15.0,under,33.3,33.4,fades,,,,,,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,66.7,51.3,46.8,33.4,overs,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,66.7,76.6,12.9,under,33.3,33.4,fades,,,,,,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,66.7,54.3,47.8,33.4,overs,3
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,100.0,62.1,61.0,over,75.0,50.0,covers,,,,,,4
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,75.0,46.5,43.5,50.0,overs,4
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Melbourne Storm,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+New Zealand Warriors,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,53.8,52.1,3.3,over,53.8,7.6,covers,,,,,,26
+New Zealand Warriors,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,57.7,46.8,45.3,15.4,overs,26
+New Zealand Warriors,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,53.8,57.7,6.8,under,38.5,23.0,fades,,,,,,13
+New Zealand Warriors,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,53.8,44.7,44.7,7.6,overs,13
+New Zealand Warriors,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,53.8,46.6,15.5,over,69.2,38.4,covers,,,,,,13
+New Zealand Warriors,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,61.5,48.9,46.0,23.0,overs,13
+New Zealand Warriors,BY SOO PHASE,Post-Game 1,h2h_hcap,55.6,42.1,32.1,over,55.6,11.2,covers,,,,,,9
+New Zealand Warriors,BY SOO PHASE,Post-Game 1,totals,,,,,,,,77.8,54.7,46.1,55.6,overs,9
+New Zealand Warriors,BY SOO PHASE,Post-Game 2,h2h_hcap,55.6,59.6,6.7,under,66.7,33.4,covers,,,,,,9
+New Zealand Warriors,BY SOO PHASE,Post-Game 2,totals,,,,,,,,55.6,42.8,44.5,11.2,overs,9
+New Zealand Warriors,BY SOO PHASE,Post-Game 3,h2h_hcap,50.0,55.1,9.3,under,37.5,25.0,fades,,,,,,8
+New Zealand Warriors,BY SOO PHASE,Post-Game 3,totals,,,,,,,,37.5,42.5,45.4,25.0,unders,8
+New Zealand Warriors,BY YEAR,2022,h2h_hcap,20.0,24.4,18.0,under,60.0,20.0,covers,,,,,,5
+New Zealand Warriors,BY YEAR,2022,totals,,,,,,,,40.0,42.0,44.7,20.0,unders,5
+New Zealand Warriors,BY YEAR,2023,h2h_hcap,85.7,61.6,39.1,over,71.4,42.8,covers,,,,,,7
+New Zealand Warriors,BY YEAR,2023,totals,,,,,,,,71.4,48.7,42.4,42.8,overs,7
+New Zealand Warriors,BY YEAR,2024,h2h_hcap,42.9,53.2,19.4,under,42.9,14.2,fades,,,,,,7
+New Zealand Warriors,BY YEAR,2024,totals,,,,,,,,57.1,49.0,47.9,14.2,overs,7
+New Zealand Warriors,BY YEAR,2025,h2h_hcap,57.1,61.5,7.2,under,42.9,14.2,fades,,,,,,7
+New Zealand Warriors,BY YEAR,2025,totals,,,,,,,,57.1,46.1,46.1,14.2,overs,7
+New Zealand Warriors,ROLE,As Favourite (H2H),h2h_hcap,66.7,67.1,0.6,under,46.7,6.6,fades,,,,,,15
+New Zealand Warriors,ROLE,As Favourite (H2H),totals,,,,,,,,53.3,46.9,44.8,6.6,overs,15
+New Zealand Warriors,ROLE,As Underdog (H2H),h2h_hcap,36.4,31.7,14.8,over,63.6,27.2,covers,,,,,,11
+New Zealand Warriors,ROLE,As Underdog (H2H),totals,,,,,,,,63.6,46.6,46.0,27.2,overs,11
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,50.0,46.0,8.7,over,50.0,0.0,fades,,,,,,4
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,50.0,42.2,44.0,0.0,unders,4
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,66.7,36.8,81.3,over,66.7,33.4,covers,,,,,,3
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,100.0,53.3,44.5,100.0,overs,3
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,100.0,71.4,40.1,over,66.7,33.4,covers,,,,,,3
+New Zealand Warriors,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,33.3,38.7,45.8,33.4,unders,3
+Newcastle Knights,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,30.8,40.1,23.2,under,57.7,15.4,covers,,,,,,26
+Newcastle Knights,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,50.0,45.0,44.8,0.0,unders,26
+Newcastle Knights,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,31.2,41.8,25.4,under,56.2,12.4,covers,,,,,,16
+Newcastle Knights,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,50.0,45.1,44.4,0.0,unders,16
+Newcastle Knights,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,30.0,37.3,19.6,under,60.0,20.0,covers,,,,,,10
+Newcastle Knights,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,50.0,44.8,45.4,0.0,unders,10
+Newcastle Knights,BY SOO PHASE,Post-Game 1,h2h_hcap,10.0,35.6,71.9,under,60.0,20.0,covers,,,,,,10
+Newcastle Knights,BY SOO PHASE,Post-Game 1,totals,,,,,,,,40.0,40.0,44.3,20.0,unders,10
+Newcastle Knights,BY SOO PHASE,Post-Game 2,h2h_hcap,50.0,43.7,14.4,over,60.0,20.0,covers,,,,,,10
+Newcastle Knights,BY SOO PHASE,Post-Game 2,totals,,,,,,,,60.0,48.6,44.9,20.0,overs,10
+Newcastle Knights,BY SOO PHASE,Post-Game 3,h2h_hcap,33.3,41.6,20.0,under,50.0,0.0,fades,,,,,,6
+Newcastle Knights,BY SOO PHASE,Post-Game 3,totals,,,,,,,,50.0,47.2,45.5,0.0,unders,6
+Newcastle Knights,BY YEAR,2022,h2h_hcap,16.7,31.7,47.3,under,33.3,33.4,fades,,,,,,6
+Newcastle Knights,BY YEAR,2022,totals,,,,,,,,83.3,52.0,42.5,66.6,overs,6
+Newcastle Knights,BY YEAR,2023,h2h_hcap,50.0,49.8,0.4,over,66.7,33.4,covers,,,,,,6
+Newcastle Knights,BY YEAR,2023,totals,,,,,,,,50.0,45.3,44.0,0.0,unders,6
+Newcastle Knights,BY YEAR,2024,h2h_hcap,28.6,43.9,34.9,under,57.1,14.2,covers,,,,,,7
+Newcastle Knights,BY YEAR,2024,totals,,,,,,,,42.9,46.3,47.6,14.2,unders,7
+Newcastle Knights,BY YEAR,2025,h2h_hcap,28.6,35.0,18.3,under,71.4,42.8,covers,,,,,,7
+Newcastle Knights,BY YEAR,2025,totals,,,,,,,,28.6,37.3,44.6,42.8,unders,7
+Newcastle Knights,ROLE,As Favourite (H2H),h2h_hcap,71.4,60.5,18.0,over,71.4,42.8,covers,,,,,,7
+Newcastle Knights,ROLE,As Favourite (H2H),totals,,,,,,,,57.1,46.3,44.8,14.2,overs,7
+Newcastle Knights,ROLE,As Underdog (H2H),h2h_hcap,15.8,32.6,51.5,under,52.6,5.2,covers,,,,,,19
+Newcastle Knights,ROLE,As Underdog (H2H),totals,,,,,,,,47.4,44.5,44.8,5.2,unders,19
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,33.3,37.5,11.2,under,100.0,100.0,covers,,,,,,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,0.0,35.3,45.5,100.0,unders,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,33.3,38.9,14.4,under,33.3,33.4,fades,,,,,,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,100.0,50.7,45.8,100.0,overs,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,33.3,27.0,23.3,over,66.7,33.4,covers,,,,,,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,66.7,51.3,46.8,33.4,overs,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,0.0,27.9,100.0,under,33.3,33.4,fades,,,,,,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,33.3,41.3,42.5,33.4,unders,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,0.0,44.1,100.0,under,33.3,33.4,fades,,,,,,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,33.3,36.0,44.2,33.4,unders,3
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Newcastle Knights,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+North QLD Cowboys,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,65.4,52.0,25.8,over,61.5,23.0,covers,,,,,,26
+North QLD Cowboys,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,57.7,48.7,47.2,15.4,overs,26
+North QLD Cowboys,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,62.5,57.7,8.3,over,62.5,25.0,covers,,,,,,16
+North QLD Cowboys,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,62.5,51.2,46.4,25.0,overs,16
+North QLD Cowboys,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,70.0,42.9,63.2,over,60.0,20.0,covers,,,,,,10
+North QLD Cowboys,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,50.0,44.7,48.5,0.0,unders,10
+North QLD Cowboys,BY SOO PHASE,Post-Game 1,h2h_hcap,70.0,51.2,36.7,over,50.0,0.0,fades,,,,,,10
+North QLD Cowboys,BY SOO PHASE,Post-Game 1,totals,,,,,,,,80.0,52.4,47.3,60.0,overs,10
+North QLD Cowboys,BY SOO PHASE,Post-Game 2,h2h_hcap,55.6,48.7,14.2,over,77.8,55.6,covers,,,,,,9
+North QLD Cowboys,BY SOO PHASE,Post-Game 2,totals,,,,,,,,44.4,45.6,47.6,11.2,unders,9
+North QLD Cowboys,BY SOO PHASE,Post-Game 3,h2h_hcap,71.4,57.4,24.4,over,57.1,14.2,covers,,,,,,7
+North QLD Cowboys,BY SOO PHASE,Post-Game 3,totals,,,,,,,,42.9,47.4,46.6,14.2,unders,7
+North QLD Cowboys,BY YEAR,2022,h2h_hcap,75.0,65.2,15.0,over,50.0,0.0,fades,,,,,,4
+North QLD Cowboys,BY YEAR,2022,totals,,,,,,,,75.0,50.2,42.0,50.0,overs,4
+North QLD Cowboys,BY YEAR,2023,h2h_hcap,100.0,58.2,71.8,over,83.3,66.6,covers,,,,,,6
+North QLD Cowboys,BY YEAR,2023,totals,,,,,,,,50.0,48.8,44.3,0.0,unders,6
+North QLD Cowboys,BY YEAR,2024,h2h_hcap,71.4,47.8,49.4,over,71.4,42.8,covers,,,,,,7
+North QLD Cowboys,BY YEAR,2024,totals,,,,,,,,28.6,41.6,49.5,42.8,unders,7
+North QLD Cowboys,BY YEAR,2025,h2h_hcap,33.3,45.2,26.3,under,44.4,11.2,fades,,,,,,9
+North QLD Cowboys,BY YEAR,2025,totals,,,,,,,,77.8,53.4,49.7,55.6,overs,9
+North QLD Cowboys,ROLE,As Favourite (H2H),h2h_hcap,85.7,65.7,30.4,over,64.3,28.6,covers,,,,,,14
+North QLD Cowboys,ROLE,As Favourite (H2H),totals,,,,,,,,71.4,51.6,46.4,42.8,overs,14
+North QLD Cowboys,ROLE,As Underdog (H2H),h2h_hcap,41.7,36.0,15.8,over,58.3,16.6,covers,,,,,,12
+North QLD Cowboys,ROLE,As Underdog (H2H),totals,,,,,,,,41.7,45.2,48.2,16.6,unders,12
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,66.7,61.0,9.3,over,33.3,33.4,fades,,,,,,3
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,33.3,40.7,46.2,33.4,unders,3
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,33.3,28.4,17.3,over,66.7,33.4,covers,,,,,,3
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,66.7,54.3,47.8,33.4,overs,3
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+North QLD Cowboys,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Parramatta Eels,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,38.5,51.9,25.8,under,30.8,38.4,fades,,,,,,26
+Parramatta Eels,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,50.0,46.9,46.3,0.0,unders,26
+Parramatta Eels,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,50.0,51.9,3.7,under,33.3,33.4,fades,,,,,,12
+Parramatta Eels,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,50.0,47.9,46.8,0.0,unders,12
+Parramatta Eels,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,28.6,51.8,44.8,under,28.6,42.8,fades,,,,,,14
+Parramatta Eels,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,50.0,46.0,46.0,0.0,unders,14
+Parramatta Eels,BY SOO PHASE,Post-Game 1,h2h_hcap,44.4,54.7,18.8,under,44.4,11.2,fades,,,,,,9
+Parramatta Eels,BY SOO PHASE,Post-Game 1,totals,,,,,,,,33.3,41.8,45.5,33.4,unders,9
+Parramatta Eels,BY SOO PHASE,Post-Game 2,h2h_hcap,30.0,51.8,42.1,under,20.0,60.0,fades,,,,,,10
+Parramatta Eels,BY SOO PHASE,Post-Game 2,totals,,,,,,,,70.0,51.4,45.9,40.0,overs,10
+Parramatta Eels,BY SOO PHASE,Post-Game 3,h2h_hcap,42.9,48.3,11.2,under,28.6,42.8,fades,,,,,,7
+Parramatta Eels,BY SOO PHASE,Post-Game 3,totals,,,,,,,,42.9,47.0,48.1,14.2,unders,7
+Parramatta Eels,BY YEAR,2022,h2h_hcap,50.0,73.9,32.3,under,16.7,66.6,fades,,,,,,6
+Parramatta Eels,BY YEAR,2022,totals,,,,,,,,83.3,44.3,42.0,66.6,overs,6
+Parramatta Eels,BY YEAR,2023,h2h_hcap,66.7,58.7,13.6,over,66.7,33.4,covers,,,,,,6
+Parramatta Eels,BY YEAR,2023,totals,,,,,,,,50.0,49.5,45.5,0.0,unders,6
+Parramatta Eels,BY YEAR,2024,h2h_hcap,14.3,43.2,66.9,under,14.3,71.4,fades,,,,,,7
+Parramatta Eels,BY YEAR,2024,totals,,,,,,,,28.6,48.0,50.4,42.8,unders,7
+Parramatta Eels,BY YEAR,2025,h2h_hcap,28.6,35.9,20.3,under,28.6,42.8,fades,,,,,,7
+Parramatta Eels,BY YEAR,2025,totals,,,,,,,,42.9,45.7,46.8,14.2,unders,7
+Parramatta Eels,ROLE,As Favourite (H2H),h2h_hcap,53.8,68.1,21.0,under,30.8,38.4,fades,,,,,,13
+Parramatta Eels,ROLE,As Favourite (H2H),totals,,,,,,,,61.5,47.3,44.7,23.0,overs,13
+Parramatta Eels,ROLE,As Underdog (H2H),h2h_hcap,23.1,35.7,35.3,under,30.8,38.4,fades,,,,,,13
+Parramatta Eels,ROLE,As Underdog (H2H),totals,,,,,,,,38.5,46.5,48.0,23.0,unders,13
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,25.0,61.9,59.6,under,25.0,50.0,fades,,,,,,4
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,25.0,41.5,45.0,50.0,unders,4
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,66.7,57.8,15.4,over,33.3,33.4,fades,,,,,,3
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,33.3,48.3,50.5,33.4,unders,3
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Parramatta Eels,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Penrith Panthers,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,87.5,72.0,21.5,over,54.2,8.4,covers,,,,,,24
+Penrith Panthers,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,33.3,38.2,43.3,33.4,unders,24
+Penrith Panthers,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,83.3,75.7,10.0,over,50.0,0.0,fades,,,,,,12
+Penrith Panthers,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,33.3,36.0,43.3,33.4,unders,12
+Penrith Panthers,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,91.7,68.2,34.5,over,58.3,16.6,covers,,,,,,12
+Penrith Panthers,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,33.3,40.5,43.2,33.4,unders,12
+Penrith Panthers,BY SOO PHASE,Post-Game 1,h2h_hcap,80.0,75.8,5.5,over,50.0,0.0,fades,,,,,,10
+Penrith Panthers,BY SOO PHASE,Post-Game 1,totals,,,,,,,,40.0,41.4,43.0,20.0,unders,10
+Penrith Panthers,BY SOO PHASE,Post-Game 2,h2h_hcap,87.5,61.3,42.7,over,75.0,50.0,covers,,,,,,8
+Penrith Panthers,BY SOO PHASE,Post-Game 2,totals,,,,,,,,37.5,33.8,42.9,25.0,unders,8
+Penrith Panthers,BY SOO PHASE,Post-Game 3,h2h_hcap,100.0,79.7,25.5,over,33.3,33.4,fades,,,,,,6
+Penrith Panthers,BY SOO PHASE,Post-Game 3,totals,,,,,,,,16.7,39.0,44.3,66.6,unders,6
+Penrith Panthers,BY YEAR,2022,h2h_hcap,100.0,86.1,16.1,over,40.0,20.0,fades,,,,,,5
+Penrith Panthers,BY YEAR,2022,totals,,,,,,,,40.0,40.4,42.3,20.0,unders,5
+Penrith Panthers,BY YEAR,2023,h2h_hcap,83.3,64.7,28.7,over,50.0,0.0,fades,,,,,,6
+Penrith Panthers,BY YEAR,2023,totals,,,,,,,,50.0,41.7,40.8,0.0,unders,6
+Penrith Panthers,BY YEAR,2024,h2h_hcap,66.7,75.6,11.8,under,33.3,33.4,fades,,,,,,6
+Penrith Panthers,BY YEAR,2024,totals,,,,,,,,33.3,37.7,44.5,33.4,unders,6
+Penrith Panthers,BY YEAR,2025,h2h_hcap,100.0,64.9,54.1,over,85.7,71.4,covers,,,,,,7
+Penrith Panthers,BY YEAR,2025,totals,,,,,,,,14.3,34.3,45.1,71.4,unders,7
+Penrith Panthers,ROLE,As Favourite (H2H),h2h_hcap,90.0,77.9,15.5,over,50.0,0.0,fades,,,,,,20
+Penrith Panthers,ROLE,As Favourite (H2H),totals,,,,,,,,25.0,37.9,43.6,50.0,unders,20
+Penrith Panthers,ROLE,As Underdog (H2H),h2h_hcap,75.0,42.2,77.7,over,75.0,50.0,covers,,,,,,4
+Penrith Panthers,ROLE,As Underdog (H2H),totals,,,,,,,,75.0,40.0,41.5,50.0,overs,4
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,100.0,77.0,29.9,over,66.7,33.4,covers,,,,,,3
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,33.3,41.3,42.5,33.4,unders,3
+Penrith Panthers,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,100.0,76.1,31.4,over,33.3,33.4,fades,,,,,,3
+Penrith Panthers,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,0.0,34.7,45.5,100.0,unders,3
+South Sydney Rabbitohs,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,46.2,51.9,11.0,under,57.7,15.4,covers,,,,,,26
+South Sydney Rabbitohs,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,57.7,50.5,46.1,15.4,overs,26
+South Sydney Rabbitohs,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,41.7,50.1,16.8,under,66.7,33.4,covers,,,,,,12
+South Sydney Rabbitohs,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,50.0,45.0,45.7,0.0,unders,12
+South Sydney Rabbitohs,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,50.0,53.5,6.5,under,50.0,0.0,fades,,,,,,14
+South Sydney Rabbitohs,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,64.3,55.3,46.4,28.6,overs,14
+South Sydney Rabbitohs,BY SOO PHASE,Post-Game 1,h2h_hcap,50.0,55.6,10.1,under,60.0,20.0,covers,,,,,,10
+South Sydney Rabbitohs,BY SOO PHASE,Post-Game 1,totals,,,,,,,,60.0,49.2,47.2,20.0,overs,10
+South Sydney Rabbitohs,BY SOO PHASE,Post-Game 2,h2h_hcap,40.0,49.2,18.7,under,50.0,0.0,fades,,,,,,10
+South Sydney Rabbitohs,BY SOO PHASE,Post-Game 2,totals,,,,,,,,60.0,53.0,44.9,20.0,overs,10
+South Sydney Rabbitohs,BY SOO PHASE,Post-Game 3,h2h_hcap,50.0,50.2,0.4,under,66.7,33.4,covers,,,,,,6
+South Sydney Rabbitohs,BY SOO PHASE,Post-Game 3,totals,,,,,,,,50.0,48.7,46.2,0.0,unders,6
+South Sydney Rabbitohs,BY YEAR,2022,h2h_hcap,83.3,64.6,28.9,over,83.3,66.6,covers,,,,,,6
+South Sydney Rabbitohs,BY YEAR,2022,totals,,,,,,,,66.7,50.0,42.7,33.4,overs,6
+South Sydney Rabbitohs,BY YEAR,2023,h2h_hcap,33.3,59.1,43.7,under,33.3,33.4,fades,,,,,,6
+South Sydney Rabbitohs,BY YEAR,2023,totals,,,,,,,,66.7,55.8,43.7,33.4,overs,6
+South Sydney Rabbitohs,BY YEAR,2024,h2h_hcap,83.3,55.5,50.1,over,83.3,66.6,covers,,,,,,6
+South Sydney Rabbitohs,BY YEAR,2024,totals,,,,,,,,50.0,48.0,50.7,0.0,unders,6
+South Sydney Rabbitohs,BY YEAR,2025,h2h_hcap,0.0,34.2,100.0,under,37.5,25.0,fades,,,,,,8
+South Sydney Rabbitohs,BY YEAR,2025,totals,,,,,,,,50.0,48.9,47.0,0.0,unders,8
+South Sydney Rabbitohs,ROLE,As Favourite (H2H),h2h_hcap,60.0,63.6,5.7,under,60.0,20.0,covers,,,,,,15
+South Sydney Rabbitohs,ROLE,As Favourite (H2H),totals,,,,,,,,66.7,54.2,46.7,33.4,overs,15
+South Sydney Rabbitohs,ROLE,As Underdog (H2H),h2h_hcap,27.3,36.0,24.2,under,54.5,9.0,covers,,,,,,11
+South Sydney Rabbitohs,ROLE,As Underdog (H2H),totals,,,,,,,,45.5,45.5,45.2,9.0,unders,11
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,33.3,56.5,41.1,under,66.7,33.4,covers,,,,,,3
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,66.7,58.0,44.5,33.4,overs,3
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,100.0,68.3,46.4,over,100.0,100.0,covers,,,,,,3
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,100.0,59.3,48.8,100.0,overs,3
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+South Sydney Rabbitohs,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+St George Dragons,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,42.3,39.1,8.2,over,53.8,7.6,covers,,,,,,26
+St George Dragons,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,65.4,49.8,45.4,30.8,overs,26
+St George Dragons,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,75.0,48.5,54.6,over,75.0,50.0,covers,,,,,,12
+St George Dragons,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,50.0,46.2,44.7,0.0,unders,12
+St George Dragons,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,14.3,31.1,54.0,under,35.7,28.6,fades,,,,,,14
+St George Dragons,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,78.6,52.9,46.0,57.2,overs,14
+St George Dragons,BY SOO PHASE,Post-Game 1,h2h_hcap,50.0,39.3,27.2,over,60.0,20.0,covers,,,,,,10
+St George Dragons,BY SOO PHASE,Post-Game 1,totals,,,,,,,,60.0,47.9,44.6,20.0,overs,10
+St George Dragons,BY SOO PHASE,Post-Game 2,h2h_hcap,36.4,37.9,4.0,under,54.5,9.0,covers,,,,,,11
+St George Dragons,BY SOO PHASE,Post-Game 2,totals,,,,,,,,81.8,51.9,46.3,63.6,overs,11
+St George Dragons,BY SOO PHASE,Post-Game 3,h2h_hcap,40.0,41.4,3.4,under,40.0,20.0,fades,,,,,,5
+St George Dragons,BY SOO PHASE,Post-Game 3,totals,,,,,,,,40.0,49.2,44.9,20.0,unders,5
+St George Dragons,BY YEAR,2022,h2h_hcap,50.0,36.7,36.2,over,50.0,0.0,fades,,,,,,6
+St George Dragons,BY YEAR,2022,totals,,,,,,,,50.0,44.2,41.7,0.0,unders,6
+St George Dragons,BY YEAR,2023,h2h_hcap,33.3,33.5,0.6,under,50.0,0.0,fades,,,,,,6
+St George Dragons,BY YEAR,2023,totals,,,,,,,,83.3,56.3,44.3,66.6,overs,6
+St George Dragons,BY YEAR,2024,h2h_hcap,66.7,42.2,58.1,over,66.7,33.4,covers,,,,,,6
+St George Dragons,BY YEAR,2024,totals,,,,,,,,50.0,48.0,48.3,0.0,unders,6
+St George Dragons,BY YEAR,2025,h2h_hcap,25.0,42.8,41.6,under,50.0,0.0,fades,,,,,,8
+St George Dragons,BY YEAR,2025,totals,,,,,,,,75.0,50.6,46.8,50.0,overs,8
+St George Dragons,ROLE,As Favourite (H2H),h2h_hcap,100.0,63.3,58.0,over,80.0,60.0,covers,,,,,,5
+St George Dragons,ROLE,As Favourite (H2H),totals,,,,,,,,40.0,42.8,46.5,20.0,unders,5
+St George Dragons,ROLE,As Underdog (H2H),h2h_hcap,28.6,33.4,14.4,under,47.6,4.8,fades,,,,,,21
+St George Dragons,ROLE,As Underdog (H2H),totals,,,,,,,,71.4,51.5,45.1,42.8,overs,21
+St George Dragons,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,33.3,33.5,0.6,under,100.0,100.0,covers,,,,,,3
+St George Dragons,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,66.7,45.3,42.8,33.4,overs,3
+St George Dragons,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,0.0,30.5,100.0,under,0.0,100.0,fades,,,,,,3
+St George Dragons,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,100.0,63.0,47.8,100.0,overs,3
+St George Dragons,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+St George Dragons,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Sydney Roosters,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,50.0,59.4,15.8,under,50.0,0.0,fades,,,,,,26
+Sydney Roosters,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,61.5,46.6,45.9,23.0,overs,26
+Sydney Roosters,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,46.7,64.8,27.9,under,40.0,20.0,fades,,,,,,15
+Sydney Roosters,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,66.7,49.8,46.4,33.4,overs,15
+Sydney Roosters,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,54.5,52.0,4.8,over,63.6,27.2,covers,,,,,,11
+Sydney Roosters,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,54.5,42.2,45.2,9.0,overs,11
+Sydney Roosters,BY SOO PHASE,Post-Game 1,h2h_hcap,50.0,58.4,14.4,under,30.0,40.0,fades,,,,,,10
+Sydney Roosters,BY SOO PHASE,Post-Game 1,totals,,,,,,,,40.0,38.9,45.0,20.0,unders,10
+Sydney Roosters,BY SOO PHASE,Post-Game 2,h2h_hcap,50.0,63.2,20.9,under,75.0,50.0,covers,,,,,,8
+Sydney Roosters,BY SOO PHASE,Post-Game 2,totals,,,,,,,,62.5,47.4,47.1,25.0,overs,8
+Sydney Roosters,BY SOO PHASE,Post-Game 3,h2h_hcap,50.0,56.8,12.0,under,50.0,0.0,fades,,,,,,8
+Sydney Roosters,BY SOO PHASE,Post-Game 3,totals,,,,,,,,87.5,55.4,45.8,75.0,overs,8
+Sydney Roosters,BY YEAR,2022,h2h_hcap,40.0,50.4,20.6,under,60.0,20.0,covers,,,,,,5
+Sydney Roosters,BY YEAR,2022,totals,,,,,,,,100.0,52.8,41.7,100.0,overs,5
+Sydney Roosters,BY YEAR,2023,h2h_hcap,42.9,50.4,14.9,under,42.9,14.2,fades,,,,,,7
+Sydney Roosters,BY YEAR,2023,totals,,,,,,,,42.9,41.6,43.2,14.2,unders,7
+Sydney Roosters,BY YEAR,2024,h2h_hcap,71.4,74.2,3.8,under,57.1,14.2,covers,,,,,,7
+Sydney Roosters,BY YEAR,2024,totals,,,,,,,,28.6,44.3,50.2,42.8,unders,7
+Sydney Roosters,BY YEAR,2025,h2h_hcap,42.9,60.0,28.5,under,42.9,14.2,fades,,,,,,7
+Sydney Roosters,BY YEAR,2025,totals,,,,,,,,85.7,49.4,47.2,71.4,overs,7
+Sydney Roosters,ROLE,As Favourite (H2H),h2h_hcap,70.6,70.9,0.4,under,52.9,5.8,covers,,,,,,17
+Sydney Roosters,ROLE,As Favourite (H2H),totals,,,,,,,,58.8,48.1,47.6,17.6,overs,17
+Sydney Roosters,ROLE,As Underdog (H2H),h2h_hcap,11.1,37.6,70.5,under,44.4,11.2,fades,,,,,,9
+Sydney Roosters,ROLE,As Underdog (H2H),totals,,,,,,,,66.7,43.7,42.6,33.4,overs,9
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,0.0,42.6,100.0,under,25.0,50.0,fades,,,,,,4
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,75.0,46.5,43.5,50.0,overs,4
+Sydney Roosters,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,100.0,60.9,64.2,over,66.7,33.4,covers,,,,,,3
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,33.3,36.0,44.2,33.4,unders,3
+Sydney Roosters,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,100.0,75.0,33.3,over,100.0,100.0,covers,,,,,,3
+Sydney Roosters,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,100.0,63.0,47.8,100.0,overs,3
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Wests Tigers,h2h_hcap,,,,,,,,,,,,,
+Sydney Roosters,H2H vs OPPONENT (SOO),vs Wests Tigers,totals,,,,,,,,,,,,,
+Wests Tigers,OVERALL SOO PERIOD,All SOO Games,h2h_hcap,14.3,33.2,56.9,under,42.9,14.2,fades,,,,,,28
+Wests Tigers,OVERALL SOO PERIOD,All SOO Games,totals,,,,,,,,42.9,46.9,46.7,14.2,unders,28
+Wests Tigers,OVERALL SOO PERIOD,Home (SOO),h2h_hcap,25.0,35.9,30.4,under,66.7,33.4,covers,,,,,,12
+Wests Tigers,OVERALL SOO PERIOD,Home (SOO),totals,,,,,,,,25.0,42.2,46.3,50.0,unders,12
+Wests Tigers,OVERALL SOO PERIOD,Away (SOO),h2h_hcap,6.2,31.2,80.1,under,25.0,50.0,fades,,,,,,16
+Wests Tigers,OVERALL SOO PERIOD,Away (SOO),totals,,,,,,,,56.2,50.4,47.0,12.4,overs,16
+Wests Tigers,BY SOO PHASE,Post-Game 1,h2h_hcap,20.0,41.0,51.2,under,50.0,0.0,fades,,,,,,10
+Wests Tigers,BY SOO PHASE,Post-Game 1,totals,,,,,,,,40.0,45.7,45.6,20.0,unders,10
+Wests Tigers,BY SOO PHASE,Post-Game 2,h2h_hcap,9.1,25.7,64.6,under,36.4,27.2,fades,,,,,,11
+Wests Tigers,BY SOO PHASE,Post-Game 2,totals,,,,,,,,54.5,49.5,47.4,9.0,overs,11
+Wests Tigers,BY SOO PHASE,Post-Game 3,h2h_hcap,14.3,33.8,57.7,under,42.9,14.2,fades,,,,,,7
+Wests Tigers,BY SOO PHASE,Post-Game 3,totals,,,,,,,,28.6,44.4,47.2,42.8,unders,7
+Wests Tigers,BY YEAR,2022,h2h_hcap,0.0,36.8,100.0,under,40.0,20.0,fades,,,,,,5
+Wests Tigers,BY YEAR,2022,totals,,,,,,,,40.0,37.6,42.9,20.0,unders,5
+Wests Tigers,BY YEAR,2023,h2h_hcap,0.0,31.6,100.0,under,28.6,42.8,fades,,,,,,7
+Wests Tigers,BY YEAR,2023,totals,,,,,,,,28.6,45.6,45.1,42.8,unders,7
+Wests Tigers,BY YEAR,2024,h2h_hcap,25.0,30.6,18.3,under,50.0,0.0,fades,,,,,,8
+Wests Tigers,BY YEAR,2024,totals,,,,,,,,62.5,57.8,49.0,25.0,overs,8
+Wests Tigers,BY YEAR,2025,h2h_hcap,25.0,35.1,28.8,under,50.0,0.0,fades,,,,,,8
+Wests Tigers,BY YEAR,2025,totals,,,,,,,,37.5,42.9,48.2,25.0,unders,8
+Wests Tigers,ROLE,As Favourite (H2H),h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,ROLE,As Favourite (H2H),totals,,,,,,,,,,,,,
+Wests Tigers,ROLE,As Underdog (H2H),h2h_hcap,11.1,32.0,65.3,under,44.4,11.2,fades,,,,,,27
+Wests Tigers,ROLE,As Underdog (H2H),totals,,,,,,,,44.4,47.1,46.6,11.2,unders,27
+Wests Tigers,H2H vs OPPONENT (SOO),vs Brisbane Broncos,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Brisbane Broncos,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Canberra Raiders,h2h_hcap,33.3,42.3,21.3,under,100.0,100.0,covers,,,,,,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs Canberra Raiders,totals,,,,,,,,33.3,46.3,46.2,33.4,unders,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Canterbury Bulldogs,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Cronulla Sharks,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Cronulla Sharks,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Dolphins,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Dolphins,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Gold Coast Titans,h2h_hcap,66.7,54.0,23.5,over,33.3,33.4,fades,,,,,,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs Gold Coast Titans,totals,,,,,,,,0.0,36.3,48.5,100.0,unders,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Manly Sea Eagles,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Melbourne Storm,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Melbourne Storm,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs New Zealand Warriors,h2h_hcap,0.0,33.8,100.0,under,33.3,33.4,fades,,,,,,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs New Zealand Warriors,totals,,,,,,,,33.3,38.7,45.8,33.4,unders,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs Newcastle Knights,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Newcastle Knights,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs North QLD Cowboys,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs North QLD Cowboys,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Parramatta Eels,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Parramatta Eels,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Penrith Panthers,h2h_hcap,0.0,28.6,100.0,under,66.7,33.4,covers,,,,,,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs Penrith Panthers,totals,,,,,,,,0.0,34.7,45.5,100.0,unders,3
+Wests Tigers,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs South Sydney Rabbitohs,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs St George Dragons,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs St George Dragons,totals,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Sydney Roosters,h2h_hcap,,,,,,,,,,,,,
+Wests Tigers,H2H vs OPPONENT (SOO),vs Sydney Roosters,totals,,,,,,,,,,,,,

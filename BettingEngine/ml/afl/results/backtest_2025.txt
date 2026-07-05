@@ -1,0 +1,75 @@
+AFL ML Backtest — 2025 Season
+Total games: 216
+  Games with market odds: 216
+
+============================================================
+H2H Model — Strike Rate by Confidence Threshold (ML-favored side)
+============================================================
+  ≥50% confidence: 216 games  71.8% strike
+  ≥55% confidence: 177 games  74.6% strike
+  ≥60% confidence: 135 games  77.8% strike
+  ≥65% confidence: 102 games  84.3% strike
+  ≥70% confidence:  72 games  86.1% strike
+  ≥75% confidence:  47 games  87.2% strike
+
+============================================================
+H2H ROI — Betting ML-Favored Side (full 2025 season)
+============================================================
+  All games: 216 bets  155W  ROI +6.1%
+
+============================================================
+H2H ROI — ML-Favored Side by Confidence Threshold
+============================================================
+  Conf ≥55%: 177 bets  74.6% strike  ROI +4.6%
+  Conf ≥60%: 135 bets  77.8% strike  ROI +4.8%
+  Conf ≥65%: 102 bets  84.3% strike  ROI +11.2%
+  Conf ≥70%:  72 bets  86.1% strike  ROI +6.2%
+  Conf ≥75%:  47 bets  87.2% strike  ROI +1.9%
+
+============================================================
+H2H ROI — ML-Favored Side by Min Price (Conf ≥ 65%)
+============================================================
+  Odds ≥ 1.40:  32 bets  68.8% strike  ROI +17.8%
+  Odds ≥ 1.50:  26 bets  69.2% strike  ROI +23.3%
+  Odds ≥ 1.60:  15 bets  53.3% strike  ROI +10.9%
+  Odds ≥ 1.70:  10 bets  40.0% strike  ROI +0.3%
+  Odds ≥ 1.80:   8 bets  37.5% strike  ROI +3.1%
+  Odds ≥ 2.00:   5 bets  60.0% strike  ROI +65.0%
+
+============================================================
+H2H ROI — ML-Favored Side, Positive EV Filter
+============================================================
+  EV ≥ +0%:  92 bets  62.0% strike  ROI +8.9%
+  EV ≥ +5%:  75 bets  60.0% strike  ROI +9.7%
+  EV ≥ +10%:  53 bets  52.8% strike  ROI +5.8%
+  EV ≥ +15%:  40 bets  52.5% strike  ROI +8.8%
+  EV ≥ +20%:  32 bets  46.9% strike  ROI +3.3%
+
+============================================================
+H2H ROI — Combined Filters (ML-favored side)
+============================================================
+  Conf≥65% EV≥+0% Odds≥1.50:  26 bets  69.2% strike  ROI +23.3%
+  Conf≥65% EV≥+5% Odds≥1.50:  23 bets  65.2% strike  ROI +19.3%
+  Conf≥65% EV≥+10% Odds≥1.50:  20 bets  60.0% strike  ROI +14.3%
+  Conf≥70% EV≥+0% Odds≥1.50:  12 bets  75.0% strike  ROI +24.0%
+  Conf≥70% EV≥+5% Odds≥1.50:  12 bets  75.0% strike  ROI +24.0%
+  Conf≥75% EV≥+0% Odds≥1.50:   5 bets  80.0% strike  ROI +25.6%
+
+============================================================
+Handicap — ML Edge vs Market Line
+============================================================
+  Edge ≥ ± 0pts: 216 bets  109W  50.5% strike
+  Edge ≥ ± 3pts: 186 bets  95W  51.1% strike
+  Edge ≥ ± 5pts: 160 bets  84W  52.5% strike
+  Edge ≥ ± 8pts: 136 bets  73W  53.7% strike
+  Edge ≥ ±10pts: 118 bets  63W  53.4% strike
+  Edge ≥ ±12pts: 104 bets  58W  55.8% strike
+  Edge ≥ ±15pts:  75 bets  41W  54.7% strike
+
+============================================================
+Totals — ML vs Market Line
+============================================================
+  Total edge ≥ ± 0pts: 217 bets  55.3% strike
+  Total edge ≥ ± 5pts: 164 bets  53.7% strike
+  Total edge ≥ ±10pts: 105 bets  56.2% strike
+  Total edge ≥ ±15pts:  62 bets  62.9% strike

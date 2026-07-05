@@ -1,0 +1,5 @@
+bet_id,sport,round,match,market,selection,line,odds_taken,close_line,open_line,line_move,close_odds,clv_pct,clv_line,result,pnl
+2026-0008,AFL,9,Gold Coast SUNS v St Kilda,handicap,Gold Coast SUNS,-17.5,1.89,-20.5,-15.5,5.0,1.85,2.16,3.0,win,44.5
+2026-0009,AFL,9,Geelong Cats v Collingwood,handicap,Geelong Cats,-11.5,1.89,-13.5,-12.5,1.0,1.9,-0.53,2.0,win,44.5
+2026-0010,AFL,9,Port Adelaide v Western Bulldogs,h2h,Port Adelaide,,1.96,,,,2,-2.0,,loss,-50.0
+2026-0011,AFL,9,GWS GIANTS v Essendon,total,under,193.5,1.87,190.5,190.5,0.0,1.85,1.08,3.0,win,43.5

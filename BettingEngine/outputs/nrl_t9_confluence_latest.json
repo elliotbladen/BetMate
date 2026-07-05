@@ -1,0 +1,301 @@
+{
+  "season": 2026,
+  "round": 14,
+  "generated_at": "2026-06-10T09:48:23.837473",
+  "games": [
+    {
+      "home": "South Sydney Rabbitohs",
+      "away": "Brisbane Broncos",
+      "confluence": {
+        "handicap_AWAY_COVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 25.0,
+              "row": "vs Brisbane Broncos",
+              "team": "South Sydney Rabbitohs"
+            },
+            {
+              "edge_pct": 25.0,
+              "row": "vs South Sydney Rabbitohs",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 42.8,
+              "row": "Accor Stadium",
+              "team": "Brisbane Broncos"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Dolphins",
+      "away": "Sydney Roosters",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 25.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 27.6,
+              "row": "June",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 41.7,
+              "row": "vs Sydney Roosters",
+              "team": "Dolphins"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 18.3,
+              "row": "June",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 26.1,
+              "row": "vs Sydney Roosters",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 26.1,
+              "row": "vs Dolphins",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 19.4,
+              "row": "Suncorp Stadium",
+              "team": "Sydney Roosters"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 38.4,
+              "row": "Thursday / Friday Games",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 27.2,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 28.6,
+              "row": "June",
+              "team": "Sydney Roosters"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 27.2,
+              "row": "June",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "vs Sydney Roosters",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "vs Dolphins",
+              "team": "Sydney Roosters"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "New Zealand Warriors",
+      "away": "Cronulla-Sutherland Sharks",
+      "confluence": {
+        "h2h_HOME_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 66.5,
+              "row": "vs Cronulla Sharks",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 28.8,
+              "row": "June",
+              "team": "Cronulla-Sutherland Sharks"
+            },
+            {
+              "edge_pct": 39.0,
+              "row": "vs New Zealand Warriors",
+              "team": "Cronulla-Sutherland Sharks"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 15.0,
+              "row": "June",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 12.2,
+              "row": "vs Cronulla Sharks",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 12.2,
+              "row": "vs New Zealand Warriors",
+              "team": "Cronulla-Sutherland Sharks"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Wests Tigers",
+      "away": "Gold Coast Titans",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 8,
+          "edges": [
+            {
+              "edge_pct": 21.4,
+              "row": "Win % \u2014 Home",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 25.1,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 36.2,
+              "row": "Sunday Games",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 36.4,
+              "row": "After a Loss",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 57.0,
+              "row": "June",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 48.8,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 35.1,
+              "row": "vs Gold Coast Titans",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 24.0,
+              "row": "vs Wests Tigers",
+              "team": "Gold Coast Titans"
+            }
+          ]
+        },
+        "h2h_HOME_WIN": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 36.9,
+              "row": "Win % \u2014 Away",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 21.0,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 26.3,
+              "row": "Sunday Games",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 31.6,
+              "row": "After a Win",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 21.4,
+              "row": "June",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 28.2,
+              "row": "Leichhardt Oval",
+              "team": "Gold Coast Titans"
+            }
+          ]
+        },
+        "totals_UNDERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 24.4,
+              "row": "vs Gold Coast Titans",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 24.4,
+              "row": "vs Wests Tigers",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 30.9,
+              "row": "Leichhardt Oval",
+              "team": "Gold Coast Titans"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 33.4,
+              "row": "vs Gold Coast Titans",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 27.2,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "vs Wests Tigers",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "Leichhardt Oval",
+              "team": "Gold Coast Titans"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

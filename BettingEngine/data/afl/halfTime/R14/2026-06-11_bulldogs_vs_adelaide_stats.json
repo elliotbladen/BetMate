@@ -1,0 +1,19 @@
+{
+  "season": 2026,
+  "round": 14,
+  "game_date": "2026-06-11",
+  "home_team": "Western Bulldogs",
+  "away_team": "Adelaide",
+  "venue": "Docklands",
+  "source": "squiggle_api",
+  "collected_at": "2026-06-13T03:58:53.990643+00:00",
+  "home_ht_score": 64,
+  "away_ht_score": 121,
+  "home_goals": 9,
+  "home_behinds": 10,
+  "away_goals": 19,
+  "away_behinds": 7,
+  "squiggle_id": 38608,
+  "timestr": "Full Time",
+  "notes": ""
+}

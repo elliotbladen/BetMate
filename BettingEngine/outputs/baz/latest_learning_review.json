@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-05-13T00:37:17.703319+00:00",
+  "database": "data\\model.db",
+  "scope": {
+    "season": 2026,
+    "round": null
+  },
+  "data_coverage": {
+    "tier2_rows": 24,
+    "tier2_completed_rows": 16,
+    "ml_shadow_rows": 16,
+    "ml_shadow_completed_rows": 0,
+    "signals": 0,
+    "bets": 0,
+    "bankroll_log": 0
+  },
+  "rules_model": {
+    "t1_margin_mae": 17.965,
+    "final_margin_mae": 17.152,
+    "avg_margin_improvement": 0.813,
+    "final_total_mae": 9.387,
+    "t1_winner_accuracy": 0.75,
+    "final_winner_accuracy": 0.75,
+    "t2_direction_accuracy": 0.5
+  },
+  "ml_shadow": {
+    "ml_margin_mae": null,
+    "rules_margin_mae": null,
+    "ml_total_mae": null,
+    "rules_total_mae": null,
+    "ml_h2h_accuracy": null,
+    "rules_h2h_accuracy": null
+  },
+  "blockers": [
+    "signals table is empty; Baz cannot produce official bet/watch/pass recommendations yet",
+    "bets/bankroll_log are empty; ROI, CLV by stake, and staking feedback loops are not active",
+    "ml_shadow_predictions exist but actual outcomes have not been backfilled"
+  ],
+  "recommendations": [
+    "use this report as the weekly calibration baseline before changing model weights",
+    "wire prepare_round.py into model_runs and signals before building MCP tools"
+  ]
+}

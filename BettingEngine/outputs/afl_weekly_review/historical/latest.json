@@ -1,0 +1,10 @@
+{
+  "downloaded_at": "2026-05-12T12:17:46",
+  "source_page_url": "https://www.aussportsbetting.com/data/historical-afl-results-and-odds-data/",
+  "workbook_url": "https://www.aussportsbetting.com/historical_data/afl.xlsx",
+  "method": "playwright",
+  "latest_path": "outputs\\afl_weekly_review\\historical\\latest.xlsx",
+  "archived_path": "outputs\\afl_weekly_review\\historical\\afl_20260512_121724.xlsx",
+  "file_size_bytes": 829044,
+  "worksheet_count": 2
+}
