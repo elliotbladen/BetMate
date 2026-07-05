@@ -38,10 +38,11 @@ import requests
 BETMATE_ROOT  = Path(os.environ.get("BETMATE_ROOT", Path(__file__).resolve().parent.parent))
 SCRAPERS_DIR  = Path(__file__).resolve().parent
 HALFTIME_DIR  = BETMATE_ROOT / "data" / "nrl" / "halfTime"
-ENGINE_ROOT   = BETMATE_ROOT / "BettingEngine"
+ENGINE_ROOT   = Path(os.environ.get("BETTING_ENGINE_ROOT", BETMATE_ROOT.parent / "Betting_model"))
 SESSION_PATH  = HALFTIME_DIR / ".nrl_session.json"
 ENV_PATH      = BETMATE_ROOT / ".env.local"
-UV            = Path(os.environ.get("UV_PATH", r"C:\Users\ElliotBladen\.local\bin\uv.exe"))
+import shutil as _shutil
+UV            = Path(os.environ.get("UV_PATH", _shutil.which("uv") or r"C:\Users\ElliotBladen\.local\bin\uv.exe"))
 
 NRL_DRAW_API  = "https://www.nrl.com/draw/data/?competition=111&season={season}&round={round}"
 NRL_BASE_URL  = "https://www.nrl.com"
