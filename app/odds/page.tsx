@@ -124,7 +124,15 @@ function makeTransform(sport: Sport) {
 const transformNRL = makeTransform('NRL');
 const transformAFL = makeTransform('AFL');
 
-interface FixtureGame { home_team: string; away_team: string; venue: string; }
+interface FixtureGame {
+  home_team: string;
+  away_team: string;
+  venue: string;
+  kickoff_utc?: string;
+  kickoff_local?: string;
+  round?: number;
+  season?: number;
+}
 interface FixtureData { season: number | null; round: number | null; games: FixtureGame[]; }
 
 // Apply actual venues to NRL games.
@@ -148,6 +156,67 @@ function applyNRLVenues(games: Game[], fixture: FixtureData): Game[] {
     const venue = fixtureMap.get(`${g.homeTeam}|${g.awayTeam}`);
     return venue ? { ...g, venue } : g;
   });
+}
+
+function kickoffLabel(commenceTime: string) {
+  const kickoff = new Date(commenceTime);
+  if (Number.isNaN(kickoff.getTime())) return 'TBA';
+
+  return kickoff
+    .toLocaleString('en-AU', {
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+      timeZone: 'Australia/Sydney',
+    })
+    .toUpperCase() + ' AEST';
+}
+
+function fixtureFallbackGames(fixture: FixtureData, refMap: ReturnType<typeof buildRefMap>): Game[] {
+  return (fixture.games ?? [])
+    .flatMap((game, index) => {
+      const commenceTime = game.kickoff_utc ?? game.kickoff_local;
+      if (!commenceTime) return [];
+
+      const homeShort = game.home_team.split(' ').pop()!.toUpperCase();
+      const awayShort = game.away_team.split(' ').pop()!.toUpperCase();
+      const round = game.round ?? fixture.round ?? 'Fixture';
+      const season = game.season ?? fixture.season ?? 2026;
+
+      const fallbackGame: Game = {
+        id: `nrl-fixture-${season}-${round}-${index}-${game.home_team}-${game.away_team}`,
+        sport: 'NRL',
+        round: `NRL R${round}`,
+        homeTeam: game.home_team,
+        homeShort,
+        awayTeam: game.away_team,
+        awayShort,
+        kickoffTime: kickoffLabel(commenceTime),
+        commenceTime,
+        venue: game.venue,
+        referee: refMap[game.home_team]?.name ?? getRefForGame(game.home_team, 'NRL')?.name,
+        refereeBucket: refMap[game.home_team]?.bucket ?? getRefForGame(game.home_team, 'NRL')?.bucket,
+        odds: {},
+        spreadsOdds: {},
+        totalsOdds: {},
+        lastUpdated: new Date().toISOString(),
+      };
+
+      return [fallbackGame];
+    });
+}
+
+function cachedUpcomingGames(key: string): Game[] {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return [];
+    const games = JSON.parse(raw) as Game[];
+    const now = Date.now();
+    return Array.isArray(games) ? games.filter((game) => new Date(game.commenceTime).getTime() > now) : [];
+  } catch {
+    return [];
+  }
 }
 
 async function fetchOpeningPrices(sport: Sport): Promise<OpeningPriceMap> {
@@ -537,8 +606,6 @@ function OddsBoardCard({
     return () => ids.forEach(clearTimeout);
   }, [venue?.lat, venue?.lon, game.commenceTime, game.sport]);
 
-  if (entries.length === 0) return <MarketUnavailable market={market} />;
-
   const lineAware = market !== 'H2H';
   const bestHome = comparableBest(entries, 'home', lineAware);
   const bestAway = comparableBest(entries, 'away', lineAware);
@@ -673,151 +740,159 @@ function OddsBoardCard({
         </div>
       </div>
 
-      {/* Mobile tile view — CSS hidden at sm+ so server renders this first */}
-      <div className="sm:hidden border-t border-[#E2E8F0] px-3 py-4 space-y-4">
-        {/* Home / Over */}
-        <div>
-          <div className="mb-2 flex items-center gap-2">
-            {market === 'Totals' ? (
-              <TotalSelectionLabel side="Over" point={bestHome.point} />
-            ) : market === 'Line' ? (
-              <div className="flex items-center gap-2">
-                <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-                {bestHome.point != null && (
-                  <span className="text-[11px] font-mono font-bold text-[#6B7280]">
-                    {bestHome.point > 0 ? '+' : ''}{bestHome.point}
-                  </span>
+      {entries.length === 0 ? (
+        <div className="border-t border-[#E2E8F0] px-3 py-4 sm:px-4">
+          <MarketUnavailable market={market} />
+        </div>
+      ) : (
+        <>
+          {/* Mobile tile view — CSS hidden at sm+ so server renders this first */}
+          <div className="sm:hidden border-t border-[#E2E8F0] px-3 py-4 space-y-4">
+            {/* Home / Over */}
+            <div>
+              <div className="mb-2 flex items-center gap-2">
+                {market === 'Totals' ? (
+                  <TotalSelectionLabel side="Over" point={bestHome.point} />
+                ) : market === 'Line' ? (
+                  <div className="flex items-center gap-2">
+                    <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+                    {bestHome.point != null && (
+                      <span className="text-[11px] font-mono font-bold text-[#6B7280]">
+                        {bestHome.point > 0 ? '+' : ''}{bestHome.point}
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
                 )}
               </div>
-            ) : (
-              <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-            )}
-          </div>
-          <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-            {mobileEntries.map((entry) => (
-              <MobilePriceTile
-                key={entry.key}
-                bmKey={entry.key}
-                price={entry.home.price}
-                point={entry.home.point}
-                isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
-                movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
-                isTotal={market === 'Totals'}
-                homeTeam={game.homeTeam}
-                awayTeam={game.awayTeam}
-                sport={game.sport}
-              />
-            ))}
-          </div>
-        </div>
-        {/* Away / Under */}
-        <div>
-          <div className="mb-2 flex items-center gap-2">
-            {market === 'Totals' ? (
-              <TotalSelectionLabel side="Under" point={bestAway.point} />
-            ) : market === 'Line' ? (
-              <div className="flex items-center gap-2">
-                <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-                {bestAway.point != null && (
-                  <span className="text-[11px] font-mono font-bold text-[#6B7280]">
-                    {bestAway.point > 0 ? '+' : ''}{bestAway.point}
-                  </span>
-                )}
+              <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+                {mobileEntries.map((entry) => (
+                  <MobilePriceTile
+                    key={entry.key}
+                    bmKey={entry.key}
+                    price={entry.home.price}
+                    point={entry.home.point}
+                    isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
+                    movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
+                    isTotal={market === 'Totals'}
+                    homeTeam={game.homeTeam}
+                    awayTeam={game.awayTeam}
+                    sport={game.sport}
+                  />
+                ))}
               </div>
-            ) : (
-              <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-            )}
-          </div>
-          <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-            {mobileEntries.map((entry) => (
-              <MobilePriceTile
-                key={entry.key}
-                bmKey={entry.key}
-                price={entry.away.price}
-                point={entry.away.point}
-                isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
-                movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
-                isTotal={market === 'Totals'}
-                homeTeam={game.homeTeam}
-                awayTeam={game.awayTeam}
-                sport={game.sport}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Desktop grid — hidden on mobile */}
-      <div className="hidden sm:block overflow-x-auto">
-        <div
-          className="grid"
-          style={{
-            minWidth: `${gridMinWidth}px`,
-            gridTemplateColumns: `minmax(${labelCol}px,1.1fr) repeat(${bookmakerColumnCount}, minmax(${bookCol}px,1fr))`,
-          }}
-        >
-          <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
-          {displayEntries.map((entry) => (
-            <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
-              <BookLogo bmKey={entry.key} homeTeam={game.homeTeam} awayTeam={game.awayTeam} sport={game.sport} />
             </div>
-          ))}
-
-          <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
-            {market === 'Totals' ? (
-              <TotalSelectionLabel side="Over" point={bestHome.point} />
-            ) : market === 'Line' ? (
-              <div>
-                <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-                {bestHome.point != null && (
-                  <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                    {bestHome.point > 0 ? '+' : ''}{bestHome.point}
-                  </span>
+            {/* Away / Under */}
+            <div>
+              <div className="mb-2 flex items-center gap-2">
+                {market === 'Totals' ? (
+                  <TotalSelectionLabel side="Under" point={bestAway.point} />
+                ) : market === 'Line' ? (
+                  <div className="flex items-center gap-2">
+                    <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+                    {bestAway.point != null && (
+                      <span className="text-[11px] font-mono font-bold text-[#6B7280]">
+                        {bestAway.point > 0 ? '+' : ''}{bestAway.point}
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
                 )}
               </div>
-            ) : (
-              <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
-            )}
+              <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+                {mobileEntries.map((entry) => (
+                  <MobilePriceTile
+                    key={entry.key}
+                    bmKey={entry.key}
+                    price={entry.away.price}
+                    point={entry.away.point}
+                    isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
+                    movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
+                    isTotal={market === 'Totals'}
+                    homeTeam={game.homeTeam}
+                    awayTeam={game.awayTeam}
+                    sport={game.sport}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-          {displayEntries.map((entry) => (
-            <PriceCell
-              key={`${entry.key}-home`}
-              price={entry.home.price}
-              point={entry.home.point}
-              isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
-              movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
-              isTotal={market === 'Totals'}
-            />
-          ))}
 
-          <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
-            {market === 'Totals' ? (
-              <TotalSelectionLabel side="Under" point={bestAway.point} />
-            ) : market === 'Line' ? (
-              <div>
-                <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-                {bestAway.point != null && (
-                  <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
-                    {bestAway.point > 0 ? '+' : ''}{bestAway.point}
-                  </span>
+          {/* Desktop grid — hidden on mobile */}
+          <div className="hidden sm:block overflow-x-auto">
+            <div
+              className="grid"
+              style={{
+                minWidth: `${gridMinWidth}px`,
+                gridTemplateColumns: `minmax(${labelCol}px,1.1fr) repeat(${bookmakerColumnCount}, minmax(${bookCol}px,1fr))`,
+              }}
+            >
+              <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
+              {displayEntries.map((entry) => (
+                <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
+                  <BookLogo bmKey={entry.key} homeTeam={game.homeTeam} awayTeam={game.awayTeam} sport={game.sport} />
+                </div>
+              ))}
+
+              <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
+                {market === 'Totals' ? (
+                  <TotalSelectionLabel side="Over" point={bestHome.point} />
+                ) : market === 'Line' ? (
+                  <div>
+                    <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
+                    {bestHome.point != null && (
+                      <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
+                        {bestHome.point > 0 ? '+' : ''}{bestHome.point}
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
                 )}
               </div>
-            ) : (
-              <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
-            )}
+              {displayEntries.map((entry) => (
+                <PriceCell
+                  key={`${entry.key}-home`}
+                  price={entry.home.price}
+                  point={entry.home.point}
+                  isBest={entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point)}
+                  movement={movements[movementKey(game.id, market, entry.key, entry.home.side)]}
+                  isTotal={market === 'Totals'}
+                />
+              ))}
+
+              <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
+                {market === 'Totals' ? (
+                  <TotalSelectionLabel side="Under" point={bestAway.point} />
+                ) : market === 'Line' ? (
+                  <div>
+                    <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+                    {bestAway.point != null && (
+                      <span className="mt-1 block text-[10px] font-mono font-bold text-[#6B7280]">
+                        {bestAway.point > 0 ? '+' : ''}{bestAway.point}
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
+                )}
+              </div>
+              {displayEntries.map((entry) => (
+                <PriceCell
+                  key={`${entry.key}-away`}
+                  price={entry.away.price}
+                  point={entry.away.point}
+                  isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
+                  movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
+                  isTotal={market === 'Totals'}
+                />
+              ))}
+            </div>
           </div>
-          {displayEntries.map((entry) => (
-            <PriceCell
-              key={`${entry.key}-away`}
-              price={entry.away.price}
-              point={entry.away.point}
-              isBest={entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point)}
-              movement={movements[movementKey(game.id, market, entry.key, entry.away.side)]}
-              isTotal={market === 'Totals'}
-            />
-          ))}
-        </div>
-      </div>
+        </>
+      )}
 
       <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-3 py-3">
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
@@ -1442,11 +1517,14 @@ function OddsPageContent() {
       ])
         .then(async ([events, openingPrices, fixture, refsData]: [OddsApiEvent[], OpeningPriceMap, FixtureData, { records?: unknown[] }]) => {
           const refMap = buildRefMap(refsData.records as Parameters<typeof buildRefMap>[0]);
-          const newGames = applyNRLVenues(transformNRL(events), fixture).map((g) => ({
+          let newGames: Game[] = applyNRLVenues(transformNRL(events), fixture).map((g) => ({
             ...g,
             referee: refMap[g.homeTeam]?.name ?? g.referee,
             refereeBucket: refMap[g.homeTeam]?.bucket ?? g.refereeBucket,
           }));
+          if (newGames.length === 0) {
+            newGames = fixtureFallbackGames(fixture, refMap);
+          }
           const now = new Date();
           const upcoming = newGames.filter((g) => new Date(g.commenceTime) > now);
           const done = newGames.filter((g) => new Date(g.commenceTime) <= now);
@@ -1456,7 +1534,7 @@ function OddsPageContent() {
           movementsRef.current = resolvedMovements;
           setMovements(resolvedMovements);
           try { localStorage.setItem('BetMATE_nrl_odds', JSON.stringify(upcoming)); } catch { /* ignore */ }
-          setNrlGames(upcoming);
+          setNrlGames(upcoming.length > 0 ? upcoming : cachedUpcomingGames('BetMATE_nrl_odds'));
           if (done.length > 0) {
             setNrlCompleted((prev) => {
               const merged = [...done, ...prev.filter((p) => !done.find((d) => d.id === p.id))].slice(0, 30);
@@ -1498,7 +1576,7 @@ function OddsPageContent() {
           aflMovRef.current = resolvedMovements;
           setMovements(resolvedMovements);
           try { localStorage.setItem('BetMATE_afl_odds', JSON.stringify(upcoming)); } catch { /* ignore */ }
-          setAflGames(upcoming);
+          setAflGames(upcoming.length > 0 ? upcoming : cachedUpcomingGames('BetMATE_afl_odds'));
           if (done.length > 0) {
             setAflCompleted((prev) => {
               const merged = [...done, ...prev.filter((p) => !done.find((d) => d.id === p.id))].slice(0, 30);
