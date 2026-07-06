@@ -563,25 +563,25 @@ LEGACY_BETS.push(
   // Soccer — Thu 2 Jul
   { id:442, date:'2026-07-02', match:'Belgium vs Senegal',                          market:'Under 2.5 Goals',      odds:1.85, closingOdds:null, result:'loss', cumPL:26.08, sport:'FOOTBALL', notes:'Actual bet log. Stake $26. Over/Under 2.5 Goals. No return. CLV pending.' },
   // AFL R17 — Thu 2 Jul
-  { id:443, date:'2026-07-02', match:'Geelong Cats vs Brisbane Lions',              market:'Geelong Win',          odds:1.44, closingOdds:null, result:'loss', cumPL:25.08, sport:'AFL',      notes:'Actual bet log. Stake $50. Head to Head. No return. CLV pending.' },
+  { id:443, date:'2026-07-02', match:'Geelong Cats vs Brisbane Lions',              market:'Geelong Win',          odds:1.44, closingOdds:1.47, result:'loss', cumPL:25.08, sport:'AFL',      notes:'Actual bet log. Stake $50. Head to Head. No return. Closed 1.47.' },
   // Soccer — Fri 3 Jul
   { id:444, date:'2026-07-03', match:'Switzerland vs Algeria',                      market:'Switzerland Win',      odds:2.02, closingOdds:null, result:'win',  cumPL:25.59, sport:'FOOTBALL', notes:'Actual bet log. Stake $25. Return $50.50. Win-Draw-Win. CLV pending.' },
   // NRL R18 — Fri 3 Jul
-  { id:445, date:'2026-07-03', match:'Penrith Panthers vs South Sydney Rabbitohs',  market:'Penrith Win',          odds:1.65, closingOdds:null, result:'win',  cumPL:26.24, sport:'NRL',      notes:'Actual bet log. Stake $50. Return $82.50. Head to Head. CLV pending.' },
+  { id:445, date:'2026-07-03', match:'Penrith Panthers vs South Sydney Rabbitohs',  market:'Penrith Win',          odds:1.65, closingOdds:1.60, result:'win',  cumPL:26.24, sport:'NRL',      notes:'Actual bet log. Stake $50. Return $82.50. Head to Head. Closed 1.60.' },
   // AFL R17 — Fri 3 Jul
-  { id:446, date:'2026-07-03', match:'West Coast Eagles vs Adelaide Crows',         market:'Adelaide -28.5',       odds:1.90, closingOdds:null, result:'loss', cumPL:25.74, sport:'AFL',      notes:'Actual bet log. Stake $25. Line. No return. CLV pending.' },
+  { id:446, date:'2026-07-03', match:'West Coast Eagles vs Adelaide Crows',         market:'Adelaide -28.5',       odds:1.90, closingOdds:1.90, clv:1.0, clvLabel:'+1.0 pts', result:'loss', cumPL:25.74, sport:'AFL',      notes:'Actual bet log. Stake $25. Line. No return. Closed Adelaide -29.5 — got the better number.' },
   // Soccer — Sat 4 Jul
   { id:447, date:'2026-07-04', match:'Australia vs Egypt',                          market:'Australia Qualify',    odds:2.15, closingOdds:null, result:'loss', cumPL:25.21, sport:'FOOTBALL', notes:'Actual bet log. Stake $26.50. To Qualify for the Next Round. No return. CLV pending.' },
   { id:448, date:'2026-07-04', match:'Colombia vs Ghana',                           market:'Colombia Win',         odds:1.41, closingOdds:null, result:'win',  cumPL:25.48, sport:'FOOTBALL', notes:'Actual bet log. Stake $32.50. Return $45.82. Win-Draw-Win. CLV pending.' },
   // AFL R17 — Sat 4 Jul
-  { id:449, date:'2026-07-04', match:'Hawthorn Hawks vs Melbourne Demons',          market:'Hawthorn Win',         odds:1.50, closingOdds:null, result:'loss', cumPL:24.48, sport:'AFL',      notes:'Actual bet log. Stake $50. Head to Head. No return. CLV pending.' },
-  { id:450, date:'2026-07-04', match:'Gold Coast Suns vs Collingwood Magpies',      market:'Collingwood Win',      odds:2.31, closingOdds:null, result:'win',  cumPL:25.13, sport:'AFL',      notes:'Actual bet log. Stake $25. Return $57.75. Head to Head. CLV pending.' },
+  { id:449, date:'2026-07-04', match:'Hawthorn Hawks vs Melbourne Demons',          market:'Hawthorn Win',         odds:1.50, closingOdds:1.42, result:'loss', cumPL:24.48, sport:'AFL',      notes:'Actual bet log. Stake $50. Head to Head. No return. Closed 1.42.' },
+  { id:450, date:'2026-07-04', match:'Gold Coast Suns vs Collingwood Magpies',      market:'Collingwood Win',      odds:2.31, closingOdds:2.30, result:'win',  cumPL:25.13, sport:'AFL',      notes:'Actual bet log. Stake $25. Return $57.75. Head to Head. Closed 2.30.' },
   // NRL R18 — Sun 5 Jul
-  { id:451, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Manly 1 to 12',        odds:2.03, closingOdds:null, result:'loss', cumPL:24.63, sport:'NRL',      notes:'Actual bet log. Stake $25. Big Win Little Win. No return. CLV pending.' },
-  { id:452, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Under 50.5',           odds:1.82, closingOdds:null, result:'win',  cumPL:25.04, sport:'NRL',      notes:'Actual bet log. Stake $25. Return $45.50. Total Match Points. CLV pending.' },
-  { id:453, date:'2026-07-05', match:'Newcastle Knights vs Dolphins',              market:'Dolphins Win',         odds:1.87, closingOdds:null, result:'loss', cumPL:24.54, sport:'NRL',      notes:'Actual bet log. Stake $25. Head to Head. No return. CLV pending.' },
+  { id:451, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Manly 1 to 12',        odds:2.03, closingOdds:null, result:'loss', cumPL:24.63, sport:'NRL',      notes:'Actual bet log. Stake $25. Big Win Little Win. No return. Exotic margin-band market — AusSportsBetting workbook has no closing line for this bet type, CLV not computable.' },
+  { id:452, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Under 50.5',           odds:1.82, closingOdds:2.16, clv:1.0, clvLabel:'+1.0 pts', result:'win',  cumPL:25.04, sport:'NRL',      notes:'Actual bet log. Stake $25. Return $45.50. Total Match Points. Market total closed 49.5 — got the easier number.' },
+  { id:453, date:'2026-07-05', match:'Newcastle Knights vs Dolphins',              market:'Dolphins Win',         odds:1.87, closingOdds:1.80, result:'loss', cumPL:24.54, sport:'NRL',      notes:'Actual bet log. Stake $25. Head to Head. No return. Closed 1.80.' },
   // AFL R17 — Sun 5 Jul
-  { id:454, date:'2026-07-05', match:'Port Adelaide Power vs North Melbourne Kangaroos', market:'North Melbourne +15.5', odds:1.90, closingOdds:null, result:'loss', cumPL:23.94, sport:'AFL', notes:'Actual bet log. Stake $30. Line. No return. CLV pending.' },
+  { id:454, date:'2026-07-05', match:'Port Adelaide Power vs North Melbourne Kangaroos', market:'North Melbourne +15.5', odds:1.90, closingOdds:1.80, clv:0.0, clvLabel:'0.0 pts', result:'loss', cumPL:23.94, sport:'AFL', notes:'Actual bet log. Stake $30. Line. No return. Closed North Melbourne +15.5 — no line movement.' },
 );
 
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
@@ -671,12 +671,12 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:65, date:'2026-06-27', match:'Carlton Blues vs West Coast Eagles',          market:'Carlton -32.5',          predictedLine:30.9,  takenPrice:1.90, closingPrice:1.89, clv:4.0,  clvLabel:'+4.0 pts', result:'win',  plUnits:0.36,   runningTotal:2.65   },
   { id:66, date:'2026-06-27', match:'Collingwood Magpies vs Richmond Tigers',      market:'Under 170.5',            predictedLine:155.1, takenPrice:1.87, closingPrice:1.90, clv:6.0,  clvLabel:'+6.0 pts', result:'loss', plUnits:-1.00,  runningTotal:1.65   },
   { id:67, date:'2026-06-28', match:'North Melbourne Kangaroos vs Essendon Bombers', market:'North Melbourne -15.5', predictedLine:29.1,  takenPrice:1.90, closingPrice:1.91, clv:-2.0, clvLabel:'-2.0 pts', result:'loss', plUnits:-0.32,  runningTotal:1.33   },
-  // R17 (Jul 2-5) — CLV pending
-  { id:68, date:'2026-07-02', match:'Geelong Cats vs Brisbane Lions',              market:'Geelong Win',            predictedLine:null,  takenPrice:1.44, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:0.33   },
-  { id:69, date:'2026-07-03', match:'West Coast Eagles vs Adelaide Crows',         market:'Adelaide -28.5',         predictedLine:null,  takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:-0.17  },
-  { id:70, date:'2026-07-04', match:'Hawthorn Hawks vs Melbourne Demons',          market:'Hawthorn Win',           predictedLine:null,  takenPrice:1.50, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:-1.17  },
-  { id:71, date:'2026-07-04', match:'Gold Coast Suns vs Collingwood Magpies',      market:'Collingwood Win',        predictedLine:null,  takenPrice:2.31, closingPrice:null, result:'win',  plUnits:0.66,   runningTotal:-0.52  },
-  { id:72, date:'2026-07-05', match:'Port Adelaide Power vs North Melbourne Kangaroos', market:'North Melbourne +15.5', predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.60, runningTotal:-1.12  },
+  // R17 (Jul 2-5) - closing lines filed 2026-07-07
+  { id:68, date:'2026-07-02', match:'Geelong Cats vs Brisbane Lions',              market:'Geelong Win',            predictedLine:null,  takenPrice:1.44, closingPrice:1.47, result:'loss', plUnits:-1.00,  runningTotal:0.33   },
+  { id:69, date:'2026-07-03', match:'West Coast Eagles vs Adelaide Crows',         market:'Adelaide -28.5',         predictedLine:null,  takenPrice:1.90, closingPrice:1.90, clv:1.0, clvLabel:'+1.0 pts', result:'loss', plUnits:-0.50,  runningTotal:-0.17  },
+  { id:70, date:'2026-07-04', match:'Hawthorn Hawks vs Melbourne Demons',          market:'Hawthorn Win',           predictedLine:null,  takenPrice:1.50, closingPrice:1.42, result:'loss', plUnits:-1.00,  runningTotal:-1.17  },
+  { id:71, date:'2026-07-04', match:'Gold Coast Suns vs Collingwood Magpies',      market:'Collingwood Win',        predictedLine:null,  takenPrice:2.31, closingPrice:2.30, result:'win',  plUnits:0.66,   runningTotal:-0.52  },
+  { id:72, date:'2026-07-05', match:'Port Adelaide Power vs North Melbourne Kangaroos', market:'North Melbourne +15.5', predictedLine:null, takenPrice:1.90, closingPrice:1.80, clv:0.0, clvLabel:'0.0 pts', result:'loss', plUnits:-0.60, runningTotal:-1.12  },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
@@ -749,9 +749,9 @@ export const MODEL_BETS: ModelBet[] = [
   { id:57, date:'2026-06-25', match:'Parramatta Eels vs South Sydney Rabbitohs',   market:'Souths -5.5',        predictedLine:-10.3, takenPrice:1.85, closingPrice:1.85, clv:0.0, clvLabel:'0.0 pts',  result:'win',  plUnits:0.37,  runningTotal:3.13  },
   { id:58, date:'2026-06-26', match:'Gold Coast Titans vs Canterbury Bulldogs',    market:'Under 46.5',         predictedLine:35.7,  takenPrice:1.90, closingPrice:1.87, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.90,  runningTotal:4.03  },
   { id:59, date:'2026-06-27', match:'Manly Sea Eagles vs Melbourne Storm',         market:'Manly -3.5 PYL',     predictedLine:13.1,  takenPrice:1.73, closingPrice:null, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.37,  runningTotal:4.40  },
-  // R18 — CLV pending
-  { id:60, date:'2026-07-03', match:'Penrith Panthers vs South Sydney Rabbitohs',  market:'Penrith Win',        predictedLine:null,  takenPrice:1.65, closingPrice:null, result:'win',  plUnits:0.65,  runningTotal:5.05  },
+  // R18 - closing lines filed 2026-07-07 (Manly 1-12 exotic market excluded, no workbook coverage)
+  { id:60, date:'2026-07-03', match:'Penrith Panthers vs South Sydney Rabbitohs',  market:'Penrith Win',        predictedLine:null,  takenPrice:1.65, closingPrice:1.60, result:'win',  plUnits:0.65,  runningTotal:5.05  },
   { id:61, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Manly 1 to 12',      predictedLine:null,  takenPrice:2.03, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:4.55  },
-  { id:62, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Under 50.5',         predictedLine:null,  takenPrice:1.82, closingPrice:null, result:'win',  plUnits:0.41,  runningTotal:4.96  },
-  { id:63, date:'2026-07-05', match:'Newcastle Knights vs Dolphins',              market:'Dolphins Win',       predictedLine:null,  takenPrice:1.87, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:4.46  },
+  { id:62, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Under 50.5',         predictedLine:null,  takenPrice:1.82, closingPrice:2.16, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.41,  runningTotal:4.96  },
+  { id:63, date:'2026-07-05', match:'Newcastle Knights vs Dolphins',              market:'Dolphins Win',       predictedLine:null,  takenPrice:1.87, closingPrice:1.80, result:'loss', plUnits:-0.50, runningTotal:4.46  },
 ];
