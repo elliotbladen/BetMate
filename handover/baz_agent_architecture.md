@@ -1,6 +1,13 @@
 # Baz Agent Architecture
 **Created:** 2026-05-15
 
+> ⚠️ **SUPERSEDED 2026-07-09.** The user is taking Baz in a different direction and
+> explicitly dropped the May 2026 roadmap (alert types, Telegram delivery, crypto-twin
+> agent, self-learning tiers, the 6-step build order). The Voice/Brain security split
+> and the MCP tool-use loop described below ARE built and live — but treat everything
+> forward-looking in this doc as historical record, not the plan. New angle TBD:
+> ask the user, do not build toward the old roadmap.
+
 ---
 
 ## The Core Idea

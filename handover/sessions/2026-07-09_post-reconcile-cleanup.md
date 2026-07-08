@@ -41,6 +41,17 @@ Jul 8 session left it — committed as-is under the sync-end protocol, no change
    The pending chat-route change is deploy-safe: it only sends `X-Baz-Token` if
    `BAZ_TUNNEL_TOKEN` is set in the environment.
 
+## Baz direction change (later same day)
+
+User dropped the May 2026 Baz roadmap entirely — alert types (get on early / leave
+late / sharp / public / value), Telegram delivery, the crypto-twin agent, the
+self-learning tiers, and the 6-step build order. **A different angle is coming but
+was not articulated this session.** Deprecation banners added to
+`handover/baz_agent_architecture.md` and the CLAUDE.md Product Vision section;
+Claude memory files updated. What survives: the built infrastructure (MCP tool-use
+loop, tunnel + token auth, Voice/Brain IP split) and the advisory-only principle.
+Next Baz session: get the new angle from the user first.
+
 ## Still outstanding (not done this session)
 
 - **`BAZ_TUNNEL_TOKEN` must be set in Vercel env** before the local Baz server is
