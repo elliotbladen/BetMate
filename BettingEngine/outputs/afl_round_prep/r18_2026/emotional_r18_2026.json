@@ -1,0 +1,39 @@
+{
+  "season": 2026,
+  "round": 18,
+  "source": "data/afl/emotional/processed/latest-emotional.json (scraped 2026-07-07) — manually corrected 2026-07-09: removed Adelaide 'personal_tragedy major' flag for Jordan Dawson. That flag recycled April 2026 headlines (brother's death); Dawson has played every game since, including 27 disposals + 1 goal vs West Coast in R17 (Jul 3). He is available for R18 and no grief adjustment applies.",
+  "flags": {
+    "Collingwood Magpies": [
+      {
+        "flag_type": "rivalry_derby",
+        "flag_strength": "normal",
+        "player_name": null,
+        "notes": "Collingwood Magpies vs North Melbourne Kangaroos is a recognised AFL rivalry fixture."
+      }
+    ],
+    "Melbourne Demons": [
+      {
+        "flag_type": "rivalry_derby",
+        "flag_strength": "normal",
+        "player_name": null,
+        "notes": "Melbourne Demons vs Richmond Tigers is a recognised AFL rivalry fixture."
+      }
+    ],
+    "Brisbane Lions": [
+      {
+        "flag_type": "must_win",
+        "flag_strength": "minor",
+        "player_name": null,
+        "notes": "Coming off a 52-point Gabba masterclass, Lions have significant momentum but multiple key injuries (Zorko, McCluggage, Allen, Payne) create pressure to maintain top-four position in tight race."
+      }
+    ],
+    "Fremantle Dockers": [
+      {
+        "flag_type": "must_win",
+        "flag_strength": "normal",
+        "player_name": null,
+        "notes": "Headlines note Fremantle's winning streak has ended and they've been described as 'off' — pressure to respond at home vs Sydney to stay in finals contention."
+      }
+    ]
+  }
+}

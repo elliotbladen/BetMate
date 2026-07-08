@@ -7,7 +7,8 @@
       {"player": "Mitchell Hinge", "status": "out", "position": "utility", "quality": "depth", "injury": "Ankle", "estimated_return": "TBC"}
     ],
     "Brisbane Lions": [
-      {"player": "Jack Payne", "status": "out", "position": "key_defender", "quality": "good", "injury": "Knee", "estimated_return": "TBC"},
+      {"player": "Jack Payne", "status": "out", "position": "key_defender", "quality": "good", "injury": "Knee", "estimated_return": "Season", "notes": "Club confirmed Jul 2026 he will not return in 2026 — carry forward per CRITICAL DATA ENTRY RULE"},
+      {"player": "Darcy Gardiner", "status": "out", "position": "key_defender", "quality": "average", "injury": "Hamstring", "estimated_return": "4-6 weeks", "notes": "Added 2026-07-09 from Lions Qscan injury report — missed by Jul 6 scrape"},
       {"player": "Lincoln McCarthy", "status": "out", "position": "small_forward", "quality": "good", "injury": "Leg/Calf", "estimated_return": "2-3 weeks"},
       {"player": "Oscar Allen", "status": "out", "position": "key_forward", "quality": "good", "injury": "Foot", "estimated_return": "2-3 weeks"}
     ],

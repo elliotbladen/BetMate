@@ -449,7 +449,7 @@ Invoke-RestMethod https://baz.betmate.au/health
 ```
 
 ### Product Vision — SaaS + Crypto Agent
-**⚠️ Baz roadmap dropped 2026-07-09** — the user is taking Baz in a different direction and abandoned the May 2026 plan (alert types, Telegram delivery, crypto-twin agent, self-learning tiers). The deployment architecture below is built reality and still stands; the Baz-specific product plans do not. New Baz angle TBD — ask the user before building anything Baz-forward.
+**⚠️ Baz roadmap replaced 2026-07-09** — the May 2026 plan (alert types, Telegram delivery, crypto-twin agent, self-learning tiers) is abandoned. **The new direction is Baz v2: answer ALL bet-related questions for a game** — full plan, question taxonomy, and build phases in `handover/baz_v2_direction.md`. Read that doc before any Baz work. The deployment architecture below is built reality and still stands.
 
 BetMate is being built as a SaaS community product. Baz is the lead AI agent across both BetMate (sports) and a planned crypto AI agent.
 

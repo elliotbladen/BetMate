@@ -52,6 +52,13 @@ Claude memory files updated. What survives: the built infrastructure (MCP tool-u
 loop, tunnel + token auth, Voice/Brain IP split) and the advisory-only principle.
 Next Baz session: get the new angle from the user first.
 
+**Update (same day):** new angle defined — **Baz v2: answer ALL bet-related questions
+for a game.** Full plan written to `handover/baz_v2_direction.md` (question taxonomy,
+gap analysis, 3 phases). Key finding from the gap analysis: AFL `/context/game`
+returns zeroed `market`/`ev` and empty `tier_adjustments` — Baz can't do
+model-vs-market for AFL at all. That's Phase 1 item 1. No code touched this session
+(Baz code changes were explicitly out of scope).
+
 ## Still outstanding (not done this session)
 
 - **`BAZ_TUNNEL_TOKEN` must be set in Vercel env** before the local Baz server is
