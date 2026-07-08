@@ -1,0 +1,25 @@
+season,round,week_ending,date,home_team,away_team,market,rules_model,ml_model,market_open,market_close,rules_vs_open,rules_vs_close,ml_vs_open,ml_vs_close,actual,rules_vs_actual,ml_vs_actual
+2026,11,2026-05-12,2026-05-15,Cronulla-Sutherland Sharks,Canterbury-Bankstown Bulldogs,h2h,80.3,60.4,62.3,59.2,+18.00,+21.10,-1.90,+1.20,1.0,+79.30,+59.40
+2026,11,2026-05-12,2026-05-15,Cronulla-Sutherland Sharks,Canterbury-Bankstown Bulldogs,handicap,10.18,-2.5,-6.5,-5.5,+16.68,+15.68,+4.00,+3.00,22.0,-11.82,-24.50
+2026,11,2026-05-12,2026-05-15,Cronulla-Sutherland Sharks,Canterbury-Bankstown Bulldogs,total,49.0,,49.5,48.5,-0.50,+0.50,,,54.0,-5.00,
+2026,11,2026-05-12,2026-05-15,South Sydney Rabbitohs,Dolphins,h2h,46.3,32.0,53.5,42.5,-7.20,+3.80,-21.50,-10.50,0.0,+46.30,+32.00
+2026,11,2026-05-12,2026-05-15,South Sydney Rabbitohs,Dolphins,handicap,1.09,3.0,-2.5,2.5,+3.59,-1.41,+5.50,+0.50,-22.0,+23.09,+25.00
+2026,11,2026-05-12,2026-05-15,South Sydney Rabbitohs,Dolphins,total,55.23,,54.5,54.5,+0.73,+0.73,,,42.0,+13.23,
+2026,11,2026-05-12,2026-05-16,Parramatta Eels,Melbourne Storm,h2h,27.7,32.3,31.0,27.5,-3.30,+0.20,+1.30,+4.80,0.0,+27.70,+32.30
+2026,11,2026-05-12,2026-05-16,Parramatta Eels,Melbourne Storm,handicap,7.05,-1.0,6.5,8.5,+0.55,-1.45,-7.50,-9.50,-26.0,+33.05,+25.00
+2026,11,2026-05-12,2026-05-16,Parramatta Eels,Melbourne Storm,total,62.15,,52.5,54.5,+9.65,+7.65,,,42.0,+20.15,
+2026,11,2026-05-12,2026-05-16,Sydney Roosters,North Queensland Cowboys,h2h,73.7,58.4,82.0,83.3,-8.30,-9.60,-23.60,-24.90,0.0,+73.70,+58.40
+2026,11,2026-05-12,2026-05-16,Sydney Roosters,North Queensland Cowboys,handicap,-7.6,-0.0,-13.5,-15.5,+5.90,+7.90,+13.50,+15.50,-6.0,-1.60,+6.00
+2026,11,2026-05-12,2026-05-16,Sydney Roosters,North Queensland Cowboys,total,60.35,,54.5,56.5,+5.85,+3.85,,,30.0,+30.35,
+2026,11,2026-05-12,2026-05-16,Wests Tigers,Manly-Warringah Sea Eagles,h2h,52.7,47.2,29.4,30.3,+23.30,+22.40,+17.80,+16.90,0.0,+52.70,+47.20
+2026,11,2026-05-12,2026-05-16,Wests Tigers,Manly-Warringah Sea Eagles,handicap,0.81,2.8,10.5,9.5,-9.69,-8.69,-7.70,-6.70,-28.0,+28.81,+30.80
+2026,11,2026-05-12,2026-05-16,Wests Tigers,Manly-Warringah Sea Eagles,total,50.52,,52.5,52.5,-1.98,-1.98,,,64.0,-13.48,
+2026,11,2026-05-12,2026-05-17,Gold Coast Titans,Newcastle Knights,h2h,39.8,37.7,31.7,33.3,+8.10,+6.50,+6.00,+4.40,0.0,+39.80,+37.70
+2026,11,2026-05-12,2026-05-17,Gold Coast Titans,Newcastle Knights,handicap,-3.04,-1.5,8.5,9.5,-11.54,-12.54,-10.00,-11.00,-24.0,+20.96,+22.50
+2026,11,2026-05-12,2026-05-17,Gold Coast Titans,Newcastle Knights,total,54.7,,54.5,54.5,+0.20,+0.20,,,48.0,+6.70,
+2026,11,2026-05-12,2026-05-17,New Zealand Warriors,Brisbane Broncos,h2h,86.1,66.7,54.5,52.4,+31.60,+33.70,+12.20,+14.30,1.0,+85.10,+65.70
+2026,11,2026-05-12,2026-05-17,New Zealand Warriors,Brisbane Broncos,handicap,13.02,3.0,,,,,,,30.0,-16.98,-27.00
+2026,11,2026-05-12,2026-05-17,New Zealand Warriors,Brisbane Broncos,total,46.58,,50.5,50.5,-3.92,-3.92,,,54.0,-7.42,
+2026,11,2026-05-12,2026-05-17,Penrith Panthers,St. George Illawarra Dragons,h2h,99.5,95.8,91.7,89.5,+7.80,+10.00,+4.10,+6.30,1.0,+98.50,+94.80
+2026,11,2026-05-12,2026-05-17,Penrith Panthers,St. George Illawarra Dragons,handicap,31.37,-2.8,-25.5,-27.5,+56.87,+58.87,+22.70,+24.70,22.0,+9.37,-24.80
+2026,11,2026-05-12,2026-05-17,Penrith Panthers,St. George Illawarra Dragons,total,46.52,,56.5,54.5,-9.98,-7.98,,,34.0,+12.52,

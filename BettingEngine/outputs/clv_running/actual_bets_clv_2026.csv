@@ -14,3 +14,49 @@ bet_id,sport,round,match,market,selection,line,odds_taken,close_line,open_line,l
 2026-0013,NRL,11,Dolphins v Canterbury Bulldogs,handicap,Dolphins,-5.5,1.84,-6.5,-5.5,1.0,1.9,-3.16,1.0,win,42.0
 2026-0014,NRL,11,Canberra Raiders v Penrith Panthers,h2h,Canberra Raiders,,3.62,,,,3.35,8.06,,loss,-50.0
 2026-0015,NRL,11,Melbourne Storm v Wests Tigers,handicap,Melbourne Storm,-5.5,1.9,-9.5,-4.5,5.0,1.8,5.56,4.0,win,45.0
+2026-0016,AFL,10,Sydney Swans v Collingwood Magpies,total,under,181.5,1.86,,,,,,,win,43.0
+2026-0017,AFL,10,Sydney Swans v Collingwood Magpies,handicap,Collingwood Magpies,35.5,1.91,,,,,,,win,22.75
+2026-0018,NRL,11,Cronulla-Sutherland Sharks v Canterbury-Bankstown Bulldogs,total,under,50.5,1.9,,,,,,,loss,-48.8
+2026-0019,NRL,11,South Sydney Rabbitohs v Dolphins,h2h,Dolphins,,1.85,,,,,,,win,42.5
+2026-0020,AFL,10,Gold Coast Suns v Port Adelaide Power,handicap,Gold Coast Suns,-26.5,1.9,-25.5,-26.5,-1.0,1.9,0.0,-1.0,loss,-50.0
+2026-0021,AFL,10,Adelaide Crows v North Melbourne Kangaroos,handicap,Adelaide Crows,-18.5,1.9,-12.5,-18.5,-6.0,1.85,2.7,-6.0,win,45.0
+2026-0022,AFL,10,Melbourne Demons v Hawthorn Hawks,handicap,Hawthorn Hawks,-18.5,1.91,,,,,,,loss,-50.0
+2026-0023,NRL,11,Sydney Roosters v North Queensland Cowboys,handicap,North Queensland Cowboys,16.5,1.74,,,,,,,win,20.35
+2026-0024,AFL,10,Carlton Blues v Western Bulldogs,h2h,Carlton Blues,,2.56,,,,2.35,8.94,,win,39.0
+2026-0025,OTHER,0, v ,win,Grafterburners (5),,6.5,,,,,,,loss,-30.0
+2026-0026,NRL,11,New Zealand Warriors v Brisbane Broncos,handicap,New Zealand Warriors,-2.5,1.91,,,,,,,win,45.5
+2026-0027,NRL,11,Penrith Panthers v St. George Illawarra Dragons,total,under,56.5,1.82,,,,,,,win,20.5
+2026-0028,AFL,11,Hawthorn Hawks v Adelaide Crows,h2h,Hawthorn Hawks,,1.41,,,,1.55,-9.03,,win,22.55
+2026-0029,AFL,11,Hawthorn Hawks v Adelaide Crows,h2h,Adelaide Crows,,2.88,,,,2.45,17.55,,loss,-25.0
+2026-0030,AFL,11,Hawthorn Hawks v Adelaide Crows,handicap,Hawthorn Hawks,-15.5,1.9,-10.5,-16.5,-6.0,1.95,-2.56,-5.0,loss,-25.0
+2026-0031,AFL,11,Hawthorn Hawks v Adelaide Crows,handicap,Adelaide Crows,19.5,1.89,10.5,16.5,6.0,1.85,2.16,9.0,win,22.25
+2026-0032,AFL,11,Richmond Tigers v Essendon Bombers,total,under,176.5,1.88,165.5,173.5,8.0,2,-6.0,11.0,win,22.0
+2026-0033,NRL,12,Canterbury Bulldogs v Melbourne Storm,handicap,Canterbury Bulldogs,-3.5,1.9,,,,,,,win,22.5
+2026-0034,NRL,12,Canterbury Bulldogs v Melbourne Storm,total,under,48.5,1.84,,,,,,,loss,-25.0
+2026-0035,NRL,12,Canterbury Bulldogs v Melbourne Storm,total,under,49.5,1.9,,,,,,,loss,-25.0
+2026-0036,AFL,11,Geelong Cats v Sydney Swans,handicap,Sydney Swans,10.5,1.9,,,,,,,loss,-25.0
+2026-0037,AFL,11,Collingwood Magpies v West Coast Eagles,total,under,180.5,1.87,,,,,,,win,21.75
+2026-0038,NRL,12,St George Illawarra Dragons v New Zealand Warriors,total,under,50.5,1.9,,,,,,,win,12.83
+2026-0039,NRL,12,Manly Sea Eagles v Gold Coast Titans,handicap,Manly Sea Eagles,-11.5,1.83,,,,,,,loss,-25.0
+2026-0040,NRL,12,Manly Sea Eagles v Gold Coast Titans,handicap,Gold Coast Titans,12.5,1.89,,,,,,,win,11.13
+2026-0041,NRL,12,Manly Sea Eagles v Gold Coast Titans,h2h,Gold Coast Titans,,4.35,,,,,,,loss,-12.5
+2026-0042,NRL,12,North Queensland Cowboys v South Sydney Rabbitohs,h2h,North Queensland Cowboys,,1.67,,,,,,,win,46.02
+2026-0043,NRL,12,North Queensland Cowboys v South Sydney Rabbitohs,h2h,North Queensland Cowboys,,1.69,,,,,,,win,17.25
+2026-0044,NRL,12,North Queensland Cowboys v South Sydney Rabbitohs,handicap,North Queensland Cowboys,-2.5,1.9,,,,,,,win,22.5
+2026-0045,AFL,12,St Kilda Saints v Hawthorn Hawks,handicap,Hawthorn Hawks,-19.5,1.9,-20.5,-12.5,8.0,1.9,0.0,1.0,win,22.5
+2026-0046,NRL,13,Cronulla-Sutherland Sharks v Manly-Warringah Sea Eagles,h2h,Cronulla-Sutherland Sharks,,1.87,,,,,,,win,43.5
+2026-0047,NRL,13,Cronulla-Sutherland Sharks v Manly-Warringah Sea Eagles,total,over,44.5,1.77,,,,,,,win,13.48
+2026-0048,NRL,13,Cronulla-Sutherland Sharks v Manly-Warringah Sea Eagles,total,under,46.5,1.89,,,,,,,loss,-25.0
+2026-0049,NRL,13,Cronulla-Sutherland Sharks v Manly-Warringah Sea Eagles,total,under,50.5,1.81,,,,,,,win,20.25
+2026-0050,NRL,13,Cronulla-Sutherland Sharks v Manly-Warringah Sea Eagles,h2h,Manly-Warringah Sea Eagles,,1.98,,,,,,,loss,-20.0
+2026-0051,AFL,12,Carlton Blues v Geelong Cats,total,over,178.5,1.89,178.5,177.5,-1.0,1.8,5.0,0.0,loss,-25.0
+2026-0052,NRL,13,Wests Tigers v Canterbury-Bankstown Bulldogs,total,over,48.5,1.9,,,,,,,loss,-25.0
+2026-0053,NRL,13,Wests Tigers v Canterbury-Bankstown Bulldogs,h2h,Canterbury-Bankstown Bulldogs,,1.98,,,,,,,win,18.09
+2026-0054,AFL,12,Western Bulldogs v Collingwood Magpies,h2h,Collingwood Magpies,,2.26,,,,2.35,-3.83,,loss,-25.0
+2026-0055,NRL,13,Penrith Panthers v New Zealand Warriors,total,under,47.5,1.9,,,,,,,win,22.5
+2026-0056,NRL,13,Penrith Panthers v New Zealand Warriors,total,under,46.5,1.84,,,,,,,win,21.0
+2026-0057,NRL,13,Penrith Panthers v New Zealand Warriors,handicap,Penrith Panthers,-3.5,1.83,,,,,,,loss,-25.0
+2026-0058,NRL,13,Penrith Panthers v New Zealand Warriors,handicap,Penrith Panthers,-5.5,1.72,,,,,,,loss,-25.0
+2026-0059,NRL,13,Canberra Raiders v North Queensland Cowboys,handicap,North Queensland Cowboys,4.5,1.73,,,,,,,loss,-25.0
+2026-0060,AFL,12,West Coast Eagles v Essendon Bombers,h2h,Essendon Bombers,,2.31,,,,,,,win,19.98
+2026-0061,AFL,12,West Coast Eagles v Essendon Bombers,h2h,Essendon Bombers,,2.39,,,,,,,loss,-25.0

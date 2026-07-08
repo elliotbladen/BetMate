@@ -1,0 +1,31 @@
+season,round,date,home_team,away_team,home_score,away_score,actual_margin_home,actual_total,market,signal,selection,model_number,model_home_fair_odds,model_away_fair_odds,open_number,close_number,open_odds,close_odds,clv,result,winner,bookmakers_surveyed
+2026,15,2026-06-11,South Sydney Rabbitohs,Brisbane Broncos,48,6,42.0,54.0,h2h,model,South Sydney Rabbitohs,,1.191,6.224,,,1.57,1.43,0.0979,win,tie,11
+2026,15,2026-06-11,South Sydney Rabbitohs,Brisbane Broncos,48,6,42.0,54.0,h2h,market,South Sydney Rabbitohs,,1.191,6.224,,,1.57,1.43,0.0979,win,tie,11
+2026,15,2026-06-11,South Sydney Rabbitohs,Brisbane Broncos,48,6,42.0,54.0,handicap,model,South Sydney Rabbitohs,11.88,,,-4.5,-6.5,1.9,1.9,2.0,win,tie,11
+2026,15,2026-06-11,South Sydney Rabbitohs,Brisbane Broncos,48,6,42.0,54.0,handicap,market,South Sydney Rabbitohs,11.88,,,-4.5,-6.5,1.9,1.9,2.0,win,tie,11
+2026,15,2026-06-11,South Sydney Rabbitohs,Brisbane Broncos,48,6,42.0,54.0,total,model,under,45.82,,,50.5,49.5,2.0,2.1,1.0,loss,tie,11
+2026,15,2026-06-11,South Sydney Rabbitohs,Brisbane Broncos,48,6,42.0,54.0,total,market,under,45.82,,,50.5,49.5,2.0,2.1,1.0,loss,tie,11
+2026,15,2026-06-12,Dolphins,Sydney Roosters,48,10,38.0,58.0,h2h,model,Dolphins,,1.4,3.503,,,1.7,1.36,0.25,win,tie,11
+2026,15,2026-06-12,Dolphins,Sydney Roosters,48,10,38.0,58.0,h2h,market,Dolphins,,1.4,3.503,,,1.7,1.36,0.25,win,tie,11
+2026,15,2026-06-12,Dolphins,Sydney Roosters,48,10,38.0,58.0,handicap,model,Dolphins,6.73,,,-2.5,-8.5,1.95,1.85,6.0,win,tie,11
+2026,15,2026-06-12,Dolphins,Sydney Roosters,48,10,38.0,58.0,handicap,market,Dolphins,6.73,,,-2.5,-8.5,1.95,1.85,6.0,win,tie,11
+2026,15,2026-06-12,Dolphins,Sydney Roosters,48,10,38.0,58.0,total,model,under,47.58,,,50.5,50.5,2.08,2.05,0.0,loss,market,11
+2026,15,2026-06-12,Dolphins,Sydney Roosters,48,10,38.0,58.0,total,market,no_move,47.58,,,50.5,50.5,,,,,market,11
+2026,15,2026-06-13,New Zealand Warriors,Cronulla-Sutherland Sharks,8,10,-2.0,18.0,h2h,model,New Zealand Warriors,,1.239,5.18,,,1.34,1.4,-0.0429,loss,market,11
+2026,15,2026-06-13,New Zealand Warriors,Cronulla-Sutherland Sharks,8,10,-2.0,18.0,h2h,market,Cronulla-Sutherland Sharks,,1.239,5.18,,,3.2,2.95,0.0847,win,market,11
+2026,15,2026-06-13,New Zealand Warriors,Cronulla-Sutherland Sharks,8,10,-2.0,18.0,handicap,model,New Zealand Warriors,10.44,,,-8.5,-7.5,1.9,1.85,-1.0,loss,market,11
+2026,15,2026-06-13,New Zealand Warriors,Cronulla-Sutherland Sharks,8,10,-2.0,18.0,handicap,market,Cronulla-Sutherland Sharks,10.44,,,8.5,7.5,1.9,1.95,1.0,win,market,11
+2026,15,2026-06-13,New Zealand Warriors,Cronulla-Sutherland Sharks,8,10,-2.0,18.0,total,model,over,49.95,,,48.5,47.5,1.87,1.85,-1.0,loss,market,11
+2026,15,2026-06-13,New Zealand Warriors,Cronulla-Sutherland Sharks,8,10,-2.0,18.0,total,market,under,49.95,,,48.5,47.5,2.1,2.18,1.0,win,market,11
+2026,15,2026-06-13,Parramatta Eels,Canberra Raiders,15,12,3.0,27.0,h2h,model,Canberra Raiders,,2.661,1.602,,,1.63,1.7,-0.0412,loss,market,11
+2026,15,2026-06-13,Parramatta Eels,Canberra Raiders,15,12,3.0,27.0,h2h,market,Parramatta Eels,,2.661,1.602,,,2.25,2.15,0.0465,win,market,11
+2026,15,2026-06-13,Parramatta Eels,Canberra Raiders,15,12,3.0,27.0,handicap,model,Canberra Raiders,-3.77,,,-2.5,-2.5,1.9,1.9,0.0,loss,market,11
+2026,15,2026-06-13,Parramatta Eels,Canberra Raiders,15,12,3.0,27.0,handicap,market,no_move,-3.77,,,,,,,,,market,11
+2026,15,2026-06-13,Parramatta Eels,Canberra Raiders,15,12,3.0,27.0,total,model,under,47.59,,,49.5,47.5,2.12,2.18,2.0,win,tie,11
+2026,15,2026-06-13,Parramatta Eels,Canberra Raiders,15,12,3.0,27.0,total,market,under,47.59,,,49.5,47.5,2.12,2.18,2.0,win,tie,11
+2026,15,2026-06-14,Wests Tigers,Gold Coast Titans,36,28,8.0,64.0,h2h,model,Wests Tigers,,1.54,2.851,,,1.31,1.55,-0.1548,win,model,11
+2026,15,2026-06-14,Wests Tigers,Gold Coast Titans,36,28,8.0,64.0,h2h,market,Gold Coast Titans,,1.54,2.851,,,3.35,2.45,0.3673,loss,model,11
+2026,15,2026-06-14,Wests Tigers,Gold Coast Titans,36,28,8.0,64.0,handicap,model,Gold Coast Titans,4.62,,,5.5,5.5,1.9,1.85,0.0,loss,market,11
+2026,15,2026-06-14,Wests Tigers,Gold Coast Titans,36,28,8.0,64.0,handicap,market,no_move,4.62,,,,,,,,,market,11
+2026,15,2026-06-14,Wests Tigers,Gold Coast Titans,36,28,8.0,64.0,total,model,under,47.42,,,50.5,47.5,2.18,2.14,3.0,loss,tie,11
+2026,15,2026-06-14,Wests Tigers,Gold Coast Titans,36,28,8.0,64.0,total,market,under,47.42,,,50.5,47.5,2.18,2.14,3.0,loss,tie,11

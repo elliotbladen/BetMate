@@ -18,8 +18,6 @@ pytest
 # Utilities
 python-dateutil  # Flexible date parsing for normalization
 pydantic         # Data validation at ingestion boundaries
-fastapi>=0.111   # Baz local context server
-uvicorn>=0.29    # Baz local context server runtime
 
 # Optional / future
 # psycopg2-binary  # PostgreSQL driver (when scaling beyond SQLite)

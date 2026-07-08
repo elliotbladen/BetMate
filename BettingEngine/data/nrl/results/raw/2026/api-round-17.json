@@ -1,7 +1,7 @@
 {
   "fixtures": [
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
       "matchMode": "Post",
@@ -66,7 +66,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
       "matchMode": "Post",
@@ -132,7 +132,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
       "matchMode": "Post",
@@ -199,7 +199,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
       "matchMode": "Post",
@@ -267,7 +267,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
       "matchMode": "Post",
@@ -336,7 +336,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
       "matchMode": "Post",
@@ -405,25 +405,24 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "GIO Stadium",
       "venueCity": "Canberra",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-17/raiders-v-dragons/",
       "callToAction": {
-        "accessibleText": "Team Lists for Raiders v Dragons",
-        "text": "Team Lists",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-17/raiders-v-dragons/#tab-team-lists",
-        "type": "TeamLists"
+        "accessibleText": "Highlights for Raiders v Dragons",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/06/28/nrl-telstra-premiership-2026-week-17-canberra-raiders-vs.-st.-george-illawarra-dragons/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500013,
         "nickName": "Raiders",
-        "odds": "1.33",
-        "teamPosition": "16th",
+        "score": 24,
         "theme": {
           "key": "raiders",
           "logos": {
@@ -444,8 +443,7 @@
       "awayTeam": {
         "teamId": 500022,
         "nickName": "Dragons",
-        "odds": "3.34",
-        "teamPosition": "17th",
+        "score": 16,
         "theme": {
           "key": "dragons",
           "logos": {
@@ -466,49 +464,34 @@
       },
       "clock": {
         "kickOffTimeLong": "2026-06-28T04:00:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Get Tickets for Raiders v Dragons",
-        "text": "Get Tickets",
-        "url": "https://premier.ticketek.com.au/shows/Show.aspx?sh=RAI1726&utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Latest for Raiders v Dragons",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-17/raiders-v-dragons/#tab-news-video",
+        "type": "MatchLatest"
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "McDonald Jones Stadium",
       "venueCity": "Newcastle",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-17/knights-v-wests-tigers/",
       "callToAction": {
-        "accessibleText": "Team Lists for Knights v Wests Tigers",
-        "text": "Team Lists",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-17/knights-v-wests-tigers/#tab-team-lists",
-        "type": "TeamLists"
+        "accessibleText": "Highlights for Knights v Wests Tigers",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/06/28/knights-v-wests-tigers---round-17-2026/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500003,
         "nickName": "Knights",
-        "odds": "1.35",
-        "teamPosition": "7th",
+        "score": 12,
         "theme": {
           "key": "knights",
           "logos": {
@@ -529,8 +512,7 @@
       "awayTeam": {
         "teamId": 500023,
         "nickName": "Wests Tigers",
-        "odds": "3.20",
-        "teamPosition": "11th",
+        "score": 6,
         "theme": {
           "key": "wests-tigers",
           "logos": {
@@ -549,45 +531,19 @@
       },
       "clock": {
         "kickOffTimeLong": "2026-06-28T06:05:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "NINE",
-          "name": "Nine Network",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-small.svg"
-        },
-        {
-          "id": "9NOW",
-          "name": "Nine Now",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-now.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        },
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Get Tickets for Knights v Wests Tigers",
-        "text": "Get Tickets",
-        "url": "https://www.ticketmaster.com.au/event/13006452998F6AFC?utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Latest for Knights v Wests Tigers",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-17/knights-v-wests-tigers/#tab-news-video",
+        "type": "MatchLatest"
       }
     }
   ],
   "byes": [
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 17",
       "type": "Bye",
       "teamNickName": "Sharks",

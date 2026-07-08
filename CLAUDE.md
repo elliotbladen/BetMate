@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-06-23 (R16 NRL + R15 AFL bets logged: 16 bets total (0092-0107). AFL R15 +$90.04 (6W 1L), NRL R16 -$54.25 (2W 3L incl 2 live bets), Soccer -$19.79 (1W 3L). CLV filed for 8 pre-game standard bets, avg +0.50%. 2 live bets identified (Tigers H2H @ 1.83 vs market 2.88, Under 67.5 Storm @ 2.05 vs market 50.5). 2 Pick Your Line bets (Adelaide -4.5, Geelong +33.5) no CLV. Historical xlsx refreshed: NRL 3541 rows (R16 included), AFL 3481 rows (R15 included). Pushed to Supabase — history tab current. Running CLV: NRL +4.99% (58 bets), AFL +0.77% (48 bets).)
+**Last updated:** 2026-07-03 (Built the market-event causal-tagging pipeline — see new section below. Also: AFL R17 fully re-priced 2026-07-02, T1–T7 + ML shadow + T9 matrix, writeup at `BettingEngine/outputs/results/r17_afl_pricing_2026.md`. Extensive model-vs-market backtesting this session: real production model (not naive ELO proxy) is at genuine parity with market on handicap accuracy once stale-model rounds are excluded (AFL R14-16: 11-10 closer, essentially tied avg error). The "model undercooks market at extreme ELO gaps" pattern does NOT indicate an exploitable market inefficiency — large-sample ATS backtest on the exact rules+ML-agree pattern went 4-8 (33%) for AFL. Do not bet big rules/ML-vs-market disagreements. NRL same window showed a genuine 60% ATS cover rate (21-14) — worth continued tracking, not yet proven at scale. Running CLV: NRL +4.99% (58 bets), AFL +0.77% (48 bets).)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
@@ -200,6 +200,35 @@ cd C:\Users\ElliotBladen\Apps
 & C:\Users\ElliotBladen\.local\bin\uv.exe run --with requests python scripts/seed_test_baseline.py
 ```
 
+### Market Event Causal-Tagging Pipeline — BUILT 2026-07-03
+**Why:** The odds movement system above tells you a line moved, not why. This pipeline is the first step toward a line-movement prediction engine (bet early/late based on which way a line will move) — it links price moves to the news events that plausibly caused them, building a labelled dataset over time.
+
+**Three scripts, in order:**
+1. `scripts/build_market_event_log.py --season 2026` — scans dated archives from the injury scrapers (`data/{sport}/injuries/processed/{season}/round-*-injuries.json`), emotional-flag scrapers (`round-*.json`), and team-news archive (see below) → writes `data/market_events/{season}_events.csv` (timestamp, sport, event_type, team, player, detail).
+2. `scripts/compute_snapshot_deltas.py --season 2026` — reads every raw snapshot in `data/odds_snapshots/{season}/*.csv` and computes **every consecutive snapshot-to-snapshot delta** per (sport, game_id, bookmaker, market, outcome) series — not just "now vs Monday baseline" like the movement tracker above. Writes `data/odds_movements/deltas/{season}_deltas.csv`.
+3. `scripts/tag_odds_movements.py --season 2026` — joins deltas (≥3% change, filters exchange lay bad-ticks >300%) against the event log: does a same-sport, same-team event fall inside the delta's time window? Writes `data/odds_movements/tagged/{season}_tagged.csv` with a `drivers` column (or `unexplained`).
+
+**Current state (first backfill, 2026-07-03):** 5154 significant moves found season-to-date, only ~10% get a driver tag. That's expected and honest — most of what we scrape is injuries; we don't yet tag weather updates, public-betting-% shifts, or sharp-money signals, and our snapshot cadence (3x/day) means windows can span many hours early in the season. The 90% "unexplained" bucket is exactly what a real line-movement model would need to explain via other means (momentum/steam-following, scheduled-news timing) — this pipeline's job is to shrink that bucket over time, not solve it in one pass.
+
+**Team-news archiving added:** `scripts/update_team_news_injuries.py` previously only wrote `latest.json` (overwritten every run, no history). Now also writes a dated copy to `data/{sport}/team-news/archive/{season}/r{round}_{timestamp}.json` so future team-news updates feed the event log too. No backfill possible for past weeks — this starts building history from now.
+
+**Reactive snapshots — 7 new scheduled tasks (2026-07-03), ~10min after each causal-driver scraper**, so future weeks get tight before/after windows instead of relying on the flat 09:00/12:00/17:40 cadence:
+| Task | Fires |
+|------|-------|
+| BetMate Odds Snapshot - React NRL Injuries | Tue 10:10 (10min after NRL Injuries Fetch) |
+| BetMate Odds Snapshot - React NRL Team News | Tue 10:40 |
+| BetMate Odds Snapshot - React AFL Injuries | Tue 11:40 |
+| BetMate Odds Snapshot - React Emotional Flags | Tue 16:30 (covers both NRL+AFL, both fire 16:20) |
+| BetMate Odds Snapshot - React NRL Referees | Wed 14:10 |
+| BetMate Odds Snapshot - React NRL Weekend Injuries | Mon 07:40 |
+| BetMate Odds Snapshot - React AFL Weekend Injuries | Mon 08:10 |
+
+All just call the existing `run_odds_snapshot_cycle.ps1` — safe to run anytime, purely additive.
+
+**Weekly rebuild:** `BetMate Market Event Pipeline` task, Thursday 08:00 — runs all 3 scripts above via `scripts/run_market_event_pipeline.ps1`.
+
+**Reality check on timeline:** this is instrumentation, not a finished predictive engine. AFL+NRL combined is ~350-400 games/season with multiple distinct movement mechanisms (news-driven, weather, pure money flow) — expect this needs a full season of properly-tagged data before there's enough to train anything trustworthy, not just "wait until October."
+
 ### Cloudflare Tunnel — LIVE ✅
 - Tunnel: `betmate-baz` (ID: `ce4bfb19-82f6-4ffe-af06-e2c65636a323`)
 - DNS: `baz.betmate.au` → Cloudflare IPs → `localhost:8765` ✅
@@ -355,6 +384,7 @@ Only take a handicap, H2H, or totals bet if **both** the rules model AND the ML 
 - Reason: CLV analysis showed AFL handicap at -2.41% avg. Several misses involved rules/ML disagreement.
 
 ### Pending Work
+- **Market event pipeline check-in — due 2026-07-24:** scheduled task "BetMate Market Event Pipeline Checkin" fires that day and writes a report to `data/market_events/checkins/2026-07-24.md` (also Windows toast notification). Review: has the ~90% unexplained rate shrunk, have snapshot windows tightened since reactive snapshots went live, are all 7 reactive tasks + weekly rebuild actually firing. Run `uv run python scripts/check_market_event_pipeline.py` manually any time for a fresh read. See handover `2026-07-03_market-event-tagging-pipeline.md`.
 - ~~**T10 Origin Layer**~~ ✅ **LIVE 2026-06-09** — `BettingEngine/pricing/tier10_origin.py` + `data/nrl/origin/2026.json`. Auto-detects Origin camp windows, applies same formula as T5. G1 squad fully populated. G2 (Jun 17, camp Jun 12) + G3 (Jul 8, camp Jul 3) squads need populating before those rounds. DB migration 024 applied. See handover `2026-06-09_t10-origin-layer.md`.
 - **Custom domain betmate.au:** DNS resolving ✅, SSL cert provisioning. `www.betmate.au` CNAME still points to wrong site — needs updating in Cloudflare + Vercel domain added
 - **EV signals on Vercel:** wire via Cloudflare Tunnel once domain + tunnel ready

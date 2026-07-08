@@ -42,10 +42,10 @@ HALFTIME_DIR = BETMATE_ROOT / "data" / "nrl" / "halfTime"
 
 # ── Model constants ────────────────────────────────────────────────────────────
 # How much the pre-game prior survives at half time (1.0 = ignore HT score, 0.0 = fully trust HT)
-# Applied to the H2 projection only — H1 points are already locked in and banked.
-# NRL is continuous, high-contact rugby league (similar to AFL): at halftime the score state
-# is highly informative. Lowered from 0.55 → 0.25 (75% weight to H1 evidence, 25% pre-game).
-REGRESSION_FACTOR = 0.25
+# Swartz et al. (2022, Annals of Applied Statistics) — NRL in-game win probability paper:
+# at halftime (50% elapsed), pre-game prior retains ~50-60% weight. Using 0.55 (55% pre-game).
+# Previously 0.50 — nudged up slightly as pre-game model is strong (63% accuracy, 13.7pt MAE).
+REGRESSION_FACTOR = 0.55
 
 # Average NRL second-half total (points scored by both teams in 40 min)
 # Research: avg total/game 2022-2025 = 43-47 pts. H2 scores slightly more than H1 due to
@@ -98,12 +98,6 @@ RESTART_H2_DEFLATION = 0.36   # how much of H1 restart advantage disappears in H
 # Capping the conversion adjustment to avoid noise from small samples (1-2 kicks).
 # Max adjustment = 2 pts (1 missed conversion) — beyond that it's noise.
 CONVERSION_ADJ_CAP = 2.0
-
-# Run metres — dominance in ball-in-play metres predicts H2 scoring momentum
-# Research: run metres per game ~1100-1300 total; difference >200m strongly correlates
-# with territory control and subsequent scoring. ~0.012 pts per metre diff, capped at 12 pts.
-PTS_PER_RUN_METRES_DIFF = 0.012
-RUN_METRES_ADJ_CAP = 12.0
 
 # Simulation runs for win probability calculation
 SIM_RUNS = 20_000
@@ -256,7 +250,6 @@ class HalfTimePricing:
     error_adjustment: float        # points added to expected margin
     conversion_adjustment: float   # points from missed conversion luck
     restart_adjustment: float      # removes first-half restart inflation
-    run_metres_adjustment: float   # run metres dominance → H2 scoring momentum
 
     # Output
     ht_expected_margin: float      # positive = home expected to win
@@ -306,14 +299,11 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricing:
         print("WARNING: No pre-game pricing found. Using neutral priors.")
 
     # ── Bayesian update: expected final margin ─────────────────────────────────
-    # H1 points are locked in — only the H2 is uncertain. Project H2 margin and bank H1.
-    # Pre-game handicap is a full-game estimate; halve it for H2 prior.
-    pg_h2_hcap = pg_hcap / 2
-    expected_h2_margin = (
-        ht_margin   * (1 - REGRESSION_FACTOR) +
-        pg_h2_hcap  * REGRESSION_FACTOR
+    # Weighted blend of HT evidence and pre-game prior
+    expected_final_margin = (
+        ht_margin * (1 - REGRESSION_FACTOR) +
+        pg_hcap   * REGRESSION_FACTOR
     )
-    expected_final_margin = ht_margin + expected_h2_margin
 
     # ── Error adjustment ───────────────────────────────────────────────────────
     home_errors = stats.get("home_errors", 0)
@@ -346,18 +336,8 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricing:
     conversion_adj = away_conv_luck - home_conv_luck  # net adj in home team's favour
     conversion_adj = max(-CONVERSION_ADJ_CAP, min(CONVERSION_ADJ_CAP, conversion_adj))
 
-    # ── Run metres adjustment ───────────────────────────────────────────────────
-    home_run_metres = stats.get("home_run_metres", 0) or 0
-    away_run_metres = stats.get("away_run_metres", 0) or 0
-    if home_run_metres > 0 or away_run_metres > 0:
-        run_metres_diff = home_run_metres - away_run_metres
-        run_metres_adj = run_metres_diff * PTS_PER_RUN_METRES_DIFF
-        run_metres_adj = max(-RUN_METRES_ADJ_CAP, min(RUN_METRES_ADJ_CAP, run_metres_adj))
-    else:
-        run_metres_adj = 0.0
-
     # ── Combined expected margin ───────────────────────────────────────────────
-    total_adj = error_adj + restart_adj + conversion_adj + run_metres_adj
+    total_adj = error_adj + restart_adj + conversion_adj
     ht_expected_margin = expected_final_margin + total_adj
 
     # ── Second half total estimate ─────────────────────────────────────────────
@@ -416,10 +396,6 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricing:
         unlucky = home if conversion_adj > 0 else away
         notes.append(f"Conversion luck adj {conversion_adj:+.1f} pts ({unlucky} missed conversions)")
 
-    if abs(run_metres_adj) >= 2:
-        dominant = home if run_metres_adj > 0 else away
-        notes.append(f"Run metres adj {run_metres_adj:+.1f} pts ({dominant} dominating territory, diff={home_run_metres - away_run_metres:+d}m)")
-
     if adj_magnitude >= 6:
         strength = "strong"
     elif adj_magnitude >= 3:
@@ -454,7 +430,6 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricing:
         error_adjustment=round(error_adj, 2),
         conversion_adjustment=round(conversion_adj, 2),
         restart_adjustment=round(restart_adj, 2),
-        run_metres_adjustment=round(run_metres_adj, 2),
         ht_expected_margin=round(ht_expected_margin, 2),
         ht_expected_total=ht_expected_total_final,
         ht_home_win_prob=home_win_prob,
@@ -484,7 +459,6 @@ def print_pricing(p: HalfTimePricing) -> None:
     print(f"  Error adj:         {p.error_adjustment:+.1f}")
     print(f"  Conversion adj:    {p.conversion_adjustment:+.1f}")
     print(f"  Restart adj:       {p.restart_adjustment:+.1f}")
-    print(f"  Run metres adj:    {p.run_metres_adjustment:+.1f}")
     print(f"\n  --- Updated Prices ---")
     print(f"  Expected final margin: {p.ht_expected_margin:+.1f} (home)")
     print(f"  Win prob:         {p.home_team} {p.ht_home_win_prob:.1%} / {p.away_team} {p.ht_away_win_prob:.1%}")

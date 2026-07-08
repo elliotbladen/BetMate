@@ -1,0 +1,82 @@
+season,round,date,home_team,away_team,home_score,away_score,actual_margin_home,actual_total,market,signal,selection,model_number,model_home_fair_odds,model_away_fair_odds,open_number,close_number,open_odds,close_odds,clv,result,winner,bookmakers_surveyed
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,h2h,normal,Hawthorn Hawks,,2.272,1.786,,,1.4,1.23,0.1382,push,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,h2h,ml,Collingwood Magpies,,1.144,7.968,,,2.8,4.2,-0.3333,push,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,h2h,market,Hawthorn Hawks,,,,,,1.4,1.23,0.1382,push,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,handicap,normal,Collingwood Magpies,-5.4,,,21.5,27.5,1.9,1.9,-6.0,win,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,handicap,ml,Collingwood Magpies,5.3,,,21.5,27.5,1.9,1.9,-6.0,win,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,handicap,market,Hawthorn Hawks,,,,-21.5,-27.5,1.9,1.9,6.0,loss,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,total,normal,under,175.2,,,178.5,175.5,1.9,1.8,3.0,loss,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,total,ml,under,172.4,,,178.5,175.5,1.9,1.8,3.0,loss,tie,9
+2026,8,2026-04-30,Collingwood Magpies,Hawthorn Hawks,93,93,0.0,186.0,total,market,under,,,,178.5,175.5,1.9,1.8,3.0,loss,tie,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,h2h,normal,Western Bulldogs,,1.667,2.5,,,2.9,3.15,-0.0794,loss,market,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,h2h,ml,Western Bulldogs,,1.456,3.192,,,2.9,3.15,-0.0794,loss,market,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,h2h,market,Fremantle Dockers,,,,,,1.38,1.36,0.0147,win,market,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,handicap,normal,Western Bulldogs,9.1,,,20.5,19.5,1.9,1.9,1.0,win,tie,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,handicap,ml,Western Bulldogs,-5.8,,,20.5,19.5,1.9,1.9,1.0,win,tie,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,handicap,market,Western Bulldogs,,,,20.5,19.5,1.9,1.9,1.0,win,tie,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,total,normal,under,172.4,,,184.5,184.5,1.87,1.9,0.0,loss,market,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,total,ml,under,166.5,,,184.5,184.5,1.87,1.9,0.0,loss,market,9
+2026,8,2026-05-01,Western Bulldogs,Fremantle Dockers,102,114,-12.0,216.0,total,market,no_move,,,,184.5,184.5,,,,,market,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,h2h,normal,Adelaide Crows,,1.065,16.42,,,1.36,1.58,-0.1392,win,tie,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,h2h,ml,Adelaide Crows,,1.176,6.667,,,1.36,1.58,-0.1392,win,tie,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,h2h,market,Port Adelaide Power,,,,,,3.0,2.4,0.25,loss,tie,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,handicap,normal,Adelaide Crows,55.7,,,-11.5,-8.5,1.9,1.95,-3.0,loss,market,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,handicap,ml,Adelaide Crows,47.3,,,-11.5,-8.5,1.9,1.95,-3.0,loss,market,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,handicap,market,Port Adelaide Power,,,,11.5,8.5,1.9,1.85,3.0,win,market,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,total,normal,under,168.0,,,177.5,175.5,1.87,1.9,2.0,win,tie,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,total,ml,under,164.1,,,177.5,175.5,1.87,1.9,2.0,win,tie,9
+2026,8,2026-05-01,Adelaide Crows,Port Adelaide Power,76,75,1.0,151.0,total,market,under,,,,177.5,175.5,1.87,1.9,2.0,win,tie,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,h2h,normal,Brisbane Lions,,9.066,1.124,,,1.18,1.07,0.1028,win,tie,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,h2h,ml,Essendon Bombers,,1.934,2.07,,,4.5,8.5,-0.4706,loss,tie,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,h2h,market,Brisbane Lions,,,,,,1.18,1.07,0.1028,win,tie,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,handicap,normal,Essendon Bombers,-44.1,,,44.5,47.5,1.9,1.9,-3.0,loss,market,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,handicap,ml,Essendon Bombers,-14.5,,,44.5,47.5,1.9,1.9,-3.0,loss,market,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,handicap,market,Brisbane Lions,,,,-44.5,-47.5,1.9,1.9,3.0,win,market,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,total,normal,under,178.8,,,183.5,191.5,1.87,1.8,-8.0,loss,market,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,total,ml,under,161.8,,,183.5,191.5,1.87,1.8,-8.0,loss,market,9
+2026,8,2026-05-02,Essendon Bombers,Brisbane Lions,79,143,-64.0,222.0,total,market,over,,,,183.5,191.5,1.87,2.0,8.0,win,market,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,h2h,normal,West Coast Eagles,,1.41,3.44,,,1.4,1.37,0.0219,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,h2h,ml,West Coast Eagles,,1.287,4.482,,,1.4,1.37,0.0219,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,h2h,market,West Coast Eagles,,,,,,1.4,1.37,0.0219,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,handicap,normal,West Coast Eagles,19.9,,,-15.5,-19.5,1.9,1.9,4.0,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,handicap,ml,West Coast Eagles,22.0,,,-15.5,-19.5,1.9,1.9,4.0,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,handicap,market,West Coast Eagles,,,,-15.5,-19.5,1.9,1.9,4.0,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,total,normal,under,136.9,,,185.5,183.5,1.87,1.8,2.0,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,total,ml,under,167.8,,,185.5,183.5,1.87,1.8,2.0,loss,tie,9
+2026,8,2026-05-02,West Coast Eagles,Richmond Tigers,88,99,-11.0,187.0,total,market,under,,,,185.5,183.5,1.87,1.8,2.0,loss,tie,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,h2h,normal,Geelong Cats,,1.044,23.923,,,1.22,1.23,-0.0081,win,tie,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,h2h,ml,Geelong Cats,,1.225,5.453,,,1.22,1.23,-0.0081,win,tie,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,h2h,market,North Melbourne Kangaroos,,,,,,4.25,4.2,0.0119,loss,tie,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,handicap,normal,Geelong Cats,62.3,,,-27.5,-27.5,1.9,1.9,0.0,win,tie,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,handicap,ml,Geelong Cats,41.5,,,-27.5,-27.5,1.9,1.9,0.0,win,tie,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,handicap,market,no_move,,,,,,,,,,tie,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,total,normal,under,188.2,,,190.5,216.5,1.87,1.16,-26.0,loss,market,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,total,ml,under,158.2,,,190.5,216.5,1.87,1.16,-26.0,loss,market,9
+2026,8,2026-05-02,Geelong Cats,North Melbourne Kangaroos,135,86,49.0,221.0,total,market,over,,,,190.5,216.5,1.87,4.75,26.0,win,market,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,h2h,normal,Carlton Blues,,1.754,2.326,,,2.5,2.45,0.0204,loss,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,h2h,ml,Carlton Blues,,1.322,4.108,,,2.5,2.45,0.0204,loss,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,h2h,market,Carlton Blues,,,,,,2.5,2.45,0.0204,loss,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,handicap,normal,Carlton Blues,6.4,,,13.5,10.5,1.9,1.85,3.0,loss,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,handicap,ml,Carlton Blues,0.9,,,13.5,10.5,1.9,1.85,3.0,loss,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,handicap,market,Carlton Blues,,,,13.5,10.5,1.9,1.85,3.0,loss,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,total,normal,under,170.9,,,180.5,183.5,1.87,1.85,-3.0,win,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,total,ml,under,154.2,,,180.5,183.5,1.87,1.85,-3.0,win,tie,9
+2026,8,2026-05-02,Carlton Blues,St Kilda Saints,69,108,-39.0,177.0,total,market,over,,,,180.5,183.5,1.87,1.95,3.0,loss,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,h2h,normal,Sydney Swans,,1.061,17.452,,,1.17,1.12,0.0446,win,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,h2h,ml,Sydney Swans,,1.135,8.396,,,1.17,1.12,0.0446,win,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,h2h,market,Sydney Swans,,,,,,1.17,1.12,0.0446,win,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,handicap,normal,Sydney Swans,56.8,,,-31.5,-37.5,1.9,1.9,6.0,loss,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,handicap,ml,Sydney Swans,38.8,,,-31.5,-37.5,1.9,1.9,6.0,loss,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,handicap,market,Sydney Swans,,,,-31.5,-37.5,1.9,1.9,6.0,loss,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,total,normal,over,203.2,,,186.5,190.5,1.87,1.8,4.0,win,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,total,ml,under,170.1,,,186.5,190.5,1.87,2.0,-4.0,loss,tie,9
+2026,8,2026-05-03,Sydney Swans,Melbourne Demons,131,114,17.0,245.0,total,market,over,,,,186.5,190.5,1.87,1.8,4.0,win,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,h2h,normal,Gold Coast Suns,,1.433,3.309,,,1.34,1.57,-0.1465,win,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,h2h,ml,Gold Coast Suns,,1.282,4.55,,,1.34,1.57,-0.1465,win,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,h2h,market,Greater Western Sydney Giants,,,,,,3.25,2.4,0.3542,loss,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,handicap,normal,Greater Western Sydney Giants,18.6,,,20.5,9.5,1.9,1.9,11.0,win,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,handicap,ml,Gold Coast Suns,26.5,,,-20.5,-9.5,1.9,1.9,-11.0,loss,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,handicap,market,Greater Western Sydney Giants,,,,20.5,9.5,1.9,1.9,11.0,win,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,total,normal,under,173.4,,,187.5,185.5,1.87,1.9,2.0,win,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,total,ml,under,146.6,,,187.5,185.5,1.87,1.9,2.0,win,tie,9
+2026,8,2026-05-03,Gold Coast Suns,Greater Western Sydney Giants,83,63,20.0,146.0,total,market,under,,,,187.5,185.5,1.87,1.9,2.0,win,tie,9

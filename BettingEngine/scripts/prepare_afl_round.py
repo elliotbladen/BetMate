@@ -37,7 +37,7 @@ from pricing.afl_tier3_situational import compute_t3
 from pricing.afl_tier4_venue import compute_t4
 from pricing.afl_tier5_injury import compute_t5
 from pricing.afl_tier6_emotional import compute_t6
-from pricing.afl_tier7_weather import compute_t7
+from pricing.afl_tier7_weather import compute_t7, effective_afl_wind_kmh
 
 import numpy as np
 import pandas as pd
@@ -100,6 +100,17 @@ FIXTURE = {
         ('Port Adelaide Power',           'Sydney Swans',                  'Adelaide Oval',          '2026-06-13'),
         ('Richmond Tigers',               'Brisbane Lions',                'Ninja Stadium',          '2026-06-14'),
         ('St Kilda Saints',               'Greater Western Sydney Giants', 'Marvel Stadium',         '2026-06-14'),
+    ],
+    16: [
+        # Byes: Geelong Cats, Melbourne Demons, St Kilda Saints, Western Bulldogs
+        # Sources: The Odds API + AFL 2026 schedule
+        ('Brisbane Lions',                'Sydney Swans',                  'The Gabba',              '2026-06-26'),
+        ('Hawthorn Hawks',                'Greater Western Sydney Giants', 'MCG',                    '2026-06-27'),
+        ('Carlton Blues',                 'West Coast Eagles',             'Marvel Stadium',         '2026-06-27'),
+        ('Collingwood Magpies',           'Richmond Tigers',               'MCG',                    '2026-06-28'),
+        ('Port Adelaide Power',           'Adelaide Crows',                'Adelaide Oval',          '2026-06-28'),
+        ('North Melbourne Kangaroos',     'Essendon Bombers',              'Marvel Stadium',         '2026-06-29'),
+        ('Fremantle Dockers',             'Gold Coast Suns',               'Optus Stadium',          '2026-06-29'),
     ],
 }
 
@@ -482,6 +493,209 @@ INJURIES = {
             {'player': 'Tom Liberatore',         'position': 'midfielder',   'quality': 'good'},    # concussion — TBC
         ],
     },
+    15: {
+        # Sources: ESPN R15 ins/outs, portadelaidefc.com.au, AFL.com.au
+        # MANUAL TIER UPDATE 2026-06-18: Added Stewart (elite), Moore (elite),
+        #   Viney (elite), Dawson (elite), Walker (susp), Lynch + others.
+        # Byes: Brisbane, Sydney, Essendon, West Coast
+        'Adelaide Crows': [
+            {'player': 'Jordan Dawson',          'position': 'midfielder',   'quality': 'elite'},   # personal tragedy -- brother died, ruled out R15
+            {'player': 'Taylor Walker',          'position': 'key_forward',  'quality': 'good'},    # suspended -- out R15
+            {'player': 'Luke Pedlar',            'position': 'midfielder',   'quality': 'good'},    # hamstring -- out R15
+            {'player': 'Jordon Butts',           'position': 'key_defender', 'quality': 'average'}, # leg/calf -- out 2-3w
+            {'player': 'Tyler Welsh',            'position': 'midfielder',   'quality': 'average'}, # hamstring -- out
+        ],
+        'Carlton Blues': [
+            {'player': 'Jesse Motlop',           'position': 'winger',       'quality': 'good'},    # knee -- season
+            {'player': "Harry O'Farrell",        'position': 'key_defender', 'quality': 'average'}, # knee -- out TBC
+            {'player': 'Matt Carroll',           'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Rob Monahan',            'position': 'ruck',         'quality': 'average'}, # shoulder -- season
+        ],
+        'Collingwood Magpies': [
+            {'player': 'Darcy Moore',            'position': 'key_defender', 'quality': 'elite'},   # hamstring -- out TBC (spine of defence)
+            {'player': 'Brayden Maynard',        'position': 'key_defender', 'quality': 'elite'},   # shoulder -- likely miss R15
+            {'player': 'Jamie Elliott',          'position': 'key_forward',  'quality': 'good'},    # knee -- season
+        ],
+        'Fremantle Dockers': [
+            {'player': 'Brandon Walker',         'position': 'winger',       'quality': 'average'}, # head -- out TBC
+            {'player': 'Sam Sturt',              'position': 'winger',       'quality': 'average'}, # knee -- out 2-3w
+        ],
+        'Geelong Cats': [
+            {'player': 'Thomas Stewart',         'position': 'key_defender', 'quality': 'elite'},   # head -- out TBC (captain, best defender)
+            {'player': 'Toby Conway',            'position': 'ruck',         'quality': 'good'},    # foot -- out TBC (#1 ruck)
+            {'player': 'Tyson Stengle',          'position': 'winger',       'quality': 'good'},    # general -- ongoing
+            {'player': 'Harley Barker',          'position': 'key_defender', 'quality': 'average'}, # knee -- indefinite
+        ],
+        'Gold Coast Suns': [
+            {'player': 'Jy Farrar',              'position': 'midfielder',   'quality': 'good'},    # ankle -- 6+ weeks
+            {'player': 'Alex Davies',            'position': 'key_forward',  'quality': 'average'}, # foot -- ongoing
+        ],
+        'Greater Western Sydney Giants': [
+            {'player': 'Tom Green',              'position': 'midfielder',   'quality': 'elite'},   # ACL -- season
+            {'player': 'Josh Kelly',             'position': 'midfielder',   'quality': 'good'},    # hip -- out TBC
+            {'player': 'Stephen Coniglio',       'position': 'midfielder',   'quality': 'good'},    # hamstring -- out 2-3w
+            {'player': 'Logan Smith',            'position': 'key_defender', 'quality': 'average'}, # knee -- out TBC
+        ],
+        'Hawthorn Hawks': [
+            {'player': 'Tom Barrass',            'position': 'key_defender', 'quality': 'good'},    # hamstring -- fitness test (likely miss)
+            {'player': 'Conor Nash',             'position': 'midfielder',   'quality': 'good'},    # knee -- no firm timeline
+            {'player': 'Jack Scrimshaw',         'position': 'key_defender', 'quality': 'average'}, # knee -- no firm timeline
+            {'player': 'Max Beattie',            'position': 'key_defender', 'quality': 'average'}, # ankle -- out TBC
+        ],
+        'Melbourne Demons': [
+            {'player': 'Jack Viney',             'position': 'midfielder',   'quality': 'elite'},   # leg/calf -- out TBC
+            {'player': 'Christian Salem',        'position': 'key_defender', 'quality': 'good'},    # foot -- ongoing
+            {'player': 'Brody Mihocek',          'position': 'key_forward',  'quality': 'average'}, # neck -- out TBC
+        ],
+        'North Melbourne Kangaroos': [
+            {'player': 'Callum Coleman-Jones',   'position': 'ruck',         'quality': 'good'},    # head -- TBC
+            {'player': 'Jackson Archer',         'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Luke Urquhart',          'position': 'key_defender', 'quality': 'average'}, # knee -- out TBC
+            {'player': 'Tom Powell',             'position': 'midfielder',   'quality': 'average'}, # hip/groin -- out 2-3w
+        ],
+        'Port Adelaide Power': [
+            {'player': 'Connor Rozee',           'position': 'midfielder',   'quality': 'elite'},   # hamstring/nerve -- season
+            {'player': 'Sam Powell-Pepper',      'position': 'midfielder',   'quality': 'good'},    # knee -- nearing return TBC
+            {'player': 'Jack Lukosius',          'position': 'key_forward',  'quality': 'good'},    # hip -- TBC
+        ],
+        'Richmond Tigers': [
+            {'player': 'Tom Lynch',              'position': 'key_forward',  'quality': 'good'},    # throat -- out TBC
+            {'player': 'Josh Gibcus',            'position': 'key_defender', 'quality': 'good'},    # knee -- season
+            {'player': 'Sam Lalor',              'position': 'small_forward','quality': 'good'},    # Achilles -- out R15
+            {'player': 'Hugo Ralphsmith',        'position': 'midfielder',   'quality': 'average'}, # suspended -- out R15
+            {'player': 'Toby Nankervis',         'position': 'ruck',         'quality': 'good'},    # hamstring -- doubtful
+        ],
+        'St Kilda Saints': [
+            {'player': 'Hunter Clark',           'position': 'midfielder',   'quality': 'good'},    # jaw -- out R15
+            {'player': 'Dougal Howard',          'position': 'key_defender', 'quality': 'good'},    # leg/calf -- out 3-5w
+            {'player': 'Sam Flanders',           'position': 'winger',       'quality': 'good'},    # leg/calf -- season
+        ],
+        'Western Bulldogs': [
+            {'player': 'Sam Darcy',              'position': 'ruck',         'quality': 'elite'},   # ACL -- season
+            {'player': 'Bailey Williams',        'position': 'key_defender', 'quality': 'good'},    # hamstring -- ongoing
+            {'player': 'Thomas Liberatore',      'position': 'midfielder',   'quality': 'good'},    # knee -- out TBC
+            {'player': 'Lachlan McNeil',         'position': 'winger',       'quality': 'good'},    # head -- out TBC
+            {'player': 'Riley Garcia',           'position': 'key_defender', 'quality': 'average'}, # knee -- out 4-6w
+        ],
+    },
+    16: {
+        # Sources: AFL weekend injuries scraper 2026-06-22. Byes: Geelong, Melbourne, StKilda, Bulldogs.
+        'Brisbane Lions': [
+            {'player': 'Hugh McCluggage',        'position': 'midfielder',   'quality': 'good'},    # quad -- out 3w
+            {'player': 'Dayne Zorko',            'position': 'midfielder',   'quality': 'good'},    # quad -- out 3w
+            {'player': 'Oscar Allen',            'position': 'key_forward',  'quality': 'good'},    # foot -- out 4-5w
+            {'player': 'Lincoln McCarthy',       'position': 'small_forward','quality': 'good'},    # leg/calf -- out 2-3w
+            {'player': 'Keidean Coleman',        'position': 'winger',       'quality': 'good'},    # hamstring -- out 3w
+            {'player': 'Tom Doedee',             'position': 'key_defender', 'quality': 'good'},    # leg/calf -- out 3-4w
+            {'player': 'Will McLachlan',         'position': 'midfielder',   'quality': 'average'}, # quad -- out 6-8w
+            {'player': 'Jack Payne',             'position': 'midfielder',   'quality': 'average'}, # knee -- out TBC
+            {'player': 'Tai Hayes',              'position': 'midfielder',   'quality': 'average'}, # leg/calf -- out 2w
+        ],
+        'Sydney Swans': [
+            {'player': 'Tom Papley',             'position': 'key_forward',  'quality': 'good'},    # leg/calf -- out 2-3w
+            {'player': 'Taylor Adams',           'position': 'midfielder',   'quality': 'good'},    # hamstring -- out TBC
+            {'player': 'Braeden Campbell',       'position': 'midfielder',   'quality': 'good'},    # leg/calf -- out 3-4w
+            {'player': 'Tom McCartin',           'position': 'key_defender', 'quality': 'good'},    # head -- out TBC
+            {'player': 'Justin McInerney',       'position': 'winger',       'quality': 'average'}, # hamstring -- out 7-9w
+            {'player': 'Noah Chamberlain',       'position': 'key_defender', 'quality': 'average'}, # hamstring -- out TBC
+            {'player': 'Liam Hetherton',         'position': 'midfielder',   'quality': 'average'}, # back -- season
+            {'player': 'Riak Andrew',            'position': 'midfielder',   'quality': 'average'}, # quad -- out 4-5w
+            {'player': 'Tom Hanily',             'position': 'midfielder',   'quality': 'average'}, # head -- out TBC
+        ],
+        'Hawthorn Hawks': [
+            {'player': 'Conor Nash',             'position': 'midfielder',   'quality': 'good'},    # neck -- out TBC
+            {'player': 'Max Beattie',            'position': 'key_defender', 'quality': 'average'}, # ankle -- out 4-6w
+        ],
+        'Greater Western Sydney Giants': [
+            {'player': 'Tom Green',              'position': 'midfielder',   'quality': 'elite'},   # ACL -- season (carry forward every round)
+            {'player': 'Josh Kelly',             'position': 'midfielder',   'quality': 'good'},    # hip/groin -- out TBC
+            {'player': 'Jake Riccardi',          'position': 'key_forward',  'quality': 'good'},    # ankle -- out 6-7w
+            {'player': "Xavier O'Halloran",      'position': 'winger',       'quality': 'good'},    # ankle -- out 3-4w
+            {'player': 'Jack Buckley',           'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 2-3w
+            {'player': 'Oliver Hannaford',       'position': 'key_defender', 'quality': 'average'}, # foot -- out 4-6w
+            {'player': 'Darcy Jones',            'position': 'midfielder',   'quality': 'average'}, # knee -- out 3-4w
+            {'player': 'Nick Madden',            'position': 'ruck',         'quality': 'average'}, # knee -- out 3-4w
+            {'player': 'Nathan Wardius',         'position': 'key_forward',  'quality': 'average'}, # knee -- out TBC
+            {'player': 'Max Gruzewski',          'position': 'midfielder',   'quality': 'average'}, # hand -- out 2-3w
+            {'player': 'Logan Smith',            'position': 'key_defender', 'quality': 'average'}, # knee -- out TBC
+        ],
+        'Carlton Blues': [
+            {'player': 'Jesse Motlop',           'position': 'winger',       'quality': 'good'},    # knee -- season
+            {'player': "Harry O'Farrell",        'position': 'key_defender', 'quality': 'average'}, # knee -- out TBC
+            {'player': 'Matt Carroll',           'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Rob Monahan',            'position': 'ruck',         'quality': 'average'}, # shoulder -- season
+            {'player': 'Ben Camporeale',         'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 2-3w
+        ],
+        'West Coast Eagles': [
+            {'player': 'Jamie Cripps',           'position': 'winger',       'quality': 'good'},    # knee -- out TBC
+            {'player': 'Reuben Ginbey',          'position': 'midfielder',   'quality': 'good'},    # quad -- out TBC
+            {'player': 'Harry Edwards',          'position': 'key_defender', 'quality': 'average'}, # head -- out TBC
+            {'player': 'Sam Allen',              'position': 'key_defender', 'quality': 'average'}, # hamstring -- out 8-9w
+            {'player': 'Deven Robertson',        'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Hamish Davis',           'position': 'midfielder',   'quality': 'average'}, # head -- out TBC
+            {'player': 'Jacob Newton',           'position': 'midfielder',   'quality': 'average'}, # foot -- season
+            {'player': 'Noah Long',              'position': 'midfielder',   'quality': 'average'}, # knee -- season
+        ],
+        'Collingwood Magpies': [
+            {'player': 'Darcy Moore',            'position': 'key_defender', 'quality': 'elite'},   # hamstring -- out TBC (spine of defence)
+            {'player': 'Brayden Maynard',        'position': 'key_defender', 'quality': 'elite'},   # shoulder -- out TBC (captain)
+            {'player': 'Jamie Elliott',          'position': 'key_forward',  'quality': 'good'},    # knee -- season
+            {'player': 'Noah Howes',             'position': 'midfielder',   'quality': 'average'}, # shoulder -- out 2w
+            {'player': 'Oscar Steene',           'position': 'midfielder',   'quality': 'average'}, # knee -- season
+            {'player': 'Reef McInnes',           'position': 'midfielder',   'quality': 'average'}, # knee -- season
+        ],
+        'Richmond Tigers': [
+            {'player': 'Tom Lynch',              'position': 'key_forward',  'quality': 'good'},    # throat -- out 2w
+            {'player': 'Josh Gibcus',            'position': 'key_defender', 'quality': 'good'},    # knee -- season
+            {'player': 'Jonty Faull',            'position': 'key_forward',  'quality': 'average'}, # back -- season
+            {'player': 'Jack Ross',              'position': 'midfielder',   'quality': 'average'}, # head -- out TBC
+            {'player': 'Thomas Sims',            'position': 'midfielder',   'quality': 'average'}, # knee -- out 3-5w
+            {'player': 'Hugo Ralphsmith',        'position': 'winger',       'quality': 'average'}, # suspended -- out R16
+            {'player': 'Campbell Gray',          'position': 'winger',       'quality': 'average'}, # hamstring -- out 4-8w
+        ],
+        'Port Adelaide Power': [
+            {'player': 'Connor Rozee',           'position': 'midfielder',   'quality': 'elite'},   # hamstring/nerve -- season
+            {'player': 'Sam Powell-Pepper',      'position': 'midfielder',   'quality': 'good'},    # knee -- out 2-3w
+            {'player': 'Miles Bergman',          'position': 'key_defender', 'quality': 'average'}, # toe -- out 3-5w
+            {'player': 'Ollie Lord',             'position': 'key_forward',  'quality': 'average'}, # knee -- season
+            {'player': 'Josh Sinn',              'position': 'midfielder',   'quality': 'average'}, # shoulder -- season
+        ],
+        'Adelaide Crows': [
+            {'player': 'Luke Pedlar',            'position': 'midfielder',   'quality': 'good'},    # hamstring -- out 3-4w
+            {'player': 'Callum Ah Chee',         'position': 'winger',       'quality': 'average'}, # hamstring -- out 2-3w
+            {'player': 'Tyler Welsh',            'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 2-3w
+        ],
+        'North Melbourne Kangaroos': [
+            {'player': 'Jackson Archer',         'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Luke Urquhart',          'position': 'key_defender', 'quality': 'average'}, # knee -- out TBC
+            {'player': 'Tom Powell',             'position': 'midfielder',   'quality': 'average'}, # hip/groin -- out 2w
+            {'player': 'Paul Curtis',            'position': 'midfielder',   'quality': 'average'}, # suspended -- out R16
+            {'player': 'Blake Thredgold',        'position': 'key_forward',  'quality': 'average'}, # foot -- season
+        ],
+        'Essendon Bombers': [
+            {'player': 'Nicholas Martin',        'position': 'midfielder',   'quality': 'good'},    # knee -- season (Nic Martin)
+            {'player': 'Brayden Fiorini',        'position': 'midfielder',   'quality': 'good'},    # back -- season
+            {'player': 'Kyle Langford',          'position': 'midfielder',   'quality': 'good'},    # quad -- out TBC
+            {'player': 'Peter Wright',           'position': 'key_forward',  'quality': 'good'},    # knee -- out 3-4w
+            {'player': 'Archie Roberts',         'position': 'midfielder',   'quality': 'average'}, # shoulder -- out TBC
+            {'player': 'Archie May',             'position': 'key_forward',  'quality': 'average'}, # shoulder -- season
+            {'player': 'Jayden Nguyen',          'position': 'midfielder',   'quality': 'average'}, # suspended -- out R16
+            {'player': 'Lewis Hayes',            'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Liam McMahon',           'position': 'midfielder',   'quality': 'average'}, # ankle -- out 2-3w
+            {'player': 'Zak Johnson',            'position': 'midfielder',   'quality': 'average'}, # foot -- out 4-5w
+        ],
+        'Fremantle Dockers': [
+            # No confirmed outs for R16
+        ],
+        'Gold Coast Suns': [
+            {'player': 'Jy Farrar',              'position': 'midfielder',   'quality': 'good'},    # ankle -- out 4-6w
+            {'player': 'Alex Davies',            'position': 'key_forward',  'quality': 'average'}, # foot -- out 4-6w
+            {'player': 'Avery Thomas',           'position': 'key_forward',  'quality': 'average'}, # knee -- out 4-6w
+            {'player': 'Jake Rogers',            'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 4-6w
+            {'player': 'Lachlan Weller',         'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 4-6w
+            {'player': 'Will Graham',            'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 4-6w
+        ],
+    },
 }
 
 # ── T6 Emotional flags — update manually before each round ───────────────────
@@ -544,6 +758,34 @@ EMOTIONAL_FLAGS = {
         'Adelaide Crows': [
             {'flag_type': 'personal_tragedy', 'flag_strength': 'major',
              'player_name': 'Jordan Dawson', 'notes': 'Crows captain ruled out after death of his brother — squad rallying around tragedy, emotional uplift expected vs Western Bulldogs'},
+        ],
+    },
+    15: {
+        # Adelaide Crows vs Melbourne Demons (Adelaide Oval, Jun 20)
+        'Adelaide Crows': [
+            {'flag_type': 'personal_tragedy', 'flag_strength': 'major',
+             'player_name': 'Jordan Dawson', 'notes': 'Captain Dawson ruled out -- brother died. Squad rallying around tragedy; emotional uplift expected vs Melbourne.'},
+        ],
+        # Richmond vs North Melbourne (MCG, Jun 21) -- retirement farewell game
+        'North Melbourne Kangaroos': [
+            {'flag_type': 'farewell', 'flag_strength': 'normal',
+             'player_name': None, 'notes': 'Confirmed farewell game for a North Melbourne hero vs Richmond at MCG -- emotional send-off expected.'},
+        ],
+    },
+    16: {
+        # Port Adelaide vs Adelaide Crows (Adelaide Oval, Jun 28) -- SA Derby
+        'Port Adelaide Power': [
+            {'flag_type': 'rivalry_derby', 'flag_strength': 'major',
+             'player_name': None, 'notes': 'SA Derby vs Adelaide Crows at Adelaide Oval -- biggest game on the SA calendar, both clubs fired up'},
+        ],
+        'Adelaide Crows': [
+            {'flag_type': 'rivalry_derby', 'flag_strength': 'major',
+             'player_name': None, 'notes': 'SA Derby vs Port Adelaide at Adelaide Oval -- biggest rivalry in South Australian football'},
+        ],
+        # Collingwood vs Richmond (MCG) -- classic Melbourne rivalry
+        'Collingwood Magpies': [
+            {'flag_type': 'rivalry_derby', 'flag_strength': 'minor',
+             'player_name': None, 'notes': 'Classic MCG clash vs Richmond -- Collingwood highly motivated to respond with Moore/Maynard absent'},
         ],
     },
 }
@@ -632,7 +874,7 @@ def _fetch_afl_weather_tomorrow(lat: float, lng: float, kickoff_datetime: str) -
         api_key = _load_tomorrow_api_key_afl()
     except RuntimeError as exc:
         print(f'    [T7] weather key error: {exc}')
-        return {}
+        return _fetch_afl_weather_open_meteo(lat, lng, kickoff_datetime)
 
     fields = (
         'temperature,windSpeed,windGust,'
@@ -653,12 +895,12 @@ def _fetch_afl_weather_tomorrow(lat: float, lng: float, kickoff_datetime: str) -
             data = json.loads(resp.read())
     except Exception as exc:
         print(f'    [T7] Tomorrow.io request failed: {exc}')
-        return {}
+        return _fetch_afl_weather_open_meteo(lat, lng, kickoff_datetime)
 
     hourly = data.get('timelines', {}).get('hourly', [])
     if not hourly:
         print('    [T7] Tomorrow.io returned no hourly data')
-        return {}
+        return _fetch_afl_weather_open_meteo(lat, lng, kickoff_datetime)
 
     try:
         game_ts = datetime.fromisoformat(
@@ -676,15 +918,107 @@ def _fetch_afl_weather_tomorrow(lat: float, lng: float, kickoff_datetime: str) -
 
     v = target['values']
     wind_kmh = round((v.get('windSpeed') or 0.0) * 3.6, 1)
+    wind_gust_kmh = round((v.get('windGust') or 0.0) * 3.6, 1)
+    wind_for_t7_kmh = round(effective_afl_wind_kmh(wind_kmh, wind_gust_kmh), 1)
 
     return {
         'precip_mm':    v.get('precipitationIntensity') or 0.0,
         'wind_kmh':     wind_kmh,
+        'wind_gust_kmh': wind_gust_kmh,
+        'wind_for_t7_kmh': wind_for_t7_kmh,
         'temp_c':       v.get('temperature'),
         'dew_point_c':  v.get('dewPoint'),
         'humidity_pct': v.get('humidity'),
         'data_source':  'tomorrow_io',
     }
+
+
+def _fetch_afl_weather_open_meteo(lat: float, lng: float, kickoff_datetime: str) -> dict:
+    fields = (
+        'temperature_2m,relative_humidity_2m,dew_point_2m,'
+        'precipitation,wind_speed_10m,wind_gusts_10m'
+    )
+    url = (
+        'https://api.open-meteo.com/v1/forecast'
+        f'?latitude={lat}&longitude={lng}'
+        f'&hourly={fields}'
+        '&wind_speed_unit=kmh'
+        '&timezone=UTC'
+    )
+    try:
+        req = urllib.request.Request(url, headers={'Accept': 'application/json'})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+    except Exception as exc:
+        print(f'    [T7] Open-Meteo fallback failed: {exc}')
+        return {}
+
+    hourly = data.get('hourly', {})
+    times = hourly.get('time', [])
+    if not times:
+        print('    [T7] Open-Meteo returned no hourly data')
+        return {}
+
+    try:
+        game_ts = datetime.fromisoformat(
+            kickoff_datetime.replace('Z', '+00:00')
+        ).timestamp()
+        idx = min(
+            range(len(times)),
+            key=lambda i: abs(
+                datetime.fromisoformat(times[i].replace('Z', '+00:00')).timestamp()
+                - game_ts
+            ),
+        )
+    except (ValueError, AttributeError):
+        idx = 0
+
+    wind_kmh = round(_float(hourly.get('wind_speed_10m', [0])[idx]), 1)
+    wind_gust_kmh = round(_float(hourly.get('wind_gusts_10m', [0])[idx]), 1)
+    return {
+        'precip_mm': _float(hourly.get('precipitation', [0])[idx]),
+        'wind_kmh': wind_kmh,
+        'wind_gust_kmh': wind_gust_kmh,
+        'wind_for_t7_kmh': round(effective_afl_wind_kmh(wind_kmh, wind_gust_kmh), 1),
+        'temp_c': _float(hourly.get('temperature_2m', [None])[idx], 15.0),
+        'dew_point_c': _float(hourly.get('dew_point_2m', [None])[idx], 10.0),
+        'humidity_pct': _float(hourly.get('relative_humidity_2m', [None])[idx], 0.0),
+        'data_source': 'open_meteo_fallback',
+    }
+
+
+def _float(value, default: float = 0.0) -> float:
+    try:
+        if value in (None, ''):
+            return default
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _load_previous_afl_weather(round_num: int, season: int) -> dict:
+    path = ROOT / 'results' / f'r{round_num:02d}_afl_{season}.csv'
+    if not path.exists():
+        return {}
+    previous: dict = {}
+    with open(path, newline='', encoding='utf-8-sig') as fh:
+        for row in csv.DictReader(fh):
+            key = (row.get('home_team', ''), row.get('away_team', ''))
+            if not key[0] or not key[1]:
+                continue
+            if not row.get('weather_source') and not row.get('temp_c'):
+                continue
+            previous[key] = {
+                'precip_mm': _float(row.get('precip_mm'), 0.0),
+                'wind_kmh': _float(row.get('wind_kmh'), 0.0),
+                'wind_gust_kmh': _float(row.get('wind_gust_kmh'), 0.0),
+                'wind_for_t7_kmh': _float(row.get('wind_for_t7_kmh'), 0.0),
+                'temp_c': _float(row.get('temp_c'), 15.0),
+                'dew_point_c': _float(row.get('dew_point_c'), 10.0),
+                'humidity_pct': _float(row.get('humidity_pct'), 0.0),
+                'data_source': row.get('weather_source') or 'previous_export',
+            }
+    return previous
 
 
 def load_external_round_prep(round_num: int, season: int) -> None:
@@ -726,9 +1060,11 @@ def load_external_round_prep(round_num: int, season: int) -> None:
         payload = json.load(open(emotional_path, encoding='utf-8'))
         EMOTIONAL_FLAGS[round_num] = payload.get('flags', {})
     elif latest_emotional.exists():
-        # latest-emotional.json stores flags as a list; convert to {team: [flags]} dict
+        # latest-emotional.json is always a dict with season/round/flags metadata.
+        # Accept if season matches and file round <= round being priced (use most recent available).
         payload = json.load(open(latest_emotional, encoding='utf-8'))
-        if payload.get('round') == round_num and payload.get('season') == season:
+        file_round = payload.get('round', 0)
+        if payload.get('season') == season and file_round <= round_num:
             by_team: dict = {}
             for flag in payload.get('flags', []):
                 team = flag.get('team', '')
@@ -743,8 +1079,9 @@ def load_external_round_prep(round_num: int, season: int) -> None:
                 EMOTIONAL_FLAGS[round_num] = by_team
                 import logging
                 logging.getLogger(__name__).info(
-                    'Loaded %d emotional flags for R%d from latest-emotional.json: %s',
-                    sum(len(v) for v in by_team.values()), round_num, list(by_team.keys())
+                    'Loaded %d emotional flags for R%d from latest-emotional.json (source round=%d): %s',
+                    sum(len(v) for v in by_team.values()), round_num,
+                    file_round, list(by_team.keys())
                 )
 
 # Home advantage in ELO points (from game_log.py)
@@ -1274,6 +1611,7 @@ def main():
         ml_bias = {'bias': 0.0, 'n': 0, 'mae': 0.0}
         print(f'  (ML models not available — shadow section will be skipped)')
 
+    previous_weather = _load_previous_afl_weather(args.round, args.season)
     results = []
     for home, away, venue, date in games:
         feat = build_feature_row(home, away, venue, date, elo, features_df)
@@ -1338,6 +1676,10 @@ def main():
             coords = AFL_VENUE_COORDS.get(venue)
             if coords:
                 wx_data = _fetch_afl_weather_tomorrow(coords[0], coords[1], kickoff_str)
+                if not wx_data and previous_weather.get((home, away)):
+                    wx_data = previous_weather[(home, away)].copy()
+                    wx_data['data_source'] = f"{wx_data.get('data_source', 'previous_export')}_fallback"
+                    print(f'    [T7] {venue}: weather fetch failed; reused previous export')
                 if wx_data:
                     print(f'    [T7] {venue}: T={wx_data.get("temp_c")}°C  '
                           f'W={wx_data.get("wind_kmh")}km/h  '
@@ -1403,6 +1745,15 @@ def main():
             't7_tot':    t7['t7_totals'],
             't7_cond':   t7['condition_type'],
             't7_dew':    t7['dew_risk'],
+            'weather_condition': t7['condition_type'],
+            'temp_c':     round((wx_data or {}).get('temp_c'), 1) if (wx_data or {}).get('temp_c') is not None else None,
+            'wind_kmh':   round((wx_data or {}).get('wind_kmh', 0.0), 1),
+            'wind_gust_kmh': round((wx_data or {}).get('wind_gust_kmh', 0.0), 1),
+            'wind_for_t7_kmh': round(t7.get('signals', {}).get('wind_for_t7_kmh', 0.0), 1),
+            'precip_mm':  round((wx_data or {}).get('precip_mm', 0.0), 2),
+            'dew_point_c': round((wx_data or {}).get('dew_point_c'), 1) if (wx_data or {}).get('dew_point_c') is not None else None,
+            'humidity_pct': round((wx_data or {}).get('humidity_pct'), 1) if (wx_data or {}).get('humidity_pct') is not None else None,
+            'weather_source': (wx_data or {}).get('data_source', 'manual' if wx_override is not None else ''),
             'final_margin': round(final_margin, 1),
             'final_total':  round(final_total,  1),
             'home_prob':    home_prob,
@@ -1663,6 +2014,15 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
             t6_hcp              REAL,
             t6_tot              REAL,
             t7_tot              REAL,
+            weather_condition   TEXT,
+            temp_c              REAL,
+            wind_kmh            REAL,
+            wind_gust_kmh       REAL,
+            wind_for_t7_kmh     REAL,
+            precip_mm           REAL,
+            dew_point_c         REAL,
+            humidity_pct        REAL,
+            weather_source      TEXT,
             -- Agreement
             agreement_flag      TEXT,
             -- Actuals (filled in after round completes)
@@ -1678,6 +2038,21 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
             UNIQUE(home_team, away_team, season, round_number)
         )
     ''')
+    existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(afl_shadow_predictions)")}
+    weather_cols = {
+        'weather_condition': 'TEXT',
+        'temp_c': 'REAL',
+        'wind_kmh': 'REAL',
+        'wind_gust_kmh': 'REAL',
+        'wind_for_t7_kmh': 'REAL',
+        'precip_mm': 'REAL',
+        'dew_point_c': 'REAL',
+        'humidity_pct': 'REAL',
+        'weather_source': 'TEXT',
+    }
+    for col, col_type in weather_cols.items():
+        if col not in existing_cols:
+            conn.execute(f'ALTER TABLE afl_shadow_predictions ADD COLUMN {col} {col_type}')
 
     run_dt = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     for r in results:
@@ -1705,8 +2080,11 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
                  ml_margin, ml_total, ml_h2h,
                  t1_margin, t1_total, t2_hcp, t2_tot, t3_hcp, t3_tot,
                  t4_hcp, t4_tot, t5_hcp, t5_tot, t6_hcp, t6_tot, t7_tot,
+                 weather_condition, temp_c, wind_kmh, wind_gust_kmh,
+                 wind_for_t7_kmh, precip_mm, dew_point_c, humidity_pct,
+                 weather_source,
                  agreement_flag, created_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
             ON CONFLICT(home_team, away_team, season, round_number) DO UPDATE SET
                 run_date=excluded.run_date,
                 rules_margin=excluded.rules_margin,
@@ -1727,6 +2105,15 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
                 t5_hcp=excluded.t5_hcp, t5_tot=excluded.t5_tot,
                 t6_hcp=excluded.t6_hcp, t6_tot=excluded.t6_tot,
                 t7_tot=excluded.t7_tot,
+                weather_condition=excluded.weather_condition,
+                temp_c=excluded.temp_c,
+                wind_kmh=excluded.wind_kmh,
+                wind_gust_kmh=excluded.wind_gust_kmh,
+                wind_for_t7_kmh=excluded.wind_for_t7_kmh,
+                precip_mm=excluded.precip_mm,
+                dew_point_c=excluded.dew_point_c,
+                humidity_pct=excluded.humidity_pct,
+                weather_source=excluded.weather_source,
                 agreement_flag=excluded.agreement_flag
         ''', (
             season, round_num, r.get('date', ''), r['home'], r['away'], r['venue'],
@@ -1739,6 +2126,9 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
             r['t2_hcp'], r['t2_tot'], r['t3_hcp'], r['t3_tot'],
             r['t4_hcp'], r['t4_tot'], r['t5_hcp'], r['t5_tot'],
             r['t6_hcp'], r['t6_tot'], r['t7_tot'],
+            r.get('weather_condition'), r.get('temp_c'), r.get('wind_kmh'),
+            r.get('wind_gust_kmh'), r.get('wind_for_t7_kmh'), r.get('precip_mm'),
+            r.get('dew_point_c'), r.get('humidity_pct'), r.get('weather_source'),
             flag, run_dt,
         ))
 

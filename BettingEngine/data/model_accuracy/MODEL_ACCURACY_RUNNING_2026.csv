@@ -1,0 +1,6 @@
+sport,round,week_ending,games,rules_h2h_bias_pct,rules_h2h_mae_pct,ml_h2h_bias_pct,ml_h2h_mae_pct,rules_hcap_bias_pts,rules_hcap_mae_pts,ml_hcap_bias_pts,ml_hcap_mae_pts,rules_total_bias_pts,rules_total_mae_pts,ml_total_bias_pts,ml_total_mae_pts,rules_hcap_vs_actual_bias,rules_hcap_vs_actual_mae,ml_hcap_vs_actual_bias,ml_hcap_vs_actual_mae,rules_total_vs_actual_bias,rules_total_vs_actual_mae,ml_total_vs_actual_bias,ml_total_vs_actual_mae
+AFL,8,2026-05-05,9,+16.57,+17.03,+27.36,+27.62,+6.23,+43.25,+11.31,+41.09,-13.28,+16.10,-24.98,+24.98,+20.12,+29.90,+22.33,+24.00,-20.44,+30.31,-32.14,+35.19
+AFL,9,2026-05-12,9,+1.01,+5.97,+7.72,+9.17,+14.94,+33.26,-2.12,+33.00,-7.83,+12.52,-9.37,+11.41,+8.40,+33.73,-1.49,+29.18,+4.00,+14.51,+2.47,+14.16
+NRL,9,2026-04-28,8,+9.64,+14.89,+6.04,+16.59,-0.72,+17.48,-0.70,+17.47,-1.27,+2.80,-4.22,+4.22,+9.27,+22.23,+9.29,+22.24,-6.15,+11.41,-9.10,+11.90
+NRL,10,2026-05-05,8,+8.17,+11.05,-3.69,+13.59,+9.32,+11.01,+4.62,+7.12,-3.01,+3.25,-9.68,+9.68,+2.45,+16.53,-2.25,+16.02,-2.26,+11.53,-8.93,+13.58
+NRL,11,2026-05-12,8,+11.01,+13.41,+1.56,+10.41,+8.34,+15.22,+2.36,+10.13,-0.12,+3.35,,,+10.61,+18.21,+4.12,+23.20,+7.13,+13.61,,

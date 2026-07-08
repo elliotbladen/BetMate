@@ -1373,7 +1373,8 @@ def get_referee_profile(conn: sqlite3.Connection, referee_id: int) -> Optional[d
     """
     row = conn.execute(
         """
-        SELECT rp.referee_id, r.referee_name, rp.bucket, rp.games_in_sample, rp.notes
+        SELECT rp.referee_id, r.referee_name, rp.bucket, rp.games_in_sample,
+               rp.notes, rp.scoring_delta, rp.home_bias_adj
         FROM   referee_profiles rp
         JOIN   referees r ON r.referee_id = rp.referee_id
         WHERE  rp.referee_id = ?

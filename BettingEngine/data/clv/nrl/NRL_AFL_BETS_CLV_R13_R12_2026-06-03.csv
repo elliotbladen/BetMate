@@ -1,0 +1,18 @@
+bet_id,sport,home,away,market,selection,line,odds_taken,result,open_odds,close_odds,open_line,close_line,clv_pct,note
+2026-0045,AFL,St Kilda Saints,Hawthorn Hawks,handicap,Hawthorn Hawks,-19.5,1.9,WIN,1.9,1.9,-12.5,-20.5,0.0,FLAT
+2026-0046,NRL,Cronulla-Sutherland Sharks,Manly-Warringah Sea Eagles,h2h,Cronulla-Sutherland Sharks,,1.87,WIN,1.67,1.8,,,3.89,BEAT CLOSE
+2026-0047,NRL,Cronulla-Sutherland Sharks,Manly-Warringah Sea Eagles,total,over,44.5,1.77,WIN,1.87,1.8,45.5,45.5,-1.67,MISSED
+2026-0048,NRL,Cronulla-Sutherland Sharks,Manly-Warringah Sea Eagles,total,under,46.5,1.89,LOSS,2.1,2.25,45.5,45.5,-16.0,MISSED
+2026-0049,NRL,Cronulla-Sutherland Sharks,Manly-Warringah Sea Eagles,total,under,50.5,1.81,WIN,2.1,2.25,45.5,45.5,-19.56,MISSED
+2026-0050,NRL,Cronulla-Sutherland Sharks,Manly-Warringah Sea Eagles,h2h,Manly-Warringah Sea Eagles,,1.98,LOSS,2.15,2.0,,,-1.0,MISSED
+2026-0051,AFL,Carlton Blues,Geelong Cats,total,over,178.5,1.89,LOSS,1.82,1.8,177.5,178.5,5.0,BEAT CLOSE
+2026-0052,NRL,Wests Tigers,Canterbury-Bankstown Bulldogs,total,over,48.5,1.9,LOSS,1.87,1.95,48.5,48.5,-2.56,MISSED
+2026-0053,NRL,Wests Tigers,Canterbury-Bankstown Bulldogs,h2h,Canterbury-Bankstown Bulldogs,,1.98,WIN,1.92,2.1,,,-5.71,MISSED
+2026-0054,AFL,Western Bulldogs,Collingwood Magpies,h2h,Collingwood Magpies,,2.26,LOSS,1.98,2.35,,,-3.83,MISSED
+2026-0055,NRL,Penrith Panthers,New Zealand Warriors,total,under,47.5,1.9,WIN,2.18,2.08,46.5,45.5,-8.65,MISSED
+2026-0056,NRL,Penrith Panthers,New Zealand Warriors,total,under,46.5,1.84,WIN,2.18,2.08,46.5,45.5,-11.54,MISSED
+2026-0057,NRL,Penrith Panthers,New Zealand Warriors,handicap,Penrith Panthers,-3.5,1.83,LOSS,1.9,1.95,-7.5,-1.5,-6.15,MISSED
+2026-0058,NRL,Penrith Panthers,New Zealand Warriors,handicap,Penrith Panthers,-5.5,1.72,LOSS,1.9,1.95,-7.5,-1.5,-11.79,MISSED
+2026-0059,NRL,Canberra Raiders,North Queensland Cowboys,handicap,North Queensland Cowboys,4.5,1.73,LOSS,1.8,1.95,4.5,3.5,-11.28,MISSED
+2026-0060,AFL,West Coast Eagles,Essendon Bombers,h2h,Essendon Bombers,,2.31,WIN,2.55,2.8,,,-17.5,MISSED
+2026-0061,AFL,West Coast Eagles,Essendon Bombers,h2h,Essendon Bombers,,2.39,LOSS,2.55,2.8,,,-14.64,MISSED

@@ -83,3 +83,4 @@ May 31 is the exact full moon. Games touching the ±1 day window:
 - Sydney vs Richmond (May 30): Sydney full moon OVER edge (n=7, 71.4%) — thin, conflicted by Richmond May UNDER
 - Melbourne vs GWS (May 31): Melbourne full moon UNDER (-10 vs line) vs GWS full moon OVER (+4 vs line)
 - Carlton vs Geelong (May 29): outside window (2 days away) — Geelong near-full moon OVER 62% (n=10, +17) did NOT fire
+2

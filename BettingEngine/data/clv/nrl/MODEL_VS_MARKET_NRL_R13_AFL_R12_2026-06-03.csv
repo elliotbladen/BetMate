@@ -1,0 +1,8 @@
+sport,round,home,away,model_margin,model_total,model_h2h_home,model_h2h_away,close_line,close_total,close_h2h_home,close_h2h_away,hcap_gap,total_gap,actual_margin,actual_total,hcap_winner,total_winner
+NRL,13,Cronulla-Sutherland Sharks,Manly-Warringah Sea Eagles,4.94,50.81,1.51,2.96,-1.5,45.5,1.8,2.0,6.4,5.3,6.0,50.0,MODEL,MODEL
+NRL,13,Newcastle Knights,Parramatta Eels,12.65,58.75,1.17,6.9,-15.5,53.5,1.2,4.5,28.1,5.2,6.0,50.0,MODEL,MODEL
+NRL,13,Wests Tigers,Canterbury-Bankstown Bulldogs,3.5,48.46,1.63,2.6,-2.5,48.5,1.74,2.1,6.0,-0.0,6.0,38.0,MODEL,FLAT
+NRL,13,Melbourne Storm,Sydney Roosters,-1.68,56.63,2.25,1.8,3.5,49.5,2.25,1.65,-5.2,7.1,14.0,22.0,MARKET,MODEL
+NRL,13,Brisbane Broncos,St. George Illawarra Dragons,16.56,45.75,1.09,12.01,-20.5,54.5,1.1,7.0,37.1,-8.8,-4.0,56.0,MODEL,MARKET
+NRL,13,Canberra Raiders,North Queensland Cowboys,1.34,48.05,1.84,2.19,-3.5,53.5,1.65,2.25,4.8,-5.5,14.0,38.0,MODEL,MARKET
+NRL,13,Penrith Panthers,New Zealand Warriors,12.72,44.08,1.17,6.9,-1.5,45.5,1.77,2.05,14.2,-1.4,2.0,38.0,MODEL,MARKET

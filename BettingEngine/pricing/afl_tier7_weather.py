@@ -248,6 +248,18 @@ def _classify_afl_condition(
     return ct, delta
 
 
+def effective_afl_wind_kmh(wind_kmh: float, wind_gust_kmh: float | None = None) -> float:
+    """
+    Convert sustained/gust wind into the wind value used by T7.
+
+    AFL kicking is hurt by gusts even when the sustained average is moderate.
+    Use 65% of gust speed as a conservative equivalent sustained wind.
+    """
+    sustained = float(wind_kmh or 0.0)
+    gust = float(wind_gust_kmh or 0.0)
+    return max(sustained, gust * 0.65)
+
+
 # ---------------------------------------------------------------------------
 # Dew risk — AFL night game logic  (thresholds updated)
 # ---------------------------------------------------------------------------
@@ -326,6 +338,11 @@ def compute_t7(
 
     precip_mm   = float(weather.get('precip_mm',    0.0) or 0.0)
     wind_kmh    = float(weather.get('wind_kmh',     0.0) or 0.0)
+    wind_gust_kmh = float(weather.get('wind_gust_kmh', 0.0) or 0.0)
+    wind_for_t7_kmh = float(
+        weather.get('wind_for_t7_kmh')
+        or effective_afl_wind_kmh(wind_kmh, wind_gust_kmh)
+    )
     temp_c      = float(weather.get('temp_c',      15.0) or 15.0)
     dew_point_c = float(weather.get('dew_point_c', 10.0) or 10.0)
 
@@ -337,7 +354,7 @@ def compute_t7(
         dew_risk = _compute_afl_dew_risk(kickoff, temp_c, dew_point_c)
 
     condition_type, totals_delta = _classify_afl_condition(
-        precip_mm, wind_kmh, temp_c, dew_risk, wind_venue_factor,
+        precip_mm, wind_for_t7_kmh, temp_c, dew_risk, wind_venue_factor,
     )
 
     # Apply config cap
@@ -351,6 +368,8 @@ def compute_t7(
         'signals': {
             'precip_mm':          precip_mm,
             'wind_kmh':           wind_kmh,
+            'wind_gust_kmh':      wind_gust_kmh,
+            'wind_for_t7_kmh':    round(wind_for_t7_kmh, 1),
             'temp_c':             temp_c,
             'dew_point_c':        dew_point_c,
             'dew_risk':           dew_risk,

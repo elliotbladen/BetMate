@@ -8,7 +8,7 @@ import csv
 import re
 import sqlite3
 from collections import Counter
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -102,6 +102,26 @@ def load_workbook_rows(path: Path, season: int) -> dict[tuple[date, str, str], d
     return rows
 
 
+def find_workbook_row(
+    workbook_rows: dict[tuple[date, str, str], dict[str, Any]],
+    match_date: date | None,
+    home: str,
+    away: str,
+) -> dict[str, Any] | None:
+    if match_date is None:
+        return None
+    exact = workbook_rows.get((match_date, home, away))
+    if exact:
+        return exact
+    # AusSportsBetting AFL dates can be one calendar day earlier than model
+    # dates for night games depending on export timezone. Keep team matching exact.
+    for delta in (-1, 1):
+        row = workbook_rows.get((match_date + timedelta(days=delta), home, away))
+        if row:
+            return row
+    return None
+
+
 def load_predictions(season: int, rnd: int | None = None) -> list[dict[str, Any]]:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
@@ -130,8 +150,12 @@ def auto_round(season: int, workbook_rows: dict[tuple[date, str, str], dict[str,
             continue
         ok = True
         for pred in rows:
-            key = (as_date(pred["game_date"]), canon_team(pred["home_team"]), canon_team(pred["away_team"]))
-            market = workbook_rows.get(key)
+            market = find_workbook_row(
+                workbook_rows,
+                as_date(pred["game_date"]),
+                canon_team(pred["home_team"]),
+                canon_team(pred["away_team"]),
+            )
             if not market or market.get("Home Score") is None or market.get("Away Score") is None:
                 ok = False
                 break
@@ -306,7 +330,7 @@ def build_rows(season: int, rnd: int, workbook_rows: dict[tuple[date, str, str],
         match_date = as_date(pred["game_date"])
         home = canon_team(pred["home_team"])
         away = canon_team(pred["away_team"])
-        market = workbook_rows.get((match_date, home, away))
+        market = find_workbook_row(workbook_rows, match_date, home, away)
         if not market:
             raise SystemExit(f"No workbook row found for {match_date} {home} vs {away}")
         home_score = as_float(market.get("Home Score"))

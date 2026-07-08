@@ -14,8 +14,8 @@ finals_rounds: 4
 # SCORING ENVIRONMENT
 # =============================================================================
 scoring:
-  league_avg_total: 47.0          # avg combined pts per game (recalibrate each season)
-  league_avg_per_team: 23.5       # = league_avg_total / 2
+  league_avg_total: 48.5          # CALIBRATED 2026-06-18: 2026 full-season avg 48.7 (n=113). Was 47.0.
+  league_avg_per_team: 24.25      # = league_avg_total / 2
   margin_std_dev: 12.0            # std dev of margin distribution → win probability
   score_unit: "points"            # "points" | "goals_behinds"
   scoring_system: "simple"        # "simple" (NRL) | "goals_behinds" (AFL)
@@ -26,7 +26,7 @@ scoring:
 tier1:
   enabled: true
 
-  home_advantage_points: 3.5
+  home_advantage_points: 2.5     # CALIBRATED 2026-06-18: empirical 2022-2026 avg = +2.79pts; 2026 YTD = +0.81pts (eroding). Was 3.5.
   min_games_for_home_advantage: 14
   team_ha_max_delta: 2.0
 
@@ -257,11 +257,11 @@ tier5:
 tier6:
   enabled: true
   shrink: 1.0
-  handicap_clamp: 1.5
-  totals_whistle_heavy: -2.0
-  totals_flow_heavy: 2.0
-  totals_neutral: 0.0
-  totals_clamp: 2.0
+  handicap_clamp: 3.5          # raised from 1.5 — allows Klein +3.2 / Sutton -3.1 through fully
+  totals_whistle_heavy: -2.0   # fallback only — real refs use scoring_delta
+  totals_flow_heavy: 2.0       # fallback only
+  totals_neutral: 0.0          # fallback only
+  totals_clamp: 4.0            # raised from 2.0 — allows Raymond +3.1 to come through
 
   # NRL referee stat columns used for bucket classification
   stat_columns:

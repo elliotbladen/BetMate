@@ -1,0 +1,43 @@
+season,round,date,home_team,away_team,home_score,away_score,actual_margin_home,actual_total,market,signal,selection,model_number,model_home_fair_odds,model_away_fair_odds,open_number,close_number,open_odds,close_odds,clv,result,winner,bookmakers_surveyed
+2026,16,2026-06-19,Newcastle Knights,St. George Illawarra Dragons,22,20,2.0,42.0,h2h,model,Newcastle Knights,,1.434,3.304,,,1.3,1.29,0.0078,win,tie,11
+2026,16,2026-06-19,Newcastle Knights,St. George Illawarra Dragons,22,20,2.0,42.0,h2h,market,Newcastle Knights,,1.434,3.304,,,1.3,1.29,0.0078,win,tie,11
+2026,16,2026-06-19,Newcastle Knights,St. George Illawarra Dragons,22,20,2.0,42.0,handicap,model,St. George Illawarra Dragons,6.16,,,10.5,12.5,1.9,1.85,-2.0,win,model,11
+2026,16,2026-06-19,Newcastle Knights,St. George Illawarra Dragons,22,20,2.0,42.0,handicap,market,Newcastle Knights,6.16,,,-10.5,-12.5,1.9,1.95,2.0,loss,model,11
+2026,16,2026-06-19,Newcastle Knights,St. George Illawarra Dragons,22,20,2.0,42.0,total,model,over,50.95,,,49.5,48.5,1.87,1.9,-1.0,loss,market,11
+2026,16,2026-06-19,Newcastle Knights,St. George Illawarra Dragons,22,20,2.0,42.0,total,market,under,50.95,,,49.5,48.5,2.1,2.12,1.0,win,market,11
+2026,16,2026-06-20,Wests Tigers,Dolphins,22,36,-14.0,58.0,h2h,model,Dolphins,,2.069,1.936,,,1.52,1.53,-0.0065,win,model,11
+2026,16,2026-06-20,Wests Tigers,Dolphins,22,36,-14.0,58.0,h2h,market,Wests Tigers,,2.069,1.936,,,2.5,2.5,0.0,loss,model,11
+2026,16,2026-06-20,Wests Tigers,Dolphins,22,36,-14.0,58.0,handicap,model,Wests Tigers,-0.52,,,8.5,5.5,1.85,1.95,3.0,loss,tie,11
+2026,16,2026-06-20,Wests Tigers,Dolphins,22,36,-14.0,58.0,handicap,market,Wests Tigers,-0.52,,,8.5,5.5,1.85,1.95,3.0,loss,tie,11
+2026,16,2026-06-20,Wests Tigers,Dolphins,22,36,-14.0,58.0,total,model,over,53.44,,,52.5,52.5,1.9,1.9,0.0,win,model,11
+2026,16,2026-06-20,Wests Tigers,Dolphins,22,36,-14.0,58.0,total,market,no_move,53.44,,,52.5,52.5,,,,,model,11
+2026,16,2026-06-20,Gold Coast Titans,Penrith Panthers,19,18,1.0,37.0,h2h,model,Penrith Panthers,,18.248,1.058,,,1.25,1.24,0.0081,loss,tie,11
+2026,16,2026-06-20,Gold Coast Titans,Penrith Panthers,19,18,1.0,37.0,h2h,market,Penrith Panthers,,18.248,1.058,,,1.25,1.24,0.0081,loss,tie,11
+2026,16,2026-06-20,Gold Coast Titans,Penrith Panthers,19,18,1.0,37.0,handicap,model,Penrith Panthers,-19.28,,,-13.5,-12.5,1.9,1.95,-1.0,loss,market,11
+2026,16,2026-06-20,Gold Coast Titans,Penrith Panthers,19,18,1.0,37.0,handicap,market,Gold Coast Titans,-19.28,,,13.5,12.5,1.9,1.85,1.0,win,market,11
+2026,16,2026-06-20,Gold Coast Titans,Penrith Panthers,19,18,1.0,37.0,total,model,under,40.61,,,49.5,48.5,2.1,2.04,1.0,win,tie,11
+2026,16,2026-06-20,Gold Coast Titans,Penrith Panthers,19,18,1.0,37.0,total,market,under,40.61,,,49.5,48.5,2.1,2.04,1.0,win,tie,11
+2026,16,2026-06-20,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,13,12,1.0,25.0,h2h,model,Manly-Warringah Sea Eagles,,3.241,1.446,,,1.4,1.37,0.0219,loss,tie,11
+2026,16,2026-06-20,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,13,12,1.0,25.0,h2h,market,Manly-Warringah Sea Eagles,,3.241,1.446,,,1.4,1.37,0.0219,loss,tie,11
+2026,16,2026-06-20,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,13,12,1.0,25.0,handicap,model,Canterbury-Bankstown Bulldogs,-5.97,,,7.5,8.5,1.9,1.85,-1.0,win,model,11
+2026,16,2026-06-20,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,13,12,1.0,25.0,handicap,market,Manly-Warringah Sea Eagles,-5.97,,,-7.5,8.5,1.9,1.95,-16.0,loss,model,11
+2026,16,2026-06-20,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,13,12,1.0,25.0,total,model,under,38.55,,,48.5,47.5,2.02,2.08,1.0,win,tie,11
+2026,16,2026-06-20,Canterbury-Bankstown Bulldogs,Manly-Warringah Sea Eagles,13,12,1.0,25.0,total,market,under,38.55,,,48.5,47.5,2.02,2.08,1.0,win,tie,11
+2026,16,2026-06-21,New Zealand Warriors,North Queensland Cowboys,38,20,18.0,58.0,h2h,model,New Zealand Warriors,,1.222,5.499,,,1.3,1.45,-0.1034,win,model,11
+2026,16,2026-06-21,New Zealand Warriors,North Queensland Cowboys,38,20,18.0,58.0,h2h,market,North Queensland Cowboys,,1.222,5.499,,,3.45,2.75,0.2545,loss,model,11
+2026,16,2026-06-21,New Zealand Warriors,North Queensland Cowboys,38,20,18.0,58.0,handicap,model,New Zealand Warriors,10.88,,,-10.5,-7.5,1.95,2.0,-3.0,win,model,11
+2026,16,2026-06-21,New Zealand Warriors,North Queensland Cowboys,38,20,18.0,58.0,handicap,market,North Queensland Cowboys,10.88,,,10.5,7.5,1.85,1.8,3.0,loss,model,11
+2026,16,2026-06-21,New Zealand Warriors,North Queensland Cowboys,38,20,18.0,58.0,total,model,under,45.17,,,50.5,50.5,2.05,2.06,0.0,loss,market,11
+2026,16,2026-06-21,New Zealand Warriors,North Queensland Cowboys,38,20,18.0,58.0,total,market,no_move,45.17,,,50.5,50.5,,,,,market,11
+2026,16,2026-06-21,Melbourne Storm,Canberra Raiders,42,20,22.0,62.0,h2h,model,Melbourne Storm,,1.777,2.288,,,1.4,1.42,-0.0141,win,model,11
+2026,16,2026-06-21,Melbourne Storm,Canberra Raiders,42,20,22.0,62.0,h2h,market,Canberra Raiders,,1.777,2.288,,,2.9,2.85,0.0175,loss,model,11
+2026,16,2026-06-21,Melbourne Storm,Canberra Raiders,42,20,22.0,62.0,handicap,model,Canberra Raiders,1.92,,,9.5,8.5,1.9,1.85,1.0,loss,tie,11
+2026,16,2026-06-21,Melbourne Storm,Canberra Raiders,42,20,22.0,62.0,handicap,market,Canberra Raiders,1.92,,,9.5,8.5,1.9,1.85,1.0,loss,tie,11
+2026,16,2026-06-21,Melbourne Storm,Canberra Raiders,42,20,22.0,62.0,total,model,under,44.25,,,50.5,50.5,1.99,2.14,0.0,loss,market,11
+2026,16,2026-06-21,Melbourne Storm,Canberra Raiders,42,20,22.0,62.0,total,market,no_move,44.25,,,50.5,50.5,,,,,market,11
+2026,16,2026-06-21,Sydney Roosters,Cronulla-Sutherland Sharks,27,8,19.0,35.0,h2h,model,Sydney Roosters,,1.961,2.041,,,1.46,1.6,-0.0875,win,model,11
+2026,16,2026-06-21,Sydney Roosters,Cronulla-Sutherland Sharks,27,8,19.0,35.0,h2h,market,Cronulla-Sutherland Sharks,,1.961,2.041,,,2.65,2.35,0.1277,loss,model,11
+2026,16,2026-06-21,Sydney Roosters,Cronulla-Sutherland Sharks,27,8,19.0,35.0,handicap,model,Cronulla-Sutherland Sharks,0.27,,,6.5,3.5,1.85,1.95,3.0,loss,tie,11
+2026,16,2026-06-21,Sydney Roosters,Cronulla-Sutherland Sharks,27,8,19.0,35.0,handicap,market,Cronulla-Sutherland Sharks,0.27,,,6.5,3.5,1.85,1.95,3.0,loss,tie,11
+2026,16,2026-06-21,Sydney Roosters,Cronulla-Sutherland Sharks,27,8,19.0,35.0,total,model,under,48.91,,,49.5,49.5,2.16,2.18,0.0,win,model,11
+2026,16,2026-06-21,Sydney Roosters,Cronulla-Sutherland Sharks,27,8,19.0,35.0,total,market,no_move,48.91,,,49.5,49.5,,,,,model,11

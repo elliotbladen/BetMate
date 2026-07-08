@@ -1,0 +1,8 @@
+home,away,rules_margin,ml_margin,open_line,close_line,actual_margin,rules_hcap_gap,ml_hcap_gap,hcap_rules_winner,hcap_ml_winner,rules_total,ml_total,open_total,close_total,actual_total,rules_total_gap,ml_total_gap,total_rules_winner,total_ml_winner,rules_home_odds,rules_away_odds,open_h2h_home,close_h2h_home,close_h2h_away
+St Kilda Saints,Hawthorn Hawks,-30.4,-16.6,12.5,20.5,-52.0,-50.9,-37.1,MODEL,MODEL,177.1,179.4,179.5,179.5,186.0,-2.4,-0.1,MARKET,MARKET,5.03,1.25,2.5,3.35,1.33
+Carlton Blues,Geelong Cats,-44.1,-2.3,23.5,26.5,4.0,-70.6,-28.8,MODEL,MODEL,186.9,172.5,177.5,178.5,172.0,8.4,-6.0,MARKET,MODEL,9.07,1.12,3.45,4.4,1.21
+Brisbane Lions,Fremantle Dockers,13.2,-13.1,-5.5,-8.5,-25.0,21.7,-4.6,MARKET,MODEL,185.0,147.2,182.5,185.5,181.0,-0.5,-38.3,MODEL,MODEL,1.55,2.8,1.49,1.58,2.4
+Sydney Swans,Richmond Tigers,95.6,49.0,-62.5,-55.5,114.0,151.1,104.5,MODEL,MODEL,195.6,165.5,176.5,184.5,226.0,11.1,-19.0,MODEL,MARKET,1.0,256.41,1.01,1.04,11.0
+Western Bulldogs,Collingwood Magpies,2.0,6.9,-6.5,-8.5,4.0,10.5,15.4,MODEL,MODEL,160.3,172.2,178.5,176.5,190.0,-16.2,-4.3,MARKET,MARKET,1.91,2.09,1.77,1.6,2.35
+Melbourne Demons,Greater Western Sydney Giants,15.2,1.9,-5.5,4.5,-49.0,10.7,-2.6,MARKET,MODEL,190.9,161.6,177.5,190.5,189.0,0.4,-28.9,MARKET,MODEL,1.51,2.97,1.69,2.2,1.67
+West Coast Eagles,Essendon Bombers,-0.5,-7.6,-12.5,-12.5,30.0,12.0,4.9,MODEL,MODEL,149.0,158.5,155.5,141.5,140.0,7.5,17.0,MARKET,MARKET,2.02,1.98,1.5,1.44,2.8

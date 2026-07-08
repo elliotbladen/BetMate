@@ -46,13 +46,10 @@ RESULTS_DIR  = _ROOT / "results"
 HALFTIME_DIR = _ROOT / "data" / "afl" / "halfTime"
 
 # ── Model constants ────────────────────────────────────────────────────────────
-# AFL halftime regression factor — how much weight the pre-game prior gets vs H1 evidence.
-# 0.25 = 75% weight to H1 performance, 25% to pre-game expectation.
-# Rationale: AFL is a continuous high-possession game (closer to NBA than NFL).
-# Research shows dominant H1 teams stay dominant — less regression than NRL (0.55).
-# Updated 2026-06-21: lowered from 0.45 → 0.25 based on quant research review.
-# Re-calibrate once 50+ live observations accumulated.
-REGRESSION_FACTOR = 0.25
+# AFL halftime regression factor — slightly higher than NRL (AFL is more continuous,
+# halftime scores are a stronger predictor of final result than NRL)
+# Start at 0.45 — re-calibrate once we have 50+ halftime observations in 2026.
+REGRESSION_FACTOR = 0.45
 
 # AFL average scoring per half — calibrated on 875 games (2022-2026): avg FT 167.5 → H2 avg 84.9
 AVG_HALF_SCORE = 85.0
@@ -324,16 +321,12 @@ class HalfTimePricingAFL:
     pregame_fair_total: float
     pregame_home_prob: float
 
-    # Adjustments — margin
+    # Adjustments
     accuracy_adjustment: float
     i50_adjustment: float
     clearance_adjustment: float
     clanger_adjustment: float
     stats_adjustment: float     # i50 + clearances + clangers, capped
-
-    # Adjustments — total
-    accuracy_total_adjustment: float   # both teams' accuracy drag on H2 scoring volume
-    stats_total_adjustment: float      # kick errors drag on total (more errors = fewer clean chains)
 
     # Live stats (None if FootyWire unavailable)
     home_inside_50s: int | None
@@ -403,24 +396,11 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricingAFL:
         print("WARNING: No pre-game pricing found. Using neutral priors.")
 
     # ── Bayesian update ────────────────────────────────────────────────────────
-    # H1 is banked — those points are locked in. We only project H2 forward,
-    # then add to the banked H1 margin.
-    #
-    # H2 margin estimate = blend of:
-    #   - H1 margin (as signal of current game dominance) × (1 - RF)
-    #   - Pre-game expected H2 margin (pg_margin / 2) × RF
-    #
-    # Then: expected_final = ht_margin (banked) + expected_H2_margin
-    #
-    # OLD (wrong): final = ht_margin × 0.55 + pg_margin × 0.45
-    #   Bug: regressed the banked score away, compressed leads.
-    # NEW (correct): final = ht_margin + (ht_margin × 0.75 + pg_h2 × 0.25)
-    pg_h2_margin = pg_margin / 2
-    expected_h2_margin = (
-        ht_margin     * (1 - REGRESSION_FACTOR) +
-        pg_h2_margin  * REGRESSION_FACTOR
+    # Blend actual HT margin with pregame expected margin
+    expected_final_margin = (
+        ht_margin   * (1 - REGRESSION_FACTOR) +
+        pg_margin   * REGRESSION_FACTOR
     )
-    expected_final_margin = ht_margin + expected_h2_margin
 
     # ── Accuracy adjustment ────────────────────────────────────────────────────
     # Trend continues: project each team's H2 scoring using their H1 accuracy.
@@ -462,28 +442,7 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricingAFL:
     ht_expected_margin = expected_final_margin + accuracy_adj + stats_adj
 
     # ── Second half total estimate ─────────────────────────────────────────────
-    sh_total_base = expected_second_half_total(first_half_total)
-
-    # Accuracy total adjustment: if both teams are shooting below/above average,
-    # the total volume of scoring will be lower/higher than the lookup table expects.
-    # This is the SUM (not difference) of each team's accuracy effect on their own scoring.
-    # Positive = both teams kicking well above avg (overs). Negative = both kicking poorly (unders).
-    accuracy_total_adj = home_acc_adj + away_acc_adj
-    accuracy_total_adj = max(-15.0, min(15.0, accuracy_total_adj))
-
-    # Stats total adjustment: combined kick errors drag — more errors from either team
-    # means fewer clean chains and likely fewer scoring shots overall.
-    # Each extra kick error (combined) = ~0.3 pts off total (research-estimated).
-    if have_stats:
-        combined_kick_errors = (home_clg or 0) + (away_clg or 0)
-        baseline_kick_errors = 22.0   # avg H1 kick errors both teams combined (research estimate)
-        stats_total_adj = -(combined_kick_errors - baseline_kick_errors) * 0.3
-        stats_total_adj = max(-8.0, min(8.0, stats_total_adj))
-    else:
-        stats_total_adj = 0.0
-
-    sh_total = sh_total_base + accuracy_total_adj + stats_total_adj
-    sh_total = max(60.0, sh_total)   # floor: AFL H2 rarely goes below 60
+    sh_total = expected_second_half_total(first_half_total)
     ht_expected_final_total = first_half_total + sh_total
 
     # Split second half by pregame attack ratio
@@ -497,11 +456,6 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricingAFL:
     home_attack_ratio = max(0.35, min(0.65, home_attack_ratio))
     sh_home = sh_total * home_attack_ratio
     sh_away = sh_total * (1 - home_attack_ratio)
-
-    # Keep the quoted handicap internally consistent with the projected score.
-    # The earlier margin path is still useful as a dominance signal, but the
-    # tradable full-game handicap must equal banked HT margin + projected 2H margin.
-    ht_expected_margin = ht_margin + (sh_home - sh_away)
 
     # ── Simulate second half ───────────────────────────────────────────────────
     probs = simulate_win_prob(ht_margin, sh_home, sh_away)
@@ -579,8 +533,6 @@ def price_halftime(stats: dict, pregame: dict | None) -> HalfTimePricingAFL:
         clearance_adjustment=round(clearance_adj, 2),
         clanger_adjustment=round(clanger_adj, 2),
         stats_adjustment=round(stats_adj, 2),
-        accuracy_total_adjustment=round(accuracy_total_adj, 2),
-        stats_total_adjustment=round(stats_total_adj, 2),
         home_inside_50s=home_i50,
         away_inside_50s=away_i50,
         home_clearances=home_clr,
@@ -623,13 +575,7 @@ def print_pricing(p: HalfTimePricingAFL) -> None:
     else:
         print(f"  Live stats:     unavailable (FootyWire offline) — score + accuracy only")
     print(f"\n  --- Second Half Estimates ---")
-    h1_total = p.ht_home_score + p.ht_away_score
-    sh_base = p.second_half_expected_total - p.accuracy_total_adjustment - p.stats_total_adjustment
-    print(f"  H1 total:          {h1_total} pts")
-    print(f"  2H base (lookup):  {sh_base:.1f} pts")
-    print(f"  2H accuracy adj:   {p.accuracy_total_adjustment:+.1f} pts  (both teams kicking {'below' if p.accuracy_total_adjustment < 0 else 'above'} avg → {'unders' if p.accuracy_total_adjustment < 0 else 'overs'})")
-    print(f"  2H errors adj:     {p.stats_total_adjustment:+.1f} pts  (combined kick errors drag)")
-    print(f"  2H total (adj):    {p.second_half_expected_total:.1f} pts")
+    print(f"  2H expected total: {p.second_half_expected_total:.1f} pts")
     print(f"  2H home expected:  {p.second_half_home_expected:.1f} pts")
     print(f"  2H away expected:  {p.second_half_away_expected:.1f} pts")
     print(f"\n  --- Updated Prices ---")
@@ -638,7 +584,7 @@ def print_pricing(p: HalfTimePricingAFL) -> None:
     print(f"  Win prob:  {p.home_team} {p.ht_home_win_prob:.1%} / {p.away_team} {p.ht_away_win_prob:.1%}")
     print(f"  Fair odds: {p.home_team} {p.ht_home_odds} / {p.away_team} {p.ht_away_odds}")
     print(f"  HT Hcap:   {p.ht_hcap_line:+.1f} (home)")
-    print(f"  HT Total:  {p.ht_total_line:.1f}  (H1 {h1_total} + H2 {p.second_half_expected_total:.1f})")
+    print(f"  HT Total:  {p.ht_total_line:.1f}")
     print(f"\n  --- Signal ---")
     print(f"  Strength:   {p.signal_strength.upper()}")
     print(f"  Direction:  {p.signal_direction}")

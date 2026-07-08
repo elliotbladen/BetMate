@@ -46,49 +46,54 @@ FORTRESS_RATINGS = {
 }
 
 # ── Venue scoring profiles ────────────────────────────────────────────────────
-# Residual totals deviation from league avg (2018-2026), scaled at 30%.
-# (The ML already captures ~70% via venue_avg_total feature.)
-# Positive = higher scoring venue. Negative = lower scoring.
+# Season-adjusted residual totals deviation per venue (2018-2026 regular season).
+# Method: residual = game_total - season_avg[year] (removes year-to-year drift)
+# Blend: 70% recent-3yr + 30% all-time (falls back to all-time if n_recent < 8)
+# Clamped at +-10 pts. Data source: local aussportsbetting AFL xlsx, 3474 games.
+# Script: scripts/_build_afl_venue_profiles.py
 #
-# League avg total: 161.4 pts
-# Raw deviations (from data):
-#   ENGIE Stadium:        +6.7  →  *0.30 = +2.0
-#   Marvel Stadium:       +6.3  →  *0.30 = +1.9
-#   Ninja Stadium:        +5.1  →  *0.30 = +1.5
-#   Manuka Oval:          +4.0  →  *0.30 = +1.2
-#   GMHBA Stadium:        +2.5  →  *0.30 = +0.8
-#   SCG:                  +1.7  →  *0.30 = +0.5
-#   MCG:                  +0.9  →  *0.30 = +0.3  (negligible — skip)
-#   Adelaide Oval:        -1.7  →  *0.30 = -0.5  (negligible — skip)
-#   Optus Stadium:        -3.1  →  *0.30 = -0.9
-#   Gabba:                -3.2  →  *0.30 = -1.0
-#   UTAS Stadium:         -7.4  →  *0.30 = -2.2
-#   People First Stadium: -15.3 →  *0.30 = -4.6  (capped at -5)
+# Key surprises vs old 30%-scaled guesses:
+#   UTAS Stadium:         -1.5 → -10.0  (7x too small — Hawthorn rebuild effect real)
+#   Optus Stadium:        -0.9 → -7.8   (Perth grounds heavily under league avg)
+#   Adelaide Oval:        -0.9 → -4.2   (direction same but 4x stronger)
+#   MCG:                  0.0  → -3.9   (large shared venue, under-scores)
+#   ENGIE Stadium:        +2.0 → +8.7   (GWS home — highest non-Darwin scorer)
+#   GMHBA Stadium:        +1.5 → +6.0   (Geelong home — strong over-scorer)
+#   SCG:                  +0.5 → +5.4   (Sydney indoor-ish venue, high scoring)
+#   Marvel Stadium:       +1.9 → +4.5   (enclosed venue, counter-intuitively high)
+#   The Gabba:            -1.0 → +2.4   (direction FLIP — Brisbane offensive era)
+#   People First Stadium: -4.6 → +2.0   (direction FLIP — Gold Coast open-air, attacking)
 #
 VENUE_SCORING_PROFILE = {
-    'ENGIE Stadium':          +2.0,
-    'Marvel Stadium':         +1.9,
-    'Marvel':                 +1.9,   # alias
-    'Docklands':              +1.9,   # alias
-    'Ninja Stadium':          +1.5,
-    'Manuka Oval':            +1.2,
-    'GMHBA Stadium':          +1.5,   # updated: modern era data supports +1.5 (was +0.8)
-    'Kardinia Park':          +1.5,   # alias
-    'SCG':                    +0.5,
-    'Optus Stadium':          -0.9,
-    'The Gabba':              -1.0,
-    'Gabba':                  -1.0,   # alias
-    'UTAS Stadium':           -1.5,   # historical avg ~165 pts (near league avg); -2.2 was too punishing
-    'Blundstone Arena':       -1.5,   # alias
-    'People First Stadium':   -4.6,
-    'Cazalys Stadium':        -3.0,   # Cairns — small, hot, affects scoring
-    'TIO Stadium':            -3.0,   # Darwin — heat/humidity effect
-    'Traeger Park':           -3.0,   # Alice Springs — thin air, heat
+    # Under-scoring venues
+    'UTAS Stadium':           -10.0,   # n=33 (10 recent); Launceston — Hawthorn rebuild confounded
+    'Blundstone Arena':       -10.0,   # alias
+    'Optus Stadium':           -7.8,   # n=185 (58 recent); Perth — dry conditions + defensive teams
+    'Adelaide Oval':           -4.2,   # n=205 (71 recent); Adelaide — wind off river affects kicking
+    'MCG':                     -3.9,   # n=355 (121 recent); huge open stadium, lower scoring
+    # Roughly neutral
+    'Manuka Oval':             +0.7,   # n=22 (7 recent); Canberra — limited sample, use all-time only
+    'People First Stadium':    +2.0,   # n=114 (23 recent); Gold Coast — open-air, attacking style
+    'Ninja Stadium':           +2.3,   # n=28 (7 recent); Ballarat — limited sample
+    'The Gabba':               +2.4,   # n=113 (28 recent); Brisbane Lions offensive era (was -1.0)
+    'Gabba':                   +2.4,   # alias
+    # Over-scoring venues
+    'Marvel Stadium':          +4.5,   # n=338 (110 recent); enclosed — traps humid air, consistent over
+    'Marvel':                  +4.5,   # alias
+    'Docklands':               +4.5,   # alias
+    'SCG':                     +5.4,   # n=90 (29 recent); compact + fast surface = high scoring
+    'GMHBA Stadium':           +6.0,   # n=75 (25 recent); Geelong — cats attack, loyal crowd
+    'Kardinia Park':           +6.0,   # alias
+    'ENGIE Stadium':           +8.7,   # n=65 (20 recent); GWS home — highest-scoring non-Darwin ground
+    # Remote/hot venues — data-thin, use conservative estimates
+    'TIO Stadium':             +7.0,   # n=17 all-time; Darwin — heat produces frenetic play; +10 was too aggressive for 1 2026 game
+    'Cazalys Stadium':         -3.0,   # Cairns — small n, hot, conservative estimate
+    'Traeger Park':            -3.0,   # Alice Springs — thin air, heat, conservative estimate
 }
 
 # Caps
 T4_HANDICAP_CAP = 5.0
-T4_TOTALS_CAP   = 5.0
+T4_TOTALS_CAP   = 10.0
 
 
 # ── Signal functions ──────────────────────────────────────────────────────────

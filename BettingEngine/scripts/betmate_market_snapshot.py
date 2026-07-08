@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Capture NRL bookmaker market snapshots from Betmate odds exports.
+"""Capture NRL bookmaker market snapshots from Betmate's odds workbook.
 
-This reads Betmate's already-collected odds workbook or daily odds snapshot CSV
-and appends the latest available H2H, handicap, and totals prices into
+This reads Betmate's already-collected historical/current odds workbook and
+appends the latest available H2H, handicap, and totals prices into
 market_snapshots. It does not scrape bookmakers itself.
 """
 
@@ -27,7 +27,7 @@ from normalization.normalizers import normalize_team_name  # noqa: E402
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Append Betmate odds export prices to market_snapshots.")
+    parser = argparse.ArgumentParser(description="Append Betmate odds workbook prices to market_snapshots.")
     parser.add_argument("--config", default="config/betmate_automation.yaml")
     parser.add_argument("--settings", default="config/settings.yaml")
     parser.add_argument("--season", type=int)
@@ -38,13 +38,7 @@ def main() -> None:
         default="next",
         help="next = first round whose first game is after today; current_or_next = first round with any remaining game.",
     )
-    parser.add_argument("--odds-file", help="Override Betmate odds workbook/CSV path.")
-    parser.add_argument(
-        "--source-format",
-        choices=["auto", "workbook", "csv"],
-        default="auto",
-        help="auto detects from file extension/columns; csv reads Betmate odds_snapshots CSV.",
-    )
+    parser.add_argument("--odds-file", help="Override Betmate historical odds workbook path.")
     parser.add_argument("--captured-at", help="Override capture timestamp, ISO/local format.")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
@@ -53,7 +47,7 @@ def main() -> None:
     settings = _load_yaml(ROOT / args.settings)
     season = args.season or int(config["pricing"]["season"])
     db_path = ROOT / settings["database"]["path"]
-    odds_file = Path(args.odds_file).expanduser() if args.odds_file else _default_odds_file(config, season)
+    odds_file = Path(args.odds_file) if args.odds_file else _default_odds_file(config)
     captured_at = args.captured_at or datetime.now().isoformat(timespec="seconds")
 
     conn = sqlite3.connect(db_path)
@@ -62,27 +56,14 @@ def main() -> None:
 
     round_number = args.round_number or _auto_round(conn, season, args.round_mode)
     matches = _round_matches(conn, season, round_number)
-    source_format = _detect_source_format(odds_file, args.source_format)
-    if source_format == "workbook":
-        rows = _read_betmate_workbook(odds_file)
-        snapshots, missing = _build_workbook_snapshots(matches, rows, captured_at, str(odds_file))
-    else:
-        rows = _read_betmate_csv(odds_file)
-        snapshots, missing = _build_csv_snapshots(
-            matches,
-            rows,
-            captured_at_override=args.captured_at,
-            source_url=str(odds_file),
-        )
-        if snapshots and not args.captured_at:
-            captured_at = max(str(snapshot["captured_at"]) for snapshot in snapshots)
+    rows = _read_betmate_workbook(odds_file)
+    snapshots, missing = _build_snapshots(matches, rows, captured_at, str(odds_file))
 
     report = {
         "season": season,
         "round_number": round_number,
         "captured_at": captured_at,
         "odds_file": str(odds_file),
-        "source_format": source_format,
         "dry_run": args.dry_run,
         "matches": len(matches),
         "snapshots_to_insert": len(snapshots),
@@ -119,34 +100,8 @@ def _load_yaml(path: Path) -> dict:
         return yaml.safe_load(fh)
 
 
-def _default_odds_file(config: dict, season: int) -> Path:
-    configured_root = Path(str(config["betmate"]["root"])).expanduser()
-    home = Path.home()
-    candidates = [
-        configured_root / "historical-odds" / "latest" / "nrl.xlsx",
-        configured_root / "data" / "nrl" / "historical-odds" / "latest" / "nrl.xlsx",
-        configured_root / "data" / "odds_snapshots" / "latest.csv",
-        configured_root / "data" / "odds_snapshots" / str(season) / f"{datetime.now().date().isoformat()}.csv",
-        home / "betmate-web" / "data" / "nrl" / "historical-odds" / "latest" / "nrl.xlsx",
-        home / "betmate-web" / "data" / "odds_snapshots" / "latest.csv",
-        home / "BetMate" / "data" / "nrl" / "historical-odds" / "latest" / "nrl.xlsx",
-        home / "BetMate" / "data" / "odds_snapshots" / "latest.csv",
-    ]
-    for path in candidates:
-        if path.exists():
-            return path
-    return candidates[0]
-
-
-def _detect_source_format(path: Path, requested: str) -> str:
-    if requested != "auto":
-        return requested
-    suffix = path.suffix.lower()
-    if suffix in {".xlsx", ".xls"}:
-        return "workbook"
-    if suffix == ".csv":
-        return "csv"
-    raise ValueError(f"Cannot auto-detect odds source format for {path}")
+def _default_odds_file(config: dict) -> Path:
+    return Path(config["betmate"]["root"]) / "historical-odds" / "latest" / "nrl.xlsx"
 
 
 def _auto_round(conn: sqlite3.Connection, season: int, mode: str) -> int:
@@ -216,28 +171,7 @@ def _read_betmate_workbook(path: Path) -> dict[tuple[str, str, str], dict]:
     return rows
 
 
-def _read_betmate_csv(path: Path) -> list[dict]:
-    if not path.exists():
-        raise FileNotFoundError(path)
-    df = pd.read_csv(path)
-    required = {
-        "snapshot_date",
-        "snapshot_time",
-        "sport",
-        "home_team",
-        "away_team",
-        "bookmaker",
-        "market",
-        "outcome",
-        "price",
-    }
-    missing = sorted(required - set(df.columns))
-    if missing:
-        raise ValueError(f"Betmate CSV missing required columns: {missing}")
-    return [row.to_dict() for _, row in df.iterrows()]
-
-
-def _build_workbook_snapshots(
+def _build_snapshots(
     matches: list[dict],
     workbook_rows: dict[tuple[str, str, str], dict],
     captured_at: str,
@@ -262,109 +196,6 @@ def _build_workbook_snapshots(
     return snapshots, missing
 
 
-def _build_csv_snapshots(
-    matches: list[dict],
-    csv_rows: list[dict],
-    captured_at_override: str | None,
-    source_url: str,
-) -> tuple[list[dict], list[str]]:
-    rows_by_game: dict[tuple[str, str, str], list[dict]] = {}
-    for row in csv_rows:
-        if str(row.get("sport", "")).upper() != "NRL":
-            continue
-        try:
-            date = pd.to_datetime(row.get("commence_time")).date().isoformat()
-        except (TypeError, ValueError):
-            continue
-        home = normalize_team_name(row.get("home_team"))
-        away = normalize_team_name(row.get("away_team"))
-        rows_by_game.setdefault((date, home, away), []).append(row)
-
-    snapshots = []
-    missing = []
-    for match in matches:
-        key = (match["match_date"], match["home_team"], match["away_team"])
-        game_rows = rows_by_game.get(key, [])
-        if not game_rows:
-            missing.append(f"{match['match_date']} {match['home_team']} v {match['away_team']}")
-            continue
-
-        before = len(snapshots)
-        for row in game_rows:
-            snapshot = _csv_row_to_snapshot(match, row, captured_at_override, source_url)
-            if snapshot is not None:
-                snapshots.append(snapshot)
-        if len(snapshots) == before:
-            missing.append(f"{match['match_date']} {match['home_team']} v {match['away_team']} (row found, no supported prices)")
-    return snapshots, missing
-
-
-def _csv_row_to_snapshot(
-    match: dict,
-    row: dict,
-    captured_at_override: str | None,
-    source_url: str,
-) -> dict | None:
-    market_type = _csv_market_type(row.get("market"))
-    if market_type is None:
-        return None
-
-    selection = _csv_selection(match, market_type, row.get("outcome"))
-    if selection is None:
-        return None
-
-    odds = row.get("price")
-    if not _has_value(odds):
-        return None
-
-    captured_at = captured_at_override or f"{row.get('snapshot_date')} {row.get('snapshot_time')}"
-    item = _base(
-        match,
-        bookmaker_name=str(row.get("bookmaker", "")).strip(),
-        bookmaker_code=str(row.get("bookmaker", "")).strip(),
-        captured_at=captured_at,
-        source_url=source_url,
-        source_method="api",
-    )
-    item.update(
-        {
-            "market_type": market_type,
-            "selection": selection,
-            "odds": odds,
-            "line": row.get("point") if _has_value(row.get("point")) else None,
-            "is_opening": 0,
-        }
-    )
-    return item
-
-
-def _csv_market_type(value) -> str | None:
-    raw = str(value or "").strip().lower()
-    if raw == "h2h":
-        return "h2h"
-    if raw == "spreads":
-        return "handicap"
-    if raw == "totals":
-        return "total"
-    return None
-
-
-def _csv_selection(match: dict, market_type: str, outcome) -> str | None:
-    raw = str(outcome or "").strip()
-    lower = raw.lower()
-    if market_type == "total":
-        if lower in {"over", "under"}:
-            return lower
-        return None
-
-    team = normalize_team_name(raw)
-    if team == match["home_team"]:
-        return "home"
-    if team == match["away_team"]:
-        return "away"
-    return None
-
-
 def _bookmaker_for_date(match_date: str) -> tuple[str, str]:
     if match_date >= "2024-04-29":
         return "BlueBet", "bluebet"
@@ -387,20 +218,13 @@ def _has_value(value) -> bool:
     return value is not None and not pd.isna(value) and str(value).strip() != ""
 
 
-def _base(
-    match: dict,
-    bookmaker_name: str,
-    bookmaker_code: str,
-    captured_at: str,
-    source_url: str,
-    source_method: str = "api",
-) -> dict:
+def _base(match: dict, bookmaker_name: str, bookmaker_code: str, captured_at: str, source_url: str) -> dict:
     return {
         "match_id": match["match_id"],
         "bookmaker": bookmaker_name,
         "bookmaker_code": bookmaker_code,
         "captured_at": captured_at,
-        "source_method": source_method,
+        "source_method": "api",
         "source_url": source_url,
     }
 

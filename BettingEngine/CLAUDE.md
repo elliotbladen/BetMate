@@ -11,10 +11,10 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-07-05 (Part 3)
+**Last updated:** 2026-07-08 (Work/home machine git divergence reconciled — see handover `2026-07-08_machine-reconcile-architecture.md`. Work machine had the live data + Jul 7 NRL work; home machine's monorepo import carried a stale BettingEngine copy EXCEPT the Jul 5 EPL engine build and Jul 5 AFL ML retrain, which only existed in git history. Both sides merged: working tree kept for everything, HEAD restored for `ml/afl/*` + EPL tree. ⚠️ AFL ML .pkl models are NOT in git — re-run `ml/afl/game_log.py` + `ml/afl/train.py` on this machine before next AFL ML shadow run. ⚠️ Diary `2026-07-05_afl-ema-form-split-models.md` was never committed — it exists only on the home computer; commit + push it from there.)
 **Update this section at the end of every session, before writing the handover diary.**
 
-### EPL Engine — FULL BUILD COMPLETE 2026-07-05
+### EPL Engine — FULL BUILD COMPLETE 2026-07-05 (built on home machine)
 Full session diary: `handover/sessions/2026-07-05_epl-engine-build.md`
 Architecture doc: `WorldCupEngine/ml/epl/ARCHITECTURE.md`
 
@@ -46,10 +46,8 @@ python3 WorldCupEngine/ml/epl/price_match.py \
 
 **CatBoost (T8): tested, rejected** — 1,517 training rows too few (overfits). Revisit when 10+ seasons available (~4,000 rows).
 
----
-
-### AFL ML Model — SPLIT FEATURE SETS + EMA FORM 2026-07-05
-Full session diary: `handover/sessions/2026-07-05_afl-ema-form-split-models.md`
+### AFL ML Model — SPLIT FEATURE SETS + EMA FORM 2026-07-05 (built on home machine)
+Full session diary: `2026-07-05_afl-ema-form-split-models.md` — **⚠️ NOT YET COMMITTED, lives on home computer only**
 
 **Three models now have separate feature sets:**
 
@@ -89,36 +87,21 @@ Full session diary: `handover/sessions/2026-07-05_afl-ema-form-split-models.md`
 
 **Rules model NOT yet integrated into ML pipeline** — kept separate. Revisit blending after another season of live validation.
 
-**DO NOT use EV filter on Betfair exchange prices** — EV is calibrated against OddsPortal opening odds. Betfair first-bounce ≈ closing price; the edge will have moved.
+**⚠️ Deployment note (2026-07-08):** the retrained `.pkl` model files are not tracked in git, so this machine still has the pre-EMA pickles. Regenerate locally before the next ML shadow run:
+```powershell
+cd C:\Users\ElliotBladen\Apps\BettingEngine
+& ".\.venv\Scripts\python.exe" ml\afl\game_log.py --xlsx outputs\afl_weekly_review\historical\latest.xlsx
+& ".\.venv\Scripts\python.exe" ml\afl\train.py
+```
 
-**Key architectural note — split feature sets:**
-`train.py` has `FEATURES_MARGIN_TOTAL` (30 features) and `FEATURES_H2H` (22 features, no EMA).
-`backtest_2025.py` has `FEATURE_COLS_MARGIN_TOTAL` and `FEATURE_COLS_H2H`. Prediction uses `prep_X()` helper with the right set per model. Any future predict script MUST respect this split.
-
-**Also completed in earlier part of this session (2026-07-05 Part 1):**
-1. Isotonic calibration added to H2H classifier
-2. `mkt_home_prob_open` added as feature (smart NaN imputation → elo_win_prob)
-3. `latest.xlsx` updated to afl (9).xlsx — covers R1–R16 2026 (135 deploy games)
-
-### NRL + AFL Halftime Models — FORMULA FIX 2026-06-21
-Both models now use correct banked-points formula and lower RF:
-- **RF lowered: 0.55 → 0.25 (NRL), 0.45 → 0.25 (AFL)** — 75% weight to H1 evidence at halftime
-- **Formula fixed**: `expected_final = ht_margin + (ht_margin*(1-RF) + pg_h2_prior*RF)` — H1 locked in, only H2 projected
-- **NRL: run metres added** — `PTS_PER_RUN_METRES_DIFF=0.012`, cap 12 pts; research-estimated, calibrate after 50+ obs
-- Validated: Warriors vs Cowboys (HT 14–10, run metres +375m) → +13.2 final expected (prev. 2.3 — clearly wrong)
-- Validated: Storm vs Raiders (HT 16–16, mild Storm edge) → +2.2 final expected (sensible for even game)
-
-### All 6 Matrices — AWAY/ROAD Section Added 2026-06-21
-- New "AWAY / ROAD" section in all 6 matrices (NRL + AFL, H2H + Handicap + Totals)
-- Trip classification: Local (same state), Interstate, Long Haul
-  - NRL Long Haul: NZ, Perth (HBF), Darwin (TIO), Las Vegas (Allegiant)
-  - AFL Long Haul: WA venues (non-WA teams), TAS (UTAS), NT (TIO/Traeger), overseas
-- Output xlsx files rebuilt — `outputs/nrl_*.xlsx`, `outputs/afl_*.xlsx`
-- Notable: low-n warning on Long Haul rows for most teams — use with caution
-
-### AFL HT Second Half Research — 2026-06-21
-Top 8 best second half teams (H2 win % overall): Brisbane 67%, Sydney 65%, Fremantle 63.4%, Collingwood 63%, Geelong 62%, W.Bulldogs 53.6%, Port 51%, GWS 50%
-Top 8 Lead & Win teams: Fremantle 83%, Sydney 80.7%, Geelong 80.6%, Gold Coast 80.4%, Collingwood 79.7%, W.Bulldogs 78.2%, Brisbane 77.6%, Port 77.3%
+### AFL 2026 — Round 17 (Jul 2–5) — FULLY RE-PRICED 2026-07-02
+- ELO rebuilt on latest historical xlsx before pricing (990-game deploy window, 135 games in 2026 season)
+- `results/r17_afl_2026.csv` (9 rows) + full writeup `outputs/results/r17_afl_pricing_2026.md`
+- **Manual T5 fix:** Footywire injury scrape was down (503) — used the 2026-06-30 curated injury file as base, but a fresh emotional-flags scrape caught Jordan Dawson (Adelaide's captain, elite midfielder) missing entirely — out for personal reasons (bereavement), not a medical injury so Footywire wouldn't have it anyway. Added manually to `outputs/afl_round_prep/r17_2026/injuries_r17_2026.json`. Moved Eagles/Crows T5 handicap from +6.0 to -2.0.
+- Top signals: **Adelaide -32.5** @ Eagles (6-way H2H + 5-way handicap T9 matrix, rules+ML agree direction) | **Hawthorn -14.5** @ Demons (rules+ML both clear market by 9pt+)
+- **Power vs Kangaroos flagged AVOID** — only game this round where rules and ML disagree on winner (rules: coin flip, ML: Kangaroos), despite an 8-way H2H matrix stack (two 100% historical splits) backing Power. Clean example of the model-alignment betting rule overriding a strong matrix signal.
+- **Richmond/Carlton and Essendon/St Kilda both show the known extreme-ELO-gap undercook** — rules and ML agree with each other but sit 9-12pts short of market. T2 style-matchup layer hit its ±4.0 cap on 5/9 games this round. Reinforces the backlogged sigmoid ELO→margin rescale as the real fix, not a per-round patch.
+- Predictions pushed live to betmate.au via `scripts/push_afl_predictions.py` (main repo).
 
 ### AFL Halftime Model — CALIBRATED 2026-06-19
 - BASELINE_ACCURACY updated: 0.52 → **0.529** (fitted on 875-game dataset; per-year: 0.534/0.523/0.532/0.528/0.531)
@@ -128,13 +111,11 @@ Top 8 Lead & Win teams: Fremantle 83%, Sydney 80.7%, Geelong 80.6%, Gold Coast 8
 - FootyWire live stats scraping working (afl_ht_live.py → enrich_with_live_stats → inside 50s, clearances, clangers)
 - betmate.au/api/afl-predictions used as primary pre-game pricing source; CSV fallback
 
-### NRL Halftime Model — FORMULA FIXED 2026-06-21
+### NRL Halftime Model — RECALIBRATED 2026-06-14
 - Sign convention bug fixed: `pg_hcap = -_safe_float(pregame.get("fair_hcap_line", 0))`
-- **REGRESSION_FACTOR=0.25** (was 0.55) — lowered 2026-06-21 to match AFL approach
-- **Banked points formula** — `expected_final = ht_margin + (ht_margin*(1-RF) + pg_h2*RF)` — H1 locked
-- **Run metres added** — `PTS_PER_RUN_METRES_DIFF=0.012`, cap 12 pts (calibrate after 50+ live obs)
-- Other constants: POINTS_PER_ERROR_DIFF=1.4, RESTART_NET_PTS=0.72, RESTART_H2_DEFLATION=0.36, CONVERSION_ADJ_CAP=2.0
+- Constants updated: REGRESSION_FACTOR=0.55, POINTS_PER_ERROR_DIFF=1.4, RESTART_NET_PTS=0.72, RESTART_H2_DEFLATION=0.36, CONVERSION_ADJ_CAP=2.0
 - Restart calc: `(home-away) * RESTART_NET_PTS * RESTART_H2_DEFLATION` (was `* 4.5 * 0.80`)
+- Validated on Warriors 6 vs Sharks 8 (R15 2026) — output sensible, model working
 
 ### AFL Halftime Pipeline — BUILT 2026-06-14
 - `scripts/fetch_afl_ht_scores.py` — scrapes afltables.com Q1-Q4 scores; 875/885 matched (98.9%)
@@ -358,6 +339,9 @@ Signal eligible only if: EV >= 20%, no hard veto, data quality acceptable.
 ### Kelly
 Quarter Kelly in Year 1. Hard stake cap. Minimum actionable threshold.
 
+### Tier Coverage Reporting — MANDATORY (established 2026-07-07)
+Every time a round is priced (NRL or AFL), the output must state which tiers actually fired with real data and which were skipped/defaulted, and why. Never just hand over prices without this — a tier silently defaulting to neutral (e.g. injuries not scraped, weather not fetched, emotional flags stale) changes what the price is worth, and that has to be visible every time, not just when something notable happens to go wrong. Minimum bar: at least 75% of the tiers in scope for that sport must be genuinely populated (real data, not a default/neutral fallback) before the pricing is considered fit to hand over — if it falls short, say so plainly and fix the gap before delivering rather than quietly shipping a thin price.
+
 ---
 
 ## CODING STANDARDS
@@ -431,6 +415,7 @@ Use `--round 0` to auto-detect latest round.
 | AFL injury scraper | Next AFL session | BetMate `afl_injuries.py` — scrapes AFL.com.au `/matches/injury-list`, Tuesday 10:00 |
 | AFL Tuesday pipeline | After scrapers built | Tue 09:00 results → 10:00 injuries → 17:00 historical → 19:30 prepare_round. See `handover/AFL_PREP.md` |
 | Referee scraper automation | Post-R10 | Currently manual CSV |
+| **T10 Origin window doesn't cover the round it matters most for** | Found 2026-07-07, R19 | `find_active_origin_game` uses `camp_start <= match_date < camp_end`. `camp_end` is set to the day after the Origin game (e.g. G3: camp_end `2026-07-09`), so it correctly covers the camp week itself — but the very next NRL round (R19, games `2026-07-10` to `2026-07-12`) falls just outside the window, even though that's exactly when Origin players are back at their clubs carrying real fatigue on a 2-4 day turnaround. T10 silently returns 0.0 for the whole round in this case. **Calibration (user-confirmed 2026-07-07): players who backed up the week after Origin play at ~66% capacity — i.e. a 0.34× multiplier on the standard `_ORIGIN_PTS` absence values, not the full 1.0× (fully absent) or a naive 0.5× guess.** Manually overlaid this for R19. Real fix: extend `camp_end` to cover the following round with this 0.34× decay built in, or add a distinct "post-Origin fatigue" mode to `tier10_origin.py` rather than reusing the absence formula unmodified. |
 
 ---
 

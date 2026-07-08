@@ -137,7 +137,6 @@ from pricing.tier6_referee import get_ref_context, compute_referee_adjustments
 from pricing.tier7_emotional import compute_emotional_adjustments
 from pricing.tier8_weather import compute_weather_adjustments
 from pricing.engine import derive_final_prices
-from decision.signals import generate_signals
 from db.queries import (
     get_team_stats, get_prior_season_stats,
     get_team_style_stats, get_style_league_norms,
@@ -147,11 +146,6 @@ from db.queries import (
     get_emotional_flags,
     get_weather_conditions,
     get_or_create_referee,
-    get_match_by_id,
-    get_latest_snapshots_for_match,
-    insert_model_run,
-    insert_model_adjustment,
-    insert_signal,
     insert_tier2_performance, update_tier2_results,
 )
 
@@ -1239,7 +1233,9 @@ def price_match(conn, match_row, tier2_cfg, tiers_cfg, origin_data=None) -> dict
     if t6_ctx and t6_cfg.get('enabled', True):
         t6 = compute_referee_adjustments(t6_ctx['home_bucket_edge'],
                                          t6_ctx['away_bucket_edge'],
-                                         t6_ctx['bucket'], t6_cfg)
+                                         t6_ctx['bucket'], t6_cfg,
+                                         scoring_delta=t6_ctx.get('scoring_delta'),
+                                         home_bias_adj=t6_ctx.get('home_bias_adj'))
         t6_handicap_delta = t6['handicap_delta']
         totals_T6         = t6['totals_delta']
         t6_bucket         = t6_ctx['bucket']
@@ -1357,241 +1353,6 @@ def price_match(conn, match_row, tier2_cfg, tiers_cfg, origin_data=None) -> dict
         't7_condition_type': t8_condition_type,
         't7_dew_risk': t8_dew_risk,
     }
-
-
-def _load_decision_config(tiers_cfg: dict) -> dict:
-    """Merge pricing, Kelly, and tier config for signal generation."""
-    cfg = {}
-    for path in ('config/pricing.yaml', 'config/kelly.yaml'):
-        try:
-            loaded = yaml.safe_load(Path(path).read_text(encoding='utf-8')) or {}
-        except FileNotFoundError:
-            loaded = {}
-        cfg.update(loaded)
-    cfg.update(tiers_cfg)
-    return cfg
-
-
-def _model_run_row(rec: dict, notes: str) -> dict:
-    def db_decimal_odds(value) -> float:
-        return max(1.01, float(value))
-
-    return {
-        'match_id': rec['match_id'],
-        'run_timestamp': datetime.utcnow().isoformat(),
-        'model_version': rec['model_version'],
-        'baseline_home_points': rec['t1_home_pts'],
-        'baseline_away_points': rec['t1_away_pts'],
-        'baseline_margin': rec['t1_margin'],
-        'baseline_total': rec['totals_T1'],
-        'final_home_points': rec['pred_home_score'],
-        'final_away_points': rec['pred_away_score'],
-        'final_margin': rec['final_margin'],
-        'final_total': rec['final_total'],
-        'home_win_probability': rec['home_win_probability'],
-        'away_win_probability': rec['away_win_probability'],
-        'fair_home_odds': db_decimal_odds(rec['fair_home_odds']),
-        'fair_away_odds': db_decimal_odds(rec['fair_away_odds']),
-        'fair_handicap_line': rec['fair_handicap_line'],
-        'fair_total_line': rec['fair_total_line'],
-        'run_status': 'success',
-        'notes': notes,
-    }
-
-
-def _adjustment_rows(model_run_id: int, rec: dict) -> list[dict]:
-    """
-    Convert the active prepare_round pricing build-up into audit rows.
-
-    The current canonical schema allows tiers 1-7. T8 weather and T10 Origin are
-    retained in model_run notes until the schema is widened deliberately.
-    """
-    t2_home = float(rec.get('t2_capped_total', 0.0))
-    t2_net = float(rec.get('t2_net_hcap', 0.0))
-    t2_away = t2_home - t2_net
-    t3_home = float(rec.get('_t3_home_delta', 0.0))
-    t3_away = float(rec.get('_t3_away_delta', 0.0))
-
-    return [
-        {
-            'model_run_id': model_run_id,
-            'tier_number': 1,
-            'tier_name': 'tier1_baseline',
-            'adjustment_code': 'baseline',
-            'adjustment_description': 'Baseline expected points from ELO, attack/defence, form, and home advantage.',
-            'home_points_delta': 0.0,
-            'away_points_delta': 0.0,
-            'margin_delta': 0.0,
-            'total_delta': 0.0,
-        },
-        {
-            'model_run_id': model_run_id,
-            'tier_number': 2,
-            'tier_name': 'tier2_matchup',
-            'adjustment_code': 'style_matchup',
-            'adjustment_description': f"Style matchup families fired: {rec.get('fired_families') or 'none'}.",
-            'home_points_delta': t2_home,
-            'away_points_delta': t2_away,
-            'margin_delta': rec.get('t2_net_hcap', 0.0),
-            'total_delta': rec.get('totals_T2', 0.0),
-            'applied_flag': 1 if rec.get('t2_net_hcap') or rec.get('totals_T2') else 0,
-        },
-        {
-            'model_run_id': model_run_id,
-            'tier_number': 3,
-            'tier_name': 'tier3_situational',
-            'adjustment_code': 'rest_travel_momentum',
-            'adjustment_description': 'Situational rest, travel, and momentum adjustments.',
-            'home_points_delta': t3_home,
-            'away_points_delta': t3_away,
-            'margin_delta': rec.get('t3_net_hcap', 0.0),
-            'total_delta': rec.get('totals_T3', 0.0),
-            'applied_flag': 1 if rec.get('t3_net_hcap') or rec.get('totals_T3') else 0,
-        },
-        {
-            'model_run_id': model_run_id,
-            'tier_number': 4,
-            'tier_name': 'tier4_venue',
-            'adjustment_code': 'venue_edge',
-            'adjustment_description': f"Venue edge at {rec.get('t4_venue_name') or 'unknown venue'}.",
-            'margin_delta': rec.get('t4_handicap_delta', 0.0),
-            'total_delta': rec.get('totals_T4', 0.0),
-            'applied_flag': 1 if rec.get('t4_handicap_delta') or rec.get('totals_T4') else 0,
-        },
-        {
-            'model_run_id': model_run_id,
-            'tier_number': 5,
-            'tier_name': 'tier5_injury',
-            'adjustment_code': 'injury_availability',
-            'adjustment_description': (
-                f"Home injury pts={rec.get('t5_home_injury_pts', 0.0):.1f}; "
-                f"away injury pts={rec.get('t5_away_injury_pts', 0.0):.1f}."
-            ),
-            'margin_delta': rec.get('t5_handicap_delta', 0.0),
-            'total_delta': rec.get('totals_T5', 0.0),
-            'applied_flag': 1 if rec.get('t5_handicap_delta') or rec.get('totals_T5') else 0,
-        },
-        {
-            'model_run_id': model_run_id,
-            'tier_number': 6,
-            'tier_name': 'tier6_referee',
-            'adjustment_code': 'referee_profile',
-            'adjustment_description': (
-                f"{rec.get('t6_referee_name') or 'No referee'} "
-                f"({rec.get('t6_bucket') or 'neutral'})."
-            ),
-            'margin_delta': rec.get('t6_handicap_delta', 0.0),
-            'total_delta': rec.get('totals_T6', 0.0),
-            'applied_flag': 1 if rec.get('t6_handicap_delta') or rec.get('totals_T6') else 0,
-        },
-        {
-            'model_run_id': model_run_id,
-            'tier_number': 7,
-            'tier_name': 'tier7_emotional',
-            'adjustment_code': 'emotional_flags',
-            'adjustment_description': (
-                f"Home flags={rec.get('_t7_home_flags', 0)}; "
-                f"away flags={rec.get('_t7_away_flags', 0)}."
-            ),
-            'margin_delta': rec.get('t7_handicap_delta', 0.0),
-            'total_delta': rec.get('totals_T7', 0.0),
-            'applied_flag': 1 if rec.get('t7_handicap_delta') or rec.get('totals_T7') else 0,
-        },
-    ]
-
-
-def _signal_row(signal: dict, model_run_id: int, match_id: int) -> dict:
-    return {
-        'model_run_id': model_run_id,
-        'match_id': match_id,
-        'snapshot_id': signal['snapshot_id'],
-        'bookmaker_id': signal['bookmaker_id'],
-        'market_type': signal['market_type'],
-        'selection_name': signal['selection_name'],
-        'line_value': signal.get('line_value'),
-        'market_odds': signal['market_odds'],
-        'model_odds': signal.get('model_odds'),
-        'model_probability': signal['model_probability'],
-        'ev_value': signal['ev'],
-        'ev_percent': signal['ev_percent'],
-        'raw_kelly_fraction': signal.get('raw_kelly') or 0.0,
-        'applied_kelly_fraction': signal.get('applied_kelly') or 0.0,
-        'capped_stake_fraction': signal.get('capped_stake_fraction') or 0.0,
-        'recommended_stake_amount': signal.get('recommended_stake') or 0.0,
-        'confidence_level': signal['confidence'],
-        'signal_label': signal['signal_label'],
-        'veto_flag': int(signal.get('veto') or 0),
-        'veto_reason': signal.get('veto_reason'),
-    }
-
-
-def persist_baz_audit_rows(conn, records: list[dict], tiers_cfg: dict, bankroll: float = 0.0) -> tuple[int, int, int]:
-    """
-    Persist model_runs, model_adjustments, and market signals for Baz.
-
-    Returns (model_runs_count, adjustments_count, signals_count).
-    """
-    decision_cfg = _load_decision_config(tiers_cfg)
-    run_count = adjustment_count = signal_count = 0
-
-    for rec in records:
-        notes = (
-            f"T8 weather={rec.get('t7_condition_type', 'clear')} "
-            f"total_delta={rec.get('totals_T8', 0.0):+.2f}; "
-            f"T10 origin_game={rec.get('t10_game_number', 0)} "
-            f"hcap_delta={rec.get('t10_handicap_delta', 0.0):+.2f} "
-            f"total_delta={rec.get('totals_T10', 0.0):+.2f}"
-        )
-        model_run_id = insert_model_run(conn, _model_run_row(rec, notes))
-        run_count += 1
-
-        for adjustment in _adjustment_rows(model_run_id, rec):
-            insert_model_adjustment(conn, adjustment)
-            adjustment_count += 1
-
-        snapshots = get_latest_snapshots_for_match(conn, rec['match_id'])
-        if not snapshots:
-            continue
-
-        prices = {
-            'final_margin': rec['final_margin'],
-            'final_total': rec['final_total'],
-            'home_win_probability': rec['home_win_probability'],
-            'away_win_probability': rec['away_win_probability'],
-            'fair_home_odds': rec['fair_home_odds'],
-            'fair_away_odds': rec['fair_away_odds'],
-            'fair_handicap_line': rec['fair_handicap_line'],
-            'fair_total_line': rec['fair_total_line'],
-        }
-        match = get_match_by_id(conn, rec['match_id'])
-        generated = generate_signals(
-            prices=prices,
-            snapshots=snapshots,
-            match=match,
-            run_validation=None,
-            bankroll=bankroll,
-            config=decision_cfg,
-            model_version=rec['model_version'],
-            model_run_id=model_run_id,
-        )
-        bookmaker_ids = {
-            row['snapshot_id']: row['bookmaker_id']
-            for row in snapshots
-        }
-        for signal in generated:
-            if (
-                not signal.get('snapshot_id')
-                or signal.get('market_odds') is None
-                or signal.get('model_probability') is None
-                or signal.get('ev') is None
-                or signal.get('ev_percent') is None
-            ):
-                continue
-            signal['bookmaker_id'] = bookmaker_ids[signal['snapshot_id']]
-            insert_signal(conn, _signal_row(signal, model_run_id, rec['match_id']))
-            signal_count += 1
-
-    return run_count, adjustment_count, signal_count
 
 
 def step6a_fetch_weather(conn, season: int, round_number: int,
@@ -1829,11 +1590,6 @@ def step7_price(conn, season: int, round_number: int,
         print(f'\n  {len(records)} rows written to tier2_performance.')
         if n:
             print(f'  {n} rows updated with actual results.')
-        runs, adjustments, signals = persist_baz_audit_rows(conn, records, tiers_cfg)
-        print(
-            f'  Baz audit rows written: {runs} model_runs, '
-            f'{adjustments} model_adjustments, {signals} signals.'
-        )
 
     ok(f'Pricing complete for R{round_number}.')
 

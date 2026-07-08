@@ -1,0 +1,126 @@
+{
+  "season": 2026,
+  "round": 18,
+  "source": "data/afl/injuries/processed/latest-injuries.json (scraped 2026-07-06T23:33Z) + manual position/quality tagging by football knowledge, since the scraper does not supply position or quality",
+  "injuries": {
+    "Adelaide Crows": [
+      {"player": "Mitchell Hinge", "status": "out", "position": "utility", "quality": "depth", "injury": "Ankle", "estimated_return": "TBC"}
+    ],
+    "Brisbane Lions": [
+      {"player": "Jack Payne", "status": "out", "position": "key_defender", "quality": "good", "injury": "Knee", "estimated_return": "TBC"},
+      {"player": "Lincoln McCarthy", "status": "out", "position": "small_forward", "quality": "good", "injury": "Leg/Calf", "estimated_return": "2-3 weeks"},
+      {"player": "Oscar Allen", "status": "out", "position": "key_forward", "quality": "good", "injury": "Foot", "estimated_return": "2-3 weeks"}
+    ],
+    "Carlton Blues": [
+      {"player": "Jacob Weitering", "status": "out", "position": "key_defender", "quality": "elite", "injury": "Leg/Calf", "estimated_return": "TBC", "notes": "Captain, All-Australian key defender"},
+      {"player": "Harry O'Farrell", "status": "out", "position": "utility", "quality": "average", "injury": "Knee", "estimated_return": "TBC"},
+      {"player": "Jesse Motlop", "status": "out", "position": "small_forward", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Matt Carroll", "status": "out", "position": "utility", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Rob Monahan", "status": "out", "position": "utility", "quality": "depth", "injury": "Shoulder", "estimated_return": "Season"}
+    ],
+    "Collingwood Magpies": [
+      {"player": "Darcy Moore", "status": "out", "position": "key_defender", "quality": "elite", "injury": "Hamstring", "estimated_return": "TBC", "notes": "Captain, All-Australian key defender"},
+      {"player": "Jamie Elliott", "status": "out", "position": "small_forward", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Oscar Steene", "status": "out", "position": "midfielder", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Reef McInnes", "status": "out", "position": "ruck", "quality": "average", "injury": "Knee", "estimated_return": "Season"}
+    ],
+    "Essendon Bombers": [
+      {"player": "Kyle Langford", "status": "out", "position": "midfielder", "quality": "good", "injury": "Quad", "estimated_return": "2 weeks"},
+      {"player": "Archie May", "status": "out", "position": "utility", "quality": "depth", "injury": "Shoulder", "estimated_return": "Season"},
+      {"player": "Brayden Fiorini", "status": "out", "position": "midfielder", "quality": "average", "injury": "Back", "estimated_return": "Season"},
+      {"player": "Lewis Hayes", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Nicholas Martin", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Rhys Unwin", "status": "out", "position": "utility", "quality": "depth", "injury": "Hamstring", "estimated_return": "2 weeks"},
+      {"player": "Tom Edwards", "status": "out", "position": "utility", "quality": "average", "injury": "Hamstring", "estimated_return": "3-4 weeks"}
+    ],
+    "Fremantle Dockers": [
+      {"player": "Sam Sturt", "status": "out", "position": "small_forward", "quality": "average", "injury": "Knee", "estimated_return": "TBA"}
+    ],
+    "Geelong Cats": [
+      {"player": "Thomas Stewart", "status": "out", "position": "key_defender", "quality": "elite", "injury": "Head", "estimated_return": "TBC", "notes": "All-Australian caliber intercept defender"},
+      {"player": "Toby Conway", "status": "out", "position": "ruck", "quality": "good", "injury": "Foot", "estimated_return": "TBC"},
+      {"player": "Harley Barker", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Indefinite"}
+    ],
+    "Gold Coast Suns": [
+      {"player": "Daniel Rioli", "status": "out", "position": "small_forward", "quality": "good", "injury": "Jaw", "estimated_return": "4-6 weeks"},
+      {"player": "Sam Clohesy", "status": "out", "position": "utility", "quality": "average", "injury": "Suspended", "estimated_return": "Round 18"}
+    ],
+    "Greater Western Sydney Giants": [
+      {"player": "Tom Green", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Knee", "estimated_return": "Season", "notes": "Season-ending — re-confirmed per CRITICAL DATA ENTRY RULE"},
+      {"player": "Jesse Hogan", "status": "out", "position": "key_forward", "quality": "elite", "injury": "Finger/Thumb", "estimated_return": "TBC"},
+      {"player": "Joshua Kelly", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Hip/Groin", "estimated_return": "TBC"},
+      {"player": "Jake Riccardi", "status": "out", "position": "key_forward", "quality": "good", "injury": "Ankle", "estimated_return": "5-6 weeks"},
+      {"player": "Xavier O'Halloran", "status": "out", "position": "midfielder", "quality": "average", "injury": "Ankle", "estimated_return": "2-3 weeks"},
+      {"player": "Brent Daniels", "status": "out", "position": "small_forward", "quality": "average", "injury": "Leg/Calf", "estimated_return": "TBC"},
+      {"player": "Oliver Hannaford", "status": "out", "position": "utility", "quality": "average", "injury": "Foot", "estimated_return": "4 weeks"},
+      {"player": "Darcy Jones", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "3-4 weeks"},
+      {"player": "Finnegan Davis", "status": "out", "position": "utility", "quality": "depth", "injury": "Quad", "estimated_return": "2-3 weeks"},
+      {"player": "Max Gruzewski", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "4 weeks"},
+      {"player": "Nathan Wardius", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"}
+    ],
+    "Hawthorn Hawks": [
+      {"player": "Joshua Weddle", "status": "out", "position": "key_defender", "quality": "good", "injury": "Suspended", "estimated_return": "Round 19"},
+      {"player": "Conor Nash", "status": "out", "position": "midfielder", "quality": "average", "injury": "Neck", "estimated_return": "TBC"},
+      {"player": "Jack Scrimshaw", "status": "out", "position": "key_defender", "quality": "average", "injury": "Knee", "estimated_return": "TBC"}
+    ],
+    "Melbourne Demons": [
+      {"player": "Jack Viney", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Leg/Calf", "estimated_return": "TBC", "notes": "Contested-ball bull, elite tier"},
+      {"player": "Brody Mihocek", "status": "out", "position": "key_forward", "quality": "average", "injury": "Neck", "estimated_return": "Season"},
+      {"player": "Andy Moniz-Wakefield", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Jai Culley", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Xavier Lindsay", "status": "out", "position": "utility", "quality": "depth", "injury": "Hip/Groin", "estimated_return": "3-4 weeks"}
+    ],
+    "North Melbourne Kangaroos": [
+      {"player": "Jackson Archer", "status": "out", "position": "key_defender", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Paul Curtis", "status": "out", "position": "utility", "quality": "average", "injury": "Suspended", "estimated_return": "Round 18"},
+      {"player": "Blake Thredgold", "status": "out", "position": "utility", "quality": "depth", "injury": "Foot", "estimated_return": "Season"},
+      {"player": "Toby Pink", "status": "out", "position": "utility", "quality": "depth", "injury": "Shoulder", "estimated_return": "Season"}
+    ],
+    "Port Adelaide Power": [
+      {"player": "Connor Rozee", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Hamstring", "estimated_return": "Season", "notes": "Season-ending — re-confirmed per CRITICAL DATA ENTRY RULE"},
+      {"player": "Esava Ratugolea", "status": "out", "position": "key_forward", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Josh Sinn", "status": "out", "position": "key_defender", "quality": "average", "injury": "Shoulder", "estimated_return": "Season"},
+      {"player": "Ollie Lord", "status": "out", "position": "key_forward", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Kane Farrell", "status": "out", "position": "utility", "quality": "average", "injury": "Hip/Groin", "estimated_return": "2-3 weeks"},
+      {"player": "Mani Liddy", "status": "out", "position": "ruck", "quality": "average", "injury": "Hip/Groin", "estimated_return": "Season"},
+      {"player": "Ewan Mackinlay", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"}
+    ],
+    "Richmond Tigers": [
+      {"player": "Josh Gibcus", "status": "out", "position": "key_defender", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Jacob Hopper", "status": "out", "position": "midfielder", "quality": "good", "injury": "Ankle", "estimated_return": "TBC"},
+      {"player": "Campbell Gray", "status": "out", "position": "utility", "quality": "depth", "injury": "Hamstring", "estimated_return": "2-6 weeks"},
+      {"player": "Jonty Faull", "status": "out", "position": "utility", "quality": "depth", "injury": "Back", "estimated_return": "Season"},
+      {"player": "Josh Smillie", "status": "out", "position": "utility", "quality": "depth", "injury": "Quad", "estimated_return": "3-5 weeks"}
+    ],
+    "St Kilda Saints": [
+      {"player": "Sam Flanders", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Leg/Calf", "estimated_return": "Season", "notes": "Season-ending — carried forward"},
+      {"player": "Max King", "status": "out", "position": "key_forward", "quality": "elite", "injury": "Hamstring", "estimated_return": "TBC"},
+      {"player": "Jack Sinclair", "status": "out", "position": "key_defender", "quality": "elite", "injury": "Leg/Calf", "estimated_return": "TBC"},
+      {"player": "Tom De Koning", "status": "out", "position": "ruck", "quality": "elite", "injury": "Bruised Lung", "estimated_return": "TBC"},
+      {"player": "Alix Tauru", "status": "out", "position": "utility", "quality": "average", "injury": "Suspended", "estimated_return": "Round 21"},
+      {"player": "James Barrat", "status": "out", "position": "utility", "quality": "depth", "injury": "Foot", "estimated_return": "TBC"}
+    ],
+    "Sydney Swans": [
+      {"player": "Justin McInerney", "status": "out", "position": "midfielder", "quality": "good", "injury": "Hamstring", "estimated_return": "6-7 weeks"},
+      {"player": "Sam Wicks", "status": "out", "position": "small_forward", "quality": "good", "injury": "Hamstring", "estimated_return": "4-6 weeks"},
+      {"player": "Joel Amartey", "status": "out", "position": "key_forward", "quality": "average", "injury": "Leg/Calf", "estimated_return": "10 weeks"},
+      {"player": "Max King", "status": "out", "position": "key_forward", "quality": "average", "injury": "Back", "estimated_return": "Season", "notes": "Distinct from St Kilda's Max King — not verified, treated cautiously as a depth-tier Sydney listing"},
+      {"player": "Riak Andrew", "status": "out", "position": "utility", "quality": "average", "injury": "Quad", "estimated_return": "2 weeks"},
+      {"player": "Liam Hetherton", "status": "out", "position": "utility", "quality": "depth", "injury": "Back", "estimated_return": "Season"},
+      {"player": "Noah Chamberlain", "status": "out", "position": "utility", "quality": "depth", "injury": "Hamstring", "estimated_return": "8-10 weeks"}
+    ],
+    "West Coast Eagles": [
+      {"player": "Reuben Ginbey", "status": "out", "position": "midfielder", "quality": "good", "injury": "Quad", "estimated_return": "7 weeks"},
+      {"player": "Harry Edwards", "status": "out", "position": "key_defender", "quality": "average", "injury": "Head", "estimated_return": "Season"},
+      {"player": "Deven Robertson", "status": "out", "position": "midfielder", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Archer Reid", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "TBC"},
+      {"player": "Cooper Duff-Tytler", "status": "out", "position": "utility", "quality": "depth", "injury": "Leg/Calf", "estimated_return": "TBC"},
+      {"player": "Jacob Newton", "status": "out", "position": "utility", "quality": "depth", "injury": "Foot", "estimated_return": "Season"},
+      {"player": "Noah Long", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Sam Allen", "status": "out", "position": "utility", "quality": "depth", "injury": "Hamstring", "estimated_return": "7 weeks"}
+    ],
+    "Western Bulldogs": [
+      {"player": "Sam Darcy", "status": "out", "position": "key_forward", "quality": "elite", "injury": "Knee", "estimated_return": "Season", "notes": "Season-ending — significant loss, talented tall forward"}
+    ]
+  }
+}

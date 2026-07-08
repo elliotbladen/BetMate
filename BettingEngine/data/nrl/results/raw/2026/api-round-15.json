@@ -1,7 +1,7 @@
 {
   "fixtures": [
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Match",
       "matchMode": "Post",
@@ -69,7 +69,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Match",
       "matchMode": "Post",
@@ -135,7 +135,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Match",
       "matchMode": "Post",
@@ -204,7 +204,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Match",
       "matchMode": "Post",
@@ -270,25 +270,24 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "Leichhardt Oval",
       "venueCity": "Sydney",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-15/wests-tigers-v-titans/",
       "callToAction": {
-        "accessibleText": "Team Lists for Wests Tigers v Titans",
-        "text": "Team Lists",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-15/wests-tigers-v-titans/#tab-team-lists",
-        "type": "TeamLists"
+        "accessibleText": "Highlights for Wests Tigers v Titans",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/06/14/wests-tigers-v-titans---round-15-2026/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500023,
         "nickName": "Wests Tigers",
-        "odds": "1.52",
-        "teamPosition": "10th",
+        "score": 36,
         "theme": {
           "key": "wests-tigers",
           "logos": {
@@ -308,8 +307,7 @@
       "awayTeam": {
         "teamId": 500004,
         "nickName": "Titans",
-        "odds": "2.55",
-        "teamPosition": "16th",
+        "score": 28,
         "theme": {
           "key": "titans",
           "logos": {
@@ -327,45 +325,19 @@
       },
       "clock": {
         "kickOffTimeLong": "2026-06-14T06:05:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "NINE",
-          "name": "Nine Network",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-small.svg"
-        },
-        {
-          "id": "9NOW",
-          "name": "Nine Now",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-now.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        },
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Get Tickets for Wests Tigers v Titans",
-        "text": "Get Tickets",
-        "url": "https://premier.ticketek.com.au/shows/Show.aspx?sh=LOV0326&utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Latest for Wests Tigers v Titans",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-15/wests-tigers-v-titans/#tab-news-video",
+        "type": "MatchLatest"
       }
     }
   ],
   "byes": [
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Bye",
       "teamNickName": "Bulldogs",
@@ -387,7 +359,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Bye",
       "teamNickName": "Cowboys",
@@ -410,7 +382,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Bye",
       "teamNickName": "Dragons",
@@ -433,7 +405,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Bye",
       "teamNickName": "Knights",
@@ -455,7 +427,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Bye",
       "teamNickName": "Panthers",
@@ -477,7 +449,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Bye",
       "teamNickName": "Sea Eagles",
@@ -499,7 +471,7 @@
       }
     },
     {
-      "isCurrentRound": true,
+      "isCurrentRound": false,
       "roundTitle": "Round 15",
       "type": "Bye",
       "teamNickName": "Storm",

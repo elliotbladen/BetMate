@@ -21,7 +21,7 @@ import argparse
 import json
 import logging
 import sys
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 from pathlib import Path
 
 import requests
@@ -213,11 +213,12 @@ def rebuild_from_weekend(
     )
 
     return {
-        "sport":   sport,
-        "round":   round_number,
-        "season":  season,
-        "updated": date.today().isoformat(),
-        "teams":   teams_out,
+        "sport":      sport,
+        "round":      round_number,
+        "season":     season,
+        "updated":    date.today().isoformat(),
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "teams":      teams_out,
     }
 
 
@@ -270,6 +271,16 @@ def run_sport(
     news_path.parent.mkdir(parents=True, exist_ok=True)
     news_path.write_text(json.dumps(updated, indent=2, ensure_ascii=False), encoding="utf-8")
     log.info("Wrote %s", news_path)
+
+    # Dated archive copy -- latest.json gets overwritten every run, but the
+    # market-event log (build_market_event_log.py) needs a timestamped history
+    # of every update to know when team news actually changed.
+    archive_dir = ROOT / "data" / sport.lower() / "team-news" / "archive" / str(season)
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
+    archive_path = archive_dir / f"r{round_number}_{stamp}.json"
+    archive_path.write_text(json.dumps(updated, indent=2, ensure_ascii=False), encoding="utf-8")
+    log.info("Archived %s", archive_path)
 
     push_to_supabase(env, supabase_key, updated)
 

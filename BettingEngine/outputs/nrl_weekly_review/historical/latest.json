@@ -1,10 +1,10 @@
 {
-  "downloaded_at": "2026-05-12T09:00:27",
+  "downloaded_at": "2026-07-07T09:00:09",
   "source_page_url": "https://www.aussportsbetting.com/data/historical-nrl-results-and-odds-data/",
   "workbook_url": "https://www.aussportsbetting.com/historical_data/nrl.xlsx",
-  "method": "playwright",
+  "method": "http",
   "latest_path": "outputs\\nrl_weekly_review\\historical\\latest.xlsx",
-  "archived_path": "outputs\\nrl_weekly_review\\historical\\nrl_20260512_090003.xlsx",
-  "file_size_bytes": 791587,
+  "archived_path": "outputs\\nrl_weekly_review\\historical\\nrl_20260707_090007.xlsx",
+  "file_size_bytes": 805645,
   "worksheet_count": 2
 }

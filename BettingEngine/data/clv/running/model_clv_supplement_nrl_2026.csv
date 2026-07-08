@@ -1,0 +1,17 @@
+week_ending,sport,round,game,market,clv_pct,result
+2026-04-21,NRL,8,Cowboys vs Manly,h2h,10.2,loss
+2026-04-21,NRL,8,Raiders vs Storm,h2h,18.9,win
+2026-04-21,NRL,8,Dolphins vs Panthers,h2h,13.6,loss
+2026-04-21,NRL,8,Warriors vs Titans,h2h,15.4,win
+2026-04-21,NRL,8,Rabbitohs vs Dragons,h2h,-2.6,loss
+2026-04-21,NRL,8,Tigers vs Broncos,h2h,11.1,win
+2026-04-21,NRL,8,Roosters vs Knights,h2h,3.5,win
+2026-04-21,NRL,8,Eels vs Bulldogs,h2h,28.4,win
+2026-04-28,NRL,9,Wests Tigers vs Raiders,h2h,4.73,win
+2026-04-28,NRL,9,Cowboys vs Sharks,h2h,7.69,win
+2026-04-28,NRL,9,Broncos vs Bulldogs,h2h,17.28,loss
+2026-04-28,NRL,9,Dragons vs Roosters,h2h,30.0,loss
+2026-04-28,NRL,9,Warriors vs Dolphins,h2h,1.89,loss
+2026-04-28,NRL,9,Storm vs Rabbitohs,h2h,1.94,loss
+2026-04-28,NRL,9,Knights vs Panthers,h2h,10.34,win
+2026-04-28,NRL,9,Manly vs Eels,h2h,8.47,loss

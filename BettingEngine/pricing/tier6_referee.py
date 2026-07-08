@@ -21,63 +21,82 @@ def compute_referee_adjustments(
     away_bucket_edge: float,
     bucket: str,
     config: dict,
+    scoring_delta: Optional[float] = None,
+    home_bias_adj: Optional[float] = None,
 ) -> dict:
     """
     Tier 6 referee adjustments.
 
     handicap_delta:
-        home_bucket_edge minus away_bucket_edge, multiplied by shrink factor,
-        clamped to ±handicap_clamp (default ±1.5).
-        Positive = home team benefits from this ref's tendencies.
+        If home_bias_adj is provided (real scraped data, season-adjusted):
+            Uses home_bias_adj directly — positive favours home team.
+            Clamped to ±handicap_clamp (default ±3.5).
+        Otherwise falls back to bucket edge difference:
+            (home_bucket_edge - away_bucket_edge) * shrink
 
     totals_delta:
-        whistle_heavy → -2.0  (stop-start suppresses scoring)
-        flow_heavy    → +2.0  (fast game boosts scoring)
-        neutral       →  0.0
-        Clamped to ±totals_clamp (default ±2.0).
+        If scoring_delta is provided (real scraped data from RLP, 2022-2026):
+            Uses scoring_delta directly — season-adjusted pts effect of this ref.
+            Clamped to ±totals_clamp (default ±4.0).
+        Otherwise falls back to bucket lookup:
+            whistle_heavy → config value  (default -2.0)
+            flow_heavy    → config value  (default +2.0)
+            neutral       → 0.0
 
     Args:
-        home_bucket_edge:  avg signed margin for the home team under this bucket
-        away_bucket_edge:  avg signed margin for the away team under this bucket
+        home_bucket_edge:  avg signed margin for home team under this bucket
+        away_bucket_edge:  avg signed margin for away team under this bucket
         bucket:            referee bucket ('whistle_heavy' | 'flow_heavy' | 'neutral')
         config:            tier6_referee config dict from tiers.yaml
-
-    Returns:
-        dict with:
-            handicap_delta    float    margin adjustment (positive = home advantage)
-            totals_delta      float    total-points adjustment
-            bucket            str      referee bucket used
-            home_bucket_edge  float    passed-through for logging
-            away_bucket_edge  float    passed-through for logging
-            _debug            dict     intermediate values for auditability
+        scoring_delta:     real season-adjusted scoring effect (pts) from RLP data,
+                           or None if not available (falls back to bucket lookup)
+        home_bias_adj:     real season-adjusted home margin effect (pts) from RLP data.
+                           Positive = ref favours home team. None → bucket edge fallback.
     """
-    SHRINK = float(config.get('shrink', 1.0))
-    hcap_clamp  = float(config.get('handicap_clamp',  1.5))
-    tot_clamp   = float(config.get('totals_clamp',    2.0))
+    SHRINK     = float(config.get('shrink', 1.0))
+    hcap_clamp = float(config.get('handicap_clamp', 3.5))
+    tot_clamp  = float(config.get('totals_clamp',   4.0))
 
-    raw_hcap = (home_bucket_edge - away_bucket_edge) * SHRINK
+    if home_bias_adj is not None:
+        raw_hcap       = float(home_bias_adj)
+        hcap_source    = 'scraped'
+    else:
+        raw_hcap       = (home_bucket_edge - away_bucket_edge) * SHRINK
+        hcap_source    = 'bucket'
     handicap_delta = max(-hcap_clamp, min(hcap_clamp, raw_hcap))
 
-    base_totals = {
-        'whistle_heavy': float(config.get('totals_whistle_heavy', -2.0)),
-        'flow_heavy':    float(config.get('totals_flow_heavy',     2.0)),
-        'neutral':       float(config.get('totals_neutral',        0.0)),
-    }
-    raw_totals = base_totals.get(bucket, 0.0)
+    if scoring_delta is not None:
+        # Real data path — use actual measured scoring effect directly
+        raw_totals  = float(scoring_delta)
+        totals_source = 'scraped'
+    else:
+        # Fallback to bucket lookup
+        base_totals = {
+            'whistle_heavy': float(config.get('totals_whistle_heavy', -2.0)),
+            'flow_heavy':    float(config.get('totals_flow_heavy',     2.0)),
+            'neutral':       float(config.get('totals_neutral',        0.0)),
+        }
+        raw_totals    = base_totals.get(bucket, 0.0)
+        totals_source = 'bucket'
+
     totals_delta = max(-tot_clamp, min(tot_clamp, raw_totals))
 
     return {
         'handicap_delta':    round(handicap_delta, 3),
         'totals_delta':      round(totals_delta, 3),
         'bucket':            bucket,
+        'scoring_delta':     scoring_delta,
+        'home_bias_adj':     home_bias_adj,
         'home_bucket_edge':  home_bucket_edge,
         'away_bucket_edge':  away_bucket_edge,
         '_debug': {
-            'raw_hcap':            round(raw_hcap, 3),
-            'shrink':              SHRINK,
-            'hcap_clamp':          hcap_clamp,
-            'totals_clamp':        tot_clamp,
-            'base_totals_lookup':  raw_totals,
+            'raw_hcap':       round(raw_hcap, 3),
+            'shrink':         SHRINK,
+            'hcap_clamp':     hcap_clamp,
+            'hcap_source':    hcap_source,
+            'totals_clamp':   tot_clamp,
+            'raw_totals':     round(raw_totals, 3),
+            'totals_source':  totals_source,
         },
     }
 
@@ -122,10 +141,13 @@ def get_ref_context(
 
     profile = get_referee_profile(conn, referee_id)
     if profile is None:
-        # Referee exists but has no profile — treat as neutral
-        bucket = 'neutral'
+        bucket        = 'neutral'
+        scoring_delta = None
+        home_bias_adj = None
     else:
-        bucket = profile['bucket']
+        bucket        = profile['bucket']
+        scoring_delta = profile.get('scoring_delta')
+        home_bias_adj = profile.get('home_bias_adj')
 
     home_edge = get_team_ref_bucket_edge(conn, home_team_id, bucket, season)
     away_edge = get_team_ref_bucket_edge(conn, away_team_id, bucket, season)
@@ -134,6 +156,8 @@ def get_ref_context(
         'referee_id':        referee_id,
         'referee_name':      referee_name,
         'bucket':            bucket,
+        'scoring_delta':     scoring_delta,
+        'home_bias_adj':     home_bias_adj,
         'home_bucket_edge':  home_edge,
         'away_bucket_edge':  away_edge,
     }

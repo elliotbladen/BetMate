@@ -1,0 +1,2 @@
+bet_id,week_ending,placed_date,placed_time,sport,season,round,home_team,away_team,market_type,selection,line,odds_taken,stake,return_amount,result,pnl,bookmaker,model_price,model_line,closing_price,closing_line,clv,source_signal_id,source_text,notes,close_odds,close_line,clv_pct,line_clv,note
+2026-0045,2026-06-01,2026-05-28,19:34,AFL,2026,12,St Kilda Saints,Hawthorn Hawks,handicap,Hawthorn Hawks,-19.5,1.90,25.00,47.50,win,22.50,sportsbet,,,-19.5,,,,Hawthorn -19.5 @ 1.90 | Line | Stake $25.00 | Hawthorn won,,,,,,no hcap data

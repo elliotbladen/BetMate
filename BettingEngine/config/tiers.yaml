@@ -17,7 +17,7 @@ tier1_baseline:
   # Applied to the home team's expected score only (not subtracted from away).
   # Separate from venue-specific fortress effects (handled in Tier 4).
   # Calibrate from historical results; typical range 2.5–5.0 for NRL.
-  home_advantage_points: 3.5
+  home_advantage_points: 2.5     # CALIBRATED 2026-06-18. Was 3.5.
 
   # --- Recent form ---
   # Number of recent games used when computing form from actual results.
@@ -646,14 +646,14 @@ tier6_referee:
   enabled: true
   # Shrink factor for bucket_edge differential (fixed at 1.0 in V1)
   shrink: 1.0
-  # Max handicap delta from referee bucket edge differential
-  handicap_clamp: 1.5
+  # Max handicap delta — raised 1.5→3.5 to allow full Klein/Sutton home bias through
+  handicap_clamp: 3.5
   # Totals deltas by bucket type
   totals_whistle_heavy: -2.0
   totals_flow_heavy: 2.0
   totals_neutral: 0.0
-  # Max totals delta
-  totals_clamp: 2.0
+  # Max totals delta — raised 2.0→4.0 to allow Raymond +3.1 through
+  totals_clamp: 4.0
 
 tier7_emotional:
   enabled: true

@@ -1,0 +1,35 @@
+round,home,away,model_margin,ml_margin,close_line,act_margin,h2h_model_ok,h2h_mkt_ok,hcap_model_dir_ok,hcap_ml_dir_ok,hcap_model_mae,hcap_ml_mae,hcap_mkt_mae,model_total,ml_total,close_total,act_total,tot_model_dir_ok,tot_ml_dir_ok,tot_model_mae,tot_ml_mae,tot_mkt_mae
+8,Magpies,Hawks,-5.4,,27.5,0.0,False,False,True,,5.4,,27.5,,,175.5,186.0,,,,,
+8,Bulldogs,Dockers,9.1,,19.5,-12.0,False,True,True,,21.1,,31.5,,,184.5,216.0,,,,,
+8,Crows,Power,55.7,,-8.5,1.0,True,True,True,,54.7,,9.5,,,175.5,151.0,,,,,
+8,Bombers,Lions,-44.1,,47.5,-64.0,True,True,True,,19.9,,111.5,,,191.5,222.0,,,,,
+8,Eagles,Tigers,19.9,,-19.5,-11.0,False,False,True,,30.9,,8.5,,,183.5,187.0,,,,,
+8,Cats,Kangaroos,62.3,,-27.5,49.0,True,True,True,,13.299999999999997,,76.5,,,216.5,221.0,,,,,
+8,Blues,Saints,6.4,,10.5,-39.0,False,True,True,,45.4,,49.5,,,183.5,177.0,,,,,
+8,Swans,Demons,56.8,,-37.5,17.0,True,True,True,,39.8,,54.5,,,190.5,245.0,,,,,
+8,Suns,Giants,18.6,,-9.5,20.0,True,True,True,,1.3999999999999986,,29.5,,,185.5,146.0,,,,,
+9,Fremantle Dockers,Hawthorn Hawks,,,-4.5,15.0,,,,,,,,,,176.5,161.0,,,,,
+9,Brisbane Lions,Carlton Blues,,,-41.5,11.0,,,,,,,,,,186.5,189.0,,,,,
+9,Port Adelaide Power,Western Bulldogs,,,2.5,-2.0,,,,,,,,,,175.5,146.0,,,,,
+9,North Melbourne Kangaroos,Sydney Swans,,,22.5,-8.0,,,,,,,,,,190.5,202.0,,,,,
+9,Greater Western Sydney Giants,Essendon Bombers,,,-43.5,14.0,,,,,,,,,,190.5,192.0,,,,,
+9,Gold Coast Suns,St Kilda Saints,,,-20.5,29.0,,,,,,,,,,191.5,149.0,,,,,
+9,Geelong Cats,Collingwood Magpies,,,-13.5,54.0,,,,,,,,,,174.5,190.0,,,,,
+9,Melbourne Demons,West Coast Eagles,,,-41.5,32.0,,,,,,,,,,195.5,166.0,,,,,
+9,Richmond Tigers,Adelaide Crows,,,38.5,-37.0,,,,,,,,,,179.5,159.0,,,,,
+11,Hawthorn Hawks,Adelaide Crows,27.4,0.4,-10.5,9.0,True,True,True,True,18.4,8.6,19.5,179.9,169.7,157.5,141.0,False,False,38.900000000000006,28.69999999999999,16.5
+11,Fremantle Dockers,St Kilda Saints,47.3,18.1,-23.5,30.0,True,True,True,True,17.299999999999997,11.899999999999999,53.5,181.6,171.3,169.5,178.0,True,True,3.5999999999999943,6.699999999999989,8.5
+11,Richmond Tigers,Essendon Bombers,-14.8,-13.1,13.5,18.0,False,False,False,False,32.8,31.1,4.5,150.8,170.8,165.5,130.0,True,False,20.80000000000001,40.80000000000001,35.5
+11,Collingwood Magpies,West Coast Eagles,84.4,45.2,-47.5,10.0,True,True,True,True,74.4,35.2,57.5,184.4,180.8,176.5,174.0,False,False,10.400000000000006,6.800000000000011,2.5
+11,Geelong Cats,Sydney Swans,5.8,3.5,-10.5,27.0,True,True,True,True,21.2,23.5,37.5,209.2,157.9,187.5,187.0,False,True,22.19999999999999,29.099999999999994,0.5
+11,North Melbourne Kangaroos,Gold Coast Suns,-18.9,-3.6,10.5,6.0,False,False,True,True,24.9,9.6,4.5,183.2,151.9,190.5,216.0,False,False,32.80000000000001,64.1,25.5
+11,Port Adelaide Power,Carlton Blues,29.3,23.8,-11.5,-34.0,False,False,False,False,63.3,57.8,22.5,166.2,174.6,167.5,150.0,True,False,16.19999999999999,24.599999999999994,17.5
+11,Greater Western Sydney Giants,Brisbane Lions,-22.3,-3.6,11.5,78.0,False,False,False,False,100.3,81.6,66.5,191.4,182.9,188.5,254.0,True,False,62.599999999999994,71.1,65.5
+11,Western Bulldogs,Melbourne Demons,27.7,2.7,3.5,3.0,True,False,False,True,24.7,0.2999999999999998,0.5,181.5,165.2,191.5,183.0,True,True,1.5,17.80000000000001,8.5
+12,St Kilda Saints,Hawthorn Hawks,-30.4,-16.6,20.5,-52.0,True,True,True,True,21.6,35.4,72.5,177.1,179.4,179.5,186.0,False,False,8.900000000000006,6.599999999999994,6.5
+12,Carlton Blues,Geelong Cats,-44.1,-2.3,26.5,4.0,False,False,True,True,48.1,6.3,22.5,186.9,172.5,178.5,172.0,False,True,14.900000000000006,0.5,6.5
+12,Brisbane Lions,Fremantle Dockers,13.2,-13.1,-8.5,-25.0,False,False,False,True,38.2,11.9,16.5,185.0,147.2,185.5,181.0,True,True,4.0,33.80000000000001,4.5
+12,Sydney Swans,Richmond Tigers,95.6,49.0,-55.5,114.0,True,True,True,True,18.400000000000006,65.0,169.5,195.6,165.5,184.5,226.0,True,False,30.400000000000006,60.5,41.5
+12,Western Bulldogs,Collingwood Magpies,2.0,6.9,-8.5,4.0,True,True,True,True,2.0,2.9000000000000004,12.5,160.3,172.2,176.5,190.0,False,False,29.69999999999999,17.80000000000001,13.5
+12,Melbourne Demons,Greater Western Sydney Giants,15.2,1.9,4.5,-49.0,False,True,False,True,64.2,50.9,53.5,190.9,161.6,190.5,189.0,False,True,1.9000000000000057,27.400000000000006,1.5
+12,West Coast Eagles,Essendon Bombers,-0.5,-7.6,-12.5,30.0,False,True,True,True,30.5,37.6,42.5,149.0,158.5,141.5,140.0,False,False,9.0,18.5,1.5

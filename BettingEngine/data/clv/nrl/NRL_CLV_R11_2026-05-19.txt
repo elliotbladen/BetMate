@@ -1,0 +1,84 @@
+NRL R11 2026 — CLV Review
+Model prices vs market (AusSportsBetting/OddsPortal)
+Generated: 2026-05-19
+================================================================================================
+
+METHODOLOGY
+-----------
+CLV (H2H) = (model_implied_prob × market_odds) - 1  where model_implied_prob = 1 / model_fair_odds
+CLV (Handicap) = open_line - close_line  (positive = beat closing line)
+CLV (Total)    = open_line - close_line  (positive = under moved your way)
+Model prices from: outputs/nrl_weekly_review/reports/r11_nrl_clv_report_2026.csv
+
+================================================================================================
+H2H CLV
+================================================================================================
+
+  Matchup                          Side    Model Fair  Mkt Open  Mkt Close  CLV@Open  CLV@Close  Score     Hit
+  ──────────────────────────────────────────────────────────────────────────────────────────────
+  Sharks vs Bulldogs               HOME         1.246      1.46       1.55    +17.2%     +24.4%  38-16     ✓
+  Rabbitohs vs Dolphins            AWAY         1.864      2.15       1.74    +15.3%      -6.7%  10-32     ✓
+  Tigers vs Eagles                 HOME         1.899      3.40       3.30    +79.0%     +73.8%  18-46     ✗
+  Roosters vs Cowboys              HOME         1.357      1.22       1.20    -10.1%     -11.6%  12-18     ✗
+  Eels vs Storm                    AWAY         1.383      1.45       1.38     +4.8%      -0.2%  8-34      ✓
+  Titans vs Knights                AWAY         1.661      1.35       1.39    -18.7%     -16.3%  12-36     ✓
+  Warriors vs Broncos              HOME         1.162      1.65       1.74    +42.0%     +49.7%  42-12     ✓
+  Panthers vs Dragons              HOME         1.005      1.03       1.06     +2.5%      +5.5%  28-6      ✓
+
+  Average CLV @ Open:  +16.5%
+  Average CLV @ Close: +14.8%
+  H2H Results: 6/8 (75%)
+
+  NOTE: Sample size is small. Need 200+ observations for reliable CLV averages.
+
+================================================================================================
+HANDICAP
+================================================================================================
+
+  Matchup                             Model  Mkt Open  Mkt Close  Mkt Direction         Actual  Hit
+  ──────────────────────────────────────────────────────────────────────────────────────────────
+  Sharks vs Bulldogs                  +10.2      -6.5       -5.5  TOWARD (HOME)          +22.0  ✓
+  Rabbitohs vs Dolphins                -1.1      +2.5       -2.5  AWAY (AWAY)            -22.0  ✗
+  Tigers vs Eagles                     +0.8     +10.5       +9.5  AWAY (AWAY)            -28.0  ✗
+  Roosters vs Cowboys                  +7.6     +13.5      +15.5  TOWARD (HOME)           -6.0  ✓
+  Eels vs Storm                        -7.0      -6.5       -8.5  TOWARD (AWAY)          -26.0  ✓
+  Titans vs Knights                    -3.0      +8.5       +9.5  TOWARD (HOME)          -24.0  ✗
+  Warriors vs Broncos                 +13.0      -2.5       -2.5  no_move                +30.0  ✓
+  Panthers vs Dragons                 +31.4     -25.5      -27.5  AWAY (AWAY)            +22.0  ✗
+
+  Handicap correct: 4/8 (50%)
+  Market moved toward model: 4/8
+
+================================================================================================
+TOTALS
+================================================================================================
+
+  Matchup                             Model  Mkt Open  Mkt Close     Gap   Actual  Hit
+  ──────────────────────────────────────────────────────────────────────────────────────────────
+  Sharks vs Bulldogs                   49.0      49.5       48.5    -0.5     54.0  ✗ OVER  (miss)
+  Rabbitohs vs Dolphins                55.2      54.5       54.5    +0.7     42.0  ✗ UNDER (miss)
+  Tigers vs Eagles                     50.5      52.5       52.5    -2.0     64.0  ✗ OVER  (miss)
+  Roosters vs Cowboys                  60.4      54.5       56.5    +5.9     30.0  ✗ UNDER (miss)
+  Eels vs Storm                        62.1      52.5       54.5    +9.6     42.0  ✗ UNDER (miss)
+  Titans vs Knights                    54.7      54.5       54.5    +0.2     48.0  ✗ UNDER (miss)
+  Warriors vs Broncos                  46.6      50.5       50.5    -3.9     54.0  ✗ OVER  (miss)
+  Panthers vs Dragons                  46.5      56.5       54.5   -10.0     34.0  ✓ UNDER
+
+  Under calls: 4/8 games model below market line
+  Totals correct: 1/8 (12%)
+
+================================================================================================
+SUMMARY
+================================================================================================
+
+  H2H average CLV @ open:   +16.5%  (elite benchmark: +3% sustained)
+  H2H average CLV @ close:  +14.8%
+  H2H results:              6/8     75%
+  Handicap correct:         4/8     50%
+  Totals correct:           1/8     12%  (4/8 under calls)
+
+  STATISTICAL CAVEAT:
+  8 games. Not meaningful on its own. Target 200+ observations (~Round 15)
+  before drawing conclusions on sustained CLV edge.
+
+================================================================================================
