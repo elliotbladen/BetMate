@@ -56,6 +56,44 @@ app.add_middleware(
 )
 
 
+# ── Auth ───────────────────────────────────────────────────────────────────────
+# The Cloudflare tunnel (baz.betmate.au) exposes this server to the internet,
+# and CORS only constrains browsers — curl/scripts bypass it entirely. Every
+# request except /health must carry X-Baz-Token matching BAZ_TUNNEL_TOKEN.
+# The token lives in Apps/.env.local (this machine) and Vercel env (chat route).
+def _load_tunnel_token() -> str | None:
+    env = os.environ.get("BAZ_TUNNEL_TOKEN")
+    if env:
+        return env.strip()
+    env_file = BETMATE_ROOT / ".env.local"
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8", errors="replace").splitlines():
+            if line.strip().startswith("BAZ_TUNNEL_TOKEN="):
+                return line.split("=", 1)[1].strip()
+    return None
+
+
+BAZ_TUNNEL_TOKEN = _load_tunnel_token()
+
+
+@app.middleware("http")
+async def _require_token(request, call_next):
+    if request.url.path == "/health":
+        return await call_next(request)
+    if BAZ_TUNNEL_TOKEN is None:
+        # No token configured — refuse everything except /health rather than
+        # serving the model IP wide open. Add BAZ_TUNNEL_TOKEN to .env.local.
+        from fastapi.responses import JSONResponse
+        return JSONResponse(
+            status_code=503,
+            content={"detail": "BAZ_TUNNEL_TOKEN not configured on server"},
+        )
+    if request.headers.get("x-baz-token") != BAZ_TUNNEL_TOKEN:
+        from fastapi.responses import JSONResponse
+        return JSONResponse(status_code=401, content={"detail": "Unauthorised"})
+    return await call_next(request)
+
+
 # ── DB helpers ─────────────────────────────────────────────────────────────────
 def _db() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
@@ -114,6 +152,24 @@ def _safe_float(val: Any, default: float = 0.0) -> float:
         return float(val)
     except (TypeError, ValueError):
         return default
+
+
+def _read_latest_baz_status() -> dict:
+    path = BASE_DIR / "outputs" / "baz" / "latest_status.json"
+    if not path.exists():
+        return {
+            "readiness": "unknown",
+            "blockers": ["outputs/baz/latest_status.json has not been generated"],
+            "next_actions": ["python scripts/baz_status.py"],
+        }
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Could not read Baz status: {exc}") from exc
+
+
+def _norm_query(value: str) -> str:
+    return " ".join(str(value or "").lower().replace(".", "").replace("-", " ").split())
 
 
 # ── Confluence helpers ─────────────────────────────────────────────────────────
@@ -203,6 +259,111 @@ def _clv_summary(n_weeks: int = 4) -> dict:
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "generated_at": datetime.now(timezone.utc).isoformat()}
+
+
+@app.get("/status")
+def status() -> dict:
+    """Return the latest structured Baz readiness report."""
+    return _read_latest_baz_status()
+
+
+@app.get("/db/signals")
+def db_signals(
+    sport: str = Query(default="NRL"),
+    season: int = Query(default=2026),
+    round: int | None = Query(default=None),
+    home: str | None = Query(default=None),
+    away: str | None = Query(default=None),
+) -> dict:
+    """Return canonical DB-backed Baz signals from the pricing pipeline."""
+    if not DB_PATH.exists():
+        raise HTTPException(status_code=503, detail="Database not found")
+
+    conn = _db()
+    round_number = round
+    if round_number is None:
+        row = conn.execute(
+            """
+            select max(round_number) as round_number
+            from matches
+            where sport = ? and season = ?
+            """,
+            (sport.upper(), season),
+        ).fetchone()
+        round_number = int(row["round_number"]) if row and row["round_number"] is not None else None
+
+    params: list[Any] = [sport.upper(), season]
+    where = "m.sport = ? and m.season = ?"
+    if round_number is not None:
+        where += " and m.round_number = ?"
+        params.append(round_number)
+
+    rows = _rows(
+        conn,
+        f"""
+        select
+            m.match_id,
+            m.round_number,
+            m.match_date,
+            h.team_name as home_team,
+            a.team_name as away_team,
+            s.market_type,
+            s.selection_name,
+            s.line_value,
+            s.market_odds,
+            s.model_odds,
+            s.model_probability,
+            s.ev_percent,
+            s.confidence_level,
+            s.signal_label,
+            s.veto_flag,
+            s.veto_reason,
+            b.bookmaker_code,
+            b.bookmaker_name
+        from signals s
+        join matches m on m.match_id = s.match_id
+        join teams h on h.team_id = m.home_team_id
+        join teams a on a.team_id = m.away_team_id
+        join bookmakers b on b.bookmaker_id = s.bookmaker_id
+        where {where}
+        order by m.match_date, m.match_id, s.ev_percent desc
+        """,
+        tuple(params),
+    )
+    conn.close()
+
+    if home:
+        home_q = _norm_query(home)
+        rows = [row for row in rows if home_q in _norm_query(row["home_team"]) or home_q in _norm_query(row["away_team"])]
+    if away:
+        away_q = _norm_query(away)
+        rows = [row for row in rows if away_q in _norm_query(row["home_team"]) or away_q in _norm_query(row["away_team"])]
+
+    label_counts: dict[str, int] = {}
+    for row in rows:
+        label = str(row["signal_label"])
+        label_counts[label] = label_counts.get(label, 0) + 1
+
+    watch = [row for row in rows if row["signal_label"] == "watch"]
+    recommendations = [
+        row for row in rows
+        if row["signal_label"] in {"recommend_small", "recommend_medium", "recommend_strong"}
+    ]
+    actionable = recommendations or watch
+
+    return {
+        "sport": sport.upper(),
+        "season": season,
+        "round": round_number,
+        "counts": {
+            "signals": len(rows),
+            "by_label": label_counts,
+        },
+        "recommendations": recommendations,
+        "watch": watch,
+        "actionable": actionable,
+        "signals": rows,
+    }
 
 
 def _context_nrl() -> dict:

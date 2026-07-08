@@ -513,11 +513,15 @@ async function bazFetch(path: string, timeoutMs = 3000): Promise<unknown> {
     ? [tunnel, local]
     : [local, tunnel];
 
+  const bazToken = process.env.BAZ_TUNNEL_TOKEN?.trim();
   for (const bazApi of bases.filter(Boolean) as string[]) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(`${bazApi}${path}`, { signal: controller.signal });
+      const res = await fetch(`${bazApi}${path}`, {
+        signal: controller.signal,
+        headers: bazToken ? { 'X-Baz-Token': bazToken } : undefined,
+      });
       if (!res.ok) continue;
       return await res.json();
     } catch {

@@ -87,12 +87,13 @@ Full session diary: `2026-07-05_afl-ema-form-split-models.md` — **⚠️ NOT Y
 
 **Rules model NOT yet integrated into ML pipeline** — kept separate. Revisit blending after another season of live validation.
 
-**⚠️ Deployment note (2026-07-08):** the retrained `.pkl` model files are not tracked in git, so this machine still has the pre-EMA pickles. Regenerate locally before the next ML shadow run:
+**Deployment note:** the `.pkl` model files are not tracked in git — after pulling ML code changes on either machine, regenerate locally before the next ML shadow run:
 ```powershell
 cd C:\Users\ElliotBladen\Apps\BettingEngine
 & ".\.venv\Scripts\python.exe" ml\afl\game_log.py --xlsx outputs\afl_weekly_review\historical\latest.xlsx
 & ".\.venv\Scripts\python.exe" ml\afl\train.py
 ```
+✅ **Work machine regenerated 2026-07-09** with the EMA/split-feature code + Jul 7 xlsx (999 games, deploy=144). Test-2025 metrics on this xlsx: Margin MAE 29.27 / DirAcc 68.5%, Total MAE 24.48, H2H Acc 68.5% LogLoss 0.576. (Slightly different from the home machine's diary numbers — expected, newer xlsx snapshot.)
 
 ### AFL 2026 — Round 17 (Jul 2–5) — FULLY RE-PRICED 2026-07-02
 - ELO rebuilt on latest historical xlsx before pricing (990-game deploy window, 135 games in 2026 season)

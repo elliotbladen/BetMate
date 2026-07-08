@@ -10,8 +10,31 @@
 
 ---
 
+## TWO-MACHINE RULE (established 2026-07-08 after work/home divergence incident)
+
+The user works from TWO computers (work + home) on this same repo. On 2026-07-08 they
+diverged badly: the home machine's monorepo import carried a stale BettingEngine copy,
+the work machine had newer uncommitted data, and each side held work the other lacked
+(EPL engine + AFL ML retrain existed only in git history; Jun 18 calibrations + Jul 7
+work existed only in the work machine's working tree). Reconciled in commit `cefe758`.
+
+**Protocol — every session, both machines:**
+- **Start of session:** `& scripts\git-sync-start.ps1` — refuses to pull over a dirty
+  tree, fast-forward only, never auto-merges divergence.
+- **End of session:** `& scripts\git-sync-end.ps1 "what happened"` — commits everything
+  and pushes. NEVER leave a machine with uncommitted work.
+- `git config pull.ff only` is set on the work machine — set it on the home machine too.
+- If sync-start reports divergence: stop and reconcile deliberately (diff both sides,
+  keep the newer of each file) — never `git checkout --` or `git reset --hard` blind.
+- Untracked model artefacts (`ml/afl/results/models/*.pkl`) do NOT travel via git —
+  retrain locally after pulling ML code changes.
+- **Known outstanding:** diary `2026-07-05_afl-ema-form-split-models.md` exists only on
+  the home computer — commit + push it from there.
+
+---
+
 ## CURRENT STATE
-**Last updated:** 2026-07-03 (Built the market-event causal-tagging pipeline — see new section below. Also: AFL R17 fully re-priced 2026-07-02, T1–T7 + ML shadow + T9 matrix, writeup at `BettingEngine/outputs/results/r17_afl_pricing_2026.md`. Extensive model-vs-market backtesting this session: real production model (not naive ELO proxy) is at genuine parity with market on handicap accuracy once stale-model rounds are excluded (AFL R14-16: 11-10 closer, essentially tied avg error). The "model undercooks market at extreme ELO gaps" pattern does NOT indicate an exploitable market inefficiency — large-sample ATS backtest on the exact rules+ML-agree pattern went 4-8 (33%) for AFL. Do not bet big rules/ML-vs-market disagreements. NRL same window showed a genuine 60% ATS cover rate (21-14) — worth continued tracking, not yet proven at scale. Running CLV: NRL +4.99% (58 bets), AFL +0.77% (48 bets).)
+**Last updated:** 2026-07-09 (Post-reconcile cleanup on work machine: AFL ML pkl models **regenerated with the Jul 5 EMA/split-feature code** ✅ (margin MAE 29.3 / H2H 68.5% on 2025 holdout, Jul 7 xlsx); stale nested `BettingEngine/.git` (pre-monorepo repo, fully pushed to github.com/elliotbladen/BettingEngine) moved out of the tree to `C:\Users\ElliotBladen\Backups\BettingEngine-pre-monorepo.git` — git commands inside BettingEngine now correctly hit the monorepo; root `.pytest_cache/` gitignored (was an unreadable elevated-process dir spamming warnings). Missing reconcile diary written retrospectively. Prior, 2026-07-08: git divergence between work/home machines reconciled — commit `cefe758`, see TWO-MACHINE RULE above and handover `2026-07-08_machine-reconcile-architecture.md`. EPL engine (built at home Jul 5) restored to `BettingEngine/WorldCupEngine/ml/epl/`. Baz tunnel now requires an auth token (`BAZ_TUNNEL_TOKEN` — **must still be set in Vercel env**). Root README rewritten to match actual architecture. Prior state, 2026-07-03: built the market-event causal-tagging pipeline — see section below. Also: AFL R17 fully re-priced 2026-07-02, T1–T7 + ML shadow + T9 matrix, writeup at `BettingEngine/outputs/results/r17_afl_pricing_2026.md`. Extensive model-vs-market backtesting this session: real production model (not naive ELO proxy) is at genuine parity with market on handicap accuracy once stale-model rounds are excluded (AFL R14-16: 11-10 closer, essentially tied avg error). The "model undercooks market at extreme ELO gaps" pattern does NOT indicate an exploitable market inefficiency — large-sample ATS backtest on the exact rules+ML-agree pattern went 4-8 (33%) for AFL. Do not bet big rules/ML-vs-market disagreements. NRL same window showed a genuine 60% ATS cover rate (21-14) — worth continued tracking, not yet proven at scale. Running CLV: NRL +4.99% (58 bets), AFL +0.77% (48 bets).)
 **Update this section at the end of every session, before writing the handover diary.**
 
 ### App State
