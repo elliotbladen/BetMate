@@ -1,6 +1,13 @@
 # Championship Engine — Proposed Architecture & Build Plan
-**Drafted:** 2026-07-09 | **Status: AWAITING USER OK — no code written**
+**Drafted:** 2026-07-09 | **Status: design decisions APPROVED 2026-07-09 — build not yet started**
 Companion research: `LEAGUE_EXPANSION_RESEARCH.md` | Parent engine: `ARCHITECTURE.md` (EPL)
+
+**User decisions (2026-07-09):**
+1. ✅ League-parameterised refactor approved (EPL RPS 0.1335 reproduction is the regression gate)
+2. ✅ ClubElo external dependency approved (free API, no key)
+3. ✅ **Option B — 2025/26 is a VAULT hold-out.** Never touched during development; all
+   tuning on 2022/23–2024/25 test seasons only. Run ONCE against the frozen model as
+   final validation. If it fails, no tweaking-to-pass — back to the drawing board.
 
 ---
 
@@ -68,8 +75,8 @@ final) are out of scope for v1; the WorldCupEngine knockout machinery covers the
 ## Testing — yes, EPL regime + two Championship-specific additions
 
 **1. Walk-forward backtest, identical to EPL:** train 2014/15→, test three full held-out
-seasons (**2022/23, 2023/24, 2024/25** — with 2025/26 available as a fourth). Same
-metrics: RPS / Brier / LogLoss / accuracy.
+seasons (**2022/23, 2023/24, 2024/25**). **2025/26 is the vault — excluded from all
+development runs** (decision 3 above). Same metrics: RPS / Brier / LogLoss / accuracy.
 **Benchmark honesty:** do NOT expect EPL's 0.1335. The Championship is inherently
 noisier. The pass bar is *relative*: our RPS must beat (a) the academic ~0.1925-class
 benchmark and (b) sit within ~2% of the **market's own RPS** computed from de-vigged
@@ -105,7 +112,6 @@ NRL/AFL/EPL). No real stakes until the paper CLV is positive.
 
 Total: ~5–6 sessions to backtested and paper-ready, comfortably before the season.
 
-**Open questions for the user:**
-1. OK to do the refactor (Step 0) first? It touches the EPL engine's file layout (not its numbers).
-2. T8 parachute prior sizes will be fit from data, but the ClubElo dependency is new — happy to add one external API (free, no key)?
-3. Do we want 2025/26 as a fourth test season, or hold it out entirely as final validation after the model is frozen?
+~~Open questions~~ — all three resolved 2026-07-09, see decisions at top of doc.
+Phase 5 gains a final step: **vault run** — one pass over 2025/26 with the frozen model
+before the paper-trade phase begins.
