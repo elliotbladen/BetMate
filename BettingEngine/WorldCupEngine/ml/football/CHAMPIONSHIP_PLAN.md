@@ -53,13 +53,20 @@ Championship — that's the regression gate.
 | Calibration | isotonic O2.5 | **Own isotonic instance** (O2.5 base rate sub-50% — EPL calibrator would poison it) | |
 
 ### Tier stack
+
+> **Ablation reality check (found 2026-07-10):** the walk-forward backtest prices from
+> the D-C+Elo blend only — tiers affect the production pricer, not backtest prices
+> (true for the EPL engine too; tier values are recorded as feature columns). Tier
+> ablations therefore need an `--apply-tiers` mode in walk_forward — queued for
+> Phase 5, benefits BOTH leagues. Until then the T2 shots proxy is deferred.
+
 | Tier | Status | Detail |
 |---|---|---|
-| T2 pressing | **REPLACED** | No PPDA. V1: shots-based suppression proxy (shots for/against vs league avg from E1). Kept at LOW weight, and only ships if the backtest ablation shows it helps — otherwise dropped, honestly. |
-| T3 form + rest | KEPT, hotter | Fires constantly (46 rounds + midweeks). Validate the ×0.94 fatigue multiplier doesn't overcook Christmas congestion. |
+| T2 pressing | **DEFERRED** | No PPDA (T2 inactive, returns 0). Shots-based proxy waits for the Phase 5 `--apply-tiers` backtest mode so it can be ablation-tested honestly before shipping. |
+| T3 form + rest | KEPT, retuned | **short_rest_days: 3** — E1 data (2026-07-10): median rest is 4d and 50.3% of games are ≤4d, so the EPL threshold would penalise half the league; ≤3d = 27.9% (genuine midweek turnarounds). |
 | T5 injuries | KEPT | Manual position flags (`--injuries-home "ST,CM"`), same weights initially — Championship squads are thinner, so if anything the weights are conservative. |
-| T6 referee | KEPT | E1 has referee names. Refit goals/game deviations on E1. |
-| T7 set-piece | KEPT | E1 has corners. Refit league averages; Championship is MORE set-piece dependent than EPL, expect a bigger coefficient. |
+| T6 referee | ✅ REFIT | league_ref_goals **1.415** from E1 (124 refs, n=6071). |
+| T7 set-piece | ✅ REFIT | corners home **5.634** / away **4.624** from E1 (n=5831). Coefficient revisit in Phase 5. |
 | **T8 season-reset prior** | **NEW — the centrepiece** | Every August, 6 new teams have no in-league history. Seed strength from **ClubElo** (free API, covers English tiers 1–5) + a **parachute flag**: relegated Y1/Y2/Y3 get a graded attack/defence prior boost (research: parachute clubs 3× promotion rate, £90m vs £27m revenue); promoted-from-L1 get a discount prior. Prior weight decays linearly to zero by ~matchweek 15 as real E1 data takes over. |
 | **T9 manager change** | **NEW** | Manual flag (same pattern as NRL emotional flags): new-manager bounce, capped small (+0.05–0.10 xG equivalent), because sackings are constant in this league. |
 
@@ -75,8 +82,14 @@ final) are out of scope for v1; the WorldCupEngine knockout machinery covers the
 ## Testing — yes, EPL regime + two Championship-specific additions
 
 **1. Walk-forward backtest, identical to EPL:** train 2014/15→, test three full held-out
-seasons (**2022/23, 2023/24, 2024/25**). **2025/26 is the vault — excluded from all
-development runs** (decision 3 above). Same metrics: RPS / Brier / LogLoss / accuracy.
+seasons — **2021/22, 2022/23, 2024/25** (⚠️ changed 2026-07-10: 2023/24 replaced by
+2021/22 because the full-season 2023/24 E1 file was never archived and the work network
+blocks the live site — its second half is results-only patched data, unusable as a test
+season. Regenerate pristine data from home when convenient). **2025/26 is the vault —
+excluded from all development runs** (decision 3 above). Same metrics: RPS / Brier /
+LogLoss / accuracy. **Market baselines measured 2026-07-10** (`market_baseline.py`):
+Championship Pinnacle-closing RPS **0.1433**, EPL market RPS 0.1271 (our EPL model
+0.1335 = ~5% behind market — the realistic frame for what "good" looks like here).
 **Benchmark honesty:** do NOT expect EPL's 0.1335. The Championship is inherently
 noisier. The pass bar is *relative*: our RPS must beat (a) the academic ~0.1925-class
 benchmark and (b) sit within ~2% of the **market's own RPS** computed from de-vigged

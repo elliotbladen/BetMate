@@ -43,21 +43,20 @@ elo:
   draw_base: 0.27                     # [E1-DERIVED] actual draw rate 26.9% — EPL value confirmed
 
 backtest:
-  # 2023/24 dropped as a test season: full-season odds never archived (see diary
-  # 2026-07-10) — its second half is results-only patched data. 2021/22 (complete,
-  # with odds) takes its place. 2025/26 = VAULT, never here.
-  test_seasons: ["2021/22", "2022/23", "2024/25"]
+  # Pristine direct-fetched data 2026-07-10 (hotspot) — all 12 seasons complete with
+  # full odds. Four test seasons for extra evidence. 2025/26 = VAULT, never here.
+  test_seasons: ["2021/22", "2022/23", "2023/24", "2024/25"]
   feature_seasons: ["2017/18", "2018/19", "2019/20", "2020/21",
-                    "2021/22", "2022/23", "2024/25"]
+                    "2021/22", "2022/23", "2023/24", "2024/25"]
 
 tiers:
   league_ppda_sum: 23.0               # unused (no PPDA data)
-  league_ref_goals: 1.415             # [E1-DERIVED] avg FTHG across 124 refs, n=6071
+  league_ref_goals: 1.416             # [E1-DERIVED] avg FTHG across 127 refs, n=6072 (pristine data, vault excluded)
   short_rest_days: 3                  # [E1-DERIVED] E1 median rest is 4d and 50.3% of games
                                       # are <=4d — EPL threshold would penalise half the league.
                                       # <=3d = 27.9% (genuine midweek turnarounds)
   fatigue_factor: 0.94
-  corners_home_avg: 5.634             # [E1-DERIVED] n=5831
+  corners_home_avg: 5.641             # [E1-DERIVED] n=6071 (pristine data, vault excluded)
   corners_away_avg: 4.624             # [E1-DERIVED]
   sp_xg_per_corner: 0.042
   sp_weight: 0.35
