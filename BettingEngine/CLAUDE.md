@@ -16,11 +16,16 @@
 
 ### EPL Engine — FULL BUILD COMPLETE 2026-07-05 (built on home machine)
 Full session diary: `handover/sessions/2026-07-05_epl-engine-build.md`
-Architecture doc: `WorldCupEngine/ml/epl/ARCHITECTURE.md`
+Architecture doc: `WorldCupEngine/ml/football/ARCHITECTURE.md`
+
+**⚠️ REFACTORED 2026-07-09: `ml/epl/` → `ml/football/`** (league-parameterised for the
+Championship build — one engine, N configs in `ml/football/leagues/*.yaml`; data moved
+to `ml/football/data/epl/`). All entry points take `--league` (default `epl`).
+Regression gate passed — RPS 0.1319/0.1399/0.1287 reproduced exactly post-refactor.
 
 **Production pricer working:**
 ```bash
-python3 WorldCupEngine/ml/epl/price_match.py \
+python3 WorldCupEngine/ml/football/price_match.py \
   --home "Arsenal" --away "Man City" --ref "A Taylor" \
   --injuries-home "ST" --injuries-away "AM" \
   --mkt-home 2.40 --mkt-draw 3.50 --mkt-away 3.00 --mkt-over25 1.85
@@ -39,10 +44,10 @@ python3 WorldCupEngine/ml/epl/price_match.py \
 - Isotonic calibration: over25 only, expanding window, 1,139 rows
 
 **Data refresh for August GW1:**
-1. `python3 WorldCupEngine/ml/epl/fetch/fetch_results.py`
-2. `python3 WorldCupEngine/ml/epl/fetch/fetch_understat_xg.py`
-3. `python3 WorldCupEngine/ml/epl/fetch/fetch_style_stats.py`
-4. `python3 WorldCupEngine/ml/epl/backtest/walk_forward.py`
+1. `python3 WorldCupEngine/ml/football/fetch/fetch_results.py`
+2. `python3 WorldCupEngine/ml/football/fetch/fetch_understat_xg.py`
+3. `python3 WorldCupEngine/ml/football/fetch/fetch_style_stats.py`
+4. `python3 WorldCupEngine/ml/football/backtest/walk_forward.py --league epl`
 
 **CatBoost (T8): tested, rejected** — 1,517 training rows too few (overfits). Revisit when 10+ seasons available (~4,000 rows).
 

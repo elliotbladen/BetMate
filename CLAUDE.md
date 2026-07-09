@@ -28,10 +28,10 @@ work existed only in the work machine's working tree). Reconciled in commit `cef
   keep the newer of each file) — never `git checkout --` or `git reset --hard` blind.
 - Untracked model artefacts (`ml/afl/results/models/*.pkl`) do NOT travel via git —
   retrain locally after pulling ML code changes.
-- **Known outstanding:** diaries `2026-07-05_afl-ema-form-split-models.md` AND
-  `2026-07-05_epl-engine-build.md` exist only on the home computer (the latter is
-  referenced from BettingEngine/CLAUDE.md but absent from the repo) — commit + push
-  both from there.
+- **Known outstanding:** diary `2026-07-05_afl-ema-form-split-models.md` exists only on
+  the home computer — commit + push it from there. (The EPL build diary is NOT missing —
+  it lives at `BettingEngine/handover/sessions/2026-07-05_epl-engine-build.md`; note
+  BettingEngine has its own handover/ dir separate from the repo-root one.)
 
 ---
 

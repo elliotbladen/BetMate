@@ -1,0 +1,51 @@
+# EPL league config — values are the exact constants from the pre-refactor engine.
+# Regression gate: walk_forward --league epl must reproduce RPS 0.1319/0.1399/0.1287.
+key: epl
+name: English Premier League
+
+data:
+  # paths relative to ml/football/data/{key}/
+  matches_csv: matches/epl_matches.csv
+  xg_csv: xg/understat_xg.csv          # null → goals-fed D-C (Championship mode)
+  ppda_csv: style/ppda_dated.csv       # null → T2 unavailable
+  clv_dir: clv
+  xg_fallback_factor: 0.85             # FTHG*0.85 when Understat row missing
+
+source:
+  provider: football-data
+  league_code: E0
+  seasons_from: "2014/15"
+
+model:
+  rho: -0.13
+  dc_weight: 0.70
+  elo_weight: 0.30
+  decay_rate: 0.001                    # half-life ~693 days
+  min_train: 200
+  between_season_omega: 0.770
+
+elo:
+  home_advantage: 65.0
+  k_base: 20.0
+  k_new: 40.0
+  k_new_threshold: 20
+  between_season_reversion: 0.30
+  draw_base: 0.27
+
+backtest:
+  test_seasons: ["2021/22", "2022/23", "2023/24"]
+  feature_seasons: ["2017/18", "2018/19", "2019/20", "2020/21", "2021/22", "2022/23", "2023/24"]
+
+tiers:
+  league_ppda_sum: 23.0
+  league_ref_goals: 1.52
+  short_rest_days: 4
+  fatigue_factor: 0.94
+  corners_home_avg: 5.75
+  corners_away_avg: 4.71
+  sp_xg_per_corner: 0.042
+  sp_weight: 0.35
+  sp_cap: 0.08
+  ppda_goals_coef: -0.007
+  form_goals_coef: 0.008
+  ref_goals_coef: 0.5
