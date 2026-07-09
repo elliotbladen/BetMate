@@ -1,0 +1,67 @@
+# EFL Championship league config — see CHAMPIONSHIP_PLAN.md.
+#
+# GOALS-FED: no Understat coverage → xg_csv null → D-C fits on actual goals.
+# No PPDA → T2 pressing inactive (t2 returns 0.0 when ppda is None).
+#
+# ⚠️ VAULT RULE (user decision 2026-07-09): 2025/26 is a hold-out season.
+# It exists in the fetched data (needed for the final frozen-model run) but must
+# NEVER appear in test_seasons/feature_seasons or any development evaluation.
+#
+# Tier constants marked [E1-DERIVED] are computed from the fetched 2014/15–2024/25
+# data (scripts below); others start as EPL values pending backtest evidence.
+key: championship
+name: EFL Championship
+
+data:
+  matches_csv: matches/championship_matches.csv
+  xg_csv: null                        # goals-fed — no xG source for this league
+  ppda_csv: null                      # no PPDA — T2 inactive in v1
+  clv_dir: clv
+  xg_fallback_factor: 1.0             # unused in goals-fed mode
+
+source:
+  provider: football-data
+  league_code: E1
+  seasons_from: "2014/15"
+  seasons_to: "2025/26"               # 2025/26 fetched for the vault run ONLY
+
+model:
+  rho: -0.13                          # start at EPL value; revisit vs ~33% draw rate
+  dc_weight: 0.70
+  elo_weight: 0.30
+  decay_rate: 0.001                   # candidate for lengthening (goals noisier); tune in Phase 5
+  min_train: 200
+  between_season_omega: 0.770
+
+elo:
+  home_advantage: 65.0                # kept at EPL value — E1 home-win 43.2% vs EPL 44.6%,
+                                      # so no evidence of stronger HFA (research claim disproven by data)
+  k_base: 20.0
+  k_new: 40.0
+  k_new_threshold: 20
+  between_season_reversion: 0.30
+  draw_base: 0.27                     # [E1-DERIVED] actual draw rate 26.9% — EPL value confirmed
+
+backtest:
+  # 2023/24 dropped as a test season: full-season odds never archived (see diary
+  # 2026-07-10) — its second half is results-only patched data. 2021/22 (complete,
+  # with odds) takes its place. 2025/26 = VAULT, never here.
+  test_seasons: ["2021/22", "2022/23", "2024/25"]
+  feature_seasons: ["2017/18", "2018/19", "2019/20", "2020/21",
+                    "2021/22", "2022/23", "2024/25"]
+
+tiers:
+  league_ppda_sum: 23.0               # unused (no PPDA data)
+  league_ref_goals: 1.415             # [E1-DERIVED] avg FTHG across 124 refs, n=6071
+  short_rest_days: 3                  # [E1-DERIVED] E1 median rest is 4d and 50.3% of games
+                                      # are <=4d — EPL threshold would penalise half the league.
+                                      # <=3d = 27.9% (genuine midweek turnarounds)
+  fatigue_factor: 0.94
+  corners_home_avg: 5.634             # [E1-DERIVED] n=5831
+  corners_away_avg: 4.624             # [E1-DERIVED]
+  sp_xg_per_corner: 0.042
+  sp_weight: 0.35
+  sp_cap: 0.08
+  ppda_goals_coef: -0.007             # unused (no PPDA data)
+  form_goals_coef: 0.008
+  ref_goals_coef: 0.5

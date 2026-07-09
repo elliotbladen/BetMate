@@ -15,6 +15,7 @@ source:
   provider: football-data
   league_code: E0
   seasons_from: "2014/15"
+  seasons_to: "2024/25"    # bump to 2025/26 at the August GW1 refresh
 
 model:
   rho: -0.13
