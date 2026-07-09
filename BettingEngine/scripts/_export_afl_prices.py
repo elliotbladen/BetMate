@@ -3,15 +3,27 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--season', type=int, default=2026)
-parser.add_argument('--round',  type=int, default=13)
+parser.add_argument('--round',  type=int, default=0,
+                    help='0 / omitted = latest priced round in afl_shadow_predictions')
 args = parser.parse_args()
 
 ROOT = Path(__file__).resolve().parent.parent
 DB   = ROOT / "data" / "model.db"
-OUT  = ROOT / "results" / f"r{args.round:02d}_afl_{args.season}.csv"
 
 conn = sqlite3.connect(DB)
 conn.row_factory = sqlite3.Row
+
+if not args.round:
+    latest = conn.execute(
+        "SELECT MAX(round_number) FROM afl_shadow_predictions WHERE season=?",
+        (args.season,)).fetchone()[0]
+    if latest is None:
+        print(f"No rows in afl_shadow_predictions for season {args.season}")
+        raise SystemExit(1)
+    args.round = int(latest)
+    print(f"Auto-detected latest priced round: R{args.round}")
+
+OUT = ROOT / "results" / f"r{args.round:02d}_afl_{args.season}.csv"
 
 rows = conn.execute("""
     SELECT * FROM afl_shadow_predictions

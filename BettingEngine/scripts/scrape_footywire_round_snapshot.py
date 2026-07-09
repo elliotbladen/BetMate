@@ -226,6 +226,7 @@ def scrape_season_to_date(year: int, session: requests.Session) -> dict[str, dic
 
 FIELDNAMES = [
     'season', 'round_number', 'team_name',
+    'as_of_date',
     'games',
     # Basic
     'kicks_pg', 'handballs_pg', 'disposals_pg', 'marks_pg',
@@ -252,8 +253,10 @@ FIELDNAMES = [
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--season',    type=int, required=True)
-    parser.add_argument('--round',     type=int, required=True,
-                        help='Round ENTERING (stats are from rounds played so far)')
+    parser.add_argument('--round',     type=int, default=0,
+                        help='Round ENTERING (stats are from rounds played so far). '
+                             '0 / omitted = auto: max games played + 1 (safe label — with byes '
+                             'this can undershoot the true round, which the T2 loader tolerates)')
     parser.add_argument('--overwrite', action='store_true',
                         help='Replace any existing rows for this season+round')
     parser.add_argument('--out',       default=str(SNAP_CSV))
@@ -268,6 +271,25 @@ def main():
         with open(out_path) as f:
             existing_rows = list(csv.DictReader(f))
 
+    print(f'Scraping Footywire season-to-date stats for {args.season}...', flush=True)
+
+    session = requests.Session()
+    stats = scrape_season_to_date(args.season, session)
+
+    if not stats:
+        print('No data scraped.')
+        return
+
+    if not args.round:
+        # max games+1 undershoots once teams have had byes; on a weekly cadence the
+        # existing CSV's max round self-corrects it (this run must be newer than last week's).
+        max_games = max(int(rec.get('games') or 0) for rec in stats.values())
+        prev_max  = max((int(r['round_number']) for r in existing_rows
+                         if int(r['season']) == args.season), default=0)
+        args.round = max(max_games + 1, prev_max + 1)
+        print(f'Auto round label: entering R{args.round} '
+              f'(max games played = {max_games}, previous snapshot = R{prev_max or "none"})')
+
     # Drop old rows for this season+round if overwriting
     if args.overwrite:
         existing_rows = [r for r in existing_rows
@@ -281,16 +303,6 @@ def main():
     if already and not args.overwrite:
         print(f'Snapshot already exists for {args.season} R{args.round}. '
               f'Use --overwrite to replace.')
-        return
-
-    print(f'Scraping Footywire season-to-date stats for {args.season} '
-          f'(entering R{args.round})...', flush=True)
-
-    session = requests.Session()
-    stats = scrape_season_to_date(args.season, session)
-
-    if not stats:
-        print('No data scraped.')
         return
 
     new_rows = []
@@ -317,8 +329,9 @@ def main():
         mg = rec.get('metres_gained_total')
         rec['mg_pg'] = round(mg, 1) if mg is not None else None
 
-        row = {'season': args.season, 'round_number': args.round, 'team_name': team}
-        for f in FIELDNAMES[3:]:   # skip season/round/team_name
+        row = {'season': args.season, 'round_number': args.round, 'team_name': team,
+               'as_of_date': time.strftime('%Y-%m-%d')}
+        for f in FIELDNAMES[4:]:   # skip season/round/team_name/as_of_date
             row[f] = rec.get(f)
         new_rows.append(row)
 
@@ -330,7 +343,7 @@ def main():
         writer.writerows(all_rows)
 
     print(f'Saved {len(new_rows)} teams for {args.season} R{args.round} '
-          f'→ {out_path}  ({len(all_rows)} total rows)')
+          f'-> {out_path}  ({len(all_rows)} total rows)')
 
     # Quick sanity check
     print(f'\nSample (sorted by CP/game):')

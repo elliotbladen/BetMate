@@ -22,6 +22,14 @@ __pycache__/
 # logs
 dev-server*.log
 dev.log
+next-dev*.log
+
+# Office lock files (created while a workbook is open)
+~$*
+**/~$*
+
+# Playwright/verification screenshots — never commit
+verify-*.png
 
 # build artifacts
 tsconfig.tsbuildinfo

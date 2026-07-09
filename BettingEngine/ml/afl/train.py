@@ -51,119 +51,15 @@ MODELS_DIR  = ROOT / 'ml' / 'afl' / 'results' / 'models'
 METRICS_OUT = ROOT / 'ml' / 'afl' / 'results' / 'metrics.txt'
 
 # ---------------------------------------------------------------------------
-# Feature columns fed to the models
+# Feature columns fed to the models — SHARED with scripts/prepare_afl_round.py
+# via ml/afl/features.py. Never redefine locally (2026-07-09 shadow incident).
 # ---------------------------------------------------------------------------
-FEATURES_MARGIN_TOTAL = [
-    # Era signal — lets model learn scoring trend across seasons
-    'season_year',
-
-    # ELO
-    'elo_diff',
-    'elo_win_prob',
-
-    # Rest/travel
-    'home_rest_days',
-    'away_rest_days',
-    'rest_diff',
-    'home_travel_km',
-    'away_travel_km',
-    'travel_diff_km',
-
-    # Home form
-    'home_win_pct',
-    'home_avg_margin',
-    'home_last_margin',
-    'home_off_big_win',
-    'home_off_big_loss',
-    'home_win_streak',
-    'home_loss_streak',
-
-    # Away form
-    'away_win_pct',
-    'away_avg_margin',
-    'away_last_margin',
-    'away_off_big_win',
-    'away_off_big_loss',
-    'away_win_streak',
-    'away_loss_streak',
-
-    # EMA form (recency-weighted, opponent-adjusted)
-    'home_ema_win_pct',
-    'home_ema_margin',
-    'home_opp_adj_margin',
-    'away_ema_win_pct',
-    'away_ema_margin',
-    'away_opp_adj_margin',
-    'ema_margin_diff',
-    'opp_adj_margin_diff',
-
-    # Form diffs
-    'form_win_pct_diff',
-    'form_margin_diff',
-
-    # Venue
-    'venue_games',
-    'venue_avg_total',
-    'venue_home_win_pct',
-
-    # Flags
-    'is_final',
-
-    # Market signal — opening implied probability (NaN → filled with elo_win_prob)
-    'mkt_home_prob_open',
-]
-
-# H2H classifier uses original form features only — EMA features hurt classification
-# accuracy despite improving margin MAE. Kept separate so each model gets its optimal set.
-FEATURES_H2H = [
-    # Era signal
-    'season_year',
-
-    # ELO
-    'elo_diff',
-    'elo_win_prob',
-
-    # Rest/travel
-    'home_rest_days',
-    'away_rest_days',
-    'rest_diff',
-    'home_travel_km',
-    'away_travel_km',
-    'travel_diff_km',
-
-    # Home form
-    'home_win_pct',
-    'home_avg_margin',
-    'home_last_margin',
-    'home_off_big_win',
-    'home_off_big_loss',
-    'home_win_streak',
-    'home_loss_streak',
-
-    # Away form
-    'away_win_pct',
-    'away_avg_margin',
-    'away_last_margin',
-    'away_off_big_win',
-    'away_off_big_loss',
-    'away_win_streak',
-    'away_loss_streak',
-
-    # Form diffs
-    'form_win_pct_diff',
-    'form_margin_diff',
-
-    # Venue
-    'venue_games',
-    'venue_avg_total',
-    'venue_home_win_pct',
-
-    # Flags
-    'is_final',
-
-    # Market signal
-    'mkt_home_prob_open',
-]
+try:
+    from ml.afl.features import FEATURES_MARGIN_TOTAL, FEATURES_H2H
+except ImportError:   # run as a script (python ml\afl\train.py) — package root not on sys.path
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+    from ml.afl.features import FEATURES_MARGIN_TOTAL, FEATURES_H2H
 
 # ---------------------------------------------------------------------------
 # helpers

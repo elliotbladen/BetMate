@@ -1151,10 +1151,30 @@ T2_TOT_MAX   = 2.0  # was 3.0 — proportional reduction
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
+def _validate_model_features(model, expected: list, name: str) -> None:
+    """Hard-fail if a pickle's feature contract disagrees with ml/afl/features.py."""
+    got = getattr(model, 'feature_names_in_', None)
+    if got is None:
+        return   # calibrated wrappers may not expose names — predict will still validate
+    got = list(got)
+    if got != expected:
+        missing = [c for c in expected if c not in got]
+        extra   = [c for c in got if c not in expected]
+        raise ValueError(
+            f'{name} feature contract mismatch vs ml/afl/features.py — '
+            f'model has {len(got)} cols, expected {len(expected)}. '
+            f'Missing from model: {missing or "none"}. Unexpected in model: {extra or "none"}. '
+            f'Retrain (ml/afl/train.py) and re-price in the same session.'
+        )
+
+
 def load_models():
     margin_model = pickle.load(open(MODELS_DIR / 'margin_model.pkl', 'rb'))
     total_model  = pickle.load(open(MODELS_DIR / 'total_model.pkl',  'rb'))
     h2h_model    = pickle.load(open(MODELS_DIR / 'h2h_model.pkl',    'rb'))
+    _validate_model_features(margin_model, FEATURE_COLS_REG, 'margin_model')
+    _validate_model_features(total_model,  FEATURE_COLS_REG, 'total_model')
+    _validate_model_features(h2h_model,    FEATURE_COLS_H2H, 'h2h_model')
     return margin_model, total_model, h2h_model
 
 
@@ -1202,22 +1222,82 @@ def get_venue_stats(features_df: pd.DataFrame, venue: str) -> dict:
     }
 
 
-FEATURE_COLS = [
-    'season_year',
-    'elo_diff', 'elo_win_prob', 'home_rest_days', 'away_rest_days', 'rest_diff',
-    'home_travel_km', 'away_travel_km', 'travel_diff_km',
-    'home_win_pct', 'home_avg_margin', 'home_last_margin',
-    'home_off_big_win', 'home_off_big_loss', 'home_win_streak', 'home_loss_streak',
-    'away_win_pct', 'away_avg_margin', 'away_last_margin',
-    'away_off_big_win', 'away_off_big_loss', 'away_win_streak', 'away_loss_streak',
-    'form_win_pct_diff', 'form_margin_diff',
-    'venue_games', 'venue_avg_total', 'venue_home_win_pct',
-    'is_final',
-]
+# ── Split feature sets — SINGLE SOURCE OF TRUTH is ml/afl/features.py ─────────
+# Shared with ml/afl/train.py so a retrain can never drift from deploy again
+# (2026-07-09 incident: stale local copy silently killed the ML shadow).
+# load_models() below hard-fails if the pickles disagree with these lists.
+from ml.afl.features import FEATURES_MARGIN_TOTAL, FEATURES_H2H  # noqa: E402
+
+FEATURE_COLS_REG = FEATURES_MARGIN_TOTAL
+FEATURE_COLS_H2H = FEATURES_H2H
+
+
+def get_ema_form(features_df: pd.DataFrame, team: str, before_date: str,
+                 n: int = 8, decay: float = 0.75) -> dict:
+    """
+    Replicates ml/afl/game_log.py EMA form for deploy-time feature rows:
+    8-game window, per-step decay 0.75 (newest weight 1.0), opposition-adjusted
+    margin scaled by opponent pre-game ELO / 1500.
+    """
+    mask = ((features_df['home_team'] == team) | (features_df['away_team'] == team)) & \
+           (features_df['date'] < before_date) & features_df['home_margin'].notna()
+    recent = features_df[mask].sort_values('date').tail(n)
+    if recent.empty:
+        return {'ema_win_pct': 0.5, 'ema_margin': 0.0, 'opp_adj_margin': 0.0}
+
+    games = []
+    for _, g in recent.iterrows():
+        if g['home_team'] == team:
+            margin, opp_elo = float(g['home_margin']), float(g['away_elo'])
+        else:
+            margin, opp_elo = -float(g['home_margin']), float(g['home_elo'])
+        games.append({'win': 1.0 if margin > 0 else 0.0,
+                      'margin': margin, 'opponent_elo': opp_elo})
+
+    m       = len(games)
+    weights = [decay ** (m - 1 - i) for i in range(m)]
+    w_sum   = sum(weights)
+    return {
+        'ema_win_pct':    sum(w * g['win']    for w, g in zip(weights, games)) / w_sum,
+        'ema_margin':     sum(w * g['margin'] for w, g in zip(weights, games)) / w_sum,
+        'opp_adj_margin': sum(w * g['margin'] * (g['opponent_elo'] / 1500.0)
+                              for w, g in zip(weights, games)) / w_sum,
+    }
+
+
+def load_market_h2h_probs(season: int) -> dict:
+    """
+    Vig-free home win probability per (home, away) from the most recent AFL odds
+    snapshot — feeds the models' mkt_home_prob_open feature. Games not found fall
+    back to elo_win_prob in build_feature_row (same as training's NaN fill).
+    """
+    snap_dir = ROOT.parent / 'data' / 'odds_snapshots' / str(season)
+    files = sorted(snap_dir.glob('*.csv')) if snap_dir.exists() else []
+    if not files:
+        return {}
+    acc: dict = {}
+    with open(files[-1], newline='', encoding='utf-8-sig') as fh:
+        for r in csv.DictReader(fh):
+            if r.get('sport') != 'AFL' or r.get('market') != 'h2h':
+                continue
+            try:
+                price = float(r['price'])
+            except (TypeError, ValueError):
+                continue
+            key = (r['home_team'], r['away_team'])
+            acc.setdefault(key, {}).setdefault(r['outcome'], []).append(price)
+    probs = {}
+    for (home, away), sides in acc.items():
+        if home in sides and away in sides:
+            hp = 1.0 / (sum(sides[home]) / len(sides[home]))
+            ap = 1.0 / (sum(sides[away]) / len(sides[away]))
+            probs[(home, away)] = hp / (hp + ap)
+    return probs
 
 
 def build_feature_row(home: str, away: str, venue: str, date: str,
-                      elo: dict, features_df: pd.DataFrame) -> dict:
+                      elo: dict, features_df: pd.DataFrame,
+                      mkt_home_prob: float | None = None) -> dict:
     home_elo = elo.get(home, 1500.0)
     away_elo = elo.get(away, 1500.0)
     elo_diff = (home_elo + get_home_adv_elo(venue)) - away_elo
@@ -1226,6 +1306,8 @@ def build_feature_row(home: str, away: str, venue: str, date: str,
     hf = get_recent_form(features_df, home, date)
     af = get_recent_form(features_df, away, date)
     vs = get_venue_stats(features_df, venue)
+    he = get_ema_form(features_df, home, date)
+    ae = get_ema_form(features_df, away, date)
 
     # Streak calc
     def streak(df, team, before, home_or_away):
@@ -1271,37 +1353,60 @@ def build_feature_row(home: str, away: str, venue: str, date: str,
         'away_off_big_loss': int(af['last_margin'] < -30),
         'away_win_streak':   aw,
         'away_loss_streak':  al,
+        'home_ema_win_pct':   he['ema_win_pct'],
+        'home_ema_margin':    he['ema_margin'],
+        'home_opp_adj_margin':he['opp_adj_margin'],
+        'away_ema_win_pct':   ae['ema_win_pct'],
+        'away_ema_margin':    ae['ema_margin'],
+        'away_opp_adj_margin':ae['opp_adj_margin'],
+        'ema_margin_diff':    he['ema_margin'] - ae['ema_margin'],
+        'opp_adj_margin_diff':he['opp_adj_margin'] - ae['opp_adj_margin'],
         'form_win_pct_diff': hf['win_pct'] - af['win_pct'],
         'form_margin_diff':  hf['avg_margin'] - af['avg_margin'],
         'is_final':          0,
         'venue_games':       vs['venue_games'],
         'venue_avg_total':   vs['venue_avg_total'],
         'venue_home_win_pct':vs['venue_home_win_pct'],
+        # Training filled NaN market prob with elo_win_prob — same fallback here.
+        'mkt_home_prob_open': mkt_home_prob if mkt_home_prob is not None else elo_win_prob,
     }
 
 
 # ── T2 style engine ───────────────────────────────────────────────────────────
 
-def load_style_snapshot(season: int, round_num: int) -> dict:
-    """Load most recent snapshot at or before round_num. Falls back to full-season."""
-    # Try snapshots first
+def load_style_snapshot(season: int, round_num: int) -> tuple[dict, dict]:
+    """
+    Load most recent snapshot at or before round_num. Falls back to full-season.
+
+    Returns (rows, meta). meta reports what actually got loaded so the caller
+    can SAY SO when the data is stale — the Jul 7 R18 pricing silently ran T2
+    on an R9 (May 12) snapshot because this function only reported success.
+    """
     if SNAP_CSV.exists():
-        rows = {}
+        rows, max_round, as_of = {}, 0, None
         with open(SNAP_CSV) as f:
             for r in csv.DictReader(f):
                 if int(r['season']) == season and int(r['round_number']) <= round_num:
+                    rn = int(r['round_number'])
+                    if rn > max_round:
+                        max_round, as_of = rn, r.get('as_of_date') or None
                     rows[r['team_name']] = r
+        # keep only the newest round's rows (dict overwrite order isn't guaranteed newest-last)
+        rows = {t: r for t, r in rows.items() if int(r['round_number']) == max_round}
         if rows:
-            return rows
+            return rows, {'source': 'snapshot', 'round': max_round,
+                          'as_of_date': as_of, 'rounds_stale': round_num - max_round}
 
-    # Fallback: full-season averages from prior year
     fallback = {}
     if HIST_CSV.exists():
         with open(HIST_CSV) as f:
             for r in csv.DictReader(f):
                 if int(r['season']) == season - 1:
                     fallback[r['team_name']] = r
-    return fallback
+    if fallback:
+        return fallback, {'source': 'prior_season_fallback', 'round': None,
+                          'as_of_date': None, 'rounds_stale': None}
+    return {}, {'source': 'none', 'round': None, 'as_of_date': None, 'rounds_stale': None}
 
 
 def compute_league_norms(rows: dict) -> dict:
@@ -1469,43 +1574,13 @@ def compute_ml_bias(ml_total_model, features_df: pd.DataFrame,
     if len(cal_df) < 20:
         return {'bias': 0.0, 'n': 0, 'mae': 0.0}
 
-    X_cal = pd.DataFrame([
-        build_feature_row.__wrapped__(r) if hasattr(build_feature_row, '__wrapped__')
-        else {
-            'season_year':        int(r.get('season', 2026) or 2026),
-            'elo_diff':           (float(r.get('home_elo', 1500)) + get_home_adv_elo(str(r.get('venue', '')))) - float(r.get('away_elo', 1500)),
-            'elo_win_prob':       1 / (1 + 10 ** (-((float(r.get('home_elo', 1500)) + get_home_adv_elo(str(r.get('venue', '')))) - float(r.get('away_elo', 1500))) / 400)),
-            'home_rest_days':     7.0,
-            'away_rest_days':     7.0,
-            'rest_diff':          0.0,
-            'home_travel_km':     0.0,
-            'away_travel_km':     500.0,
-            'travel_diff_km':    -500.0,
-            'home_win_pct':       float(r.get('home_win_pct', 0.5) or 0.5),
-            'home_avg_margin':    float(r.get('home_avg_margin', 0.0) or 0.0),
-            'home_last_margin':   float(r.get('home_last_margin', 0.0) or 0.0),
-            'home_form_games':    5,
-            'home_off_big_win':   int(float(r.get('home_last_margin', 0) or 0) > 30),
-            'home_off_big_loss':  int(float(r.get('home_last_margin', 0) or 0) < -30),
-            'home_win_streak':    0,
-            'home_loss_streak':   0,
-            'away_win_pct':       float(r.get('away_win_pct', 0.5) or 0.5),
-            'away_avg_margin':    float(r.get('away_avg_margin', 0.0) or 0.0),
-            'away_last_margin':   float(r.get('away_last_margin', 0.0) or 0.0),
-            'away_form_games':    5,
-            'away_off_big_win':   int(float(r.get('away_last_margin', 0) or 0) > 30),
-            'away_off_big_loss':  int(float(r.get('away_last_margin', 0) or 0) < -30),
-            'away_win_streak':    0,
-            'away_loss_streak':   0,
-            'form_win_pct_diff':  float(r.get('home_win_pct', 0.5) or 0.5) - float(r.get('away_win_pct', 0.5) or 0.5),
-            'form_margin_diff':   float(r.get('home_avg_margin', 0.0) or 0.0) - float(r.get('away_avg_margin', 0.0) or 0.0),
-            'is_final':           int(r.get('is_final', 0) or 0),
-            'venue_games':        float(r.get('venue_games', 30) or 30),
-            'venue_avg_total':    float(r.get('venue_avg_total', 165.0) or 165.0),
-            'venue_home_win_pct': float(r.get('venue_home_win_pct', 0.60) or 0.60),
-        }
-        for _, r in cal_df.iterrows()
-    ])[FEATURE_COLS]
+    # features_afl.csv already carries every model feature (incl. EMA + market
+    # prob) as computed at training time — use the real columns rather than the
+    # old synthetic reconstruction, which no longer matches the retrained models.
+    for col in FEATURE_COLS_REG:
+        cal_df[col] = pd.to_numeric(cal_df.get(col), errors='coerce')
+    cal_df['mkt_home_prob_open'] = cal_df['mkt_home_prob_open'].fillna(cal_df['elo_win_prob'])
+    X_cal = cal_df[FEATURE_COLS_REG]
 
     preds  = ml_total_model.predict(X_cal)
     actual = cal_df['total_score'].values
@@ -1586,14 +1661,62 @@ def main():
         return
 
     print(f'\nLoading data...')
+    health_warnings: list[str] = []   # every stale/broken input lands here and is re-shouted at the end
+
     features_df = pd.read_csv(FEATURES, encoding='latin-1')
     features_df = features_df[features_df['season'] <= args.season].copy()
     elo = get_current_elo(features_df[features_df['season'] == args.season])
 
-    style_rows = load_style_snapshot(args.season, args.round)
+    # T1/ELO freshness — features must contain results right up to the previous round
+    played = features_df[features_df['home_margin'].notna()]
+    last_result_date = str(played['date'].max()) if len(played) else ''
+    first_game_date  = min(g[3] for g in games)
+    try:
+        elo_gap_days = (datetime.fromisoformat(first_game_date)
+                        - datetime.fromisoformat(last_result_date)).days
+    except ValueError:
+        elo_gap_days = None
+    if elo_gap_days is None or elo_gap_days > 10:
+        health_warnings.append(
+            f'T1/ELO STALE: last result in features_afl.csv is "{last_result_date or "none"}" '
+            f'({elo_gap_days if elo_gap_days is not None else "?"} days before this round) — '
+            f'rebuild with game_log.py on the latest historical xlsx before trusting these prices')
+
+    style_rows, style_meta = load_style_snapshot(args.season, args.round)
     norms      = compute_league_norms(style_rows) if style_rows else {}
-    snap_label = f'R{args.round} snapshot' if style_rows else 'no style data'
-    print(f'Style data: {snap_label}  ({len(style_rows)} teams)')
+    print(f'Style data: {style_meta["source"]}  round=R{style_meta["round"]}  '
+          f'as_of={style_meta["as_of_date"] or "unknown"}  ({len(style_rows)} teams)')
+    if style_meta['source'] != 'snapshot':
+        health_warnings.append(
+            f'T2 HAS NO CURRENT-SEASON DATA: running on "{style_meta["source"]}" — '
+            f'run scripts/scrape_footywire_round_snapshot.py')
+    elif (style_meta['rounds_stale'] or 0) >= 2:
+        health_warnings.append(
+            f'T2 STALE: style snapshot is R{style_meta["round"]}, '
+            f'{style_meta["rounds_stale"]} rounds behind R{args.round} — '
+            f'run scripts/scrape_footywire_round_snapshot.py')
+    if style_rows and len(style_rows) < 18:
+        health_warnings.append(f'T2 INCOMPLETE: snapshot has only {len(style_rows)}/18 teams')
+
+    # T5/T6 prep data actually loaded for THIS round?
+    if not INJURIES.get(args.round):
+        health_warnings.append(
+            f'T5 EMPTY: no injuries loaded for R{args.round} — every game prices with zero '
+            f'injury adjustment. Build outputs/afl_round_prep/r{args.round}_{args.season}/'
+            f'injuries_r{args.round}_{args.season}.json')
+    else:
+        inj_path = (ROOT / 'outputs' / 'afl_round_prep' / f'r{args.round}_{args.season}'
+                    / f'injuries_r{args.round}_{args.season}.json')
+        if inj_path.exists():
+            inj_age = (datetime.now() - datetime.fromtimestamp(inj_path.stat().st_mtime)).days
+            if inj_age > 4:
+                health_warnings.append(
+                    f'T5 AGEING: injury file is {inj_age} days old — club ins/outs land Wed/Thu, '
+                    f're-verify team news before betting')
+    if not EMOTIONAL_FLAGS.get(args.round):
+        health_warnings.append(
+            f'T6 EMPTY: no emotional flags for R{args.round} — verify the scrape ran '
+            f'(a genuine zero-flag round is possible but rare)')
 
     cal = compute_season_calibration(features_df, args.season)
     print(f'Rules T1 calibration ({args.season}, n={cal["n"]}):  '
@@ -1609,13 +1732,50 @@ def main():
     except Exception as e:
         ml_available = False
         ml_bias = {'bias': 0.0, 'n': 0, 'mae': 0.0}
-        print(f'  (ML models not available — shadow section will be skipped)')
+        print(f'  (ML models not available — shadow section will be skipped: {type(e).__name__}: {e})')
+        health_warnings.append(
+            f'ML SHADOW DOWN: {type(e).__name__}: {e} — the model-alignment betting rule '
+            f'CANNOT be applied to this round until fixed')
+
+    mkt_probs = load_market_h2h_probs(args.season)
+    snap_dir   = ROOT.parent / 'data' / 'odds_snapshots' / str(args.season)
+    snap_files = sorted(snap_dir.glob('*.csv')) if snap_dir.exists() else []
+    if not snap_files:
+        health_warnings.append('MARKET: no odds snapshots at all — EV/market comparison impossible')
+    else:
+        snap_age = (datetime.now()
+                    - datetime.fromtimestamp(snap_files[-1].stat().st_mtime)).days
+        if snap_age > 2:
+            health_warnings.append(
+                f'MARKET STALE: latest odds snapshot is {snap_files[-1].name} ({snap_age} days old) — '
+                f'no current market lines for EV; mkt_home_prob_open model feature on ELO fallback')
+    games_with_mkt = sum(1 for g in games if (g[0], g[1]) in mkt_probs)
+    print(f'Market H2H probs: {games_with_mkt}/{len(games)} games matched in latest snapshot')
+    if games_with_mkt == 0 and snap_files:
+        health_warnings.append(
+            'MARKET: 0 of this round\'s games found in the latest snapshot (snapshot likely from a '
+            'previous round) — mkt_home_prob_open falls back to elo_win_prob for all games')
+
+    # ── DATA HEALTH pre-flight report ─────────────────────────────────────────
+    print('\n' + '=' * 90)
+    print(f'  DATA HEALTH — R{args.round} {args.season} pre-flight')
+    print('=' * 90)
+    if health_warnings:
+        for w in health_warnings:
+            print(f'  [!] {w}')
+    else:
+        print('  [OK] all inputs current — no caveats')
+    print('=' * 90)
 
     previous_weather = _load_previous_afl_weather(args.round, args.season)
     results = []
+    wx_issues: list[str] = []
     for home, away, venue, date in games:
-        feat = build_feature_row(home, away, venue, date, elo, features_df)
-        X    = pd.DataFrame([feat])[FEATURE_COLS]
+        feat  = build_feature_row(home, away, venue, date, elo, features_df,
+                                  mkt_home_prob=mkt_probs.get((home, away)))
+        X     = pd.DataFrame([feat])
+        X_reg = X[FEATURE_COLS_REG]
+        X_h2h = X[FEATURE_COLS_H2H]
 
         # ── T1: Rules-based baseline ──────────────────────────────────────────
         home_elo = elo.get(home, 1500.0)
@@ -1626,10 +1786,10 @@ def main():
 
         # ── ML shadow predictions (stored, not used in pricing) ───────────────
         if ml_available:
-            ml_margin_raw = float(ml_margin_model.predict(X)[0])
-            ml_total_raw  = float(ml_total_model.predict(X)[0])
+            ml_margin_raw = float(ml_margin_model.predict(X_reg)[0])
+            ml_total_raw  = float(ml_total_model.predict(X_reg)[0])
             ml_total_cal  = ml_total_raw + ml_bias['bias']   # bias-corrected total
-            ml_h2h_prob   = float(ml_h2h_model.predict_proba(X)[0][1])
+            ml_h2h_prob   = float(ml_h2h_model.predict_proba(X_h2h)[0][1])
         else:
             ml_margin_raw = ml_total_raw = ml_total_cal = ml_h2h_prob = None
 
@@ -1680,6 +1840,9 @@ def main():
                     wx_data = previous_weather[(home, away)].copy()
                     wx_data['data_source'] = f"{wx_data.get('data_source', 'previous_export')}_fallback"
                     print(f'    [T7] {venue}: weather fetch failed; reused previous export')
+                    wx_issues.append(f'{home} vs {away} @ {venue} (stale — reused previous export)')
+                elif not wx_data:
+                    wx_issues.append(f'{home} vs {away} @ {venue} (no data — priced as clear)')
                 if wx_data:
                     print(f'    [T7] {venue}: T={wx_data.get("temp_c")}°C  '
                           f'W={wx_data.get("wind_kmh")}km/h  '
@@ -1967,6 +2130,20 @@ def main():
     # ── Store to DB ───────────────────────────────────────────────────────────
     run_date = datetime.now().strftime('%Y-%m-%d')
     store_to_db(results, args.season, args.round, run_date)
+
+    # ── SPEAK-UP RECAP — repeat every data problem so it can't be missed ──────
+    if wx_issues:
+        health_warnings.append(
+            f'T7: live weather unavailable for {len(wx_issues)} game(s): ' + '; '.join(wx_issues))
+    if health_warnings:
+        print('\n' + '!' * 90)
+        print(f'  DATA HEALTH RECAP — {len(health_warnings)} issue(s) affected this pricing run:')
+        for w in health_warnings:
+            print(f'  [!] {w}')
+        print('  These prices are only as good as the inputs above — fix before acting on them.')
+        print('!' * 90)
+    else:
+        print('\n  [OK] DATA HEALTH: all inputs current — no caveats on this pricing run.')
 
 
 def store_to_db(results: list, season: int, round_num: int, run_date: str):
