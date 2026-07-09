@@ -209,29 +209,62 @@ def load_fixture(round_number: int, season: int) -> list[dict]:
     return games
 
 
-def fetch_afl_news(round_number: int, season: int) -> str:
-    """Fetch recent AFL news headlines from Google News RSS."""
+def fetch_afl_news(round_number: int, season: int, teams: set[str] | None = None,
+                   max_age_days: int = 10) -> str:
+    """
+    Fetch recent AFL news headlines from Google News RSS.
+
+    Headlines older than max_age_days are DROPPED and every kept headline is
+    prefixed with its publish date. Google News resurfaces months-old stories
+    for query matches — on 2026-07-09 an April "captain ruled out after
+    brother's death" story came back for an R18 query and nearly put a bogus
+    major personal_tragedy flag (+2.5) on Adelaide's line.
+
+    teams: full team names of clubs playing this round. Each gets its own news
+    query — the three generic queries alone missed the NRL R19 Jai Arrow MND
+    tribute game (2026-07-09); the same blind spot existed here.
+    """
+    from email.utils import parsedate_to_datetime
+
     queries = [
-        f'AFL+Round+{round_number}+{season}',
-        f'AFL+{season}+milestone+farewell+emotional',
-        f'AFL+{season}+personal+tragedy+must+win',
+        (f'AFL+Round+{round_number}+{season}', 10),
+        (f'AFL+{season}+milestone+farewell+emotional', 10),
+        (f'AFL+{season}+personal+tragedy+must+win', 10),
     ]
+    for team in sorted(teams or []):
+        nickname = team.split()[-1]
+        queries.append((f'AFL+{nickname}+news', 4))
     headlines: list[str] = []
     seen: set[str] = set()
-    for query in queries:
+    skipped_old = 0
+    for query, per_query_limit in queries:
         url = f'https://news.google.com/rss/search?q={query}&hl=en-AU&gl=AU&ceid=AU:en'
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             with urllib.request.urlopen(req, timeout=10) as resp:
                 root = ET.fromstring(resp.read())
-            for item in root.findall('.//item')[:10]:
+            for item in root.findall('.//item')[:per_query_limit]:
                 title = item.findtext('title', '').split(' - ')[0].strip()
+                pub_dt = None
+                try:
+                    pub_raw = item.findtext('pubDate', '')
+                    pub_dt = parsedate_to_datetime(pub_raw) if pub_raw else None
+                except (TypeError, ValueError):
+                    pass
+                if pub_dt is not None:
+                    if (datetime.now(timezone.utc) - pub_dt).days > max_age_days:
+                        skipped_old += 1
+                        continue
+                    date_label = pub_dt.strftime('%Y-%m-%d')
+                else:
+                    date_label = 'undated'
                 if title and title not in seen:
                     seen.add(title)
-                    headlines.append(f'- {title}')
+                    headlines.append(f'- [{date_label}] {title}')
         except Exception as exc:
             log.warning('News fetch failed for query "%s": %s', query, exc)
-    log.info('Fetched %d AFL news headlines', len(headlines))
+    log.info('Fetched %d AFL news headlines (%d dropped as older than %d days)',
+             len(headlines), skipped_old, max_age_days)
     return '\n'.join(headlines) if headlines else '(no news fetched)'
 
 
@@ -399,7 +432,9 @@ INJURY LIST:
 TEAM NEWS:
 {news_section or '  (none loaded)'}
 
-RECENT AFL NEWS HEADLINES:
+RECENT AFL NEWS HEADLINES (each prefixed with its publish date — DISREGARD any event \
+that clearly happened weeks or months ago even if the headline resurfaced; only flag \
+situations that affect THIS round's games):
 {news_headlines or '  (none fetched)'}
 
 AUTO-DETECTED EMOTIONAL FLAGS (already confirmed — do NOT repeat these):
@@ -513,7 +548,10 @@ def run(season: int, round_number: int, dry_run: bool) -> int:
     fixture   = load_fixture(round_number, season)
     injuries  = load_json(ROOT / 'data' / 'afl' / 'injuries' / 'processed' / 'latest-injuries.json') or []
     team_news = load_json(ROOT / 'data' / 'afl' / 'team-news' / 'latest.json') or {}
-    news_headlines = fetch_afl_news(round_number, season)
+    playing_teams = {
+        t for g in fixture for t in (g.get('home_team'), g.get('away_team')) if t
+    }
+    news_headlines = fetch_afl_news(round_number, season, playing_teams)
 
     if not fixture:
         log.warning('No fixture data — emotional flags may be incomplete')

@@ -11,9 +11,18 @@ price anything up." Full writeup: `BettingEngine/outputs/results/r19_nrl_pricing
   Sutton/Gee on a second source, wrote `latest-referees.csv` + round-19 archive copy.
   Sutton whistle_heavy is worth -3.1 hcap / -1.1 totals on Bulldogs/Raiders.
 - **Emotional flags looked stale (Jun 25 file)** — investigated: the scraper is NOT
-  broken. It ran Tue and again today, found genuinely 0 validated flags for R19, and
-  by design doesn't overwrite the old file when empty. prepare_round's round-guard
-  correctly rejected the R17 file either way. T7 = honest zero.
+  broken. It ran Tue and again today, found 0 validated flags for R19, and by design
+  doesn't overwrite the old file when empty. prepare_round's round-guard correctly
+  rejected the R17 file either way.
+- **BUT the scraper's zero was wrong** — user asked for a web double-check on T7, and
+  it found the **Jai Arrow MND tribute game**: the R19 Souths v Knights Sunday game IS
+  the NRL-wide "World's Biggest Birthday Party" / Stand With Jai fundraiser at Accor
+  (Arrow's 31st birthday, world-record attempt, Wiggles halftime). The scraper's
+  14-headline Google News window missed it. Applied manually as personal_tragedy/major
+  (+2.25 Souths) and re-priced: **Souths -3.3 → -5.5** (fair 1.48/3.09, 28.1–22.6).
+  Verified no other missed flags: R18 max margin 22 (no shame_blowout), no coach
+  changes this week, no milestones found. **Fix before R20: widen the emotional
+  scraper's news window / add club-site + NRL.com news sources.**
 - T9 confluence JSON was from the old run — regenerated after re-pricing.
 
 ## Pipeline result (all steps clean)

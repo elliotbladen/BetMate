@@ -108,27 +108,59 @@ _load_env()
 
 log = logging.getLogger(__name__)
 
-def fetch_nrl_news(round_number: int, season: int) -> str:
+def fetch_nrl_news(round_number: int, season: int, teams: set[str] | None = None,
+                   max_age_days: int = 10) -> str:
+    """
+    Headlines older than max_age_days are DROPPED and kept ones are date-prefixed.
+    Google News resurfaces months-old stories (2026-07-09 AFL incident: an April
+    bereavement story nearly re-flagged as a current major personal_tragedy).
+
+    teams: full team names of clubs playing this round. Each gets its own news
+    query — the three generic queries alone missed the R19 Jai Arrow MND tribute
+    game (2026-07-09), which any "Rabbitohs" search surfaced immediately.
+    """
+    from datetime import datetime as _dt, timezone as _tz
+    from email.utils import parsedate_to_datetime
+
     queries = [
-        f'NRL+Round+{round_number}+{season}',
-        f'NRL+{season}+milestone+farewell+emotional',
-        f'NRL+{season}+personal+tragedy+must+win',
+        (f'NRL+Round+{round_number}+{season}', 10),
+        (f'NRL+{season}+milestone+farewell+emotional', 10),
+        (f'NRL+{season}+personal+tragedy+must+win', 10),
     ]
+    for team in sorted(teams or []):
+        nickname = team.split()[-1]
+        queries.append((f'NRL+{nickname}+news', 4))
     headlines: list[str] = []
     seen: set[str] = set()
-    for query in queries:
+    skipped_old = 0
+    for query, per_query_limit in queries:
         url = f'https://news.google.com/rss/search?q={query}&hl=en-AU&gl=AU&ceid=AU:en'
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             with urllib.request.urlopen(req, timeout=10) as resp:
                 root = ET.fromstring(resp.read())
-            for item in root.findall('.//item')[:10]:
+            for item in root.findall('.//item')[:per_query_limit]:
                 title = item.findtext('title', '').split(' - ')[0].strip()
+                pub_dt = None
+                try:
+                    pub_raw = item.findtext('pubDate', '')
+                    pub_dt = parsedate_to_datetime(pub_raw) if pub_raw else None
+                except (TypeError, ValueError):
+                    pass
+                if pub_dt is not None:
+                    if (_dt.now(_tz.utc) - pub_dt).days > max_age_days:
+                        skipped_old += 1
+                        continue
+                    date_label = pub_dt.strftime('%Y-%m-%d')
+                else:
+                    date_label = 'undated'
                 if title and title not in seen:
                     seen.add(title)
-                    headlines.append(f'- {title}')
+                    headlines.append(f'- [{date_label}] {title}')
         except Exception as exc:
             log.warning('News fetch failed for query "%s": %s', query, exc)
+    log.info('Fetched %d NRL news headlines (%d dropped as older than %d days)',
+             len(headlines), skipped_old, max_age_days)
     return '\n'.join(headlines) if headlines else '(no news fetched)'
 
 
@@ -527,7 +559,7 @@ def run(season: int, round_number: int, db_path: str | None, dry_run: bool) -> i
     )
 
     # ── Claude analysis ───────────────────────────────────────────────────
-    news_headlines = fetch_nrl_news(round_number, season)
+    news_headlines = fetch_nrl_news(round_number, season, playing_teams)
     log.info('Fetched %d news headlines', news_headlines.count('\n') + 1 if news_headlines != '(no news fetched)' else 0)
 
     prompt = build_claude_prompt(

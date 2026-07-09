@@ -13,7 +13,7 @@
 | 3 | **Origin G3 backup fatigue** | T10 models *camp absence* only. G3 was played **Wed Jul 8** — R19 starts 2 days later. No tier prices the backup. | **Roosters 6 G3 players** (Tedesco, S. Walker elite) into a Sat -14.1 line; **Dolphins 5** (Sat); Storm 3 (Munster+Grant, Sun); Sharks/Raiders/Cowboys 3 each. Model is likely **over** on heavy-Origin favourites. |
 | 4 | **Tyson Brough T6** | No historical bucket for this ref (first-year sample) | Storm/Titans T6 = 0.0 — neutral by ignorance, not by evidence |
 | 5 | **Final team lists** | Injury data is Jul 7 casualty ward; team lists firm 24h pre-game | **Jarome Luai (elite, doubtful)** is ±~3pts on Tigers/Warriors. Re-check Friday teams. |
-| 6 | Emotional flags (T7) | NOT missing — scraper ran today, produced **genuinely 0 validated flags** (no blowout shame, no rivalry derbies). Stale R17 file correctly rejected by the round guard. | T7 = 0.0 everywhere, honestly. |
+| 6 | Emotional flags (T7) | Scraper ran twice, returned 0 — but a **manual web double-check found one it missed**: the Jai Arrow MND tribute game (his 14-headline window is too narrow). No other candidates: no R18 blowouts (max margin 22), no coach changes this week. | **Jai Arrow flag applied manually** (personal_tragedy, major) → Souths -3.3 became **-5.5**. Scraper's news window needs widening before R20. |
 
 Everything else priced with real, current data (see tier coverage at the bottom).
 
@@ -27,7 +27,7 @@ Everything else priced with real, current data (see tier coverage at the bottom)
 | **Dolphins vs Sharks** (Sat 3pm, Kayo) | Dolphins by 0.3 | 25.6–25.3 | 50.9 | 1.96 | 2.04 | 1.87 | 1.94 |
 | **Bulldogs vs Raiders** (Sat 5:30pm, Accor) | Raiders by 0.2 | 18.1–18.3 | **36.4** | 2.03 | 1.97 | 1.93 | 1.88 |
 | **Roosters vs Eels** (Sat 7:35pm, Allianz) | Roosters by 14.1 | 32.2–18.1 | 50.3 | 1.14 | 8.33 | 1.08 | 7.94 |
-| **Rabbitohs vs Knights** (Sun 2pm, Accor) | Souths by 3.3 | 27.0–23.7 | 50.7 | 1.64 | 2.55 | 1.57 | 2.43 |
+| **Rabbitohs vs Knights** (Sun 2pm, Accor) | Souths by 5.5 | 28.1–22.6 | 50.7 | 1.48 | 3.09 | 1.41 | 2.95 |
 | **Sea Eagles vs Cowboys** (Sun 4:05pm, 4 Pines) | Manly by 9.2 | 27.1–17.9 | 45.0 | 1.29 | 4.51 | 1.22 | 4.30 |
 | **Storm vs Titans** (Sun 6:15pm, AAMI) | Storm by 14.2 | 28.3–14.1 | 42.4 | 1.13 | 8.45 | 1.08 | 8.05 |
 
@@ -54,10 +54,11 @@ Everything else priced with real, current data (see tier coverage at the bottom)
 - T9 agrees: **6-way handicap ROOSTERS COVER** (Eels 50% July fade, 50% Allianz fade) + 4-way H2H
 - ⚠️ **But: 6 Roosters backed up from Wednesday's Origin G3** — unmodeled fatigue on a two-touchdown favourite 3 days later. This is exactly the spot where the model over-rates. Treat -14.1 as the optimistic end.
 
-### Rabbitohs vs Knights — model vs matrices CONFLICT
-- Model Souths by 3.3 *with* Latrell Mitchell (elite) + Cody Walker already priced OUT (6.2 injury pts)
+### Rabbitohs vs Knights — model vs matrices CONFLICT (now wider)
+- Model Souths by 5.5 *with* Latrell Mitchell (elite) + Cody Walker already priced OUT (6.2 injury pts)
+- **T7 Jai Arrow flag (+2.25, applied manually after web verification):** the R19 Sunday game IS the "World's Biggest Birthday Party" — NRL-wide Stand With Jai MND fundraiser at Souths' home ground, Arrow's 31st birthday, world-record crowd event. Textbook team-rallying-around-adversity spot. Caveat: emotional occasion games can also cut the other way (distraction) — the +2.25 is the house-calibrated value, not a certainty
 - T9 points the other way: 3-way H2H BACK KNIGHTS (56.2%/56.0% fixture history) + 3-way handicap KNIGHTS COVER
-- Single-model conflict with no ML tiebreaker available → **no-play zone by house rules**
+- Single-model conflict with no ML tiebreaker available → **still a no-play zone by house rules**, now with an even wider model-vs-matrix gap
 
 ### Sea Eagles vs Cowboys — aligned on Manly
 - Model Manly -9.2 (T2 +4.0 style edge). T9: 3-way H2H + 3-way handicap both MANLY. Cowboys' Dearden doubtful. Cowboys on 15d rest is the counter-angle (long-rest teams have matrix support elsewhere this round)
@@ -79,7 +80,7 @@ Everything else priced with real, current data (see tier coverage at the bottom)
 | T4 Venue | ✅ REAL | DB venue table |
 | T5 Injuries | ✅ REAL | NRL.com casualty ward Jul 7 — 67 records loaded; 12 "errors" were bye-team players (Broncos/Panthers/Dragons), correct behaviour. **Re-check final teams Friday (Luai)** |
 | T6 Referee | ✅ REAL | **NRL.com hadn't published R19 appointments (scraper: 0 found Wed+Thu).** Sourced from web (ESPN full list, Sutton+Gee corroborated on second source), hand-loaded 7/7. Brough = no bucket (unpriceable → neutral) |
-| T7 Emotional | ✅ GENUINE 0 | Fresh scrape today: 0 validated flags. Not stale — stale R17 file was auto-rejected |
+| T7 Emotional | ✅ REAL (1 flag, manual) | Scraper returned 0 twice; web double-check found the **Jai Arrow MND tribute game** (Souths v Knights IS the fundraiser centrepiece). Applied as personal_tragedy/major (+2.25 Souths). Verified: no R18 blowouts (max 22), no coach changes, no other milestones found. **Fix before R20: widen the scraper's news window** |
 | T8 Weather | ✅ REAL | Tomorrow.io fetched today, 7/7 games, all **clear** → 0 adjustments |
 | T9 Matrices | ✅ REAL | Regenerated post-R18, confluence JSON written (`outputs/nrl_t9_confluence_latest.json`), pushed to Supabase |
 | T10 Origin | ✅ REAL + dormant | G3 squads fully populated; camp ended Jul 9, R19 starts Jul 10 → no camp absences. **Backup fatigue not modeled — see warning #3** |
