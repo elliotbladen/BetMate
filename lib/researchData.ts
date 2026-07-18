@@ -584,6 +584,34 @@ LEGACY_BETS.push(
   { id:454, date:'2026-07-05', match:'Port Adelaide Power vs North Melbourne Kangaroos', market:'North Melbourne +15.5', odds:1.90, closingOdds:1.80, clv:0.0, clvLabel:'0.0 pts', result:'loss', cumPL:23.94, sport:'AFL', notes:'Actual bet log. Stake $30. Line. No return. Closed North Melbourne +15.5 — no line movement.' },
 );
 
+// ─── Section 12: Week ending 2026-07-13 (NRL R20 + AFL R18 + Soccer) ─────────
+// NRL closes from AusSportsBetting workbook (fetched 2026-07-17); AFL closes from latest.xlsx.
+LEGACY_BETS.push(
+  // Soccer — Sun 5 Jul (World Cup)
+  { id:455, date:'2026-07-05', match:'Canada vs Morocco',                              market:'Canada Qualify',       odds:3.06, closingOdds:null, result:'loss', cumPL:23.51, sport:'FOOTBALL', notes:'Actual bet log. Stake $21.47. To Qualify for the Next Round. No return.' },
+  // Soccer — Mon 6 Jul
+  { id:456, date:'2026-07-06', match:'Brazil vs Norway',                               market:'Norway Qualify',       odds:3.18, closingOdds:null, result:'win',  cumPL:24.60, sport:'FOOTBALL', notes:'Actual bet log. Stake $25. Return $79.50. To Qualify for the Next Round.' },
+  // Soccer — Tue 7 Jul
+  { id:457, date:'2026-07-07', match:'Portugal vs Spain',                              market:'Draw',                 odds:3.50, closingOdds:null, result:'loss', cumPL:24.18, sport:'FOOTBALL', notes:'Actual bet log. Stake $20.82. Win-Draw-Win. No return.' },
+  // Soccer — Wed 8 Jul
+  { id:458, date:'2026-07-08', match:'Switzerland vs Colombia',                        market:'Colombia Win',         odds:2.25, closingOdds:null, result:'loss', cumPL:23.68, sport:'FOOTBALL', notes:'Actual bet log. Stake $25. Win-Draw-Win. No return.' },
+  { id:459, date:'2026-07-08', match:'Argentina vs Egypt',                             market:'Egypt +2.0',           odds:1.68, closingOdds:null, result:'win',  cumPL:24.00, sport:'FOOTBALL', notes:'Actual bet log. Stake $23.17. Return $38.93. Alternative Handicaps.' },
+  // Soccer — Fri 10 Jul
+  { id:460, date:'2026-07-10', match:'France vs Morocco',                              market:'Morocco +1.0 (1H)',    odds:1.68, closingOdds:null, result:'win',  cumPL:24.53, sport:'FOOTBALL', notes:'Actual bet log. Stake $38.93. Return $65.40. First Half Handicap.' },
+  // NRL R20 — Fri 10 Jul (Wests Tigers vs Warriors)
+  { id:461, date:'2026-07-10', match:'Wests Tigers vs New Zealand Warriors',           market:'Warriors -7.5',        odds:1.83, closingOdds:1.95, clv:1.0,  clvLabel:'+1.0 pts',  result:'win',  cumPL:25.36, sport:'NRL',      notes:'Actual bet log. Stake $50. Return $91.50. Warriors won 32-6. Closed Warriors -8.5 — got the better number.' },
+  // AFL R18 — Fri 10 Jul (Collingwood vs North Melbourne)
+  { id:462, date:'2026-07-10', match:'Collingwood Magpies vs North Melbourne Kangaroos', market:'Under 174.5',        odds:1.89, closingOdds:1.87, clv:0.0,  clvLabel:'0.0 pts',   result:'win',  cumPL:26.25, sport:'AFL',      notes:'Actual bet log. Stake $50. Return $94.50. Landed by half a point — 174 total. Closed total 174.5.' },
+  // NRL R20 — Sat 11 Jul (Canterbury vs Canberra)
+  { id:463, date:'2026-07-11', match:'Canterbury Bulldogs vs Canberra Raiders',        market:'Under 45.5',           odds:2.00, closingOdds:2.10, clv:3.0,  clvLabel:'+3.0 pts',  result:'loss', cumPL:25.25, sport:'NRL',      notes:'Actual bet log. Stake $50. No return. Raiders blew out 40-16 (56 pts). Closed total 42.5 — strong CLV, wrong result.' },
+  // AFL R18 — Sat 11 Jul (Adelaide vs Gold Coast)
+  { id:464, date:'2026-07-11', match:'Adelaide Crows vs Gold Coast Suns',              market:'Adelaide -17.5',       odds:1.90, closingOdds:1.90, clv:2.0,  clvLabel:'+2.0 pts',  result:'win',  cumPL:26.15, sport:'AFL',      notes:'Actual bet log. Stake $50. Return $95.00. Adelaide won by 79. Closed Adelaide -19.5.' },
+  // Soccer — Sun 12 Jul
+  { id:465, date:'2026-07-12', match:'Norway vs England',                              market:'Norway Qualify',       odds:2.54, closingOdds:null, result:'loss', cumPL:25.65, sport:'FOOTBALL', notes:'Actual bet log. Stake $25. To Qualify for the Next Round. No return.' },
+  // AFL R18 — Sun 12 Jul (Melbourne vs Richmond)
+  { id:466, date:'2026-07-12', match:'Melbourne Demons vs Richmond Tigers',            market:'Under 173.5',          odds:1.89, closingOdds:1.87, clv:0.0,  clvLabel:'0.0 pts',   result:'loss', cumPL:24.95, sport:'AFL',      notes:'Actual bet log. Stake $35. No return. 176 total — missed by 2.5. Closed total 173.5 — no line movement.' },
+);
+
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
 // All AFL bets from LEGACY_BETS with date >= 2026-04-15.
 // plUnits = (stake/$50) × (odds-1) for win, -(stake/$50) for loss.
@@ -677,6 +705,10 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:70, date:'2026-07-04', match:'Hawthorn Hawks vs Melbourne Demons',          market:'Hawthorn Win',           predictedLine:null,  takenPrice:1.50, closingPrice:1.42, result:'loss', plUnits:-1.00,  runningTotal:-1.17  },
   { id:71, date:'2026-07-04', match:'Gold Coast Suns vs Collingwood Magpies',      market:'Collingwood Win',        predictedLine:null,  takenPrice:2.31, closingPrice:2.30, result:'win',  plUnits:0.66,   runningTotal:-0.52  },
   { id:72, date:'2026-07-05', match:'Port Adelaide Power vs North Melbourne Kangaroos', market:'North Melbourne +15.5', predictedLine:null, takenPrice:1.90, closingPrice:1.80, clv:0.0, clvLabel:'0.0 pts', result:'loss', plUnits:-0.60, runningTotal:-1.12  },
+  // R18 (Jul 10-12) - closing lines filed 2026-07-17
+  { id:73, date:'2026-07-10', match:'Collingwood Magpies vs North Melbourne Kangaroos', market:'Under 174.5',          predictedLine:null,  takenPrice:1.89, closingPrice:1.87, clv:0.0, clvLabel:'0.0 pts',  result:'win',  plUnits:0.89,   runningTotal:-0.23  },
+  { id:74, date:'2026-07-11', match:'Adelaide Crows vs Gold Coast Suns',               market:'Adelaide -17.5',        predictedLine:null,  takenPrice:1.90, closingPrice:1.90, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.90,   runningTotal:0.67   },
+  { id:75, date:'2026-07-12', match:'Melbourne Demons vs Richmond Tigers',             market:'Under 173.5',           predictedLine:null,  takenPrice:1.89, closingPrice:1.87, clv:0.0, clvLabel:'0.0 pts',  result:'loss', plUnits:-0.70,  runningTotal:-0.03  },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
@@ -754,4 +786,7 @@ export const MODEL_BETS: ModelBet[] = [
   { id:61, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Manly 1 to 12',      predictedLine:null,  takenPrice:2.03, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:4.55  },
   { id:62, date:'2026-07-05', match:'Parramatta Eels vs Manly Sea Eagles',         market:'Under 50.5',         predictedLine:null,  takenPrice:1.82, closingPrice:2.16, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.41,  runningTotal:4.96  },
   { id:63, date:'2026-07-05', match:'Newcastle Knights vs Dolphins',              market:'Dolphins Win',       predictedLine:null,  takenPrice:1.87, closingPrice:1.80, result:'loss', plUnits:-0.50, runningTotal:4.46  },
+  // R20 (Jul 10-11) - closing lines filed 2026-07-17
+  { id:64, date:'2026-07-10', match:'Wests Tigers vs New Zealand Warriors',        market:'Warriors -7.5',      predictedLine:null,  takenPrice:1.83, closingPrice:1.95, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.83,  runningTotal:5.29  },
+  { id:65, date:'2026-07-11', match:'Canterbury Bulldogs vs Canberra Raiders',     market:'Under 45.5',         predictedLine:null,  takenPrice:2.00, closingPrice:2.10, clv:3.0, clvLabel:'+3.0 pts', result:'loss', plUnits:-1.00, runningTotal:4.29  },
 ];
