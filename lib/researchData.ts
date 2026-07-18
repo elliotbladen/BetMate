@@ -612,6 +612,14 @@ LEGACY_BETS.push(
   { id:466, date:'2026-07-12', match:'Melbourne Demons vs Richmond Tigers',            market:'Under 173.5',          odds:1.89, closingOdds:1.87, clv:0.0,  clvLabel:'0.0 pts',   result:'loss', cumPL:24.95, sport:'AFL',      notes:'Actual bet log. Stake $35. No return. 176 total — missed by 2.5. Closed total 173.5 — no line movement.' },
 );
 
+// ─── Section 13: World Cup finals week (w/c 2026-07-13) ──────────────────────
+LEGACY_BETS.push(
+  // Soccer — Wed 15 Jul (Semi-Final)
+  { id:467, date:'2026-07-15', match:'France vs Spain',                                market:'Spain DNB',            odds:2.25, closingOdds:null, result:'win',  cumPL:25.60, sport:'FOOTBALL', notes:'Actual bet log. Stake $26. Return $58.50. Draw No Bet. World Cup SF - CLV exempt.' },
+  // Soccer — Thu 16 Jul (England eliminated at Semi-Final stage)
+  { id:468, date:'2026-07-16', match:'World Cup — England Team Markets',               market:'England out in Semi-Final', odds:1.83, closingOdds:null, result:'win',  cumPL:26.02, sport:'FOOTBALL', notes:'Actual bet log. Stake $25. Return $45.75. Stage of Elimination. World Cup - CLV exempt.' },
+);
+
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
 // All AFL bets from LEGACY_BETS with date >= 2026-04-15.
 // plUnits = (stake/$50) × (odds-1) for win, -(stake/$50) for loss.
