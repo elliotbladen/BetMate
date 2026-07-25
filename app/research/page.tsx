@@ -130,7 +130,7 @@ function AllBetsTab() {
 function ModelTab({ bets }: { bets: ModelBet[] }) {
   const stats = modelStatsFor(bets);
 
-  const clvBets   = bets.filter(b => clvScore(b) !== null);
+  const clvBets   = bets.filter(b => { const s = clvScore(b); return s !== null && s !== 0; });
   const clvBeaten = clvBets.filter(b => (clvScore(b) ?? 0) > 0).length;
   const clvPct    = clvBets.length > 0 ? (clvBeaten / clvBets.length) * 100 : 0;
 
