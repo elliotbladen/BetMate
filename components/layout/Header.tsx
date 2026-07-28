@@ -5,7 +5,8 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase';
 import { isLocalDemoMode } from '@/lib/authMode';
-import { SPORTS, enabledSports, isSportId } from '@/lib/sports';
+import { SPORTS, enabledSports, isSoccer, isSportId, TOP_TABS, topTabForSport, DEFAULT_FOOTBALL_LEAGUE, enabledFootballLeagues } from '@/lib/sports';
+import type { TopTab } from '@/lib/sports';
 
 const NAV = [
   { label: 'Odds',     href: '/odds'     },
@@ -64,19 +65,45 @@ export default function Header() {
           {/* Sport tabs â€” only on odds page */}
           {isOdds && (
             <div className="flex items-center gap-0 border border-[#252525] rounded-md overflow-hidden shrink-0">
-              {enabledSports().map((sport, i) => (
+              {TOP_TABS.map((tab, i) => {
+                const activeTop = topTabForSport(activeSport);
+                const isActive = activeTop === tab;
+                const href = tab === 'Football'
+                  ? `/odds?sport=${activeSport && topTabForSport(activeSport) === 'Football' ? activeSport : DEFAULT_FOOTBALL_LEAGUE}`
+                  : `/odds?sport=${tab}`;
+                return (
+                  <Link
+                    key={tab}
+                    href={href}
+                    className={[
+                      'px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
+                      i > 0 ? 'border-l border-[#252525]' : '',
+                      isActive
+                        ? 'bg-[#00DEB8] text-black'
+                        : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
+                    ].join(' ')}
+                  >
+                    {tab === 'Football' ? 'Football' : tab}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+          {isOdds && isSoccer(activeSport) && (
+            <div className={'flex items-center gap-0 border border-[#252525] rounded-md overflow-hidden shrink-0'}>
+              {enabledFootballLeagues().map((league, i) => (
                 <Link
-                  key={sport}
-                  href={`/odds?sport=${sport}`}
+                  key={league}
+                  href={'/odds?sport=' + league}
                   className={[
                     'px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
                     i > 0 ? 'border-l border-[#252525]' : '',
-                    activeSport === sport
-                      ? 'bg-[#00DEB8] text-black'
+                    activeSport === league
+                      ? 'bg-[#111827] text-white'
                       : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
                   ].join(' ')}
                 >
-                  {SPORTS[sport].tabLabel}
+                  {SPORTS[league].tabLabel}
                 </Link>
               ))}
             </div>

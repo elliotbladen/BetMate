@@ -38,8 +38,8 @@ import { getVenue, getVenueByName } from '@/lib/venues';
 import { getSpecialRoundVenue } from '@/lib/specialRounds';
 import { isLocalDemoMode } from '@/lib/authMode';
 import { isOwnerEmail } from '@/lib/owner';
-import { SPORTS, enabledSports, isSoccer, isSportId } from '@/lib/sports';
-import type { SportId } from '@/lib/sports';
+import { SPORTS, enabledSports, isSoccer, isSportId, TOP_TABS, topTabForSport, DEFAULT_FOOTBALL_LEAGUE, enabledFootballLeagues } from '@/lib/sports';
+import type { SportId, TopTab } from '@/lib/sports';
 
 type Sport = SportId;
 type MarketTab = 'H2H' | 'Line' | 'Totals';
@@ -1722,21 +1722,49 @@ function OddsPageContent() {
               <p className="section-label mb-1">Live odds board</p>
               <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#111827]">Betting Intelligence.</h1>
             </div>
-            {/* All tabs in one scrollable row */}
+            {/* Top-level sport tabs + market tabs */}
             <div className="flex flex-1 items-center gap-1 overflow-x-auto no-scrollbar xl:flex-none">
-              {/* Sport tabs — hidden on mobile (header already has them) */}
-              {SPORT_TABS.map((sport) => (
-                <button
-                  key={sport}
-                  onClick={() => switchSport(sport)}
-                  className={[
-                    'hidden sm:flex h-9 shrink-0 items-center justify-center rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
-                    activeSport === sport ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
-                  ].join(' ')}
-                >
-                  {SPORTS[sport].tabLabel}
-                </button>
-              ))}
+              {/* Sport group tabs — hidden on mobile (header already has them) */}
+              {TOP_TABS.map((tab) => {
+                const activeTop = topTabForSport(activeSport);
+                const isActive = activeTop === tab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => {
+                      if (tab === 'Football') {
+                        switchSport(activeTop === 'Football' ? activeSport : DEFAULT_FOOTBALL_LEAGUE);
+                      } else {
+                        switchSport(tab as Sport);
+                      }
+                    }}
+                    className={[
+                      'hidden sm:flex h-9 shrink-0 items-center justify-center rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
+                      isActive ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
+                    ].join(' ')}
+                  >
+                    {tab}
+                  </button>
+                );
+              })}
+              {/* Football league sub-tabs */}
+              {isSoccer(activeSport) && (
+                <>
+                  <div className="hidden sm:block mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
+                  {enabledFootballLeagues().map((league) => (
+                    <button
+                      key={league}
+                      onClick={() => switchSport(league)}
+                      className={[
+                        'hidden sm:flex h-9 shrink-0 items-center justify-center rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
+                        activeSport === league ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
+                      ].join(' ')}
+                    >
+                      {SPORTS[league].tabLabel}
+                    </button>
+                  ))}
+                </>
+              )}
               <div className="hidden sm:block mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
               {MARKET_TABS.map((item) => (
                 <button

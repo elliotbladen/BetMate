@@ -85,6 +85,20 @@ export function enabledSports(): SportId[] {
   return SPORT_TAB_ORDER.filter((id) => SPORTS[id].enabled);
 }
 
+// Top-level tab grouping: NRL, AFL, Football (EPL/Champ/UCL combined)
+export type TopTab = 'NRL' | 'AFL' | 'Football';
+export const TOP_TABS: TopTab[] = ['NRL', 'AFL', 'Football'];
+export const FOOTBALL_LEAGUES: SportId[] = ['EPL', 'CHAMPIONSHIP', 'UCL'];
+export const DEFAULT_FOOTBALL_LEAGUE: SportId = 'EPL';
+
+export function topTabForSport(sport: SportId): TopTab {
+  return isSoccer(sport) ? 'Football' : sport as TopTab;
+}
+
+export function enabledFootballLeagues(): SportId[] {
+  return FOOTBALL_LEAGUES.filter((id) => SPORTS[id].enabled);
+}
+
 export function isSoccer(sport: SportId): boolean {
   return SPORTS[sport].group === 'soccer';
 }
