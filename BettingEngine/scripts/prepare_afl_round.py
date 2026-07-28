@@ -38,6 +38,7 @@ from pricing.afl_tier4_venue import compute_t4
 from pricing.afl_tier5_injury import compute_t5
 from pricing.afl_tier6_emotional import compute_t6
 from pricing.afl_tier7_weather import compute_t7, effective_afl_wind_kmh
+from pricing.afl_tier8_kicking import compute_t8, load_conversion_rates
 
 import numpy as np
 import pandas as pd
@@ -48,6 +49,7 @@ MODELS_DIR = ROOT / 'ml/afl/results/models'
 FEATURES   = ROOT / 'ml/afl/results/features_afl.csv'
 SNAP_CSV   = ROOT / 'data/footywire_snapshots.csv'
 HIST_CSV   = ROOT / 'data/footywire_team_stats.csv'
+AFL_RESULTS_XLSX = ROOT / 'outputs/afl_weekly_review/historical/latest.xlsx'  # T8 kicking accuracy source
 
 # ── R7 2026 fixture (hardcoded — load from DB once fixture ingestion is built) ─
 FIXTURE = {
@@ -1722,6 +1724,19 @@ def main():
     print(f'Rules T1 calibration ({args.season}, n={cal["n"]}):  '
           f'margin {cal["margin_correction"]:+.1f} pts,  total {cal["total_correction"]:+.1f} pts')
 
+    # T8 — kicking accuracy (set-shot conversion), season-to-date through this round
+    t8_rates = load_conversion_rates(AFL_RESULTS_XLSX, args.season, first_game_date)
+    t8_teams_with_signal = sum(
+        1 for k, v in t8_rates.items()
+        if not k.startswith('_') and v.get('shots', 0) >= t8_rates.get('_min_shots', 30)
+    )
+    print(f'T8 kicking accuracy: league avg {t8_rates.get("_league_avg", 0):.1f}% conversion, '
+          f'{t8_teams_with_signal} teams with enough shots for a signal')
+    if t8_teams_with_signal < 10:
+        health_warnings.append(
+            f'T8 THIN SAMPLE: only {t8_teams_with_signal} teams have {t8_rates.get("_min_shots", 30)}+ '
+            f'season shots — early-season rounds will run T8 mostly neutral, this is expected not a bug')
+
     # Load ML models for shadow section only
     try:
         ml_margin_model, ml_total_model, ml_h2h_model = load_models()
@@ -1856,14 +1871,18 @@ def main():
         t7 = compute_t7(weather=wx_data, kickoff=kickoff_str,
                         wind_venue_factor=wind_venue_factor)
 
+        # T8 — kicking accuracy (set-shot conversion vs league average)
+        t8 = compute_t8(home, away, t8_rates)
+
         final_margin = (t1_margin
                         + t2['t2_handicap'] + t3['t3_handicap']
                         + t4['t4_handicap'] + t5['t5_handicap']
-                        + t6['t6_handicap'])
+                        + t6['t6_handicap'] + t8['t8_handicap'])
         final_total  = (t1_total
                         + t2['t2_totals']   + t3['t3_totals']
                         + t4['t4_totals']   + t5['t5_totals']
-                        + t6['t6_totals']   + t7['t7_totals'])
+                        + t6['t6_totals']   + t7['t7_totals']
+                        + t8['t8_totals'])
 
         # Sanity floor: losing team must score at least 50 pts.
         # Losing team implied score = (total - margin) / 2, so floor = margin + 2*MIN.
@@ -1886,9 +1905,9 @@ def main():
             'ml_total_raw':  round(ml_total_raw, 1)  if ml_total_raw  is not None else None,
             'ml_total_cal':  round(ml_total_cal, 1)  if ml_total_cal  is not None else None,
             'ml_h2h_raw':    round(ml_h2h_prob, 4)   if ml_h2h_prob   is not None else None,
-            # ML adjusted: ML (bias-corrected) + T2 + T5 + T6 + T7
-            'ml_margin': round(ml_margin_raw + t2['t2_handicap'] + t5['t5_handicap'] + t6['t6_handicap'], 1) if ml_margin_raw is not None else None,
-            'ml_total':  round(ml_total_cal  + t2['t2_totals']   + t5['t5_totals']   + t6['t6_totals']   + t7['t7_totals'],  1) if ml_total_cal  is not None else None,
+            # ML adjusted: ML (bias-corrected) + T2 + T5 + T6 + T7 + T8
+            'ml_margin': round(ml_margin_raw + t2['t2_handicap'] + t5['t5_handicap'] + t6['t6_handicap'] + t8['t8_handicap'], 1) if ml_margin_raw is not None else None,
+            'ml_total':  round(ml_total_cal  + t2['t2_totals']   + t5['t5_totals']   + t6['t6_totals']   + t7['t7_totals']   + t8['t8_totals'],  1) if ml_total_cal  is not None else None,
             'ml_h2h':    round(ml_h2h_prob, 4)   if ml_h2h_prob   is not None else None,
             't2_hcp':    t2['t2_handicap'],
             't2_tot':    t2['t2_totals'],
@@ -1908,6 +1927,12 @@ def main():
             't7_tot':    t7['t7_totals'],
             't7_cond':   t7['condition_type'],
             't7_dew':    t7['dew_risk'],
+            't8_hcp':    t8['t8_handicap'],
+            't8_tot':    t8['t8_totals'],
+            't8_home_conv': t8['home_conversion_pct'],
+            't8_away_conv': t8['away_conversion_pct'],
+            't8_league_avg': t8['league_avg_pct'],
+            't8_note':   t8['note'],
             'weather_condition': t7['condition_type'],
             'temp_c':     round((wx_data or {}).get('temp_c'), 1) if (wx_data or {}).get('temp_c') is not None else None,
             'wind_kmh':   round((wx_data or {}).get('wind_kmh', 0.0), 1),
@@ -1934,11 +1959,11 @@ def main():
     # ── Print ──────────────────────────────────────────────────────────────────
     print()
     print('=' * 152)
-    print(f'  AFL R{args.round} {args.season} — Rules Engine (T1–T7)  |  Fair Prices')
-    print(f'  T1: ELO margin + team scoring rates  |  T2–T7: style / situational / venue / injury / emotional / weather')
+    print(f'  AFL R{args.round} {args.season} — Rules Engine (T1–T8)  |  Fair Prices')
+    print(f'  T1: ELO margin + team scoring rates  |  T2–T8: style / situational / venue / injury / emotional / weather / kicking')
     print('=' * 152)
     print()
-    print(f"  {'Matchup':<46} {'ELO':>8}  {'T1 Mrg':>7} {'T2':>6} {'T3':>6} {'T4':>6} {'T5':>6} {'T6':>6} {'T7':>6} {'FinalMrg':>9} {'FinalTot':>9}  {'HomeOdds':>9} {'AwayOdds':>9}")
+    print(f"  {'Matchup':<46} {'ELO':>8}  {'T1 Mrg':>7} {'T2':>6} {'T3':>6} {'T4':>6} {'T5':>6} {'T6':>6} {'T7':>6} {'T8':>6} {'FinalMrg':>9} {'FinalTot':>9}  {'HomeOdds':>9} {'AwayOdds':>9}")
     print('  ' + '─' * 138)
 
     for r in results:
@@ -1948,13 +1973,14 @@ def main():
         elo_diff = r['home_elo'] - r['away_elo']
         t5_flag = ' ⚑' if r['t5_hcp'] != 0.0 else ''
         t6_flag = ' ◆' if r['t6_hcp'] != 0.0 else ''
+        t8_flag = ' ⚽' if r['t8_hcp'] != 0.0 or r['t8_tot'] != 0.0 else ''
         wx_flag = f" [{r['t7_cond']}]" if r['t7_cond'] != 'clear' else ''
         print(f"  {matchup:<46} {elo_diff:>+8.0f}  "
               f"{r['t1_margin']:>+7.1f} {r['t2_hcp']:>+6.1f} {r['t3_hcp']:>+6.1f} "
               f"{r['t4_hcp']:>+6.1f} {r['t5_hcp']:>+6.1f} "
-              f"{r['t6_hcp']:>+6.1f} {r['t7_tot']:>+6.1f} "
+              f"{r['t6_hcp']:>+6.1f} {r['t7_tot']:>+6.1f} {r['t8_hcp']:>+6.1f} "
               f"{r['final_margin']:>+9.1f} {r['final_total']:>9.1f}  "
-              f"{r['home_odds']:>9.2f} {r['away_odds']:>9.2f}{t5_flag}{t6_flag}{wx_flag}")
+              f"{r['home_odds']:>9.2f} {r['away_odds']:>9.2f}{t5_flag}{t6_flag}{t8_flag}{wx_flag}")
 
     SEP = '  ' + '─' * 138
 
@@ -2016,6 +2042,22 @@ def main():
     print()
     print('  ⚑ = injury adjustment active.  ⚡ = compound penalty (2+ key players out).')
     print('  Update INJURIES dict in prepare_afl_round.py before each round.')
+    print('=' * 138)
+
+    # ── T8 kicking accuracy breakdown ─────────────────────────────────────────
+    print()
+    print(SEP)
+    print(f"  {'Matchup':<46} {'Home Conv%':>11} {'Away Conv%':>11} {'Lg Avg':>7}  {'T8 Hcp':>7}  {'T8 Tot':>7}")
+    print(SEP)
+    for r in results:
+        home_s = r['home'].split()[-1]; away_s = r['away'].split()[-1]
+        hc = f"{r['t8_home_conv']:.1f}%" if r['t8_home_conv'] is not None else 'n/a'
+        ac = f"{r['t8_away_conv']:.1f}%" if r['t8_away_conv'] is not None else 'n/a'
+        print(f"  {home_s+' vs '+away_s:<46} {hc:>11} {ac:>11} {r['t8_league_avg']:>6.1f}%  "
+              f"{r['t8_hcp']:>+7.2f}  {r['t8_tot']:>+7.2f}")
+    print()
+    print('  ⚽ = T8 kicking accuracy adjustment active (lightweight, current-season-only stop-gap —')
+    print('      the deeper xScore ELO rebuild is banked for the 2026 off-season, not this tier).')
     print('=' * 138)
 
     # ── Totals table ──────────────────────────────────────────────────────────
@@ -2191,6 +2233,8 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
             t6_hcp              REAL,
             t6_tot              REAL,
             t7_tot              REAL,
+            t8_hcp              REAL,
+            t8_tot              REAL,
             weather_condition   TEXT,
             temp_c              REAL,
             wind_kmh            REAL,
@@ -2216,7 +2260,9 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
         )
     ''')
     existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(afl_shadow_predictions)")}
-    weather_cols = {
+    migration_cols = {
+        't8_hcp': 'REAL',
+        't8_tot': 'REAL',
         'weather_condition': 'TEXT',
         'temp_c': 'REAL',
         'wind_kmh': 'REAL',
@@ -2227,7 +2273,7 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
         'humidity_pct': 'REAL',
         'weather_source': 'TEXT',
     }
-    for col, col_type in weather_cols.items():
+    for col, col_type in migration_cols.items():
         if col not in existing_cols:
             conn.execute(f'ALTER TABLE afl_shadow_predictions ADD COLUMN {col} {col_type}')
 
@@ -2257,11 +2303,12 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
                  ml_margin, ml_total, ml_h2h,
                  t1_margin, t1_total, t2_hcp, t2_tot, t3_hcp, t3_tot,
                  t4_hcp, t4_tot, t5_hcp, t5_tot, t6_hcp, t6_tot, t7_tot,
+                 t8_hcp, t8_tot,
                  weather_condition, temp_c, wind_kmh, wind_gust_kmh,
                  wind_for_t7_kmh, precip_mm, dew_point_c, humidity_pct,
                  weather_source,
                  agreement_flag, created_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
             ON CONFLICT(home_team, away_team, season, round_number) DO UPDATE SET
                 run_date=excluded.run_date,
                 rules_margin=excluded.rules_margin,
@@ -2282,6 +2329,7 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
                 t5_hcp=excluded.t5_hcp, t5_tot=excluded.t5_tot,
                 t6_hcp=excluded.t6_hcp, t6_tot=excluded.t6_tot,
                 t7_tot=excluded.t7_tot,
+                t8_hcp=excluded.t8_hcp, t8_tot=excluded.t8_tot,
                 weather_condition=excluded.weather_condition,
                 temp_c=excluded.temp_c,
                 wind_kmh=excluded.wind_kmh,
@@ -2303,6 +2351,7 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
             r['t2_hcp'], r['t2_tot'], r['t3_hcp'], r['t3_tot'],
             r['t4_hcp'], r['t4_tot'], r['t5_hcp'], r['t5_tot'],
             r['t6_hcp'], r['t6_tot'], r['t7_tot'],
+            r['t8_hcp'], r['t8_tot'],
             r.get('weather_condition'), r.get('temp_c'), r.get('wind_kmh'),
             r.get('wind_gust_kmh'), r.get('wind_for_t7_kmh'), r.get('precip_mm'),
             r.get('dew_point_c'), r.get('humidity_pct'), r.get('weather_source'),

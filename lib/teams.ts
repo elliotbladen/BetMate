@@ -1,3 +1,5 @@
+﻿import { EPL_TEAMS, CHAMPIONSHIP_TEAMS, UCL_TEAMS } from './soccerTeams';
+
 export interface TeamMeta {
   abbr: string;
   primary: string;
@@ -46,5 +48,12 @@ export const AFL_TEAMS: Record<string, TeamMeta> = {
 };
 
 export function getTeamMeta(teamName: string): TeamMeta | null {
-  return NRL_TEAMS[teamName] ?? AFL_TEAMS[teamName] ?? null;
+  return (
+    NRL_TEAMS[teamName] ??
+    AFL_TEAMS[teamName] ??
+    EPL_TEAMS[teamName] ??
+    CHAMPIONSHIP_TEAMS[teamName] ??
+    UCL_TEAMS[teamName] ??
+    null
+  );
 }

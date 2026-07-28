@@ -1,0 +1,31 @@
+{
+  "season": 2026,
+  "round": 19,
+  "source": "data/afl/emotional/processed/latest-emotional.json (scraped 2026-07-16, 2 deterministic rivalry_derby flags) + manual addition after the Claude layer's JSON response was truncated twice in a row (same bug pattern both runs — flag for a fix, see notes). Web-verified 2026-07-16: Essendon lost 8.11(59) to Brisbane's 22.17(149) at the Gabba on Jul 12 (R18) — a 90-point loss and Essendon's 12th consecutive defeat.",
+  "flags": {
+    "Collingwood Magpies": [
+      {
+        "flag_type": "rivalry_derby",
+        "flag_strength": "normal",
+        "player_name": null,
+        "notes": "Collingwood Magpies vs Carlton Blues is a recognised AFL rivalry fixture."
+      }
+    ],
+    "Richmond Tigers": [
+      {
+        "flag_type": "rivalry_derby",
+        "flag_strength": "normal",
+        "player_name": null,
+        "notes": "Richmond Tigers vs Hawthorn Hawks is a recognised AFL rivalry fixture."
+      }
+    ],
+    "Essendon Bombers": [
+      {
+        "flag_type": "shame_blowout",
+        "flag_strength": "major",
+        "player_name": null,
+        "notes": "Lost by 90 points to Brisbane in R18 (8.11/59 to 22.17/149 at the Gabba, Jul 12) — 12th consecutive defeat. Applied manually after the scraper's Claude layer returned a truncated/invalid JSON response twice in a row (both runs cut off mid-string on this exact flag) — the deterministic layer never sees blowout losses on its own, this needed the Claude pass. Genuine, current, and significant heading into the GWS game; house convention treats extreme/repeated blowout streaks as a real (if unpredictable-direction) emotional factor, not just noise."
+      }
+    ]
+  }
+}

@@ -11,21 +11,28 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-07-08 (Work/home machine git divergence reconciled — see handover `2026-07-08_machine-reconcile-architecture.md`. Work machine had the live data + Jul 7 NRL work; home machine's monorepo import carried a stale BettingEngine copy EXCEPT the Jul 5 EPL engine build and Jul 5 AFL ML retrain, which only existed in git history. Both sides merged: working tree kept for everything, HEAD restored for `ml/afl/*` + EPL tree. ⚠️ AFL ML .pkl models are NOT in git — re-run `ml/afl/game_log.py` + `ml/afl/train.py` on this machine before next AFL ML shadow run. ⚠️ Diary `2026-07-05_afl-ema-form-split-models.md` was never committed — it exists only on the home computer; commit + push it from there.)
+**Last updated:** 2026-07-28 (NRL R22 + AFL R21 fully priced this session, resumed after a mid-session crash. See root `CLAUDE.md` Current State for the full writeup — it's now the primary session log; this file lags behind and should be treated as historical context below this line. Key carryover: AFL T5 injury tagging has regressed to generic utility/average with no hand-curation — re-tag Port Adelaide and GWS rosters before trusting T5-driven AFL prices. AFL T6 `losing_streak` flag_type is unsupported by `AFL_T6_CONFIG` — needs a fix.)
+**Prior:** 2026-07-08 (Work/home machine git divergence reconciled — see handover `2026-07-08_machine-reconcile-architecture.md`. Work machine had the live data + Jul 7 NRL work; home machine's monorepo import carried a stale BettingEngine copy EXCEPT the Jul 5 EPL engine build and Jul 5 AFL ML retrain, which only existed in git history. Both sides merged: working tree kept for everything, HEAD restored for `ml/afl/*` + EPL tree. ⚠️ AFL ML .pkl models are NOT in git — re-run `ml/afl/game_log.py` + `ml/afl/train.py` on this machine before next AFL ML shadow run. ⚠️ Diary `2026-07-05_afl-ema-form-split-models.md` was never committed — it exists only on the home computer; commit + push it from there.)
 **Update this section at the end of every session, before writing the handover diary.**
+
+### Season Phase Tagging — LIVE 2026-07-10
+`scripts/season_phases.py` — event-anchored NRL phases (early/origin/late/finals + `origin_window` bool; Origin window = camp_start → game + 7d so backup-fatigue rounds like R19 are captured) from `{BETMATE_ROOT}/data/nrl/origin/{season}.json` + `model.db` round dates. AFL = descriptive round split only. `update_clv_running.py` and `generate_model_accuracy.py` now emit `phase`/`origin_window` columns in the running CSVs (full-regenerate scripts → backfill automatic). Purpose: measure per-phase model bias/CLV through end of 2026 BEFORE fitting any phase weights for the planned 2027 four-phase NRL split. CLI check: `python scripts/season_phases.py --season 2026`.
 
 ### EPL Engine — FULL BUILD COMPLETE 2026-07-05 (built on home machine)
 Full session diary: `handover/sessions/2026-07-05_epl-engine-build.md`
-Architecture doc: `WorldCupEngine/ml/football/ARCHITECTURE.md`
+Architecture doc: `ml/football/ARCHITECTURE.md`
 
 **⚠️ REFACTORED 2026-07-09: `ml/epl/` → `ml/football/`** (league-parameterised for the
 Championship build — one engine, N configs in `ml/football/leagues/*.yaml`; data moved
 to `ml/football/data/epl/`). All entry points take `--league` (default `epl`).
+**⚠️ MOVED 2026-07-10: `WorldCupEngine/ml/football/` → `BettingEngine/ml/football/`** —
+club football is not the World Cup engine; it now sits beside `ml/afl/`. Zero code
+changes needed (package was self-contained); smoke-tested via championship CLV backtest.
 Regression gate passed — RPS 0.1319/0.1399/0.1287 reproduced exactly post-refactor.
 
 **Production pricer working:**
 ```bash
-python3 WorldCupEngine/ml/football/price_match.py \
+python3 ml/football/price_match.py \
   --home "Arsenal" --away "Man City" --ref "A Taylor" \
   --injuries-home "ST" --injuries-away "AM" \
   --mkt-home 2.40 --mkt-draw 3.50 --mkt-away 3.00 --mkt-over25 1.85
@@ -44,10 +51,10 @@ python3 WorldCupEngine/ml/football/price_match.py \
 - Isotonic calibration: over25 only, expanding window, 1,139 rows
 
 **Data refresh for August GW1:**
-1. `python3 WorldCupEngine/ml/football/fetch/fetch_results.py`
-2. `python3 WorldCupEngine/ml/football/fetch/fetch_understat_xg.py`
-3. `python3 WorldCupEngine/ml/football/fetch/fetch_style_stats.py`
-4. `python3 WorldCupEngine/ml/football/backtest/walk_forward.py --league epl`
+1. `python3 ml/football/fetch/fetch_results.py`
+2. `python3 ml/football/fetch/fetch_understat_xg.py`
+3. `python3 ml/football/fetch/fetch_style_stats.py`
+4. `python3 ml/football/backtest/walk_forward.py --league epl`
 
 **CatBoost (T8): tested, rejected** — 1,517 training rows too few (overfits). Revisit when 10+ seasons available (~4,000 rows).
 

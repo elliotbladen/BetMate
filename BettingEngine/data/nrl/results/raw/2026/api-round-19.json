@@ -4,171 +4,131 @@
       "isCurrentRound": false,
       "roundTitle": "Round 19",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "Campbelltown Sports Stadium",
       "venueCity": "Sydney",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-19/wests-tigers-v-warriors/",
       "callToAction": {
-        "accessibleText": "Get Tickets for Wests Tigers v Warriors",
-        "text": "Get Tickets",
-        "url": "https://premier.ticketek.com.au/shows/Show.aspx?sh=CSG0426&utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Highlights for Wests Tigers v Warriors",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/07/10/wests-tigers-v-warriors---round-19-2026/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500023,
         "nickName": "Wests Tigers",
-        "teamPosition": "10th",
+        "score": 6,
         "theme": {
           "key": "wests-tigers",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "awayTeam": {
         "teamId": 500032,
         "nickName": "Warriors",
-        "teamPosition": "2nd",
+        "score": 32,
         "theme": {
           "key": "warriors",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "clock": {
         "kickOffTimeLong": "2026-07-10T10:00:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "NINE",
-          "name": "Nine Network",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-small.svg"
-        },
-        {
-          "id": "9NOW",
-          "name": "Nine Now",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-now.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        },
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Team Stats for Wests Tigers v Warriors",
-        "text": "Team Stats",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/wests-tigers-v-warriors/#tab-team-stats",
-        "type": "TeamStats"
+        "accessibleText": "Latest for Wests Tigers v Warriors",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/wests-tigers-v-warriors/#tab-news-video",
+        "type": "MatchLatest"
       }
     },
     {
       "isCurrentRound": false,
       "roundTitle": "Round 19",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "Kayo Stadium",
       "venueCity": "Redcliffe",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-19/dolphins-v-sharks/",
       "callToAction": {
-        "accessibleText": "Get Tickets for Dolphins v Sharks",
-        "text": "Get Tickets",
-        "url": "https://premier.ticketek.com.au/shows/Show.aspx?sh=PHIN1926&utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Latest for Dolphins v Sharks",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/dolphins-v-sharks/#tab-news-video",
+        "type": "MatchLatest"
       },
       "homeTeam": {
         "teamId": 500723,
         "nickName": "Dolphins",
-        "teamPosition": "3rd",
+        "score": 0,
         "theme": {
           "key": "dolphins",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "awayTeam": {
         "teamId": 500028,
         "nickName": "Sharks",
-        "teamPosition": "4th",
+        "score": 66,
         "theme": {
           "key": "sharks",
           "logos": {
-            "badge-basic24-light.svg": "202606021440",
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-light.svg": "202607060241",
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "clock": {
         "kickOffTimeLong": "2026-07-11T05:00:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        }
-      ],
       "secondaryCallToAction": {
         "accessibleText": "Team Stats for Dolphins v Sharks",
         "text": "Team Stats",
@@ -180,33 +140,33 @@
       "isCurrentRound": false,
       "roundTitle": "Round 19",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "Accor Stadium",
       "venueCity": "Sydney",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-19/bulldogs-v-raiders/",
       "callToAction": {
-        "accessibleText": "Get Tickets for Bulldogs v Raiders",
-        "text": "Get Tickets",
-        "url": "https://www.ticketmaster.com.au/event/250064428527184D?utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Highlights for Bulldogs v Raiders",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/07/11/bulldogs-v-raiders---round-19-2026/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500010,
         "nickName": "Bulldogs",
-        "teamPosition": "12th",
+        "score": 16,
         "theme": {
           "key": "bulldogs",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
+            "badge-basic24-mono.svg": "202607060241",
             "badge-basic24.svg": "202510310458",
             "badge.png": "202510310458",
             "badge.svg": "202510310458",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
             "silhouette.png": "202510310458",
             "silhouette.svg": "202510310458",
-            "text.svg": "202606021440",
+            "text.svg": "202607060241",
             "badge-light.svg": "202510310458",
             "badge-light.png": "202510310458"
           }
@@ -215,382 +175,300 @@
       "awayTeam": {
         "teamId": 500013,
         "nickName": "Raiders",
-        "teamPosition": "13th",
+        "score": 40,
         "theme": {
           "key": "raiders",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "clock": {
         "kickOffTimeLong": "2026-07-11T07:30:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Team Stats for Bulldogs v Raiders",
-        "text": "Team Stats",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/bulldogs-v-raiders/#tab-team-stats",
-        "type": "TeamStats"
+        "accessibleText": "Latest for Bulldogs v Raiders",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/bulldogs-v-raiders/#tab-news-video",
+        "type": "MatchLatest"
       }
     },
     {
       "isCurrentRound": false,
       "roundTitle": "Round 19",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "Allianz Stadium",
       "venueCity": "Sydney",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-19/roosters-v-eels/",
       "callToAction": {
-        "accessibleText": "Get Tickets for Roosters v Eels",
-        "text": "Get Tickets",
-        "url": "https://www.ticketmaster.com.au/event/2500644539777516?utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Highlights for Roosters v Eels",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/07/11/nrl-telstra-premiership-2026-week-19-sydney-roosters-vs.-parramatta-eels-1st-half/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500001,
         "nickName": "Roosters",
-        "teamPosition": "5th",
+        "score": 28,
         "theme": {
           "key": "roosters",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "awayTeam": {
         "teamId": 500031,
         "nickName": "Eels",
-        "teamPosition": "15th",
+        "score": 12,
         "theme": {
           "key": "eels",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "clock": {
         "kickOffTimeLong": "2026-07-11T09:35:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Team Stats for Roosters v Eels",
-        "text": "Team Stats",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/roosters-v-eels/#tab-team-stats",
-        "type": "TeamStats"
+        "accessibleText": "Latest for Roosters v Eels",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/roosters-v-eels/#tab-news-video",
+        "type": "MatchLatest"
       }
     },
     {
       "isCurrentRound": false,
       "roundTitle": "Round 19",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "Accor Stadium",
       "venueCity": "Sydney",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-19/rabbitohs-v-knights/",
       "callToAction": {
-        "accessibleText": "Get Tickets for Rabbitohs v Knights",
-        "text": "Get Tickets",
-        "url": "https://www.ticketmaster.com.au/2026-nrl-telstra-premiership-rabbitohs-v-sydney-olympic-park-12-07-2026/event/25006449CB97452E?utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Highlights for Rabbitohs v Knights",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/07/12/rabbitohs-v-knights---round-19-2026/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500005,
         "nickName": "Rabbitohs",
-        "teamPosition": "7th",
+        "score": 26,
         "theme": {
           "key": "rabbitohs",
           "logos": {
-            "badge-basic24-light.svg": "202606021440",
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-light.svg": "202607060241",
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "awayTeam": {
         "teamId": 500003,
         "nickName": "Knights",
-        "teamPosition": "8th",
+        "score": 24,
         "theme": {
           "key": "knights",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "clock": {
         "kickOffTimeLong": "2026-07-12T04:00:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Team Stats for Rabbitohs v Knights",
-        "text": "Team Stats",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/rabbitohs-v-knights/#tab-team-stats",
-        "type": "TeamStats"
+        "accessibleText": "Latest for Rabbitohs v Knights",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/rabbitohs-v-knights/#tab-news-video",
+        "type": "MatchLatest"
       }
     },
     {
       "isCurrentRound": false,
       "roundTitle": "Round 19",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "4 Pines Park",
       "venueCity": "Sydney",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-19/sea-eagles-v-cowboys/",
       "callToAction": {
-        "accessibleText": "Get Tickets for Sea Eagles v Cowboys",
-        "text": "Get Tickets",
-        "url": "https://www.ticketmaster.com.au/event/1300642DB02956BD?utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Highlights for Sea Eagles v Cowboys",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/07/12/nrl-telstra-premiership-2026-week-19-manly-warringah-sea-eagles-vs.-north-queensland-cowboys/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500002,
         "nickName": "Sea Eagles",
-        "teamPosition": "6th",
+        "score": 18,
         "theme": {
           "key": "sea-eagles",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
             "badge-light.svg": "202510300111",
-            "badge.png": "202606021440",
+            "badge.png": "202607060241",
             "badge.svg": "202510300111",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "awayTeam": {
         "teamId": 500012,
         "nickName": "Cowboys",
-        "teamPosition": "9th",
+        "score": 19,
         "theme": {
           "key": "cowboys",
           "logos": {
-            "badge-basic24-light.svg": "202606021440",
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-light.svg": "202607060241",
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "clock": {
         "kickOffTimeLong": "2026-07-12T06:05:00Z",
-        "gameTime": "0:00"
+        "gameTime": "82:00"
       },
-      "videoProviders": [
-        {
-          "id": "NINE",
-          "name": "Nine Network",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-small.svg"
-        },
-        {
-          "id": "9NOW",
-          "name": "Nine Now",
-          "url": "https://www.9now.com.au/",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/nine-now.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        },
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Team Stats for Sea Eagles v Cowboys",
-        "text": "Team Stats",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/sea-eagles-v-cowboys/#tab-team-stats",
-        "type": "TeamStats"
+        "accessibleText": "Latest for Sea Eagles v Cowboys",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/sea-eagles-v-cowboys/#tab-news-video",
+        "type": "MatchLatest"
       }
     },
     {
       "isCurrentRound": false,
       "roundTitle": "Round 19",
       "type": "Match",
-      "matchMode": "Pre",
-      "matchState": "Upcoming",
+      "matchMode": "Post",
+      "matchState": "FullTime",
       "venue": "AAMI Park",
       "venueCity": "Melbourne",
       "matchCentreUrl": "/draw/nrl-premiership/2026/round-19/storm-v-titans/",
       "callToAction": {
-        "accessibleText": "Get Tickets for Storm v Titans",
-        "text": "Get Tickets",
-        "url": "https://premier.ticketek.com.au/shows/Show.aspx?sh=STORM1926&utm_source=nrl&utm_medium=network&utm_campaign=NRL26",
-        "type": "GetTickets"
+        "accessibleText": "Highlights for Storm v Titans",
+        "text": "Highlights",
+        "url": "https://www.nrl.com/news/2026/07/12/nrl-telstra-premiership-2026-week-19-melbourne-storm-vs.-gold-coast-titans/",
+        "type": "MatchHighlights"
       },
       "homeTeam": {
         "teamId": 500021,
         "nickName": "Storm",
-        "teamPosition": "11th",
+        "score": 22,
         "theme": {
           "key": "storm",
           "logos": {
-            "badge-basic24-light.svg": "202606021440",
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge-light.png": "202606021440",
-            "badge-light.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-light.svg": "202607060241",
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge-light.png": "202607060241",
+            "badge-light.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "awayTeam": {
         "teamId": 500004,
         "nickName": "Titans",
-        "teamPosition": "16th",
+        "score": 18,
         "theme": {
           "key": "titans",
           "logos": {
-            "badge-basic24-mono.svg": "202606021440",
-            "badge-basic24.svg": "202606021440",
-            "badge.png": "202606021440",
-            "badge.svg": "202606021440",
-            "header-background.png": "202606021440",
-            "header-background.svg": "202606021440",
-            "silhouette.png": "202606021440",
-            "silhouette.svg": "202606021440",
-            "text.svg": "202606021440"
+            "badge-basic24-mono.svg": "202607060241",
+            "badge-basic24.svg": "202607060241",
+            "badge.png": "202607060241",
+            "badge.svg": "202607060241",
+            "header-background.png": "202607060241",
+            "header-background.svg": "202607060241",
+            "silhouette.png": "202607060241",
+            "silhouette.svg": "202607060241",
+            "text.svg": "202607060241"
           }
         }
       },
       "clock": {
         "kickOffTimeLong": "2026-07-12T08:15:00Z",
-        "gameTime": "0:00"
+        "gameTime": "80:00"
       },
-      "videoProviders": [
-        {
-          "id": "FOX",
-          "name": "Foxtel",
-          "url": "https://www.foxtel.com.au/foxtel-go.html",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/foxtel.svg"
-        },
-        {
-          "id": "KAYO",
-          "name": "Kayo",
-          "url": "https://kayosports.app.link/xtDzpvGKaHb",
-          "logoSmallUrl": "https://www.nrl.com/globalassets/media-stream-providers/video-providers/kayo.svg"
-        }
-      ],
       "secondaryCallToAction": {
-        "accessibleText": "Team Stats for Storm v Titans",
-        "text": "Team Stats",
-        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/storm-v-titans/#tab-team-stats",
-        "type": "TeamStats"
+        "accessibleText": "Latest for Storm v Titans",
+        "text": "Latest",
+        "url": "https://www.nrl.com/draw/nrl-premiership/2026/round-19/storm-v-titans/#tab-news-video",
+        "type": "MatchLatest"
       }
     }
   ],
@@ -603,18 +481,18 @@
       "theme": {
         "key": "broncos",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202603200353",
-          "badge-light.png": "202603200353",
-          "badge-light.svg": "202603200353",
-          "badge.png": "202603200353",
-          "badge.svg": "202603200353",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202603200353",
-          "silhouette.svg": "202603200353",
-          "text.svg": "202603200353",
-          "badge-basic24-light.svg": "202603200353"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607140542",
+          "badge-light.png": "202607140542",
+          "badge-light.svg": "202607140542",
+          "badge.png": "202607140542",
+          "badge.svg": "202607140542",
+          "header-background.png": "202607140542",
+          "header-background.svg": "202607140542",
+          "silhouette.png": "202607140542",
+          "silhouette.svg": "202607140542",
+          "text.svg": "202607140542",
+          "badge-basic24-light.svg": "202607140542"
         }
       }
     },
@@ -626,16 +504,16 @@
       "theme": {
         "key": "dragons",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
           "badge.png": "202602250432",
           "badge.svg": "202602250432",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241",
           "badge-light.svg": "202602250432",
           "badge-light.png": "202602250432"
         }
@@ -649,17 +527,17 @@
       "theme": {
         "key": "panthers",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     }
@@ -671,10 +549,10 @@
       "theme": {
         "key": "nrl-premiership",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -684,10 +562,10 @@
       "theme": {
         "key": "nrl-womens-premiership",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -697,9 +575,9 @@
       "theme": {
         "key": "state-of-origin",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
           "badge.svg": "202302142204"
         }
       }
@@ -710,10 +588,32 @@
       "theme": {
         "key": "womens-state-of-origin",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
           "badge.svg": "202405030608"
+        }
+      }
+    },
+    {
+      "name": "State of Origin U19s",
+      "value": 183,
+      "theme": {
+        "key": "state-of-origin-u19s",
+        "logos": {
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
+        }
+      }
+    },
+    {
+      "name": "Women's State of Origin U19s",
+      "value": 184,
+      "theme": {
+        "key": "womens-state-of-origin-u19s",
+        "logos": {
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -736,8 +636,8 @@
       "theme": {
         "key": "world-club-challenge",
         "logos": {
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -747,10 +647,10 @@
       "theme": {
         "key": "harvey-norman-all-stars",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -760,32 +660,10 @@
       "theme": {
         "key": "harvey-norman-all-stars",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
-        }
-      }
-    },
-    {
-      "name": "State of Origin U19s",
-      "value": 183,
-      "theme": {
-        "key": "state-of-origin-u19s",
-        "logos": {
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
-        }
-      }
-    },
-    {
-      "name": "Women's State of Origin U19s",
-      "value": 184,
-      "theme": {
-        "key": "womens-state-of-origin-u19s",
-        "logos": {
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -795,10 +673,10 @@
       "theme": {
         "key": "world-cup-2021",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -808,10 +686,10 @@
       "theme": {
         "key": "world-cup-2021",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -821,10 +699,10 @@
       "theme": {
         "key": "world-cup-2021",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -834,12 +712,12 @@
       "theme": {
         "key": "pacific-championships",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -849,12 +727,12 @@
       "theme": {
         "key": "pacific-championships",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -864,10 +742,10 @@
       "theme": {
         "key": "internationals",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -877,10 +755,10 @@
       "theme": {
         "key": "internationals",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -890,10 +768,10 @@
       "theme": {
         "key": "nrl-state-championship",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -903,10 +781,10 @@
       "theme": {
         "key": "nsw-cup",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -916,15 +794,15 @@
       "theme": {
         "key": "qrl-premiership",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -947,10 +825,10 @@
       "theme": {
         "key": "qrl-womens-premiership",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -960,10 +838,10 @@
       "theme": {
         "key": "womens-national-championship",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     },
@@ -973,10 +851,10 @@
       "theme": {
         "key": "blank",
         "logos": {
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440"
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241"
         }
       }
     }
@@ -1576,18 +1454,18 @@
       "theme": {
         "key": "broncos",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202603200353",
-          "badge-light.png": "202603200353",
-          "badge-light.svg": "202603200353",
-          "badge.png": "202603200353",
-          "badge.svg": "202603200353",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202603200353",
-          "silhouette.svg": "202603200353",
-          "text.svg": "202603200353",
-          "badge-basic24-light.svg": "202603200353"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607140542",
+          "badge-light.png": "202607140542",
+          "badge-light.svg": "202607140542",
+          "badge.png": "202607140542",
+          "badge.svg": "202607140542",
+          "header-background.png": "202607140542",
+          "header-background.svg": "202607140542",
+          "silhouette.png": "202607140542",
+          "silhouette.svg": "202607140542",
+          "text.svg": "202607140542",
+          "badge-basic24-light.svg": "202607140542"
         }
       }
     },
@@ -1597,15 +1475,15 @@
       "theme": {
         "key": "bulldogs",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
+          "badge-basic24-mono.svg": "202607060241",
           "badge-basic24.svg": "202510310458",
           "badge.png": "202510310458",
           "badge.svg": "202510310458",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
           "silhouette.png": "202510310458",
           "silhouette.svg": "202510310458",
-          "text.svg": "202606021440",
+          "text.svg": "202607060241",
           "badge-light.svg": "202510310458",
           "badge-light.png": "202510310458"
         }
@@ -1617,18 +1495,18 @@
       "theme": {
         "key": "cowboys",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1638,17 +1516,17 @@
       "theme": {
         "key": "dolphins",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1658,16 +1536,16 @@
       "theme": {
         "key": "dragons",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
           "badge.png": "202602250432",
           "badge.svg": "202602250432",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241",
           "badge-light.svg": "202602250432",
           "badge-light.png": "202602250432"
         }
@@ -1679,15 +1557,15 @@
       "theme": {
         "key": "eels",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1697,17 +1575,17 @@
       "theme": {
         "key": "knights",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1717,17 +1595,17 @@
       "theme": {
         "key": "panthers",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1737,16 +1615,16 @@
       "theme": {
         "key": "rabbitohs",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1756,17 +1634,17 @@
       "theme": {
         "key": "raiders",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1776,15 +1654,15 @@
       "theme": {
         "key": "roosters",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1794,17 +1672,17 @@
       "theme": {
         "key": "sea-eagles",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
           "badge-light.svg": "202510300111",
-          "badge.png": "202606021440",
+          "badge.png": "202607060241",
           "badge.svg": "202510300111",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1814,18 +1692,18 @@
       "theme": {
         "key": "sharks",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1835,18 +1713,18 @@
       "theme": {
         "key": "storm",
         "logos": {
-          "badge-basic24-light.svg": "202606021440",
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-light.svg": "202607060241",
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1856,15 +1734,15 @@
       "theme": {
         "key": "titans",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1874,17 +1752,17 @@
       "theme": {
         "key": "warriors",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.png": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.png": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     },
@@ -1894,16 +1772,16 @@
       "theme": {
         "key": "wests-tigers",
         "logos": {
-          "badge-basic24-mono.svg": "202606021440",
-          "badge-basic24.svg": "202606021440",
-          "badge-light.svg": "202606021440",
-          "badge.png": "202606021440",
-          "badge.svg": "202606021440",
-          "header-background.png": "202606021440",
-          "header-background.svg": "202606021440",
-          "silhouette.png": "202606021440",
-          "silhouette.svg": "202606021440",
-          "text.svg": "202606021440"
+          "badge-basic24-mono.svg": "202607060241",
+          "badge-basic24.svg": "202607060241",
+          "badge-light.svg": "202607060241",
+          "badge.png": "202607060241",
+          "badge.svg": "202607060241",
+          "header-background.png": "202607060241",
+          "header-background.svg": "202607060241",
+          "silhouette.png": "202607060241",
+          "silhouette.svg": "202607060241",
+          "text.svg": "202607060241"
         }
       }
     }

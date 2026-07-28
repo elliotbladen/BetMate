@@ -22,7 +22,11 @@ import os
 from collections import defaultdict
 from pathlib import Path
 
+from season_phases import phase_for_round
+
 ROOT = Path(__file__).resolve().parent.parent
+
+SEASON = 2026
 
 CLV_FILE        = ROOT / "data/clv/running/actual_bets_clv_2026.csv"
 BETS_FILE       = ROOT / "data/bets/actual_bets_2026.csv"
@@ -132,9 +136,13 @@ def build_running(rows: list[dict], lookup: dict, sport_filter: str,
 
         running_avg_clv = running_clv_sum / running_clv_n
 
+        phase, origin_window = phase_for_round(sport_filter, SEASON, rnd)
+
         output.append({
             "week_ending":       week,
             "round":             rnd,
+            "phase":             phase,
+            "origin_window":     origin_window,
             "bets":              n,
             "positive_clv":      positive_n,
             "negative_clv":      n - positive_n,

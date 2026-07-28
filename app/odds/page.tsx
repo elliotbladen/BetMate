@@ -38,8 +38,10 @@ import { getVenue, getVenueByName } from '@/lib/venues';
 import { getSpecialRoundVenue } from '@/lib/specialRounds';
 import { isLocalDemoMode } from '@/lib/authMode';
 import { isOwnerEmail } from '@/lib/owner';
+import { SPORTS, enabledSports, isSoccer, isSportId } from '@/lib/sports';
+import type { SportId } from '@/lib/sports';
 
-type Sport = 'NRL' | 'AFL';
+type Sport = SportId;
 type MarketTab = 'H2H' | 'Line' | 'Totals';
 interface TeamNewsItem {
   type: 'injury' | 'suspension';
@@ -76,11 +78,12 @@ interface WeatherData {
   flags: string[];
 }
 
-const SPORT_TABS: Sport[] = ['NRL', 'AFL'];
+const SPORT_TABS: Sport[] = enabledSports();
 const MARKET_TABS: MarketTab[] = ['H2H', 'Line', 'Totals'];
 const DETAIL_TABS: DetailTab[] = ['Intelligence', 'Team News', 'Weather / Ref', 'History'];
 
 function makeTransform(sport: Sport) {
+  const footySport = sport === 'NRL' || sport === 'AFL' ? sport : null;
   return function transformEvents(events: OddsApiEvent[]): Game[] {
     return events.map((event) => {
       const odds = extractH2HOdds(event);
@@ -113,8 +116,8 @@ function makeTransform(sport: Sport) {
         odds,
         spreadsOdds,
         totalsOdds,
-        referee: getRefForGame(event.home_team, sport)?.name,
-        refereeBucket: getRefForGame(event.home_team, sport)?.bucket,
+        referee: footySport ? getRefForGame(event.home_team, footySport)?.name : undefined,
+        refereeBucket: footySport ? getRefForGame(event.home_team, footySport)?.bucket : undefined,
         lastUpdated: new Date().toISOString(),
       };
     });
@@ -400,7 +403,7 @@ function TeamBadge({ name, label }: { name: string; label?: string }) {
 
 function BookLogo({ bmKey, homeTeam, awayTeam, sport }: { bmKey: string; homeTeam: string; awayTeam: string; sport: string }) {
   const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
-  const href = buildGameUrl(bmKey, sport as 'NRL' | 'AFL', homeTeam, awayTeam);
+  const href = buildGameUrl(bmKey, sport as Sport, homeTeam, awayTeam);
   const inner = (
     <div className="flex flex-col items-center justify-center gap-1">
       <span className="flex h-8 w-8 items-center justify-center rounded-md bg-white shadow-sm ring-1 ring-black/5">
@@ -501,7 +504,7 @@ function MobilePriceTile({
 }) {
   const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
   const adj = netPrice(price, bmKey);
-  const href = buildGameUrl(bmKey, sport as 'NRL' | 'AFL', homeTeam, awayTeam);
+  const href = buildGameUrl(bmKey, sport as Sport, homeTeam, awayTeam);
   const Tag = href ? 'a' : 'div';
   const tagProps = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : {};
   return (
@@ -1462,6 +1465,8 @@ function OddsPageContent() {
   const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
   const [nrlPredictions, setNrlPredictions] = useState<PredictionsMap>({});
   const [aflPredictions, setAflPredictions] = useState<PredictionsMap>({});
+  // Soccer tabs (EPL / CHAMPIONSHIP / UCL) share one games map keyed by sport id.
+  const [soccerGames, setSoccerGames] = useState<Partial<Record<Sport, Game[]>>>({});
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
@@ -1479,7 +1484,7 @@ function OddsPageContent() {
 
   useEffect(() => {
     const sport = searchParams.get('sport')?.toUpperCase();
-    setActiveSport(sport === 'AFL' ? 'AFL' : 'NRL');
+    setActiveSport(isSportId(sport) ? sport : 'NRL');
   }, [searchParams]);
 
   useEffect(() => {
@@ -1594,6 +1599,35 @@ function OddsPageContent() {
     return () => clearInterval(interval);
   }, [activeSport]);
 
+  // Soccer tabs: plain odds board for now. No opening-price movements, team news,
+  // predictions or weather — those are feature-flagged off in lib/sports.ts and
+  // get wired one by one at hook-up (predictions come from BettingEngine ml/football).
+  useEffect(() => {
+    if (!isSoccer(activeSport)) return;
+    const sport = activeSport;
+
+    function fetchSoccer(isInitial = false) {
+      if (isInitial) setLoading(true);
+      setError(null);
+      fetch(SPORTS[sport].oddsEndpoint)
+        .then((response) => {
+          if (!response.ok) throw new Error(`Failed to load odds (${response.status})`);
+          return response.json();
+        })
+        .then((events: OddsApiEvent[]) => {
+          const now = new Date();
+          const upcoming = makeTransform(sport)(events).filter((g) => new Date(g.commenceTime) > now);
+          setSoccerGames((prev) => ({ ...prev, [sport]: upcoming }));
+        })
+        .catch((e) => setError(e.message))
+        .finally(() => { if (isInitial) setLoading(false); });
+    }
+
+    fetchSoccer(true);
+    const interval = setInterval(() => fetchSoccer(false), 60_000);
+    return () => clearInterval(interval);
+  }, [activeSport]);
+
   useEffect(() => {
     fetch('/api/team-news/nrl')
       .then((r) => r.ok ? r.json() : null)
@@ -1657,7 +1691,7 @@ function OddsPageContent() {
     setLoading(true);
     setExpandedGameId(null);
     setSelectedGameId(null);
-    setMovements(activeSport === 'NRL' ? movementsRef.current : aflMovRef.current);
+    setMovements(activeSport === 'NRL' ? movementsRef.current : activeSport === 'AFL' ? aflMovRef.current : {});
   }, [activeSport]);
 
   function switchSport(sport: Sport) {
@@ -1669,7 +1703,9 @@ function OddsPageContent() {
     setBazOpen(true);
   }
 
-  const rawGames = activeSport === 'NRL' ? nrlGames : aflGames;
+  const rawGames = activeSport === 'NRL' ? nrlGames
+    : activeSport === 'AFL' ? aflGames
+    : (soccerGames[activeSport] ?? []);
   const games = rawGames;
   const selectedGame = useMemo(() => games.find((game) => game.id === selectedGameId), [games, selectedGameId]);
   const chatGames = selectedGame ? [selectedGame, ...games.filter((game) => game.id !== selectedGame.id)] : games;
@@ -1696,7 +1732,7 @@ function OddsPageContent() {
                     activeSport === sport ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
                   ].join(' ')}
                 >
-                  {sport}
+                  {SPORTS[sport].tabLabel}
                 </button>
               ))}
               <div className="hidden sm:block mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
@@ -1729,11 +1765,11 @@ function OddsPageContent() {
             expandedGameId={expandedGameId}
             onToggleDetails={(gameId) => setExpandedGameId((current) => current === gameId ? null : gameId)}
             onAskBaz={askBaz}
-            teamNewsData={activeSport === 'NRL' ? nrlTeamNews : aflTeamNews}
-            predictionsMap={activeSport === 'NRL' ? nrlPredictions : aflPredictions}
+            teamNewsData={activeSport === 'NRL' ? nrlTeamNews : activeSport === 'AFL' ? aflTeamNews : {}}
+            predictionsMap={activeSport === 'NRL' ? nrlPredictions : activeSport === 'AFL' ? aflPredictions : {}}
           />
           <CompletedSection
-            games={activeSport === 'NRL' ? nrlCompleted : aflCompleted}
+            games={activeSport === 'NRL' ? nrlCompleted : activeSport === 'AFL' ? aflCompleted : []}
             market={market}
           />
         </div>

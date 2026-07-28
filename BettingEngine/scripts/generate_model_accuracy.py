@@ -31,7 +31,11 @@ import math
 from collections import defaultdict
 from pathlib import Path
 
+from season_phases import phase_for_round
+
 ROOT    = Path(__file__).resolve().parent.parent
+
+SEASON = 2026
 CLV_DIR = ROOT / "data" / "clv"
 OUT_DIR = ROOT / "data" / "model_accuracy"
 
@@ -261,10 +265,14 @@ def build_running(all_rounds: list[tuple]) -> list[dict]:
 
         fmt = lambda v: "" if math.isnan(v) else f"{v:+.2f}"
 
+        phase, origin_window = phase_for_round(sport, SEASON, round_num)
+
         summary.append({
             "sport":                sport,
             "round":                round_num,
             "week_ending":          week_ending,
+            "phase":                phase,
+            "origin_window":        origin_window,
             "games":                games,
             # vs market close
             "rules_h2h_bias_pct":   fmt(rh_bias),

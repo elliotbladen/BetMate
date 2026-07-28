@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import type { OddsApiEvent } from '@/lib/oddsApi';
 
-type SnapshotSport = 'NRL' | 'AFL';
+type SnapshotSport = 'NRL' | 'AFL' | 'EPL' | 'CHAMPIONSHIP' | 'UCL';
 
 interface SnapshotRow {
   snapshot_date: string;
@@ -22,11 +22,17 @@ interface SnapshotRow {
 const SPORT_KEY: Record<SnapshotSport, string> = {
   NRL: 'rugbyleague_nrl',
   AFL: 'aussierules_afl',
+  EPL: 'soccer_epl',
+  CHAMPIONSHIP: 'soccer_efl_champ',
+  UCL: 'soccer_uefa_champs_league',
 };
 
 const SPORT_TITLE: Record<SnapshotSport, string> = {
   NRL: 'NRL',
   AFL: 'AFL',
+  EPL: 'EPL',
+  CHAMPIONSHIP: 'Championship',
+  UCL: 'Champions League',
 };
 
 function snapshotRoots(): string[] {

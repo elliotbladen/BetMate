@@ -1,0 +1,26 @@
+[2026-07-14 16:05] Footywire T2 snapshot starting (season 2026)
+Scraping Footywire season-to-date stats for 2026...
+Auto round label: entering R19 (max games played = 17, previous snapshot = R18)
+Saved 18 teams for 2026 R19 -> C:\Users\ElliotBladen\Apps\BettingEngine\data\footywire_snapshots.csv  (72 total rows)
+
+Sample (sorted by CP/game):
+  Sydney Swans                             CP: 138.9  I50: 60.5  MG:6627.7  DE%: 72.9  ITC: 73.8  HO: 39.8
+  Adelaide Crows                           CP: 138.4  I50: 52.3  MG:6177.6  DE%: 73.8  ITC: 70.8  HO: 41.6
+  Greater Western Sydney Giants            CP: 137.1  I50: 54.1  MG:6283.8  DE%: 73.1  ITC: 68.4  HO: 34.1
+  Geelong Cats                             CP: 135.7  I50: 58.1  MG:6453.2  DE%: 72.1  ITC: 70.2  HO: 36.1
+  Melbourne Demons                         CP: 134.2  I50: 57.9  MG:6247.0  DE%: 72.2  ITC: 67.3  HO: 41.0
+  Carlton Blues                            CP: 133.3  I50: 51.3  MG:5877.6  DE%: 72.7  ITC: 67.4  HO: 28.9
+[2026-07-14 16:05] Done (exit 0)
+[2026-07-21 16:05] Footywire T2 snapshot starting (season 2026)
+Scraping Footywire season-to-date stats for 2026...
+Auto round label: entering R20 (max games played = 18, previous snapshot = R19)
+Saved 18 teams for 2026 R20 -> C:\Users\ElliotBladen\Apps\BettingEngine\data\footywire_snapshots.csv  (90 total rows)
+
+Sample (sorted by CP/game):
+  Adelaide Crows                           CP: 139.9  I50: 52.5  MG:6204.1  DE%: 73.5  ITC: 71.3  HO: 41.2
+  Sydney Swans                             CP: 139.4  I50: 60.4  MG:6614.9  DE%: 72.5  ITC: 74.2  HO: 40.6
+  Greater Western Sydney Giants            CP: 136.1  I50: 53.6  MG:6217.1  DE%: 73.1  ITC: 68.5  HO: 34.2
+  Geelong Cats                             CP: 135.7  I50: 58.3  MG:6439.6  DE%: 72.1  ITC: 70.4  HO: 36.4
+  Melbourne Demons                         CP: 133.1  I50: 57.4  MG:6234.9  DE%: 72.5  ITC: 66.9  HO: 40.4
+  Carlton Blues                            CP: 132.3  I50: 51.4  MG:5879.0  DE%: 72.6  ITC: 67.0  HO: 28.3
+[2026-07-21 16:05] Done (exit 0)

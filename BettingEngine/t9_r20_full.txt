@@ -1,0 +1,144 @@
+﻿
+Loading R20 fixture  (8 games) ...
+Loading matrices ...
+
+════════════════════════════════════════════════════════════════════════════════════════
+  T9 MATRIX CONFLUENCE — NRL  (threshold: 20%+ edge, 3+ signals same direction)
+════════════════════════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────────────────────────────
+  Cronulla-Sutherland Sharks  vs  Newcastle Knights
+  2026-07-17T18:00  |  Ocean Protect Stadium
+  Context:
+    HOME rest=6d  form=win
+    AWAY rest=5d  form=loss
+
+  ⚡ HANDICAP    7-way confluence  →  HOME COVERS
+       44.8%  Sharks      Thursday / Friday Games
+       42.8%  Sharks      vs Newcastle Knights
+       42.8%  Knights     vs Cronulla Sharks
+       33.4%  Knights     Thursday / Friday Games
+       33.4%  Knights     Ocean Protect Stadium
+       25.6%  Sharks      Ocean Protect Stadium
+       20.8%  Sharks      Cover Rate — Home
+
+  ⚡ H2H         5-way confluence  →  BACK HOME
+      100.0%  Knights     Ocean Protect Stadium
+       56.8%  Knights     vs Cronulla Sharks
+       40.4%  Knights     Thursday / Friday Games
+       37.4%  Knights     Short Rest (≤ 6 days)
+       34.1%  Knights     Night Games (kick-off ≥ 18:00)
+
+  ⚡ TOTALS      3-way confluence  →  UNDERS
+       18.7%  Knights     Ocean Protect Stadium
+       12.9%  Sharks      vs Newcastle Knights
+       12.9%  Knights     vs Cronulla Sharks
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+  Canberra Raiders  vs  South Sydney Rabbitohs
+  2026-07-18T15:00  |  GIO Stadium
+  Context:
+    HOME rest=7d  form=win
+    AWAY rest=6d  form=win
+
+  ⚡ H2H         3-way confluence  →  BACK HOME
+      100.0%  Rabbitohs   vs Canberra Raiders
+       88.0%  Raiders     vs South Sydney Rabbitohs
+       21.4%  Rabbitohs   Win % — Away
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+  New Zealand Warriors  vs  St. George Illawarra Dragons
+  2026-07-18T17:35  |  Go Media Stadium
+  Context:
+    HOME rest=8d  form=win
+    AWAY rest=14d  form=win
+
+  ⚡ TOTALS      4-way confluence  →  UNDERS
+       13.2%  Warriors    vs St George Dragons
+       13.2%  Dragons     vs New Zealand Warriors
+       10.2%  Warriors    Go Media Stadium
+       10.0%  Warriors    July
+
+  ⚡ HANDICAP    4-way confluence  →  AWAY COVERS
+       71.4%  Warriors    vs St George Dragons
+       71.4%  Dragons     vs New Zealand Warriors
+       25.0%  Dragons     Long Rest (≥ 10 days)
+       20.0%  Warriors    Go Media Stadium
+
+  ⚡ H2H         3-way confluence  →  BACK HOME
+       44.5%  Dragons     Win % — Away
+       27.4%  Dragons     July
+       20.9%  Dragons     After a Win
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+  Canterbury-Bankstown Bulldogs  vs  Wests Tigers
+  2026-07-18T19:35  |  Accor Stadium
+  Context:
+    HOME rest=7d  form=loss
+    AWAY rest=8d  form=loss
+
+  ⚡ H2H         6-way confluence  →  BACK HOME
+      100.0%  Tigers      Accor Stadium
+       42.2%  Tigers      Win % — Away
+       38.1%  Tigers      Night Games (kick-off ≥ 18:00)
+       36.4%  Tigers      After a Loss
+       35.8%  Tigers      July
+       25.4%  Bulldogs    Saturday Games
+
+  ⚡ HANDICAP    3-way confluence  →  HOME COVERS
+       50.0%  Tigers      Accor Stadium
+       33.4%  Tigers      Cover Rate — Away
+       20.0%  Tigers      Night Games (kick-off ≥ 18:00)
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+  Gold Coast Titans  vs  Manly-Warringah Sea Eagles
+  2026-07-19T14:00  |  Cbus Super Stadium
+  Context:
+    HOME rest=7d  form=loss
+    AWAY rest=7d  form=loss
+
+  ⚡ H2H         4-way confluence  →  BACK AWAY
+       26.3%  Titans      Sunday Games
+       24.6%  Eagles      July
+       21.0%  Titans      Day Games (kick-off < 18:00)
+       21.0%  Titans      July
+
+  ⚡ H2H         4-way confluence  →  BACK HOME
+       55.8%  Eagles      Cbus Super Stadium
+       50.6%  Titans      vs Manly Sea Eagles
+       33.6%  Eagles      Win % — Away
+       29.9%  Eagles      vs Gold Coast Titans
+
+  ⚡ HANDICAP    4-way confluence  →  HOME COVERS
+      100.0%  Eagles      Cbus Super Stadium
+       33.4%  Titans      vs Manly Sea Eagles
+       33.4%  Eagles      vs Gold Coast Titans
+       20.0%  Eagles      Cover Rate — Away
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+  Dolphins  vs  North Queensland Cowboys
+  2026-07-19T16:05  |  Suncorp Stadium
+  Context:
+    HOME rest=8d  form=loss
+    AWAY rest=7d  form=win
+
+  ⚡ H2H         3-way confluence  →  BACK AWAY
+       28.5%  Dolphins    July
+       25.8%  Dolphins    Day Games (kick-off < 18:00)
+       23.7%  Cowboys     Sunday Games
+
+  ⚡ HANDICAP    3-way confluence  →  HOME COVERS
+       33.4%  Dolphins    July
+       33.4%  Dolphins    vs North QLD Cowboys
+       33.4%  Cowboys     vs Dolphins
+
+════════════════════════════════════════════════════════════════════════════════════════
+  6 game(s) with 3+ confluence signals found.
+════════════════════════════════════════════════════════════════════════════════════════
+
+  Confluence JSON written -> C:\Users\ElliotBladen\Apps\BettingEngine\outputs\nrl_t9_confluence_latest.json

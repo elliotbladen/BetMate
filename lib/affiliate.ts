@@ -50,8 +50,25 @@ const AFL_URLS: Record<string, string> = {
   playup:        'https://www.playup.com.au/sports/afl',
 };
 
+// Soccer landing pages (competition-level deep links are a hook-up task —
+// verify each bookmaker's EPL/Championship/UCL paths once the tabs are live).
+const SOCCER_URLS: Record<string, string> = {
+  sportsbet:     'https://www.sportsbet.com.au/betting/soccer',
+  tab:           'https://www.tab.com.au/sports/betting/Soccer',
+  tabtouch:      'https://www.tabtouch.com.au/sports/soccer',
+  neds:          'https://www.neds.com.au/sports/soccer',
+  betfair_ex_au: 'https://www.betfair.com.au/exchange/plus/football',
+  ladbrokes_au:  'https://www.ladbrokes.com.au/sport/soccer',
+  unibet:        'https://www.unibet.com.au/sports/football',
+  pointsbetau:   'https://pointsbet.com.au/sports/soccer',
+  betr_au:       'https://betr.com.au/sport/soccer',
+  betright:      'https://betright.com.au/sports/soccer',
+  playup:        'https://www.playup.com.au/sports/soccer',
+};
+
 export function getAffiliateUrl(bookmaker: string, sport: string): string | null {
-  const map = sport.toUpperCase() === 'AFL' ? AFL_URLS : NRL_URLS;
+  const upper = sport.toUpperCase();
+  const map = upper === 'AFL' ? AFL_URLS : upper === 'NRL' ? NRL_URLS : SOCCER_URLS;
   return map[bookmaker] ?? null;
 }
 
@@ -68,12 +85,24 @@ function shortName(name: string): string {
 // TAB uses full-name slug URLs (no event ID needed).
 // Sportsbet/Neds use event IDs we don't have — search is the next best option.
 // All others fall back to the competition-level URL.
+// Soccer sports (EPL/CHAMPIONSHIP/UCL) get a bookmaker search URL where the
+// bookie supports it, otherwise the bookmaker homepage — per-competition soccer
+// deep links are a hook-up task.
 export function buildGameUrl(
   bookmaker: string,
-  sport: 'NRL' | 'AFL',
+  sport: 'NRL' | 'AFL' | 'EPL' | 'CHAMPIONSHIP' | 'UCL',
   homeTeam: string,
   awayTeam: string,
 ): string {
+  if (sport !== 'NRL' && sport !== 'AFL') {
+    if (bookmaker === 'neds' || bookmaker === 'ladbrokes_au') {
+      const q = encodeURIComponent(`${shortName(homeTeam)} ${shortName(awayTeam)}`);
+      const host = bookmaker === 'neds' ? 'www.neds.com.au' : 'www.ladbrokes.com.au';
+      return `https://${host}/search?q=${q}`;
+    }
+    return SOCCER_URLS[bookmaker] ?? '';
+  }
+
   const isAFL = sport === 'AFL';
 
   if (bookmaker === 'tab') {

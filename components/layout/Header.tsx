@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase';
 import { isLocalDemoMode } from '@/lib/authMode';
+import { SPORTS, enabledSports, isSportId } from '@/lib/sports';
 
 const NAV = [
   { label: 'Odds',     href: '/odds'     },
@@ -16,7 +17,8 @@ export default function Header() {
   const pathname     = usePathname();
   const searchParams = useSearchParams();
   const isOdds       = pathname === '/odds' || pathname.startsWith('/odds/');
-  const activeSport  = searchParams.get('sport')?.toUpperCase() === 'AFL' ? 'AFL' : 'NRL';
+  const sportParam   = searchParams.get('sport')?.toUpperCase();
+  const activeSport  = isSportId(sportParam) ? sportParam : 'NRL';
   const demoMode     = isLocalDemoMode();
   const [email, setEmail] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -62,19 +64,19 @@ export default function Header() {
           {/* Sport tabs â€” only on odds page */}
           {isOdds && (
             <div className="flex items-center gap-0 border border-[#252525] rounded-md overflow-hidden shrink-0">
-              {(['NRL', 'AFL'] as const).map((sport, i) => (
+              {enabledSports().map((sport, i) => (
                 <Link
                   key={sport}
                   href={`/odds?sport=${sport}`}
                   className={[
-                    'px-4 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors',
+                    'px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
                     i > 0 ? 'border-l border-[#252525]' : '',
                     activeSport === sport
                       ? 'bg-[#00DEB8] text-black'
                       : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
                   ].join(' ')}
                 >
-                  {sport}
+                  {SPORTS[sport].tabLabel}
                 </Link>
               ))}
             </div>

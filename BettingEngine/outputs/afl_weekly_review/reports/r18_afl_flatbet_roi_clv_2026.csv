@@ -1,0 +1,28 @@
+game,market,selection,odds,result,profit,clv
+Fremantle Dockers vs Sydney Swans,H2H,Fremantle Dockers,1.41,win,0.4099999999999999,-0.013986013986013957
+Fremantle Dockers vs Sydney Swans,Handicap,HOME,1.9,win,0.8999999999999999,0.0
+Fremantle Dockers vs Sydney Swans,Total,over,1.87,win,0.8700000000000001,0.0
+Collingwood Magpies vs North Melbourne Kangaroos,H2H,Collingwood Magpies,1.45,win,0.44999999999999996,0.043165467625899234
+Collingwood Magpies vs North Melbourne Kangaroos,Handicap,HOME,1.9,loss,-1.0,0.0
+Collingwood Magpies vs North Melbourne Kangaroos,Total,under,1.87,win,0.8700000000000001,0.0
+Adelaide Crows vs Gold Coast Suns,H2H,Adelaide Crows,1.42,win,0.41999999999999993,0.10077519379844957
+Adelaide Crows vs Gold Coast Suns,Handicap,HOME,1.9,win,0.8999999999999999,2.0
+Adelaide Crows vs Gold Coast Suns,Total,under,1.87,loss,-1.0,0.0
+Carlton Blues vs Hawthorn Hawks,H2H,Hawthorn Hawks,1.43,win,0.42999999999999994,-0.11728395061728403
+Carlton Blues vs Hawthorn Hawks,Handicap,AWAY,1.9,win,0.8999999999999999,-7.0
+Carlton Blues vs Hawthorn Hawks,Total,under,1.87,win,0.8700000000000001,0.0
+Greater Western Sydney Giants vs Geelong Cats,H2H,Geelong Cats,1.58,loss,-1.0,-0.07058823529411762
+Greater Western Sydney Giants vs Geelong Cats,Handicap,AWAY,1.9,loss,-1.0,-3.0
+Greater Western Sydney Giants vs Geelong Cats,Total,over,1.87,loss,-1.0,0.0
+St Kilda Saints vs Port Adelaide Power,H2H,St Kilda Saints,1.65,win,0.6499999999999999,0.06451612903225801
+St Kilda Saints vs Port Adelaide Power,Handicap,AWAY,1.9,loss,-1.0,1.0
+St Kilda Saints vs Port Adelaide Power,Total,under,1.87,win,0.8700000000000001,0.0
+Brisbane Lions vs Essendon Bombers,H2H,Brisbane Lions,1.01,win,0.010000000000000009,-0.009803921568627416
+Brisbane Lions vs Essendon Bombers,Handicap,AWAY,1.9,loss,-1.0,-5.0
+Brisbane Lions vs Essendon Bombers,Total,under,1.87,loss,-1.0,0.0
+Melbourne Demons vs Richmond Tigers,H2H,Melbourne Demons,1.1,win,0.10000000000000009,0.0
+Melbourne Demons vs Richmond Tigers,Handicap,AWAY,1.9,loss,-1.0,0.0
+Melbourne Demons vs Richmond Tigers,Total,under,1.87,loss,-1.0,0.0
+Western Bulldogs vs West Coast Eagles,H2H,Western Bulldogs,1.13,win,0.1299999999999999,0.0
+Western Bulldogs vs West Coast Eagles,Handicap,HOME,1.9,loss,-1.0,1.0
+Western Bulldogs vs West Coast Eagles,Total,under,1.87,win,0.8700000000000001,0.0

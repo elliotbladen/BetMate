@@ -1,0 +1,22 @@
+game,market,selection,odds,result,profit,clv
+Wests Tigers vs New Zealand Warriors,H2H,New Zealand Warriors,1.51,win,0.51,0.10218978102189769
+Wests Tigers vs New Zealand Warriors,Handicap,AWAY,1.85,win,0.8500000000000001,1.0
+Wests Tigers vs New Zealand Warriors,Total,over,1.95,loss,-1.0,-1.0
+Dolphins vs Cronulla-Sutherland Sharks,H2H,Dolphins,1.51,loss,-1.0,-0.14689265536723162
+Dolphins vs Cronulla-Sutherland Sharks,Handicap,AWAY,1.85,win,0.8500000000000001,3.0
+Dolphins vs Cronulla-Sutherland Sharks,Total,over,1.87,win,0.8700000000000001,0.0
+Canterbury-Bankstown Bulldogs vs Canberra Raiders,H2H,Canberra Raiders,2.4,win,1.4,0.06666666666666665
+Canterbury-Bankstown Bulldogs vs Canberra Raiders,Handicap,AWAY,1.85,win,0.8500000000000001,1.0
+Canterbury-Bankstown Bulldogs vs Canberra Raiders,Total,under,2.12,loss,-1.0,3.0
+Sydney Roosters vs Parramatta Eels,H2H,Sydney Roosters,1.2,win,0.19999999999999996,-0.0625
+Sydney Roosters vs Parramatta Eels,Handicap,HOME,1.85,win,0.8500000000000001,-3.0
+Sydney Roosters vs Parramatta Eels,Total,under,2.05,win,1.0499999999999998,0.0
+South Sydney Rabbitohs vs Newcastle Knights,H2H,South Sydney Rabbitohs,1.9,win,0.8999999999999999,-0.07317073170731703
+South Sydney Rabbitohs vs Newcastle Knights,Handicap,HOME,1.8,win,0.8,-1.0
+South Sydney Rabbitohs vs Newcastle Knights,Total,over,1.87,win,0.8700000000000001,1.0
+Manly-Warringah Sea Eagles vs North Queensland Cowboys,H2H,Manly-Warringah Sea Eagles,1.53,loss,-1.0,0.0625
+Manly-Warringah Sea Eagles vs North Queensland Cowboys,Handicap,HOME,1.9,loss,-1.0,1.0
+Manly-Warringah Sea Eagles vs North Queensland Cowboys,Total,under,2.1,win,1.1,0.0
+Melbourne Storm vs Gold Coast Titans,H2H,Melbourne Storm,1.35,win,0.3500000000000001,0.03846153846153855
+Melbourne Storm vs Gold Coast Titans,Handicap,HOME,1.9,loss,-1.0,1.0
+Melbourne Storm vs Gold Coast Titans,Total,under,2.26,win,1.2599999999999998,0.0

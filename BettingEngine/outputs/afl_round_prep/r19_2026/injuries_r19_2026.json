@@ -1,0 +1,182 @@
+{
+  "season": 2026,
+  "round": 19,
+  "source": "data/afl/injuries/processed/latest-injuries.json (scraped 2026-07-16T09:13Z) + manual position/quality tagging by football knowledge, since the scraper does not supply position or quality",
+  "injuries": {
+    "Adelaide Crows": [
+      {"player": "Rory Laird", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Ankle", "estimated_return": "TBC", "notes": "Vice-captain, elite ball-winner — major loss for the Sydney trip"},
+      {"player": "Mitchell Hinge", "status": "out", "position": "utility", "quality": "depth", "injury": "Ankle", "estimated_return": "2-3 weeks"}
+    ],
+    "Brisbane Lions": [
+      {"player": "Jack Payne", "status": "out", "position": "key_defender", "quality": "good", "injury": "Knee", "estimated_return": "Season", "notes": "Carried forward per CRITICAL DATA ENTRY RULE — season-ending"},
+      {"player": "Darcy Gardiner", "status": "out", "position": "key_defender", "quality": "average", "injury": "Hamstring", "estimated_return": "3-5 weeks"}
+    ],
+    "Carlton Blues": [
+      {"player": "Jacob Weitering", "status": "out", "position": "key_defender", "quality": "elite", "injury": "Leg/Calf", "estimated_return": "4-5 weeks", "notes": "Captain, All-Australian key defender — huge loss for the Collingwood blockbuster"},
+      {"player": "Jesse Motlop", "status": "out", "position": "small_forward", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Marc Pittonet", "status": "doubtful", "position": "ruck", "quality": "good", "injury": "Hamstring", "estimated_return": "1 week"},
+      {"player": "George Hewett", "status": "doubtful", "position": "midfielder", "quality": "good", "injury": "Back", "estimated_return": "Test"},
+      {"player": "Lewis Young", "status": "doubtful", "position": "key_defender", "quality": "average", "injury": "Head", "estimated_return": "Test (concussion protocol)"},
+      {"player": "Harry O'Farrell", "status": "out", "position": "utility", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Matt Carroll", "status": "out", "position": "utility", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Rob Monahan", "status": "out", "position": "utility", "quality": "depth", "injury": "Shoulder", "estimated_return": "Season"}
+    ],
+    "Collingwood Magpies": [
+      {"player": "Darcy Moore", "status": "out", "position": "key_defender", "quality": "elite", "injury": "Hamstring", "estimated_return": "Season", "notes": "Captain, All-Australian key defender — season-ending, huge loss for the Carlton blockbuster"},
+      {"player": "Jamie Elliott", "status": "out", "position": "small_forward", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Jeremy Howe", "status": "doubtful", "position": "key_defender", "quality": "good", "injury": "Leg/Calf", "estimated_return": "Test"},
+      {"player": "Lachlan Schultz", "status": "out", "position": "small_forward", "quality": "good", "injury": "Ankle", "estimated_return": "2-4 weeks"},
+      {"player": "Isaac Quaynor", "status": "doubtful", "position": "key_defender", "quality": "good", "injury": "Ankle", "estimated_return": "Test"},
+      {"player": "Oscar Steene", "status": "out", "position": "midfielder", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Reef McInnes", "status": "out", "position": "ruck", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Tew Jiath", "status": "doubtful", "position": "key_defender", "quality": "depth", "injury": "Hamstring", "estimated_return": "Test"},
+      {"player": "Iliro Smit", "status": "doubtful", "position": "utility", "quality": "depth", "injury": "Head", "estimated_return": "Concussion protocol"}
+    ],
+    "Essendon Bombers": [
+      {"player": "Tom Edwards", "status": "out", "position": "defender", "quality": "average", "injury": "Hamstring", "estimated_return": "2 weeks"},
+      {"player": "Brayden Fiorini", "status": "out", "position": "midfielder", "quality": "average", "injury": "Back", "estimated_return": "Season"},
+      {"player": "Kayle Gerreyn", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "2 weeks"},
+      {"player": "Archie May", "status": "out", "position": "utility", "quality": "depth", "injury": "Shoulder", "estimated_return": "Season"},
+      {"player": "Lewis Hayes", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Nicholas Martin", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"}
+    ],
+    "Fremantle Dockers": [
+      {"player": "Hayden Young", "status": "doubtful", "position": "midfielder", "quality": "good", "injury": "Hip/Groin", "estimated_return": "Test", "notes": "Rebounding half-back/mid, near All-Australian caliber — meaningful doubt for the Port trip"},
+      {"player": "Corey Wagner", "status": "doubtful", "position": "midfielder", "quality": "average", "injury": "Leg/Calf", "estimated_return": "Test"},
+      {"player": "Sam Sturt", "status": "out", "position": "small_forward", "quality": "average", "injury": "Quad", "estimated_return": "3 weeks"},
+      {"player": "Charlie Nicholls", "status": "out", "position": "key_forward", "quality": "depth", "injury": "Finger/Thumb", "estimated_return": "3 weeks"}
+    ],
+    "Geelong Cats": [
+      {"player": "Jeremy Cameron", "status": "out", "position": "key_forward", "quality": "elite", "injury": "Shoulder", "estimated_return": "4-6 weeks", "notes": "Star key forward — major loss for the St Kilda opener"},
+      {"player": "Toby Conway", "status": "out", "position": "ruck", "quality": "good", "injury": "Foot", "estimated_return": "TBC", "notes": "First-choice ruck; Stanley (backup) also a doubt — genuine ruck crisis"},
+      {"player": "Rhys Stanley", "status": "doubtful", "position": "ruck", "quality": "average", "injury": "Hamstring", "estimated_return": "Test"},
+      {"player": "Jack Henry", "status": "doubtful", "position": "key_defender", "quality": "good", "injury": "Throat", "estimated_return": "Test"},
+      {"player": "Mark O'Connor", "status": "doubtful", "position": "defender", "quality": "good", "injury": "Quad", "estimated_return": "Test"},
+      {"player": "Tanner Bruhn", "status": "doubtful", "position": "midfielder", "quality": "average", "injury": "Neck", "estimated_return": "Test"},
+      {"player": "Harley Barker", "status": "out", "position": "defender", "quality": "depth", "injury": "Knee", "estimated_return": "TBC"}
+    ],
+    "Gold Coast Suns": [
+      {"player": "Elliott Himmelberg", "status": "out", "position": "key_forward", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Daniel Rioli", "status": "doubtful", "position": "small_forward", "quality": "good", "injury": "Jaw", "estimated_return": "1-3 weeks"},
+      {"player": "Will Graham", "status": "out", "position": "forward", "quality": "average", "injury": "Shoulder", "estimated_return": "TBC"},
+      {"player": "Lachlan Weller", "status": "doubtful", "position": "defender", "quality": "average", "injury": "Hamstring", "estimated_return": "1-3 weeks"},
+      {"player": "Lachlan Gulbin", "status": "doubtful", "position": "midfielder", "quality": "average", "injury": "Hand", "estimated_return": "1-3 weeks"},
+      {"player": "Jy Farrar", "status": "doubtful", "position": "defender", "quality": "average", "injury": "Ankle", "estimated_return": "Test"},
+      {"player": "Alex Davies", "status": "doubtful", "position": "defender", "quality": "average", "injury": "Foot", "estimated_return": "Test"}
+    ],
+    "Greater Western Sydney Giants": [
+      {"player": "Tom Green", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Knee", "estimated_return": "Season", "notes": "Season-ending — carried forward per CRITICAL DATA ENTRY RULE"},
+      {"player": "Joshua Kelly", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Hip/Groin", "estimated_return": "Season", "notes": "Season-ending — two elite midfielders out simultaneously is a major structural loss"},
+      {"player": "Jesse Hogan", "status": "out", "position": "key_forward", "quality": "elite", "injury": "Finger/Thumb", "estimated_return": "TBC"},
+      {"player": "Lachie Whitfield", "status": "doubtful", "position": "key_defender", "quality": "elite", "injury": "Head", "estimated_return": "Test (concussion protocol)", "notes": "Rebounding defender, captain-caliber — third elite name in doubt/out this round"},
+      {"player": "Jake Riccardi", "status": "out", "position": "key_forward", "quality": "good", "injury": "Ankle", "estimated_return": "2-3 weeks"},
+      {"player": "Jack Buckley", "status": "out", "position": "key_defender", "quality": "good", "injury": "Leg/Calf", "estimated_return": "TBC"},
+      {"player": "Leek Aleer", "status": "out", "position": "key_defender", "quality": "good", "injury": "Hip/Groin", "estimated_return": "TBC"},
+      {"player": "Brent Daniels", "status": "out", "position": "small_forward", "quality": "good", "injury": "Leg/Calf", "estimated_return": "TBC"},
+      {"player": "Oliver Hannaford", "status": "out", "position": "defender", "quality": "average", "injury": "Foot", "estimated_return": "2-3 weeks"},
+      {"player": "Darcy Jones", "status": "out", "position": "defender", "quality": "average", "injury": "Knee", "estimated_return": "3 weeks"},
+      {"player": "Phoenix Gothard", "status": "out", "position": "midfielder", "quality": "average", "injury": "Shoulder", "estimated_return": "TBC"},
+      {"player": "Finnegan Davis", "status": "doubtful", "position": "key_defender", "quality": "depth", "injury": "Quad", "estimated_return": "Test"},
+      {"player": "Max Gruzewski", "status": "doubtful", "position": "midfielder", "quality": "depth", "injury": "Knee", "estimated_return": "Test"},
+      {"player": "Nathan Wardius", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"}
+    ],
+    "Hawthorn Hawks": [
+      {"player": "Jack Scrimshaw", "status": "out", "position": "key_defender", "quality": "good", "injury": "Knee", "estimated_return": "3-5 weeks"},
+      {"player": "Josh Battle", "status": "doubtful", "position": "key_defender", "quality": "good", "injury": "Appendix", "estimated_return": "Test"},
+      {"player": "Nick Watson", "status": "doubtful", "position": "small_forward", "quality": "good", "injury": "Hamstring", "estimated_return": "Test", "notes": "Exciting young small forward — meaningful doubt if he sits out"},
+      {"player": "Karl Amon", "status": "out", "position": "winger", "quality": "good", "injury": "Knee", "estimated_return": "TBC"},
+      {"player": "Conor Nash", "status": "out", "position": "midfielder", "quality": "good", "injury": "Neck", "estimated_return": "TBC"},
+      {"player": "Sam Butler", "status": "doubtful", "position": "defender", "quality": "average", "injury": "Leg/Calf", "estimated_return": "Test"},
+      {"player": "Ned Reeves", "status": "doubtful", "position": "ruck", "quality": "average", "injury": "Knee", "estimated_return": "1-2 weeks"},
+      {"player": "Jack Dalton", "status": "out", "position": "defender", "quality": "average", "injury": "Knee", "estimated_return": "5-6 weeks"},
+      {"player": "Henry Hustwaite", "status": "out", "position": "midfielder", "quality": "average", "injury": "Head", "estimated_return": "3-4 weeks"}
+    ],
+    "Melbourne Demons": [
+      {"player": "Jack Viney", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Leg/Calf", "estimated_return": "TBC", "notes": "Ex-captain, contested-ball leader — big loss for the North Melbourne trip"},
+      {"player": "Harrison Petty", "status": "doubtful", "position": "key_defender", "quality": "good", "injury": "Hamstring", "estimated_return": "Test"},
+      {"player": "Bayley Fritsch", "status": "doubtful", "position": "small_forward", "quality": "good", "injury": "Finger/Thumb", "estimated_return": "Test"},
+      {"player": "Xavier Lindsay", "status": "out", "position": "midfielder", "quality": "average", "injury": "Hip/Groin", "estimated_return": "2-3 weeks"},
+      {"player": "Brody Mihocek", "status": "out", "position": "key_forward", "quality": "average", "injury": "Neck", "estimated_return": "Season"},
+      {"player": "Andy Moniz-Wakefield", "status": "out", "position": "defender", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Jai Culley", "status": "out", "position": "utility", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Max Heath", "status": "doubtful", "position": "utility", "quality": "depth", "injury": "Shoulder", "estimated_return": "Test"}
+    ],
+    "North Melbourne Kangaroos": [
+      {"player": "George Wardlaw", "status": "out", "position": "midfielder", "quality": "good", "injury": "Hamstring", "estimated_return": "3-4 weeks", "notes": "Promising young mid, best-22 caliber"},
+      {"player": "Tom Powell", "status": "doubtful", "position": "midfielder", "quality": "average", "injury": "Hip/Groin", "estimated_return": "1-2 weeks"},
+      {"player": "Jackson Archer", "status": "out", "position": "defender", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Tom Blamires", "status": "doubtful", "position": "ruck", "quality": "average", "injury": "Head", "estimated_return": "1 week"},
+      {"player": "Blake Thredgold", "status": "out", "position": "defender", "quality": "depth", "injury": "Foot", "estimated_return": "Season"},
+      {"player": "Toby Pink", "status": "out", "position": "forward", "quality": "depth", "injury": "Shoulder", "estimated_return": "Season"}
+    ],
+    "Port Adelaide Power": [
+      {"player": "Zak Butters", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Ankle", "estimated_return": "TBC", "notes": "Best-and-fairest caliber midfielder — huge loss"},
+      {"player": "Connor Rozee", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Hamstring", "estimated_return": "Season", "notes": "Season-ending — second elite midfielder out"},
+      {"player": "Jason Horne-Francis", "status": "out", "position": "midfielder", "quality": "elite", "injury": "Suspended", "estimated_return": "Round 20", "notes": "Suspended, misses this game — third elite midfielder unavailable. Port's entire first-choice midfield engine room is gone for this game."},
+      {"player": "Jack Lukosius", "status": "out", "position": "key_forward", "quality": "good", "injury": "Leg/Calf", "estimated_return": "TBC"},
+      {"player": "Mitch Georgiades", "status": "doubtful", "position": "key_forward", "quality": "good", "injury": "Head", "estimated_return": "Concussion protocol"},
+      {"player": "Josh Sinn", "status": "out", "position": "defender", "quality": "good", "injury": "Shoulder", "estimated_return": "Season"},
+      {"player": "Esava Ratugolea", "status": "out", "position": "key_forward", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Sam Powell-Pepper", "status": "out", "position": "midfielder", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Ollie Lord", "status": "out", "position": "key_forward", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Lachlan Jones", "status": "doubtful", "position": "defender", "quality": "average", "injury": "Ribs", "estimated_return": "Test"},
+      {"player": "Tom Cochrane", "status": "doubtful", "position": "defender", "quality": "average", "injury": "Hamstring", "estimated_return": "Test"},
+      {"player": "Ewan Mackinlay", "status": "out", "position": "defender", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Mani Liddy", "status": "out", "position": "defender", "quality": "depth", "injury": "Hip/Groin", "estimated_return": "Season"}
+    ],
+    "Richmond Tigers": [
+      {"player": "Josh Gibcus", "status": "out", "position": "key_defender", "quality": "good", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Jacob Hopper", "status": "out", "position": "midfielder", "quality": "good", "injury": "Ankle", "estimated_return": "TBC"},
+      {"player": "Jayden Short", "status": "doubtful", "position": "defender", "quality": "good", "injury": "Quad", "estimated_return": "Test"},
+      {"player": "Sam Lalor", "status": "doubtful", "position": "midfielder", "quality": "good", "injury": "Leg/Calf", "estimated_return": "Test", "notes": "Top draft pick, highly rated — meaningful doubt if he sits"},
+      {"player": "Campbell Gray", "status": "out", "position": "defender", "quality": "average", "injury": "Hamstring", "estimated_return": "3 weeks"},
+      {"player": "Luke Trainor", "status": "doubtful", "position": "key_defender", "quality": "average", "injury": "Head", "estimated_return": "Test"},
+      {"player": "Josh Smillie", "status": "doubtful", "position": "midfielder", "quality": "depth", "injury": "Quad", "estimated_return": "1-3 weeks"},
+      {"player": "Kaleb Smith", "status": "doubtful", "position": "forward", "quality": "depth", "injury": "Head", "estimated_return": "Test"},
+      {"player": "Jonty Faull", "status": "out", "position": "key_forward", "quality": "depth", "injury": "Back", "estimated_return": "Season"},
+      {"player": "Ben Miller", "status": "out", "position": "defender", "quality": "depth", "injury": "Heel", "estimated_return": "TBC"},
+      {"player": "Jack Ross", "status": "out", "position": "midfielder", "quality": "depth", "injury": "Head", "estimated_return": "TBC"}
+    ],
+    "St Kilda Saints": [
+      {"player": "Tom De Koning", "status": "doubtful", "position": "ruck", "quality": "good", "injury": "Ribs", "estimated_return": "1-3 weeks", "notes": "First-choice ruck — meaningful doubt for the Geelong opener"},
+      {"player": "Max King", "status": "doubtful", "position": "key_forward", "quality": "good", "injury": "General", "estimated_return": "1-3 weeks", "notes": "Leading forward — meaningful doubt"},
+      {"player": "Jack Sinclair", "status": "out", "position": "midfielder", "quality": "good", "injury": "Leg/Calf", "estimated_return": "Season"},
+      {"player": "Sam Flanders", "status": "out", "position": "midfielder", "quality": "average", "injury": "Leg/Calf", "estimated_return": "Season"},
+      {"player": "James Barrat", "status": "out", "position": "defender", "quality": "average", "injury": "Foot", "estimated_return": "6+ weeks"},
+      {"player": "Alix Tauru", "status": "out", "position": "utility", "quality": "depth", "injury": "Suspended", "estimated_return": "Round 21"}
+    ],
+    "Sydney Swans": [
+      {"player": "Logan McDonald", "status": "doubtful", "position": "key_forward", "quality": "good", "injury": "Quad", "estimated_return": "Test", "notes": "Important key forward — meaningful doubt for the Adelaide game"},
+      {"player": "Justin McInerney", "status": "out", "position": "defender", "quality": "good", "injury": "Hamstring", "estimated_return": "4-5 weeks"},
+      {"player": "Sam Wicks", "status": "out", "position": "small_forward", "quality": "good", "injury": "Hamstring", "estimated_return": "2-3 weeks"},
+      {"player": "Joel Amartey", "status": "out", "position": "ruck", "quality": "good", "injury": "Leg/Calf", "estimated_return": "8 weeks"},
+      {"player": "Peter Ladhams", "status": "out", "position": "ruck", "quality": "average", "injury": "Hip/Groin", "estimated_return": "TBC"},
+      {"player": "Max King", "status": "out", "position": "utility", "quality": "average", "injury": "Back", "estimated_return": "Season", "notes": "⚠️ DATA-QUALITY FLAG: scraper lists a 'Max King' out here AND a different 'Max King' doubtful at St Kilda in the same round. St Kilda's Max King (key forward) is the well-known AFL player; this Sydney entry is very likely a scraper misattribution/name collision, not a real second player. Treated as low-confidence and given minimal weight — do not double-count against Sydney's forward line without verifying."},
+      {"player": "Liam Hetherton", "status": "out", "position": "utility", "quality": "depth", "injury": "Back", "estimated_return": "Season"},
+      {"player": "Noah Chamberlain", "status": "out", "position": "utility", "quality": "depth", "injury": "Hamstring", "estimated_return": "8 weeks"}
+    ],
+    "West Coast Eagles": [
+      {"player": "Reuben Ginbey", "status": "out", "position": "key_defender", "quality": "good", "injury": "Quad", "estimated_return": "5 weeks", "notes": "Promising young key defender"},
+      {"player": "Harry Edwards", "status": "out", "position": "key_defender", "quality": "average", "injury": "Head", "estimated_return": "Season"},
+      {"player": "Sam Allen", "status": "out", "position": "key_forward", "quality": "average", "injury": "Hamstring", "estimated_return": "5 weeks"},
+      {"player": "Deven Robertson", "status": "out", "position": "midfielder", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Noah Long", "status": "out", "position": "defender", "quality": "average", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Tyler Brockman", "status": "out", "position": "small_forward", "quality": "average", "injury": "Hamstring", "estimated_return": "Season"},
+      {"player": "Cooper Duff-Tytler", "status": "doubtful", "position": "defender", "quality": "depth", "injury": "Leg/Calf", "estimated_return": "1-2 weeks"},
+      {"player": "Josh Lindsay", "status": "doubtful", "position": "forward", "quality": "depth", "injury": "Quad", "estimated_return": "1 week"},
+      {"player": "Malakai Champion", "status": "doubtful", "position": "defender", "quality": "depth", "injury": "Hand", "estimated_return": "1 week"},
+      {"player": "Harry Barnett", "status": "doubtful", "position": "defender", "quality": "depth", "injury": "Abdomen", "estimated_return": "1 week"},
+      {"player": "Archer Reid", "status": "out", "position": "forward", "quality": "depth", "injury": "Knee", "estimated_return": "Season"},
+      {"player": "Jacob Newton", "status": "out", "position": "midfielder", "quality": "depth", "injury": "Foot", "estimated_return": "Season"}
+    ],
+    "Western Bulldogs": [
+      {"player": "Sam Darcy", "status": "out", "position": "key_forward", "quality": "elite", "injury": "Knee", "estimated_return": "Season", "notes": "Season-ending — major young star forward, huge loss"},
+      {"player": "Bailey Dale", "status": "out", "position": "defender", "quality": "elite", "injury": "Shoulder", "estimated_return": "5-7 weeks", "notes": "All-Australian caliber rebounding half-back"},
+      {"player": "Timothy English", "status": "doubtful", "position": "ruck", "quality": "elite", "injury": "Back", "estimated_return": "Test", "notes": "Premier ruck in the competition — third elite name in doubt/out"},
+      {"player": "Ryley Sanders", "status": "doubtful", "position": "midfielder", "quality": "good", "injury": "Hand", "estimated_return": "Test"},
+      {"player": "Connor Budarick", "status": "out", "position": "defender", "quality": "average", "injury": "Ankle", "estimated_return": "5-7 weeks"},
+      {"player": "Laitham Vandermeer", "status": "doubtful", "position": "small_forward", "quality": "average", "injury": "Hamstring", "estimated_return": "Test"},
+      {"player": "Nicholas Coffield", "status": "doubtful", "position": "defender", "quality": "average", "injury": "Head", "estimated_return": "Concussion protocol"}
+    ]
+  }
+}

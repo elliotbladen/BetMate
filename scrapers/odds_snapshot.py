@@ -44,6 +44,14 @@ MONDAY     = 0  # weekday() index
 SPORTS = {
     "NRL": "rugbyleague_nrl",
     "AFL": "aussierules_afl",
+    # Soccer expansion 2026-07-10 — snapshots start collecting as soon as the
+    # Odds API key is renewed. Off-season for EPL/Championship until August
+    # (empty responses are fine); UCL league phase starts September.
+    # NOTE: Monday opening-baseline push (push_opening_baseline) stays NRL/AFL
+    # only — soccer movement baselines are a hook-up task.
+    "EPL": "soccer_epl",
+    "CHAMPIONSHIP": "soccer_efl_champ",
+    "UCL": "soccer_uefa_champs_league",
 }
 
 BASE_URL    = "https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
