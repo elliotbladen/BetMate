@@ -121,7 +121,7 @@ export interface Game {
   venue?: string;
   referee?: string;
   refereeBucket?: string;
-  odds: Record<string, { home: number; away: number }>;
+  odds: Record<string, { home: number; draw?: number; away: number }>;
   spreadsOdds?: SpreadsOdds;
   totalsOdds?:  TotalsOdds;
   evLine?:  { label: string; tier: 'negative' | 'marginal' | 'strong' };
@@ -205,7 +205,7 @@ function BmCard({
   const locked = isBest && userPlan === 'free' && !isLoggedIn;
   const hasEV = isBest && evPct != null;
   const isStrongShortener = movement?.shortenedStrong ?? false;
-  const webHref = buildGameUrl(bmKey, sport as 'NRL' | 'AFL', homeTeam, awayTeam);
+  const webHref = buildGameUrl(bmKey, sport as 'NRL' | 'AFL' | 'EPL', homeTeam, awayTeam);
   const baseClass = [
     'relative flex flex-col items-center pt-6 pb-4 px-2 rounded-md shrink-0 w-[110px] sm:w-auto sm:min-w-[64px] sm:pt-4 sm:pb-2.5',
     'cursor-pointer transition-all duration-150 group/bm',
@@ -307,11 +307,12 @@ function MarginRow({ entries }: { entries: { key: string; margin: number }[] }) 
 
 // â"€â"€â"€ Row components â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function OddsRow({ label, odds, side, best, evPct, userPlan, isLoggedIn, gameId, market, sport, homeTeam, awayTeam, movements, refreshCount }: {
-  label: string; odds: Game['odds']; side: 'home' | 'away'; best: number; evPct?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
+  label: string; odds: Game['odds']; side: 'home' | 'draw' | 'away'; best: number; evPct?: number; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
   gameId: string; market: string; sport: string; homeTeam: string; awayTeam: string; movements?: MovementMap; refreshCount?: number;
 }) {
   const entries = sortBookmakers(Object.entries(odds))
-    .map(([key, o]) => ({ key, price: effectivePrice(key, o[side]) }))
+    .filter(([, o]) => side !== 'draw' || o.draw != null)
+    .map(([key, o]) => ({ key, price: effectivePrice(key, side === 'draw' ? (o.draw ?? 0) : o[side]) }))
 
   return (
     <div>
@@ -524,13 +525,18 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
 
       {/* â"€â"€ Odds grid â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {tab === 'H2H' ? (() => {
+        const hasDraws = Object.values(game.odds).some((o) => o.draw != null);
         const h2hMargins = Object.entries(game.odds).map(([key, o]) => ({
           key,
-          margin: (1 / effectivePrice(key, o.home) + 1 / effectivePrice(key, o.away)) * 100,
+          margin: (1 / effectivePrice(key, o.home) + (o.draw != null ? 1 / effectivePrice(key, o.draw) : 0) + 1 / effectivePrice(key, o.away)) * 100,
         }));
+        const bestDraw = hasDraws ? Math.max(...Object.entries(game.odds).filter(([, o]) => o.draw != null).map(([k, o]) => effectivePrice(k, o.draw!))) : 0;
         return (
           <div className="px-5 py-4 space-y-4">
             <OddsRow label={`HOME — ${game.homeShort}`} odds={game.odds} side="home" best={bestHome} evPct={freeEV(evH2hHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+            {hasDraws && (
+              <OddsRow label="DRAW" odds={game.odds} side="draw" best={bestDraw} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+            )}
             <OddsRow label={`AWAY — ${game.awayShort}`} odds={game.odds} side="away" best={bestAway} evPct={freeEV(evH2hAway)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
             <MarginRow entries={h2hMargins} />
           </div>

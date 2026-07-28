@@ -93,20 +93,22 @@ function makeTransform(sport: Sport) {
       const awayShort = event.away_team.split(' ').pop()!.toUpperCase();
 
       const kickoff = new Date(event.commence_time);
+      const tz = sport === 'EPL' ? 'Europe/London' : 'Australia/Sydney';
+      const tzLabel = sport === 'EPL' ? 'UK' : 'AEST';
       const kickoffTime = kickoff
         .toLocaleString('en-AU', {
           weekday: 'short',
           hour: '2-digit',
           minute: '2-digit',
           hour12: true,
-          timeZone: 'Australia/Sydney',
+          timeZone: tz,
         })
-        .toUpperCase() + ' AEST';
+        .toUpperCase() + ` ${tzLabel}`;
 
       return {
         id: event.id,
         sport,
-        round: `${sport} 2026`,
+        round: sport === 'EPL' ? 'EPL 2025/26' : `${sport} 2026`,
         homeTeam: event.home_team,
         homeShort,
         awayTeam: event.away_team,
