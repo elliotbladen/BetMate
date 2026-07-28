@@ -121,3 +121,22 @@ export function extractTotalsOdds(
   }
   return odds;
 }
+
+export function extractBTTSOdds(
+  event: OddsApiEvent,
+): Record<string, { yes: number; no: number }> {
+  const odds: Record<string, { yes: number; no: number }> = {};
+  for (const bm of event.bookmakers) {
+    const btts = bm.markets.find((m) => m.key === 'btts');
+    if (!btts) continue;
+    const yesOutcome = btts.outcomes.find((o) => o.name === 'Yes');
+    const noOutcome  = btts.outcomes.find((o) => o.name === 'No');
+    if (yesOutcome && noOutcome) {
+      odds[bm.key] = {
+        yes: yesOutcome.price,
+        no:  noOutcome.price,
+      };
+    }
+  }
+  return odds;
+}

@@ -107,6 +107,7 @@ function CountdownTimer({ commenceTime }: { commenceTime: string }) {
 // â"€â"€â"€ Types â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 type SpreadsOdds = Record<string, { home: number; away: number; homePoint: number; awayPoint: number }>;
 type TotalsOdds  = Record<string, { over: number; under: number; point: number }>;
+type BTTSOdds    = Record<string, { yes: number; no: number }>;
 
 export interface Game {
   id: string;
@@ -124,6 +125,7 @@ export interface Game {
   odds: Record<string, { home: number; draw?: number; away: number }>;
   spreadsOdds?: SpreadsOdds;
   totalsOdds?:  TotalsOdds;
+  bttsOdds?:    BTTSOdds;
   evLine?:  { label: string; tier: 'negative' | 'marginal' | 'strong' };
   evTotal?: { label: string; tier: 'negative' | 'marginal' | 'strong' };
   modelLine?:   string;
@@ -144,7 +146,7 @@ interface GameCardProps {
   refreshCount?: number;
 }
 
-const MARKET_TABS = ['H2H', 'HANDICAP', 'TOTALS'] as const;
+const MARKET_TABS = ['H2H', 'HANDICAP', 'TOTALS', 'BTTS'] as const;
 type MarketTab = typeof MARKET_TABS[number];
 
 const BUCKET_COLOR: Record<string, string> = {
@@ -426,6 +428,56 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
   );
 }
 
+function BTTSRow({ odds, userPlan, isLoggedIn, gameId, sport, homeTeam, awayTeam, movements, refreshCount }: {
+  odds: BTTSOdds; userPlan: 'free' | 'pro'; isLoggedIn?: boolean;
+  gameId: string; sport: string; homeTeam: string; awayTeam: string; movements?: MovementMap; refreshCount?: number;
+}) {
+  const entries = sortBookmakers(Object.entries(odds));
+  const bestYes = Math.max(...entries.map(([key, o]) => effectivePrice(key, o.yes)));
+  const bestNo  = Math.max(...entries.map(([key, o]) => effectivePrice(key, o.no)));
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <p className="text-[10px] font-mono text-[#9CA3AF] uppercase tracking-[0.15em] mb-2">BTTS YES</p>
+        <div className="flex overflow-x-auto no-scrollbar gap-2 pb-1 sm:flex-wrap sm:overflow-visible sm:gap-1.5 sm:pb-0">
+          {entries.map(([key, o]) => {
+            const meta = BOOKMAKER_META[key] ?? { abbr: key.slice(0, 3).toUpperCase(), name: key, color: '', domain: '' };
+            const adjYes = effectivePrice(key, o.yes);
+            const isBest = adjYes === bestYes;
+            const movement = movements?.[`${gameId}:btts:${key}:yes`];
+            return (
+              <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
+                <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
+                <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
+                <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>${adjYes.toFixed(2)}</span>
+              </BmCard>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <p className="text-[10px] font-mono text-[#9CA3AF] uppercase tracking-[0.15em] mb-2">BTTS NO</p>
+        <div className="flex overflow-x-auto no-scrollbar gap-2 pb-1 sm:flex-wrap sm:overflow-visible sm:gap-1.5 sm:pb-0">
+          {entries.map(([key, o]) => {
+            const meta = BOOKMAKER_META[key] ?? { abbr: key.slice(0, 3).toUpperCase(), name: key, color: '', domain: '' };
+            const adjNo = effectivePrice(key, o.no);
+            const isBest = adjNo === bestNo;
+            const movement = movements?.[`${gameId}:btts:${key}:no`];
+            return (
+              <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
+                <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
+                <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
+                <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>${adjNo.toFixed(2)}</span>
+              </BmCard>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // â"€â"€â"€ Helpers for EV signal lookup â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function pickSignal(signals: EVSignal[], market: EVSignal['market'], side: EVSignal['side']): EVSignal | undefined {
@@ -467,6 +519,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
     H2H:      !!(evH2hHome || evH2hAway),
     HANDICAP: !!(evHcapHome || evHcapAway),
     TOTALS:   !!(evTotOver || evTotUnder),
+    BTTS:     false,
   };
 
   return (
@@ -502,7 +555,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
       </div>
 
       {/* â"€â"€ Market tabs â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
-      <div className="border-t border-[#E2E8F0] grid grid-cols-3">
+      <div className="border-t border-[#E2E8F0] grid grid-cols-4">
         {MARKET_TABS.map((t, i) => (
           <button
             key={t}
@@ -557,7 +610,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
         })() : (
           <div className="px-5 py-8 text-center text-[#9CA3AF] font-mono text-xs uppercase tracking-widest">Handicap odds unavailable</div>
         )
-      ) : (
+      ) : tab === 'TOTALS' ? (
         game.totalsOdds && Object.keys(game.totalsOdds).length > 0 ? (() => {
           const totalsMargins = Object.entries(game.totalsOdds!).map(([key, o]) => ({
             key,
@@ -571,6 +624,21 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
           );
         })() : (
           <div className="px-5 py-8 text-center text-[#9CA3AF] font-mono text-xs uppercase tracking-widest">Totals odds unavailable</div>
+        )
+      ) : (
+        game.bttsOdds && Object.keys(game.bttsOdds).length > 0 ? (() => {
+          const bttsMargins = Object.entries(game.bttsOdds!).map(([key, o]) => ({
+            key,
+            margin: (1 / effectivePrice(key, o.yes) + 1 / effectivePrice(key, o.no)) * 100,
+          }));
+          return (
+            <div className="px-5 py-4 space-y-4">
+              <BTTSRow odds={game.bttsOdds!} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+              <MarginRow entries={bttsMargins} />
+            </div>
+          );
+        })() : (
+          <div className="px-5 py-8 text-center text-[#9CA3AF] font-mono text-xs uppercase tracking-widest">BTTS odds unavailable</div>
         )
       )}
 
