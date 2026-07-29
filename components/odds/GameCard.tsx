@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+
 import Link from 'next/link';
 import { Flame, Lock } from 'lucide-react';
 import BlurLock from './BlurLock';
@@ -23,15 +23,15 @@ function effectivePrice(key: string, price: number): number {
 }
 
 // â"€â"€â"€ Logo â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
-function BookmakerLogo({ domain, abbr }: { domain: string; abbr: string }) {
+function BookmakerLogo({ bmKey, domain, abbr }: { bmKey: string; domain: string; abbr: string }) {
   return (
-    <Image
-      src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+    <img
+      src={`/icons/bookmakers/${bmKey}.svg`}
       alt={abbr}
       width={32}
       height={32}
       className="rounded transition-transform duration-150 group-hover/bm:scale-110 w-11 h-11 sm:w-8 sm:h-8"
-      unoptimized
+      onError={(e) => { (e.target as HTMLImageElement).src = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`; }}
     />
   );
 }
@@ -323,7 +323,7 @@ function OddsRow({ label, odds, side, best, evPct, userPlan, isLoggedIn, gameId,
           const movement = movements?.[`${gameId}:${market}:${key}:${side}`];
           return (
             <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evPct : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
-              <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
+              <BookmakerLogo bmKey={key} domain={meta.domain} abbr={meta.abbr} />
               <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
               <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>
                 ${price.toFixed(2)}
@@ -355,7 +355,7 @@ function SpreadsRow({ label, odds, side, evPct, userPlan, isLoggedIn, gameId, sp
           const movement = movements?.[`${gameId}:spreads:${key}:${side}`];
           return (
             <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evPct : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
-              <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
+              <BookmakerLogo bmKey={key} domain={meta.domain} abbr={meta.abbr} />
               <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
               <span className="text-[#9CA3AF] text-[13px] sm:text-[10px] font-mono leading-none">{sign}{point}</span>
               <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>
@@ -395,7 +395,7 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
             const movement = movements?.[`${gameId}:totals:${key}:over`];
             return (
               <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evOver : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
-                <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
+                <BookmakerLogo bmKey={key} domain={meta.domain} abbr={meta.abbr} />
                 <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
                 <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>${adjOver.toFixed(2)}</span>
               </BmCard>
@@ -413,7 +413,7 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
             const movement = movements?.[`${gameId}:totals:${key}:under`];
             return (
               <BmCard key={key} bmKey={key} sport={sport} homeTeam={homeTeam} awayTeam={awayTeam} isBest={isBest} evPct={isBest ? evUnder : undefined} userPlan={userPlan} isLoggedIn={isLoggedIn} movement={movement} refreshCount={refreshCount}>
-                <BookmakerLogo domain={meta.domain} abbr={meta.abbr} />
+                <BookmakerLogo bmKey={key} domain={meta.domain} abbr={meta.abbr} />
                 <span className="text-[#9CA3AF] text-[12px] sm:text-[9px] font-mono leading-none">{meta.name}</span>
                 <span className={`text-lg sm:text-sm font-bold tabular-nums leading-none ${isBest ? 'text-[#F97316]' : 'text-[#111827]'}`}>${adjUnder.toFixed(2)}</span>
               </BmCard>

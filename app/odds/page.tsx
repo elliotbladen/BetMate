@@ -424,17 +424,25 @@ function DrawBadge({ homeTeam, awayTeam }: { homeTeam: string; awayTeam: string 
   );
 }
 
+function BookmakerIcon({ bmKey, className = 'h-5 w-5' }: { bmKey: string; className?: string }) {
+  const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
+  return (
+    <img
+      src={`/icons/bookmakers/${bmKey}.svg`}
+      alt={meta.name}
+      className={`${className} rounded-sm`}
+      onError={(e) => { (e.target as HTMLImageElement).src = `https://www.google.com/s2/favicons?domain=${meta.domain}&sz=64`; }}
+    />
+  );
+}
+
 function BookLogo({ bmKey, homeTeam, awayTeam, sport }: { bmKey: string; homeTeam: string; awayTeam: string; sport: string }) {
   const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
   const href = buildGameUrl(bmKey, sport as Sport, homeTeam, awayTeam);
   const inner = (
     <div className="flex flex-col items-center justify-center gap-1">
-      <span className="flex h-8 w-8 items-center justify-center rounded-md bg-white shadow-sm ring-1 ring-black/5">
-        <img
-          src={`https://www.google.com/s2/favicons?domain=${meta.domain}&sz=64`}
-          alt={meta.name}
-          className="h-5 w-5 rounded-sm"
-        />
+      <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-md shadow-sm ring-1 ring-black/5">
+        <BookmakerIcon bmKey={bmKey} className="h-8 w-8" />
       </span>
       <span className="text-[9px] font-mono font-black uppercase tracking-wide text-[#6B7280]">{meta.abbr}</span>
     </div>
@@ -542,8 +550,8 @@ function MobilePriceTile({
           <ArrowDown className={`h-3 w-3 ${movement.direction === 'up' ? 'rotate-180' : ''}`} />
         </span>
       )}
-      <span className="flex h-6 w-6 items-center justify-center overflow-hidden rounded bg-white shadow-sm ring-1 ring-black/5">
-        <img src={`https://www.google.com/s2/favicons?domain=${meta.domain}&sz=64`} alt={meta.abbr} className="h-4 w-4" />
+      <span className="flex h-6 w-6 items-center justify-center overflow-hidden rounded shadow-sm ring-1 ring-black/5">
+        <BookmakerIcon bmKey={bmKey} className="h-6 w-6" />
       </span>
       <span className="text-[8px] font-mono font-black uppercase tracking-wide text-[#9CA3AF]">{meta.abbr}</span>
       {point != null && (
@@ -1391,10 +1399,11 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
             </div>
             <div className="flex gap-3 overflow-x-auto no-scrollbar">
               {displayEntries.slice(0, cols).map((entry) => {
-                const meta = BOOKMAKER_META[entry.key] ?? { abbr: entry.key.slice(0, 3).toUpperCase() };
                 return (
                   <div key={entry.key} className="shrink-0 flex flex-col items-center gap-1 min-w-[40px]">
-                    <span className="text-[8px] font-mono font-black uppercase tracking-wide text-[#9CA3AF]">{meta.abbr}</span>
+                    <span className="flex h-5 w-5 items-center justify-center overflow-hidden rounded shadow-sm ring-1 ring-black/5">
+                      <BookmakerIcon bmKey={entry.key} className="h-5 w-5" />
+                    </span>
                     <span className={`text-[12px] font-mono font-bold tabular-nums ${entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
                       {entry.home.price > 0 ? entry.home.price.toFixed(2) : '—'}
                     </span>
@@ -1416,8 +1425,11 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
             <div className="min-w-[480px]" style={{ display: 'grid', gridTemplateColumns: `minmax(100px,1fr) repeat(${cols}, minmax(72px,1fr))` }}>
               <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Selection</div>
               {displayEntries.slice(0, cols).map((entry) => {
-                const meta = BOOKMAKER_META[entry.key] ?? { abbr: entry.key.slice(0, 3).toUpperCase() };
-                return <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">{meta.abbr}</div>;
+                return (
+                  <div key={entry.key} className="border-t border-r border-[#E2E8F0] bg-[#FBFCFE] px-2 py-2 text-center last:border-r-0">
+                    <BookLogo bmKey={entry.key} homeTeam={game.homeTeam} awayTeam={game.awayTeam} sport={game.sport} />
+                  </div>
+                );
               })}
 
               <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{homeLabel}</div>
