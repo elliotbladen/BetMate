@@ -1724,7 +1724,6 @@ function OddsPageContent() {
             </div>
             {/* Market tabs */}
             <div className="flex flex-1 items-center gap-1 overflow-x-auto no-scrollbar xl:flex-none">
-              {
               {MARKET_TABS.map((item) => (
                 <button
                   key={item}
