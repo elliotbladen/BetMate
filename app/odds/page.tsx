@@ -246,6 +246,7 @@ function bookmakerEntries(game: Game, market: MarketTab) {
     return Object.entries(game.odds).map(([key, value]) => ({
       key,
       home: { label: game.homeTeam, point: null as number | null, price: value.home, side: 'home' as const },
+      draw: value.draw ? { label: 'Draw', point: null as number | null, price: value.draw, side: 'draw' as const } : null,
       away: { label: game.awayTeam, point: null as number | null, price: value.away, side: 'away' as const },
     }));
   }
@@ -254,6 +255,7 @@ function bookmakerEntries(game: Game, market: MarketTab) {
     return Object.entries(game.spreadsOdds ?? {}).map(([key, value]) => ({
       key,
       home: { label: game.homeTeam, point: value.homePoint, price: value.home, side: 'home' as const },
+      draw: null,
       away: { label: game.awayTeam, point: value.awayPoint, price: value.away, side: 'away' as const },
     }));
   }
@@ -261,6 +263,7 @@ function bookmakerEntries(game: Game, market: MarketTab) {
   return Object.entries(game.totalsOdds ?? {}).map(([key, value]) => ({
     key,
     home: { label: `Over ${value.point}`, point: value.point, price: value.over, side: 'over' as const },
+    draw: null,
     away: { label: `Under ${value.point}`, point: value.point, price: value.under, side: 'under' as const },
   }));
 }
@@ -614,6 +617,10 @@ function OddsBoardCard({
   const lineAware = market !== 'H2H';
   const bestHome = comparableBest(entries, 'home', lineAware);
   const bestAway = comparableBest(entries, 'away', lineAware);
+  const showDraw = market === 'H2H' && isSoccer(game.sport as SportId);
+  const bestDrawPrice = showDraw
+    ? Math.max(...entries.map((e) => e.draw?.price ?? 0))
+    : 0;
   const selected = market === 'Totals' ? 'Over / Under' : `${game.homeShort} / ${game.awayShort}`;
   const displayEntries = entries.slice(0, 10);
   const mobileEntries = entries;
@@ -788,6 +795,30 @@ function OddsBoardCard({
                 ))}
               </div>
             </div>
+            {/* Draw - soccer H2H only */}
+            {showDraw && (
+              <div>
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#6B7280]">Draw</span>
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+                  {mobileEntries.map((entry) => (
+                    <MobilePriceTile
+                      key={entry.key}
+                      bmKey={entry.key}
+                      price={entry.draw?.price ?? 0}
+                      point={null}
+                      isBest={(entry.draw?.price ?? 0) === bestDrawPrice}
+                      movement={movements[movementKey(game.id, market, entry.key, 'draw')]}
+                      isTotal={false}
+                      homeTeam={game.homeTeam}
+                      awayTeam={game.awayTeam}
+                      sport={game.sport}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
             {/* Away / Under */}
             <div>
               <div className="mb-2 flex items-center gap-2">
@@ -868,6 +899,24 @@ function OddsBoardCard({
                 />
               ))}
 
+              {showDraw && (
+                <>
+                  <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#6B7280]">Draw</span>
+                  </div>
+                  {displayEntries.map((entry) => (
+                    <PriceCell
+                      key={`${entry.key}-draw`}
+                      price={entry.draw?.price ?? 0}
+                      point={null}
+                      isBest={(entry.draw?.price ?? 0) === bestDrawPrice}
+                      movement={movements[movementKey(game.id, market, entry.key, 'draw')]}
+                      isTotal={false}
+                    />
+                  ))}
+                </>
+              )}
+
               <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
                 {market === 'Totals' ? (
                   <TotalSelectionLabel side="Under" point={bestAway.point} />
@@ -899,7 +948,10 @@ function OddsBoardCard({
               {displayEntries.map((entry) => {
                 const h = entry.home.price > 0 ? entry.home.price : 0;
                 const a = entry.away.price > 0 ? entry.away.price : 0;
-                const margin = h > 0 && a > 0 ? ((1 / h + 1 / a) * 100) : 0;
+                const d = entry.draw?.price && entry.draw.price > 0 ? entry.draw.price : 0;
+                const margin = h > 0 && a > 0
+                  ? ((1 / h + 1 / a + (d > 0 ? 1 / d : 0)) * 100)
+                  : 0;
                 return (
                   <div key={`${entry.key}-margin`} className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">
                     {margin > 0 ? `${margin.toFixed(1)}%` : '\u2014'}
@@ -1293,6 +1345,10 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
 
   const bestHome = comparableBest(displayEntries, 'home', lineAware);
   const bestAway = comparableBest(displayEntries, 'away', lineAware);
+  const completedShowDraw = market === 'H2H' && isSoccer(game.sport as SportId);
+  const completedBestDrawPrice = completedShowDraw
+    ? Math.max(...displayEntries.map((e) => e.draw?.price ?? 0))
+    : 0;
   const homeLabel = market === 'Totals' ? 'Over' : game.homeShort;
   const awayLabel = market === 'Totals' ? 'Under' : game.awayShort;
 
@@ -1313,7 +1369,7 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
           {/* Mobile: compact horizontal scroll tiles */}
           <div className="sm:hidden border-t border-[#E2E8F0] px-3 py-3">
             <div className="mb-1.5 flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#9CA3AF]">
-              <span>{homeLabel}</span><span className="text-[#D1D5DB]">/</span><span>{awayLabel}</span>
+              <span>{homeLabel}</span><span className="text-[#D1D5DB]">/</span>{completedShowDraw && <><span>Draw</span><span className="text-[#D1D5DB]">/</span></>}<span>{awayLabel}</span>
             </div>
             <div className="flex gap-3 overflow-x-auto no-scrollbar">
               {displayEntries.slice(0, cols).map((entry) => {
@@ -1324,6 +1380,11 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
                     <span className={`text-[12px] font-mono font-bold tabular-nums ${entry.home.price === bestHome.price && (!lineAware || entry.home.point === bestHome.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
                       {entry.home.price > 0 ? entry.home.price.toFixed(2) : '—'}
                     </span>
+                    {completedShowDraw && (
+                      <span className={`text-[12px] font-mono font-bold tabular-nums ${(entry.draw?.price ?? 0) === completedBestDrawPrice ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+                        {entry.draw?.price && entry.draw.price > 0 ? entry.draw.price.toFixed(2) : '—'}
+                      </span>
+                    )}
                     <span className={`text-[12px] font-mono font-bold tabular-nums ${entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
                       {entry.away.price > 0 ? entry.away.price.toFixed(2) : '—'}
                     </span>
@@ -1348,6 +1409,17 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
                 </div>
               ))}
 
+              {completedShowDraw && (
+                <>
+                  <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">Draw</div>
+                  {displayEntries.slice(0, cols).map((entry) => (
+                    <div key={`${entry.key}-d`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${(entry.draw?.price ?? 0) === completedBestDrawPrice ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
+                      {entry.draw?.price && entry.draw.price > 0 ? entry.draw.price.toFixed(2) : '—'}
+                    </div>
+                  ))}
+                </>
+              )}
+
               <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">{awayLabel}</div>
               {displayEntries.slice(0, cols).map((entry) => (
                 <div key={`${entry.key}-a`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${entry.away.price === bestAway.price && (!lineAware || entry.away.point === bestAway.point) ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
@@ -1359,7 +1431,10 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
               {displayEntries.slice(0, cols).map((entry) => {
                 const h = entry.home.price > 0 ? entry.home.price : 0;
                 const a = entry.away.price > 0 ? entry.away.price : 0;
-                const margin = h > 0 && a > 0 ? ((1 / h + 1 / a) * 100) : 0;
+                const d = entry.draw?.price && entry.draw.price > 0 ? entry.draw.price : 0;
+                const margin = h > 0 && a > 0
+                  ? ((1 / h + 1 / a + (d > 0 ? 1 / d : 0)) * 100)
+                  : 0;
                 return (
                   <div key={`${entry.key}-margin`} className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">
                     {margin > 0 ? `${margin.toFixed(1)}%` : '\u2014'}
