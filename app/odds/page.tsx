@@ -28,7 +28,7 @@ import ChatPanel from '@/components/chat/ChatPanel';
 import type { Game } from '@/components/odds/GameCard';
 import type { OddsApiEvent } from '@/lib/oddsApi';
 import { buildGameUrl } from '@/lib/affiliate';
-import { BOOKMAKER_META, extractH2HOdds, extractSpreadsOdds, extractTotalsOdds, extractBTTSOdds } from '@/lib/oddsApi';
+import { BOOKMAKER_META, extractH2HOdds, extractSpreadsOdds, extractTotalsOdds } from '@/lib/oddsApi';
 import { computeMovementsFromOpening } from '@/lib/oddsMovement';
 import type { Movement, MovementMap, OpeningPriceMap } from '@/lib/oddsMovement';
 import { buildRefMap, getRefForGame } from '@/lib/referees';
@@ -42,7 +42,7 @@ import { SPORTS, enabledSports, isSoccer, isSportId, TOP_TABS, topTabForSport, D
 import type { SportId, TopTab } from '@/lib/sports';
 
 type Sport = SportId;
-type MarketTab = 'H2H' | 'Line' | 'Totals' | 'BTTS';
+type MarketTab = 'H2H' | 'Line' | 'Totals';
 interface TeamNewsItem {
   type: 'injury' | 'suspension';
   player: string;
@@ -79,7 +79,7 @@ interface WeatherData {
 }
 
 const SPORT_TABS: Sport[] = enabledSports();
-const MARKET_TABS: MarketTab[] = ['H2H', 'Line', 'Totals', 'BTTS'];
+const MARKET_TABS: MarketTab[] = ['H2H', 'Line', 'Totals'];
 const DETAIL_TABS: DetailTab[] = ['Intelligence', 'Team News', 'Weather / Ref', 'History'];
 
 function makeTransform(sport: Sport) {
@@ -89,7 +89,6 @@ function makeTransform(sport: Sport) {
       const odds = extractH2HOdds(event);
       const spreadsOdds = extractSpreadsOdds(event);
       const totalsOdds = extractTotalsOdds(event);
-      const bttsOdds = extractBTTSOdds(event);
       const homeShort = event.home_team.split(' ').pop()!.toUpperCase();
       const awayShort = event.away_team.split(' ').pop()!.toUpperCase();
 
@@ -119,7 +118,6 @@ function makeTransform(sport: Sport) {
         odds,
         spreadsOdds,
         totalsOdds,
-        bttsOdds: Object.keys(bttsOdds).length > 0 ? bttsOdds : undefined,
         referee: footySport ? getRefForGame(event.home_team, footySport)?.name : undefined,
         refereeBucket: footySport ? getRefForGame(event.home_team, footySport)?.bucket : undefined,
         lastUpdated: new Date().toISOString(),
@@ -260,14 +258,6 @@ function bookmakerEntries(game: Game, market: MarketTab) {
     }));
   }
 
-  if (market === 'BTTS') {
-    return Object.entries(game.bttsOdds ?? {}).map(([key, value]) => ({
-      key,
-      home: { label: 'BTTS Yes', point: null as number | null, price: value.yes, side: 'yes' as const },
-      away: { label: 'BTTS No', point: null as number | null, price: value.no, side: 'no' as const },
-    }));
-  }
-
   return Object.entries(game.totalsOdds ?? {}).map(([key, value]) => ({
     key,
     home: { label: `Over ${value.point}`, point: value.point, price: value.over, side: 'over' as const },
@@ -278,7 +268,6 @@ function bookmakerEntries(game: Game, market: MarketTab) {
 function movementKey(gameId: string, market: MarketTab, bookmaker: string, side: string) {
   if (market === 'H2H') return `${gameId}:h2h:${bookmaker}:${side}`;
   if (market === 'Line') return `${gameId}:spreads:${bookmaker}:${side}`;
-  if (market === 'BTTS') return `${gameId}:btts:${bookmaker}:${side}`;
   return `${gameId}:totals:${bookmaker}:${side}`;
 }
 
@@ -622,10 +611,10 @@ function OddsBoardCard({
     return () => ids.forEach(clearTimeout);
   }, [venue?.lat, venue?.lon, game.commenceTime, game.sport]);
 
-  const lineAware = market === 'Line' || market === 'Totals';
+  const lineAware = market !== 'H2H';
   const bestHome = comparableBest(entries, 'home', lineAware);
   const bestAway = comparableBest(entries, 'away', lineAware);
-  const selected = market === 'Totals' ? 'Over / Under' : market === 'BTTS' ? 'Yes / No' : `${game.homeShort} / ${game.awayShort}`;
+  const selected = market === 'Totals' ? 'Over / Under' : `${game.homeShort} / ${game.awayShort}`;
   const displayEntries = entries.slice(0, 10);
   const mobileEntries = entries;
   const bookmakerColumnCount = Math.max(displayEntries.length, 1);
@@ -764,13 +753,11 @@ function OddsBoardCard({
         <>
           {/* Mobile tile view — CSS hidden at sm+ so server renders this first */}
           <div className="sm:hidden border-t border-[#E2E8F0] px-3 py-4 space-y-4">
-            {/* Home / Over / BTTS Yes */}
+            {/* Home / Over */}
             <div>
               <div className="mb-2 flex items-center gap-2">
                 {market === 'Totals' ? (
                   <TotalSelectionLabel side="Over" point={bestHome.point} />
-                ) : market === 'BTTS' ? (
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#111827]">BTTS Yes</span>
                 ) : market === 'Line' ? (
                   <div className="flex items-center gap-2">
                     <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
@@ -801,13 +788,11 @@ function OddsBoardCard({
                 ))}
               </div>
             </div>
-            {/* Away / Under / BTTS No */}
+            {/* Away / Under */}
             <div>
               <div className="mb-2 flex items-center gap-2">
                 {market === 'Totals' ? (
                   <TotalSelectionLabel side="Under" point={bestAway.point} />
-                ) : market === 'BTTS' ? (
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#111827]">BTTS No</span>
                 ) : market === 'Line' ? (
                   <div className="flex items-center gap-2">
                     <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
@@ -859,8 +844,6 @@ function OddsBoardCard({
               <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
                 {market === 'Totals' ? (
                   <TotalSelectionLabel side="Over" point={bestHome.point} />
-                ) : market === 'BTTS' ? (
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#111827]">BTTS Yes</span>
                 ) : market === 'Line' ? (
                   <div>
                     <TeamBadge name={game.homeTeam} label={game.homeTeam.split(' ').pop()} />
@@ -888,8 +871,6 @@ function OddsBoardCard({
               <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
                 {market === 'Totals' ? (
                   <TotalSelectionLabel side="Under" point={bestAway.point} />
-                ) : market === 'BTTS' ? (
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#111827]">BTTS No</span>
                 ) : market === 'Line' ? (
                   <div>
                     <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
@@ -1505,11 +1486,7 @@ function OddsPageContent() {
 
   useEffect(() => {
     const sport = searchParams.get('sport')?.toUpperCase();
-    const resolved = isSportId(sport) ? sport : 'NRL';
-    setActiveSport(resolved);
-    if (market === 'BTTS' && !isSoccer(resolved)) {
-      setMarket('H2H');
-    }
+    setActiveSport(isSportId(sport) ? sport : 'NRL');
   }, [searchParams]);
 
   useEffect(() => {
@@ -1764,7 +1741,7 @@ function OddsPageContent() {
                   <div className="hidden sm:block mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
                 </>
               )}
-              {MARKET_TABS.filter((t) => t !== 'BTTS' || isSoccer(activeSport)).map((item) => (
+              {MARKET_TABS.map((item) => (
                 <button
                   key={item}
                   onClick={() => setMarket(item)}

@@ -17,7 +17,7 @@ export async function GET() {
   const url = new URL('https://api.the-odds-api.com/v4/sports/soccer_epl/odds/');
   url.searchParams.set('apiKey', apiKey);
   url.searchParams.set('regions', 'au,uk,eu');
-  url.searchParams.set('markets', 'h2h,spreads,totals,btts');
+  url.searchParams.set('markets', 'h2h,spreads,totals');
   url.searchParams.set('oddsFormat', 'decimal');
 
   const res = await fetch(url.toString(), { next: { revalidate: 300 } });
