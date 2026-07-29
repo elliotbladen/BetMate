@@ -894,6 +894,18 @@ function OddsBoardCard({
                   isTotal={market === 'Totals'}
                 />
               ))}
+
+              <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Margin</div>
+              {displayEntries.map((entry) => {
+                const h = entry.home.price > 0 ? entry.home.price : 0;
+                const a = entry.away.price > 0 ? entry.away.price : 0;
+                const margin = h > 0 && a > 0 ? ((1 / h + 1 / a) * 100) : 0;
+                return (
+                  <div key={`${entry.key}-margin`} className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">
+                    {margin > 0 ? `${margin.toFixed(1)}%` : '\u2014'}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </>
@@ -1342,6 +1354,18 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
                   {entry.away.price > 0 ? entry.away.price.toFixed(2) : '—'}
                 </div>
               ))}
+
+              <div className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2 text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF]">Margin</div>
+              {displayEntries.slice(0, cols).map((entry) => {
+                const h = entry.home.price > 0 ? entry.home.price : 0;
+                const a = entry.away.price > 0 ? entry.away.price : 0;
+                const margin = h > 0 && a > 0 ? ((1 / h + 1 / a) * 100) : 0;
+                return (
+                  <div key={`${entry.key}-margin`} className="border-t border-r border-[#E2E8F0] bg-[#F8FAFC] px-2 py-2 text-center text-[10px] font-mono font-bold text-[#9CA3AF] last:border-r-0">
+                    {margin > 0 ? `${margin.toFixed(1)}%` : '\u2014'}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </>
@@ -1722,8 +1746,25 @@ function OddsPageContent() {
               <p className="section-label mb-1">Live odds board</p>
               <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#111827]">Betting Intelligence.</h1>
             </div>
-            {/* Market tabs */}
+            {/* League sub-tabs (football) + Market tabs */}
             <div className="flex flex-1 items-center gap-1 overflow-x-auto no-scrollbar xl:flex-none">
+              {isSoccer(activeSport) && (
+                <>
+                  {enabledFootballLeagues().map((league) => (
+                    <button
+                      key={league}
+                      onClick={() => switchSport(league)}
+                      className={[
+                        'h-9 shrink-0 rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
+                        activeSport === league ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
+                      ].join(' ')}
+                    >
+                      {SPORTS[league].tabLabel}
+                    </button>
+                  ))}
+                  <div className="mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
+                </>
+              )}
               {MARKET_TABS.map((item) => (
                 <button
                   key={item}
