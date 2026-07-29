@@ -406,6 +406,24 @@ function TeamBadge({ name, label }: { name: string; label?: string }) {
   );
 }
 
+function DrawBadge({ homeTeam, awayTeam }: { homeTeam: string; awayTeam: string }) {
+  const homeMeta = getTeamMeta(homeTeam);
+  const awayMeta = getTeamMeta(awayTeam);
+  const leftColor = homeMeta?.primary ?? '#6B7280';
+  const rightColor = awayMeta?.primary ?? '#6B7280';
+  return (
+    <span className="inline-flex min-w-0 items-center gap-2">
+      <span
+        className="inline-flex h-8 w-11 shrink-0 items-center justify-center rounded text-[10px] font-black tracking-wide shadow-sm text-white"
+        style={{ background: `linear-gradient(90deg, ${leftColor} 50%, ${rightColor} 50%)` }}
+      >
+        X
+      </span>
+      <span className="truncate">Draw</span>
+    </span>
+  );
+}
+
 function BookLogo({ bmKey, homeTeam, awayTeam, sport }: { bmKey: string; homeTeam: string; awayTeam: string; sport: string }) {
   const meta = BOOKMAKER_META[bmKey] ?? { abbr: bmKey.slice(0, 3).toUpperCase(), name: bmKey, domain: bmKey, color: '' };
   const href = buildGameUrl(bmKey, sport as Sport, homeTeam, awayTeam);
@@ -799,7 +817,7 @@ function OddsBoardCard({
             {showDraw && (
               <div>
                 <div className="mb-2 flex items-center gap-2">
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#6B7280]">Draw</span>
+                  <DrawBadge homeTeam={game.homeTeam} awayTeam={game.awayTeam} />
                 </div>
                 <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
                   {mobileEntries.map((entry) => (
@@ -902,7 +920,7 @@ function OddsBoardCard({
               {showDraw && (
                 <>
                   <div className="border-t border-r border-[#E2E8F0] px-4 py-3">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#6B7280]">Draw</span>
+                    <DrawBadge homeTeam={game.homeTeam} awayTeam={game.awayTeam} />
                   </div>
                   {displayEntries.map((entry) => (
                     <PriceCell
@@ -1411,7 +1429,9 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
 
               {completedShowDraw && (
                 <>
-                  <div className="border-t border-r border-[#E2E8F0] px-3 py-2 text-xs font-bold text-[#6B7280]">Draw</div>
+                  <div className="border-t border-r border-[#E2E8F0] px-3 py-2">
+                    <DrawBadge homeTeam={game.homeTeam} awayTeam={game.awayTeam} />
+                  </div>
                   {displayEntries.slice(0, cols).map((entry) => (
                     <div key={`${entry.key}-d`} className={`border-t border-r border-[#E2E8F0] px-2 py-2 text-center text-sm font-mono font-bold last:border-r-0 ${(entry.draw?.price ?? 0) === completedBestDrawPrice ? 'text-[#00866F]' : 'text-[#9CA3AF]'}`}>
                       {entry.draw?.price && entry.draw.price > 0 ? entry.draw.price.toFixed(2) : '—'}
