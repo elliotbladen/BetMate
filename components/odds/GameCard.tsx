@@ -524,12 +524,13 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
 
       {/* â"€â"€ Odds grid â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {tab === 'H2H' ? (() => {
-        const hasDraws = Object.values(game.odds).some((o) => o.draw != null);
+        const isSoccerSport = !['NRL', 'AFL'].includes(game.sport);
+        const hasDraws = isSoccerSport || Object.values(game.odds).some((o) => o.draw != null);
         const h2hMargins = Object.entries(game.odds).map(([key, o]) => ({
           key,
           margin: (1 / effectivePrice(key, o.home) + (o.draw != null ? 1 / effectivePrice(key, o.draw) : 0) + 1 / effectivePrice(key, o.away)) * 100,
         }));
-        const bestDraw = hasDraws ? Math.max(...Object.entries(game.odds).filter(([, o]) => o.draw != null).map(([k, o]) => effectivePrice(k, o.draw!))) : 0;
+        const bestDraw = hasDraws ? Math.max(...Object.entries(game.odds).filter(([, o]) => o.draw != null).map(([k, o]) => effectivePrice(k, o.draw!)), 0) : 0;
         return (
           <div className="px-5 py-4 space-y-4">
             <OddsRow label={`HOME — ${game.homeShort}`} odds={game.odds} side="home" best={bestHome} evPct={freeEV(evH2hHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
