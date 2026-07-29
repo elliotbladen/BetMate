@@ -1722,25 +1722,9 @@ function OddsPageContent() {
               <p className="section-label mb-1">Live odds board</p>
               <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#111827]">Betting Intelligence.</h1>
             </div>
-            {/* League sub-tabs (when Football active) + market tabs */}
+            {/* Market tabs */}
             <div className="flex flex-1 items-center gap-1 overflow-x-auto no-scrollbar xl:flex-none">
-              {isSoccer(activeSport) && (
-                <>
-                  {enabledFootballLeagues().map((league) => (
-                    <button
-                      key={league}
-                      onClick={() => switchSport(league)}
-                      className={[
-                        'hidden sm:flex h-9 shrink-0 items-center justify-center rounded px-3 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
-                        activeSport === league ? 'bg-[#111827] text-white' : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
-                      ].join(' ')}
-                    >
-                      {SPORTS[league].tabLabel}
-                    </button>
-                  ))}
-                  <div className="hidden sm:block mx-1 h-5 w-px shrink-0 bg-[#E2E8F0]" />
-                </>
-              )}
+              {
               {MARKET_TABS.map((item) => (
                 <button
                   key={item}

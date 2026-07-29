@@ -89,25 +89,6 @@ export default function Header() {
               })}
             </div>
           )}
-          {isOdds && isSoccer(activeSport) && (
-            <div className={'flex items-center gap-0 border border-[#252525] rounded-md overflow-hidden shrink-0'}>
-              {enabledFootballLeagues().map((league, i) => (
-                <Link
-                  key={league}
-                  href={'/odds?sport=' + league}
-                  className={[
-                    'px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
-                    i > 0 ? 'border-l border-[#252525]' : '',
-                    activeSport === league
-                      ? 'bg-[#111827] text-white'
-                      : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
-                  ].join(' ')}
-                >
-                  {SPORTS[league].tabLabel}
-                </Link>
-              ))}
-            </div>
-          )}
 
           {/* Nav â€” desktop */}
           <nav className="hidden sm:flex items-center gap-1 ml-auto">
