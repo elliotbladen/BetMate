@@ -173,34 +173,17 @@ export default function ChatPanel({
         }),
       });
 
-      if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-      const reader  = res.body.getReader();
-      const decoder = new TextDecoder();
-      let assistantText = '';
-      let headerParsed = false;
+      const brain = res.headers.get('X-Baz-Brain');
+      setBrainOnline(brain === 'online' || brain === 'topic-guard' || brain === 'ip-guard' || brain === 'weekly-scope-guard');
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        let chunk = decoder.decode(value, { stream: true });
-
-        if (!headerParsed) {
-          const match = chunk.match(/^\x00brain:(online|offline)\x00/);
-          if (match) {
-            setBrainOnline(match[1] === 'online');
-            chunk = chunk.slice(match[0].length);
-          }
-          headerParsed = true;
-        }
-
-        assistantText += chunk;
-        setMessages((prev) => {
-          const updated = [...prev];
-          updated[updated.length - 1] = { role: 'assistant', content: assistantText };
-          return updated;
-        });
-      }
+      const assistantText = await res.text();
+      setMessages((prev) => {
+        const updated = [...prev];
+        updated[updated.length - 1] = { role: 'assistant', content: assistantText };
+        return updated;
+      });
 
       // Count the message only after full response received
       const newCount = bumpCount();
