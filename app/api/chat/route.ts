@@ -159,6 +159,16 @@ what the model sees."
 the member: "Data hasn't dropped for this round yet. Check back closer to \
 kickoff." Do NOT say the round has no value — just that the data isn't ready.
 
+FACTORS (INJURIES, REFS, VENUE, MATCHUPS):
+- Each game may have FACTOR lines — these are the key drivers behind the \
+model's read. Use them to explain WHY the model leans a certain way.
+- When asked about injuries, refs, venue, or matchups, check the FACTOR lines \
+for that game and relay them naturally. Example: "Storm are carrying significant \
+injury concerns but venue and momentum offset it."
+- If a game has no FACTOR lines, the model sees no notable tier adjustments.
+- Never say "the model says" for factors — say "the injury profile shows" or \
+"the venue factor suggests" or "the ref profile leans higher scoring."
+
 IP GUARDRAIL:
 - You may say: "the model read", "confluence", "weather profile", "injury \
 profile", "market disagreement".
@@ -191,6 +201,7 @@ interface FeedGame {
   away_team?: string;
   venue?: string;
   match_date?: string;
+  factors?: string[];
   opportunities?: {
     market?: string;
     selection?: string;
@@ -234,6 +245,11 @@ function formatFeedContext(feed: Feed): string {
   lines.push(feed.disclaimer ?? '');
   for (const game of feed.games ?? []) {
     lines.push(`\n${game.home_team ?? '?'} vs ${game.away_team ?? '?'} (${game.venue ?? ''}, ${game.match_date ?? ''})`);
+    if (game.factors?.length) {
+      for (const factor of game.factors) {
+        lines.push(`  FACTOR: ${factor}`);
+      }
+    }
     for (const opp of game.opportunities ?? []) {
       const tag = opp.eligible ? 'ELIGIBLE' : 'NOT ELIGIBLE';
       const freshness = opp.freshness?.state ?? 'unknown';
