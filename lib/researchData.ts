@@ -670,6 +670,32 @@ LEGACY_BETS.push(
   { id:491, date:'2026-07-26', match:'Brisbane Lions vs Port Adelaide Power',               market:'Over 188.5',           odds:1.91, closingOdds:null, result:'win',  cumPL:30.53, sport:'AFL',      notes:'Actual bet log. Stake $27. Return $51.57.' },
 );
 
+LEGACY_BETS.push(
+  // AFL R21 — Thu 30 Jul (Collingwood vs Geelong)
+  { id:492, date:'2026-07-30', match:'Collingwood Magpies vs Geelong Cats',                market:'Geelong -2.5 PYL',     odds:1.77, closingOdds:null, result:'win',  cumPL:31.30, sport:'AFL',      notes:'Actual bet log. Stake $50. Return $88.50.' },
+  // NRL R23 — Thu 30 Jul (Cowboys vs Roosters — two bets)
+  { id:493, date:'2026-07-30', match:'North Queensland Cowboys vs Sydney Roosters',        market:'Cowboys Win',          odds:2.46, closingOdds:null, result:'loss', cumPL:30.96, sport:'NRL',      notes:'Actual bet log. Stake $17. No return.' },
+  { id:494, date:'2026-07-30', match:'North Queensland Cowboys vs Sydney Roosters',        market:'Cowboys Win',          odds:2.65, closingOdds:null, result:'loss', cumPL:30.30, sport:'NRL',      notes:'Actual bet log. Stake $33. No return.' },
+  // NRL R23 — Fri 31 Jul (Storm vs Bulldogs)
+  { id:495, date:'2026-07-31', match:'Melbourne Storm vs Canterbury Bulldogs',             market:'Storm Win',            odds:2.18, closingOdds:null, result:'loss', cumPL:29.30, sport:'NRL',      notes:'Actual bet log. Stake $50. No return.' },
+  // Multi — Fri 31 Jul (3 Legs)
+  { id:496, date:'2026-07-31', match:'NRL Multi (3 Legs)',                                 market:'Multi 3 Legs',         odds:1.69, closingOdds:null, result:'loss', cumPL:28.30, sport:'OTHER',    notes:'Actual bet log. Stake $50. No return. 2 legs won, 1 lost.' },
+  // AFL R21 — Sat 1 Aug (Hawthorn vs North Melbourne)
+  { id:497, date:'2026-08-01', match:'Hawthorn Hawks vs North Melbourne Kangaroos',        market:'Under 177.5',          odds:1.89, closingOdds:null, result:'loss', cumPL:27.41, sport:'AFL',      notes:'Actual bet log. Stake $44.25. No return.' },
+  // NRL R23 — Sat 1 Aug (Titans vs Warriors — two bets)
+  { id:498, date:'2026-08-01', match:'Gold Coast Titans vs New Zealand Warriors',          market:'Warriors Win',         odds:1.52, closingOdds:null, result:'win',  cumPL:27.62, sport:'NRL',      notes:'Actual bet log. Stake $20. Return $30.40.' },
+  { id:499, date:'2026-08-01', match:'Gold Coast Titans vs New Zealand Warriors',          market:'Under 49.5',           odds:1.89, closingOdds:null, result:'win',  cumPL:28.41, sport:'NRL',      notes:'Actual bet log. Stake $44.25. Return $83.63.' },
+  // Multi — Sat 1 Aug (2 Legs)
+  { id:500, date:'2026-08-01', match:'AFL Multi (2 Legs)',                                 market:'Multi 2 Legs',         odds:1.78, closingOdds:null, result:'win',  cumPL:28.83, sport:'OTHER',    notes:'Actual bet log. Stake $26.89. Return $47.92.' },
+  // NRL R23 — Sat 1 Aug (Broncos vs Knights)
+  { id:501, date:'2026-08-01', match:'Brisbane Broncos vs Newcastle Knights',              market:'Knights +6.5',         odds:1.83, closingOdds:null, result:'win',  cumPL:29.16, sport:'NRL',      notes:'Actual bet log. Stake $20. Return $36.60.' },
+  // AFL R21 — Sun 2 Aug (Richmond vs West Coast)
+  { id:502, date:'2026-08-02', match:'Richmond Tigers vs West Coast Eagles',              market:'Under 167.5',          odds:1.87, closingOdds:null, result:'win',  cumPL:30.03, sport:'AFL',      notes:'Actual bet log. Stake $50. Return $93.50.' },
+  // AFL R21 — Sun 2 Aug (Gold Coast vs Melbourne — two bets)
+  { id:503, date:'2026-08-02', match:'Gold Coast Suns vs Melbourne Demons',               market:'Melbourne Win',        odds:2.02, closingOdds:null, result:'win',  cumPL:30.44, sport:'AFL',      notes:'Actual bet log. Stake $20. Return $40.40.' },
+  { id:504, date:'2026-08-02', match:'Gold Coast Suns vs Melbourne Demons',               market:'Under 180.5',          odds:1.91, closingOdds:null, result:'loss', cumPL:29.44, sport:'AFL',      notes:'Actual bet log. Stake $50. No return.' },
+);
+
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
 // All AFL bets from LEGACY_BETS with date >= 2026-04-15.
 // plUnits = (stake/$50) × (odds-1) for win, -(stake/$50) for loss.
