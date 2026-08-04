@@ -806,12 +806,12 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:84, date:'2026-07-25', match:'Carlton Blues vs Gold Coast Suns',                    market:'Under 171.5',           predictedLine:null,  takenPrice:1.86, closingPrice:2.08, clv:1.0, clvLabel:'+1.0 pts', result:'loss', plUnits:-1.00,  runningTotal:1.92   },
   { id:85, date:'2026-07-26', match:'Brisbane Lions vs Port Adelaide Power',               market:'Over 188.5',            predictedLine:null,  takenPrice:1.91, closingPrice:1.90, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.49,   runningTotal:2.41   },
   // R21 (Jul 30 - Aug 2)
-  { id:86, date:'2026-07-30', match:'Collingwood Magpies vs Geelong Cats',                market:'Geelong -2.5 PYL',       predictedLine:null,  takenPrice:1.77, closingPrice:null, result:'win',  plUnits:0.77,   runningTotal:3.18   },
+  { id:86, date:'2026-07-30', match:'Collingwood Magpies vs Geelong Cats',                market:'Geelong -2.5 PYL',       predictedLine:null,  takenPrice:1.77, closingPrice:1.74, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.77,   runningTotal:3.18   },
   { id:87, date:'2026-08-01', match:'AFL Multi (2 Legs)',                                  market:'Multi @ 1.78',           predictedLine:null,  takenPrice:1.78, closingPrice:null, result:'win',  plUnits:0.42,   runningTotal:3.60   },
-  { id:88, date:'2026-08-01', match:'Hawthorn Hawks vs North Melbourne Kangaroos',        market:'Under 177.5',            predictedLine:null,  takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-0.89,  runningTotal:2.71   },
-  { id:89, date:'2026-08-02', match:'Richmond Tigers vs West Coast Eagles',               market:'Under 167.5',            predictedLine:null,  takenPrice:1.87, closingPrice:null, result:'win',  plUnits:0.87,   runningTotal:3.58   },
-  { id:90, date:'2026-08-02', match:'Gold Coast Suns vs Melbourne Demons',                market:'Melbourne Win',          predictedLine:null,  takenPrice:2.02, closingPrice:null, result:'win',  plUnits:0.41,   runningTotal:3.99   },
-  { id:91, date:'2026-08-02', match:'Gold Coast Suns vs Melbourne Demons',                market:'Under 180.5',            predictedLine:null,  takenPrice:1.91, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:2.99   },
+  { id:88, date:'2026-08-01', match:'Hawthorn Hawks vs North Melbourne Kangaroos',        market:'Under 177.5',            predictedLine:null,  takenPrice:1.89, closingPrice:1.99, clv:5.0, clvLabel:'+5.0 pts', result:'loss', plUnits:-0.89,  runningTotal:2.71   },
+  { id:89, date:'2026-08-02', match:'Richmond Tigers vs West Coast Eagles',               market:'Under 167.5',            predictedLine:null,  takenPrice:1.87, closingPrice:2.06, clv:-1.0, clvLabel:'-1.0 pts', result:'win',  plUnits:0.87,   runningTotal:3.58   },
+  { id:90, date:'2026-08-02', match:'Gold Coast Suns vs Melbourne Demons',                market:'Melbourne Win',          predictedLine:null,  takenPrice:2.02, closingPrice:1.77, result:'win',  plUnits:0.41,   runningTotal:3.99   },
+  { id:91, date:'2026-08-02', match:'Gold Coast Suns vs Melbourne Demons',                market:'Under 180.5',            predictedLine:null,  takenPrice:1.91, closingPrice:2.05, clv:5.0, clvLabel:'+5.0 pts', result:'loss', plUnits:-1.00,  runningTotal:2.99   },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
