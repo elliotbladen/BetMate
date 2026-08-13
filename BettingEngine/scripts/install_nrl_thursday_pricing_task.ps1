@@ -17,10 +17,10 @@ if (-not (Test-Path $VenvPython)) {
     throw "Python not found at $VenvPython."
 }
 
-$scriptPath = Join-Path $repoRoot "scripts\prepare_round.py"
-$argument   = "`"$scriptPath`" --season $Season --round 0"
+$scriptPath = Join-Path $repoRoot "scripts\run_nrl_pricing.ps1"
+$argument   = "-NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`""
 
-$action   = New-ScheduledTaskAction -Execute $VenvPython -Argument $argument -WorkingDirectory $repoRoot
+$action   = New-ScheduledTaskAction -Execute "powershell.exe" -Argument $argument -WorkingDirectory $repoRoot
 $trigger  = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Thursday -At $RunTime
 $settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
@@ -34,9 +34,9 @@ Register-ScheduledTask `
     -Action $action `
     -Trigger $trigger `
     -Settings $settings `
-    -Description "Final NRL pricing run every Thursday at $RunTime. All tiers active." `
+    -Description "Final NRL pricing release every Thursday at $RunTime, including Baz context." `
     -Force
 
 Write-Host "Installed: $TaskName"
 Write-Host "Schedule : every Thursday at $RunTime"
-Write-Host "Python   : $VenvPython"
+Write-Host "Command  : powershell.exe $argument"

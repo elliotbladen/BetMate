@@ -27,7 +27,12 @@ from datetime import datetime, timezone
 # ---------------------------------------------------------------------------
 BETMATE_ROOT    = Path(os.environ.get('BETMATE_ROOT', Path(__file__).resolve().parent.parent))
 ENGINE_ROOT     = BETMATE_ROOT / 'BettingEngine'
-RESULTS_DIR     = ENGINE_ROOT / 'results'
+# Betting_model is the canonical engine (2026-07-12 decision) — search it first,
+# fall back to the legacy BettingEngine copy so no manual file copying is needed.
+RESULTS_DIRS    = [
+    Path.home() / 'Betting_model' / 'results',
+    ENGINE_ROOT / 'results',
+]
 PREDICTIONS_OUT = BETMATE_ROOT / 'data' / 'afl' / 'predictions' / 'latest.json'
 
 
@@ -39,13 +44,21 @@ def find_latest_csv() -> Path:
         m = re.match(r'r(\d+)_afl_\d+\.csv$', p.name)
         return int(m.group(1)) if m else -1
 
-    csvs = [p for p in RESULTS_DIR.glob('r*_afl_*.csv') if round_num(p) >= 0]
+    # Earlier dirs in RESULTS_DIRS win ties (Betting_model is canonical)
+    csvs = [p for d in RESULTS_DIRS for p in d.glob('r*_afl_*.csv') if round_num(p) >= 0]
     if not csvs:
-        print('ERROR: No AFL pricing CSV found in BettingEngine/results/')
+        print('ERROR: No AFL pricing CSV found in any results dir')
         sys.exit(1)
     latest = max(csvs, key=round_num)
     print(f'  Using: {latest.name}  (round {round_num(latest)})')
     return latest
+
+
+def round_from_csv_path(path: Path) -> int:
+    match = re.match(r'r(\d+)_afl_\d+\.csv$', path.name)
+    if not match:
+        raise ValueError(f"Cannot determine AFL round from {path.name}")
+    return int(match.group(1))
 
 
 # ---------------------------------------------------------------------------
@@ -104,7 +117,7 @@ def write_local(predictions: list) -> None:
 # ---------------------------------------------------------------------------
 # Push to Supabase
 # ---------------------------------------------------------------------------
-def push_supabase(predictions: list) -> bool:
+def push_supabase(predictions: list, season: int, round_number: int) -> bool:
     env_path = BETMATE_ROOT / '.env.local'
     if env_path.exists():
         for line in env_path.read_text(encoding='utf-8').splitlines():
@@ -123,7 +136,9 @@ def push_supabase(predictions: list) -> bool:
         import requests
         payload = [{
             'key':        'afl_predictions',
-            'data':       {'predictions': predictions},
+            # Keep predictions backwards compatible for the odds board, while
+            # publishing the fixture identity Baz uses to reject stale context.
+            'data':       {'season': season, 'round': round_number, 'predictions': predictions},
             'updated_at': datetime.now(timezone.utc).isoformat(),
         }]
         resp = requests.post(
@@ -196,6 +211,7 @@ def main():
     print(f'  BETMATE_ROOT: {BETMATE_ROOT}')
 
     csv_path    = find_latest_csv()
+    round_number = round_from_csv_path(csv_path)
     predictions = parse_predictions(csv_path)
 
     if not predictions:
@@ -207,7 +223,7 @@ def main():
         print(f'    {p["homeTeam"]} {p["predHomeScore"]} - {p["predAwayScore"]} {p["awayTeam"]}')
 
     write_local(predictions)
-    push_supabase(predictions)
+    push_supabase(predictions, 2026, round_number)
     verify_endpoint(predictions)
     print('\n  Done.\n')
 

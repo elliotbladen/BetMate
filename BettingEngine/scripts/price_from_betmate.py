@@ -34,6 +34,11 @@ def main() -> None:
     parser.add_argument("--skip-weather", action="store_true")
     parser.add_argument("--strict-injuries", action="store_true")
     parser.add_argument("--no-export", action="store_true", help="Skip export_round_csv after pricing.")
+    parser.add_argument(
+        "--skip-baz-publish",
+        action="store_true",
+        help="Skip publishing the fresh Baz context (manual recovery only).",
+    )
     parser.add_argument("--preflight-config", default="config/betmate_automation.yaml")
     parser.add_argument("--skip-preflight", action="store_true")
     args = parser.parse_args()
@@ -145,6 +150,12 @@ def main() -> None:
                 str(args.round_number),
             ]
         )
+
+    # The website chat reads the sanitised Supabase context, not the local
+    # pricing CSV. Treat publishing it as part of a successful round release:
+    # a price-up that isn't visible to Baz is not a completed deployment.
+    if not args.dry_run and not args.skip_baz_publish:
+        run([sys.executable, "scripts/publish_current_baz_context.py", "NRL"])
 
     print(f"Betmate-priced round complete. Manifest: {manifest['stage_dir']}/manifest.json")
 

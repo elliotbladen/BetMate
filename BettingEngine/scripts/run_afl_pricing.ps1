@@ -29,5 +29,12 @@ Write-Host "[AFL Pricing R$Round] Step 3: _export_afl_prices.py --season $Season
 & $py "$root\scripts\_export_afl_prices.py" --season $Season --round $Round
 if ($LASTEXITCODE -ne 0) { Write-Error "_export_afl_prices.py failed"; exit $LASTEXITCODE }
 
+# Publish both the current AFL predictions (the fixture authority for the site)
+# and the rich Baz context as part of the same round release.
+& $py "C:\Users\ElliotBladen\Apps\scripts\push_afl_predictions.py"
+if ($LASTEXITCODE -ne 0) { Write-Error "push_afl_predictions.py failed"; exit $LASTEXITCODE }
+& $py "$root\scripts\publish_current_baz_context.py" AFL
+if ($LASTEXITCODE -ne 0) { Write-Error "Baz AFL context publish failed"; exit $LASTEXITCODE }
+
 Write-Host "[AFL Pricing R$Round] Done. Output: $root\results\r$($Round.ToString('D2'))_afl_$Season.csv"
 exit 0

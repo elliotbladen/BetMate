@@ -17,12 +17,12 @@ if (-not (Test-Path $VenvPython)) {
     throw "Python not found at $VenvPython. Run: python -m venv .venv && .venv\Scripts\pip install -r requirements.txt"
 }
 
-$scriptPath = Join-Path $repoRoot "scripts\prepare_round.py"
+$scriptPath = Join-Path $repoRoot "scripts\run_nrl_pricing.ps1"
+$argument = "-NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`""
 
-# --round 0 = auto-detect from BetMate fixture
-$argument = "`"$scriptPath`" --season $Season --round 0"
-
-$action   = New-ScheduledTaskAction -Execute $VenvPython -Argument $argument -WorkingDirectory $repoRoot
+# Run the release wrapper, not prepare_round.py directly: it prices, exports,
+# pushes matrices, and publishes Baz's current context as one deployment.
+$action   = New-ScheduledTaskAction -Execute "powershell.exe" -Argument $argument -WorkingDirectory $repoRoot
 $trigger  = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At $RunTime
 $settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
@@ -36,10 +36,9 @@ Register-ScheduledTask `
     -Action $action `
     -Trigger $trigger `
     -Settings $settings `
-    -Description "Runs BettingEngine NRL pricing every Monday at $RunTime. Reads fixture/injuries/referees from BetMate automatically." `
+    -Description "Runs and publishes BettingEngine NRL pricing every Monday at $RunTime, including Baz context." `
     -Force
 
 Write-Host "Installed scheduled task: $TaskName"
 Write-Host "Schedule: every Monday at $RunTime"
-Write-Host "Python: $VenvPython"
-Write-Host "Command: $VenvPython $argument"
+Write-Host "Command: powershell.exe $argument"

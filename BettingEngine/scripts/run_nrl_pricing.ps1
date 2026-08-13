@@ -23,5 +23,12 @@ if ($LASTEXITCODE -eq 0 -and $roundNum) {
 # Push matrices to Supabase so Vercel can serve EV signals
 & "C:\Users\ElliotBladen\Apps\BettingEngine\.venv\Scripts\python.exe" `
     "C:\Users\ElliotBladen\Apps\BettingEngine\scripts\push_matrices_to_supabase.py"
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+# Baz reads the sanitised Supabase context, not the local pricing CSV. A round
+# is therefore not released until its current context has been published.
+& "C:\Users\ElliotBladen\Apps\BettingEngine\.venv\Scripts\python.exe" `
+    "C:\Users\ElliotBladen\Apps\BettingEngine\scripts\publish_current_baz_context.py" NRL
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 exit 0
