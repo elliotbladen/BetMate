@@ -667,7 +667,19 @@ function OddsBoardCard({
       </div>
 
       {/* ── Mobile header (hidden on sm+) ── */}
-      <div className="sm:hidden px-3 pt-3 pb-2">
+      <div
+        className="sm:hidden cursor-pointer px-3 pt-3 pb-2"
+        onClick={onToggleDetails}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            onToggleDetails();
+          }
+        }}
+        aria-expanded={expanded}
+      >
         <div className="mb-1.5 flex items-center gap-2 flex-wrap">
           <span className="rounded bg-[#111827] px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest text-white">{game.sport}</span>
           <span className="text-[10px] font-mono uppercase tracking-wide text-[#6B7280]">{game.kickoffTime}</span>
@@ -679,7 +691,7 @@ function OddsBoardCard({
           <TeamBadge name={game.awayTeam} label={game.awayTeam.split(' ').pop()} />
         </div>
         {venue && <p className="mb-2 text-[10px] text-[#9CA3AF]">{venue.name}</p>}
-        {prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
+        {expanded && prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
           <p className="mb-1 text-[10px] font-mono text-[#6B7280]">
             Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
             <span className="mx-1 text-[#9CA3AF]">-</span>
@@ -702,14 +714,14 @@ function OddsBoardCard({
         )}
         <div className="flex w-full gap-2 mt-2">
           <button
-            onClick={onAskBaz}
+            onClick={(event) => { event.stopPropagation(); onAskBaz(); }}
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#00DEB8] py-2.5 text-xs font-bold text-black"
           >
             <Bot className="h-3.5 w-3.5" />
             Ask Baz
           </button>
           <button
-            onClick={onToggleDetails}
+            onClick={(event) => { event.stopPropagation(); onToggleDetails(); }}
             className="flex-1 inline-flex items-center justify-center gap-1 rounded-lg border border-[#E2E8F0] bg-white py-2.5 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280]"
           >
             Details
@@ -719,7 +731,19 @@ function OddsBoardCard({
       </div>
 
       {/* ── Desktop header (hidden on mobile) ── */}
-      <div className="hidden sm:block px-4 py-4">
+      <div
+        className="hidden cursor-pointer sm:block px-4 py-4"
+        onClick={onToggleDetails}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            onToggleDetails();
+          }
+        }}
+        aria-expanded={expanded}
+      >
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div className="min-w-0">
             <div className="mb-2 flex flex-wrap items-center gap-2">
@@ -727,13 +751,13 @@ function OddsBoardCard({
               <span className="text-[11px] font-mono uppercase tracking-wide text-[#6B7280]">{game.kickoffTime}</span>
               <span className="text-[11px] text-[#9CA3AF]">{market} - {selected}</span>
             </div>
-            <h2 className="flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-lg font-extrabold leading-tight text-[#111827] sm:text-xl">
+            <h2 className="flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-xl font-extrabold leading-tight text-[#111827] lg:text-2xl">
               <TeamBadge name={game.homeTeam} />
               <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#9CA3AF]">vs</span>
               <TeamBadge name={game.awayTeam} />
             </h2>
             {venue && <p className="mt-1 text-xs text-[#9CA3AF]">{venue.name}</p>}
-            {prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
+            {expanded && prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
               <p className="mt-1 text-[11px] font-mono text-[#6B7280]">
                 Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
                 <span className="mx-1 text-[#9CA3AF]">-</span>
@@ -759,14 +783,14 @@ function OddsBoardCard({
           <div className="flex flex-col gap-2 lg:items-end">
             <div className="flex gap-2">
               <button
-                onClick={onAskBaz}
+                onClick={(event) => { event.stopPropagation(); onAskBaz(); }}
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-[#00DEB8] px-3 py-2 text-xs font-bold text-black shadow-[0_8px_24px_rgba(0,222,184,0.22)] transition-all hover:-translate-y-0.5 hover:bg-[#00C9A6]"
               >
                 <Bot className="h-4 w-4" />
                 Ask Baz
               </button>
               <button
-                onClick={onToggleDetails}
+                onClick={(event) => { event.stopPropagation(); onToggleDetails(); }}
                 className="inline-flex items-center justify-center gap-1 rounded-md border border-[#E2E8F0] bg-white px-3 py-2 text-xs font-mono font-bold uppercase tracking-widest text-[#6B7280] transition-colors hover:border-[#00DEB8]/60 hover:text-[#00866F]"
               >
                 Details
@@ -778,7 +802,7 @@ function OddsBoardCard({
         </div>
       </div>
 
-      {entries.length === 0 ? (
+      {expanded && (entries.length === 0 ? (
         <div className="border-t border-[#E2E8F0] px-3 py-4 sm:px-4">
           <MarketUnavailable market={market} />
         </div>
@@ -987,9 +1011,9 @@ function OddsBoardCard({
             </div>
           </div>
         </>
-      )}
+      ))}
 
-      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-3 py-3">
+      {expanded && <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-3 py-3">
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0">
           <Chip icon={Flame} label="Move" value={stats.label} tone={stats.tone as 'neutral' | 'hot' | 'warn'} />
           <Chip icon={Trophy} label="Best price gap" value={gap > 0 ? `${gap.toFixed(1)}%` : 'N/A'} tone={gap >= 3 ? 'good' : 'neutral'} tooltip="The % difference between the best and worst price across all bookmakers. Betfair prices are adjusted for 5% commission. A gap above 3% means real money is being left on the table." />
@@ -1016,7 +1040,7 @@ function OddsBoardCard({
         <p className="hidden sm:block mt-3 text-sm leading-6 text-[#4B5563]">
           {stats.label === 'Quiet' ? 'No major market move flagged yet.' : `${stats.label} detected on ${market}. Best price gap is ${gap.toFixed(1)}%.`} Ask Baz for the plain-English read before kickoff.
         </p>
-      </div>
+      </div>}
 
       {expanded && <DetailDrawer game={game} market={market} entries={entries} movements={movements} weather={weather} venue={venue} teamNewsHomeEntry={teamNewsHomeEntry} teamNewsAwayEntry={teamNewsAwayEntry} />}
     </article>
