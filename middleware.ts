@@ -7,6 +7,7 @@ const PUBLIC_PATHS = [
   '/baz-concept',
   '/mobile-concept',
   '/odds',
+  '/racing',
   '/odds-concept',
   '/odds-detail-concept',
   '/research',
