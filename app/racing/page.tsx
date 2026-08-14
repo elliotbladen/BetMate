@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { ArrowUpRight, ChevronRight, Clock3, MapPin, Trophy } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Clock3, MapPin, Trophy } from 'lucide-react';
 
 type State = 'NSW' | 'VIC';
+type Race = { number: number; time: string; name: string; distance: string; status?: string };
+type RaceCardProps = { race: Race; venue: string; isOpen: boolean; onToggle: () => void };
 
-const CARDS: Record<State, { meeting: string; venue: string; surface: string; rail: string; first: string; races: { number: number; time: string; name: string; distance: string; status?: string }[] }> = {
+const CARDS: Record<State, { meeting: string; venue: string; surface: string; rail: string; first: string; races: Race[] }> = {
   NSW: {
     meeting: 'Sydney Saturday', venue: 'Royal Randwick', surface: 'Good 4', rail: 'True', first: '12:35 PM',
     races: [
@@ -39,8 +40,39 @@ const CARDS: Record<State, { meeting: string; venue: string; surface: string; ra
   },
 };
 
+function RaceCard({ race, venue, isOpen, onToggle }: RaceCardProps) {
+  return (
+    <article className={`overflow-hidden rounded-lg border bg-white transition-colors ${isOpen ? 'border-[#00DEB8] shadow-[0_0_0_1px_rgba(0,222,184,0.12)]' : 'border-[#DCE3EA] hover:border-[#B7C5D4]'}`}>
+      <button onClick={onToggle} className="flex w-full items-center gap-3 px-4 py-4 text-left sm:px-5">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-[#101820] text-[12px] font-mono font-bold text-white">R{race.number}</span>
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="text-sm font-bold text-[#172033]">{race.name}</span>
+            {race.status && <span className="rounded border border-[#00DEB8]/40 bg-[#E8FCF7] px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest text-[#008D77]">{race.status}</span>}
+          </div>
+          <p className="mt-1 text-[11px] font-mono font-bold uppercase tracking-wide text-[#7A8796]">{race.distance} <span className="mx-1.5 text-[#CBD5E1]">·</span> {race.time}</p>
+        </div>
+        <span className="hidden rounded border border-[#E2E8F0] px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#718096] sm:inline">{isOpen ? 'Close' : 'Open race'}</span>
+        <ChevronDown className={`h-5 w-5 shrink-0 text-[#718096] transition-transform ${isOpen ? 'rotate-180 text-[#008D77]' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="border-t border-[#DDE7EC] bg-[#F8FAFC] px-4 py-4 sm:px-5">
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div className="rounded-md border border-[#E1E8EE] bg-white px-3 py-3"><p className="section-label">Race profile</p><p className="mt-1 text-sm font-bold text-[#1B2738]">{venue} · {race.distance}</p></div>
+            <div className="rounded-md border border-[#E1E8EE] bg-white px-3 py-3"><p className="section-label">Market</p><p className="mt-1 text-sm font-bold text-[#7A8796]">Odds feed connecting</p></div>
+            <div className="rounded-md border border-[#E1E8EE] bg-white px-3 py-3"><p className="section-label">BetMate price</p><p className="mt-1 text-sm font-bold text-[#7A8796]">Racing Engine in build</p></div>
+          </div>
+          <div className="mt-3 flex items-center justify-between rounded-md border border-dashed border-[#CBD5E1] bg-white px-3 py-3"><span className="text-[11px] text-[#718096]">Runners, odds, form and race intelligence will load here.</span><span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#008D77]">Preview</span></div>
+        </div>
+      )}
+    </article>
+  );
+}
+
 export default function RacingPage() {
   const [state, setState] = useState<State>('NSW');
+  const [expandedRace, setExpandedRace] = useState<number | null>(null);
 
   useEffect(() => {
     const requestedState = new URLSearchParams(window.location.search).get('state');
@@ -60,7 +92,7 @@ export default function RacingPage() {
               <p className="mt-3 max-w-xl text-sm leading-6 text-[#A9B6C7]">NSW and Victorian thoroughbred meetings. Odds, form and BetMate pricing will appear here as the Racing Engine comes online.</p>
             </div>
             <div className="inline-flex rounded-md border border-[#283440] bg-[#111820] p-1">
-              {(['NSW', 'VIC'] as State[]).map((item) => <button key={item} onClick={() => setState(item)} className={`min-w-24 rounded px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors ${state === item ? 'bg-[#00DEB8] text-[#06120F]' : 'text-[#7E8A9A] hover:text-white'}`}>{item === 'VIC' ? 'Victoria' : 'NSW'}</button>)}
+              {(['NSW', 'VIC'] as State[]).map((item) => <button key={item} onClick={() => { setState(item); setExpandedRace(null); }} className={`min-w-24 rounded px-4 py-2.5 text-[11px] font-mono font-bold uppercase tracking-widest transition-colors ${state === item ? 'bg-[#00DEB8] text-[#06120F]' : 'text-[#7E8A9A] hover:text-white'}`}>{item === 'VIC' ? 'Victoria' : 'NSW'}</button>)}
             </div>
           </div>
         </div>
@@ -76,13 +108,10 @@ export default function RacingPage() {
             <div className="flex items-center gap-2 rounded-md bg-[#F4F7F9] px-3 py-2 text-[11px] font-mono font-bold uppercase tracking-wider text-[#667085]"><Clock3 className="h-3.5 w-3.5 text-[#00A98E]" /> First race {card.first}</div>
           </div>
 
-          <div className="grid divide-y divide-[#E8EDF2] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
-            {card.races.map((race) => <Link href="#" onClick={(event) => event.preventDefault()} key={race.number} className="group flex min-h-[128px] flex-col justify-between p-5 transition-colors hover:bg-[#F7FFFC] sm:border-b sm:border-[#E8EDF2] lg:[&:nth-last-child(-n+5)]:border-b-0">
-              <div className="flex items-start justify-between gap-3"><div className="flex h-8 min-w-8 items-center justify-center rounded bg-[#101820] text-[12px] font-mono font-bold text-white">R{race.number}</div><div className="flex items-center gap-1 text-[11px] font-mono text-[#8793A2]">{race.time}<ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></div></div>
-              <div className="mt-4"><p className="text-sm font-bold leading-5 text-[#172033]">{race.name}</p><div className="mt-2 flex items-center justify-between"><span className="text-[11px] font-mono font-bold tracking-wide text-[#6E7B8C]">{race.distance}</span>{race.status ? <span className="rounded border border-[#00DEB8]/40 bg-[#E8FCF7] px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase tracking-widest text-[#008D77]">{race.status}</span> : <span className="text-[10px] font-mono uppercase tracking-widest text-[#A4AFBC]">Coming soon</span>}</div></div>
-            </Link>)}
+          <div className="space-y-3 bg-[#F0F2F5] p-3 sm:p-4">
+            {card.races.map((race) => <RaceCard key={race.number} race={race} venue={card.venue} isOpen={expandedRace === race.number} onToggle={() => setExpandedRace((open) => open === race.number ? null : race.number)} />)}
           </div>
-          <div className="flex flex-col gap-2 border-t border-[#E2E8F0] bg-[#F8FAFC] px-5 py-4 text-[11px] text-[#6B7280] sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>Preview card only — fixtures, runners, prices and ratings are not connected yet.</span><span className="inline-flex items-center gap-1 font-mono font-bold uppercase tracking-wider text-[#008D77]">Racing Engine in build <ArrowUpRight className="h-3.5 w-3.5" /></span></div>
+          <div className="flex flex-col gap-2 border-t border-[#E2E8F0] bg-[#F8FAFC] px-5 py-4 text-[11px] text-[#6B7280] sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>Preview only — select a race to open its detail card. Live runners, pricing and odds are not connected yet.</span><span className="inline-flex items-center gap-1 font-mono font-bold uppercase tracking-wider text-[#008D77]">Racing Engine in build <ArrowUpRight className="h-3.5 w-3.5" /></span></div>
         </section>
       </main>
     </div>
