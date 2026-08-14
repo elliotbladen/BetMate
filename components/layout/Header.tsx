@@ -10,6 +10,7 @@ import type { TopTab } from '@/lib/sports';
 
 const NAV = [
   { label: 'Odds',     href: '/odds'     },
+  { label: 'Racing',   href: '/racing'   },
   { label: 'Tools',    href: '/tools'    },
   { label: 'Research', href: '/research' },
 ];
