@@ -7,6 +7,7 @@ const PUBLIC_PATHS = [
   '/baz-concept',
   '/mobile-concept',
   '/odds',
+  '/racing',
   '/odds-concept',
   '/odds-detail-concept',
   '/research',
@@ -35,14 +36,21 @@ const PUBLIC_PATHS = [
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Geo cookie — Vercel injects x-vercel-ip-country on every request
+  const country = request.headers.get('x-vercel-ip-country') ?? '';
+
   // Always allow public auth routes
   if (PUBLIC_PATHS.some(p => pathname === p || pathname.startsWith(`${p}/`))) {
-    return NextResponse.next();
+    const res = NextResponse.next();
+    if (country) res.cookies.set('betmate-country', country, { path: '/', maxAge: 86400 });
+    return res;
   }
 
   const response = NextResponse.next({
     request: { headers: request.headers },
   });
+
+  if (country) response.cookies.set('betmate-country', country, { path: '/', maxAge: 86400 });
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
@@ -84,5 +92,5 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   // Run on all routes except Next.js internals and static files
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.png$).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|robots\\.txt|sitemap\\.xml|.*\\.png$).*)'],
 };
