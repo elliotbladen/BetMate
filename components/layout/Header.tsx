@@ -10,7 +10,6 @@ import type { TopTab } from '@/lib/sports';
 
 const NAV = [
   { label: 'Odds',     href: '/odds'     },
-  { label: 'Racing',   href: '/racing'   },
   { label: 'Tools',    href: '/tools'    },
   { label: 'Research', href: '/research' },
 ];
@@ -19,6 +18,7 @@ export default function Header() {
   const pathname     = usePathname();
   const searchParams = useSearchParams();
   const isOdds       = pathname === '/odds' || pathname.startsWith('/odds/');
+  const isRacing     = pathname === '/racing' || pathname.startsWith('/racing/');
   const sportParam   = searchParams.get('sport')?.toUpperCase();
   const activeSport  = isSportId(sportParam) ? sportParam : 'NRL';
   const demoMode     = isLocalDemoMode();
@@ -64,8 +64,8 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Sport tabs - only on odds page */}
-          {isOdds && (
+          {/* Sport tabs */}
+          {(isOdds || isRacing) && (
             <div className="flex items-center gap-0 border border-[#252525] rounded-md shrink-0">
               {TOP_TABS.map((tab, i) => {
                 const activeTop = topTabForSport(activeSport);
@@ -134,6 +134,17 @@ export default function Header() {
                   </Link>
                 );
               })}
+              <Link
+                href="/racing"
+                className={[
+                  'border-l border-[#252525] px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
+                  isRacing
+                    ? 'bg-[#00DEB8] text-black'
+                    : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
+                ].join(' ')}
+              >
+                Racing
+              </Link>
             </div>
           )}
 
