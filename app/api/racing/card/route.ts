@@ -62,6 +62,7 @@ export async function GET(request: NextRequest) {
     );
   } catch (error) {
     console.error('Owner racing card request failed:', error);
-    return NextResponse.json({ error: 'Unable to load the owner racecard right now.' }, { status: 502 });
+    const message = error instanceof Error ? error.message : 'Unable to load the Racing beta card right now.';
+    return NextResponse.json({ error: message }, { status: 502 });
   }
 }
