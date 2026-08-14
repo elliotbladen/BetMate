@@ -86,6 +86,7 @@ export default function RacingPage() {
   const [expandedRace, setExpandedRace] = useState<number | null>(null);
   const [liveMeeting, setLiveMeeting] = useState<{ track: string; races: Race[] } | null>(null);
   const [liveLoading, setLiveLoading] = useState(false);
+  const [liveError, setLiveError] = useState<string | null>(null);
 
   const saturday = (() => {
     const now = new Date();
@@ -102,9 +103,16 @@ export default function RacingPage() {
   useEffect(() => {
     let cancelled = false;
     setLiveMeeting(null);
+    setLiveError(null);
     setLiveLoading(true);
     fetch(`/api/racing/card?state=${state}&date=${saturday}`, { cache: 'no-store' })
-      .then(async (response) => response.ok ? response.json() as Promise<LiveResponse> : null)
+      .then(async (response) => {
+        const data = await response.json().catch(() => null) as (LiveResponse & { error?: string }) | null;
+        if (!response.ok) {
+          throw new Error(data?.error || `Owner racecard request failed (${response.status}).`);
+        }
+        return data;
+      })
       .then((data) => {
         if (cancelled || !data?.meeting) return;
         setLiveMeeting({
@@ -118,7 +126,7 @@ export default function RacingPage() {
           })),
         });
       })
-      .catch(() => undefined)
+      .catch((error: Error) => { if (!cancelled) setLiveError(error.message); })
       .finally(() => { if (!cancelled) setLiveLoading(false); });
     return () => { cancelled = true; };
   }, [state, saturday]);
@@ -157,6 +165,7 @@ export default function RacingPage() {
 
           <div className="space-y-3 bg-[#F0F2F5] p-3 sm:p-4">
             {liveLoading && <div className="px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#008D77]">Loading owner racecard…</div>}
+            {liveError && <div className="rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-[11px] text-amber-900">Owner card not loaded: {liveError}</div>}
             {card.races.map((race) => <RaceCard key={race.number} race={race} venue={card.venue} isOpen={expandedRace === race.number} onToggle={() => setExpandedRace((open) => open === race.number ? null : race.number)} />)}
           </div>
           <div className="flex flex-col gap-2 border-t border-[#E2E8F0] bg-[#F8FAFC] px-5 py-4 text-[11px] text-[#6B7280] sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>Preview only — select a race to open its detail card. Live runners, pricing and odds are not connected yet.</span><span className="inline-flex items-center gap-1 font-mono font-bold uppercase tracking-wider text-[#008D77]">Racing Engine in build <ArrowUpRight className="h-3.5 w-3.5" /></span></div>
