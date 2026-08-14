@@ -26,13 +26,14 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [footballDropdownOpen, setFootballDropdownOpen] = useState(false);
+  const [racingDropdownOpen, setRacingDropdownOpen] = useState(false);
 
   useEffect(() => {
-    if (!dropdownOpen && !footballDropdownOpen) return;
-    const close = () => { setDropdownOpen(false); setFootballDropdownOpen(false); };
+    if (!dropdownOpen && !footballDropdownOpen && !racingDropdownOpen) return;
+    const close = () => { setDropdownOpen(false); setFootballDropdownOpen(false); setRacingDropdownOpen(false); };
     document.addEventListener('click', close);
     return () => document.removeEventListener('click', close);
-  }, [dropdownOpen, footballDropdownOpen]);
+  }, [dropdownOpen, footballDropdownOpen, racingDropdownOpen]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -133,17 +134,29 @@ export default function Header() {
                   </Link>
                 );
               })}
-              <Link
-                href="/racing"
-                className={[
-                  'border-l border-[#252525] px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
-                  isRacing
-                    ? 'bg-[#00DEB8] text-black'
-                    : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
-                ].join(' ')}
-              >
-                Racing
-              </Link>
+              <div className="relative">
+                <button
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setRacingDropdownOpen((open) => !open);
+                  }}
+                  className={[
+                    'border-l border-[#252525] px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center gap-1',
+                    isRacing
+                      ? 'bg-[#00DEB8] text-black'
+                      : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
+                  ].join(' ')}
+                >
+                  Racing
+                  <svg className={`w-3 h-3 transition-transform ${racingDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                {racingDropdownOpen && (
+                  <div className="absolute right-0 top-full mt-1 min-w-[142px] overflow-hidden rounded-md border border-[#252525] bg-[#111] shadow-xl z-50">
+                    <Link href="/racing?state=NSW" onClick={() => setRacingDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest text-[#888] transition-colors hover:bg-[#1A1A1A] hover:text-white">NSW Racing</Link>
+                    <Link href="/racing?state=VIC" onClick={() => setRacingDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest text-[#888] transition-colors hover:bg-[#1A1A1A] hover:text-white">Victoria Racing</Link>
+                  </div>
+                )}
+              </div>
           </div>
 
           {/* Nav -- desktop */}

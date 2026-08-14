@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, ChevronRight, Clock3, MapPin, Trophy } from 'lucide-react';
 
@@ -41,6 +41,12 @@ const CARDS: Record<State, { meeting: string; venue: string; surface: string; ra
 
 export default function RacingPage() {
   const [state, setState] = useState<State>('NSW');
+
+  useEffect(() => {
+    const requestedState = new URLSearchParams(window.location.search).get('state');
+    if (requestedState === 'NSW' || requestedState === 'VIC') setState(requestedState);
+  }, []);
+
   const card = CARDS[state];
 
   return (
