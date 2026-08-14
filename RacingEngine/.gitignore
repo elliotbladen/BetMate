@@ -1,0 +1,6 @@
+# Local RacingEngine data and credentials
+data/
+.env
+.env.*
+__pycache__/
+*.py[cod]
