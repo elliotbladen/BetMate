@@ -1,6 +1,4 @@
-import { createServerClient } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
-import { isOwnerEmail } from '@/lib/owner';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -11,18 +9,6 @@ const TRACKS = {
 } as const;
 
 type State = keyof typeof TRACKS;
-
-async function requestEmail(request: NextRequest): Promise<string | null> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
-  if (!url || !key) return null;
-
-  const supabase = createServerClient(url, key, {
-    cookies: { getAll: () => request.cookies.getAll(), setAll: () => {} },
-  });
-  const { data: { user } } = await supabase.auth.getUser();
-  return user?.email ?? null;
-}
 
 async function formFav(path: string, params: Record<string, string>): Promise<Record<string, unknown>> {
   const apiKey = process.env.FORMFAV_API_KEY?.trim();
@@ -43,11 +29,6 @@ async function formFav(path: string, params: Record<string, string>): Promise<Re
 }
 
 export async function GET(request: NextRequest) {
-  const email = await requestEmail(request);
-  if (!isOwnerEmail(email)) {
-    return NextResponse.json({ error: 'Owner access required.' }, { status: 403 });
-  }
-
   const stateParam = request.nextUrl.searchParams.get('state');
   const date = request.nextUrl.searchParams.get('date');
   if ((stateParam !== 'NSW' && stateParam !== 'VIC') || !date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
