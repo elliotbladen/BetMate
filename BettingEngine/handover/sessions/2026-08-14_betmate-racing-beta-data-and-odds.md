@@ -1,0 +1,94 @@
+# 2026-08-14 — BetMate Racing beta: live racecards and odds decision
+
+## Product scope agreed
+
+- Keep the product under **BetMate** (not a separate RaceMate brand).
+- First-year racing scope is **Saturday metropolitan thoroughbreds only** in
+  NSW and Victoria.
+- Racing is currently an internal/private beta. The longer-term product is the
+  serious-punter workbench described in
+  `handover/sessions/2026-08-14_betmate-racing-race-digital-twin.md`.
+
+## What is live on BetMate
+
+- The main sport strip has a Racing menu beside NRL, AFL and Football, with
+  NSW Racing and Victoria Racing choices.
+- `/racing` has compact expandable race cards. Opening a card shows the actual
+  runner list, jockey, trainer, barrier, weight, form and scratch status.
+- The live card source is FormFav. The deployed server route is
+  `BetMate/app/api/racing/card/route.ts`; the page is
+  `BetMate/app/racing/page.tsx`.
+- FormFav key setup:
+  - Local key is stored at `BettingEngine/.env.formfav.local` (never commit or
+    print it).
+  - Vercel uses `FORMFAV_API_KEY` in **Production and Preview**.
+  - A fresh deployment was pushed in commit `21fba3b`; production then
+    returned Rosehill's full card successfully. The earlier empty UI was a
+    Vercel key/deployment issue, now resolved.
+- Current production card response has real entries such as runner name,
+  jockey, trainer, barrier, weight, career form and scratches. FormFav does
+  **not** provide bookmaker odds or BetMate fair odds.
+
+## RacingEngine
+
+- `../RacingEngine` is a sibling Python project, intentionally separate from
+  `BettingEngine`.
+- It imports authorised FormFav racecards into local SQLite and archives raw
+  payloads. Core files:
+  - `RacingEngine/racing_engine/formfav.py`
+  - `RacingEngine/racing_engine/import_saturday.py`
+  - `RacingEngine/racing_engine/storage.py`
+- Validated for 2026-08-15:
+  - NSW Rosehill: 10 races, 140 runners
+  - VIC Caulfield: 9 races, 126 runners
+- The database and raw source data remain local/ignored. It has no fair-price
+  model yet; never label a market price as a BetMate true/fair price.
+
+## PunterEdge research and decision
+
+The desired final UI is an AFL/NRL-style odds matrix:
+
+- compact runner row: horse, jockey, trainer, barrier, weight and form;
+- 6–8 bookmaker **win** prices across each runner, with best price highlighted
+  and source timestamp;
+- later, a separate BetMate fair-price/edge column supplied by RacingEngine.
+
+PunterEdge does return runner-level bookmaker arrays (`key`, `win_price`,
+`place_price`, `last_update`, `age_seconds`) from
+`GET /api/v1/racing/next-to-go`. It is useful for near-jump odds monitoring,
+price snapshots, best-price comparisons, alerts and Betfair back/lay work.
+
+However, the current key/feed must **not** be treated as a full Saturday
+racecard odds provider:
+
+- its documented `events` look-ahead is capped at 24 hours;
+- on the live test it returned only seven imminent races;
+- the observed runner sample had only one bookmaker (`pointsbetau`);
+- it therefore cannot reliably populate all NSW/VIC Saturday races with six to
+  eight bookmaker columns early in the week.
+
+Do not add a fake or predominantly empty odds grid. Need either (1) a
+PunterEdge plan/endpoint that guarantees full upcoming-meeting coverage and
+the desired bookmaker depth, or (2) a different properly licensed full
+meeting odds provider. Once one is confirmed, add a server-only adapter with
+the Vercel secret `PUNTERSEDGE_API_KEY` (or the replacement provider key),
+match runners by canonical track/race/runner number, and render the grid above.
+
+Relevant provider docs:
+https://puntersedge.online/developers
+
+## Recent BetMate commits
+
+- `7edb2b1` — racing expandable cards
+- `0e9ee2d` — RacingEngine scaffold
+- `c3349fd` / `295c113` / `b5ed0c8` / `d67d72c` — FormFav card route and beta
+  feed corrections
+- `21fba3b` — empty production deployment to load corrected FormFav Vercel env
+
+## Next session
+
+1. Confirm a licensed odds feed capable of full Saturday cards plus 6–8 books.
+2. Add provider key only as a Vercel secret; do not expose it to the browser.
+3. Build the odds adapter and compact runner-by-bookmaker matrix.
+4. Build RacingEngine performance ratings and fair odds separately, then add
+   a clearly labelled fair-price/edge column.
