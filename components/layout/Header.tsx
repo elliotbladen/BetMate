@@ -64,11 +64,10 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Sport tabs */}
-          {(isOdds || isRacing) && (
-            <div className="flex items-center gap-0 border border-[#252525] rounded-md shrink-0">
+          {/* Primary sports */}
+          <div className="flex items-center gap-0 border border-[#252525] rounded-md shrink-0">
               {TOP_TABS.map((tab, i) => {
-                const activeTop = topTabForSport(activeSport);
+                const activeTop = isOdds ? topTabForSport(activeSport) : null;
                 const isActive = activeTop === tab;
 
                 if (tab === 'Football') {
@@ -145,8 +144,7 @@ export default function Header() {
               >
                 Racing
               </Link>
-            </div>
-          )}
+          </div>
 
           {/* Nav -- desktop */}
           <nav className="hidden sm:flex items-center gap-1 ml-auto">
