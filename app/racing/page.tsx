@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import { ArrowUpRight, ChevronDown, Clock3, MapPin, Trophy } from 'lucide-react';
 
 type State = 'NSW' | 'VIC';
-type Race = { number: number; time: string; name: string; distance: string; status?: string };
+type Runner = { number: number; name: string; jockey?: string | null; trainer?: string | null; barrier?: number | null; weight?: number | null; form?: string | null; scratched?: boolean };
+type Race = { number: number; time: string; name: string; distance: string; status?: string; condition?: string; raceClass?: string; runners?: Runner[] };
 type RaceCardProps = { race: Race; venue: string; isOpen: boolean; onToggle: () => void };
+type LiveResponse = { meeting: { track: string; races: Array<{ raceNumber: number; raceName?: string; startTime?: string; distance?: string; condition?: string; raceClass?: string; runners?: Array<{ number: number; name: string; jockey?: string; trainer?: string; barrier?: number; weight?: number; form?: string; last10Starts?: string; scratched?: boolean; isScratched?: boolean }> }> } | null };
 
 const CARDS: Record<State, { meeting: string; venue: string; surface: string; rail: string; first: string; races: Race[] }> = {
   NSW: {
@@ -58,11 +60,20 @@ function RaceCard({ race, venue, isOpen, onToggle }: RaceCardProps) {
 
       {isOpen && (
         <div className="border-t border-[#DDE7EC] bg-[#F8FAFC] px-4 py-4 sm:px-5">
+          {race.runners?.length ? (
+            <div className="overflow-x-auto rounded-md border border-[#E1E8EE] bg-white">
+              <table className="w-full min-w-[660px] text-left">
+                <thead className="border-b border-[#E1E8EE] bg-[#F8FAFC] text-[10px] font-mono font-bold uppercase tracking-widest text-[#7A8796]"><tr><th className="px-3 py-2.5">#</th><th className="px-3 py-2.5">Runner</th><th className="px-3 py-2.5">Jockey</th><th className="px-3 py-2.5">Trainer</th><th className="px-3 py-2.5">Bar</th><th className="px-3 py-2.5">Wgt</th><th className="px-3 py-2.5">Form</th></tr></thead>
+                <tbody>{race.runners.map((runner) => <tr key={runner.number} className={`border-b border-[#EEF2F6] last:border-0 ${runner.scratched ? 'opacity-40 line-through' : ''}`}><td className="px-3 py-2.5 font-mono text-xs text-[#718096]">{runner.number}</td><td className="px-3 py-2.5 text-sm font-bold text-[#172033]">{runner.name}{runner.scratched && <span className="ml-2 text-[9px] font-mono uppercase tracking-widest text-red-500">Scratched</span>}</td><td className="px-3 py-2.5 text-xs text-[#526174]">{runner.jockey || '—'}</td><td className="px-3 py-2.5 text-xs text-[#526174]">{runner.trainer || '—'}</td><td className="px-3 py-2.5 font-mono text-xs text-[#526174]">{runner.barrier ?? '—'}</td><td className="px-3 py-2.5 font-mono text-xs text-[#526174]">{runner.weight ?? '—'}</td><td className="px-3 py-2.5 font-mono text-xs text-[#526174]">{runner.form || '—'}</td></tr>)}</tbody>
+              </table>
+            </div>
+          ) : (
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-md border border-[#E1E8EE] bg-white px-3 py-3"><p className="section-label">Race profile</p><p className="mt-1 text-sm font-bold text-[#1B2738]">{venue} · {race.distance}</p></div>
             <div className="rounded-md border border-[#E1E8EE] bg-white px-3 py-3"><p className="section-label">Market</p><p className="mt-1 text-sm font-bold text-[#7A8796]">Odds feed connecting</p></div>
             <div className="rounded-md border border-[#E1E8EE] bg-white px-3 py-3"><p className="section-label">BetMate price</p><p className="mt-1 text-sm font-bold text-[#7A8796]">Racing Engine in build</p></div>
           </div>
+          )}
           <div className="mt-3 flex items-center justify-between rounded-md border border-dashed border-[#CBD5E1] bg-white px-3 py-3"><span className="text-[11px] text-[#718096]">Runners, odds, form and race intelligence will load here.</span><span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#008D77]">Preview</span></div>
         </div>
       )}
@@ -73,13 +84,49 @@ function RaceCard({ race, venue, isOpen, onToggle }: RaceCardProps) {
 export default function RacingPage() {
   const [state, setState] = useState<State>('NSW');
   const [expandedRace, setExpandedRace] = useState<number | null>(null);
+  const [liveMeeting, setLiveMeeting] = useState<{ track: string; races: Race[] } | null>(null);
+  const [liveLoading, setLiveLoading] = useState(false);
+
+  const saturday = (() => {
+    const now = new Date();
+    const daysUntilSaturday = (6 - now.getDay() + 7) % 7;
+    now.setDate(now.getDate() + daysUntilSaturday);
+    return now.toISOString().slice(0, 10);
+  })();
 
   useEffect(() => {
     const requestedState = new URLSearchParams(window.location.search).get('state');
     if (requestedState === 'NSW' || requestedState === 'VIC') setState(requestedState);
   }, []);
 
-  const card = CARDS[state];
+  useEffect(() => {
+    let cancelled = false;
+    setLiveMeeting(null);
+    setLiveLoading(true);
+    fetch(`/api/racing/card?state=${state}&date=${saturday}`, { cache: 'no-store' })
+      .then(async (response) => response.ok ? response.json() as Promise<LiveResponse> : null)
+      .then((data) => {
+        if (cancelled || !data?.meeting) return;
+        setLiveMeeting({
+          track: data.meeting.track,
+          races: data.meeting.races.map((race) => ({
+            number: race.raceNumber,
+            name: race.raceName || `Race ${race.raceNumber}`,
+            time: race.startTime ? new Date(race.startTime).toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Australia/Sydney' }).toUpperCase() : 'TBA',
+            distance: race.distance || '—', condition: race.condition, raceClass: race.raceClass,
+            runners: (race.runners ?? []).map((runner) => ({ ...runner, form: runner.form || runner.last10Starts, scratched: Boolean(runner.scratched || runner.isScratched) })),
+          })),
+        });
+      })
+      .catch(() => undefined)
+      .finally(() => { if (!cancelled) setLiveLoading(false); });
+    return () => { cancelled = true; };
+  }, [state, saturday]);
+
+  const placeholderCard = CARDS[state];
+  const card = liveMeeting
+    ? { ...placeholderCard, meeting: `${liveMeeting.track} Saturday`, venue: liveMeeting.track, surface: liveMeeting.races[0]?.condition || 'Condition TBC', rail: 'TBC', races: liveMeeting.races }
+    : placeholderCard;
 
   return (
     <div className="min-h-[calc(100dvh-60px)] bg-[#F0F2F5]">
@@ -103,12 +150,13 @@ export default function RacingPage() {
           <div className="flex flex-col gap-4 border-b border-[#E2E8F0] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="flex items-start gap-3">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-[#111827] text-[11px] font-mono font-bold tracking-wider text-[#00DEB8]">{state}</div>
-              <div><p className="section-label">Saturday · card preview</p><h2 className="mt-1 text-xl font-bold tracking-tight text-[#111827]">{card.meeting}</h2><div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-[#718096]"><span className="inline-flex items-center gap-1"><MapPin className="h-3.5 w-3.5" />{card.venue}</span><span>{card.surface}</span><span>Rail {card.rail}</span></div></div>
+              <div><p className="section-label">Saturday · {liveMeeting ? 'owner live card' : 'card preview'}</p><h2 className="mt-1 text-xl font-bold tracking-tight text-[#111827]">{card.meeting}</h2><div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-[#718096]"><span className="inline-flex items-center gap-1"><MapPin className="h-3.5 w-3.5" />{card.venue}</span><span>{card.surface}</span><span>Rail {card.rail}</span></div></div>
             </div>
             <div className="flex items-center gap-2 rounded-md bg-[#F4F7F9] px-3 py-2 text-[11px] font-mono font-bold uppercase tracking-wider text-[#667085]"><Clock3 className="h-3.5 w-3.5 text-[#00A98E]" /> First race {card.first}</div>
           </div>
 
           <div className="space-y-3 bg-[#F0F2F5] p-3 sm:p-4">
+            {liveLoading && <div className="px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#008D77]">Loading owner racecard…</div>}
             {card.races.map((race) => <RaceCard key={race.number} race={race} venue={card.venue} isOpen={expandedRace === race.number} onToggle={() => setExpandedRace((open) => open === race.number ? null : race.number)} />)}
           </div>
           <div className="flex flex-col gap-2 border-t border-[#E2E8F0] bg-[#F8FAFC] px-5 py-4 text-[11px] text-[#6B7280] sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>Preview only — select a race to open its detail card. Live runners, pricing and odds are not connected yet.</span><span className="inline-flex items-center gap-1 font-mono font-bold uppercase tracking-wider text-[#008D77]">Racing Engine in build <ArrowUpRight className="h-3.5 w-3.5" /></span></div>
