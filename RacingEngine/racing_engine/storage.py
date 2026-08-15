@@ -73,6 +73,88 @@ CREATE TABLE IF NOT EXISTS runners (
     FOREIGN KEY (source, race_date, track_slug, race_number)
       REFERENCES races(source, race_date, track_slug, race_number) ON DELETE CASCADE
 );
+
+-- Official results are kept separate from the declared card. A card changes
+-- through scratchings; a result is an immutable record of what was run.
+CREATE TABLE IF NOT EXISTS race_results (
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    state TEXT NOT NULL,
+    official_time_seconds REAL,
+    track_condition TEXT,
+    rail_position TEXT,
+    source_url TEXT,
+    raw_json TEXT NOT NULL,
+    imported_at TEXT NOT NULL,
+    PRIMARY KEY (source, race_date, track_slug, race_number)
+);
+
+CREATE TABLE IF NOT EXISTS runner_results (
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    runner_name TEXT NOT NULL,
+    finish_position INTEGER,
+    beaten_lengths REAL,
+    finish_time_seconds REAL,
+    result_status TEXT NOT NULL DEFAULT 'finished',
+    raw_json TEXT NOT NULL,
+    imported_at TEXT NOT NULL,
+    PRIMARY KEY (source, race_date, track_slug, race_number, runner_number),
+    FOREIGN KEY (source, race_date, track_slug, race_number)
+      REFERENCES race_results(source, race_date, track_slug, race_number) ON DELETE CASCADE
+);
+
+-- One row per runner per observed marker. `section_seconds` is the time from
+-- the preceding marker; marker_metres is distance remaining to the finish.
+CREATE TABLE IF NOT EXISTS runner_sectionals (
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    marker_metres INTEGER NOT NULL,
+    section_seconds REAL,
+    position_at_marker INTEGER,
+    distance_travelled_metres REAL,
+    speed_kmh REAL,
+    source_url TEXT,
+    raw_json TEXT NOT NULL,
+    imported_at TEXT NOT NULL,
+    PRIMARY KEY (source, race_date, track_slug, race_number, runner_number, marker_metres)
+);
+
+CREATE TABLE IF NOT EXISTS rating_snapshots (
+    model_version TEXT NOT NULL,
+    as_of_date TEXT NOT NULL,
+    horse_key TEXT NOT NULL,
+    horse_name TEXT NOT NULL,
+    rating REAL NOT NULL,
+    races_rated INTEGER NOT NULL,
+    reliability REAL NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (model_version, as_of_date, horse_key)
+);
+
+CREATE TABLE IF NOT EXISTS fair_prices (
+    model_version TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    horse_name TEXT NOT NULL,
+    win_probability REAL NOT NULL,
+    fair_odds REAL NOT NULL,
+    confidence REAL NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (model_version, race_date, track_slug, race_number, runner_number)
+);
 """
 
 
@@ -141,3 +223,59 @@ class RacingStore:
                 runner_count += 1
         self.connection.commit()
         return runner_count
+
+    def upsert_result(
+        self,
+        *,
+        source: str,
+        race_date: str,
+        state: str,
+        track_slug: str,
+        race_number: int,
+        official_time_seconds: float | None,
+        track_condition: str | None,
+        rail_position: str | None,
+        source_url: str | None,
+        raw_race: dict[str, Any],
+        runners: list[dict[str, Any]],
+    ) -> None:
+        """Upsert one official result and its runner outcomes.
+
+        Inputs are already normalised by the importer. Keeping raw payloads on
+        every row makes a later source correction auditable.
+        """
+        now = utc_now()
+        self.connection.execute(
+            """INSERT INTO race_results (source, race_date, track_slug, race_number, state, official_time_seconds, track_condition, rail_position, source_url, raw_json, imported_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(source, race_date, track_slug, race_number) DO UPDATE SET
+                 state=excluded.state, official_time_seconds=excluded.official_time_seconds,
+                 track_condition=excluded.track_condition, rail_position=excluded.rail_position,
+                 source_url=excluded.source_url, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
+            (source, race_date, track_slug, race_number, state, official_time_seconds, track_condition, rail_position, source_url, json.dumps(raw_race), now),
+        )
+        for runner in runners:
+            self.connection.execute(
+                """INSERT INTO runner_results (source, race_date, track_slug, race_number, runner_number, runner_name, finish_position, beaten_lengths, finish_time_seconds, result_status, raw_json, imported_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                   ON CONFLICT(source, race_date, track_slug, race_number, runner_number) DO UPDATE SET
+                     runner_name=excluded.runner_name, finish_position=excluded.finish_position,
+                     beaten_lengths=excluded.beaten_lengths, finish_time_seconds=excluded.finish_time_seconds,
+                     result_status=excluded.result_status, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
+                (source, race_date, track_slug, race_number, runner["runner_number"], runner["runner_name"], runner.get("finish_position"), runner.get("beaten_lengths"), runner.get("finish_time_seconds"), runner.get("result_status", "finished"), json.dumps(runner), now),
+            )
+        self.connection.commit()
+
+    def upsert_sectionals(self, rows: list[dict[str, Any]]) -> None:
+        now = utc_now()
+        for row in rows:
+            self.connection.execute(
+                """INSERT INTO runner_sectionals (source, race_date, track_slug, race_number, runner_number, marker_metres, section_seconds, position_at_marker, distance_travelled_metres, speed_kmh, source_url, raw_json, imported_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                   ON CONFLICT(source, race_date, track_slug, race_number, runner_number, marker_metres) DO UPDATE SET
+                     section_seconds=excluded.section_seconds, position_at_marker=excluded.position_at_marker,
+                     distance_travelled_metres=excluded.distance_travelled_metres, speed_kmh=excluded.speed_kmh,
+                     source_url=excluded.source_url, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
+                (row["source"], row["race_date"], row["track_slug"], row["race_number"], row["runner_number"], row["marker_metres"], row.get("section_seconds"), row.get("position_at_marker"), row.get("distance_travelled_metres"), row.get("speed_kmh"), row.get("source_url"), json.dumps(row), now),
+            )
+        self.connection.commit()

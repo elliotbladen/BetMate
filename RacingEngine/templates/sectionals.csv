@@ -1,0 +1,3 @@
+race_date,state,track_slug,race_number,runner_number,marker_metres,section_seconds,position_at_marker,distance_travelled_metres,speed_kmh,source_url
+2026-08-01,NSW,randwick,1,1,600,11.20,1,0,64.3,https://authorised-source.example/sectionals
+2026-08-01,NSW,randwick,1,1,400,11.05,1,0,65.1,https://authorised-source.example/sectionals

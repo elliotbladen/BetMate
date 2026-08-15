@@ -1,0 +1,3 @@
+race_date,state,track_slug,race_number,runner_number,runner_name,finish_position,beaten_lengths,official_time_seconds,finish_time_seconds,track_condition,rail_position,result_status,source_url
+2026-08-01,NSW,randwick,1,1,Example Winner,1,0,82.44,82.44,Good 4,True,finished,https://authorised-source.example/results
+2026-08-01,NSW,randwick,1,2,Example Runner,2,1.25,82.44,82.65,Good 4,True,finished,https://authorised-source.example/results
