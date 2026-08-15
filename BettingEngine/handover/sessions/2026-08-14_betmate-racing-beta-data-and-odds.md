@@ -5,7 +5,9 @@
 - Keep the product under **BetMate** (not a separate RaceMate brand).
 - First-year racing scope is **Saturday metropolitan thoroughbreds only** in
   NSW and Victoria.
-- Racing is currently an internal/private beta. The longer-term product is the
+- RacingEngine is currently an approved **internal, non-commercial BetMate
+  research project**. It is not a customer data product or public raw-data
+  feed. The longer-term product is the
   serious-punter workbench described in
   `handover/sessions/2026-08-14_betmate-racing-race-digital-twin.md`.
 
@@ -114,3 +116,18 @@ https://puntersedge.online/developers
 - Database currently has **zero result races and zero sectional rows**. Do not
   run/publish the shadow model as a meaningful price until official results,
   beaten lengths and sectionals have been loaded from the canonical templates.
+
+## 2026-08-15 — approved research data access
+
+- User confirmed verbal approval from **Racing NSW** and **Racing Victoria**
+  for non-commercial research use. Keep the project internal, retain source
+  provenance, and do not redistribute raw feeds or represent this as a
+  commercial/public licence.
+- Racing NSW official CSV results importer implemented and used for 2026-08-01
+  Rosehill (10 races, 109 finishers) and 2026-08-08 Randwick (10 races, 100
+  finishers). Both official sectional PDFs are archived.
+- Racing.com/RV's public application uses
+  `https://api.racing.com/race/splitsandsectionals/{meeting}/{race}` and offers
+  TripleSdata CSV where available. Need resolve historic meeting codes, then
+  add the equivalent VIC importer. Do not assume its response schema matches
+  Racing NSW.

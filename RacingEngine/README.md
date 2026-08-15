@@ -1,6 +1,7 @@
 # RacingEngine
 
-Internal-only horse-racing data and pricing engine for BetMate.
+Approved internal **BetMate research project** for horse-racing data and
+pricing. It is not a customer product, betting service or public data feed.
 
 The first slice ingests Saturday metropolitan thoroughbred racecards from
 FormFav into a raw archive and local SQLite database. It does **not** publish
@@ -25,7 +26,10 @@ python3 -m racing_engine.import_saturday --date 2026-08-15 --state VIC
 The importer stores raw provider responses under `data/raw/formfav/` and a
 canonical local database at `data/racing_engine.sqlite`.
 
-Current scope: NSW/Victoria metropolitan Saturday thoroughbreds only.
+Current scope: NSW/Victoria metropolitan Saturday thoroughbreds only. Racing
+NSW and Racing Victoria have each provided approval for this non-commercial
+research use; preserve source attribution and do not publish or redistribute
+their raw data without a separate written commercial arrangement.
 
 ## Results and sectionals: canonical imports
 
