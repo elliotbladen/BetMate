@@ -142,6 +142,21 @@ For every race date, this rebuilds pars and horse states from strictly earlier
 races, then records Brier score and log loss. It is a research diagnostic, not
 a claim of profitability or a publishable fair-price model.
 
+## Historic card and class enrichment
+
+After result ingestion, enrich historical runner metadata from the public form
+record without replacing the authoritative result/sectional raw source:
+
+```bash
+python3 -m racing_engine.enrich_history --state ALL
+python3 -m racing_engine.classify_history --state ALL
+```
+
+This records barrier, carried weight, jockey, trainer, official handicap rating
+and a categorical Group/Listed/BM/Class taxonomy. It deliberately does not
+assign an arbitrary numerical value to a class; race-strength and class effects
+must be estimated through no-look-ahead validation.
+
 ## V0 shadow ratings and prices
 
 After importing results, the first transparent rating pass is available:

@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS race_results (
     state TEXT NOT NULL,
     distance_metres INTEGER,
     race_class TEXT,
+    race_class_code TEXT,
     official_time_seconds REAL,
     track_condition TEXT,
     rail_position TEXT,
@@ -103,6 +104,11 @@ CREATE TABLE IF NOT EXISTS runner_results (
     finish_position INTEGER,
     beaten_lengths REAL,
     finish_time_seconds REAL,
+    barrier INTEGER,
+    weight_carried_kg REAL,
+    jockey TEXT,
+    trainer TEXT,
+    official_handicap_rating REAL,
     result_status TEXT NOT NULL DEFAULT 'finished',
     raw_json TEXT NOT NULL,
     imported_at TEXT NOT NULL,
@@ -237,6 +243,26 @@ CREATE TABLE IF NOT EXISTS evaluation_runs (
     PRIMARY KEY (model_version, as_of_date, evaluation_name)
 );
 
+-- Parsed, categorical race conditions.  Keep this separate from a numerical
+-- class rating: the latter must be estimated and validated, not hard-coded.
+CREATE TABLE IF NOT EXISTS race_classifications (
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    race_type TEXT,
+    class_family TEXT NOT NULL,
+    group_grade INTEGER,
+    benchmark INTEGER,
+    class_number INTEGER,
+    age_condition TEXT,
+    sex_condition TEXT,
+    raw_class_text TEXT NOT NULL,
+    parser_version TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (source, race_date, track_slug, race_number)
+);
+
 CREATE INDEX IF NOT EXISTS idx_runner_results_history
   ON runner_results (race_date, runner_name, result_status);
 CREATE INDEX IF NOT EXISTS idx_race_results_pars
@@ -259,9 +285,14 @@ class RacingStore:
     def _migrate_schema(self) -> None:
         """Add V2 columns for databases created before the historical layer."""
         columns = {row[1] for row in self.connection.execute("PRAGMA table_info(race_results)")}
-        for name, definition in (("distance_metres", "INTEGER"), ("race_class", "TEXT")):
+        for name, definition in (("distance_metres", "INTEGER"), ("race_class", "TEXT"), ("race_class_code", "TEXT")):
             if name not in columns:
                 self.connection.execute(f"ALTER TABLE race_results ADD COLUMN {name} {definition}")
+        runner_columns = {row[1] for row in self.connection.execute("PRAGMA table_info(runner_results)")}
+        for name, definition in (("barrier", "INTEGER"), ("weight_carried_kg", "REAL"), ("jockey", "TEXT"),
+                                 ("trainer", "TEXT"), ("official_handicap_rating", "REAL")):
+            if name not in runner_columns:
+                self.connection.execute(f"ALTER TABLE runner_results ADD COLUMN {name} {definition}")
         self.connection.commit()
 
     def close(self) -> None:
@@ -329,6 +360,7 @@ class RacingStore:
         race_number: int,
         distance_metres: int | None = None,
         race_class: str | None = None,
+        race_class_code: str | None = None,
         official_time_seconds: float | None,
         track_condition: str | None,
         rail_position: str | None,
@@ -343,24 +375,68 @@ class RacingStore:
         """
         now = utc_now()
         self.connection.execute(
-            """INSERT INTO race_results (source, race_date, track_slug, race_number, state, distance_metres, race_class, official_time_seconds, track_condition, rail_position, source_url, raw_json, imported_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """INSERT INTO race_results (source, race_date, track_slug, race_number, state, distance_metres, race_class, race_class_code, official_time_seconds, track_condition, rail_position, source_url, raw_json, imported_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                ON CONFLICT(source, race_date, track_slug, race_number) DO UPDATE SET
-                 state=excluded.state, distance_metres=excluded.distance_metres, race_class=excluded.race_class, official_time_seconds=excluded.official_time_seconds,
+                 state=excluded.state, distance_metres=excluded.distance_metres, race_class=excluded.race_class, race_class_code=excluded.race_class_code, official_time_seconds=excluded.official_time_seconds,
                  track_condition=excluded.track_condition, rail_position=excluded.rail_position,
                  source_url=excluded.source_url, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
-            (source, race_date, track_slug, race_number, state, distance_metres, race_class, official_time_seconds, track_condition, rail_position, source_url, json.dumps(raw_race), now),
+            (source, race_date, track_slug, race_number, state, distance_metres, race_class, race_class_code, official_time_seconds, track_condition, rail_position, source_url, json.dumps(raw_race), now),
         )
         for runner in runners:
             self.connection.execute(
-                """INSERT INTO runner_results (source, race_date, track_slug, race_number, runner_number, runner_name, finish_position, beaten_lengths, finish_time_seconds, result_status, raw_json, imported_at)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """INSERT INTO runner_results (source, race_date, track_slug, race_number, runner_number, runner_name, finish_position, beaten_lengths, finish_time_seconds, barrier, weight_carried_kg, jockey, trainer, official_handicap_rating, result_status, raw_json, imported_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                    ON CONFLICT(source, race_date, track_slug, race_number, runner_number) DO UPDATE SET
                      runner_name=excluded.runner_name, finish_position=excluded.finish_position,
                      beaten_lengths=excluded.beaten_lengths, finish_time_seconds=excluded.finish_time_seconds,
+                     barrier=excluded.barrier, weight_carried_kg=excluded.weight_carried_kg, jockey=excluded.jockey,
+                     trainer=excluded.trainer, official_handicap_rating=excluded.official_handicap_rating,
                      result_status=excluded.result_status, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
-                (source, race_date, track_slug, race_number, runner["runner_number"], runner["runner_name"], runner.get("finish_position"), runner.get("beaten_lengths"), runner.get("finish_time_seconds"), runner.get("result_status", "finished"), json.dumps(runner), now),
+                (source, race_date, track_slug, race_number, runner["runner_number"], runner["runner_name"], runner.get("finish_position"), runner.get("beaten_lengths"), runner.get("finish_time_seconds"), runner.get("barrier"), runner.get("weight_carried_kg"), runner.get("jockey"), runner.get("trainer"), runner.get("official_handicap_rating"), runner.get("result_status", "finished"), json.dumps(runner), now),
             )
+        self.connection.commit()
+
+    def enrich_result_metadata(self, *, source: str, race_date: str, track_slug: str,
+                               race_number: int, race_class: str | None,
+                               race_class_code: str | None, runners: list[dict[str, Any]]) -> None:
+        """Attach card metadata without replacing the authoritative result raw data."""
+        self.connection.execute(
+            """UPDATE race_results SET race_class = COALESCE(?, race_class),
+                   race_class_code = COALESCE(?, race_class_code), imported_at = ?
+               WHERE source = ? AND race_date = ? AND track_slug = ? AND race_number = ?""",
+            (race_class, race_class_code, utc_now(), source, race_date, track_slug, race_number),
+        )
+        for runner in runners:
+            self.connection.execute(
+                """UPDATE runner_results SET barrier = COALESCE(?, barrier),
+                       weight_carried_kg = COALESCE(?, weight_carried_kg), jockey = COALESCE(?, jockey),
+                       trainer = COALESCE(?, trainer), official_handicap_rating = COALESCE(?, official_handicap_rating),
+                       imported_at = ?
+                   WHERE source = ? AND race_date = ? AND track_slug = ? AND race_number = ? AND runner_number = ?""",
+                (runner.get("barrier"), runner.get("weight_carried_kg"), runner.get("jockey"), runner.get("trainer"),
+                 runner.get("official_handicap_rating"), utc_now(), source, race_date, track_slug,
+                 race_number, runner["runner_number"]),
+            )
+        self.connection.commit()
+
+    def upsert_race_classification(self, row: dict[str, Any]) -> None:
+        self.connection.execute(
+            """INSERT INTO race_classifications (source, race_date, track_slug, race_number, race_type,
+                   class_family, group_grade, benchmark, class_number, age_condition, sex_condition,
+                   raw_class_text, parser_version, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(source, race_date, track_slug, race_number) DO UPDATE SET
+                 race_type=excluded.race_type, class_family=excluded.class_family, group_grade=excluded.group_grade,
+                 benchmark=excluded.benchmark, class_number=excluded.class_number,
+                 age_condition=excluded.age_condition, sex_condition=excluded.sex_condition,
+                 raw_class_text=excluded.raw_class_text, parser_version=excluded.parser_version,
+                 created_at=excluded.created_at""",
+            (row["source"], row["race_date"], row["track_slug"], row["race_number"], row.get("race_type"),
+             row["class_family"], row.get("group_grade"), row.get("benchmark"), row.get("class_number"),
+             row.get("age_condition"), row.get("sex_condition"), row["raw_class_text"],
+             row["parser_version"], utc_now()),
+        )
         self.connection.commit()
 
     def upsert_sectionals(self, rows: list[dict[str, Any]]) -> None:

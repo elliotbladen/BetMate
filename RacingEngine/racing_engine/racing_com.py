@@ -42,6 +42,7 @@ query RacingEngineMeeting($meetCode: ID!) {
     meet { id venue date state railPosition trackCondition }
     formRaceEntries {
       id raceEntryNumber horseName position margin winningTime
+      barrierNumber weight weightCarried jockeyName trainerName handicapRating rdcClass
       positionAtSettledAbv positionAt800Abv positionAt400Abv
       timing {
         toEightHundredMetresSeconds
@@ -104,6 +105,11 @@ def lengths(value: object) -> float | None:
 def position(value: object) -> int | None:
     match = re.search(r"(\d+)", str(value or ""))
     return int(match.group(1)) if match else None
+
+
+def kilograms(value: object) -> float | None:
+    match = re.search(r"\d+(?:\.\d+)?", str(value or ""))
+    return float(match.group()) if match else None
 
 
 def graphql_request(query: str, variables: dict) -> dict:
@@ -205,6 +211,11 @@ def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None 
                 "finish_position": None if status == "scratched" else finish_position,
                 "beaten_lengths": lengths(entry.get("margin")),
                 "finish_time_seconds": centiseconds((entry.get("timing") or {}).get("finishTimeSeconds")),
+                "barrier": position(entry.get("barrierNumber")),
+                "weight_carried_kg": kilograms(entry.get("weightCarried") or entry.get("weight")),
+                "jockey": entry.get("jockeyName"),
+                "trainer": entry.get("trainerName"),
+                "official_handicap_rating": entry.get("handicapRating"),
                 "result_status": status,
                 "raw_entry": entry,
             })
@@ -242,6 +253,7 @@ def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None 
             race_number=int(race["raceNumber"]),
             distance_metres=distance_metres(race.get("distance")),
             race_class=race.get("condition"),
+            race_class_code=next((entry.get("rdcClass") for entry in race.get("formRaceEntries") or [] if entry.get("rdcClass")), None),
             official_time_seconds=race_time(race.get("raceTime")),
             track_condition=race.get("trackCondition") or meet.get("trackCondition"),
             rail_position=meet.get("railPosition"),
