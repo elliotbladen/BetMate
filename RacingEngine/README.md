@@ -52,19 +52,24 @@ Market odds and model fair prices remain separate layers. A price must be
 labelled provisional until historical results have been imported and the model
 has passed calibration testing.
 
-## Racing NSW authorised results
+## Racing NSW authorised results and sectionals
 
-With Racing NSW approval, import the approved Season 1 NSW meetings and archive
-their official result CSV plus sectional PDF:
+With Racing NSW approval, import the approved NSW meetings. The importer uses
+the official sectional-PDF archive as its primary historical source, parses
+official race/runner times plus reported sectional and in-run-position fields,
+and retains the unmodified PDF locally:
 
 ```bash
 python3 -m racing_engine.rnsw --date 2026-08-01
 python3 -m racing_engine.rnsw --date 2026-08-08
 ```
 
-The CSV importer loads official times, finishing position and beaten lengths.
-The source sectional PDF is archived intact; marker-level PDF parsing remains a
-separate verification step so no sectional value is inferred or guessed.
+The legacy RNSW CSV endpoint is used only as a current-meeting fallback. It is
+not reliably retained for older meetings. Some official PDF archive dates are
+unavailable; those gaps may be filled with the public Racing.com result record
+under the separate source `racing-com-nsw-results-fallback`. Those rows contain
+results only — never invented sectionals — so every rating input remains
+auditable by source.
 
 Create the isolated environment used for authorised sectional-PDF parsing with
 `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
@@ -98,14 +103,11 @@ python3 -m racing_engine.racing_com \
 The non-dry command ingests precisely that discovered list. Start in small,
 reviewable batches; do not run a large backfill until the returned meetings
 have been checked. NSW backfill remains a separate authorised schedule because
-its official result URL requires the correct venue for each meeting.
+its official report URL requires the correct venue/code for each meeting.
 
-`racing_engine.rnsw` can likewise discover its Randwick/Rosehill Saturday
-schedule, but the current official CSV endpoint returned an archive error for
-2025 historical keys during validation. It therefore fails loudly and writes
-nothing for an invalid response. Resolve that RNSW archive access path before
-running its historical bulk command; do not substitute an unverified result
-source.
+`racing_engine.rnsw` discovers Randwick/Rosehill Saturday meetings and tries
+both Rosehill archive identifiers (`ROSE` and legacy `RHIL`). It fails loudly
+for an unavailable report rather than creating an empty meeting.
 
 ## Historical rating spine (internal only)
 

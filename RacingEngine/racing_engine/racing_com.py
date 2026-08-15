@@ -164,7 +164,8 @@ def discover_saturday_metro_meetings(start_date: str, end_date: str) -> list[dic
 
 
 def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None = None,
-                   slug: str | None = None) -> tuple[int, int, int]:
+                   slug: str | None = None, expected_state: str = "VIC",
+                   source: str = SOURCE) -> tuple[int, int, int]:
     default = MEETINGS.get(race_date)
     if meet_code is None:
         if default is None:
@@ -186,8 +187,8 @@ def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None 
     imported_races = imported_runners = imported_sections = 0
     for race in races:
         meet = race.get("meet") or {}
-        if meet.get("state") != "VIC":
-            raise RuntimeError(f"Expected VIC data, received {meet.get('state')!r}.")
+        if meet.get("state") != expected_state:
+            raise RuntimeError(f"Expected {expected_state} data, received {meet.get('state')!r}.")
         runners: list[dict] = []
         sectional_rows: list[dict] = []
         for entry in race.get("formRaceEntries") or []:
@@ -222,7 +223,7 @@ def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None 
                 if seconds is None:
                     continue
                 sectional_rows.append({
-                    "source": SOURCE,
+                    "source": source,
                     "race_date": race_date,
                     "track_slug": slug,
                     "race_number": int(race["raceNumber"]),
@@ -234,9 +235,9 @@ def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None 
                     "raw_entry": entry,
                 })
         store.upsert_result(
-            source=SOURCE,
+            source=source,
             race_date=race_date,
-            state="VIC",
+            state=expected_state,
             track_slug=slug,
             race_number=int(race["raceNumber"]),
             distance_metres=distance_metres(race.get("distance")),
@@ -272,12 +273,18 @@ def main() -> None:
         print(json.dumps(meetings, indent=2, sort_keys=True)); return
     store = RacingStore(ROOT / "data" / "racing_engine.sqlite")
     try:
-        totals = [0, 0, 0]
+        totals = [0, 0, 0]; failures: list[str] = []
         for meeting in meetings:
-            races, runners, sections = import_meeting(store, meeting["date"], meet_code=meeting["meet_code"], slug=meeting["slug"])
-            totals = [left + right for left, right in zip(totals, (races, runners, sections))]
-            print(f"Imported {meeting['date']}: {races} VIC races, {runners} runner results and {sections} sectional records.")
+            try:
+                races, runners, sections = import_meeting(store, meeting["date"], meet_code=meeting["meet_code"], slug=meeting["slug"])
+                totals = [left + right for left, right in zip(totals, (races, runners, sections))]
+                print(f"Imported {meeting['date']}: {races} VIC races, {runners} runner results and {sections} sectional records.")
+            except Exception as exc:
+                failures.append(f"{meeting['date']} {meeting.get('venue', meeting['slug'])}: {exc}")
+                print(f"Skipped {meeting['date']} {meeting.get('venue', meeting['slug'])}: {exc}")
         print(f"Total: {totals[0]} VIC races, {totals[1]} runner results and {totals[2]} sectional records.")
+        if failures:
+            print(f"Unavailable meetings ({len(failures)}):\n" + "\n".join(failures))
     finally:
         store.close()
 
