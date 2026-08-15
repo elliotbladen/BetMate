@@ -136,3 +136,11 @@ https://puntersedge.online/developers
   runner-sectional rows (the NSW PDFs are archived pending their careful
   marker-level parser). Racing.com's marker data is stored as split durations
   at 800m, 400m and finish; its `109` non-runner code is stored as scratched.
+- User clarified Racing Victoria's instruction was simply to scrape the public
+  Racing.com data. The implementation was validated against both historic
+  Saturday cards and all unit tests passed. It was committed and pushed as
+  `f8e97dd` (`Add authorised Victorian racing importer`).
+- Next racing-data task: build a carefully validated parser for the archived
+  Racing NSW sectional PDFs, then begin the track/distance/going par layer.
+  Do not produce or publish live racing prices yet; the current ratings remain
+  internal, low-history research output.
