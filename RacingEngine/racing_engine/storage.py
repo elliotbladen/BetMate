@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS runner_results (
     jockey TEXT,
     trainer TEXT,
     official_handicap_rating REAL,
+    distance_travelled_vs_winner_metres REAL,
     result_status TEXT NOT NULL DEFAULT 'finished',
     raw_json TEXT NOT NULL,
     imported_at TEXT NOT NULL,
@@ -314,6 +315,8 @@ class RacingStore:
                                  ("trainer", "TEXT"), ("official_handicap_rating", "REAL")):
             if name not in runner_columns:
                 self.connection.execute(f"ALTER TABLE runner_results ADD COLUMN {name} {definition}")
+        if "distance_travelled_vs_winner_metres" not in runner_columns:
+            self.connection.execute("ALTER TABLE runner_results ADD COLUMN distance_travelled_vs_winner_metres REAL")
         self.connection.commit()
 
     def close(self) -> None:
@@ -407,15 +410,16 @@ class RacingStore:
         )
         for runner in runners:
             self.connection.execute(
-                """INSERT INTO runner_results (source, race_date, track_slug, race_number, runner_number, runner_name, finish_position, beaten_lengths, finish_time_seconds, barrier, weight_carried_kg, jockey, trainer, official_handicap_rating, result_status, raw_json, imported_at)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """INSERT INTO runner_results (source, race_date, track_slug, race_number, runner_number, runner_name, finish_position, beaten_lengths, finish_time_seconds, barrier, weight_carried_kg, jockey, trainer, official_handicap_rating, distance_travelled_vs_winner_metres, result_status, raw_json, imported_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                    ON CONFLICT(source, race_date, track_slug, race_number, runner_number) DO UPDATE SET
                      runner_name=excluded.runner_name, finish_position=excluded.finish_position,
                      beaten_lengths=excluded.beaten_lengths, finish_time_seconds=excluded.finish_time_seconds,
                      barrier=excluded.barrier, weight_carried_kg=excluded.weight_carried_kg, jockey=excluded.jockey,
                      trainer=excluded.trainer, official_handicap_rating=excluded.official_handicap_rating,
+                     distance_travelled_vs_winner_metres=excluded.distance_travelled_vs_winner_metres,
                      result_status=excluded.result_status, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
-                (source, race_date, track_slug, race_number, runner["runner_number"], runner["runner_name"], runner.get("finish_position"), runner.get("beaten_lengths"), runner.get("finish_time_seconds"), runner.get("barrier"), runner.get("weight_carried_kg"), runner.get("jockey"), runner.get("trainer"), runner.get("official_handicap_rating"), runner.get("result_status", "finished"), json.dumps(runner), now),
+                (source, race_date, track_slug, race_number, runner["runner_number"], runner["runner_name"], runner.get("finish_position"), runner.get("beaten_lengths"), runner.get("finish_time_seconds"), runner.get("barrier"), runner.get("weight_carried_kg"), runner.get("jockey"), runner.get("trainer"), runner.get("official_handicap_rating"), runner.get("distance_travelled_vs_winner_metres"), runner.get("result_status", "finished"), json.dumps(runner), now),
             )
         self.connection.commit()
 
@@ -480,6 +484,19 @@ class RacingStore:
              row.get("precipitation_mm"),row.get("wind_direction_deg"),row.get("wind_speed_kmh"),row.get("pressure_hpa"),
              json.dumps(row["quality"],sort_keys=True),json.dumps(row["raw"],sort_keys=True),now),
         )
+        self.connection.commit()
+
+    def enrich_runner_trip_metrics(self, *, source: str, race_date: str, track_slug: str,
+                                   race_number: int, runners: list[dict[str, Any]]) -> None:
+        for runner in runners:
+            if runner.get("distance_travelled_vs_winner_metres") is None:
+                continue
+            self.connection.execute(
+                """UPDATE runner_results SET distance_travelled_vs_winner_metres = ?, imported_at = ?
+                   WHERE source = ? AND race_date = ? AND track_slug = ? AND race_number = ? AND runner_number = ?""",
+                (runner["distance_travelled_vs_winner_metres"], utc_now(), source, race_date,
+                 track_slug, race_number, runner["runner_number"]),
+            )
         self.connection.commit()
 
     def upsert_sectionals(self, rows: list[dict[str, Any]]) -> None:

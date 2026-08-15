@@ -168,6 +168,16 @@ Each weather variable retains its source-quality tag. Use only observed
 station values for a production feature; model-filled or missing precipitation
 must remain low-confidence evidence rather than being presented as fact.
 
+For cached NSW official reports, extract the explicit DT-W (distance travelled
+versus winner) value when the report text supplies it:
+
+```bash
+python3 -m racing_engine.trip_history
+```
+
+Missing DT-W remains null. It must not be inferred from barrier or finishing
+position alone.
+
 ## V0 shadow ratings and prices
 
 After importing results, the first transparent rating pass is available:

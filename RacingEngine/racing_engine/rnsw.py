@@ -41,6 +41,23 @@ TIME_TOKEN = re.compile(r"(\d+:\d{2}\.\d{2})\s*\[([0-9-]+)\]")
 RUNNER_LINE = re.compile(r"^\s*(\d+)\s+(\d+)\s+(.+?)\s{2,}(\d+:\d{2}\.\d{2})\b.*$", re.M)
 
 
+def distance_travelled_by_runner(text: str) -> dict[int, float]:
+    """Extract RNSW's DT-W value on the jockey/margin line after a runner."""
+    values: dict[int, float] = {}
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        match = RUNNER_LINE.fullmatch(line)
+        if not match:
+            continue
+        # The following line contains `(barrier) jockey ... margin (DT-W)`.
+        # Only accept a signed/final parenthesised number, never the barrier.
+        following = lines[index + 1] if index + 1 < len(lines) else ""
+        travelled = re.search(r"\d+(?:\.\d+)?L\s+\(([-+]\d+)\)", following)
+        if travelled:
+            values[int(match.group(2))] = float(travelled.group(1))
+    return values
+
+
 def clock_seconds(value: str) -> float:
     minutes, seconds_part = value.split(":", 1)
     return int(minutes) * 60 + float(seconds_part)
@@ -132,6 +149,7 @@ def parse_sectional_pdf(pdf_bytes: bytes, race_date: str, slug: str, source_url:
         runner_parts: dict[tuple[int, int], dict] = {}
         for page in race["raw_race"]["pages"]:
             page_markers = page["markers"]
+            page_trip = distance_travelled_by_runner(page["text"])
             for match in RUNNER_LINE.finditer(page["text"]):
                 finish_position, runner_number = int(match.group(1)), int(match.group(2))
                 key = (finish_position, runner_number)
@@ -140,7 +158,9 @@ def parse_sectional_pdf(pdf_bytes: bytes, race_date: str, slug: str, source_url:
                     continue
                 runner = runner_parts.setdefault(key, {"runner_number": runner_number,
                     "runner_name": re.sub(r"\s+", " ", match.group(3)).strip(),
-                    "finish_position": finish_position, "points": []})
+                    "finish_position": finish_position, "points": [], "distance_travelled_vs_winner_metres": None})
+                if runner_number in page_trip:
+                    runner["distance_travelled_vs_winner_metres"] = page_trip[runner_number]
                 if page["reverse_time_layout"]:
                     # New report: bracketed values are time remaining.  The
                     # first unbracketed clock after the horse is overall time.
@@ -170,6 +190,7 @@ def parse_sectional_pdf(pdf_bytes: bytes, race_date: str, slug: str, source_url:
                 continue
             race["runners"].append({"runner_number": runner["runner_number"], "runner_name": runner["runner_name"],
                 "finish_position": runner["finish_position"], "beaten_lengths": None,
+                "distance_travelled_vs_winner_metres": runner["distance_travelled_vs_winner_metres"],
                 "finish_time_seconds": next((elapsed for marker, (elapsed, _) in ordered if marker == 0), None),
                 "result_status": "finished", "raw_csv": {"pdf_points": runner["points"]}, "sectionals": sections})
     return list(races_by_number.values())
