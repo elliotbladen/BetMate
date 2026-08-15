@@ -7,6 +7,7 @@ from racing_engine.results_import import import_results, import_sectionals
 from racing_engine.ratings import build_ratings
 from racing_engine.price_card import price_card
 from racing_engine.performance import run_pipeline
+from racing_engine.stewards import PARSER_VERSION, classify_report, plain_text
 
 
 class RacingStoreTests(unittest.TestCase):
@@ -113,6 +114,32 @@ class RacingStoreTests(unittest.TestCase):
                 self.assertEqual(store.connection.execute("SELECT count(*) FROM track_pars").fetchone()[0], 1)
                 state = store.connection.execute("SELECT overall_rating FROM horse_rating_states WHERE horse_key = 'ratedhorse'").fetchone()[0]
                 self.assertGreater(state, 100.0)
+            finally:
+                store.close()
+
+    def test_steward_report_is_auditable_and_not_a_rating_input(self) -> None:
+        html = """<p><b>Example Runner</b> – Held up for clear running from the 400m
+        until near the 100m and was unable to be fully tested.</p><p><b>Vet Horse</b> –
+        A post-race veterinary examination revealed the gelding to be lame.</p>"""
+        events = classify_report(html, ["Example Runner", "Vet Horse"])
+        self.assertEqual(len(events), 2)
+        held_up = next(event for event in events if event["horse_name"] == "Example Runner")
+        vet = next(event for event in events if event["horse_name"] == "Vet Horse")
+        self.assertEqual(held_up["category"], "held_up")
+        self.assertEqual(held_up["suggested_trip_adjustment"], 0.75)
+        self.assertTrue(held_up["requires_human_review"])
+        self.assertEqual(vet["fitness_status"], "material")
+        self.assertEqual(vet["suggested_trip_adjustment"], 0.0)
+        with TemporaryDirectory() as temporary_directory:
+            store = RacingStore(Path(temporary_directory) / "racing.sqlite")
+            try:
+                store.upsert_steward_report(
+                    report_source="test", race_date="2026-08-01", track_slug="randwick", race_number=1,
+                    source_race_code="abc", report_html=html, report_text=plain_text(html),
+                    source_updated_at=None, source_url="https://example.test", parser_version=PARSER_VERSION, events=events,
+                )
+                self.assertEqual(store.connection.execute("SELECT count(*) FROM steward_reports").fetchone()[0], 1)
+                self.assertEqual(store.connection.execute("SELECT count(*) FROM steward_events").fetchone()[0], 2)
             finally:
                 store.close()
 

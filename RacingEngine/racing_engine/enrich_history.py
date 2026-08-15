@@ -8,6 +8,7 @@ from pathlib import Path
 
 from .racing_com import DATE_QUERY, graphql_request, kilograms, position, request_meeting
 from .storage import RacingStore
+from .stewards import PARSER_VERSION, REPORT_SOURCE, classify_report, plain_text
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -75,6 +76,20 @@ def main() -> None:
                                 race_class=race.get("condition"), race_class_code=class_code,
                                 scheduled_start_at=race.get("time"),
                                 runners=[runner_metadata(entry) for entry in entries])
+                        report = race.get("stewardsReport") or {}
+                        report_html = str(report.get("htmlCode") or "").strip()
+                        if report_html:
+                            names = [str(entry.get("horseName")) for entry in entries if entry.get("horseName")]
+                            store.upsert_steward_report(
+                                report_source=REPORT_SOURCE, race_date=race_date,
+                                track_slug=target["track_slug"], race_number=int(race["raceNumber"]),
+                                source_race_code=str(report.get("raceCode") or race.get("id") or "") or None,
+                                report_html=report_html, report_text=plain_text(report_html),
+                                source_updated_at=report.get("lastUpdated"),
+                                source_url=f"https://www.racing.com/form/{race_date}/{target['track_slug']}",
+                                parser_version=PARSER_VERSION,
+                                events=classify_report(report_html, names),
+                            )
                     total += 1; print(f"Enriched {race_date} {target['track_slug']}", flush=True)
                 except Exception as exc:
                     errors += 1; print(f"Skipped {race_date} {target['track_slug']}: {exc}", flush=True)

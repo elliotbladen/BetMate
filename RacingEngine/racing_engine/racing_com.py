@@ -39,6 +39,7 @@ QUERY = """
 query RacingEngineMeeting($meetCode: ID!) {
   getNoCacheRacesForMeet(meetCode: $meetCode) {
     id raceNumber distance raceTime time timeAtVenue trackCondition condition hasSectionals
+    stewardsReport { raceCode htmlCode lastUpdated }
     meet { id venue date state railPosition trackCondition }
     formRaceEntries {
       id raceEntryNumber horseName position margin winningTime

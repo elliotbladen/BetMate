@@ -178,6 +178,31 @@ python3 -m racing_engine.trip_history
 Missing DT-W remains null. It must not be inferred from barrier or finishing
 position alone.
 
+## Official steward reports: evidence layer
+
+The authorised public form record exposes the official steward report per race.
+Import it separately from results and rebuild classifications whenever parser
+rules change:
+
+```bash
+python3 -m racing_engine.steward_reports --state ALL
+```
+
+The importer archives the report text and source timestamp, then identifies a
+small transparent set of events: slow starts, interference, held-up runs,
+wide/no-cover passages, over-racing, gait issues and material veterinary
+findings. The initial adjustment scale is conservative: minor wording is 0,
+moderate trip evidence is at most +0.75 rating points, severe corroborated
+interference is at most +1.50, and a single run can never exceed +2.0. Wide
+passages receive no automatic lift until they can be checked against DT-W and
+sectionals. Veterinary findings create a fitness/review flag, never a
+forgiveness lift.
+
+Those numbers are stored as *provisional research evidence only*. They do not
+enter `performance-par-v1.0` until a chronological validation study shows an
+improvement. Any severe incident or material veterinary outcome is queued for
+human review.
+
 ## V0 shadow ratings and prices
 
 After importing results, the first transparent rating pass is available:

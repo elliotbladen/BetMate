@@ -285,10 +285,66 @@ CREATE TABLE IF NOT EXISTS race_weather (
     PRIMARY KEY (source, race_date, track_slug, race_number, weather_source)
 );
 
+-- Official post-race steward material is immutable source evidence.  It is
+-- deliberately separate from ratings: an incident is not automatically a
+-- number of lengths, and must remain auditable after the parser evolves.
+CREATE TABLE IF NOT EXISTS steward_reports (
+    report_source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    source_race_code TEXT,
+    report_html TEXT NOT NULL,
+    report_text TEXT NOT NULL,
+    source_updated_at TEXT,
+    source_url TEXT,
+    parser_version TEXT NOT NULL,
+    imported_at TEXT NOT NULL,
+    PRIMARY KEY (report_source, race_date, track_slug, race_number)
+);
+
+-- One or more deterministic classifications can arise from an official
+-- report paragraph.  ``suggested_trip_adjustment`` is a research proposal
+-- only; it is not consumed by V1 performance ratings until walk-forward
+-- validation proves that the category adds predictive value.
+CREATE TABLE IF NOT EXISTS steward_events (
+    report_source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    event_key TEXT NOT NULL,
+    horse_key TEXT NOT NULL,
+    horse_name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    severity TEXT NOT NULL,
+    parser_confidence REAL NOT NULL,
+    suggested_trip_adjustment REAL NOT NULL DEFAULT 0,
+    fitness_status TEXT,
+    requires_human_review INTEGER NOT NULL DEFAULT 0,
+    evidence_text TEXT NOT NULL,
+    parser_version TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (report_source, race_date, track_slug, race_number, event_key)
+);
+
+-- A meeting can legitimately have no published report in the public source.
+-- Record that it was checked so retries do not hammer the source forever.
+CREATE TABLE IF NOT EXISTS steward_report_ingestions (
+    report_source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    status TEXT NOT NULL,
+    detail TEXT,
+    checked_at TEXT NOT NULL,
+    PRIMARY KEY (report_source, race_date, track_slug)
+);
+
 CREATE INDEX IF NOT EXISTS idx_runner_results_history
   ON runner_results (race_date, runner_name, result_status);
 CREATE INDEX IF NOT EXISTS idx_race_results_pars
   ON race_results (race_date, track_slug, state);
+CREATE INDEX IF NOT EXISTS idx_steward_events_horse
+  ON steward_events (horse_key, race_date);
 """
 
 
@@ -321,6 +377,55 @@ class RacingStore:
 
     def close(self) -> None:
         self.connection.close()
+
+    def upsert_steward_report(self, *, report_source: str, race_date: str,
+                              track_slug: str, race_number: int,
+                              source_race_code: str | None, report_html: str,
+                              report_text: str, source_updated_at: str | None,
+                              source_url: str | None, parser_version: str,
+                              events: list[dict[str, Any]]) -> None:
+        """Store source report and deterministic event classifications together."""
+        now = utc_now()
+        self.connection.execute(
+            """INSERT INTO steward_reports (report_source,race_date,track_slug,race_number,
+               source_race_code,report_html,report_text,source_updated_at,source_url,parser_version,imported_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(report_source,race_date,track_slug,race_number) DO UPDATE SET
+                 source_race_code=excluded.source_race_code, report_html=excluded.report_html,
+                 report_text=excluded.report_text, source_updated_at=excluded.source_updated_at,
+                 source_url=excluded.source_url, parser_version=excluded.parser_version,
+                 imported_at=excluded.imported_at""",
+            (report_source, race_date, track_slug, race_number, source_race_code,
+             report_html, report_text, source_updated_at, source_url, parser_version, now),
+        )
+        self.connection.execute(
+            """DELETE FROM steward_events WHERE report_source = ? AND race_date = ?
+               AND track_slug = ? AND race_number = ?""",
+            (report_source, race_date, track_slug, race_number),
+        )
+        for event in events:
+            self.connection.execute(
+                """INSERT INTO steward_events (report_source,race_date,track_slug,race_number,event_key,
+                   horse_key,horse_name,category,severity,parser_confidence,suggested_trip_adjustment,
+                   fitness_status,requires_human_review,evidence_text,parser_version,created_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (report_source, race_date, track_slug, race_number, event["event_key"],
+                 event["horse_key"], event["horse_name"], event["category"], event["severity"],
+                 event["parser_confidence"], event["suggested_trip_adjustment"], event.get("fitness_status"),
+                 int(event["requires_human_review"]), event["evidence_text"], parser_version, now),
+            )
+        self.connection.commit()
+
+    def record_steward_report_check(self, *, report_source: str, race_date: str,
+                                    track_slug: str, status: str, detail: str | None = None) -> None:
+        self.connection.execute(
+            """INSERT INTO steward_report_ingestions (report_source,race_date,track_slug,status,detail,checked_at)
+               VALUES (?, ?, ?, ?, ?, ?)
+               ON CONFLICT(report_source,race_date,track_slug) DO UPDATE SET
+                 status=excluded.status, detail=excluded.detail, checked_at=excluded.checked_at""",
+            (report_source, race_date, track_slug, status, detail, utc_now()),
+        )
+        self.connection.commit()
 
     def start_run(self, race_date: str, state: str) -> int:
         cursor = self.connection.execute(
