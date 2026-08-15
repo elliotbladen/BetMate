@@ -92,3 +92,25 @@ https://puntersedge.online/developers
 3. Build the odds adapter and compact runner-by-bookmaker matrix.
 4. Build RacingEngine performance ratings and fair odds separately, then add
    a clearly labelled fair-price/edge column.
+
+## 2026-08-15 — RacingEngine V1 foundation implemented
+
+- Added canonical SQLite tables for `race_results`, `runner_results`,
+  `runner_sectionals`, `rating_snapshots` and `fair_prices`.
+- Added safe CSV templates and the validated import entry point:
+  `python3 -m racing_engine.results_import --results ... --sectionals ... --source ...`.
+  Each row preserves an authorised source label and URL; no proprietary-source
+  scraper was added.
+- Added `base-lengths-v0.1`: a deliberately provisional, reproducible
+  beaten-length rating update. It shrinks lightly raced horses to neutral and
+  makes field-normalised shadow fair odds. It explicitly does **not** yet
+  apply track pars, class, weight, barrier or sectional adjustment.
+- Verified with four unit tests: cards, canonical CSV imports, result/sectional
+  storage, and a two-horse rating/fair-book calculation.
+- FormFav only permits seven days of historical card access. On 2026-08-15,
+  2026-08-01 was rejected as too old. Backfilled 2026-08-08 Randwick (10 races,
+  119 runners); the Victorian meeting did not match the metro-track allowlist.
+  Existing 2026-08-15 card data remains Rosehill (10 races) and Caulfield (9).
+- Database currently has **zero result races and zero sectional rows**. Do not
+  run/publish the shadow model as a meaningful price until official results,
+  beaten lengths and sectionals have been loaded from the canonical templates.
