@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS race_results (
     distance_metres INTEGER,
     race_class TEXT,
     race_class_code TEXT,
+    scheduled_start_at TEXT,
     official_time_seconds REAL,
     track_condition TEXT,
     rail_position TEXT,
@@ -263,6 +264,26 @@ CREATE TABLE IF NOT EXISTS race_classifications (
     PRIMARY KEY (source, race_date, track_slug, race_number)
 );
 
+CREATE TABLE IF NOT EXISTS race_weather (
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    weather_source TEXT NOT NULL,
+    station_id TEXT NOT NULL,
+    observed_at TEXT NOT NULL,
+    temperature_c REAL,
+    humidity_pct REAL,
+    precipitation_mm REAL,
+    wind_direction_deg REAL,
+    wind_speed_kmh REAL,
+    pressure_hpa REAL,
+    quality_json TEXT NOT NULL,
+    raw_json TEXT NOT NULL,
+    imported_at TEXT NOT NULL,
+    PRIMARY KEY (source, race_date, track_slug, race_number, weather_source)
+);
+
 CREATE INDEX IF NOT EXISTS idx_runner_results_history
   ON runner_results (race_date, runner_name, result_status);
 CREATE INDEX IF NOT EXISTS idx_race_results_pars
@@ -285,7 +306,7 @@ class RacingStore:
     def _migrate_schema(self) -> None:
         """Add V2 columns for databases created before the historical layer."""
         columns = {row[1] for row in self.connection.execute("PRAGMA table_info(race_results)")}
-        for name, definition in (("distance_metres", "INTEGER"), ("race_class", "TEXT"), ("race_class_code", "TEXT")):
+        for name, definition in (("distance_metres", "INTEGER"), ("race_class", "TEXT"), ("race_class_code", "TEXT"), ("scheduled_start_at", "TEXT")):
             if name not in columns:
                 self.connection.execute(f"ALTER TABLE race_results ADD COLUMN {name} {definition}")
         runner_columns = {row[1] for row in self.connection.execute("PRAGMA table_info(runner_results)")}
@@ -361,6 +382,7 @@ class RacingStore:
         distance_metres: int | None = None,
         race_class: str | None = None,
         race_class_code: str | None = None,
+        scheduled_start_at: str | None = None,
         official_time_seconds: float | None,
         track_condition: str | None,
         rail_position: str | None,
@@ -375,13 +397,13 @@ class RacingStore:
         """
         now = utc_now()
         self.connection.execute(
-            """INSERT INTO race_results (source, race_date, track_slug, race_number, state, distance_metres, race_class, race_class_code, official_time_seconds, track_condition, rail_position, source_url, raw_json, imported_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """INSERT INTO race_results (source, race_date, track_slug, race_number, state, distance_metres, race_class, race_class_code, scheduled_start_at, official_time_seconds, track_condition, rail_position, source_url, raw_json, imported_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                ON CONFLICT(source, race_date, track_slug, race_number) DO UPDATE SET
-                 state=excluded.state, distance_metres=excluded.distance_metres, race_class=excluded.race_class, race_class_code=excluded.race_class_code, official_time_seconds=excluded.official_time_seconds,
+                 state=excluded.state, distance_metres=excluded.distance_metres, race_class=excluded.race_class, race_class_code=excluded.race_class_code, scheduled_start_at=excluded.scheduled_start_at, official_time_seconds=excluded.official_time_seconds,
                  track_condition=excluded.track_condition, rail_position=excluded.rail_position,
                  source_url=excluded.source_url, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
-            (source, race_date, track_slug, race_number, state, distance_metres, race_class, race_class_code, official_time_seconds, track_condition, rail_position, source_url, json.dumps(raw_race), now),
+            (source, race_date, track_slug, race_number, state, distance_metres, race_class, race_class_code, scheduled_start_at, official_time_seconds, track_condition, rail_position, source_url, json.dumps(raw_race), now),
         )
         for runner in runners:
             self.connection.execute(
@@ -399,13 +421,14 @@ class RacingStore:
 
     def enrich_result_metadata(self, *, source: str, race_date: str, track_slug: str,
                                race_number: int, race_class: str | None,
-                               race_class_code: str | None, runners: list[dict[str, Any]]) -> None:
+                               race_class_code: str | None, scheduled_start_at: str | None,
+                               runners: list[dict[str, Any]]) -> None:
         """Attach card metadata without replacing the authoritative result raw data."""
         self.connection.execute(
             """UPDATE race_results SET race_class = COALESCE(?, race_class),
-                   race_class_code = COALESCE(?, race_class_code), imported_at = ?
+                   race_class_code = COALESCE(?, race_class_code), scheduled_start_at = COALESCE(?, scheduled_start_at), imported_at = ?
                WHERE source = ? AND race_date = ? AND track_slug = ? AND race_number = ?""",
-            (race_class, race_class_code, utc_now(), source, race_date, track_slug, race_number),
+            (race_class, race_class_code, scheduled_start_at, utc_now(), source, race_date, track_slug, race_number),
         )
         for runner in runners:
             self.connection.execute(
@@ -436,6 +459,26 @@ class RacingStore:
              row["class_family"], row.get("group_grade"), row.get("benchmark"), row.get("class_number"),
              row.get("age_condition"), row.get("sex_condition"), row["raw_class_text"],
              row["parser_version"], utc_now()),
+        )
+        self.connection.commit()
+
+    def upsert_race_weather(self, row: dict[str, Any]) -> None:
+        now = utc_now()
+        self.connection.execute(
+            """INSERT INTO race_weather (source,race_date,track_slug,race_number,weather_source,station_id,observed_at,
+                   temperature_c,humidity_pct,precipitation_mm,wind_direction_deg,wind_speed_kmh,pressure_hpa,
+                   quality_json,raw_json,imported_at)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+               ON CONFLICT(source,race_date,track_slug,race_number,weather_source) DO UPDATE SET
+                 station_id=excluded.station_id,observed_at=excluded.observed_at,temperature_c=excluded.temperature_c,
+                 humidity_pct=excluded.humidity_pct,precipitation_mm=excluded.precipitation_mm,
+                 wind_direction_deg=excluded.wind_direction_deg,wind_speed_kmh=excluded.wind_speed_kmh,
+                 pressure_hpa=excluded.pressure_hpa,quality_json=excluded.quality_json,raw_json=excluded.raw_json,
+                 imported_at=excluded.imported_at""",
+            (row["source"],row["race_date"],row["track_slug"],row["race_number"],row["weather_source"],
+             row["station_id"],row["observed_at"],row.get("temperature_c"),row.get("humidity_pct"),
+             row.get("precipitation_mm"),row.get("wind_direction_deg"),row.get("wind_speed_kmh"),row.get("pressure_hpa"),
+             json.dumps(row["quality"],sort_keys=True),json.dumps(row["raw"],sort_keys=True),now),
         )
         self.connection.commit()
 

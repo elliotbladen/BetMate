@@ -38,7 +38,7 @@ METRO_VENUES = {
 QUERY = """
 query RacingEngineMeeting($meetCode: ID!) {
   getNoCacheRacesForMeet(meetCode: $meetCode) {
-    id raceNumber distance raceTime trackCondition condition hasSectionals
+    id raceNumber distance raceTime time timeAtVenue trackCondition condition hasSectionals
     meet { id venue date state railPosition trackCondition }
     formRaceEntries {
       id raceEntryNumber horseName position margin winningTime
@@ -254,6 +254,7 @@ def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None 
             distance_metres=distance_metres(race.get("distance")),
             race_class=race.get("condition"),
             race_class_code=next((entry.get("rdcClass") for entry in race.get("formRaceEntries") or [] if entry.get("rdcClass")), None),
+            scheduled_start_at=race.get("time"),
             official_time_seconds=race_time(race.get("raceTime")),
             track_condition=race.get("trackCondition") or meet.get("trackCondition"),
             rail_position=meet.get("railPosition"),

@@ -157,6 +157,17 @@ and a categorical Group/Listed/BM/Class taxonomy. It deliberately does not
 assign an arbitrary numerical value to a class; race-strength and class effects
 must be estimated through no-look-ahead validation.
 
+Historic race timestamps and nearest configured hourly weather-station records
+are populated separately:
+
+```bash
+python3 -m racing_engine.weather_history
+```
+
+Each weather variable retains its source-quality tag. Use only observed
+station values for a production feature; model-filled or missing precipitation
+must remain low-confidence evidence rather than being presented as fact.
+
 ## V0 shadow ratings and prices
 
 After importing results, the first transparent rating pass is available:

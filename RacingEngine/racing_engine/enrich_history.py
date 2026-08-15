@@ -33,15 +33,17 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--state", choices=("VIC", "NSW", "ALL"), default="ALL")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--missing-start-times", action="store_true", help="Resume only races without a timestamp")
     args = parser.parse_args()
     store = RacingStore(ROOT / "data" / "racing_engine.sqlite")
     try:
         states = ("VIC", "NSW") if args.state == "ALL" else (args.state,)
+        filter_sql = " AND scheduled_start_at IS NULL" if args.missing_start_times else ""
         targets = store.connection.execute(
             """SELECT state, race_date, track_slug, group_concat(DISTINCT source) AS sources
-                 FROM race_results WHERE state IN ({})
+                 FROM race_results WHERE state IN ({}) {}
                  GROUP BY state, race_date, track_slug ORDER BY race_date, track_slug""".format(
-                ",".join("?" for _ in states)), states).fetchall()
+                ",".join("?" for _ in states), filter_sql), states).fetchall()
         by_date: dict[str, list] = defaultdict(list)
         for target in targets:
             by_date[target["race_date"]].append(target)
@@ -71,6 +73,7 @@ def main() -> None:
                             store.enrich_result_metadata(source=source, race_date=race_date,
                                 track_slug=target["track_slug"], race_number=int(race["raceNumber"]),
                                 race_class=race.get("condition"), race_class_code=class_code,
+                                scheduled_start_at=race.get("time"),
                                 runners=[runner_metadata(entry) for entry in entries])
                     total += 1; print(f"Enriched {race_date} {target['track_slug']}", flush=True)
                 except Exception as exc:
