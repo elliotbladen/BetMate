@@ -49,6 +49,23 @@ Market odds and model fair prices remain separate layers. A price must be
 labelled provisional until historical results have been imported and the model
 has passed calibration testing.
 
+## Racing NSW authorised results
+
+With Racing NSW approval, import the approved Season 1 NSW meetings and archive
+their official result CSV plus sectional PDF:
+
+```bash
+python3 -m racing_engine.rnsw --date 2026-08-01
+python3 -m racing_engine.rnsw --date 2026-08-08
+```
+
+The CSV importer loads official times, finishing position and beaten lengths.
+The source sectional PDF is archived intact; marker-level PDF parsing remains a
+separate verification step so no sectional value is inferred or guessed.
+
+Create the isolated environment used for authorised sectional-PDF parsing with
+`python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
+
 ## V0 shadow ratings and prices
 
 After importing results, the first transparent rating pass is available:

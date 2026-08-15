@@ -82,6 +82,7 @@ def main() -> None:
         store.close()
     payload = json.dumps({"model_version": MODEL_VERSION, "date": args.date, "state": args.state, "races": prices}, indent=2)
     if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(payload + "\n", encoding="utf-8")
     else:
         print(payload)
