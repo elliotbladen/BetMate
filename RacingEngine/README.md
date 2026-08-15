@@ -33,10 +33,9 @@ their raw data without a separate written commercial arrangement.
 
 ## Results and sectionals: canonical imports
 
-`templates/results.csv` and `templates/sectionals.csv` are the only accepted
-interchange formats for authoritative/manual data. They preserve the source
-identifier and source URL on every imported record, so no unlicensed scraper
-is needed or implied.
+`templates/results.csv` and `templates/sectionals.csv` are the canonical
+interchange formats for authorised/manual data. They preserve the source
+identifier and source URL on every imported record.
 
 ```bash
 python3 -m racing_engine.results_import \
@@ -69,6 +68,25 @@ separate verification step so no sectional value is inferred or guessed.
 
 Create the isolated environment used for authorised sectional-PDF parsing with
 `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
+
+## Racing Victoria authorised results and sectionals
+
+With Racing Victoria's explicit non-commercial research approval, the importer
+scrapes the same public Racing.com form-service payload used by its Victorian
+form page, archives the unmodified JSON locally, and ingests verified result
+and runner-split fields:
+
+```bash
+python3 -m racing_engine.racing_com --date 2026-08-01  # Flemington
+python3 -m racing_engine.racing_com --date 2026-08-08  # Caulfield Heath
+```
+
+The importer currently supports the configured Saturday metro meetings only.
+It records result position, margin, official race time, runner finish time,
+800m/400m/finish split durations and the supplied 800m/400m positions.
+`109` is Racing.com's non-runner code and is stored as scratched, never as a
+finishing position. Raw JSON is retained under `data/raw/racing_com/` and must
+remain local to the research project.
 
 ## V0 shadow ratings and prices
 

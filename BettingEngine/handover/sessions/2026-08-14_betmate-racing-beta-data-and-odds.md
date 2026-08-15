@@ -113,9 +113,9 @@ https://puntersedge.online/developers
   2026-08-01 was rejected as too old. Backfilled 2026-08-08 Randwick (10 races,
   119 runners); the Victorian meeting did not match the metro-track allowlist.
   Existing 2026-08-15 card data remains Rosehill (10 races) and Caulfield (9).
-- Database currently has **zero result races and zero sectional rows**. Do not
-  run/publish the shadow model as a meaningful price until official results,
-  beaten lengths and sectionals have been loaded from the canonical templates.
+- This historical snapshot is superseded by the approved data-access update
+  below. Do not publish the shadow model as a meaningful price until the data
+  history is materially larger and calibration has been completed.
 
 ## 2026-08-15 — approved research data access
 
@@ -126,8 +126,13 @@ https://puntersedge.online/developers
 - Racing NSW official CSV results importer implemented and used for 2026-08-01
   Rosehill (10 races, 109 finishers) and 2026-08-08 Randwick (10 races, 100
   finishers). Both official sectional PDFs are archived.
-- Racing.com/RV's public application uses
-  `https://api.racing.com/race/splitsandsectionals/{meeting}/{race}` and offers
-  TripleSdata CSV where available. Need resolve historic meeting codes, then
-  add the equivalent VIC importer. Do not assume its response schema matches
-  Racing NSW.
+- Racing.com/RV importer completed after the user confirmed Racing Victoria
+  said to scrape its public form page. `RacingEngine/racing_engine/racing_com.py`
+  uses the same public GraphQL payload as that page, archives raw JSON locally,
+  and writes verified results and runner split sections. It ingested:
+  - 2026-08-01 Flemington: 9 races, 116 runner result rows, 267 sectional rows.
+  - 2026-08-08 Caulfield Heath: 9 races, 112 runner result rows, 267 sectional rows.
+- The local database now has 38 result races, 437 runner-result rows and 534
+  runner-sectional rows (the NSW PDFs are archived pending their careful
+  marker-level parser). Racing.com's marker data is stored as split durations
+  at 800m, 400m and finish; its `109` non-runner code is stored as scratched.
