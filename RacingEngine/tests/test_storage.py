@@ -6,6 +6,7 @@ from racing_engine.storage import RacingStore
 from racing_engine.results_import import import_results, import_sectionals
 from racing_engine.ratings import build_ratings
 from racing_engine.price_card import price_card
+from racing_engine.performance import run_pipeline
 
 
 class RacingStoreTests(unittest.TestCase):
@@ -86,6 +87,32 @@ class RacingStoreTests(unittest.TestCase):
                 probabilities = [runner["win_probability"] for runner in priced[0]["runners"]]
                 self.assertAlmostEqual(sum(probabilities), 1.0, places=4)
                 self.assertLess(priced[0]["runners"][0]["fair_odds"], priced[0]["runners"][1]["fair_odds"])
+            finally:
+                store.close()
+
+    def test_historical_performance_pipeline_stores_pars_and_states(self) -> None:
+        with TemporaryDirectory() as temporary_directory:
+            store = RacingStore(Path(temporary_directory) / "racing.sqlite")
+            try:
+                store.upsert_result(
+                    source="test", race_date="2026-08-01", state="VIC", track_slug="flemington", race_number=1,
+                    distance_metres=1200, official_time_seconds=70.0, track_condition="Good 4", rail_position="True",
+                    source_url=None, raw_race={}, runners=[
+                        {"runner_number": 1, "runner_name": "Rated Horse", "finish_position": 1, "beaten_lengths": 0.0, "finish_time_seconds": 70.0},
+                        {"runner_number": 2, "runner_name": "Other Horse", "finish_position": 2, "beaten_lengths": 2.0, "finish_time_seconds": 70.34},
+                    ],
+                )
+                store.upsert_sectionals([
+                    {"source": "test", "race_date": "2026-08-01", "track_slug": "flemington", "race_number": 1, "runner_number": 1, "marker_metres": 0, "section_seconds": 22.1},
+                    {"source": "test", "race_date": "2026-08-01", "track_slug": "flemington", "race_number": 1, "runner_number": 2, "marker_metres": 0, "section_seconds": 22.5},
+                    {"source": "test", "race_date": "2026-08-01", "track_slug": "flemington", "race_number": 1, "runner_number": 3, "marker_metres": 0, "section_seconds": 22.3},
+                ])
+                result = run_pipeline(store, "2026-08-15", min_par_sample=1)
+                self.assertEqual(result["performances"], 2)
+                self.assertEqual(result["horse_states"], 2)
+                self.assertEqual(store.connection.execute("SELECT count(*) FROM track_pars").fetchone()[0], 1)
+                state = store.connection.execute("SELECT overall_rating FROM horse_rating_states WHERE horse_key = 'ratedhorse'").fetchone()[0]
+                self.assertGreater(state, 100.0)
             finally:
                 store.close()
 

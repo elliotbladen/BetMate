@@ -82,6 +82,8 @@ CREATE TABLE IF NOT EXISTS race_results (
     track_slug TEXT NOT NULL,
     race_number INTEGER NOT NULL,
     state TEXT NOT NULL,
+    distance_metres INTEGER,
+    race_class TEXT,
     official_time_seconds REAL,
     track_condition TEXT,
     rail_position TEXT,
@@ -155,6 +157,90 @@ CREATE TABLE IF NOT EXISTS fair_prices (
     created_at TEXT NOT NULL,
     PRIMARY KEY (model_version, race_date, track_slug, race_number, runner_number)
 );
+
+-- A horse name is not a durable universal identifier.  Preserve every source
+-- spelling and permit a reviewed alias before using it in modelling.
+CREATE TABLE IF NOT EXISTS horse_aliases (
+    source TEXT NOT NULL,
+    source_horse_name TEXT NOT NULL,
+    horse_key TEXT NOT NULL,
+    canonical_name TEXT NOT NULL,
+    review_status TEXT NOT NULL DEFAULT 'automatic',
+    detail_json TEXT NOT NULL DEFAULT '{}',
+    updated_at TEXT NOT NULL,
+    PRIMARY KEY (source, source_horse_name)
+);
+
+CREATE TABLE IF NOT EXISTS track_pars (
+    model_version TEXT NOT NULL,
+    as_of_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    distance_metres INTEGER NOT NULL,
+    going_bucket TEXT NOT NULL,
+    sample_size INTEGER NOT NULL,
+    par_time_seconds REAL NOT NULL,
+    method TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (model_version, as_of_date, track_slug, distance_metres, going_bucket)
+);
+
+-- One auditable performance assessment for every finished runner.  This is
+-- intentionally separate from the current horse state: a horse can improve
+-- or regress while its prior run ratings remain immutable evidence.
+CREATE TABLE IF NOT EXISTS run_performances (
+    model_version TEXT NOT NULL,
+    as_of_date TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    horse_key TEXT NOT NULL,
+    horse_name TEXT NOT NULL,
+    performance_rating REAL NOT NULL,
+    time_component REAL,
+    margin_component REAL,
+    sectional_component REAL,
+    pace_component REAL,
+    confidence REAL NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (model_version, as_of_date, source, race_date, track_slug, race_number, runner_number)
+);
+
+CREATE TABLE IF NOT EXISTS horse_rating_states (
+    model_version TEXT NOT NULL,
+    as_of_date TEXT NOT NULL,
+    horse_key TEXT NOT NULL,
+    horse_name TEXT NOT NULL,
+    overall_rating REAL NOT NULL,
+    peak_rating REAL,
+    consistency REAL,
+    rated_runs INTEGER NOT NULL,
+    uncertainty REAL NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (model_version, as_of_date, horse_key)
+);
+
+CREATE TABLE IF NOT EXISTS evaluation_runs (
+    model_version TEXT NOT NULL,
+    as_of_date TEXT NOT NULL,
+    evaluation_name TEXT NOT NULL,
+    races_scored INTEGER NOT NULL,
+    runners_scored INTEGER NOT NULL,
+    mean_brier REAL,
+    mean_log_loss REAL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (model_version, as_of_date, evaluation_name)
+);
+
+CREATE INDEX IF NOT EXISTS idx_runner_results_history
+  ON runner_results (race_date, runner_name, result_status);
+CREATE INDEX IF NOT EXISTS idx_race_results_pars
+  ON race_results (race_date, track_slug, state);
 """
 
 
@@ -168,6 +254,15 @@ class RacingStore:
         self.connection = sqlite3.connect(database_path)
         self.connection.row_factory = sqlite3.Row
         self.connection.executescript(SCHEMA)
+        self._migrate_schema()
+
+    def _migrate_schema(self) -> None:
+        """Add V2 columns for databases created before the historical layer."""
+        columns = {row[1] for row in self.connection.execute("PRAGMA table_info(race_results)")}
+        for name, definition in (("distance_metres", "INTEGER"), ("race_class", "TEXT")):
+            if name not in columns:
+                self.connection.execute(f"ALTER TABLE race_results ADD COLUMN {name} {definition}")
+        self.connection.commit()
 
     def close(self) -> None:
         self.connection.close()
@@ -232,6 +327,8 @@ class RacingStore:
         state: str,
         track_slug: str,
         race_number: int,
+        distance_metres: int | None = None,
+        race_class: str | None = None,
         official_time_seconds: float | None,
         track_condition: str | None,
         rail_position: str | None,
@@ -246,13 +343,13 @@ class RacingStore:
         """
         now = utc_now()
         self.connection.execute(
-            """INSERT INTO race_results (source, race_date, track_slug, race_number, state, official_time_seconds, track_condition, rail_position, source_url, raw_json, imported_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """INSERT INTO race_results (source, race_date, track_slug, race_number, state, distance_metres, race_class, official_time_seconds, track_condition, rail_position, source_url, raw_json, imported_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                ON CONFLICT(source, race_date, track_slug, race_number) DO UPDATE SET
-                 state=excluded.state, official_time_seconds=excluded.official_time_seconds,
+                 state=excluded.state, distance_metres=excluded.distance_metres, race_class=excluded.race_class, official_time_seconds=excluded.official_time_seconds,
                  track_condition=excluded.track_condition, rail_position=excluded.rail_position,
                  source_url=excluded.source_url, raw_json=excluded.raw_json, imported_at=excluded.imported_at""",
-            (source, race_date, track_slug, race_number, state, official_time_seconds, track_condition, rail_position, source_url, json.dumps(raw_race), now),
+            (source, race_date, track_slug, race_number, state, distance_metres, race_class, official_time_seconds, track_condition, rail_position, source_url, json.dumps(raw_race), now),
         )
         for runner in runners:
             self.connection.execute(

@@ -88,6 +88,58 @@ It records result position, margin, official race time, runner finish time,
 finishing position. Raw JSON is retained under `data/raw/racing_com/` and must
 remain local to the research project.
 
+Inspect a historical Victorian backfill before downloading it:
+
+```bash
+python3 -m racing_engine.racing_com \
+  --from-date 2025-08-16 --to-date 2026-08-15 --dry-run
+```
+
+The non-dry command ingests precisely that discovered list. Start in small,
+reviewable batches; do not run a large backfill until the returned meetings
+have been checked. NSW backfill remains a separate authorised schedule because
+its official result URL requires the correct venue for each meeting.
+
+`racing_engine.rnsw` can likewise discover its Randwick/Rosehill Saturday
+schedule, but the current official CSV endpoint returned an archive error for
+2025 historical keys during validation. It therefore fails loudly and writes
+nothing for an invalid response. Resolve that RNSW archive access path before
+running its historical bulk command; do not substitute an unverified result
+source.
+
+## Historical rating spine (internal only)
+
+`racing_engine.performance` is the new V1 research pipeline. It persists:
+
+- source-specific horse aliases (so name matching can be reviewed);
+- track/distance/going time pars, calculated only from races before an
+  explicit cutoff date;
+- one auditable performance rating for each finished runner;
+- a recency-weighted, uncertainty-aware current horse state.
+
+Run it only after a verified result backfill:
+
+```bash
+python3 -m racing_engine.performance --as-of 2026-08-15
+```
+
+The current formula is deliberately modest: time versus a median
+track/distance/going par, beaten lengths only where individual finish time is
+unavailable, and a tightly capped last-400 relative split signal. Weight,
+class, rail, distance-travelled and pace/trip adjustments are recorded as
+pending rather than guessed. The default requires five historical races for a
+par; use a smaller number only for pipeline testing, never for a price.
+
+Evaluate it chronologically before trusting any number:
+
+```bash
+python3 -m racing_engine.evaluation --end-date 2026-08-15
+```
+
+For every race date, this rebuilds pars and horse states from strictly earlier
+races, then records Brier score and log loss. It is a research diagnostic, not
+a claim of profitability or a publishable fair-price model.
+
 ## V0 shadow ratings and prices
 
 After importing results, the first transparent rating pass is available:

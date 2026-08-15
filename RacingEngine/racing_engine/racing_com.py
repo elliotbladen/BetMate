@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from datetime import date, timedelta
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -28,6 +29,10 @@ SOURCE = "racing-com-rv-authorised"
 MEETINGS = {
     "2026-08-01": ("5195982", "flemington"),
     "2026-08-08": ("5195479", "caulfield-heath"),
+}
+METRO_VENUES = {
+    "caulfield", "caulfield heath", "flemington", "moonee valley",
+    "sportsbet sandown hillside", "sportsbet sandown lakeside",
 }
 
 QUERY = """
@@ -45,6 +50,22 @@ query RacingEngineMeeting($meetCode: ID!) {
         finishTimeSeconds
       }
     }
+  }
+}
+"""
+
+CALENDAR_QUERY = """
+query RacingEngineCalendar($states: String!, $daysBack: Int!, $daysForward: Int!, $userDate: String!) {
+  GetRaceMeetingsByStateNew(states: $states, daysBack: $daysBack, daysForward: $daysForward, userDate: $userDate) {
+    id venue date state isTrial isJumpOut meetUrl
+  }
+}
+"""
+
+DATE_QUERY = """
+query RacingEngineMeetingsByDate($date: String!) {
+  GetMeetingByDate(date: $date) {
+    id venue date state isTrial isJumpOut meetUrl
   }
 }
 """
@@ -68,6 +89,11 @@ def race_time(value: object) -> float | None:
     return int(match.group(1) or 0) * 60 + int(match.group(2)) + int(match.group(3)) / 100
 
 
+def distance_metres(value: object) -> int | None:
+    match = re.fullmatch(r"(\d+)m", str(value or "").strip(), flags=re.IGNORECASE)
+    return int(match.group(1)) if match else None
+
+
 def lengths(value: object) -> float | None:
     if not value:
         return None
@@ -80,8 +106,8 @@ def position(value: object) -> int | None:
     return int(match.group(1)) if match else None
 
 
-def request_meeting(meet_code: str) -> dict:
-    payload = json.dumps({"query": QUERY, "variables": {"meetCode": meet_code}}).encode()
+def graphql_request(query: str, variables: dict) -> dict:
+    payload = json.dumps({"query": query, "variables": variables}).encode()
     request = Request(
         ENDPOINT,
         data=payload,
@@ -96,14 +122,60 @@ def request_meeting(meet_code: str) -> dict:
         parsed = json.loads(response.read().decode("utf-8"))
     if parsed.get("errors"):
         raise RuntimeError(f"Racing.com returned GraphQL errors: {parsed['errors']}")
+    return parsed
+
+
+def request_meeting(meet_code: str) -> dict:
+    parsed = graphql_request(QUERY, {"meetCode": meet_code})
     races = parsed.get("data", {}).get("getNoCacheRacesForMeet")
     if not races:
         raise RuntimeError(f"No race data returned for meeting {meet_code}.")
     return parsed
 
 
-def import_meeting(store: RacingStore, race_date: str) -> tuple[int, int, int]:
-    meet_code, slug = MEETINGS[race_date]
+def discover_saturday_metro_meetings(start_date: str, end_date: str) -> list[dict]:
+    """Discover only authorised Victorian Saturday metro meetings.
+
+    Discovery and ingestion are separate so a caller can inspect the exact
+    meeting list before a larger historical backfill is run.
+    """
+    start, end = date.fromisoformat(start_date), date.fromisoformat(end_date)
+    if end < start:
+        raise ValueError("end date must not precede start date")
+    # The calendar caps historical look-backs.  The public form service's
+    # meeting-by-date lookup is deterministic, so query Saturdays directly.
+    meetings_by_code: dict[str, dict] = {}
+    current = start + timedelta(days=(5 - start.weekday()) % 7)
+    while current <= end:
+        payload = graphql_request(DATE_QUERY, {"date": current.isoformat()})
+        records = payload.get("data", {}).get("GetMeetingByDate") or []
+        for record in records:
+            meeting_date = date.fromisoformat(record["date"])
+            venue = (record.get("venue") or "").lower()
+            if (meeting_date == current and meeting_date.weekday() == 5
+                    and venue in METRO_VENUES and not record.get("isTrial") and not record.get("isJumpOut")):
+                url = record.get("meetUrl") or ""
+                meetings_by_code[str(record["id"])] = {
+                    "date": record["date"], "meet_code": str(record["id"]),
+                    "slug": url.rstrip("/").rsplit("/", 1)[-1], "venue": record["venue"], "url": url,
+                }
+        current += timedelta(days=7)
+    return sorted(meetings_by_code.values(), key=lambda meeting: (meeting["date"], meeting["meet_code"]))
+
+
+def import_meeting(store: RacingStore, race_date: str, *, meet_code: str | None = None,
+                   slug: str | None = None) -> tuple[int, int, int]:
+    default = MEETINGS.get(race_date)
+    if meet_code is None:
+        if default is None:
+            discovered = discover_saturday_metro_meetings(race_date, race_date)
+            if len(discovered) != 1:
+                raise RuntimeError(f"Expected one Victorian Saturday metro meeting on {race_date}, found {len(discovered)}.")
+            meet_code, slug = discovered[0]["meet_code"], discovered[0]["slug"]
+        else:
+            meet_code, slug = default
+    if not slug:
+        raise ValueError("A meeting slug is required.")
     payload = request_meeting(meet_code)
     archive = ROOT / "data" / "raw" / "racing_com" / race_date / slug
     archive.mkdir(parents=True, exist_ok=True)
@@ -167,6 +239,8 @@ def import_meeting(store: RacingStore, race_date: str) -> tuple[int, int, int]:
             state="VIC",
             track_slug=slug,
             race_number=int(race["raceNumber"]),
+            distance_metres=distance_metres(race.get("distance")),
+            race_class=race.get("condition"),
             official_time_seconds=race_time(race.get("raceTime")),
             track_condition=race.get("trackCondition") or meet.get("trackCondition"),
             rail_position=meet.get("railPosition"),
@@ -183,12 +257,27 @@ def import_meeting(store: RacingStore, race_date: str) -> tuple[int, int, int]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--date", choices=tuple(MEETINGS), required=True)
+    parser.add_argument("--date", help="One Victorian Saturday metro date (YYYY-MM-DD)")
+    parser.add_argument("--from-date", dest="from_date", help="Discover range start (YYYY-MM-DD)")
+    parser.add_argument("--to-date", dest="to_date", help="Discover range end (YYYY-MM-DD)")
+    parser.add_argument("--dry-run", action="store_true", help="Print discovered meetings without downloading cards")
     args = parser.parse_args()
+    if bool(args.date) == bool(args.from_date or args.to_date):
+        parser.error("Provide either --date or both --from-date and --to-date.")
+    if (args.from_date and not args.to_date) or (args.to_date and not args.from_date):
+        parser.error("--from-date and --to-date must be used together.")
+    meetings = ([{"date": args.date, "meet_code": None, "slug": None}] if args.date
+                else discover_saturday_metro_meetings(args.from_date, args.to_date))
+    if args.dry_run:
+        print(json.dumps(meetings, indent=2, sort_keys=True)); return
     store = RacingStore(ROOT / "data" / "racing_engine.sqlite")
     try:
-        races, runners, sections = import_meeting(store, args.date)
-        print(f"Imported {races} VIC result races, {runners} runner results and {sections} sectional records.")
+        totals = [0, 0, 0]
+        for meeting in meetings:
+            races, runners, sections = import_meeting(store, meeting["date"], meet_code=meeting["meet_code"], slug=meeting["slug"])
+            totals = [left + right for left, right in zip(totals, (races, runners, sections))]
+            print(f"Imported {meeting['date']}: {races} VIC races, {runners} runner results and {sections} sectional records.")
+        print(f"Total: {totals[0]} VIC races, {totals[1]} runner results and {totals[2]} sectional records.")
     finally:
         store.close()
 

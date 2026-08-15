@@ -144,3 +144,25 @@ https://puntersedge.online/developers
   Racing NSW sectional PDFs, then begin the track/distance/going par layer.
   Do not produce or publish live racing prices yet; the current ratings remain
   internal, low-history research output.
+
+## 2026-08-15 — historical rating spine and VIC backfill
+
+- Added internal V1 storage and pipeline in `RacingEngine`:
+  `track_pars`, `run_performances`, `horse_rating_states` and
+  `evaluation_runs`. `racing_engine.performance` uses an explicit as-of date,
+  median track/distance/going pars, no double-counting of finish time and
+  margin, capped last-400 relative evidence, recency weighting and uncertainty
+  shrinkage. It is deliberately not yet weight/class/rail/pace/trip adjusted.
+- Added `racing_engine.evaluation`, a chronological walk-forward diagnostic
+  that rebuilds only from information available before each race date. Latest
+  baseline (not evidence of betting edge): 417 races / 4,370 runners, Brier
+  0.0855 and log loss 2.3093.
+- Victorian authorised public-form backfill is complete for 2025-08-16 through
+  2026-08-08: 399 result races, 5,031 runner results and 12,540 runner
+  sectional records were added. The research database now totals 419 result
+  races and 5,240 runner-result rows (plus the RNSW PDFs already archived).
+- NSW Saturday metro discovery works (45 meetings in the same interval), but
+  the RNSW historic CSV endpoint returns an HTML archive error for the first
+  2025 request (`WebMeeting is null`). The importer now fails loudly rather
+  than ingesting an invalid file. Resolve the authorised historic RNSW archive
+  path before bulk importing NSW; do not substitute an unverified source.
