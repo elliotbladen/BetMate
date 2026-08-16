@@ -713,6 +713,14 @@ LEGACY_BETS.push(
   { id:512, date:'2026-08-09', match:'St George Illawarra Dragons vs Cronulla Sharks',     market:'Dragons +14.5',        odds:1.88, closingOdds:1.90, clv:-3.0, clvLabel:'-3.0 pts', result:'win',  cumPL:30.63, sport:'NRL',      notes:'Actual bet log. Stake $19. Return $35.72. Closed Dragons +17.5.' },
   // AFL R22 — Sun 9 Aug (West Coast Eagles vs Collingwood)
   { id:513, date:'2026-08-09', match:'West Coast Eagles vs Collingwood',                   market:'Collingwood Win',      odds:1.56, closingOdds:1.62, result:'win',  cumPL:30.91, sport:'AFL',      notes:'Actual bet log. Stake $25. Return $39.00. Closed 1.62 (-3.7% price CLV).' },
+  // NRL R24 / AFL R23 week (Aug 13-16) — research bets >$25 only
+  { id:514, date:'2026-08-14', match:'Multi (2 Legs)',                                    market:'Multi @ 2.08',         odds:2.08, closingOdds:null, result:'loss', cumPL:29.91, sport:'OTHER',    notes:'Stake $50. 1 leg lost. Next leg Fri 14 Aug.' },
+  { id:515, date:'2026-08-14', match:'Multi (3 Legs)',                                    market:'Multi @ 1.79',         odds:1.79, closingOdds:null, result:'win',  cumPL:31.50, sport:'OTHER',    notes:'Stake $100. Return $179.27. All 3 legs won.' },
+  { id:516, date:'2026-08-14', match:'Fremantle vs Adelaide Crows',                       market:'Under 168.5',          odds:1.90, closingOdds:null, result:'loss', cumPL:30.76, sport:'AFL',      notes:'Stake $36.81. Model total 187.6 — bet was against model direction.' },
+  { id:517, date:'2026-08-15', match:'Richmond vs St Kilda',                              market:'Under 168.5',          odds:1.85, closingOdds:null, result:'win',  cumPL:31.27, sport:'AFL',      notes:'Stake $30. Return $55.50. Model total 144.6 — strong model-backed play.' },
+  { id:518, date:'2026-08-15', match:'Richmond vs St Kilda',                              market:'Under 168.5',          odds:1.85, closingOdds:null, result:'win',  cumPL:32.12, sport:'AFL',      notes:'Stake $50. Return $92.50. Model total 144.6 — second stake on same play.' },
+  { id:519, date:'2026-08-15', match:'Caulfield Race 7',                                  market:'Cosmic Crusader Win',  odds:2.70, closingOdds:null, result:'win',  cumPL:33.82, sport:'OTHER',    notes:'Racing. Stake $50. Return $135.00.' },
+  { id:520, date:'2026-08-16', match:'Western Bulldogs vs Carlton',                       market:'Bulldogs +31.5 PYL',   odds:1.70, closingOdds:null, result:'win',  cumPL:34.24, sport:'AFL',      notes:'Stake $29.65. Return $50.40. Model margin +18.2 — wide safety line.' },
 );
 
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
@@ -836,6 +844,11 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:93, date:'2026-08-07', match:'Brisbane Lions vs Hawthorn',                          market:'Lions -2.5',             predictedLine:null,  takenPrice:1.91, closingPrice:1.90, clv:-1.0, clvLabel:'-1.0 pts', result:'win',  plUnits:0.46,   runningTotal:3.79   },
   { id:94, date:'2026-08-08', match:'Melbourne vs Fremantle',                              market:'Fremantle Win',          predictedLine:null,  takenPrice:1.47, closingPrice:1.55, result:'loss', plUnits:-0.40,  runningTotal:3.39   },
   { id:95, date:'2026-08-09', match:'West Coast Eagles vs Collingwood',                    market:'Collingwood Win',        predictedLine:null,  takenPrice:1.56, closingPrice:1.62, result:'win',  plUnits:0.28,   runningTotal:3.67   },
+  // R23 (Aug 14-16) — research bets >$25
+  { id:96,  date:'2026-08-14', match:'Fremantle Dockers vs Adelaide Crows',               market:'Under 168.5',            predictedLine:187.6, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.74,  runningTotal:2.93   },
+  { id:97,  date:'2026-08-15', match:'Richmond Tigers vs St Kilda Saints',                market:'Under 168.5',            predictedLine:144.6, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.51,   runningTotal:3.44   },
+  { id:98,  date:'2026-08-15', match:'Richmond Tigers vs St Kilda Saints',                market:'Under 168.5',            predictedLine:144.6, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.85,   runningTotal:4.29   },
+  { id:99,  date:'2026-08-16', match:'Western Bulldogs vs Carlton Blues',                  market:'Bulldogs +31.5 PYL',     predictedLine:18.2,  takenPrice:1.70, closingPrice:null, result:'win',  plUnits:0.42,   runningTotal:4.71   },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
