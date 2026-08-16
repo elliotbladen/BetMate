@@ -963,4 +963,5 @@ export const MODEL_BETS: ModelBet[] = [
   { id:89, date:'2026-08-14', match:'Manly Sea Eagles vs Dolphins',                       market:'Manly +10.5 PYL',        predictedLine:null,  takenPrice:1.74, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:4.38  },
   { id:90, date:'2026-08-15', match:'Brisbane Broncos vs New Zealand Warriors',            market:'Warriors -5.5',          predictedLine:null,  takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.45,  runningTotal:4.83  },
   { id:91, date:'2026-08-16', match:'Wests Tigers vs St George Illawarra Dragons',        market:'Tigers Win',             predictedLine:null,  takenPrice:1.93, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:4.33  },
+  { id:92, date:'2026-08-14', match:'NRL Multi (2 Legs)',                                  market:'Multi @ 2.08',           predictedLine:null,  takenPrice:2.08, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:3.33  },
 ];
