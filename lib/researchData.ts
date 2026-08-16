@@ -721,6 +721,9 @@ LEGACY_BETS.push(
   { id:518, date:'2026-08-15', match:'Richmond vs St Kilda',                              market:'Under 168.5',          odds:1.85, closingOdds:null, result:'win',  cumPL:32.12, sport:'AFL',      notes:'Stake $50. Return $92.50. Model total 144.6 — second stake on same play.' },
   { id:519, date:'2026-08-15', match:'Caulfield Race 7',                                  market:'Cosmic Crusader Win',  odds:2.70, closingOdds:null, result:'win',  cumPL:33.82, sport:'OTHER',    notes:'Racing. Stake $50. Return $135.00.' },
   { id:520, date:'2026-08-16', match:'Western Bulldogs vs Carlton',                       market:'Bulldogs +31.5 PYL',   odds:1.70, closingOdds:null, result:'win',  cumPL:34.24, sport:'AFL',      notes:'Stake $29.65. Return $50.40. Model margin +18.2 — wide safety line.' },
+  { id:521, date:'2026-08-14', match:'Manly Sea Eagles vs Dolphins',                     market:'Manly +10.5 PYL',      odds:1.74, closingOdds:null, result:'loss', cumPL:33.74, sport:'NRL',      notes:'Stake $25. No return.' },
+  { id:522, date:'2026-08-15', match:'Brisbane Broncos vs New Zealand Warriors',          market:'Warriors -5.5',        odds:1.89, closingOdds:null, result:'win',  cumPL:34.19, sport:'NRL',      notes:'Stake $25. Return $47.25.' },
+  { id:523, date:'2026-08-16', match:'Wests Tigers vs St George Illawarra Dragons',      market:'Tigers Win',           odds:1.93, closingOdds:null, result:'loss', cumPL:33.69, sport:'NRL',      notes:'Stake $25. No return.' },
 );
 
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
@@ -956,4 +959,8 @@ export const MODEL_BETS: ModelBet[] = [
   { id:86, date:'2026-08-08', match:'Melbourne Storm vs Manly Sea Eagles',                market:'Under 48.5',             predictedLine:null,  takenPrice:1.82, closingPrice:2.04, clv:-4.0, clvLabel:'-4.0 pts', result:'loss', plUnits:-0.50, runningTotal:5.05  },
   { id:87, date:'2026-08-09', match:'Canberra Raiders vs Newcastle Knights',              market:'Under 45.5',             predictedLine:null,  takenPrice:1.99, closingPrice:2.20, clv:-2.0, clvLabel:'-2.0 pts', result:'loss', plUnits:-0.50, runningTotal:4.55  },
   { id:88, date:'2026-08-09', match:'St George Illawarra Dragons vs Cronulla Sharks',     market:'Dragons +14.5',          predictedLine:null,  takenPrice:1.88, closingPrice:1.90, clv:-3.0, clvLabel:'-3.0 pts', result:'win',  plUnits:0.33,  runningTotal:4.88  },
+  // R25 (Aug 13-16) — $25 NRL line bets
+  { id:89, date:'2026-08-14', match:'Manly Sea Eagles vs Dolphins',                       market:'Manly +10.5 PYL',        predictedLine:null,  takenPrice:1.74, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:4.38  },
+  { id:90, date:'2026-08-15', match:'Brisbane Broncos vs New Zealand Warriors',            market:'Warriors -5.5',          predictedLine:null,  takenPrice:1.89, closingPrice:null, result:'win',  plUnits:0.45,  runningTotal:4.83  },
+  { id:91, date:'2026-08-16', match:'Wests Tigers vs St George Illawarra Dragons',        market:'Tigers Win',             predictedLine:null,  takenPrice:1.93, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:4.33  },
 ];
