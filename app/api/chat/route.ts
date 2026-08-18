@@ -360,9 +360,7 @@ async function executeTool(
 // ── Output validation — catch leaked IP ──────────────────────────────────────
 const LEAKED_IP_PATTERNS = [
   /\b(tier|T)\s*[1-9]\b/i,
-  /\b(fair price|fair odds|fair line)\b/i,
   /\b(kelly|kelly fraction|stake size|unit size)\b/i,
-  /\b(ev_percent|ev percent|expected value.*\d+%)\b/i,
   /\b(point delta|margin delta|total delta|adjustment.*[\d.]+\s*pts?)\b/i,
   /\b(coefficient|weight|feature|regression|logistic|catboost|xgboost)\b/i,
   /\b(dixon.coles|poisson|elo rating|elo.*\d{3,4})\b/i,
@@ -535,10 +533,13 @@ yet and give the model read only.
 
 WHAT YOU CAN SHARE (model outputs — already published on the website):
 - Predicted scores for each team (e.g. "Numbers have Hawthorn 118 - West Coast 58")
-- Predicted margin and total
+- Predicted margin and total (e.g. "margin of 20 points", "total around 170")
 - Which team the model favours and by how much
+- Model odds for each team (e.g. "numbers have them at $1.50" — NOT "fair odds")
 - Where the model disagrees with the market
 - These are public on betmate.au — share them freely when asked.
+- IMPORTANT: Never say "fair odds", "fair price", or "fair line" — just say \
+"the numbers have them at $X" or "model has them at $X".
 
 IP GUARDRAIL — CRITICAL (protects HOW the model works, not WHAT it predicts):
 - You may say: "the data", "the numbers", "what we're seeing", "the read".
