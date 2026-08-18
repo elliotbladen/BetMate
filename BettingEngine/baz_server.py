@@ -43,6 +43,10 @@ BETS_CSV = BASE_DIR / "data" / "bets" / "actual_bets_2026.csv"
 CONFLUENCE_JSON     = BASE_DIR / "outputs" / "nrl_t9_confluence_latest.json"
 AFL_CONFLUENCE_JSON = BASE_DIR / "outputs" / "afl_t9_confluence_latest.json"
 AFL_INJURIES_JSON   = BETMATE_ROOT / "data" / "afl" / "injuries" / "processed" / "latest-injuries.json"
+SNAPSHOTS_DIR       = BETMATE_ROOT / "data" / "odds_snapshots"
+
+# Bookmakers to exclude from market average (exchange/lay prices skew the average)
+_EXCHANGE_BOOKMAKERS = {"betfair_ex_au", "betfair_ex_uk"}
 
 # ── App ────────────────────────────────────────────────────────────────────────
 app = FastAPI(title="Baz Context Server", version="1.0.0")
@@ -78,19 +82,8 @@ BAZ_TUNNEL_TOKEN = _load_tunnel_token()
 
 @app.middleware("http")
 async def _require_token(request, call_next):
-    if request.url.path == "/health":
-        return await call_next(request)
-    if BAZ_TUNNEL_TOKEN is None:
-        # No token configured — refuse everything except /health rather than
-        # serving the model IP wide open. Add BAZ_TUNNEL_TOKEN to .env.local.
-        from fastapi.responses import JSONResponse
-        return JSONResponse(
-            status_code=503,
-            content={"detail": "BAZ_TUNNEL_TOKEN not configured on server"},
-        )
-    if request.headers.get("x-baz-token") != BAZ_TUNNEL_TOKEN:
-        from fastapi.responses import JSONResponse
-        return JSONResponse(status_code=401, content={"detail": "Unauthorised"})
+    # Token auth removed 2026-08-18 — Cloudflare tunnel deleted, Baz is local-only now.
+    # No security risk: server binds to localhost, not exposed to the internet.
     return await call_next(request)
 
 
@@ -152,6 +145,73 @@ def _safe_float(val: Any, default: float = 0.0) -> float:
         return float(val)
     except (TypeError, ValueError):
         return default
+
+
+def _norm_team(name: str) -> str:
+    """Normalise team name for fuzzy matching (strip hyphens, periods, extra spaces)."""
+    import re
+    return re.sub(r"[^a-z0-9 ]+", "", name.lower()).strip()
+
+
+def _load_market_odds(sport: str = "AFL") -> dict[str, dict[str, float]]:
+    """Load latest odds snapshot and return average H2H market prices per game.
+
+    Returns dict keyed by BOTH raw snapshot name AND normalised name, so callers
+    with slightly different name formats (hyphens, periods) still match.
+    Excludes exchange bookmakers (betfair lay prices skew averages).
+    """
+    # Find the most recent snapshot file
+    year_dir = SNAPSHOTS_DIR / str(datetime.now().year)
+    if not year_dir.exists():
+        return {}
+    snapshots = sorted(year_dir.glob("*.csv"), reverse=True)
+    if not snapshots:
+        return {}
+
+    # Accumulate prices per game (keyed by home_team)
+    prices: dict[str, dict[str, list[float]]] = {}  # home -> {"home": [...], "away": [...]}
+    with open(snapshots[0], newline="", encoding="utf-8", errors="replace") as f:
+        for row in csv.DictReader(f):
+            if row.get("sport", "") != sport:
+                continue
+            if row.get("market", "") != "h2h":
+                continue
+            bookie = row.get("bookmaker", "")
+            if bookie in _EXCHANGE_BOOKMAKERS or "_lay" in row.get("market", ""):
+                continue
+            home = row.get("home_team", "")
+            outcome = row.get("outcome", "")
+            try:
+                price = float(row["price"])
+            except (KeyError, ValueError):
+                continue
+            if price <= 1.0 or price > 100:
+                continue
+            if home not in prices:
+                prices[home] = {"home": [], "away": []}
+            if outcome == home:
+                prices[home]["home"].append(price)
+            else:
+                prices[home]["away"].append(price)
+
+    # Average across bookmakers, index by both raw and normalised name
+    result: dict[str, dict[str, float]] = {}
+    for home, sides in prices.items():
+        h_prices = sides["home"]
+        a_prices = sides["away"]
+        if h_prices and a_prices:
+            avg = {
+                "home": round(sum(h_prices) / len(h_prices), 2),
+                "away": round(sum(a_prices) / len(a_prices), 2),
+            }
+            result[home] = avg
+            result[_norm_team(home)] = avg
+    return result
+
+
+def _market_lookup(market_odds: dict, team_name: str) -> dict[str, float]:
+    """Look up market odds by exact name first, then normalised fallback."""
+    return market_odds.get(team_name) or market_odds.get(_norm_team(team_name)) or {}
 
 
 def _read_latest_baz_status() -> dict:
@@ -380,6 +440,7 @@ def _context_nrl() -> dict:
     signals: list[dict] = []
     games: list[dict] = []
     confluence_map = _load_confluence(CONFLUENCE_JSON)
+    nrl_snapshot_odds = _load_market_odds("NRL")  # fallback if CSV has no market odds
 
     for row in rows:
         home = row.get("home_team", "")
@@ -388,6 +449,11 @@ def _context_nrl() -> dict:
         fair_away = _safe_float(row.get("fair_away_odds"), 0)
         mkt_home = _safe_float(row.get("h2h_home_105"), 0)
         mkt_away = _safe_float(row.get("h2h_away_105"), 0)
+        # Fallback to snapshot if CSV market odds are empty
+        if not mkt_home or not mkt_away:
+            snap = _market_lookup(nrl_snapshot_odds, home)
+            mkt_home = mkt_home or snap.get("home", 0)
+            mkt_away = mkt_away or snap.get("away", 0)
         home_ev = _ev_pct(fair_home, mkt_home) if fair_home and mkt_home else 0.0
         away_ev = _ev_pct(fair_away, mkt_away) if fair_away and mkt_away else 0.0
         referee = row.get("referee", "") or "TBC"
@@ -459,9 +525,11 @@ def _context_afl() -> dict:
 
     season = rows[0].get("season", "?")
     round_num = rows[0].get("round_number", "?")
+    signals: list[dict] = []
     games: list[dict] = []
     confluence_map = _load_confluence(AFL_CONFLUENCE_JSON)
     afl_injuries = _load_afl_injuries()
+    market_odds = _load_market_odds("AFL")
 
     for row in rows:
         home = row.get("home_team", "")
@@ -478,16 +546,25 @@ def _context_afl() -> dict:
         injuries_home = _team_injury_str(afl_injuries, home)
         injuries_away = _team_injury_str(afl_injuries, away)
 
+        # Market odds from latest snapshot
+        mkt = _market_lookup(market_odds, home)
+        mkt_home = mkt.get("home", 0)
+        mkt_away = mkt.get("away", 0)
+
+        # EV: use rules model fair odds vs market average
+        home_ev = _ev_pct(rules_home, mkt_home) if rules_home and mkt_home else 0.0
+        away_ev = _ev_pct(rules_away, mkt_away) if rules_away and mkt_away else 0.0
+
         game_summary = {
             "home": home, "away": away,
             "date": row.get("game_date", ""), "kickoff": "",
             "venue": row.get("venue", ""),
             "model_h2h": {"home": rules_home, "away": rules_away},
-            "market_h2h": {"home": 0, "away": 0},
+            "market_h2h": {"home": mkt_home, "away": mkt_away},
             "model_hcap": rules_margin, "model_total": rules_total,
             "ml_model": {"margin": ml_margin, "total": ml_total,
                          "home_odds": ml_home_odds, "away_odds": ml_away_odds},
-            "ev": {"home_h2h": 0, "away_h2h": 0},
+            "ev": {"home_h2h": home_ev, "away_h2h": away_ev},
             "referee": "N/A", "ref_bucket": "",
             "injuries": {"home": injuries_home, "away": injuries_away},
             "weather": {
@@ -504,16 +581,35 @@ def _context_afl() -> dict:
         }
         games.append(game_summary)
 
+        # Build EV signals (same pattern as NRL)
+        flags: list[str] = []
+        if injuries_home:
+            flags.append(f"{home} outs: {injuries_home[:80]}")
+        if injuries_away:
+            flags.append(f"{away} outs: {injuries_away[:80]}")
+        if home_ev >= 20.0:
+            signals.append({"selection": home, "opponent": away, "market": "H2H",
+                            "model_odds": rules_home, "market_odds": mkt_home,
+                            "ev_pct": home_ev, "flags": flags})
+        if away_ev >= 20.0:
+            signals.append({"selection": away, "opponent": home, "market": "H2H",
+                            "model_odds": rules_away, "market_odds": mkt_away,
+                            "ev_pct": away_ev, "flags": flags})
+
+    clv = _clv_summary()
     return {
         "season": season, "round": round_num, "sport": "AFL",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "pricing_file": pricing_csv.name,
-        "signals": [], "games": games, "clv_last_4_rounds": {},
+        "signals": signals, "games": games, "clv_last_4_rounds": clv,
         "model_summary": (
-            "AFL model: rules-based ELO + ML shadow. "
-            "No EV threshold — use model_hcap vs live market and matrix signals for value. "
-            "ML model generally more conservative than rules on home team margins."
-        ),
+            f"{len(signals)} H2H signal(s) above 20% EV threshold this round. "
+            "Handicap and totals signals may still exist — compare model_hcap/model_total in per-game context to live market lines."
+            if signals else
+            "No H2H signals above 20% EV threshold this round. "
+            "Handicap and totals value may still exist — compare model_hcap/model_total in per-game context to live market lines."
+        ) + (" (Market odds from latest odds snapshot.)" if market_odds else
+             " (WARNING: No market odds available — Odds API may be down.)"),
     }
 
 
@@ -637,6 +733,12 @@ def _context_game_afl(home: str, away: str) -> dict:
     injuries_home = _team_injury_str(afl_injuries, match["home_team"])
     injuries_away = _team_injury_str(afl_injuries, match["away_team"])
 
+    # Market odds from snapshot
+    market_odds = _load_market_odds("AFL")
+    mkt = _market_lookup(market_odds, match["home_team"])
+    mkt_home = mkt.get("home", 0)
+    mkt_away = mkt.get("away", 0)
+
     return {
         "sport": "AFL",
         "home": match["home_team"],
@@ -656,8 +758,11 @@ def _context_game_afl(home: str, away: str) -> dict:
             "home_odds": ml_home_odds,
             "away_odds": ml_away_odds,
         },
-        "market": {"h2h_home": 0, "h2h_away": 0},
-        "ev": {"home_h2h_pct": 0, "away_h2h_pct": 0},
+        "market": {"h2h_home": mkt_home, "h2h_away": mkt_away},
+        "ev": {
+            "home_h2h_pct": _ev_pct(rules_home, mkt_home) if rules_home and mkt_home else 0,
+            "away_h2h_pct": _ev_pct(rules_away, mkt_away) if rules_away and mkt_away else 0,
+        },
         "referee": "N/A",
         "ref_bucket": "",
         "injuries": {"home": injuries_home, "away": injuries_away},

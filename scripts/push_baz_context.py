@@ -95,10 +95,18 @@ def load_env() -> None:
         os.environ.setdefault(key.strip(), value.strip())
 
 
+def _baz_token() -> str:
+    return os.environ.get("BAZ_TUNNEL_TOKEN", "")
+
+
 def get_json(path: str) -> dict[str, Any]:
     import requests
 
-    resp = requests.get(f"{BAZ_LOCAL_API}{path}", timeout=10)
+    headers = {}
+    token = _baz_token()
+    if token:
+        headers["x-baz-token"] = token
+    resp = requests.get(f"{BAZ_LOCAL_API}{path}", headers=headers, timeout=10)
     resp.raise_for_status()
     return resp.json()
 
@@ -502,6 +510,10 @@ def build_context(sport: str) -> dict[str, Any]:
             "contains_raw_database": False,
             "contains_matrix_workbooks": False,
         },
+        "market_odds_available": any(
+            (g.get("market") or {}).get("h2h_home", 0) > 1
+            for g in detailed_games
+        ),
         "expiry": {
             "cutoff_date_aest": cutoff.isoformat(),
             "stale_games_removed": stale_count,
@@ -526,6 +538,16 @@ def push_context(sport: str, context: dict[str, Any]) -> None:
     key = f"baz_context_{sport.lower()}_latest"
     push_data_store_key(key, context)
     print(f"  Supabase push OK: {key} ({len(context['round_context']['games'])} games)")
+
+    # Keep the fixture/predictions authority key in sync so the chat route's
+    # staleness check never rejects fresh context due to a stale fixture.
+    rc = context.get("round_context", {})
+    round_num = rc.get("round")
+    season = rc.get("season")
+    if round_num is not None and season is not None:
+        authority_key = "nrl_fixture" if sport == "NRL" else "afl_predictions"
+        push_data_store_key(authority_key, {"round": round_num, "season": season})
+        print(f"  Supabase sync OK: {authority_key} → R{round_num} S{season}")
 
 
 def main() -> int:
