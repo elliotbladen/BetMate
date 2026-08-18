@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase';
 import { isLocalDemoMode } from '@/lib/authMode';
 
@@ -13,8 +13,10 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
+  const searchParams = useSearchParams();
   const supabase = createClient();
   const demoMode = isLocalDemoMode();
+  const redirectTo = searchParams.get('next') ?? '/odds';
 
   const handleGoogleLogin = async () => {
     if (demoMode) {
@@ -40,7 +42,7 @@ export default function LoginPage() {
     setError(null);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) { setError(error.message); setLoading(false); return; }
-    router.push('/odds');
+    router.push(redirectTo);
   };
 
   return (

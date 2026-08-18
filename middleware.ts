@@ -32,8 +32,7 @@ const PUBLIC_PATHS = [
   '/api/odds/epl',
   '/api/epl-predictions',
   '/api/racing',
-  '/tipping',
-  '/api/tipping',
+  '/api/tipping/fixtures',
 ];
 
 export async function middleware(request: NextRequest) {
