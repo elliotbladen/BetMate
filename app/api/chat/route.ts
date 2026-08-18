@@ -333,25 +333,39 @@ async function executeTool(
 
   if (toolName === 'get_team_form') {
     const teamName = ((toolInput.team_name as string) || '').toLowerCase();
-    const game = games.find((g) =>
-      String(g.home ?? '').toLowerCase().includes(teamName) ||
-      String(g.away ?? '').toLowerCase().includes(teamName)
-    );
-    if (!game) return JSON.stringify({ info: `${toolInput.team_name} not found in current round` });
-    return JSON.stringify(game);
+    const historyKey = sportCode === 'AFL' ? 'afl_match_history' : 'nrl_match_history';
+    const allMatches = await getDataStore(historyKey) as { date: string; homeTeam: string; awayTeam: string; homeScore: number; awayScore: number; venue: string }[] | null;
+    if (!allMatches) return JSON.stringify({ info: `No match history available for ${sportCode}` });
+    const teamGames = allMatches
+      .filter((m) => m.homeTeam?.toLowerCase().includes(teamName) || m.awayTeam?.toLowerCase().includes(teamName))
+      .slice(0, 6)
+      .map((m) => {
+        const isHome = m.homeTeam?.toLowerCase().includes(teamName);
+        const teamScore = isHome ? m.homeScore : m.awayScore;
+        const oppScore = isHome ? m.awayScore : m.homeScore;
+        const opponent = isHome ? m.awayTeam : m.homeTeam;
+        return { date: m.date, opponent, teamScore, oppScore, won: teamScore > oppScore, isHome, venue: m.venue };
+      });
+    if (!teamGames.length) return JSON.stringify({ info: `${toolInput.team_name} not found in match history` });
+    const wins = teamGames.filter((g) => g.won).length;
+    return JSON.stringify({ sport: sportCode, team: toolInput.team_name, last_6: teamGames, record: `${wins}W ${teamGames.length - wins}L` });
   }
 
   if (toolName === 'get_head_to_head') {
     const teamA = ((toolInput.team_a as string) || '').toLowerCase();
     const teamB = ((toolInput.team_b as string) || '').toLowerCase();
-    const game = games.find((g) => {
-      const home = String(g.home ?? '').toLowerCase();
-      const away = String(g.away ?? '').toLowerCase();
-      return (home.includes(teamA) && away.includes(teamB)) ||
-             (home.includes(teamB) && away.includes(teamA));
-    });
-    if (!game) return JSON.stringify({ info: `No data for ${toolInput.team_a} vs ${toolInput.team_b}` });
-    return JSON.stringify(game);
+    const historyKey = sportCode === 'AFL' ? 'afl_match_history' : 'nrl_match_history';
+    const allMatches = await getDataStore(historyKey) as { date: string; homeTeam: string; awayTeam: string; homeScore: number; awayScore: number; venue: string }[] | null;
+    if (!allMatches) return JSON.stringify({ info: `No match history available for ${sportCode}` });
+    const h2h = allMatches
+      .filter((m) =>
+        (m.homeTeam?.toLowerCase().includes(teamA) && m.awayTeam?.toLowerCase().includes(teamB)) ||
+        (m.homeTeam?.toLowerCase().includes(teamB) && m.awayTeam?.toLowerCase().includes(teamA))
+      )
+      .slice(0, 10)
+      .map((m) => ({ date: m.date, home: m.homeTeam, away: m.awayTeam, homeScore: m.homeScore, awayScore: m.awayScore, venue: m.venue }));
+    if (!h2h.length) return JSON.stringify({ info: `No H2H data for ${toolInput.team_a} vs ${toolInput.team_b}` });
+    return JSON.stringify({ sport: sportCode, team_a: toolInput.team_a, team_b: toolInput.team_b, matches: h2h });
   }
 
   return JSON.stringify({ error: 'Unknown tool' });
