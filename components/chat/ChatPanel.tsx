@@ -5,7 +5,7 @@ import { Loader2, X } from 'lucide-react';
 import Link from 'next/link';
 import type { Game } from '@/components/odds/GameCard';
 
-// â”€â”€â”€ Message limit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Message limit â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 const FREE_LIMIT = 3;
 const STORAGE_KEY = 'BetMATE_chat_v1';
 
@@ -46,7 +46,7 @@ function bumpCount(): number {
   return next;
 }
 
-// â”€â”€â”€ Odds context â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Odds context â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function buildOddsContext(games: Game[]): string {
   if (games.length === 0) return 'No games loaded this week.';
   return games.map((g) => {
@@ -77,24 +77,42 @@ ${g.tier ? `Tier: ${g.tier}` : ''}`.trim();
   }).join('\n\n');
 }
 
-// â”€â”€â”€ Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --- Parse suggestions from Baz response ---
+const SUGGESTIONS_DELIMITER = '---SUGGESTIONS---';
+
+function parseSuggestions(text: string): { body: string; suggestions: string[] } {
+  const idx = text.indexOf(SUGGESTIONS_DELIMITER);
+  if (idx === -1) return { body: text, suggestions: [] };
+  const body = text.slice(0, idx).trimEnd();
+  const jsonPart = text.slice(idx + SUGGESTIONS_DELIMITER.length).trim();
+  try {
+    const parsed = JSON.parse(jsonPart);
+    if (Array.isArray(parsed) && parsed.every((s: unknown) => typeof s === 'string')) {
+      return { body, suggestions: parsed.slice(0, 4) };
+    }
+  } catch { /* malformed JSON -- ignore */ }
+  return { body, suggestions: [] };
+}
+
+// --- Types ---
 interface Message {
   role: 'user' | 'assistant';
   content: string;
+  suggestions?: string[];
 }
 
 const WELCOME: Message = {
   role: 'assistant',
-  content: "G'day. I'm Baz â€” ask me anything about this round. Odds, value, referee matchups, why the model's on or off a certain team. If the data says something's cooked, I'll tell ya.",
+  content: "G'day, I'm Baz. Got the full round data loaded up -- injuries, refs, venue reads, the lot. What are you looking at this week?",
 };
 
 const SUGGESTED = [
-  'Why is Peter Gough whistle heavy?',
-  'Which game has the best value this round?',
-  'Explain the EV calculation',
+  'What stands out this NRL round?',
+  'Best AFL value play this week?',
+  'Any big injuries this round?',
 ];
 
-// â”€â”€â”€ Typing dots â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Typing dots â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 function TypingDots() {
   return (
     <span className="flex items-center gap-1 py-0.5">
@@ -109,7 +127,7 @@ function TypingDots() {
   );
 }
 
-// â”€â”€â”€ Props â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Props â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 export interface ChatPanelProps {
   games: Game[];
   userPlan?: 'free' | 'pro';
@@ -118,7 +136,7 @@ export interface ChatPanelProps {
   className?: string;
 }
 
-// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€â"€ Component â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 export default function ChatPanel({
   games,
   userPlan = 'free',
@@ -178,10 +196,11 @@ export default function ChatPanel({
       const brain = res.headers.get('X-Baz-Brain');
       setBrainOnline(brain === 'online' || brain === 'topic-guard' || brain === 'ip-guard' || brain === 'weekly-scope-guard');
 
-      const assistantText = await res.text();
+      const rawText = await res.text();
+      const { body: assistantText, suggestions } = parseSuggestions(rawText);
       setMessages((prev) => {
         const updated = [...prev];
-        updated[updated.length - 1] = { role: 'assistant', content: assistantText };
+        updated[updated.length - 1] = { role: 'assistant', content: assistantText, suggestions };
         return updated;
       });
 
@@ -206,7 +225,7 @@ export default function ChatPanel({
   return (
     <div className={`flex flex-col h-full bg-white ${className}`}>
 
-      {/* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Header â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#E2E8F0] shrink-0">
         <div className="flex items-center gap-3">
           <span className="font-display font-bold text-[#111827] text-[15px] tracking-tight uppercase">
@@ -224,7 +243,7 @@ export default function ChatPanel({
         )}
       </div>
 
-      {/* â”€â”€ Login wall â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Login wall â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {brainOnline === false && (
         <div style={{backgroundColor:'#fffbeb',borderBottom:'1px solid #fde68a',flexShrink:0}} className="px-4 py-2">
           <p style={{color:'#92400e'}} className="text-[11px] font-mono text-center">
@@ -235,7 +254,7 @@ export default function ChatPanel({
       {!isLoggedIn && (
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center gap-4">
           <div className="w-12 h-12 rounded-full border border-[#00DEB8]/40 flex items-center justify-center mb-1">
-            <span className="text-[#00DEB8] text-xl">ðŸ”’</span>
+            <span className="text-[#00DEB8] text-xl">ðŸ"'</span>
           </div>
           <p className="text-[#111827] font-semibold text-sm">Sign up to chat with Baz</p>
           <p className="text-[#9CA3AF] text-xs leading-relaxed">
@@ -253,24 +272,41 @@ export default function ChatPanel({
         </div>
       )}
 
-      {/* â”€â”€ Messages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Messages â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {isLoggedIn && <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 min-h-0">
         {messages.map((msg, i) => {
           const isLastAssistant = msg.role === 'assistant' && i === messages.length - 1 && loading;
           const showTyping = isLastAssistant && msg.content === '';
+          const isLatestAssistant = msg.role === 'assistant' && i === messages.length - 1 && !loading;
+          const showSuggestions = isLatestAssistant && msg.suggestions && msg.suggestions.length > 0 && !isBlocked;
 
           return (
-            <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div
-                className={[
-                  'max-w-[88%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed',
-                  msg.role === 'user'
-                    ? 'bg-[#00DEB8] text-black font-medium rounded-br-sm'
-                    : 'bg-[#F8FAFC] text-[#374151] border border-[#E2E8F0] rounded-bl-sm',
-                ].join(' ')}
-              >
-                {showTyping ? <TypingDots /> : msg.content}
+            <div key={i}>
+              <div className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div
+                  className={[
+                    'max-w-[88%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed',
+                    msg.role === 'user'
+                      ? 'bg-[#00DEB8] text-black font-medium rounded-br-sm'
+                      : 'bg-[#F8FAFC] text-[#374151] border border-[#E2E8F0] rounded-bl-sm',
+                  ].join(' ')}
+                >
+                  {showTyping ? <TypingDots /> : msg.content}
+                </div>
               </div>
+              {showSuggestions && (
+                <div className="flex flex-wrap gap-1.5 mt-2 ml-1">
+                  {msg.suggestions!.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => send(s)}
+                      className="px-3 py-1.5 rounded-full border border-[#00DEB8]/30 bg-[#00DEB8]/[0.06] text-[#00DEB8] text-[11px] font-mono font-medium hover:bg-[#00DEB8]/[0.15] hover:border-[#00DEB8]/60 transition-colors"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           );
         })}
@@ -287,7 +323,7 @@ export default function ChatPanel({
               href="/auth/register"
               className="inline-flex items-center justify-center bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-xs font-bold px-5 py-2 rounded-lg transition-colors"
             >
-              Upgrade to PRO â€” unlimited
+              Upgrade to PRO â€" unlimited
             </Link>
           </div>
         )}
@@ -295,7 +331,7 @@ export default function ChatPanel({
         <div ref={bottomRef} />
       </div>}
 
-      {/* â”€â”€ Suggested questions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Suggested questions â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {isLoggedIn && messages.length <= 1 && !isBlocked && (
         <div className="px-4 pb-3 flex flex-col gap-1.5 shrink-0">
           {SUGGESTED.map((q) => (
@@ -310,7 +346,7 @@ export default function ChatPanel({
         </div>
       )}
 
-      {/* â”€â”€ Input bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Input bar â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {isLoggedIn && <div className="shrink-0 px-3 py-3 bg-white border-t border-[#E2E8F0]">
         <div className="flex items-end gap-2">
           <textarea
@@ -343,7 +379,7 @@ export default function ChatPanel({
             ? <>{remaining} free message{remaining !== 1 ? 's' : ''} remaining today Â· <Link href="/auth/register" className="text-[#6B7280] hover:text-[#00DEB8] transition-colors">Upgrade</Link></>
             : userPlan === 'free' && isBlocked
             ? <>Limit reached Â· <Link href="/auth/register" className="text-[#7C3AED]">Upgrade</Link></>
-            : 'PRO â€” unlimited messages'
+            : 'PRO â€" unlimited messages'
           }
         </p>
       </div>}
