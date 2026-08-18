@@ -1,0 +1,53 @@
+import { NextResponse } from 'next/server';
+import { createServerClient } from '@/lib/supabaseServer';
+
+// GET /api/tipping/leaderboard?comp_id=X
+// Returns leaderboard for a comp — aggregated from tips table.
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const compId = searchParams.get('comp_id');
+
+  if (!compId) {
+    return NextResponse.json({ leaderboard: [] });
+  }
+
+  const supabase = createServerClient();
+
+  // Get all entries for this comp
+  const { data: entries, error: entriesErr } = await supabase
+    .from('tipping_entries')
+    .select('user_id, display_name, total_points')
+    .eq('comp_id', compId)
+    .order('total_points', { ascending: false });
+
+  if (entriesErr) {
+    return NextResponse.json({ leaderboard: [], error: entriesErr.message }, { status: 500 });
+  }
+
+  // Get tip stats per user
+  const { data: tips } = await supabase
+    .from('tipping_tips')
+    .select('user_id, points')
+    .eq('comp_id', compId);
+
+  const tipStats: Record<string, { correct: number; total: number }> = {};
+  for (const tip of tips ?? []) {
+    if (!tipStats[tip.user_id]) tipStats[tip.user_id] = { correct: 0, total: 0 };
+    tipStats[tip.user_id].total++;
+    if (tip.points > 0) tipStats[tip.user_id].correct++;
+  }
+
+  const leaderboard = (entries ?? []).map((e, i) => ({
+    rank: i + 1,
+    display_name: e.display_name,
+    user_id: e.user_id,
+    total_points: e.total_points,
+    correct: tipStats[e.user_id]?.correct ?? 0,
+    total_tips: tipStats[e.user_id]?.total ?? 0,
+    strike_rate: tipStats[e.user_id]?.total
+      ? Math.round((tipStats[e.user_id].correct / tipStats[e.user_id].total) * 100)
+      : 0,
+  }));
+
+  return NextResponse.json({ leaderboard });
+}

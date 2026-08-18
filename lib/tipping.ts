@@ -1,0 +1,243 @@
+// lib/tipping.ts
+//
+// EPL Tipping Competition — types, fixtures, and scoring logic.
+// MVP: pick home/draw/away for each EPL game. 3pts correct result.
+// Supabase tables: tipping_comps, tipping_entries, tipping_tips
+
+export interface TippingComp {
+  id: string;
+  name: string;
+  sport: string;
+  season: string;
+  invite_code: string;
+  created_by: string;
+  prize_pool: string | null;
+  created_at: string;
+}
+
+export interface TippingEntry {
+  id: string;
+  comp_id: string;
+  user_id: string;
+  display_name: string;
+  total_points: number;
+  joined_at: string;
+}
+
+export type TipSelection = 'home' | 'draw' | 'away';
+
+export interface TippingTip {
+  id: string;
+  comp_id: string;
+  user_id: string;
+  gameweek: number;
+  game_id: string;
+  home_team: string;
+  away_team: string;
+  selection: TipSelection;
+  result: TipSelection | null;
+  points: number;
+  submitted_at: string;
+}
+
+export interface Fixture {
+  id: string;
+  gameweek: number;
+  home_team: string;
+  away_team: string;
+  kickoff: string; // ISO datetime
+  venue: string;
+  home_score: number | null;
+  away_score: number | null;
+  status: 'upcoming' | 'live' | 'finished';
+}
+
+export interface LeaderboardRow {
+  display_name: string;
+  user_id: string;
+  total_points: number;
+  correct: number;
+  total_tips: number;
+  strike_rate: number;
+  rank: number;
+}
+
+// Scoring: 3 points for correct result prediction
+export function scoreResult(
+  selection: TipSelection,
+  home_score: number,
+  away_score: number
+): number {
+  const actual: TipSelection =
+    home_score > away_score ? 'home' :
+    away_score > home_score ? 'away' : 'draw';
+  return selection === actual ? 3 : 0;
+}
+
+export function getActualResult(
+  home_score: number,
+  away_score: number
+): TipSelection {
+  if (home_score > away_score) return 'home';
+  if (away_score > home_score) return 'away';
+  return 'draw';
+}
+
+// Check if tips can still be submitted (before first kickoff of the gameweek)
+export function canTip(kickoff: string): boolean {
+  return new Date(kickoff) > new Date();
+}
+
+// EPL 2026-27 Gameweek 1 fixtures
+// These will be replaced by live Odds API data once available.
+// Dates are approximate — verify against official EPL schedule.
+export const EPL_GW1_FIXTURES: Fixture[] = [
+  {
+    id: 'epl-2627-gw1-1',
+    gameweek: 1,
+    home_team: 'Manchester United',
+    away_team: 'Aston Villa',
+    kickoff: '2026-08-15T14:00:00Z',
+    venue: 'Old Trafford',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-2',
+    gameweek: 1,
+    home_team: 'Arsenal',
+    away_team: 'Wolverhampton Wanderers',
+    kickoff: '2026-08-16T14:00:00Z',
+    venue: 'Emirates Stadium',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-3',
+    gameweek: 1,
+    home_team: 'AFC Bournemouth',
+    away_team: 'Nottingham Forest',
+    kickoff: '2026-08-16T14:00:00Z',
+    venue: 'Vitality Stadium',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-4',
+    gameweek: 1,
+    home_team: 'Everton',
+    away_team: 'Brighton and Hove Albion',
+    kickoff: '2026-08-16T14:00:00Z',
+    venue: 'Goodison Park',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-5',
+    gameweek: 1,
+    home_team: 'Fulham',
+    away_team: 'Liverpool',
+    kickoff: '2026-08-16T11:30:00Z',
+    venue: 'Craven Cottage',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-6',
+    gameweek: 1,
+    home_team: 'Newcastle United',
+    away_team: 'Sunderland',
+    kickoff: '2026-08-16T14:00:00Z',
+    venue: "St James' Park",
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-7',
+    gameweek: 1,
+    home_team: 'Tottenham Hotspur',
+    away_team: 'Leeds United',
+    kickoff: '2026-08-16T14:00:00Z',
+    venue: 'Tottenham Hotspur Stadium',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-8',
+    gameweek: 1,
+    home_team: 'West Ham United',
+    away_team: 'Crystal Palace',
+    kickoff: '2026-08-16T14:00:00Z',
+    venue: 'London Stadium',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-9',
+    gameweek: 1,
+    home_team: 'Brentford',
+    away_team: 'Manchester City',
+    kickoff: '2026-08-16T16:30:00Z',
+    venue: 'Gtech Community Stadium',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+  {
+    id: 'epl-2627-gw1-10',
+    gameweek: 1,
+    home_team: 'Chelsea',
+    away_team: 'Burnley',
+    kickoff: '2026-08-17T15:00:00Z',
+    venue: 'Stamford Bridge',
+    home_score: null,
+    away_score: null,
+    status: 'upcoming',
+  },
+];
+
+// Supabase SQL for table creation (run once in Supabase SQL editor):
+//
+// CREATE TABLE tipping_comps (
+//   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+//   name TEXT NOT NULL,
+//   sport TEXT NOT NULL DEFAULT 'EPL',
+//   season TEXT NOT NULL DEFAULT '2026-27',
+//   invite_code TEXT NOT NULL UNIQUE,
+//   created_by TEXT NOT NULL,
+//   prize_pool TEXT,
+//   created_at TIMESTAMPTZ DEFAULT NOW()
+// );
+//
+// CREATE TABLE tipping_entries (
+//   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+//   comp_id UUID REFERENCES tipping_comps(id),
+//   user_id TEXT NOT NULL,
+//   display_name TEXT NOT NULL,
+//   total_points INTEGER DEFAULT 0,
+//   joined_at TIMESTAMPTZ DEFAULT NOW(),
+//   UNIQUE(comp_id, user_id)
+// );
+//
+// CREATE TABLE tipping_tips (
+//   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+//   comp_id UUID REFERENCES tipping_comps(id),
+//   user_id TEXT NOT NULL,
+//   gameweek INTEGER NOT NULL,
+//   game_id TEXT NOT NULL,
+//   home_team TEXT NOT NULL,
+//   away_team TEXT NOT NULL,
+//   selection TEXT NOT NULL CHECK (selection IN ('home', 'draw', 'away')),
+//   result TEXT CHECK (result IN ('home', 'draw', 'away')),
+//   points INTEGER DEFAULT 0,
+//   submitted_at TIMESTAMPTZ DEFAULT NOW(),
+//   UNIQUE(comp_id, user_id, game_id)
+// );
