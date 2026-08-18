@@ -194,7 +194,7 @@ export default function ChatPanel({
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const brain = res.headers.get('X-Baz-Brain');
-      setBrainOnline(brain === 'online' || brain === 'topic-guard' || brain === 'ip-guard' || brain === 'weekly-scope-guard');
+      setBrainOnline(brain === 'online' || brain === 'agent' || brain === 'topic-guard' || brain === 'ip-guard' || brain === 'weekly-scope-guard');
 
       const rawText = await res.text();
       const { body: assistantText, suggestions } = parseSuggestions(rawText);
