@@ -1,6 +1,45 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
 
+// GET /api/tipping/join?user_id=X
+// Check if a user is already in a comp. Returns their comp if found.
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const userId = searchParams.get('user_id');
+
+  if (!userId) {
+    return NextResponse.json({ comp: null });
+  }
+
+  const supabase = createServerClient();
+
+  // Find user's entry in any comp
+  const { data: entries } = await supabase
+    .from('tipping_entries')
+    .select('comp_id, display_name')
+    .eq('user_id', userId)
+    .limit(1);
+
+  if (!entries || entries.length === 0) {
+    return NextResponse.json({ comp: null });
+  }
+
+  const entry = entries[0];
+
+  // Fetch the comp details
+  const { data: comps } = await supabase
+    .from('tipping_comps')
+    .select('*')
+    .eq('id', entry.comp_id)
+    .limit(1);
+
+  if (!comps || comps.length === 0) {
+    return NextResponse.json({ comp: null });
+  }
+
+  return NextResponse.json({ comp: comps[0], display_name: entry.display_name });
+}
+
 // POST /api/tipping/join
 // Join a comp by invite code. Body: { invite_code, user_id, display_name }
 export async function POST(request: Request) {

@@ -6,6 +6,7 @@ import { createServerClient } from '@/lib/supabaseServer';
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const compId = searchParams.get('comp_id');
+  const gw = searchParams.get('gameweek');
 
   if (!compId) {
     return NextResponse.json({ leaderboard: [] });
@@ -24,11 +25,17 @@ export async function GET(request: Request) {
     return NextResponse.json({ leaderboard: [], error: entriesErr.message }, { status: 500 });
   }
 
-  // Get tip stats per user
-  const { data: tips } = await supabase
+  // Get tip stats per user (optionally filtered by gameweek)
+  let tipsQuery = supabase
     .from('tipping_tips')
     .select('user_id, points')
     .eq('comp_id', compId);
+
+  if (gw) {
+    tipsQuery = tipsQuery.eq('gameweek', parseInt(gw, 10));
+  }
+
+  const { data: tips } = await tipsQuery;
 
   const tipStats: Record<string, { correct: number; total: number }> = {};
   for (const tip of tips ?? []) {

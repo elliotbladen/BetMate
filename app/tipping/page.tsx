@@ -258,7 +258,7 @@ export default function TippingPage() {
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Get auth state + restore comp membership
+  // Get auth state + check comp membership from database
   useEffect(() => {
     const supabase = createClient();
     supabase.auth.getSession().then(({ data }) => {
@@ -268,29 +268,17 @@ export default function TippingPage() {
         setUserId(uid);
         setDisplayName(name);
 
-        // Restore saved comp from localStorage
-        const savedCode = localStorage.getItem('tipping_invite_code');
-        const savedName = localStorage.getItem('tipping_display_name');
-        if (savedCode) {
-          fetch('/api/tipping/join', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              invite_code: savedCode,
-              user_id: uid,
-              display_name: savedName || name,
-            }),
+        // Check database for existing membership (survives hard refresh / cache clear)
+        fetch(`/api/tipping/join?user_id=${uid}`)
+          .then(r => r.json())
+          .then(d => {
+            if (d.comp) {
+              setComp(d.comp);
+              if (d.display_name) setDisplayName(d.display_name);
+              setJoined(true);
+            }
           })
-            .then(r => r.json())
-            .then(d => {
-              if (d.comp) {
-                setComp(d.comp);
-                if (savedName) setDisplayName(savedName);
-                setJoined(true);
-              }
-            })
-            .catch(() => {});
-        }
+          .catch(() => {});
       }
     });
   }, []);
@@ -325,11 +313,11 @@ export default function TippingPage() {
   // Load leaderboard
   useEffect(() => {
     if (!comp) return;
-    fetch(`/api/tipping/leaderboard?comp_id=${comp.id}`)
+    fetch(`/api/tipping/leaderboard?comp_id=${comp.id}&gameweek=${gameweek}`)
       .then(r => r.json())
       .then(d => setLeaderboard(d.leaderboard ?? []))
       .catch(() => {});
-  }, [comp, tab]);
+  }, [comp, tab, gameweek]);
 
   // Join comp
   const handleJoin = async () => {

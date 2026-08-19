@@ -90,12 +90,25 @@ export async function POST(request: Request) {
     }
 
     const supabase = createServerClient();
+    const fixtures = getFixtures(gameweek);
+    const now = new Date();
+
+    // Build a set of locked game IDs (kickoff has passed)
+    const lockedGameIds = new Set(
+      fixtures.filter(f => new Date(f.kickoff) <= now).map(f => f.id)
+    );
 
     // Upsert each tip
     const results = [];
     for (const tip of tips) {
       const { game_id, home_team, away_team, selection } = tip;
       if (!game_id || !selection) continue;
+
+      // Server-side lockout: reject tips for games that have kicked off
+      if (lockedGameIds.has(game_id)) {
+        results.push({ game_id, error: 'Game has kicked off — tips are locked' });
+        continue;
+      }
 
       const validSelections: TipSelection[] = ['home', 'draw', 'away'];
       if (!validSelections.includes(selection)) continue;
