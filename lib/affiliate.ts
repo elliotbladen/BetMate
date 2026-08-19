@@ -50,9 +50,9 @@ const AFL_URLS: Record<string, string> = {
   playup:        'https://www.playup.com.au/sports/afl',
 };
 
-// Soccer landing pages (competition-level deep links are a hook-up task —
-// verify each bookmaker's EPL/Championship/UCL paths once the tabs are live).
+// Soccer landing pages — AU and UK bookmakers.
 const SOCCER_URLS: Record<string, string> = {
+  // AU
   sportsbet:     'https://www.sportsbet.com.au/betting/soccer',
   tab:           'https://www.tab.com.au/sports/betting/Soccer',
   tabtouch:      'https://www.tabtouch.com.au/sports/soccer',
@@ -64,6 +64,21 @@ const SOCCER_URLS: Record<string, string> = {
   betr_au:       'https://betr.com.au/sport/soccer',
   betright:      'https://betright.com.au/sports/soccer',
   playup:        'https://www.playup.com.au/sports/soccer',
+  // UK
+  bet365:        'https://www.bet365.com/#/AC/B1/C1/D13/',
+  williamhill:   'https://sports.williamhill.com/betting/en-gb/football',
+  paddypower:    'https://www.paddypower.com/football',
+  skybet:        'https://www.skybet.com/football',
+  coral:         'https://sports.coral.co.uk/football',
+  ladbrokes_uk:  'https://sports.ladbrokes.com/football',
+  betfair_ex_uk: 'https://www.betfair.com/exchange/plus/football',
+  betfair_sb_uk: 'https://www.betfair.com/sport/football',
+  betway:        'https://www.betway.com/en-gb/sports/soccer',
+  sport888:      'https://www.888sport.com/football/',
+  betfred_uk:    'https://www.betfred.com/sports/football',
+  betvictor:     'https://www.betvictor.com/en-gb/football',
+  boylesports:   'https://www.boylesports.com/football',
+  unibet_uk:     'https://www.unibet.co.uk/sports/football',
 };
 
 export function getAffiliateUrl(bookmaker: string, sport: string): string | null {

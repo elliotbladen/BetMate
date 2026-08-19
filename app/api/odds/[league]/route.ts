@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { readLatestOddsSnapshot } from '@/lib/oddsSnapshotFallback';
+import { getOddsRegionFromRequest } from '@/lib/oddsApi';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 300; // 5-min server cache
@@ -15,7 +16,7 @@ const LEAGUES: Record<string, { oddsApiKey: string; snapshotSport: 'EPL' | 'CHAM
 };
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: { league: string } },
 ) {
   const { league } = params;
@@ -25,6 +26,7 @@ export async function GET(
   }
 
   const apiKey = process.env.ODDS_API_KEY;
+  const region = getOddsRegionFromRequest(request);
   const fallback = readLatestOddsSnapshot(config.snapshotSport);
   if (!apiKey) {
     return NextResponse.json(fallback, {
@@ -37,7 +39,7 @@ export async function GET(
 
   const url = new URL(`https://api.the-odds-api.com/v4/sports/${config.oddsApiKey}/odds/`);
   url.searchParams.set('apiKey', apiKey);
-  url.searchParams.set('regions', 'au');
+  url.searchParams.set('regions', region);
   url.searchParams.set('markets', 'h2h,spreads,totals');
   url.searchParams.set('oddsFormat', 'decimal');
 

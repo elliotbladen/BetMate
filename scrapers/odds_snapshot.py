@@ -55,7 +55,7 @@ SPORTS = {
 }
 
 BASE_URL    = "https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
-REGIONS     = "au"
+REGIONS     = "au,uk"
 MARKETS     = "h2h,spreads,totals"
 ODDS_FORMAT = "decimal"
 

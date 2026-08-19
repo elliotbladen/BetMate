@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
 import { readLatestOddsSnapshot } from '@/lib/oddsSnapshotFallback';
+import { getOddsRegionFromRequest } from '@/lib/oddsApi';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 300; // 5-min server cache
 
-export async function GET() {
+export async function GET(request: Request) {
   const apiKey = process.env.ODDS_API_KEY;
+  const region = getOddsRegionFromRequest(request);
   const fallback = readLatestOddsSnapshot('AFL');
   if (!apiKey) {
     if (fallback.length > 0) {
@@ -27,7 +29,7 @@ export async function GET() {
 
   const url = new URL('https://api.the-odds-api.com/v4/sports/aussierules_afl/odds/');
   url.searchParams.set('apiKey', apiKey);
-  url.searchParams.set('regions', 'au');
+  url.searchParams.set('regions', region);
   url.searchParams.set('markets', 'h2h,spreads,totals');
   url.searchParams.set('oddsFormat', 'decimal');
 
