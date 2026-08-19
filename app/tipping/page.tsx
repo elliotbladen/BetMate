@@ -258,13 +258,39 @@ export default function TippingPage() {
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Get auth state
+  // Get auth state + restore comp membership
   useEffect(() => {
     const supabase = createClient();
     supabase.auth.getSession().then(({ data }) => {
       if (data.session?.user) {
-        setUserId(data.session.user.id);
-        setDisplayName(data.session.user.email?.split('@')[0] ?? 'Anon');
+        const uid = data.session.user.id;
+        const name = data.session.user.email?.split('@')[0] ?? 'Anon';
+        setUserId(uid);
+        setDisplayName(name);
+
+        // Restore saved comp from localStorage
+        const savedCode = localStorage.getItem('tipping_invite_code');
+        const savedName = localStorage.getItem('tipping_display_name');
+        if (savedCode) {
+          fetch('/api/tipping/join', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              invite_code: savedCode,
+              user_id: uid,
+              display_name: savedName || name,
+            }),
+          })
+            .then(r => r.json())
+            .then(d => {
+              if (d.comp) {
+                setComp(d.comp);
+                if (savedName) setDisplayName(savedName);
+                setJoined(true);
+              }
+            })
+            .catch(() => {});
+        }
       }
     });
   }, []);
@@ -329,6 +355,8 @@ export default function TippingPage() {
       }
       setComp(data.comp);
       setJoined(true);
+      localStorage.setItem('tipping_invite_code', inviteCode.toUpperCase());
+      localStorage.setItem('tipping_display_name', displayName);
     } catch {
       setError('Network error');
     }
