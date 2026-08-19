@@ -107,8 +107,82 @@ function FixtureCard({ fixture, tip, onTip, locked }: {
   );
 }
 
+// ─── User Picks Panel ────────────────────────────────────────────────────────
+function UserPicksPanel({ userName, userId, compId, gameweek, fixtures, onClose }: {
+  userName: string;
+  userId: string;
+  compId: string;
+  gameweek: number;
+  fixtures: Fixture[];
+  onClose: () => void;
+}) {
+  const [picks, setPicks] = useState<Record<string, TipSelection>>({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/tipping/tips?comp_id=${compId}&user_id=${userId}&gameweek=${gameweek}`)
+      .then(r => r.json())
+      .then(d => {
+        const map: Record<string, TipSelection> = {};
+        for (const t of d.tips ?? []) map[t.game_id] = t.selection;
+        setPicks(map);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, [compId, userId, gameweek]);
+
+  return (
+    <div className="bg-white rounded-xl shadow-sm border p-4 mb-4">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-bold text-gray-900">{userName}&apos;s Picks — GW{gameweek}</h3>
+        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-lg">✕</button>
+      </div>
+      {loading ? (
+        <div className="text-center text-gray-400 text-sm py-4">Loading...</div>
+      ) : (
+        <div className="space-y-2">
+          {fixtures.map(f => {
+            const pick = picks[f.id];
+            const homeMeta = EPL_TEAMS[f.home_team];
+            const awayMeta = EPL_TEAMS[f.away_team];
+            const homeAbbr = homeMeta?.abbr ?? f.home_team.slice(0, 3).toUpperCase();
+            const awayAbbr = awayMeta?.abbr ?? f.away_team.slice(0, 3).toUpperCase();
+            const label = pick === 'home' ? homeAbbr : pick === 'away' ? awayAbbr : pick === 'draw' ? 'DRAW' : '—';
+            const bg = pick === 'home' ? (homeMeta?.primary ?? '#6B7280')
+              : pick === 'away' ? (awayMeta?.primary ?? '#6B7280')
+              : pick === 'draw' ? '#9CA3AF' : '#E5E7EB';
+            const fg = pick === 'home' ? (homeMeta?.secondary ?? '#FFF')
+              : pick === 'away' ? (awayMeta?.secondary ?? '#FFF')
+              : '#FFF';
+
+            return (
+              <div key={f.id} className="flex items-center justify-between text-sm">
+                <span className="text-gray-600 flex-1">{homeAbbr} vs {awayAbbr}</span>
+                <span
+                  className="px-2 py-0.5 rounded text-[11px] font-bold"
+                  style={{ backgroundColor: bg, color: fg }}
+                >
+                  {label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Leaderboard ─────────────────────────────────────────────────────────────
-function Leaderboard({ rows }: { rows: LeaderboardRow[] }) {
+function Leaderboard({ rows, compId, gameweek, fixtures, locked }: {
+  rows: LeaderboardRow[];
+  compId: string;
+  gameweek: number;
+  fixtures: Fixture[];
+  locked: boolean;
+}) {
+  const [viewingUser, setViewingUser] = useState<{ id: string; name: string } | null>(null);
+
   if (rows.length === 0) {
     return (
       <div className="text-center text-gray-400 py-8 text-sm">
@@ -118,30 +192,53 @@ function Leaderboard({ rows }: { rows: LeaderboardRow[] }) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="bg-gray-50 text-gray-500 text-[11px] uppercase tracking-wider">
-            <th className="px-4 py-2 text-left">#</th>
-            <th className="px-4 py-2 text-left">Tipper</th>
-            <th className="px-4 py-2 text-right">Pts</th>
-            <th className="px-4 py-2 text-right">W/T</th>
-            <th className="px-4 py-2 text-right">%</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r, i) => (
-            <tr key={r.user_id} className={i === 0 ? 'bg-[#00DEB8]/5 font-semibold' : ''}>
-              <td className="px-4 py-2 font-mono text-gray-400">{r.rank}</td>
-              <td className="px-4 py-2">{r.display_name}</td>
-              <td className="px-4 py-2 text-right font-mono font-bold">{r.total_points}</td>
-              <td className="px-4 py-2 text-right font-mono text-gray-500">{r.correct}/{r.total_tips}</td>
-              <td className="px-4 py-2 text-right font-mono text-gray-500">{r.strike_rate}%</td>
+    <>
+      {viewingUser && (
+        <UserPicksPanel
+          userName={viewingUser.name}
+          userId={viewingUser.id}
+          compId={compId}
+          gameweek={gameweek}
+          fixtures={fixtures}
+          onClose={() => setViewingUser(null)}
+        />
+      )}
+      <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-gray-50 text-gray-500 text-[11px] uppercase tracking-wider">
+              <th className="px-4 py-2 text-left">#</th>
+              <th className="px-4 py-2 text-left">Tipper</th>
+              <th className="px-4 py-2 text-right">Pts</th>
+              <th className="px-4 py-2 text-right">W/T</th>
+              <th className="px-4 py-2 text-right">%</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => (
+              <tr key={r.user_id} className={i === 0 ? 'bg-[#00DEB8]/5 font-semibold' : ''}>
+                <td className="px-4 py-2 font-mono text-gray-400">{r.rank}</td>
+                <td className="px-4 py-2">
+                  {locked ? (
+                    <button
+                      onClick={() => setViewingUser({ id: r.user_id, name: r.display_name })}
+                      className="text-[#00DEB8] hover:underline font-medium"
+                    >
+                      {r.display_name}
+                    </button>
+                  ) : (
+                    r.display_name
+                  )}
+                </td>
+                <td className="px-4 py-2 text-right font-mono font-bold">{r.total_points}</td>
+                <td className="px-4 py-2 text-right font-mono text-gray-500">{r.correct}/{r.total_tips}</td>
+                <td className="px-4 py-2 text-right font-mono text-gray-500">{r.strike_rate}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 
@@ -449,7 +546,13 @@ export default function TippingPage() {
           )}
         </>
       ) : (
-        <Leaderboard rows={leaderboard} />
+        <Leaderboard
+          rows={leaderboard}
+          compId={comp?.id ?? ''}
+          gameweek={gameweek}
+          fixtures={fixtures}
+          locked={fixtures.length > 0 && new Date(Math.min(...fixtures.map(f => new Date(f.kickoff).getTime()))) < new Date()}
+        />
       )}
     </div>
   );
