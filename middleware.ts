@@ -36,6 +36,7 @@ const PUBLIC_PATHS = [
   '/api/tipping/join',
   '/api/tipping/tips',
   '/api/tipping/leaderboard',
+  '/tipping',
 ];
 
 export async function middleware(request: NextRequest) {
