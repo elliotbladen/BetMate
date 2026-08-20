@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import { createClient } from '@/lib/supabase';
 import type { Fixture, TipSelection, LeaderboardRow, TippingComp } from '@/lib/tipping';
 import { EPL_TEAMS } from '@/lib/soccerTeams';
@@ -257,6 +258,7 @@ export default function TippingPage() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [authChecked, setAuthChecked] = useState(false);
 
   // Get auth state + check comp membership from database
   useEffect(() => {
@@ -280,7 +282,7 @@ export default function TippingPage() {
           })
           .catch(() => {});
       }
-    });
+    }).finally(() => setAuthChecked(true));
   }, []);
 
   // Load fixtures
@@ -387,6 +389,41 @@ export default function TippingPage() {
 
   const tippedCount = Object.keys(tips).length;
   const totalGames = fixtures.length;
+
+  if (!authChecked) {
+    return (
+      <div className="max-w-lg mx-auto px-4 py-16 text-center text-sm text-gray-500">
+        Checking your account…
+      </div>
+    );
+  }
+
+  if (!userId) {
+    return (
+      <div className="max-w-lg mx-auto px-4 py-16">
+        <div className="bg-white rounded-xl shadow-sm border p-8 text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-3">Sign in to play EPL Tipping</h1>
+          <p className="text-gray-600 text-sm mb-6">
+            You must be signed in or signed up before you can join and play in a tipping competition.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/auth/login?next=/tipping"
+              className="px-5 py-2.5 bg-[#00DEB8] text-black font-semibold rounded-lg hover:bg-[#00C9A7] transition-colors"
+            >
+              Sign in
+            </Link>
+            <Link
+              href="/auth/register"
+              className="px-5 py-2.5 border border-gray-300 text-gray-900 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Sign up
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // ─── Not joined yet ──────────────────────────────────────────────────────
   if (!joined) {
