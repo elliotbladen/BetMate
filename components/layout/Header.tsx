@@ -57,7 +57,7 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-[#0D0D0D] border-b-2 border-[#00DEB8] shrink-0">
-        <div className="px-5 sm:px-8 h-[60px] flex items-center gap-6">
+        <div className="px-5 sm:px-8 h-[60px] flex items-center gap-3 md:gap-6">
 
           {/* Logo */}
           <Link href="/odds" className="flex items-center shrink-0 select-none">
@@ -67,7 +67,7 @@ export default function Header() {
           </Link>
 
           {/* Primary sports */}
-          <div className="flex items-center gap-0 border border-[#252525] rounded-md shrink-0">
+          <div className="hidden md:flex items-center gap-0 border border-[#252525] rounded-md shrink-0">
               {TOP_TABS.map((tab, i) => {
                 const activeTop = isOdds ? topTabForSport(activeSport) : null;
                 const isActive = activeTop === tab;
@@ -161,7 +161,7 @@ export default function Header() {
           </div>
 
           {/* Nav -- desktop */}
-          <nav className="hidden sm:flex items-center gap-1 ml-auto">
+          <nav className="hidden xl:flex items-center gap-1 ml-auto">
             {NAV.map(({ label, href }) => {
               const active = pathname === href || pathname.startsWith(href + '/');
               return (
@@ -182,7 +182,7 @@ export default function Header() {
           </nav>
 
           {/* Auth */}
-          <div className="hidden sm:flex items-center sm:ml-2">
+          <div className="hidden xl:flex items-center xl:ml-2">
             {email ? (
               <div className="relative">
                 <span
@@ -218,11 +218,37 @@ export default function Header() {
             )}
           </div>
 
-          {/* Hamburger -- mobile only */}
+          {/* Keep authentication visible whenever the full desktop nav is hidden. */}
+          <div className="xl:hidden ml-auto flex items-center">
+            {email ? (
+              <button
+                type="button"
+                onClick={() => setMobileOpen(true)}
+                className="min-h-11 px-2 text-[11px] font-mono uppercase tracking-widest text-[#00DEB8]"
+              >
+                Account
+              </button>
+            ) : demoMode ? (
+              <span className="px-2 text-[10px] font-mono uppercase tracking-widest text-[#6B7280]">
+                Demo
+              </span>
+            ) : (
+              <Link
+                href="/auth/login"
+                className="inline-flex min-h-11 items-center px-2 text-[11px] font-mono uppercase tracking-widest text-[#00DEB8] hover:underline"
+              >
+                Sign in
+              </Link>
+            )}
+          </div>
+
+          {/* Menu button -- shown until the full desktop navigation fits. */}
           <button
-            className="sm:hidden ml-auto flex flex-col justify-center items-center gap-[5px] w-8 h-8"
+            type="button"
+            className="xl:hidden flex flex-col justify-center items-center gap-[5px] w-11 h-11 shrink-0"
             onClick={() => setMobileOpen(o => !o)}
             aria-label="Menu"
+            aria-expanded={mobileOpen}
           >
             <span className={`block w-5 h-[2px] bg-white transition-all ${mobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
             <span className={`block w-5 h-[2px] bg-white transition-all ${mobileOpen ? 'opacity-0' : ''}`} />
@@ -233,7 +259,7 @@ export default function Header() {
 
       {/* Mobile nav drawer */}
       {mobileOpen && (
-        <div className="sm:hidden fixed inset-x-0 top-[62px] z-40 bg-[#0D0D0D] border-b border-[#252525]">
+        <div className="xl:hidden fixed inset-x-0 top-[62px] z-40 bg-[#0D0D0D] border-b border-[#252525]">
           {NAV.map(({ label, href }) => {
             const active = pathname === href || pathname.startsWith(href + '/');
             return (
