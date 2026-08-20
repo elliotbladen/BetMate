@@ -1,4 +1,5 @@
 import { createBrowserClient } from '@supabase/ssr';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 function createNoopClient() {
   const authError = 'Supabase is not configured in this local environment.';
@@ -32,10 +33,10 @@ function createNoopClient() {
   };
 }
 
-export function createClient() {
+export function createClient(): SupabaseClient {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
-  if (!url || !key) return createNoopClient() as unknown as ReturnType<typeof createBrowserClient>;
+  if (!url || !key) return createNoopClient() as unknown as SupabaseClient;
   return createBrowserClient(
     url,
     key,
