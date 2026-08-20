@@ -44,6 +44,17 @@ const PUBLIC_PATHS = [
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Supabase PKCE stores its verifier in a host-scoped cookie. Starting OAuth on
+  // www.betmate.au and returning to betmate.au loses that cookie, so canonicalise
+  // the host before any auth page is rendered.
+  if (request.nextUrl.hostname === 'www.betmate.au') {
+    const canonicalUrl = request.nextUrl.clone();
+    canonicalUrl.protocol = 'https:';
+    canonicalUrl.hostname = 'betmate.au';
+    canonicalUrl.port = '';
+    return NextResponse.redirect(canonicalUrl, 308);
+  }
+
   // Geo cookie — Vercel injects x-vercel-ip-country on every request
   const country = request.headers.get('x-vercel-ip-country') ?? '';
 

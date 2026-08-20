@@ -24,7 +24,7 @@ export default function RegisterPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: 'https://betmate.au/auth/callback',
       },
     });
     if (error) setError(error.message);
@@ -46,7 +46,7 @@ export default function RegisterPage() {
       email: email.trim(),
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: 'https://betmate.au/auth/callback',
       },
     });
     if (error) {
