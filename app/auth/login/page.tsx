@@ -25,6 +25,7 @@ function LoginForm() {
   const supabase = createClient();
   const demoMode = isLocalDemoMode();
   const redirectTo = searchParams.get('next') ?? '/odds';
+  const callbackError = searchParams.get('error');
 
   const handleGoogleLogin = async () => {
     if (demoMode) {
@@ -48,9 +49,18 @@ function LoginForm() {
     }
     setLoading(true);
     setError(null);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
     if (error) { setError(error.message); setLoading(false); return; }
-    router.push(redirectTo);
+    if (!data.session) {
+      setError('Sign-in succeeded but no session was created. Please confirm your email and try again.');
+      setLoading(false);
+      return;
+    }
+    router.replace(redirectTo);
+    router.refresh();
   };
 
   return (
@@ -63,6 +73,9 @@ function LoginForm() {
         </div>
 
         <div className="border border-[#E2E8F0] rounded-lg bg-white p-6">
+          {callbackError && !error && (
+            <p className="mb-4 text-red-600 text-xs font-mono" role="alert">{callbackError}</p>
+          )}
           {demoMode && (
             <div className="mb-6 rounded border border-amber-200 bg-amber-50 px-3 py-2 text-[12px] text-amber-900">
               Local demo mode is active. Use <Link href="/odds" className="underline">Odds</Link> and Baz without signing in, or add Supabase env vars to enable auth.

@@ -5,10 +5,27 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
+  const authError = searchParams.get('error_description') ?? searchParams.get('error');
+  const requestedNext = searchParams.get('next');
+  const next = requestedNext?.startsWith('/') && !requestedNext.startsWith('//')
+    ? requestedNext
+    : '/odds';
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
-  if (code && supabaseUrl && supabaseAnonKey) {
+  if (authError) {
+    const loginUrl = new URL('/auth/login', origin);
+    loginUrl.searchParams.set('error', authError);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  if (!code || !supabaseUrl || !supabaseAnonKey) {
+    const loginUrl = new URL('/auth/login', origin);
+    loginUrl.searchParams.set('error', 'The sign-in link is invalid or has expired. Please try again.');
+    return NextResponse.redirect(loginUrl);
+  }
+
+  {
     const cookieStore = cookies();
     const supabase = createServerClient(
       supabaseUrl,
@@ -25,8 +42,13 @@ export async function GET(request: NextRequest) {
         },
       }
     );
-    await supabase.auth.exchangeCodeForSession(code);
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error) {
+      const loginUrl = new URL('/auth/login', origin);
+      loginUrl.searchParams.set('error', error.message);
+      return NextResponse.redirect(loginUrl);
+    }
   }
 
-  return NextResponse.redirect(`${origin}/odds`);
+  return NextResponse.redirect(new URL(next, origin));
 }

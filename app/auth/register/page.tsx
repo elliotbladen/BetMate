@@ -42,8 +42,8 @@ export default function RegisterPage() {
     }
     setLoading(true);
     setError(null);
-    const { error } = await supabase.auth.signUp({
-      email,
+    const { data, error } = await supabase.auth.signUp({
+      email: email.trim(),
       password,
       options: {
         emailRedirectTo: `${window.location.origin}/auth/callback`,
@@ -51,6 +51,8 @@ export default function RegisterPage() {
     });
     if (error) {
       setError(error.message);
+    } else if (data.session) {
+      window.location.assign('/odds');
     } else {
       setSuccess(true);
     }
