@@ -283,6 +283,19 @@ export default function TippingPage() {
           .catch(() => {});
       }
     }).finally(() => setAuthChecked(true));
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session?.user) {
+        setUserId(null);
+        setComp(null);
+        setJoined(false);
+        setTips({});
+        setLeaderboard([]);
+        setAuthChecked(true);
+      }
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   // Load fixtures
@@ -339,6 +352,14 @@ export default function TippingPage() {
       });
       const data = await res.json();
       if (!res.ok) {
+        if (res.status === 401) {
+          setUserId(null);
+          setComp(null);
+          setJoined(false);
+          setTips({});
+          setLeaderboard([]);
+          return;
+        }
         setError(data.error ?? 'Failed to join');
         return;
       }
