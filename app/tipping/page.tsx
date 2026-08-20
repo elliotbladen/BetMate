@@ -332,7 +332,6 @@ export default function TippingPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           invite_code: inviteCode.toUpperCase(),
-          user_id: userId,
           display_name: displayName,
         }),
       });
@@ -372,7 +371,6 @@ export default function TippingPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           comp_id: comp.id,
-          user_id: userId,
           gameweek,
           tips: tipArray,
         }),

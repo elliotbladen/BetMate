@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
+import { getAuthenticatedUser } from '@/lib/authServer';
 
 // GET /api/tipping/leaderboard?comp_id=X
 // Returns leaderboard for a comp — aggregated from tips table.
 export async function GET(request: Request) {
+  if (!await getAuthenticatedUser()) {
+    return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  }
   const { searchParams } = new URL(request.url);
   const compId = searchParams.get('comp_id');
   const gw = searchParams.get('gameweek');

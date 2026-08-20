@@ -33,12 +33,6 @@ const PUBLIC_PATHS = [
   '/api/epl-predictions',
   '/api/championship-predictions',
   '/api/racing',
-  '/api/tipping/fixtures',
-  '/api/tipping/join',
-  '/api/tipping/tips',
-  '/api/tipping/leaderboard',
-  '/api/tipping/results',
-  '/tipping',
 ];
 
 export async function middleware(request: NextRequest) {
@@ -94,10 +88,10 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { user } } = await supabase.auth.getUser();
 
   // No session — API routes return 401, pages redirect to login
-  if (!session) {
+  if (!user) {
     if (pathname.startsWith('/api/')) {
       return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
     }

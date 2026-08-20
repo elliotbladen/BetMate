@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
 import { scoreResult, getActualResult, EPL_GW1_FIXTURES } from '@/lib/tipping';
+import { getAuthenticatedUser } from '@/lib/authServer';
+import { isOwnerEmail } from '@/lib/owner';
 
 // Get fixtures for a gameweek (MVP: only GW1)
 function getFixtures(gw: number) {
@@ -13,10 +15,13 @@ function getFixtures(gw: number) {
 //
 // Body: { gameweek: number, results: [{ game_id, home_score, away_score }] }
 //
-// This is an admin-only endpoint (no auth gate in MVP — just use the
-// invite code knowledge as implicit admin access).
 export async function POST(request: Request) {
   try {
+    const user = await getAuthenticatedUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+    if (!isOwnerEmail(user.email)) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
     const body = await request.json();
     const { gameweek, results } = body;
 

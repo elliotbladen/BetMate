@@ -1,15 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
+import { getAuthenticatedUser } from '@/lib/authServer';
 
 // GET /api/tipping/join?user_id=X
 // Check if a user is already in a comp. Returns their comp if found.
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const userId = searchParams.get('user_id');
-
-  if (!userId) {
-    return NextResponse.json({ comp: null });
-  }
+  const user = await getAuthenticatedUser();
+  if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  const userId = user.id;
 
   const supabase = createServerClient();
 
@@ -44,9 +42,11 @@ export async function GET(request: Request) {
 // Join a comp by invite code. Body: { invite_code, user_id, display_name }
 export async function POST(request: Request) {
   try {
-    const { invite_code, user_id, display_name } = await request.json();
+    const user = await getAuthenticatedUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+    const { invite_code, display_name } = await request.json();
 
-    if (!invite_code || !user_id || !display_name) {
+    if (!invite_code || !display_name) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
       .upsert(
         {
           comp_id: comp.id,
-          user_id,
+          user_id: user.id,
           display_name,
         },
         { onConflict: 'comp_id,user_id' }

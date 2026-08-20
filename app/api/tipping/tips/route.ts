@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
 import type { TipSelection } from '@/lib/tipping';
 import { EPL_GW1_FIXTURES } from '@/lib/tipping';
+import { getAuthenticatedUser } from '@/lib/authServer';
 
 // Get fixtures for a gameweek (MVP: only GW1)
 function getFixtures(gw: number) {
@@ -13,6 +14,8 @@ function getFixtures(gw: number) {
 // Returns tips for a user in a comp for a gameweek.
 // Auto-fills untipped games as "away" once the first kickoff passes.
 export async function GET(request: Request) {
+  const user = await getAuthenticatedUser();
+  if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   const { searchParams } = new URL(request.url);
   const compId = searchParams.get('comp_id');
   const userId = searchParams.get('user_id');
@@ -82,10 +85,13 @@ export async function GET(request: Request) {
 // Submit or update tips. Body: { comp_id, user_id, gameweek, tips: [{ game_id, home_team, away_team, selection }] }
 export async function POST(request: Request) {
   try {
+    const user = await getAuthenticatedUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
     const body = await request.json();
-    const { comp_id, user_id, gameweek, tips } = body;
+    const { comp_id, gameweek, tips } = body;
+    const user_id = user.id;
 
-    if (!comp_id || !user_id || !gameweek || !Array.isArray(tips)) {
+    if (!comp_id || !gameweek || !Array.isArray(tips)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
