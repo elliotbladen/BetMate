@@ -31,6 +31,7 @@ const PUBLIC_PATHS = [
   '/api/afl-predictions',
   '/api/odds/epl',
   '/api/epl-predictions',
+  '/api/championship-predictions',
   '/api/racing',
   '/api/tipping/fixtures',
   '/api/tipping/join',

@@ -47,7 +47,9 @@ export const EPL_TEAMS: Record<string, TeamMeta> = {
 export const CHAMPIONSHIP_TEAMS: Record<string, TeamMeta> = {
   'Birmingham City':            { abbr: 'BIR', primary: '#0000FF', secondary: '#FFFFFF' },
   'Blackburn Rovers':           { abbr: 'BLB', primary: '#009EE0', secondary: '#FFFFFF' },
+  'Bolton Wanderers':           { abbr: 'BOL', primary: '#FFFFFF', secondary: '#001B48' },
   'Bristol City':               { abbr: 'BRC', primary: '#E21C38', secondary: '#FFFFFF' },
+  'Burnley':                    { abbr: 'BUR', primary: '#6C1D45', secondary: '#99D6EA' },
   'Cardiff City':               { abbr: 'CAR', primary: '#0070B5', secondary: '#D51116' },
   'Charlton Athletic':          { abbr: 'CHA', primary: '#D4021D', secondary: '#FFFFFF' },
   'Coventry City':              { abbr: 'COV', primary: '#78D0F3', secondary: '#FFFFFF' },
@@ -55,6 +57,7 @@ export const CHAMPIONSHIP_TEAMS: Record<string, TeamMeta> = {
   'Hull City':                  { abbr: 'HUL', primary: '#F5A12D', secondary: '#000000' },
   'Ipswich Town':               { abbr: 'IPS', primary: '#0044A9', secondary: '#FFFFFF' },
   'Leicester City':             { abbr: 'LEI', primary: '#003090', secondary: '#FDBE11' },
+  'Lincoln City':               { abbr: 'LIN', primary: '#E21017', secondary: '#FFFFFF' },
   'Luton Town':                 { abbr: 'LUT', primary: '#F78F1E', secondary: '#002D62' },
   'Middlesbrough':              { abbr: 'MID', primary: '#DE1B22', secondary: '#FFFFFF' },
   'Millwall':                   { abbr: 'MIL', primary: '#001D5E', secondary: '#FFFFFF' },
@@ -70,6 +73,8 @@ export const CHAMPIONSHIP_TEAMS: Record<string, TeamMeta> = {
   'Swansea City':               { abbr: 'SWA', primary: '#FFFFFF', secondary: '#000000' },
   'Watford':                    { abbr: 'WAT', primary: '#FBEE23', secondary: '#ED2127' },
   'West Bromwich Albion':       { abbr: 'WBA', primary: '#122F67', secondary: '#FFFFFF' },
+  'West Ham United':            { abbr: 'WHU', primary: '#7A263A', secondary: '#1BB1E7' },
+  'Wolverhampton Wanderers':    { abbr: 'WOL', primary: '#FDB913', secondary: '#231F20' },
   'Wrexham':                    { abbr: 'WRX', primary: '#CE1126', secondary: '#FFFFFF' },
 };
 

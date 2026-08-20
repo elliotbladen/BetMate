@@ -43,7 +43,7 @@ const FOOTY_FEATURES: SportFeatures = {
 // piece is hooked up (predictions come from BettingEngine ml/football).
 const SOCCER_FEATURES: SportFeatures = {
   weather: false, referees: false, teamNews: false,
-  predictions: false, history: false, bvi: false, movements: false,
+  predictions: true, history: false, bvi: false, movements: false,
 };
 
 export const SPORTS: Record<SportId, SportConfig> = {

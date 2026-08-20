@@ -28,7 +28,8 @@ import ChatPanel from '@/components/chat/ChatPanel';
 import type { Game } from '@/components/odds/GameCard';
 import type { OddsApiEvent } from '@/lib/oddsApi';
 import { buildGameUrl } from '@/lib/affiliate';
-import { BOOKMAKER_META, extractH2HOdds, extractSpreadsOdds, extractTotalsOdds } from '@/lib/oddsApi';
+import { BOOKMAKER_META, countryToRegion, extractH2HOdds, extractSpreadsOdds, extractTotalsOdds } from '@/lib/oddsApi';
+import type { BookmakerRegion } from '@/lib/oddsApi';
 import { computeMovementsFromOpening } from '@/lib/oddsMovement';
 import type { Movement, MovementMap, OpeningPriceMap } from '@/lib/oddsMovement';
 import { buildRefMap, getRefForGame } from '@/lib/referees';
@@ -63,6 +64,10 @@ interface PredictionEntry {
   h2hAway105?: number | null;
   hcapLine105?: number | null;
   hcapPrice105?: number | null;
+  // Soccer-specific (3-way H2H + over/under 2.5 goals)
+  h2hDraw105?: number | null;
+  over25_105?: number | null;
+  under25_105?: number | null;
 }
 type PredictionsMap = Record<string, PredictionEntry>;
 
@@ -266,6 +271,19 @@ function bookmakerEntries(game: Game, market: MarketTab) {
     draw: null,
     away: { label: `Under ${value.point}`, point: value.point, price: value.under, side: 'under' as const },
   }));
+}
+
+function filterByRegion<T extends { key: string }>(
+  entries: T[],
+  region: BookmakerRegion | 'all',
+  showAll: boolean,
+): T[] {
+  if (showAll || region === 'all') return entries;
+  const filtered = entries.filter((e) => {
+    const meta = BOOKMAKER_META[e.key];
+    return meta ? meta.region === region : false;
+  });
+  return filtered.length > 0 ? filtered : entries;
 }
 
 function movementKey(gameId: string, market: MarketTab, bookmaker: string, side: string) {
@@ -586,6 +604,8 @@ function OddsBoardCard({
   teamNewsHomeEntry,
   teamNewsAwayEntry,
   prediction,
+  bookRegion = 'all',
+  showAllBooks = false,
 }: {
   game: Game;
   market: MarketTab;
@@ -593,6 +613,8 @@ function OddsBoardCard({
   expanded: boolean;
   onToggleDetails: () => void;
   onAskBaz: () => void;
+  bookRegion?: BookmakerRegion | 'all';
+  showAllBooks?: boolean;
   teamNewsHomeEntry?: TeamNewsEntry | null;
   teamNewsAwayEntry?: TeamNewsEntry | null;
   prediction?: PredictionEntry | null;
@@ -600,7 +622,12 @@ function OddsBoardCard({
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
 
-  const entries = bookmakerEntries(game, market);
+  const entries = useMemo(() => {
+    const raw = bookmakerEntries(game, market);
+    if (bookRegion === 'all' || showAllBooks) return raw;
+    const filtered = raw.filter((e: { key: string }) => BOOKMAKER_META[e.key]?.region === bookRegion);
+    return (filtered.length > 0 ? filtered : raw) as typeof raw;
+  }, [game, market, bookRegion, showAllBooks]);
   const venue = game.sport === 'AFL'
     ? getAFLVenue(game.homeTeam)
     : (game.venue ? getVenueByName(game.venue) : null) ?? getVenue(game.homeTeam);
@@ -693,22 +720,48 @@ function OddsBoardCard({
         {venue && <p className="mb-2 text-[10px] text-[#9CA3AF]">{venue.name}</p>}
         {expanded && prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
           <p className="mb-1 text-[10px] font-mono text-[#6B7280]">
-            Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
-            <span className="mx-1 text-[#9CA3AF]">-</span>
-            <span className="font-bold text-[#111827]">{game.awayShort} {prediction.predAwayScore.toFixed(1)}</span>
-            {prediction.h2hHome105 != null && prediction.h2hAway105 != null && (
-              <span className="block mt-1">
-                H2H 105%: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
-                <span className="mx-1 text-[#9CA3AF]">/</span>
-                <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
-                {prediction.hcapLine105 != null && prediction.hcapPrice105 != null && (
-                  <span className="ml-2">
-                    HCAP: <span className="font-bold text-[#111827]">{prediction.hcapLine105 > 0 ? '+' : ''}{prediction.hcapLine105.toFixed(1)}</span>
-                    <span className="mx-1 text-[#9CA3AF]">@</span>
-                    <span className="font-bold text-[#111827]">{prediction.hcapPrice105.toFixed(3)}</span>
+            {isSoccer(game.sport as SportId) ? (
+              <>
+                xG: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(2)}</span>
+                <span className="mx-1 text-[#9CA3AF]">-</span>
+                <span className="font-bold text-[#111827]">{prediction.predAwayScore.toFixed(2)} {game.awayShort}</span>
+                {prediction.h2hHome105 != null && prediction.h2hDraw105 != null && prediction.h2hAway105 != null && (
+                  <span className="block mt-1">
+                    1X2: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">/</span>
+                    <span className="font-bold text-[#111827]">{prediction.h2hDraw105.toFixed(2)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">/</span>
+                    <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
                   </span>
                 )}
-              </span>
+                {prediction.over25_105 != null && prediction.under25_105 != null && (
+                  <span className="block mt-0.5">
+                    O/U 2.5: <span className="font-bold text-[#111827]">{prediction.over25_105.toFixed(2)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">/</span>
+                    <span className="font-bold text-[#111827]">{prediction.under25_105.toFixed(2)}</span>
+                  </span>
+                )}
+              </>
+            ) : (
+              <>
+                Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
+                <span className="mx-1 text-[#9CA3AF]">-</span>
+                <span className="font-bold text-[#111827]">{game.awayShort} {prediction.predAwayScore.toFixed(1)}</span>
+                {prediction.h2hHome105 != null && prediction.h2hAway105 != null && (
+                  <span className="block mt-1">
+                    H2H 105%: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">/</span>
+                    <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
+                    {prediction.hcapLine105 != null && prediction.hcapPrice105 != null && (
+                      <span className="ml-2">
+                        HCAP: <span className="font-bold text-[#111827]">{prediction.hcapLine105 > 0 ? '+' : ''}{prediction.hcapLine105.toFixed(1)}</span>
+                        <span className="mx-1 text-[#9CA3AF]">@</span>
+                        <span className="font-bold text-[#111827]">{prediction.hcapPrice105.toFixed(3)}</span>
+                      </span>
+                    )}
+                  </span>
+                )}
+              </>
             )}
           </p>
         )}
@@ -759,22 +812,48 @@ function OddsBoardCard({
             {venue && <p className="mt-1 text-xs text-[#9CA3AF]">{venue.name}</p>}
             {expanded && prediction?.predHomeScore != null && prediction?.predAwayScore != null && (
               <p className="mt-1 text-[11px] font-mono text-[#6B7280]">
-                Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
-                <span className="mx-1 text-[#9CA3AF]">-</span>
-                <span className="font-bold text-[#111827]">{game.awayShort} {prediction.predAwayScore.toFixed(1)}</span>
-                {prediction.h2hHome105 != null && prediction.h2hAway105 != null && (
-                  <span className="block mt-1">
-                    H2H 105%: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
-                    <span className="mx-1 text-[#9CA3AF]">/</span>
-                    <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
-                    {prediction.hcapLine105 != null && prediction.hcapPrice105 != null && (
-                      <span className="ml-2">
-                        HCAP: <span className="font-bold text-[#111827]">{prediction.hcapLine105 > 0 ? '+' : ''}{prediction.hcapLine105.toFixed(1)}</span>
-                        <span className="mx-1 text-[#9CA3AF]">@</span>
-                        <span className="font-bold text-[#111827]">{prediction.hcapPrice105.toFixed(3)}</span>
+                {isSoccer(game.sport as SportId) ? (
+                  <>
+                    xG: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(2)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">-</span>
+                    <span className="font-bold text-[#111827]">{prediction.predAwayScore.toFixed(2)} {game.awayShort}</span>
+                    {prediction.h2hHome105 != null && prediction.h2hDraw105 != null && prediction.h2hAway105 != null && (
+                      <span className="block mt-1">
+                        1X2: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
+                        <span className="mx-1 text-[#9CA3AF]">/</span>
+                        <span className="font-bold text-[#111827]">{prediction.h2hDraw105.toFixed(2)}</span>
+                        <span className="mx-1 text-[#9CA3AF]">/</span>
+                        <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
                       </span>
                     )}
-                  </span>
+                    {prediction.over25_105 != null && prediction.under25_105 != null && (
+                      <span className="block mt-0.5">
+                        O/U 2.5: <span className="font-bold text-[#111827]">{prediction.over25_105.toFixed(2)}</span>
+                        <span className="mx-1 text-[#9CA3AF]">/</span>
+                        <span className="font-bold text-[#111827]">{prediction.under25_105.toFixed(2)}</span>
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    Model: <span className="font-bold text-[#111827]">{game.homeShort} {prediction.predHomeScore.toFixed(1)}</span>
+                    <span className="mx-1 text-[#9CA3AF]">-</span>
+                    <span className="font-bold text-[#111827]">{game.awayShort} {prediction.predAwayScore.toFixed(1)}</span>
+                    {prediction.h2hHome105 != null && prediction.h2hAway105 != null && (
+                      <span className="block mt-1">
+                        H2H 105%: <span className="font-bold text-[#111827]">{prediction.h2hHome105.toFixed(2)}</span>
+                        <span className="mx-1 text-[#9CA3AF]">/</span>
+                        <span className="font-bold text-[#111827]">{prediction.h2hAway105.toFixed(2)}</span>
+                        {prediction.hcapLine105 != null && prediction.hcapPrice105 != null && (
+                          <span className="ml-2">
+                            HCAP: <span className="font-bold text-[#111827]">{prediction.hcapLine105 > 0 ? '+' : ''}{prediction.hcapLine105.toFixed(1)}</span>
+                            <span className="mx-1 text-[#9CA3AF]">@</span>
+                            <span className="font-bold text-[#111827]">{prediction.hcapPrice105.toFixed(3)}</span>
+                          </span>
+                        )}
+                      </span>
+                    )}
+                  </>
                 )}
               </p>
             )}
@@ -1387,9 +1466,11 @@ function BoardSummary({ games, market, movements }: { games: Game[]; market: Mar
   );
 }
 
-function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
-  const entries = bookmakerEntries(game, market);
-  const displayEntries = entries.length > 0 ? entries : bookmakerEntries(game, 'H2H');
+function CompletedCard({ game, market, bookRegion = 'all', showAllBooks = false }: { game: Game; market: MarketTab; bookRegion?: BookmakerRegion | 'all'; showAllBooks?: boolean }) {
+  const rawEntries = bookmakerEntries(game, market);
+  const entries = filterByRegion(rawEntries as { key: string }[], bookRegion, showAllBooks) as typeof rawEntries;
+  const rawFallback = bookmakerEntries(game, 'H2H');
+  const displayEntries = entries.length > 0 ? entries : filterByRegion(rawFallback as { key: string }[], bookRegion, showAllBooks) as typeof rawFallback;
   const cols = Math.min(displayEntries.length, 5);
   const lineAware = market !== 'H2H' && entries.length > 0;
 
@@ -1505,7 +1586,7 @@ function CompletedCard({ game, market }: { game: Game; market: MarketTab }) {
   );
 }
 
-function CompletedSection({ games, market }: { games: Game[]; market: MarketTab }) {
+function CompletedSection({ games, market, bookRegion = 'all', showAllBooks = false }: { games: Game[]; market: MarketTab; bookRegion?: BookmakerRegion | 'all'; showAllBooks?: boolean }) {
   const [open, setOpen] = useState(false);
   if (games.length === 0) return null;
 
@@ -1523,7 +1604,7 @@ function CompletedSection({ games, market }: { games: Game[]; market: MarketTab 
       </button>
       {open && (
         <div className="mt-2 space-y-2">
-          {games.map((game) => <CompletedCard key={game.id} game={game} market={market} />)}
+          {games.map((game) => <CompletedCard key={game.id} game={game} market={market} bookRegion={bookRegion} showAllBooks={showAllBooks} />)}
         </div>
       )}
     </div>
@@ -1542,6 +1623,8 @@ function OddsBoard({
   onAskBaz,
   teamNewsData,
   predictionsMap,
+  bookRegion = 'all',
+  showAllBooks = false,
 }: {
   activeSport: Sport;
   market: MarketTab;
@@ -1554,6 +1637,8 @@ function OddsBoard({
   onAskBaz: (gameId: string) => void;
   teamNewsData?: TeamNewsMap;
   predictionsMap?: PredictionsMap;
+  bookRegion?: BookmakerRegion | 'all';
+  showAllBooks?: boolean;
 }) {
   if (loading) {
     return (
@@ -1594,6 +1679,8 @@ function OddsBoard({
           teamNewsHomeEntry={teamNewsData?.[game.homeTeam] ?? null}
           teamNewsAwayEntry={teamNewsData?.[game.awayTeam] ?? null}
           prediction={predictionsMap?.[game.homeTeam] ?? null}
+          bookRegion={bookRegion}
+          showAllBooks={showAllBooks}
         />
       ))}
     </div>
@@ -1622,11 +1709,22 @@ function OddsPageContent() {
   const [aflTeamNews, setAflTeamNews] = useState<TeamNewsMap>({});
   const [nrlPredictions, setNrlPredictions] = useState<PredictionsMap>({});
   const [aflPredictions, setAflPredictions] = useState<PredictionsMap>({});
+  const [soccerPredictions, setSoccerPredictions] = useState<Partial<Record<Sport, PredictionsMap>>>({});
   // Soccer tabs (EPL / CHAMPIONSHIP / UCL) share one games map keyed by sport id.
   const [soccerGames, setSoccerGames] = useState<Partial<Record<Sport, Game[]>>>({});
+  const [geoRegion, setGeoRegion] = useState<BookmakerRegion | 'all'>('all');
+  const [showAllBooks, setShowAllBooks] = useState(false);
 
   const movementsRef = useRef<MovementMap>({});
   const aflMovRef = useRef<MovementMap>({});
+
+  // Read geo region from cookie set by middleware
+  useEffect(() => {
+    const match = document.cookie.match(/(?:^|;\s*)betmate-country=([^;]*)/);
+    if (match) {
+      setGeoRegion(countryToRegion(match[1]));
+    }
+  }, []);
 
   useEffect(() => {
     try {
@@ -1843,6 +1941,36 @@ function OddsPageContent() {
       .catch(() => {});
   }, []);
 
+  // Fetch soccer predictions (EPL + Championship)
+  useEffect(() => {
+    const leagues: { sport: Sport; endpoint: string }[] = [
+      { sport: 'EPL', endpoint: '/api/epl-predictions' },
+      { sport: 'CHAMPIONSHIP', endpoint: '/api/championship-predictions' },
+    ];
+    for (const { sport, endpoint } of leagues) {
+      fetch(endpoint)
+        .then((r) => r.ok ? r.json() : null)
+        .then((data) => {
+          if (data?.predictions) {
+            const map: PredictionsMap = {};
+            for (const p of data.predictions) {
+              map[p.homeTeam] = {
+                predHomeScore: p.predHomeScore,
+                predAwayScore: p.predAwayScore,
+                h2hHome105: p.h2hHome105 ?? null,
+                h2hAway105: p.h2hAway105 ?? null,
+                h2hDraw105: p.h2hDraw105 ?? null,
+                over25_105: p.over25_105 ?? null,
+                under25_105: p.under25_105 ?? null,
+              };
+            }
+            setSoccerPredictions((prev) => ({ ...prev, [sport]: map }));
+          }
+        })
+        .catch(() => {});
+    }
+  }, []);
+
   useEffect(() => {
     setError(null);
     setLoading(true);
@@ -1908,6 +2036,18 @@ function OddsPageContent() {
                   {item}
                 </button>
               ))}
+              <div className="mx-1 h-5 w-px shrink-0 bg-[#E2E8F0] hidden sm:block" />
+              <button
+                onClick={() => setShowAllBooks((o) => !o)}
+                className={[
+                  'h-9 shrink-0 rounded px-3 text-[10px] font-mono font-bold uppercase tracking-widest transition-colors sm:h-10 sm:px-4',
+                  showAllBooks
+                    ? 'bg-[#111827] text-white'
+                    : 'border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#00DEB8]/60',
+                ].join(' ')}
+              >
+                {showAllBooks ? 'All Books' : geoRegion === 'au' ? 'AU Books' : geoRegion === 'uk' ? 'UK Books' : geoRegion === 'eu' ? 'EU Books' : 'All Books'}
+              </button>
             </div>
           </div>
         </div>
@@ -1926,11 +2066,15 @@ function OddsPageContent() {
             onToggleDetails={(gameId) => setExpandedGameId((current) => current === gameId ? null : gameId)}
             onAskBaz={askBaz}
             teamNewsData={activeSport === 'NRL' ? nrlTeamNews : activeSport === 'AFL' ? aflTeamNews : {}}
-            predictionsMap={activeSport === 'NRL' ? nrlPredictions : activeSport === 'AFL' ? aflPredictions : {}}
+            predictionsMap={activeSport === 'NRL' ? nrlPredictions : activeSport === 'AFL' ? aflPredictions : soccerPredictions[activeSport] ?? {}}
+            bookRegion={geoRegion}
+            showAllBooks={showAllBooks}
           />
           <CompletedSection
             games={activeSport === 'NRL' ? nrlCompleted : activeSport === 'AFL' ? aflCompleted : []}
             market={market}
+            bookRegion={geoRegion}
+            showAllBooks={showAllBooks}
           />
         </div>
         <BoardSummary games={games} market={market} movements={movements} />
