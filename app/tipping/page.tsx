@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase';
 import type { Fixture, TipSelection, LeaderboardRow, TippingComp } from '@/lib/tipping';
+import { isGameweekLocked } from '@/lib/tipping';
 import { EPL_TEAMS } from '@/lib/soccerTeams';
 
 // ─── Team badge helper ───────────────────────────────────────────────────────
@@ -39,14 +40,16 @@ function TeamBadge({ name, selected, onClick, label }: {
 }
 
 // ─── Fixture Card ────────────────────────────────────────────────────────────
-function FixtureCard({ fixture, tip, onTip, locked }: {
+function FixtureCard({ fixture, tip, tipResult, tipPoints, onTip, locked }: {
   fixture: Fixture;
   tip: TipSelection | null;
+  tipResult: TipSelection | null;
+  tipPoints: number | null;
   onTip: (sel: TipSelection) => void;
   locked: boolean;
 }) {
   const kickoff = new Date(fixture.kickoff);
-  const isFinished = fixture.status === 'finished';
+  const isFinished = fixture.status === 'finished' || tipResult !== null;
   const timeStr = kickoff.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })
     + ' ' + kickoff.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
@@ -95,6 +98,14 @@ function FixtureCard({ fixture, tip, onTip, locked }: {
           <span className="font-mono font-bold text-lg">
             {fixture.home_score} — {fixture.away_score}
           </span>
+        </div>
+      )}
+
+      {tipResult !== null && tipPoints !== null && (
+        <div className={`mt-3 rounded-lg px-3 py-2 text-center text-sm font-semibold ${
+          tipPoints > 0 ? 'bg-emerald-50 text-emerald-700' : 'bg-gray-100 text-gray-600'
+        }`}>
+          {tipPoints > 0 ? `Correct — +${tipPoints} points` : 'Incorrect — 0 points'}
         </div>
       )}
 
@@ -249,6 +260,7 @@ export default function TippingPage() {
   const [gameweek, setGameweek] = useState(1);
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [tips, setTips] = useState<Record<string, TipSelection>>({});
+  const [tipGrades, setTipGrades] = useState<Record<string, { result: TipSelection | null; points: number | null }>>({});
   const [leaderboard, setLeaderboard] = useState<LeaderboardRow[]>([]);
   const [comp, setComp] = useState<TippingComp | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
@@ -313,10 +325,16 @@ export default function TippingPage() {
       .then(r => r.json())
       .then(d => {
         const existing: Record<string, TipSelection> = {};
+        const grades: Record<string, { result: TipSelection | null; points: number | null }> = {};
         for (const t of d.tips ?? []) {
           existing[t.game_id] = t.selection;
+          grades[t.game_id] = {
+            result: t.result ?? null,
+            points: t.result == null ? null : Number(t.points ?? 0),
+          };
         }
         setTips(existing);
+        setTipGrades(grades);
       })
       .catch(() => {});
   }, [comp, userId, gameweek]);
@@ -401,6 +419,9 @@ export default function TippingPage() {
       if (res.ok) {
         setSaved(true);
         setTimeout(() => setSaved(false), 3000);
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error ?? 'Failed to save tips');
       }
     } catch {
       setError('Failed to save tips');
@@ -410,6 +431,7 @@ export default function TippingPage() {
 
   const tippedCount = Object.keys(tips).length;
   const totalGames = fixtures.length;
+  const gameweekLocked = isGameweekLocked(fixtures);
 
   if (!authChecked) {
     return (
@@ -506,6 +528,8 @@ export default function TippingPage() {
                 key={f.id}
                 fixture={f}
                 tip={null}
+                tipResult={null}
+                tipPoints={null}
                 onTip={() => {}}
                 locked={true}
               />
@@ -584,6 +608,12 @@ export default function TippingPage() {
             </div>
           </div>
 
+          {gameweekLocked && (
+            <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-center text-sm font-medium text-amber-700">
+              Tipping is locked — the first game of this round has started.
+            </div>
+          )}
+
           {/* Fixtures */}
           <div className="grid gap-3 mb-6">
             {fixtures.map(f => (
@@ -591,8 +621,10 @@ export default function TippingPage() {
                 key={f.id}
                 fixture={f}
                 tip={tips[f.id] ?? null}
+                tipResult={tipGrades[f.id]?.result ?? null}
+                tipPoints={tipGrades[f.id]?.points ?? null}
                 onTip={(sel) => setTips(prev => ({ ...prev, [f.id]: sel }))}
-                locked={!canTipFixture(f)}
+                locked={gameweekLocked}
               />
             ))}
             {fixtures.length === 0 && (
@@ -606,7 +638,7 @@ export default function TippingPage() {
           {tippedCount > 0 && (
             <button
               onClick={handleSave}
-              disabled={saving}
+              disabled={saving || gameweekLocked}
               className={`w-full py-3 font-semibold rounded-xl transition-all ${
                 saved
                   ? 'bg-[#00DEB8] text-white'
@@ -623,13 +655,9 @@ export default function TippingPage() {
           compId={comp?.id ?? ''}
           gameweek={gameweek}
           fixtures={fixtures}
-          locked={fixtures.length > 0 && new Date(Math.min(...fixtures.map(f => new Date(f.kickoff).getTime()))) < new Date()}
+          locked={gameweekLocked}
         />
       )}
     </div>
   );
-}
-
-function canTipFixture(fixture: Fixture): boolean {
-  return new Date(fixture.kickoff) > new Date();
 }

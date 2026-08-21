@@ -83,9 +83,15 @@ export function getActualResult(
   return 'draw';
 }
 
-// Check if tips can still be submitted (before first kickoff of the gameweek)
-export function canTip(kickoff: string): boolean {
-  return new Date(kickoff) > new Date();
+// The entire gameweek locks at its earliest kickoff. The optional `now` makes
+// the rule deterministic in tests and keeps client/server behaviour identical.
+export function isGameweekLocked(fixtures: Fixture[], now = new Date()): boolean {
+  if (fixtures.length === 0) return false;
+
+  const kickoffs = fixtures.map(fixture => new Date(fixture.kickoff).getTime());
+  if (kickoffs.some(Number.isNaN)) return true;
+
+  return now.getTime() >= Math.min(...kickoffs);
 }
 
 // EPL 2026-27 Gameweek 1 fixtures — verified from Odds API 2026-08-18
