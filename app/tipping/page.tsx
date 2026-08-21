@@ -312,10 +312,13 @@ export default function TippingPage() {
 
   // Load fixtures
   useEffect(() => {
-    fetch(`/api/tipping/fixtures?gameweek=${gameweek}`)
+    const loadFixtures = () => fetch(`/api/tipping/fixtures?gameweek=${gameweek}`)
       .then(r => r.json())
       .then(d => setFixtures(d.fixtures ?? []))
       .catch(() => setFixtures([]));
+    void loadFixtures();
+    const timer = window.setInterval(loadFixtures, 5 * 60 * 1000);
+    return () => window.clearInterval(timer);
   }, [gameweek]);
 
   // Load existing tips if joined
@@ -340,16 +343,22 @@ export default function TippingPage() {
   }, [comp, userId, gameweek]);
 
   useEffect(() => {
-    if (joined) loadTips();
+    if (!joined) return;
+    loadTips();
+    const timer = window.setInterval(loadTips, 5 * 60 * 1000);
+    return () => window.clearInterval(timer);
   }, [joined, loadTips]);
 
   // Load leaderboard
   useEffect(() => {
     if (!comp) return;
-    fetch(`/api/tipping/leaderboard?comp_id=${comp.id}&gameweek=${gameweek}`)
+    const loadLeaderboard = () => fetch(`/api/tipping/leaderboard?comp_id=${comp.id}&gameweek=${gameweek}`)
       .then(r => r.json())
       .then(d => setLeaderboard(d.leaderboard ?? []))
       .catch(() => {});
+    void loadLeaderboard();
+    const timer = window.setInterval(loadLeaderboard, 5 * 60 * 1000);
+    return () => window.clearInterval(timer);
   }, [comp, tab, gameweek]);
 
   // Join comp
