@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase';
 import type { Fixture, TipSelection, LeaderboardRow, TippingComp } from '@/lib/tipping';
-import { EPL_GW2_FIXTURES, isGameweekLocked } from '@/lib/tipping';
+import { getEplFixtures, isGameweekLocked } from '@/lib/tipping';
 import { EPL_TEAMS } from '@/lib/soccerTeams';
 
 // ─── Team badge helper ───────────────────────────────────────────────────────
@@ -278,15 +278,17 @@ function Leaderboard({ rows, compId, gameweek, fixtures, locked }: {
   );
 }
 
-function NextRoundPreview() {
+function NextRoundPreview({ gameweek }: { gameweek: number }) {
+  const nextFixtures = getEplFixtures(gameweek);
+  if (nextFixtures.length === 0) return null;
   return (
     <section className="mt-8" aria-labelledby="next-round-heading">
       <div className="mb-3">
         <p className="text-xs font-semibold uppercase tracking-wider text-[#00A98F]">Next round</p>
-        <h2 id="next-round-heading" className="text-lg font-bold text-gray-900">Gameweek 2 Fixtures</h2>
+        <h2 id="next-round-heading" className="text-lg font-bold text-gray-900">Gameweek {gameweek} Fixtures</h2>
       </div>
       <div className="overflow-hidden rounded-xl border bg-white shadow-sm">
-        {EPL_GW2_FIXTURES.map((fixture, index) => {
+        {nextFixtures.map((fixture, index) => {
           const home = EPL_TEAMS[fixture.home_team];
           const away = EPL_TEAMS[fixture.away_team];
           const kickoff = new Date(fixture.kickoff);
@@ -328,6 +330,7 @@ function NextRoundPreview() {
 export default function TippingPage() {
   const [tab, setTab] = useState<'tips' | 'leaderboard'>('tips');
   const [gameweek, setGameweek] = useState(1);
+  const [firstAvailableGameweek, setFirstAvailableGameweek] = useState(1);
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [tips, setTips] = useState<Record<string, TipSelection>>({});
   const [tipGrades, setTipGrades] = useState<Record<string, { result: TipSelection | null; points: number | null }>>({});
@@ -384,12 +387,19 @@ export default function TippingPage() {
   useEffect(() => {
     const loadFixtures = () => fetch(`/api/tipping/fixtures?gameweek=${gameweek}`)
       .then(r => r.json())
-      .then(d => setFixtures(d.fixtures ?? []))
+      .then(d => {
+        setFixtures(d.fixtures ?? []);
+        if (d.round_complete && gameweek === firstAvailableGameweek) {
+          const nextGameweek = gameweek + 1;
+          setFirstAvailableGameweek(nextGameweek);
+          setGameweek(nextGameweek);
+        }
+      })
       .catch(() => setFixtures([]));
     void loadFixtures();
     const timer = window.setInterval(loadFixtures, 5 * 60 * 1000);
     return () => window.clearInterval(timer);
-  }, [gameweek]);
+  }, [gameweek, firstAvailableGameweek]);
 
   // Load existing tips if joined
   const loadTips = useCallback(() => {
@@ -662,7 +672,7 @@ export default function TippingPage() {
           <div className="flex items-center justify-between mb-4">
             <button
               onClick={() => setGameweek(Math.max(1, gameweek - 1))}
-              disabled={gameweek <= 1}
+              disabled={gameweek <= firstAvailableGameweek}
               className="px-3 py-1 text-sm border rounded-lg hover:bg-gray-50 disabled:opacity-30"
             >
               Prev
@@ -670,7 +680,8 @@ export default function TippingPage() {
             <span className="font-bold text-gray-900">Gameweek {gameweek}</span>
             <button
               onClick={() => setGameweek(gameweek + 1)}
-              className="px-3 py-1 text-sm border rounded-lg hover:bg-gray-50"
+              disabled={gameweek >= firstAvailableGameweek + 1}
+              className="px-3 py-1 text-sm border rounded-lg hover:bg-gray-50 disabled:opacity-30"
             >
               Next
             </button>
@@ -737,7 +748,7 @@ export default function TippingPage() {
             fixtures={fixtures}
             locked={gameweekLocked}
           />
-          <NextRoundPreview />
+          <NextRoundPreview gameweek={firstAvailableGameweek + 1} />
         </>
       )}
     </div>

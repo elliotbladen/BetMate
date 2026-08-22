@@ -224,6 +224,26 @@ export const EPL_GW2_FIXTURES: Fixture[] = [
   { id: 'epl-2627-gw2-10', gameweek: 2, home_team: 'Aston Villa', away_team: 'Arsenal', kickoff: '2026-08-31T19:00:00Z', venue: 'Villa Park', home_score: null, away_score: null, status: 'upcoming' },
 ];
 
+export const EPL_GW3_FIXTURES: Fixture[] = [
+  { id: 'epl-2627-gw3-1', gameweek: 3, home_team: 'Ipswich Town', away_team: 'Liverpool', kickoff: '2026-09-04T19:00:00Z', venue: 'Portman Road', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-2', gameweek: 3, home_team: 'Newcastle United', away_team: 'Bournemouth', kickoff: '2026-09-05T11:30:00Z', venue: "St James' Park", home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-3', gameweek: 3, home_team: 'Brentford', away_team: 'Sunderland', kickoff: '2026-09-05T14:00:00Z', venue: 'Gtech Community Stadium', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-4', gameweek: 3, home_team: 'Brighton and Hove Albion', away_team: 'Leeds United', kickoff: '2026-09-05T14:00:00Z', venue: 'Amex Stadium', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-5', gameweek: 3, home_team: 'Fulham', away_team: 'Crystal Palace', kickoff: '2026-09-05T14:00:00Z', venue: 'Craven Cottage', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-6', gameweek: 3, home_team: 'Manchester City', away_team: 'Coventry City', kickoff: '2026-09-05T14:00:00Z', venue: 'Etihad Stadium', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-7', gameweek: 3, home_team: 'Nottingham Forest', away_team: 'Tottenham Hotspur', kickoff: '2026-09-05T14:00:00Z', venue: 'City Ground', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-8', gameweek: 3, home_team: 'Hull City', away_team: 'Aston Villa', kickoff: '2026-09-05T16:30:00Z', venue: 'MKM Stadium', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-9', gameweek: 3, home_team: 'Everton', away_team: 'Manchester United', kickoff: '2026-09-06T13:00:00Z', venue: 'Goodison Park', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw3-10', gameweek: 3, home_team: 'Arsenal', away_team: 'Chelsea', kickoff: '2026-09-06T15:30:00Z', venue: 'Emirates Stadium', home_score: null, away_score: null, status: 'upcoming' },
+];
+
+export function getEplFixtures(gameweek: number): Fixture[] {
+  if (gameweek === 1) return EPL_GW1_FIXTURES;
+  if (gameweek === 2) return EPL_GW2_FIXTURES;
+  if (gameweek === 3) return EPL_GW3_FIXTURES;
+  return [];
+}
+
 // Supabase SQL for table creation (run once in Supabase SQL editor):
 //
 // CREATE TABLE tipping_comps (

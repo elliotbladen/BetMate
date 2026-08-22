@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
-import { scoreResult, getActualResult, EPL_GW1_FIXTURES } from '@/lib/tipping';
+import { scoreResult, getActualResult, getEplFixtures } from '@/lib/tipping';
 import { getAuthenticatedUser } from '@/lib/authServer';
 import { isOwnerEmail } from '@/lib/owner';
 
 // Get fixtures for a gameweek (MVP: only GW1)
 function getFixtures(gw: number) {
-  if (gw === 1) return EPL_GW1_FIXTURES;
-  return [];
+  return getEplFixtures(gw);
 }
 
 // POST /api/tipping/results

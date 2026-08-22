@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
 import type { TipSelection } from '@/lib/tipping';
-import { EPL_GW1_FIXTURES, isGameweekLocked } from '@/lib/tipping';
+import { getEplFixtures, isGameweekLocked } from '@/lib/tipping';
 import { getAuthenticatedUser } from '@/lib/authServer';
 import { syncTippingResults } from '@/lib/tippingResults';
 
 function getFixtures(gw: number) {
-  if (gw === 1) return EPL_GW1_FIXTURES;
-  return [];
+  return getEplFixtures(gw);
 }
 
 export async function GET(request: Request) {

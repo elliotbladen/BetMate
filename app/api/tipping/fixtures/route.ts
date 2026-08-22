@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { EPL_GW1_FIXTURES } from '@/lib/tipping';
+import { getEplFixtures } from '@/lib/tipping';
 import { getAuthenticatedUser } from '@/lib/authServer';
 import { applyCompletedScores, syncTippingResults } from '@/lib/tippingResults';
 
@@ -13,11 +13,15 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const gw = parseInt(searchParams.get('gameweek') ?? '1', 10);
 
-  // MVP: only GW1 seeded
-  if (gw === 1) {
+  const gameweekFixtures = getEplFixtures(gw);
+  if (gameweekFixtures.length > 0) {
     try {
       const completed = await syncTippingResults(gw);
-      return NextResponse.json({ gameweek: gw, fixtures: applyCompletedScores(EPL_GW1_FIXTURES, completed) },
+      return NextResponse.json({
+        gameweek: gw,
+        fixtures: applyCompletedScores(gameweekFixtures, completed),
+        round_complete: completed.length === gameweekFixtures.length,
+      },
         { headers: { 'Cache-Control': 'private, no-store, max-age=0' } });
     } catch (error) {
       console.error('Tipping result refresh failed', error);

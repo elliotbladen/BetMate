@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { mapEspnGames, matchCompletedFixtures } from '../lib/tippingResults';
-import { EPL_GW1_FIXTURES } from '../lib/tipping';
+import { EPL_GW1_FIXTURES, getEplFixtures } from '../lib/tipping';
 
 test('maps ESPN aliases and home/away scores to the canonical fixture', () => {
   const games = mapEspnGames([{ date: '2026-08-23T13:00:00Z', status: { type: { completed: true } },
@@ -35,4 +35,11 @@ test('primary and fallback provider shapes produce the same result', () => {
     ] }] }]);
   assert.deepEqual(matchCompletedFixtures(EPL_GW1_FIXTURES, primary), expected);
   assert.deepEqual(matchCompletedFixtures(EPL_GW1_FIXTURES, fallback), expected);
+});
+
+test('the active round and its next round both have complete fixture cards', () => {
+  assert.equal(getEplFixtures(1).length, 10);
+  assert.equal(getEplFixtures(2).length, 10);
+  assert.equal(getEplFixtures(3).length, 10);
+  assert.equal(getEplFixtures(4).length, 0);
 });

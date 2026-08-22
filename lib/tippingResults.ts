@@ -1,5 +1,5 @@
 import { createServerClient } from '@/lib/supabaseServer';
-import { EPL_GW1_FIXTURES, getActualResult, scoreResult, type Fixture } from '@/lib/tipping';
+import { getActualResult, getEplFixtures, scoreResult, type Fixture } from '@/lib/tipping';
 
 type ApiScore = { name: string; score: string };
 type ApiGame = { completed: boolean; commence_time: string; home_team: string; away_team: string; scores: ApiScore[] | null };
@@ -40,8 +40,6 @@ export function mapEspnGames(events: EspnEvent[]): ApiGame[] {
   });
 }
 
-function fixturesForGameweek(gameweek: number): Fixture[] { return gameweek === 1 ? EPL_GW1_FIXTURES : []; }
-
 async function fetchOddsApiScores(): Promise<ApiGame[]> {
   const apiKey = process.env.ODDS_API_KEY;
   if (!apiKey) throw new Error('ODDS_API_KEY is not configured');
@@ -64,18 +62,22 @@ async function fetchEspnScores(fixtures: Fixture[]): Promise<ApiGame[]> {
 
 async function completedScores(fixtures: Fixture[]): Promise<CompletedFixture[]> {
   const failures: string[] = [];
+  let providerResponded = false;
   for (const provider of [fetchOddsApiScores, () => fetchEspnScores(fixtures)]) {
     try {
-      const completed = matchCompletedFixtures(fixtures, await provider());
+      const games = await provider();
+      providerResponded = true;
+      const completed = matchCompletedFixtures(fixtures, games);
       if (completed.length > 0) return completed;
       failures.push('provider returned no matching completed fixtures');
     } catch (error) { failures.push(error instanceof Error ? error.message : 'unknown provider error'); }
   }
+  if (providerResponded) return [];
   throw new Error(`Unable to refresh tipping results: ${failures.join('; ')}`);
 }
 
 export async function syncTippingResults(gameweek: number): Promise<CompletedFixture[]> {
-  const fixtures = fixturesForGameweek(gameweek);
+  const fixtures = getEplFixtures(gameweek);
   if (!fixtures.length || !fixtures.some(fixture => new Date(fixture.kickoff).getTime() + 5400000 <= Date.now())) return [];
   const completed = await completedScores(fixtures);
   const supabase = createServerClient();
