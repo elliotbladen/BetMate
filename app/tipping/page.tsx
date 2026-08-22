@@ -128,15 +128,21 @@ function UserPicksPanel({ userName, userId, compId, gameweek, fixtures, onClose 
   fixtures: Fixture[];
   onClose: () => void;
 }) {
-  const [picks, setPicks] = useState<Record<string, TipSelection>>({});
+  const [picks, setPicks] = useState<Record<string, {
+    selection: TipSelection;
+    result: TipSelection | null;
+    points: number;
+  }>>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`/api/tipping/tips?comp_id=${compId}&user_id=${userId}&gameweek=${gameweek}`)
       .then(r => r.json())
       .then(d => {
-        const map: Record<string, TipSelection> = {};
-        for (const t of d.tips ?? []) map[t.game_id] = t.selection;
+        const map: Record<string, { selection: TipSelection; result: TipSelection | null; points: number }> = {};
+        for (const t of d.tips ?? []) {
+          map[t.game_id] = { selection: t.selection, result: t.result, points: t.points ?? 0 };
+        }
         setPicks(map);
       })
       .catch(() => {})
@@ -154,7 +160,10 @@ function UserPicksPanel({ userName, userId, compId, gameweek, fixtures, onClose 
       ) : (
         <div className="space-y-2">
           {fixtures.map(f => {
-            const pick = picks[f.id];
+            const tip = picks[f.id];
+            const pick = tip?.selection;
+            const isScored = tip?.result !== null && tip?.result !== undefined;
+            const isCorrect = isScored && tip.points > 0;
             const homeMeta = EPL_TEAMS[f.home_team];
             const awayMeta = EPL_TEAMS[f.away_team];
             const homeAbbr = homeMeta?.abbr ?? f.home_team.slice(0, 3).toUpperCase();
@@ -168,14 +177,29 @@ function UserPicksPanel({ userName, userId, compId, gameweek, fixtures, onClose 
               : '#FFF';
 
             return (
-              <div key={f.id} className="flex items-center justify-between text-sm">
+              <div key={f.id} className={`flex items-center justify-between rounded-lg px-2 py-1.5 text-sm ${
+                isScored ? (isCorrect ? 'bg-emerald-50' : 'bg-red-50') : ''
+              }`}>
                 <span className="text-gray-600 flex-1">{homeAbbr} vs {awayAbbr}</span>
-                <span
-                  className="px-2 py-0.5 rounded text-[11px] font-bold"
-                  style={{ backgroundColor: bg, color: fg }}
-                >
-                  {label}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span
+                    className="px-2 py-0.5 rounded text-[11px] font-bold"
+                    style={{ backgroundColor: bg, color: fg }}
+                  >
+                    {label}
+                  </span>
+                  {isScored && (
+                    <span
+                      aria-label={isCorrect ? 'Correct tip' : 'Incorrect tip'}
+                      title={isCorrect ? 'Correct tip — 3 points' : 'Incorrect tip — 0 points'}
+                      className={`flex h-6 w-6 items-center justify-center rounded-full text-sm font-black ${
+                        isCorrect ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'
+                      }`}
+                    >
+                      {isCorrect ? '✓' : '✕'}
+                    </span>
+                  )}
+                </div>
               </div>
             );
           })}
