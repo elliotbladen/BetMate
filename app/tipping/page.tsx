@@ -331,6 +331,7 @@ export default function TippingPage() {
   const [tab, setTab] = useState<'tips' | 'leaderboard'>('tips');
   const [gameweek, setGameweek] = useState(1);
   const [firstAvailableGameweek, setFirstAvailableGameweek] = useState(1);
+  const [seasonComplete, setSeasonComplete] = useState(false);
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [tips, setTips] = useState<Record<string, TipSelection>>({});
   const [tipGrades, setTipGrades] = useState<Record<string, { result: TipSelection | null; points: number | null }>>({});
@@ -383,13 +384,43 @@ export default function TippingPage() {
     return () => subscription.unsubscribe();
   }, []);
 
+  // Resolve the rolling two-round window from official completion statuses.
+  // If the status service is unavailable, retain the earlier round so a
+  // gameweek is never removed prematurely.
+  useEffect(() => {
+    if (!userId) return;
+    fetch('/api/tipping/gameweeks')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => {
+        if (d.season_complete) {
+          setSeasonComplete(true);
+          setFirstAvailableGameweek(38);
+          setGameweek(38);
+        } else if (Number.isInteger(d.current_gameweek)) {
+          setSeasonComplete(false);
+          setFirstAvailableGameweek(d.current_gameweek);
+          setGameweek(d.current_gameweek);
+        }
+      })
+      .catch(() => {});
+  }, [userId]);
+
   // Load fixtures
   useEffect(() => {
+    if (seasonComplete) {
+      setFixtures([]);
+      return;
+    }
     const loadFixtures = () => fetch(`/api/tipping/fixtures?gameweek=${gameweek}`)
       .then(r => r.json())
       .then(d => {
         setFixtures(d.fixtures ?? []);
         if (d.round_complete && gameweek === firstAvailableGameweek) {
+          if (gameweek === 38) {
+            setSeasonComplete(true);
+            setFixtures([]);
+            return;
+          }
           const nextGameweek = gameweek + 1;
           setFirstAvailableGameweek(nextGameweek);
           setGameweek(nextGameweek);
@@ -399,7 +430,7 @@ export default function TippingPage() {
     void loadFixtures();
     const timer = window.setInterval(loadFixtures, 5 * 60 * 1000);
     return () => window.clearInterval(timer);
-  }, [gameweek, firstAvailableGameweek]);
+  }, [gameweek, firstAvailableGameweek, seasonComplete]);
 
   // Load existing tips if joined
   const loadTips = useCallback(() => {
@@ -666,7 +697,15 @@ export default function TippingPage() {
         </button>
       </div>
 
-      {tab === 'tips' ? (
+      {tab === 'tips' ? seasonComplete ? (
+        <div className="rounded-xl border bg-white px-6 py-12 text-center shadow-sm">
+          <div className="text-3xl">🏆</div>
+          <h2 className="mt-3 text-xl font-bold text-gray-900">Season complete</h2>
+          <p className="mt-2 text-sm text-gray-500">
+            Gameweek 38 has finished. Final tips and standings remain available on the leaderboard.
+          </p>
+        </div>
+      ) : (
         <>
           {/* Gameweek selector */}
           <div className="flex items-center justify-between mb-4">
@@ -680,7 +719,7 @@ export default function TippingPage() {
             <span className="font-bold text-gray-900">Gameweek {gameweek}</span>
             <button
               onClick={() => setGameweek(gameweek + 1)}
-              disabled={gameweek >= firstAvailableGameweek + 1}
+              disabled={gameweek >= Math.min(firstAvailableGameweek + 1, 38)}
               className="px-3 py-1 text-sm border rounded-lg hover:bg-gray-50 disabled:opacity-30"
             >
               Next

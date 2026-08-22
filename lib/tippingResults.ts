@@ -2,7 +2,7 @@ import { createServerClient } from '@/lib/supabaseServer';
 import { getActualResult, getEplFixtures, scoreResult, type Fixture } from '@/lib/tipping';
 
 type ApiScore = { name: string; score: string };
-type ApiGame = { completed: boolean; commence_time: string; home_team: string; away_team: string; scores: ApiScore[] | null };
+export type ApiGame = { completed: boolean; commence_time: string; home_team: string; away_team: string; scores: ApiScore[] | null };
 type EspnCompetitor = { homeAway: 'home' | 'away'; score: string; team?: { displayName?: string } };
 type EspnEvent = { date: string; status?: { type?: { completed?: boolean } }; competitions?: Array<{ competitors?: EspnCompetitor[] }> };
 
@@ -17,8 +17,7 @@ export function matchCompletedFixtures(fixtures: Fixture[], games: ApiGame[]): C
   for (const fixture of fixtures) {
     const match = games.find(game => game.completed &&
       normaliseTeam(game.home_team) === normaliseTeam(fixture.home_team) &&
-      normaliseTeam(game.away_team) === normaliseTeam(fixture.away_team) &&
-      Math.abs(new Date(game.commence_time).getTime() - new Date(fixture.kickoff).getTime()) <= 86400000);
+      normaliseTeam(game.away_team) === normaliseTeam(fixture.away_team));
     if (!match?.scores) continue;
     const homeScore = Number(match.scores.find(score => normaliseTeam(score.name) === normaliseTeam(fixture.home_team))?.score);
     const awayScore = Number(match.scores.find(score => normaliseTeam(score.name) === normaliseTeam(fixture.away_team))?.score);
@@ -58,6 +57,28 @@ async function fetchEspnScores(fixtures: Fixture[]): Promise<ApiGame[]> {
   if (!response.ok) throw new Error(`ESPN scores returned ${response.status}`);
   const payload = await response.json() as { events?: EspnEvent[] };
   return mapEspnGames(payload.events ?? []);
+}
+
+async function fetchEspnSeasonScores(): Promise<ApiGame[]> {
+  const url = new URL('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard');
+  url.searchParams.set('dates', '20260801-20270531');
+  url.searchParams.set('limit', '500');
+  const response = await fetch(url.toString(), { cache: 'no-store' });
+  if (!response.ok) throw new Error(`ESPN season scores returned ${response.status}`);
+  const payload = await response.json() as { events?: EspnEvent[] };
+  return mapEspnGames(payload.events ?? []);
+}
+
+export function findCurrentGameweek(games: ApiGame[]): number | null {
+  for (let gameweek = 1; gameweek <= 38; gameweek++) {
+    const fixtures = getEplFixtures(gameweek);
+    if (matchCompletedFixtures(fixtures, games).length !== fixtures.length) return gameweek;
+  }
+  return null;
+}
+
+export async function getCurrentEplGameweek(): Promise<number | null> {
+  return findCurrentGameweek(await fetchEspnSeasonScores());
 }
 
 async function completedScores(fixtures: Fixture[]): Promise<CompletedFixture[]> {
