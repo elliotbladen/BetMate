@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase';
 import type { Fixture, TipSelection, LeaderboardRow, TippingComp } from '@/lib/tipping';
-import { isGameweekLocked } from '@/lib/tipping';
+import { EPL_GW2_FIXTURES, isGameweekLocked } from '@/lib/tipping';
 import { EPL_TEAMS } from '@/lib/soccerTeams';
 
 // ─── Team badge helper ───────────────────────────────────────────────────────
@@ -275,6 +275,52 @@ function Leaderboard({ rows, compId, gameweek, fixtures, locked }: {
         </table>
       </div>
     </>
+  );
+}
+
+function NextRoundPreview() {
+  return (
+    <section className="mt-8" aria-labelledby="next-round-heading">
+      <div className="mb-3">
+        <p className="text-xs font-semibold uppercase tracking-wider text-[#00A98F]">Next round</p>
+        <h2 id="next-round-heading" className="text-lg font-bold text-gray-900">Gameweek 2 Fixtures</h2>
+      </div>
+      <div className="overflow-hidden rounded-xl border bg-white shadow-sm">
+        {EPL_GW2_FIXTURES.map((fixture, index) => {
+          const home = EPL_TEAMS[fixture.home_team];
+          const away = EPL_TEAMS[fixture.away_team];
+          const kickoff = new Date(fixture.kickoff);
+          return (
+            <div key={fixture.id} className={`grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-3 ${
+              index > 0 ? 'border-t border-gray-100' : ''
+            }`}>
+              <div className="flex min-w-0 items-center gap-2">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[10px] font-bold"
+                  style={{ backgroundColor: home?.primary ?? '#6B7280', color: home?.secondary ?? '#FFFFFF' }}>
+                  {home?.abbr ?? fixture.home_team.slice(0, 3).toUpperCase()}
+                </span>
+                <span className="truncate text-sm font-medium text-gray-800">{fixture.home_team}</span>
+              </div>
+              <div className="text-center">
+                <div className="text-[11px] font-semibold text-gray-700">
+                  {kickoff.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' })}
+                </div>
+                <div className="font-mono text-[11px] text-gray-400">
+                  {kickoff.toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' })}
+                </div>
+              </div>
+              <div className="flex min-w-0 items-center justify-end gap-2 text-right">
+                <span className="truncate text-sm font-medium text-gray-800">{fixture.away_team}</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[10px] font-bold"
+                  style={{ backgroundColor: away?.primary ?? '#6B7280', color: away?.secondary ?? '#FFFFFF' }}>
+                  {away?.abbr ?? fixture.away_team.slice(0, 3).toUpperCase()}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -683,13 +729,16 @@ export default function TippingPage() {
           )}
         </>
       ) : (
-        <Leaderboard
-          rows={leaderboard}
-          compId={comp?.id ?? ''}
-          gameweek={gameweek}
-          fixtures={fixtures}
-          locked={gameweekLocked}
-        />
+        <>
+          <Leaderboard
+            rows={leaderboard}
+            compId={comp?.id ?? ''}
+            gameweek={gameweek}
+            fixtures={fixtures}
+            locked={gameweekLocked}
+          />
+          <NextRoundPreview />
+        </>
       )}
     </div>
   );

@@ -208,6 +208,22 @@ export const EPL_GW1_FIXTURES: Fixture[] = [
   },
 ];
 
+// EPL 2026-27 Gameweek 2 fixtures — verified from the live scoreboard feed
+// on 2026-08-23. This list powers the next-round preview; GW2 tipping remains
+// separate from the active GW1 scoring flow until it is explicitly opened.
+export const EPL_GW2_FIXTURES: Fixture[] = [
+  { id: 'epl-2627-gw2-1', gameweek: 2, home_team: 'Crystal Palace', away_team: 'Manchester City', kickoff: '2026-08-28T19:00:00Z', venue: 'Selhurst Park', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-2', gameweek: 2, home_team: 'Liverpool', away_team: 'Nottingham Forest', kickoff: '2026-08-29T11:30:00Z', venue: 'Anfield', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-3', gameweek: 2, home_team: 'Bournemouth', away_team: 'Everton', kickoff: '2026-08-29T14:00:00Z', venue: 'Vitality Stadium', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-4', gameweek: 2, home_team: 'Coventry City', away_team: 'Hull City', kickoff: '2026-08-29T14:00:00Z', venue: 'Coventry Building Society Arena', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-5', gameweek: 2, home_team: 'Tottenham Hotspur', away_team: 'Newcastle United', kickoff: '2026-08-29T16:30:00Z', venue: 'Tottenham Hotspur Stadium', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-6', gameweek: 2, home_team: 'Chelsea', away_team: 'Brighton and Hove Albion', kickoff: '2026-08-30T13:00:00Z', venue: 'Stamford Bridge', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-7', gameweek: 2, home_team: 'Leeds United', away_team: 'Brentford', kickoff: '2026-08-30T13:00:00Z', venue: 'Elland Road', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-8', gameweek: 2, home_team: 'Sunderland', away_team: 'Fulham', kickoff: '2026-08-30T13:00:00Z', venue: 'Stadium of Light', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-9', gameweek: 2, home_team: 'Manchester United', away_team: 'Ipswich Town', kickoff: '2026-08-30T15:30:00Z', venue: 'Old Trafford', home_score: null, away_score: null, status: 'upcoming' },
+  { id: 'epl-2627-gw2-10', gameweek: 2, home_team: 'Aston Villa', away_team: 'Arsenal', kickoff: '2026-08-31T19:00:00Z', venue: 'Villa Park', home_score: null, away_score: null, status: 'upcoming' },
+];
+
 // Supabase SQL for table creation (run once in Supabase SQL editor):
 //
 // CREATE TABLE tipping_comps (
