@@ -15,11 +15,14 @@ export async function GET(request: Request) {
 
   // MVP: only GW1 seeded
   if (gw === 1) {
-    const completed = await syncTippingResults(gw);
-    return NextResponse.json({
-      gameweek: gw,
-      fixtures: applyCompletedScores(EPL_GW1_FIXTURES, completed),
-    }, { headers: { 'Cache-Control': 'private, no-store, max-age=0' } });
+    try {
+      const completed = await syncTippingResults(gw);
+      return NextResponse.json({ gameweek: gw, fixtures: applyCompletedScores(EPL_GW1_FIXTURES, completed) },
+        { headers: { 'Cache-Control': 'private, no-store, max-age=0' } });
+    } catch (error) {
+      console.error('Tipping result refresh failed', error);
+      return NextResponse.json({ error: 'Scores are temporarily unavailable' }, { status: 503 });
+    }
   }
 
   return NextResponse.json({ gameweek: gw, fixtures: [] });

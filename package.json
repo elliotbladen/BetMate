@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:tipping": "tsx --test tests/tipping-results.test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.88.0",
@@ -29,6 +30,7 @@
     "playwright": "^1.60.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   }
 }
