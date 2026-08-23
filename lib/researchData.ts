@@ -852,6 +852,13 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:97,  date:'2026-08-15', match:'Richmond Tigers vs St Kilda Saints',                market:'Under 168.5',            predictedLine:144.6, takenPrice:1.85, closingPrice:2.00, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.51,   runningTotal:3.44   },
   { id:98,  date:'2026-08-15', match:'Richmond Tigers vs St Kilda Saints',                market:'Under 168.5',            predictedLine:144.6, takenPrice:1.85, closingPrice:2.00, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.85,   runningTotal:4.29   },
   { id:99,  date:'2026-08-16', match:'Western Bulldogs vs Carlton Blues',                  market:'Bulldogs +31.5 PYL',     predictedLine:18.2,  takenPrice:1.70, closingPrice:null, clv:-8.0, clvLabel:'-8.0 pts', result:'win',  plUnits:0.42,   runningTotal:4.71   },
+  // R24 (Aug 20-23) — 0W 6L. Worst AFL round of the season.
+  { id:100, date:'2026-08-20', match:'St Kilda Saints vs Gold Coast Suns',                   market:'St Kilda -11.5 PYL',     predictedLine:null,  takenPrice:1.71, closingPrice:null, result:'loss', plUnits:-0.60,  runningTotal:4.11   },
+  { id:101, date:'2026-08-20', match:'St Kilda Saints vs Gold Coast Suns',                   market:'Under 179.5',            predictedLine:null,  takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50,  runningTotal:3.61   },
+  { id:102, date:'2026-08-20', match:'St Kilda Saints vs Gold Coast Suns',                   market:'Under 180.5',            predictedLine:null,  takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-0.75,  runningTotal:2.86   },
+  { id:103, date:'2026-08-22', match:'Carlton Blues vs Fremantle Dockers',                   market:'Fremantle -10.5',        predictedLine:null,  takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:1.86   },
+  { id:104, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 177.5',            predictedLine:null,  takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:0.86   },
+  { id:105, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 176.5',            predictedLine:null,  takenPrice:1.88, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:-0.14  },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
@@ -964,4 +971,9 @@ export const MODEL_BETS: ModelBet[] = [
   { id:90, date:'2026-08-15', match:'Brisbane Broncos vs New Zealand Warriors',            market:'Warriors -5.5',          predictedLine:null,  takenPrice:1.89, closingPrice:1.90, clv:2.0, clvLabel:'+2.0 pts', result:'win',  plUnits:0.45,  runningTotal:4.83  },
   { id:91, date:'2026-08-16', match:'Wests Tigers vs St George Illawarra Dragons',        market:'Tigers Win',             predictedLine:null,  takenPrice:1.93, closingPrice:1.78, result:'loss', plUnits:-0.50, runningTotal:4.33  },
   { id:92, date:'2026-08-14', match:'NRL Multi (2 Legs)',                                  market:'Multi @ 2.08',           predictedLine:null,  takenPrice:2.08, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:3.33  },
+  // R26 (Aug 21-22) — 1W 3L.
+  { id:93, date:'2026-08-21', match:'Canberra Raiders vs Brisbane Broncos',                  market:'Raiders -5.5 PYL',       predictedLine:null,  takenPrice:1.74, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:2.83  },
+  { id:94, date:'2026-08-21', match:'NRL Multi (3 Legs)',                                    market:'Multi @ 2.02',           predictedLine:null,  takenPrice:2.02, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:1.83  },
+  { id:95, date:'2026-08-22', match:'South Sydney Rabbitohs vs New Zealand Warriors',       market:'Warriors -3.5',          predictedLine:null,  takenPrice:1.83, closingPrice:null, result:'win',  plUnits:0.42,  runningTotal:2.25  },
+  { id:96, date:'2026-08-22', match:'St George Illawarra Dragons vs Canterbury Bulldogs',    market:'Under 43.5',             predictedLine:null,  takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:1.25  },
 ];
