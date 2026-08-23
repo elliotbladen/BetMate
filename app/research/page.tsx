@@ -70,6 +70,51 @@ function modelStatsFor(bets: ModelBet[]) {
   return { total, wins, losses, winRate, totalPL, roi };
 }
 
+// -- P&L Chart ----------------------------------------------------------------
+function PLChart({ points, color = '#00DEB8' }: { points: number[]; color?: string }) {
+  if (points.length < 2) return null;
+  const W = 800, H = 200, PAD = 40, PADR = 16, PADT = 16, PADB = 28;
+  const chartW = W - PAD - PADR, chartH = H - PADT - PADB;
+  const minY = Math.min(0, ...points), maxY = Math.max(0, ...points);
+  const range = maxY - minY || 1;
+  const x = (i: number) => PAD + (i / (points.length - 1)) * chartW;
+  const y = (v: number) => PADT + (1 - (v - minY) / range) * chartH;
+  const line = points.map((v, i) => `${i === 0 ? 'M' : 'L'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  const zeroY = y(0);
+
+  const ticks: number[] = [];
+  const step = Math.ceil(range / 4);
+  for (let t = Math.floor(minY); t <= Math.ceil(maxY); t += step) ticks.push(t);
+  if (!ticks.includes(0)) ticks.push(0);
+  ticks.sort((a, b) => a - b);
+
+  const gradId = `plGrad-${color.replace('#', '')}`;
+  const areaPath = `${line} L${x(points.length - 1).toFixed(1)},${y(minY).toFixed(1)} L${x(0).toFixed(1)},${y(minY).toFixed(1)} Z`;
+
+  return (
+    <div className="border border-[#E2E8F0] rounded-lg bg-white p-4 mb-5 overflow-x-auto">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ minWidth: 400 }}>
+        <defs>
+          <linearGradient id={gradId} x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor={color} stopOpacity="0.15" />
+            <stop offset="100%" stopColor={color} stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {ticks.map(t => (
+          <g key={t}>
+            <line x1={PAD} x2={W - PADR} y1={y(t)} y2={y(t)} stroke={t === 0 ? '#9CA3AF' : '#F3F4F6'} strokeWidth={t === 0 ? 0.8 : 0.5} />
+            <text x={PAD - 6} y={y(t) + 3} textAnchor="end" className="fill-[#9CA3AF]" style={{ fontSize: 9, fontFamily: 'monospace' }}>{t > 0 ? `+${t}` : t}</text>
+          </g>
+        ))}
+        <path d={areaPath} fill={`url(#${gradId})`} />
+        <path d={line} fill="none" stroke={color} strokeWidth="2" strokeLinejoin="round" />
+        <circle cx={x(points.length - 1)} cy={y(points[points.length - 1])} r="3.5" fill={color} />
+        <text x={PAD + chartW / 2} y={H - 4} textAnchor="middle" className="fill-[#9CA3AF]" style={{ fontSize: 9, fontFamily: 'monospace' }}>BET #</text>
+      </svg>
+    </div>
+  );
+}
+
 // -- All Bets tab --------------------------------------------------------------
 function AllBetsTab() {
   const filtered = LEGACY_BETS;
@@ -93,6 +138,8 @@ function AllBetsTab() {
           </div>
         ))}
       </div>
+
+      <PLChart points={filtered.map(b => b.cumPL)} />
 
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
@@ -153,6 +200,8 @@ function ModelTab({ bets }: { bets: ModelBet[] }) {
           </div>
         ))}
       </div>
+
+      <PLChart points={bets.map(b => b.runningTotal)} />
 
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
