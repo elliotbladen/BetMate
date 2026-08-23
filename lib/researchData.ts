@@ -726,6 +726,24 @@ LEGACY_BETS.push(
   { id:523, date:'2026-08-16', match:'Wests Tigers vs St George Illawarra Dragons',      market:'Tigers Win',           odds:1.93, closingOdds:null, result:'loss', cumPL:33.69, sport:'NRL',      notes:'Stake $25. No return.' },
 );
 
+LEGACY_BETS.push(
+  // AFL R24 — Wed 20 Aug (St Kilda vs Gold Coast) — 3 bets, all lost
+  { id:524, date:'2026-08-20', match:'St Kilda Saints vs Gold Coast Suns',                   market:'St Kilda -11.5 PYL',   odds:1.71, closingOdds:null, result:'loss', cumPL:33.09, sport:'AFL',      notes:'Stake $30. No return. Gold Coast won outright by 23.' },
+  { id:525, date:'2026-08-20', match:'St Kilda Saints vs Gold Coast Suns',                   market:'Under 179.5',          odds:1.90, closingOdds:null, result:'loss', cumPL:32.59, sport:'AFL',      notes:'Stake $25. No return. Total 183.' },
+  { id:526, date:'2026-08-20', match:'St Kilda Saints vs Gold Coast Suns',                   market:'Under 180.5',          odds:1.89, closingOdds:null, result:'loss', cumPL:31.84, sport:'AFL',      notes:'Stake $37.50. No return. Total 183.' },
+  // NRL R26 — Thu 21 Aug (Raiders vs Broncos + Multi)
+  { id:527, date:'2026-08-21', match:'Canberra Raiders vs Brisbane Broncos',                 market:'Raiders -5.5 PYL',     odds:1.74, closingOdds:null, result:'loss', cumPL:31.34, sport:'NRL',      notes:'Stake $25. No return. Raiders lost outright 30-34.' },
+  { id:528, date:'2026-08-21', match:'NRL Multi (3 Legs)',                                   market:'Multi @ 2.02',         odds:2.02, closingOdds:null, result:'loss', cumPL:30.34, sport:'OTHER',    notes:'Stake $50. 1 leg failed.' },
+  // AFL R24 — Fri 22 Aug (Carlton vs Fremantle)
+  { id:529, date:'2026-08-22', match:'Carlton Blues vs Fremantle Dockers',                   market:'Fremantle -10.5',      odds:1.90, closingOdds:null, result:'loss', cumPL:29.34, sport:'AFL',      notes:'Stake $50. No return. Carlton won by 37.' },
+  // NRL R26 — Fri 22 Aug
+  { id:530, date:'2026-08-22', match:'South Sydney Rabbitohs vs New Zealand Warriors',      market:'Warriors -3.5',        odds:1.83, closingOdds:null, result:'win',  cumPL:29.76, sport:'NRL',      notes:'Stake $25. Return $45.75. Warriors dominated 45-26.' },
+  { id:531, date:'2026-08-22', match:'St George Illawarra Dragons vs Canterbury Bulldogs',   market:'Under 43.5',           odds:1.90, closingOdds:null, result:'loss', cumPL:28.76, sport:'NRL',      notes:'Stake $50. No return. Total 58. Bulldogs 44-14 blowout.' },
+  // AFL R24 — Sat 23 Aug (Essendon vs Port Adelaide)
+  { id:532, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 177.5',          odds:1.89, closingOdds:null, result:'loss', cumPL:27.76, sport:'AFL',      notes:'Stake $50. No return. Total 199.' },
+  { id:533, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 176.5',          odds:1.88, closingOdds:null, result:'loss', cumPL:26.76, sport:'AFL',      notes:'Stake $50. No return. Total 199. Port won 104-95.' },
+);
+
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
 // All AFL bets from LEGACY_BETS with date >= 2026-04-15.
 // plUnits = (stake/$50) × (odds-1) for win, -(stake/$50) for loss.
