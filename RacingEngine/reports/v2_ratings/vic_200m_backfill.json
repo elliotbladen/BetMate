@@ -1,0 +1,10 @@
+{
+  "accepted_rating_changed": false,
+  "ambiguous_or_unmatched": 103,
+  "available": 1330,
+  "matched_runners": 13919,
+  "races_considered": 1341,
+  "segments": 106249,
+  "unavailable": 11,
+  "version": "racing-com-vic-200m-v1"
+}

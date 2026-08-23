@@ -1,0 +1,43 @@
+{
+  "already_present": 118,
+  "audit_pass": false,
+  "audit_reason": "One meeting per jurisdiction is too small, the combined ranking result is worse, and next-start outcomes are pending.",
+  "candidate_rows": 118,
+  "coefficient_hash": "93d752076af9be229be3f8f6480fc5f1ec3b652ad2c95b486c12b0386ac7b5c6",
+  "freeze_version": "energy-sectionals-v2.3-frozen-2026-08-23",
+  "frozen_at": "2026-08-23",
+  "inserted": 0,
+  "interpretation": "prospective-style unseen holdout; not live post-freeze",
+  "next_start_mae": "pending future starts",
+  "race_log_loss": {
+    "adjusted": 1.929252382203821,
+    "base": 1.9240259023510526,
+    "by_band": {
+      "middle": {
+        "difference": 0.027053169196618265,
+        "races": 3
+      },
+      "sprint": {
+        "difference": -0.002049083261848334,
+        "races": 9
+      }
+    },
+    "by_jurisdiction": {
+      "NSW": {
+        "difference": -0.002187152492441169,
+        "races": 5
+      },
+      "VIC": {
+        "difference": 0.010521931527917947,
+        "races": 7
+      }
+    },
+    "difference": 0.005226479852768316,
+    "races": 12
+  },
+  "skipped_races": {
+    "no_unique_winner": 1,
+    "winner_missing_prior_history": 2
+  },
+  "training_cutoff": "2026-08-15"
+}

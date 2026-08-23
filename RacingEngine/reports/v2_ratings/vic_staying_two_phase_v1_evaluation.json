@@ -1,0 +1,51 @@
+{
+  "build": {
+    "accepted_rating_changed": false,
+    "races": 125,
+    "runners": 1296,
+    "version": "vic-staying-two-phase-v1.0-shadow"
+  },
+  "evaluation": {
+    "accepted_rating_changed": false,
+    "audit_pass": false,
+    "basic_directional_pass": true,
+    "fit": {
+      "coefficient": 0.8,
+      "pairs": 334,
+      "status": "fitted"
+    },
+    "next_start": {
+      "adjusted_mae": 7.8811023919335526,
+      "base_mae": 7.918718845755103,
+      "pairs": 245
+    },
+    "paired_uncertainty": {
+      "next_start_mae_difference": {
+        "lower_95": -0.20907527537091092,
+        "mean": -0.03761645382155086,
+        "n": 245,
+        "upper_95": 0.13384236772780916
+      },
+      "race_log_loss_difference": {
+        "lower_95": -0.05072169541699471,
+        "mean": -0.02347784399744885,
+        "n": 32,
+        "upper_95": 0.003766007422097005
+      }
+    },
+    "promote": false,
+    "ranking": {
+      "adjusted": {
+        "log_loss": 2.6739188854353726,
+        "races": 32,
+        "temperature": 15
+      },
+      "base": {
+        "log_loss": 2.697396729432821,
+        "races": 32,
+        "temperature": 15
+      }
+    },
+    "version": "vic-staying-two-phase-v1.0-shadow"
+  }
+}

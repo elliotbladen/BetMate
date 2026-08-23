@@ -18,6 +18,7 @@ WEATHER_SOURCE = "meteostat-hourly-station-v1"
 STATIONS = {
     "randwick": "94767", "rosehill": "94767", "flemington": "94866",
     "caulfield": "94870", "caulfield-heath": "94870",
+    "the-valley": "94866",
     "sportsbet-sandown-hillside": "94870", "sportsbet-sandown-lakeside": "94870",
 }
 

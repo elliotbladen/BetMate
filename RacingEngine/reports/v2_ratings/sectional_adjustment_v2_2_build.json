@@ -1,0 +1,29 @@
+{
+  "accepted_rating_changed": false,
+  "adjustment": {
+    "maximum": 3,
+    "mean": 0.17998106492752283,
+    "minimum": -3,
+    "nonzero": 15122
+  },
+  "coefficients": {
+    "NSW": {
+      "achievement": 0.0,
+      "steward": 0,
+      "training_mae_penalised": 10.344179518188472,
+      "training_pairs": 770,
+      "trip": 1.0
+    },
+    "VIC": {
+      "achievement": 0.0,
+      "steward": 1.0,
+      "training_mae_penalised": 9.167191416265053,
+      "training_pairs": 3664,
+      "trip": 0.4
+    }
+  },
+  "pace_source": "pace-shape-v2.1-pit-shadow",
+  "races": 1565,
+  "runners": 15973,
+  "version": "sectional-adjustment-v2.2-shadow"
+}

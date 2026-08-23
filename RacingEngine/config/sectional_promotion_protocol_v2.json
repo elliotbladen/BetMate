@@ -1,0 +1,37 @@
+{
+  "version": "sectional-promotion-protocol-v2.0",
+  "frozen_at": "2026-08-23",
+  "training_cutoff": "2026-08-15",
+  "rules": {
+    "accepted_ratings_unchanged_until_full_pass": true,
+    "coefficient_fitting_uses_pre_2025_only": true,
+    "common_race_policy": "at least 60% prior-form coverage",
+    "minimum_forward_ranking_races_per_jurisdiction": 100,
+    "minimum_forward_ranking_races_per_distance_band": 50,
+    "minimum_next_start_pairs_per_jurisdiction": 500,
+    "ranking_log_loss_must_improve": ["overall", "NSW", "VIC", "sprint", "middle", "staying"],
+    "next_start_mae_must_improve": ["overall", "NSW", "VIC", "sprint", "middle", "staying"],
+    "paired_95_percent_upper_bound_must_be_below_zero": ["overall ranking", "overall next-start", "NSW ranking", "NSW next-start", "VIC ranking", "VIC next-start"],
+    "live_forward_test_required": true,
+    "expert_breakout_sanity_audit_required": true,
+    "expert_sanity_bands_are_evaluation_only_not_training_labels": true,
+    "natural_fling_2026_08_15_achieved_rating_acceptance_band": [100, 110],
+    "natural_fling_outside_band_blocks_promotion": true,
+    "future_group_horse_cohort_required": true,
+    "future_group_horse_horizons_days": [90, 180, 365],
+    "future_group_horse_required_metrics": [
+      "future_peak_rating_mae",
+      "group_achievement_calibration",
+      "precision",
+      "recall",
+      "false_discovery_rate",
+      "median_lead_time_days"
+    ],
+    "future_group_horse_required_baselines": [
+      "pre_race_official_rating",
+      "class_only_v2",
+      "naive_age_and_start_count"
+    ],
+    "market_or_ev_test_is_step_6_not_step_2": true
+  }
+}

@@ -1,0 +1,723 @@
+{
+  "as_of_date": "2026-08-16",
+  "audit_rows": 25,
+  "clean_history": {
+    "excluded_identity_source": "rnsw-authorised",
+    "quarantine_reasons": {
+      "missing_or_nonpositive": 1391,
+      "physically_implausible_average_speed_9.85mps": 1,
+      "runner_clock_too_far_from_official": 2
+    },
+    "quarantined": 1394,
+    "races": 2720,
+    "runners": 36712
+  },
+  "prediction_test": {
+    "common_race_policy": "both V1 and V2 >=60% prior-form coverage",
+    "market_comparison": "not run; timestamped opening/closing prices remain a later pricing-engine test",
+    "test_window": "2025-01-01 to 2026-08-15",
+    "training_window": "2024 calendar year",
+    "uniform": {
+      "mean_log_loss": 2.3210156543359592,
+      "mean_race_brier": 0.8982554829012298,
+      "races": 577
+    },
+    "v1": {
+      "mean_log_loss": 2.335638912694416,
+      "mean_race_brier": 0.9008500768533815,
+      "races": 577,
+      "temperature_fitted_on_2024": 15.0,
+      "top_pick_strike_rate": 0.1369150779896014
+    },
+    "v2": {
+      "mean_log_loss": 2.4536531001602686,
+      "mean_race_brier": 0.9340458875535261,
+      "races": 577,
+      "temperature_fitted_on_2024": 15.0,
+      "top_pick_strike_rate": 0.12478336221837089
+    }
+  },
+  "prediction_test_reason": "Run only after the V2 sanity gate passed.",
+  "prediction_tests_rerun": true,
+  "ratings": {
+    "performances": 28939,
+    "too_few_finishers": 27
+  },
+  "sanity": {
+    "audit_matches": 24,
+    "audit_spearman": 0.6857937153306961,
+    "gate_checks": {
+      "audit_spearman_at_least_0_50": true,
+      "expected_named_horses_at_least_2": true,
+      "no_impossible_clock_used": true,
+      "top10_group1_runs_at_least_7": true
+    },
+    "model_version": "form-first-v2.0",
+    "prediction_tests": "permitted",
+    "sanity_gate_passed": true,
+    "top_10": [
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Via Sistina",
+        "peak_rating": 127.428603808,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2024-10-26",
+        "race_number": 9,
+        "race_strength": 127.428603808,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Pride Of Jenni",
+        "peak_rating": 124.532603808,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 14.",
+        "race_date": "2024-04-13",
+        "race_number": 8,
+        "race_strength": 124.532603808,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Giga Kick",
+        "peak_rating": 122.37305024133336,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
+        "race_date": "2024-10-19",
+        "race_number": 7,
+        "race_strength": 118.28380500133335,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Sir Delius",
+        "peak_rating": 122.27036476266667,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
+        "race_date": "2026-04-11",
+        "race_number": 9,
+        "race_strength": 122.27036476266667,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Buckaroo",
+        "peak_rating": 122.03898738266668,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2025-10-25",
+        "race_number": 10,
+        "race_strength": 117.793075476,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Globe",
+        "peak_rating": 121.745547144,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-10-11",
+        "race_number": 6,
+        "race_strength": 121.745547144,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Ceolwulf",
+        "peak_rating": 121.611698096,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-11-08",
+        "race_number": 7,
+        "race_strength": 121.611698096,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Dubai Honour",
+        "peak_rating": 121.562009406,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2026-03-28",
+        "race_number": 8,
+        "race_strength": 116.45045285600001,
+        "track_slug": "rosehill"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Pericles",
+        "peak_rating": 121.491698096,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-11-08",
+        "race_number": 7,
+        "race_strength": 121.611698096,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Gold Trip",
+        "peak_rating": 121.43776095466667,
+        "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 18.",
+        "race_date": "2023-10-21",
+        "race_number": 9,
+        "race_strength": 117.75722642800001,
+        "track_slug": "caulfield"
+      }
+    ],
+    "top_50": [
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Via Sistina",
+        "peak_rating": 127.428603808,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2024-10-26",
+        "race_number": 9,
+        "race_strength": 127.428603808,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Pride Of Jenni",
+        "peak_rating": 124.532603808,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 14.",
+        "race_date": "2024-04-13",
+        "race_number": 8,
+        "race_strength": 124.532603808,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Giga Kick",
+        "peak_rating": 122.37305024133336,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
+        "race_date": "2024-10-19",
+        "race_number": 7,
+        "race_strength": 118.28380500133335,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Sir Delius",
+        "peak_rating": 122.27036476266667,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
+        "race_date": "2026-04-11",
+        "race_number": 9,
+        "race_strength": 122.27036476266667,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Buckaroo",
+        "peak_rating": 122.03898738266668,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2025-10-25",
+        "race_number": 10,
+        "race_strength": 117.793075476,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Globe",
+        "peak_rating": 121.745547144,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-10-11",
+        "race_number": 6,
+        "race_strength": 121.745547144,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Ceolwulf",
+        "peak_rating": 121.611698096,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-11-08",
+        "race_number": 7,
+        "race_strength": 121.611698096,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Dubai Honour",
+        "peak_rating": 121.562009406,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2026-03-28",
+        "race_number": 8,
+        "race_strength": 116.45045285600001,
+        "track_slug": "rosehill"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Pericles",
+        "peak_rating": 121.491698096,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-11-08",
+        "race_number": 7,
+        "race_strength": 121.611698096,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Gold Trip",
+        "peak_rating": 121.43776095466667,
+        "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 18.",
+        "race_date": "2023-10-21",
+        "race_number": 9,
+        "race_strength": 117.75722642800001,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Johnny Rocker",
+        "peak_rating": 120.82257857333335,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2024-03-23",
+        "race_number": 8,
+        "race_strength": 116.94666666666667,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Buenos Noches",
+        "peak_rating": 120.20924524,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2023-11-11",
+        "race_number": 6,
+        "race_strength": 117.13333333333333,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Gringotts",
+        "peak_rating": 119.82851869800001,
+        "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 20.",
+        "race_date": "2026-04-04",
+        "race_number": 8,
+        "race_strength": 111.464603808,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Mr Brightside",
+        "peak_rating": 119.48,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-09-13",
+        "race_number": 8,
+        "race_strength": 119.48,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Imperatriz",
+        "peak_rating": 119.16819798200001,
+        "race_class": "Handicap. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 24.",
+        "race_date": "2024-03-09",
+        "race_number": 5,
+        "race_strength": 108.17148428533334,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Private Eye",
+        "peak_rating": 119.12924524000002,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 20.",
+        "race_date": "2024-02-17",
+        "race_number": 8,
+        "race_strength": 115.32000000000001,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Think It Over",
+        "peak_rating": 118.888,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 20.",
+        "race_date": "2024-03-02",
+        "race_number": 7,
+        "race_strength": 118.888,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Ka Ying Rising",
+        "peak_rating": 118.81920119333334,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
+        "race_date": "2025-10-18",
+        "race_number": 7,
+        "race_strength": 118.81920119333334,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Prognosis",
+        "peak_rating": 118.77118238133335,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2024-10-26",
+        "race_number": 9,
+        "race_strength": 127.428603808,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Switzerland",
+        "peak_rating": 118.603698096,
+        "race_class": "Set Weights. Group 1. Three-Years-Old, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 20. VOBIS Silver Nominators Bonus of $10,000.",
+        "race_date": "2024-11-02",
+        "race_number": 6,
+        "race_strength": 118.603698096,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Lindermann",
+        "peak_rating": 118.58703142933334,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
+        "race_date": "2026-04-11",
+        "race_number": 9,
+        "race_strength": 122.27036476266667,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Romantic Warrior",
+        "peak_rating": 118.46133333333333,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2023-10-28",
+        "race_number": 9,
+        "race_strength": 118.46133333333333,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Autumn Glow",
+        "peak_rating": 118.454301904,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 19.",
+        "race_date": "2026-03-21",
+        "race_number": 7,
+        "race_strength": 118.454301904,
+        "track_slug": "rosehill"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Bella Nipotina",
+        "peak_rating": 118.28380500133335,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
+        "race_date": "2024-10-19",
+        "race_number": 7,
+        "race_strength": 118.28380500133335,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Alligator Blood",
+        "peak_rating": 117.97133333333333,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2023-10-28",
+        "race_number": 9,
+        "race_strength": 118.46133333333333,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Light Infantry Man",
+        "peak_rating": 117.90072952533333,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 18.",
+        "race_date": "2025-03-29",
+        "race_number": 8,
+        "race_strength": 117.90072952533333,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Briasa",
+        "peak_rating": 117.82570750200001,
+        "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2026-03-21",
+        "race_number": 9,
+        "race_strength": 104.23232713866668,
+        "track_slug": "rosehill"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Without A Fight",
+        "peak_rating": 117.75722642800001,
+        "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 18.",
+        "race_date": "2023-10-21",
+        "race_number": 9,
+        "race_strength": 117.75722642800001,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Tom Kitten",
+        "peak_rating": 117.74851571466667,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
+        "race_date": "2025-04-12",
+        "race_number": 8,
+        "race_strength": 117.50593714133333,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Antino",
+        "peak_rating": 117.60739619200001,
+        "race_class": "Handicap. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 18.",
+        "race_date": "2024-10-12",
+        "race_number": 10,
+        "race_strength": 117.60739619200001,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "I Wish I Win",
+        "peak_rating": 117.43221381066668,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 18.",
+        "race_date": "2024-04-06",
+        "race_number": 7,
+        "race_strength": 113.92963523733334,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Cascadian",
+        "peak_rating": 117.29703142933334,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 18.",
+        "race_date": "2024-03-30",
+        "race_number": 8,
+        "race_strength": 117.29703142933334,
+        "track_slug": "flemington"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Jimmysstar",
+        "peak_rating": 117.248009406,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
+        "race_date": "2026-04-18",
+        "race_number": 9,
+        "race_strength": 113.95311952266667,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Treasurethe Moment",
+        "peak_rating": 116.92408809333334,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-08-30",
+        "race_number": 9,
+        "race_strength": 116.92408809333334,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Another Wil",
+        "peak_rating": 116.88666666666667,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2025-02-08",
+        "race_number": 9,
+        "race_strength": 116.88666666666667,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Fangirl",
+        "peak_rating": 116.78062262000002,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, Fillies and Mares. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 20.",
+        "race_date": "2025-04-12",
+        "race_number": 9,
+        "race_strength": 116.78062262000002,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Attrition",
+        "peak_rating": 116.73065404933334,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2025-10-25",
+        "race_number": 10,
+        "race_strength": 117.793075476,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_2",
+        "confidence": 0.8,
+        "horse_name": "Joliestar",
+        "peak_rating": 116.62933333333334,
+        "race_class": "Set Weights plus Penalties. Group 2. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 16.",
+        "race_date": "2026-02-14",
+        "race_number": 7,
+        "race_strength": 116.62933333333334,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Royal Patronage",
+        "peak_rating": 116.61369809600001,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Field limit: 14.",
+        "race_date": "2025-03-08",
+        "race_number": 2,
+        "race_strength": 116.61369809600001,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Aeliana",
+        "peak_rating": 116.45045285600001,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2026-03-28",
+        "race_number": 8,
+        "race_strength": 116.45045285600001,
+        "track_slug": "rosehill"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Mornington Glory",
+        "peak_rating": 116.231415004,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 15.",
+        "race_date": "2024-09-07",
+        "race_number": 9,
+        "race_strength": 116.231415004,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Vauban",
+        "peak_rating": 116.23138036333333,
+        "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 18.",
+        "race_date": "2025-10-04",
+        "race_number": 9,
+        "race_strength": 99.30542142666665,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Presage Nocturne",
+        "peak_rating": 116.18545905066668,
+        "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 18.",
+        "race_date": "2025-10-18",
+        "race_number": 9,
+        "race_strength": 107.575679284,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Amenable",
+        "peak_rating": 116.09421381066667,
+        "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
+        "race_date": "2024-04-20",
+        "race_number": 8,
+        "race_strength": 112.59496857066667,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Detonator Jack",
+        "peak_rating": 116.02457857333334,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 16.",
+        "race_date": "2024-08-24",
+        "race_number": 8,
+        "race_strength": 115.46533333333333,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Zaaki",
+        "peak_rating": 116.01133333333333,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2023-10-28",
+        "race_number": 9,
+        "race_strength": 118.46133333333333,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Schwarz",
+        "peak_rating": 115.96369809600002,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
+        "race_date": "2025-03-22",
+        "race_number": 9,
+        "race_strength": 115.96369809600002,
+        "track_slug": "the-valley"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Here to Shock",
+        "peak_rating": 115.68869809600001,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Field limit: 14.",
+        "race_date": "2025-03-08",
+        "race_number": 2,
+        "race_strength": 116.61369809600001,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.88,
+        "horse_name": "Pinstriped",
+        "peak_rating": 115.68,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 16.",
+        "race_date": "2024-08-31",
+        "race_number": 9,
+        "race_strength": 115.68,
+        "track_slug": "caulfield"
+      },
+      {
+        "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Fawkner Park",
+        "peak_rating": 115.63754714400001,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Field limit: 20.",
+        "race_date": "2025-03-01",
+        "race_number": 8,
+        "race_strength": 114.388301904,
+        "track_slug": "randwick"
+      }
+    ]
+  }
+}

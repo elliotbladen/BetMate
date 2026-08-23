@@ -4,15 +4,15 @@
 
 BetMate now has the beginnings of a serious internal Australian racing research engine. It is not yet a finished pricing model and it should not be marketed as one. Its job so far has been to solve the unglamorous but essential problem that sits underneath every good rating: collect a durable, auditable record of what actually happened in races, then turn that record into a conservative first estimate of horse ability.
 
-The first scope is deliberately narrow: Saturday metropolitan thoroughbred meetings in Victoria and Sydney/NSW. As at 15 August 2026 the local research database covers almost three full seasons, from August 2023 to August 2026:
+The first scope is deliberately narrow: Saturday metropolitan thoroughbred meetings in Victoria and Sydney/NSW. As audited on 20 August 2026, official results cover almost three full seasons, from 12 August 2023 through 15 August 2026:
 
 | Area | Meetings | Races | Historical source |
 | --- | ---: | ---: | --- |
-| Melbourne / Victorian metro | 119 | 1,137 | Racing.com public form payload, used with Racing Victoria's non-commercial research approval |
-| Sydney / NSW metro | 138 | 1,315 | RNSW official sectional PDFs where available; Racing.com public result fallback for explicitly labelled archive gaps |
-| Combined | 257 | 2,452 | Source-preserved local research database |
+| Melbourne / Victorian metro | 120 | 1,146 | Racing.com public form payload, used with Racing Victoria's non-commercial research approval |
+| Sydney / NSW metro | 139 | 1,325 | RNSW official sectional PDFs where available; Racing.com public result fallback for explicitly labelled archive gaps |
+| Combined | 259 | 2,471 | Source-preserved local research database |
 
-There are 111,162 stored sectional/in-run records in total: 36,447 Victorian records and 74,715 NSW official-PDF records. NSW fallback meetings contain result data only. They are not dressed up as sectional data. The current pipeline generated 17,933 individual run-performance assessments and 10,666 current horse-state records at the latest rebuild.
+There are 112,193 stored sectional/in-run records in total: 36,759 Victorian records and 75,434 NSW official-PDF records. NSW fallback meetings contain result data only. They are not dressed up as sectional data. The latest stored `performance-par-v1.0` rebuild (`as_of_date=2026-08-16`) contains 18,140 individual run-performance assessments and 10,752 current horse-state records, including the usable 15 August results.
 
 That is a useful foundation because it is repeatable. Every rating can be traced to a race, raw source payload/report, par, time component and confidence rule. The model is deliberately modest. Its present result is an *evidence-backed baseline rating*, not a claim that we have already built a better figure than Punting Form, Dan O'Sullivan or Timeform.
 
@@ -38,7 +38,7 @@ For every imported race we aim to retain:
 
 Victorian records currently provide the 800m, 400m and finish split structure supplied by Racing.com, alongside 800m/400m position fields when available. NSW reports can be richer: the raw report contains cumulative times through multiple 200m markers, sectional positions, final time and, in many reports, distance-travelled information. The importer reconstructs the reported splits from those cumulative clocks. It also supports the older wide PDF report and the newer TripleSData-style report visible on the Racing NSW screenshot.
 
-We should be precise about the gap. The NSW parser currently does **not** yet place every report's distance-travelled (DT-W) value into a clean database column. It retains the raw report, but no current rating adjustment is based on ground lost. That is future opportunity, not present model strength.
+We should be precise about the gap. The NSW parser places an explicitly reported distance-travelled-versus-winner (DT-W) value into a clean database column where it is available; 552 runner rows currently have one. Missing values remain null, and no current rating adjustment uses ground lost. That is future opportunity, not present model strength.
 
 ### 1.3 No-look-ahead discipline
 

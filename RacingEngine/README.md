@@ -1,5 +1,14 @@
 # RacingEngine
 
+Project status and the agreed build order are maintained in
+[`docs/project_tracker.md`](docs/project_tracker.md). As audited on 20 August
+2026, the data foundation and V0/V1 research baselines are built; class/Race
+Strength, daily variant, weight/WFA, normalized pace/trip and production pricing
+are not yet implemented.
+
+The detailed, session-to-session rating plan is in
+[`docs/ratings_build_plan.md`](docs/ratings_build_plan.md).
+
 Approved internal **BetMate research project** for horse-racing data and
 pricing. It is not a customer product, betting service or public data feed.
 

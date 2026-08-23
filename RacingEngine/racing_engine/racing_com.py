@@ -32,6 +32,7 @@ MEETINGS = {
 }
 METRO_VENUES = {
     "caulfield", "caulfield heath", "flemington", "moonee valley",
+    "the valley",
     "sportsbet sandown hillside", "sportsbet sandown lakeside",
 }
 
@@ -44,6 +45,7 @@ query RacingEngineMeeting($meetCode: ID!) {
     formRaceEntries {
       id raceEntryNumber horseName position margin winningTime
       barrierNumber weight weightCarried jockeyName trainerName handicapRating rdcClass
+      horse { id fullName age sex colour country }
       positionAtSettledAbv positionAt800Abv positionAt400Abv
       timing {
         toEightHundredMetresSeconds

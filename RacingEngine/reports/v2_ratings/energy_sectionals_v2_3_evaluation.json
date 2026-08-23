@@ -1,0 +1,268 @@
+{
+  "accepted_rating_changed": false,
+  "coefficients": {
+    "NSW": {
+      "middle": {
+        "achievement": 0.0,
+        "compensation": 0.0,
+        "status": "fitted",
+        "training_pairs": 648
+      },
+      "sprint": {
+        "achievement": 0.1,
+        "compensation": 0.1,
+        "status": "fitted",
+        "training_pairs": 1433
+      },
+      "staying": {
+        "achievement": 0,
+        "compensation": 0,
+        "status": "insufficient_sample_frozen_zero",
+        "training_pairs": 13
+      }
+    },
+    "VIC": {
+      "middle": {
+        "achievement": 0.0,
+        "compensation": 0.8,
+        "status": "fitted",
+        "training_pairs": 760
+      },
+      "sprint": {
+        "achievement": 0.0,
+        "compensation": 0.4,
+        "status": "fitted",
+        "training_pairs": 2623
+      },
+      "staying": {
+        "achievement": 0,
+        "compensation": 0,
+        "status": "insufficient_sample_frozen_zero",
+        "training_pairs": 0
+      }
+    }
+  },
+  "next_start": {
+    "achievement": {
+      "distance_band": {
+        "middle": 8.310458282893551,
+        "sprint": 8.31524095713256,
+        "staying": 8.173550045922225
+      },
+      "jurisdiction": {
+        "NSW": 8.342286846808985,
+        "VIC": 8.286533707434245
+      },
+      "overall": 8.312643105716301,
+      "pairs": 6231
+    },
+    "base": {
+      "distance_band": {
+        "middle": 8.310458282893551,
+        "sprint": 8.312307378483794,
+        "staying": 8.173550045922225
+      },
+      "jurisdiction": {
+        "NSW": 8.33769848047829,
+        "VIC": 8.286533707434245
+      },
+      "overall": 8.310494357047874,
+      "pairs": 6231
+    },
+    "combined": {
+      "distance_band": {
+        "middle": 8.300569644551832,
+        "sprint": 8.300616983998767,
+        "staying": 8.173550045922225
+      },
+      "jurisdiction": {
+        "NSW": 8.333108846568622,
+        "VIC": 8.269674833152207
+      },
+      "overall": 8.29938121272998,
+      "pairs": 6231
+    },
+    "compensation": {
+      "distance_band": {
+        "middle": 8.300569644551832,
+        "sprint": 8.297620515204866,
+        "staying": 8.173550045922225
+      },
+      "jurisdiction": {
+        "NSW": 8.328422114705921,
+        "VIC": 8.269674833152207
+      },
+      "overall": 8.297186399124561,
+      "pairs": 6231
+    }
+  },
+  "paired_uncertainty": {
+    "achievement": {
+      "next_start_mae_difference": {
+        "lower_95": -0.001098385410741053,
+        "mean": 0.0021487486684270644,
+        "n": 6231,
+        "upper_95": 0.005395882747595181
+      },
+      "race_log_loss_difference": {
+        "lower_95": -0.0017554842901515632,
+        "mean": -0.0011634875148551673,
+        "n": 740,
+        "upper_95": -0.0005714907395587713
+      }
+    },
+    "combined": {
+      "next_start_mae_difference": {
+        "lower_95": -0.03745904205282633,
+        "mean": -0.011113144317894667,
+        "n": 6231,
+        "upper_95": 0.015232753417036997
+      },
+      "race_log_loss_difference": {
+        "lower_95": -0.015325341010868649,
+        "mean": -0.01181427251754495,
+        "n": 740,
+        "upper_95": -0.008303204024221252
+      }
+    },
+    "compensation": {
+      "next_start_mae_difference": {
+        "lower_95": -0.03944374155625717,
+        "mean": -0.013307957923313862,
+        "n": 6231,
+        "upper_95": 0.012827825709629443
+      },
+      "race_log_loss_difference": {
+        "lower_95": -0.014175493423568884,
+        "mean": -0.010592900848431529,
+        "n": 740,
+        "upper_95": -0.007010308273294174
+      }
+    }
+  },
+  "promotion": {
+    "achievement": {
+      "all_distance_bands_next_mae": false,
+      "distance_band": {
+        "middle": {
+          "next_mae_improved": false,
+          "ranking_improved": false
+        },
+        "sprint": {
+          "next_mae_improved": false,
+          "ranking_improved": true
+        },
+        "staying": {
+          "next_mae_improved": false,
+          "ranking_improved": false
+        }
+      },
+      "next_mae_both_jurisdictions": false,
+      "promote": false,
+      "ranking_both_jurisdictions": true
+    },
+    "combined": {
+      "all_distance_bands_next_mae": false,
+      "distance_band": {
+        "middle": {
+          "next_mae_improved": true,
+          "ranking_improved": true
+        },
+        "sprint": {
+          "next_mae_improved": true,
+          "ranking_improved": true
+        },
+        "staying": {
+          "next_mae_improved": false,
+          "ranking_improved": false
+        }
+      },
+      "next_mae_both_jurisdictions": true,
+      "promote": false,
+      "ranking_both_jurisdictions": true
+    },
+    "compensation": {
+      "all_distance_bands_next_mae": false,
+      "distance_band": {
+        "middle": {
+          "next_mae_improved": true,
+          "ranking_improved": true
+        },
+        "sprint": {
+          "next_mae_improved": true,
+          "ranking_improved": true
+        },
+        "staying": {
+          "next_mae_improved": false,
+          "ranking_improved": false
+        }
+      },
+      "next_mae_both_jurisdictions": true,
+      "promote": false,
+      "ranking_both_jurisdictions": true
+    }
+  },
+  "ranking": {
+    "achievement": {
+      "distance_band": {
+        "middle": 2.4995550115051874,
+        "sprint": 2.5001234279417064,
+        "staying": 2.157563722875967
+      },
+      "jurisdiction": {
+        "NSW": 2.508840653151665,
+        "VIC": 2.4879572211962935
+      },
+      "overall": 2.497665194970142,
+      "races": 740,
+      "temperature": 15
+    },
+    "base": {
+      "distance_band": {
+        "middle": 2.4995550115051874,
+        "sprint": 2.5016945607172407,
+        "staying": 2.157563722875967
+      },
+      "jurisdiction": {
+        "NSW": 2.510418139643807,
+        "VIC": 2.48876107323593
+      },
+      "overall": 2.498828682484997,
+      "races": 740,
+      "temperature": 15
+    },
+    "combined": {
+      "distance_band": {
+        "middle": 2.4934169403703157,
+        "sprint": 2.4878355418107403,
+        "staying": 2.157563722875967
+      },
+      "jurisdiction": {
+        "NSW": 2.4961767321864388,
+        "VIC": 2.4790552209691405
+      },
+      "overall": 2.4870144099674523,
+      "races": 740,
+      "temperature": 15
+    },
+    "compensation": {
+      "distance_band": {
+        "middle": 2.4934169403703157,
+        "sprint": 2.489484839320127,
+        "staying": 2.157563722875967
+      },
+      "jurisdiction": {
+        "NSW": 2.4978838303337603,
+        "VIC": 2.479854648424861
+      },
+      "overall": 2.4882357816365657,
+      "races": 740,
+      "temperature": 15
+    }
+  },
+  "suitable_pace_response": {
+    "mean_next_rating_change": 2.1857500077527394,
+    "pairs": 2100
+  },
+  "version": "energy-sectionals-v2.3-shadow"
+}

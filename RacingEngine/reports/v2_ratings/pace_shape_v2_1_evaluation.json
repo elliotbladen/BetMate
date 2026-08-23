@@ -1,0 +1,281 @@
+{
+  "chronological_prediction_ablation": {
+    "jurisdiction": {
+      "NSW": {
+        "adjusted": {
+          "log_loss": 2.5703476534272984,
+          "race_brier": 0.9617023131461951,
+          "races": 612,
+          "top_pick_strike_rate": 0.12908496732026145
+        },
+        "base": {
+          "log_loss": 2.5694214250160985,
+          "race_brier": 0.9617548948499021,
+          "races": 612,
+          "top_pick_strike_rate": 0.12908496732026145
+        }
+      },
+      "VIC": {
+        "adjusted": {
+          "log_loss": 2.4902152684020944,
+          "race_brier": 0.9445496871138249,
+          "races": 591,
+          "top_pick_strike_rate": 0.11844331641285956
+        },
+        "base": {
+          "log_loss": 2.49132611495915,
+          "race_brier": 0.9448314639219505,
+          "races": 591,
+          "top_pick_strike_rate": 0.12013536379018612
+        }
+      }
+    },
+    "overall": {
+      "adjusted": {
+        "log_loss": 2.530980870759056,
+        "race_brier": 0.9532757113297938,
+        "races": 1203,
+        "top_pick_strike_rate": 0.12385702410640066
+      },
+      "base": {
+        "log_loss": 2.531055399875902,
+        "race_brier": 0.9534408901296865,
+        "races": 1203,
+        "top_pick_strike_rate": 0.12468827930174564
+      }
+    },
+    "temperatures": {
+      "adjusted": 15.0,
+      "base": 15.0
+    },
+    "test_races": 1203,
+    "training_races": 846
+  },
+  "disadvantaged_response": {
+    "definition": "adjustment >= 0.75 and next run not pace-disadvantaged",
+    "mean_next_rating_change": 1.3901041041658828,
+    "neutral_control_sample": 7555,
+    "neutral_mean_next_rating_change": -0.17783828201543905,
+    "sample": 1032
+  },
+  "largest_shadow_movements": [
+    {
+      "adjustment": 2.0,
+      "horse": "Najem Suhail",
+      "label": "pace_collapse",
+      "race_id": "2023-08-26|the-valley|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Red Hot Nicc",
+      "label": "pace_collapse",
+      "race_id": "2023-08-26|the-valley|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Oz Empress",
+      "label": "very_fast_early",
+      "race_id": "2023-08-26|the-valley|6"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Edison",
+      "label": "pace_collapse",
+      "race_id": "2023-09-09|the-valley|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Rambler Rebel",
+      "label": "pace_collapse",
+      "race_id": "2023-09-09|the-valley|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Pride Of Sullivan",
+      "label": "pace_collapse",
+      "race_id": "2023-09-09|the-valley|6"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Savatoxl",
+      "label": "sustained_high_pressure",
+      "race_id": "2023-09-09|the-valley|9"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Strombus",
+      "label": "sustained_high_pressure",
+      "race_id": "2023-09-16|randwick|4"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Pride Of Jenni",
+      "label": "pace_collapse",
+      "race_id": "2023-10-14|caulfield|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Savannah Cloud",
+      "label": "pace_collapse",
+      "race_id": "2023-10-14|caulfield|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Amenable",
+      "label": "pace_collapse",
+      "race_id": "2023-10-14|caulfield|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Dark Halo",
+      "label": "pace_collapse",
+      "race_id": "2023-10-21|caulfield|4"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Oz Empress",
+      "label": "pace_collapse",
+      "race_id": "2023-10-21|caulfield|5"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Verdad",
+      "label": "pace_collapse",
+      "race_id": "2023-10-28|the-valley|7"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Pantelone",
+      "label": "pace_collapse",
+      "race_id": "2023-11-11|flemington|3"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Schwarz",
+      "label": "pace_collapse",
+      "race_id": "2023-11-11|flemington|3"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Brave Mead",
+      "label": "pace_collapse",
+      "race_id": "2023-11-18|caulfield|6"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Buffalo River",
+      "label": "pace_collapse",
+      "race_id": "2023-11-18|caulfield|8"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "General Beau",
+      "label": "pace_collapse",
+      "race_id": "2023-11-18|caulfield|8"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Nijiko",
+      "label": "pace_collapse",
+      "race_id": "2023-12-16|caulfield|4"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Blue Cup",
+      "label": "pace_collapse",
+      "race_id": "2023-12-16|caulfield|6"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Vasmee",
+      "label": "pace_collapse",
+      "race_id": "2023-12-16|caulfield|6"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Mamaragan",
+      "label": "pace_collapse",
+      "race_id": "2023-12-23|the-valley|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Philosopher",
+      "label": "pace_collapse",
+      "race_id": "2023-12-23|the-valley|5"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Golden Crusader",
+      "label": "pace_collapse",
+      "race_id": "2023-12-23|the-valley|9"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Rambler Rebel",
+      "label": "pace_collapse",
+      "race_id": "2023-12-23|the-valley|9"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Felix Majestic",
+      "label": "fast_early",
+      "race_id": "2024-01-06|randwick|7"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "The Astrologist",
+      "label": "pace_collapse",
+      "race_id": "2024-01-13|flemington|8"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Either Oar",
+      "label": "pace_collapse",
+      "race_id": "2024-01-27|randwick|10"
+    },
+    {
+      "adjustment": 2.0,
+      "horse": "Boston Rocks",
+      "label": "pace_collapse",
+      "race_id": "2024-01-27|randwick|8"
+    }
+  ],
+  "named_data_gaps": [
+    {
+      "race_id": "2025-10-18|randwick|7",
+      "runner_number": null,
+      "status": "permanent_source_gap",
+      "stored_rows": 0,
+      "subject": "2025 Everest"
+    },
+    {
+      "race_id": "2026-04-04|randwick|8",
+      "runner_number": 15,
+      "status": "permanent_runner_gap",
+      "stored_rows": 0,
+      "subject": "Sheza Alibi \u2014 2026 Doncaster"
+    }
+  ],
+  "next_start": {
+    "adjusted_mae": 8.44846997398599,
+    "base_mae": 8.450943637754985,
+    "mae_change_adjusted_minus_base": -0.0024736637689954932,
+    "pairs": 12140
+  },
+  "next_start_by_jurisdiction": {
+    "NSW": {
+      "adjusted_mae": 8.342078512007848,
+      "base_mae": 8.35525682059406,
+      "mae_change_adjusted_minus_base": -0.013178308586210719,
+      "pairs": 3551
+    },
+    "VIC": {
+      "adjusted_mae": 8.492456012114339,
+      "base_mae": 8.490503992597043,
+      "mae_change_adjusted_minus_base": 0.0019520195172955113,
+      "pairs": 8589
+    }
+  },
+  "pace_version": "pace-shape-v2.1-pit-shadow",
+  "status": "shadow_not_promoted"
+}

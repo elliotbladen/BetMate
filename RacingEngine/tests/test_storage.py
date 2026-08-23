@@ -7,10 +7,23 @@ from racing_engine.results_import import import_results, import_sectionals
 from racing_engine.ratings import build_ratings
 from racing_engine.price_card import price_card
 from racing_engine.performance import run_pipeline
+from racing_engine.rnsw import parse_sectional_pdf
 from racing_engine.stewards import PARSER_VERSION, classify_report, plain_text
 
 
 class RacingStoreTests(unittest.TestCase):
+    def test_new_rnsw_pdf_uses_winner_clock_as_official_time(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        report = root / "data" / "raw" / "rnsw" / "2026-08-15" / "rosehill" / "sectionals.pdf"
+        if not report.exists():
+            self.skipTest("Cached 2026-08-15 RNSW report is not available")
+        races = parse_sectional_pdf(report.read_bytes(), "2026-08-15", "rosehill", "test")
+        self.assertEqual(len(races), 10)
+        for race in races:
+            winner = next(runner for runner in race["runners"] if runner["finish_position"] == 1)
+            self.assertIsNotNone(race["official_time_seconds"])
+            self.assertEqual(race["official_time_seconds"], winner["finish_time_seconds"])
+
     def test_upsert_card_stores_runner_metadata(self) -> None:
         meeting = {"track": "Rosehill", "slug": "rosehill"}
         card = {

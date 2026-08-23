@@ -17,7 +17,7 @@ from urllib.request import Request, urlopen
 from pypdf import PdfReader
 
 from .storage import RacingStore
-from .racing_com import DATE_QUERY, graphql_request
+from .racing_com import DATE_QUERY, graphql_request, import_meeting as import_structured_result
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://racing.racingnsw.com.au"
@@ -193,6 +193,16 @@ def parse_sectional_pdf(pdf_bytes: bytes, race_date: str, slug: str, source_url:
                 "distance_travelled_vs_winner_metres": runner["distance_travelled_vs_winner_metres"],
                 "finish_time_seconds": next((elapsed for marker, (elapsed, _) in ordered if marker == 0), None),
                 "result_status": "finished", "raw_csv": {"pdf_points": runner["points"]}, "sectionals": sections})
+        # TripleSData's newer layout supplies every runner's overall clock but
+        # may omit the legacy ``Field Times ... Official`` line.  The winner's
+        # reported overall clock is the official race time; retain it rather
+        # than leaving an otherwise complete race unusable by the par model.
+        if race["official_time_seconds"] is None:
+            winner = next((runner for runner in race["runners"]
+                           if runner["finish_position"] == 1
+                           and runner["finish_time_seconds"] is not None), None)
+            if winner is not None:
+                race["official_time_seconds"] = winner["finish_time_seconds"]
     return list(races_by_number.values())
 
 def seconds(value: str) -> float | None:
@@ -221,24 +231,41 @@ def discover_saturday_metro_meetings(start_date: str, end_date: str) -> list[dic
                 continue
             venue, slug, suffix = config
             meetings[str(record["id"])] = {"date": current.isoformat(), "venue": venue, "slug": slug,
+                                             "meet_code": str(record["id"]),
                                              "sectional_code": current.strftime("%d%m") + suffix}
         current += timedelta(days=7)
     return sorted(meetings.values(), key=lambda meeting: (meeting["date"], meeting["slug"]))
 
 
 def import_meeting(store: RacingStore, race_date: str, *, venue: str | None = None,
-                   slug: str | None = None, sectional_code: str | None = None) -> tuple[int, int]:
+                   slug: str | None = None, sectional_code: str | None = None,
+                   meet_code: str | None = None, results_only: bool = False) -> tuple[int, int]:
     default = MEETINGS.get(race_date)
     if venue is None:
         if default is None:
             discovered = discover_saturday_metro_meetings(race_date, race_date)
             if len(discovered) != 1:
                 raise RuntimeError(f"Expected one NSW Saturday metro meeting on {race_date}, found {len(discovered)}.")
-            venue, slug, sectional_code = (discovered[0]["venue"], discovered[0]["slug"], discovered[0]["sectional_code"])
+            venue, slug, sectional_code, meet_code = (discovered[0]["venue"], discovered[0]["slug"],
+                discovered[0]["sectional_code"], discovered[0]["meet_code"])
         else:
             venue, slug, sectional_code = default
     if not slug or not sectional_code:
         raise ValueError("venue, slug and sectional code are required")
+    # Result identity is acquired independently of sectional availability.
+    # A missing archive PDF must never make an otherwise valid result vanish.
+    if meet_code is None:
+        discovered = discover_saturday_metro_meetings(race_date, race_date)
+        match = next((item for item in discovered if item["slug"] == slug), None)
+        if match is None:
+            raise RuntimeError("No structured official result card found for NSW meeting")
+        meet_code = match["meet_code"]
+    result_source = "racing-com-nsw-authorised-v2"
+    imported_races, imported_runners, _ = import_structured_result(
+        store, race_date, meet_code=meet_code, slug=slug,
+        expected_state="NSW", source=result_source)
+    if results_only:
+        return imported_races, imported_runners
     # The official report archive is the primary historical source.  The CSV
     # endpoint below is retained only as a fallback for a future report change.
     archive = ROOT / "data" / "raw" / "rnsw" / race_date / slug
@@ -254,20 +281,32 @@ def import_meeting(store: RacingStore, race_date: str, *, venue: str | None = No
         races = parse_sectional_pdf(pdf_bytes, race_date, slug, pdf_url)
         if not races or not any(race["runners"] for race in races):
             raise RuntimeError("PDF did not contain any parseable finishing runners")
+        # V2 ownership rule: the structured result card is the only source of
+        # runner identity and finishing result.  The sectional PDF may enrich
+        # an official runner number, but must never manufacture a horse/result.
         sectional_rows: list[dict] = []
         for race in races:
-            store.upsert_result(source="rnsw-authorised", **race)
+            official_numbers = {int(row[0]) for row in store.connection.execute(
+                """SELECT runner_number FROM runner_results WHERE source=? AND race_date=?
+                   AND track_slug=? AND race_number=?""",
+                (result_source, race_date, slug, race["race_number"]))}
             for runner in race["runners"]:
+                if runner["runner_number"] not in official_numbers:
+                    continue
                 for sectional in runner.get("sectionals", []):
-                    sectional_rows.append({"source": "rnsw-authorised", "race_date": race_date,
+                    sectional_rows.append({"source": result_source, "race_date": race_date,
                         "track_slug": slug, "race_number": race["race_number"],
                         "runner_number": runner["runner_number"], **sectional})
         store.upsert_sectionals(sectional_rows)
-        return len(races), sum(len(race["runners"]) for race in races)
+        return imported_races, imported_runners
     except Exception as pdf_error:
-        # Do not quietly convert an unavailable report to an empty meeting.
-        # CSV is attempted solely for currently available official meetings.
-        pdf_failure = str(pdf_error)
+        # Sectionals are optional evidence in V2.  Preserve the structured
+        # official results and leave the unavailable PDF explicitly absent.
+        return imported_races, imported_runners
+    # V2 never falls back to the legacy CSV/PDF text as a result identity
+    # source.  The code below is retained temporarily for forensic comparison
+    # with V1, but is unreachable by design.
+    pdf_failure = str(pdf_error)
     key = f"{race_date[:4]}{__import__('datetime').date.fromisoformat(race_date).strftime('%b%d')},NSW,{venue}"
     result_url = f"{BASE}/FreeFields/CSV.aspx?" + urlencode({"Key": key, "stage": "Results"})
     csv_bytes = download(result_url)
@@ -309,12 +348,13 @@ def main() -> None:
     parser.add_argument("--from-date", dest="from_date", help="Discover range start (YYYY-MM-DD)")
     parser.add_argument("--to-date", dest="to_date", help="Discover range end (YYYY-MM-DD)")
     parser.add_argument("--dry-run", action="store_true", help="Print discovered meetings without downloading cards")
+    parser.add_argument("--results-only", action="store_true", help="Import structured result cards without parsing sectional PDFs")
     args = parser.parse_args()
     if bool(args.date) == bool(args.from_date or args.to_date):
         parser.error("Provide either --date or both --from-date and --to-date.")
     if (args.from_date and not args.to_date) or (args.to_date and not args.from_date):
         parser.error("--from-date and --to-date must be used together.")
-    meetings = ([{"date": args.date, "venue": None, "slug": None, "sectional_code": None}] if args.date
+    meetings = ([{"date": args.date, "venue": None, "slug": None, "sectional_code": None, "meet_code": None}] if args.date
                 else discover_saturday_metro_meetings(args.from_date, args.to_date))
     if args.dry_run:
         print(json.dumps(meetings, indent=2, sort_keys=True)); return
@@ -323,7 +363,7 @@ def main() -> None:
         totals = [0, 0]; failures: list[str] = []
         for meeting in meetings:
             try:
-                races, runners = import_meeting(store, meeting["date"], venue=meeting["venue"], slug=meeting["slug"], sectional_code=meeting["sectional_code"])
+                races, runners = import_meeting(store, meeting["date"], venue=meeting["venue"], slug=meeting["slug"], sectional_code=meeting["sectional_code"], meet_code=meeting.get("meet_code"), results_only=args.results_only)
                 totals = [left + right for left, right in zip(totals, (races, runners))]
                 print(f"Imported {meeting['date']}: {races} RNSW result races and {runners} finishers.")
             except Exception as exc:

@@ -1,0 +1,9 @@
+{
+  "accepted_rating_changed": false,
+  "races": 2201,
+  "runners": 22235,
+  "skipped": {
+    "incomplete_curve": 6232
+  },
+  "version": "energy-sectionals-v2.4-vic-200m-shadow"
+}

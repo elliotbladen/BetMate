@@ -1,0 +1,45 @@
+{
+  "version": "course-environment-evidence-v1.0",
+  "policy": {
+    "course_bearing": "Do not infer a bearing from an un-georeferenced spectator map.",
+    "wind": "A race needs timestamped wind plus a surveyed sectional bearing before a headwind/crosswind component is calculated.",
+    "lane": "Do not infer a lane bias from winners. Use an official lane/path feed or leave it missing.",
+    "path": "Official steward incidents are admissible runner path evidence, but are separate from a continuous lane measurement."
+  },
+  "sources": [
+    {
+      "jurisdiction": "NSW",
+      "tracks": ["randwick", "rosehill"],
+      "source": "https://www.racingnsw.com.au/news/latest-racing-news/atc-unveils-live-win-weather-data-for-punters-participants/",
+      "finding": "ATC publishes live racecourse wind direction and speed, but no public historical race-by-race archive was established.",
+      "usable_for_historical_adjustment": false
+    },
+    {
+      "jurisdiction": "NSW",
+      "tracks": ["randwick", "rosehill"],
+      "source": "https://www.racingnsw.com.au/wp-content/uploads/2017/11/Reference-Manual.pdf",
+      "finding": "Official course geometry and start maps are available, but the diagrams do not establish surveyed sectional bearings.",
+      "usable_for_historical_adjustment": false
+    },
+    {
+      "jurisdiction": "VIC",
+      "tracks": ["flemington"],
+      "source": "https://vrc-failover.azurewebsites.net/track-and-weather-conditions/",
+      "finding": "VRC describes five live track wind points and minute logging; the public page does not expose the required historical archive.",
+      "usable_for_historical_adjustment": false
+    },
+    {
+      "jurisdiction": "VIC",
+      "tracks": ["the-valley"],
+      "source": "https://www.thevalley.com.au/racing/getting-to-the-valley",
+      "finding": "The official map anchors the site to named boundary streets, but is not a surveyed sectional-bearing dataset.",
+      "usable_for_historical_adjustment": false
+    }
+  ],
+  "path_evidence": {
+    "official_steward_categories": ["wide_no_cover", "held_up", "interference", "severe_interference", "slow_start"],
+    "matched_clean_runner_events": 4048,
+    "status": "available_as_separate_shadow_evidence",
+    "lane_measurement_status": "unavailable"
+  }
+}

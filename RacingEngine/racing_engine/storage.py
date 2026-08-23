@@ -179,6 +179,89 @@ CREATE TABLE IF NOT EXISTS horse_aliases (
     PRIMARY KEY (source, source_horse_name)
 );
 
+-- Durable identity is separate from source spellings and name normalisation.
+CREATE TABLE IF NOT EXISTS horses (
+    horse_id TEXT PRIMARY KEY,
+    canonical_name TEXT NOT NULL,
+    identity_key TEXT NOT NULL UNIQUE,
+    identity_status TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+
+-- Append-only, source-dated horse facts.  A source may report racing age
+-- without exposing an exact foaling date; those are deliberately separate.
+CREATE TABLE IF NOT EXISTS horse_profile_observations (
+    profile_source TEXT NOT NULL,
+    source_horse_id TEXT NOT NULL,
+    horse_id TEXT NOT NULL,
+    observed_at TEXT NOT NULL,
+    birth_date TEXT,
+    observed_racing_age INTEGER,
+    sex TEXT,
+    country_code TEXT,
+    source_url TEXT,
+    confidence REAL NOT NULL,
+    detail_json TEXT NOT NULL,
+    imported_at TEXT NOT NULL,
+    PRIMARY KEY (profile_source,source_horse_id,observed_at),
+    FOREIGN KEY (horse_id) REFERENCES horses(horse_id)
+);
+
+-- Point-in-time derivation used by modelling.  Keeping the source observation
+-- makes age/WFA calculations reproducible and prevents current-age leakage.
+CREATE TABLE IF NOT EXISTS runner_derived_profiles (
+    derivation_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    horse_id TEXT NOT NULL,
+    birth_date TEXT,
+    racing_age INTEGER,
+    age_method TEXT,
+    sex TEXT,
+    country_code TEXT,
+    profile_source TEXT,
+    source_observed_at TEXT,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (derivation_version,source,race_date,track_slug,race_number,runner_number),
+    FOREIGN KEY (horse_id) REFERENCES horses(horse_id)
+);
+
+CREATE TABLE IF NOT EXISTS runner_horse_links (
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    horse_id TEXT NOT NULL,
+    source_horse_name TEXT NOT NULL,
+    cleaned_horse_name TEXT NOT NULL,
+    link_method TEXT NOT NULL,
+    confidence REAL NOT NULL,
+    review_status TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    linked_at TEXT NOT NULL,
+    PRIMARY KEY (source,race_date,track_slug,race_number,runner_number),
+    FOREIGN KEY (horse_id) REFERENCES horses(horse_id)
+);
+
+CREATE TABLE IF NOT EXISTS horse_identity_reviews (
+    review_key TEXT PRIMARY KEY,
+    source TEXT NOT NULL,
+    source_horse_name TEXT NOT NULL,
+    proposed_identity_key TEXT,
+    reason TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'open',
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    resolved_at TEXT
+);
+
 CREATE TABLE IF NOT EXISTS track_pars (
     model_version TEXT NOT NULL,
     as_of_date TEXT NOT NULL,
@@ -191,6 +274,57 @@ CREATE TABLE IF NOT EXISTS track_pars (
     detail_json TEXT NOT NULL,
     created_at TEXT NOT NULL,
     PRIMARY KEY (model_version, as_of_date, track_slug, distance_metres, going_bucket)
+);
+
+-- Post-meeting estimate used to interpret completed historical runs. It is
+-- never available to price another race on the same card.
+CREATE TABLE IF NOT EXISTS daily_track_variants (
+    variant_version TEXT NOT NULL,
+    as_of_date TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    raw_variant_lengths REAL,
+    shrunk_variant_lengths REAL NOT NULL,
+    races_used INTEGER NOT NULL,
+    shrinkage_factor REAL NOT NULL,
+    quality_status TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (variant_version,as_of_date,source,race_date,track_slug)
+);
+
+-- Append-only market observations. Opening, decision-time and closing labels
+-- are derived later; ingestion never overwrites an earlier observation.
+CREATE TABLE IF NOT EXISTS market_snapshots (
+    market_source TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    captured_at TEXT NOT NULL,
+    price_type TEXT NOT NULL,
+    decimal_odds REAL NOT NULL,
+    available_volume REAL,
+    source_event_id TEXT,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (market_source,source,race_date,track_slug,race_number,runner_number,captured_at,price_type)
+);
+
+CREATE TABLE IF NOT EXISTS model_calibrations (
+    calibration_version TEXT NOT NULL,
+    source_model_version TEXT NOT NULL,
+    protocol_hash TEXT NOT NULL,
+    fit_period TEXT NOT NULL,
+    method TEXT NOT NULL,
+    parameter_json TEXT NOT NULL,
+    sample_races INTEGER NOT NULL,
+    status TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (calibration_version,source_model_version,protocol_hash,fit_period)
 );
 
 -- One auditable performance assessment for every finished runner.  This is
@@ -243,6 +377,164 @@ CREATE TABLE IF NOT EXISTS evaluation_runs (
     detail_json TEXT NOT NULL,
     created_at TEXT NOT NULL,
     PRIMARY KEY (model_version, as_of_date, evaluation_name)
+);
+
+-- Frozen, prediction-level evidence for reproducible model benchmarks.
+CREATE TABLE IF NOT EXISTS benchmark_predictions (
+    protocol_version TEXT NOT NULL,
+    protocol_hash TEXT NOT NULL,
+    model_version TEXT NOT NULL,
+    period TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    runner_name TEXT NOT NULL,
+    horse_key TEXT NOT NULL,
+    raw_rating REAL NOT NULL,
+    win_probability REAL NOT NULL,
+    outcome REAL NOT NULL,
+    history_depth INTEGER NOT NULL,
+    unrated INTEGER NOT NULL,
+    information_cutoff TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (protocol_hash, model_version, source, race_date, track_slug, race_number, runner_number)
+);
+
+CREATE TABLE IF NOT EXISTS benchmark_reports (
+    protocol_hash TEXT NOT NULL,
+    model_version TEXT NOT NULL,
+    report_name TEXT NOT NULL,
+    database_cutoff TEXT NOT NULL,
+    report_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (protocol_hash, model_version, report_name)
+);
+
+-- Versioned canonical sectional intervals derived without changing raw evidence.
+CREATE TABLE IF NOT EXISTS canonical_sectionals (
+    feature_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    final_200_seconds REAL,
+    final_400_seconds REAL,
+    final_600_seconds REAL,
+    early_to_800_seconds REAL,
+    eight_to_four_seconds REAL,
+    position_800m INTEGER,
+    position_600m INTEGER,
+    position_400m INTEGER,
+    position_200m INTEGER,
+    quality_status TEXT NOT NULL,
+    missing_reasons_json TEXT NOT NULL,
+    derivation_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (feature_version,source,race_date,track_slug,race_number,runner_number)
+);
+
+-- Descriptive class-prior research; not consumed by the accepted model yet.
+CREATE TABLE IF NOT EXISTS class_prior_research (
+    research_version TEXT NOT NULL,
+    as_of_date TEXT NOT NULL,
+    level TEXT NOT NULL,
+    group_key TEXT NOT NULL,
+    parent_key TEXT,
+    races INTEGER NOT NULL,
+    runner_rating_coverage REAL NOT NULL,
+    raw_mean_field_rating REAL,
+    shrunk_field_rating REAL,
+    shrinkage_weight REAL,
+    prior_strength_races REAL,
+    uncertainty REAL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (research_version,as_of_date,level,group_key)
+);
+
+-- Frozen prior-only runner states and field summaries at each historical race.
+CREATE TABLE IF NOT EXISTS pre_race_runner_states (
+    field_model_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    horse_id TEXT NOT NULL,
+    horse_name TEXT NOT NULL,
+    prior_rating REAL NOT NULL,
+    prior_runs INTEGER NOT NULL,
+    prior_uncertainty REAL NOT NULL,
+    rated INTEGER NOT NULL,
+    information_cutoff TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (field_model_version,source,race_date,track_slug,race_number,runner_number)
+);
+
+CREATE TABLE IF NOT EXISTS pre_race_field_strengths (
+    field_model_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    starters INTEGER NOT NULL,
+    rated_runners INTEGER NOT NULL,
+    rated_coverage REAL NOT NULL,
+    field_median_rating REAL NOT NULL,
+    rated_only_median_rating REAL,
+    top_four_mean_rating REAL NOT NULL,
+    top_rating REAL NOT NULL,
+    depth_within_five INTEGER NOT NULL,
+    field_uncertainty REAL NOT NULL,
+    information_cutoff TEXT NOT NULL,
+    detail_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (field_model_version,source,race_date,track_slug,race_number)
+);
+
+-- Pre-race Race Strength components. Completed-race evidence is separate below.
+CREATE TABLE IF NOT EXISTS race_strength_ratings (
+    race_strength_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    class_prior_level TEXT,
+    class_prior_key TEXT,
+    class_prior_official_scale REAL,
+    class_global_official_scale REAL,
+    class_only_rating REAL,
+    class_reliability REAL NOT NULL,
+    field_only_rating REAL NOT NULL,
+    field_reliability REAL NOT NULL,
+    combined_rating REAL NOT NULL,
+    rated_coverage REAL NOT NULL,
+    field_uncertainty REAL NOT NULL,
+    information_cutoff TEXT NOT NULL,
+    component_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (race_strength_version,source,race_date,track_slug,race_number)
+);
+
+CREATE TABLE IF NOT EXISTS post_race_strength_evidence (
+    evidence_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    official_time_seconds REAL,
+    winner_time_seconds REAL,
+    finishers INTEGER NOT NULL,
+    margin_observations INTEGER NOT NULL,
+    runner_time_observations INTEGER NOT NULL,
+    evidence_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (evidence_version,source,race_date,track_slug,race_number)
 );
 
 -- Parsed, categorical race conditions.  Keep this separate from a numerical
@@ -345,6 +637,67 @@ CREATE INDEX IF NOT EXISTS idx_race_results_pars
   ON race_results (race_date, track_slug, state);
 CREATE INDEX IF NOT EXISTS idx_steward_events_horse
   ON steward_events (horse_key, race_date);
+
+-- Research-only reconstruction of the weight a runner actually carried and
+-- the surrounding race conditions.  Missing source components stay NULL.
+CREATE TABLE IF NOT EXISTS runner_weight_contexts (
+    feature_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    horse_id TEXT,
+    weight_condition TEXT NOT NULL,
+    carried_weight_kg REAL,
+    allocated_weight_kg REAL,
+    apprentice_claim_kg REAL,
+    overweight_kg REAL,
+    penalty_kg REAL,
+    official_wfa_kg REAL,
+    carried_minus_wfa_kg REAL,
+    carried_minus_field_median_kg REAL,
+    official_rating REAL,
+    race_benchmark INTEGER,
+    weight_change_kg REAL,
+    official_rating_change REAL,
+    class_change REAL,
+    distance_change_metres INTEGER,
+    stronger_race INTEGER,
+    evidence_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (feature_version,source,race_date,track_slug,race_number,runner_number)
+);
+
+-- A leakage-audited modelling row.  Historical outcome evidence is summarized
+-- only from races strictly before target_race_date.
+CREATE TABLE IF NOT EXISTS point_in_time_features (
+    feature_version TEXT NOT NULL,
+    source TEXT NOT NULL,
+    target_race_date TEXT NOT NULL,
+    track_slug TEXT NOT NULL,
+    race_number INTEGER NOT NULL,
+    runner_number INTEGER NOT NULL,
+    horse_id TEXT,
+    history_runs INTEGER NOT NULL,
+    days_since_last_run INTEGER,
+    campaign_run_number INTEGER,
+    prior_weight_kg REAL,
+    prior_weight_change_kg REAL,
+    prior_official_rating REAL,
+    prior_race_strength REAL,
+    prior_daily_variant REAL,
+    prior_going TEXT,
+    prior_sectional_confidence REAL,
+    prior_distance_travelled_vs_winner REAL,
+    prior_steward_event_count INTEGER,
+    current_distance_metres INTEGER,
+    current_weight_condition TEXT,
+    current_class_family TEXT,
+    availability_json TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (feature_version,source,target_race_date,track_slug,race_number,runner_number)
+);
 """
 
 
