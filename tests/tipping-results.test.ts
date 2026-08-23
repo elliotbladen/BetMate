@@ -16,6 +16,17 @@ test('maps ESPN aliases and home/away scores to the canonical fixture', () => {
   ]);
 });
 
+test('matches Brighton & Hove Albion (ESPN) to Brighton and Hove Albion (fixture)', () => {
+  const games = mapEspnGames([{ date: '2026-08-23T13:00:00Z', status: { type: { completed: true } },
+    competitions: [{ competitors: [
+      { homeAway: 'home', score: '4', team: { displayName: 'Brighton & Hove Albion' } },
+      { homeAway: 'away', score: '0', team: { displayName: 'Aston Villa' } },
+    ] }] }]);
+  assert.deepEqual(matchCompletedFixtures(EPL_GW1_FIXTURES, games), [
+    { game_id: 'epl-2627-gw1-7', home_score: 4, away_score: 0 },
+  ]);
+});
+
 test('does not score an unfinished game', () => {
   const games = mapEspnGames([{ date: '2026-08-23T13:00:00Z', status: { type: { completed: false } },
     competitions: [{ competitors: [

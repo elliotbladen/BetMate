@@ -9,7 +9,7 @@ type EspnEvent = { date: string; status?: { type?: { completed?: boolean } }; co
 export type CompletedFixture = { game_id: string; home_score: number; away_score: number };
 
 function normaliseTeam(name: string): string {
-  return name.toLowerCase().replace(/\b(afc|fc)\b/g, '').replace(/[^a-z0-9]/g, '');
+  return name.toLowerCase().replace(/&/g, 'and').replace(/\b(afc|fc)\b/g, '').replace(/[^a-z0-9]/g, '');
 }
 
 export function matchCompletedFixtures(fixtures: Fixture[], games: ApiGame[]): CompletedFixture[] {
