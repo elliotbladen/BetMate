@@ -20,6 +20,35 @@ robust sustainable peak plus recency, uncertainty, campaign/layoff state and
 distance/going suitability. Preserve the V2 run ratings as the baseline and
 require an improvement over both V1 and equal chance before promotion.
 
+## Horse Ability V2.1 first candidate — 28 August 2026
+
+The first controlled current-ability candidate is implemented as
+`horse-ability-v2.1-sustainable-recency-shadow`. It materialises strictly
+point-in-time states from prior accepted V2 runs using a fixed six-run window,
+180-day recency half-life, bounded sustainable-peak blend, reliability
+shrinkage and explicit robust uncertainty. It remains shadow-only.
+
+The candidate decisively improves the rejected V2 median-last-three state in
+validation, beats uniform directionally in validation and conclusively in the
+historical holdout, and beats V1 in the historical holdout. It misses V1 by
+`0.00094` validation log loss and its required uncertainty gates do not all
+pass. It is not promoted.
+
+More importantly, the mandatory Natural Fling breakout audit fails upstream:
+the accepted V2 run foundation rates the four-length 15 August Group 3 win only
+`83.53`, versus the predeclared 100–110 acceptance range. The present run model
+gives a winner zero margin component and lets stale low prior/official anchors
+dominate a lightly raced improver. Horse Ability is therefore
+`BLOCKED_UPSTREAM` until a separately registered achieved-run recovery passes
+the frozen breakout cohort and elite gates. WFA/sex/age versus handicap weight
+semantics must be tested separately; they cannot be repaired silently inside
+the Horse Ability state.
+
+See `reports/v2_ratings/horse_ability_v2_1_first_candidate_findings.md` and the
+machine-readable companion JSON. Do not tune the sustainable-peak blend against
+the observed validation/holdout. The next state-family experiment, after the
+upstream run gate passes, is explicit history-depth/uncertainty calibration.
+
 ## Six-stage V2 ratings-to-market programme — 23 August 2026
 
 Pace shape and pace counterfactuals are first-class requirements. The engine
