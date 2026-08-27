@@ -24,6 +24,9 @@ env/
 *.pkl
 *.pickle
 
+# CatBoost training logs (auto-generated on every training run)
+catboost_info/
+
 # Logs
 logs/*.log
 logs/*.json

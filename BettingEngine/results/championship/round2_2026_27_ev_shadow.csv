@@ -1,0 +1,13 @@
+home,away,model,market,side,model_prob,market_odds,ev,ev_pct
+Middlesbrough,West Brom,shadow,1X2,Away,0.388,4.5,0.7478279309278772,74.8
+Norwich,Burnley,shadow,1X2,Away,0.593,2.83,0.6779723961954571,67.8
+Wolves,Stoke,shadow,1X2,Draw,0.348,4.27,0.4868200636557351,48.7
+Charlton,Preston,shadow,1X2,Away,0.429,3.45,0.4813660407926872,48.1
+Derby,Swansea,shadow,BTTS,Yes,0.597,2.25,0.3438305351433981,34.4
+Cardiff,Sheffield United,shadow,1X2,Away,0.52,2.55,0.3262532157632314,32.6
+Derby,Swansea,shadow,O/U 2.5,Over,0.497,2.65,0.3159577288744373,31.6
+Southampton,Millwall,shadow,1X2,Away,0.342,3.6,0.2297696597205181,23.0
+Derby,Swansea,shadow,1X2,Away,0.395,3.1,0.2253902550621287,22.5
+Wolves,Stoke,shadow,1X2,Away,0.191,6.25,0.1909975095028369,19.1
+Bristol City,Portsmouth,shadow,1X2,Away,0.355,3.25,0.1522881857615245,15.2
+Middlesbrough,West Brom,shadow,1X2,Draw,0.299,3.73,0.1136242207182895,11.4

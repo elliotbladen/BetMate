@@ -1,0 +1,5 @@
+home,away,market,side,ev_pct_normal,ev_pct_shadow,market_odds_normal,market_odds_shadow,model_prob_normal,model_prob_shadow
+Norwich,Burnley,1X2,Away,71.6,67.8,2.83,2.83,0.606,0.593
+Charlton,Preston,1X2,Away,20.7,48.1,3.45,3.45,0.35,0.429
+Middlesbrough,West Brom,1X2,Away,14.0,74.8,4.5,4.5,0.253,0.388
+Cardiff,Sheffield United,1X2,Away,13.2,32.6,2.55,2.55,0.444,0.52
