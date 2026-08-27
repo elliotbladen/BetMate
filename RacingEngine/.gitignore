@@ -1,6 +1,8 @@
 # Local RacingEngine data and credentials
 data/*
 !data/seed/
+data/seed/*.sql
+.venv/
 .env
 .env.*
 __pycache__/
