@@ -18,7 +18,7 @@ from .storage import RacingStore, utc_now
 ROOT = Path(__file__).resolve().parents[1]
 IDENTITY_VERSION = "horse-identity-v1.0"
 NAMESPACE = uuid.UUID("19f52716-ef0c-4ee3-8398-d0e95ed9f931")
-COUNTRY_SUFFIX = re.compile(r"\s*\((AUS|NZ|IRE|GB|FR|USA|JPN|SAF|ARG|BRZ|GER)\)\s*$", re.I)
+COUNTRY_SUFFIX = re.compile(r"\s*\((AUS|NZ|IRE|GB|FR|USA|JPN|SAF|ARG|BRZ|GER|ITY)\)\s*$", re.I)
 RNSW_LAYOUT_SUFFIX = re.compile(r"\s+\d{1,2}\s+\d{2,3}(?:\.\d+)?\s*$")
 
 

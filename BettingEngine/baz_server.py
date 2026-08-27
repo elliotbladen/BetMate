@@ -44,6 +44,7 @@ CONFLUENCE_JSON     = BASE_DIR / "outputs" / "nrl_t9_confluence_latest.json"
 AFL_CONFLUENCE_JSON = BASE_DIR / "outputs" / "afl_t9_confluence_latest.json"
 AFL_INJURIES_JSON   = BETMATE_ROOT / "data" / "afl" / "injuries" / "processed" / "latest-injuries.json"
 SNAPSHOTS_DIR       = BETMATE_ROOT / "data" / "odds_snapshots"
+EPL_TIPPING_CARD    = BASE_DIR / "outputs" / "football" / "epl" / "latest_tipping_card.json"
 
 # Bookmakers to exclude from market average (exchange/lay prices skew the average)
 _EXCHANGE_BOOKMAKERS = {"betfair_ex_au", "betfair_ex_uk"}
@@ -319,6 +320,20 @@ def _clv_summary(n_weeks: int = 4) -> dict:
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "generated_at": datetime.now(timezone.utc).isoformat()}
+
+
+@app.get("/tips/epl")
+def epl_tips() -> dict:
+    """Return Baz's latest generated EPL tipping-comp card."""
+    if not EPL_TIPPING_CARD.exists():
+        raise HTTPException(
+            status_code=503,
+            detail="EPL tipping card not generated; run scripts/epl_tipping_algo.py",
+        )
+    try:
+        return json.loads(EPL_TIPPING_CARD.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise HTTPException(status_code=503, detail=f"Could not read EPL tipping card: {exc}") from exc
 
 
 @app.get("/status")

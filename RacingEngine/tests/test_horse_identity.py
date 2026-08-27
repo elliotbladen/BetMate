@@ -12,6 +12,7 @@ class HorseIdentityTests(unittest.TestCase):
         self.assertEqual(cleaned, "LIFESAVER")
         self.assertIn("removed_rnsw_position_time_layout_suffix", changes)
         self.assertEqual(clean_name("racing-com-rv-authorised", "Palmetto (NZ)")[0], "Palmetto")
+        self.assertEqual(clean_name("racing-com-rv-authorised", "Tempesti (ITY)")[0], "Tempesti")
 
     def test_identity_key_handles_case_spacing_and_punctuation(self) -> None:
         self.assertEqual(identity_key("Here To Shock"), identity_key("Here to Shock"))
