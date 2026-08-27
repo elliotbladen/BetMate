@@ -253,8 +253,15 @@ def build_form_first(store: RacingStore) -> dict[str, Any]:
 
 
 def load_audit_set(store: RacingStore, path: Path = REFERENCE) -> int:
-    schema(store); store.connection.execute("DELETE FROM v2_audit_classifications")
-    if not path.exists(): return 0
+    schema(store)
+    if not path.exists():
+        # A restored cross-machine seed already carries the reviewed audit set.
+        # Do not destroy that evidence merely because the optional source CSV
+        # was not copied to this machine.
+        return store.connection.execute(
+            "SELECT count(*) FROM v2_audit_classifications"
+        ).fetchone()[0]
+    store.connection.execute("DELETE FROM v2_audit_classifications")
     with path.open(newline="",encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
             store.connection.execute("INSERT INTO v2_audit_classifications VALUES (?,?,?,?,?,?,?,?)",
@@ -365,7 +372,8 @@ def prediction_test(store:RacingStore)->dict[str,Any]:
                 "top_pick_strike_rate":statistics.mean(x[2] for x in scored)}
     uniform={"races":len(test),"mean_log_loss":statistics.mean(math.log(row["field"]) for row in test),
              "mean_race_brier":statistics.mean(1-1/row["field"] for row in test)}
-    return {"training_window":"2024 calendar year","test_window":"2025-01-01 to 2026-08-15",
+    test_end=max(row["date"] for row in test) if test else None
+    return {"training_window":"2024 calendar year","test_window":f"2025-01-01 to {test_end}",
             "common_race_policy":"both V1 and V2 >=60% prior-form coverage","v1":metrics("v1"),"v2":metrics("v2"),"uniform":uniform,
             "market_comparison":"not run; timestamped opening/closing prices remain a later pricing-engine test"}
 

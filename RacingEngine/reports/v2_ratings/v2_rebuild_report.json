@@ -1,46 +1,46 @@
 {
-  "as_of_date": "2026-08-16",
+  "as_of_date": "2026-08-23",
   "audit_rows": 25,
   "clean_history": {
     "excluded_identity_source": "rnsw-authorised",
     "quarantine_reasons": {
-      "missing_or_nonpositive": 1391,
+      "missing_or_nonpositive": 1401,
       "physically_implausible_average_speed_9.85mps": 1,
       "runner_clock_too_far_from_official": 2
     },
-    "quarantined": 1394,
-    "races": 2720,
-    "runners": 36712
+    "quarantined": 1404,
+    "races": 2739,
+    "runners": 36972
   },
   "prediction_test": {
     "common_race_policy": "both V1 and V2 >=60% prior-form coverage",
     "market_comparison": "not run; timestamped opening/closing prices remain a later pricing-engine test",
-    "test_window": "2025-01-01 to 2026-08-15",
+    "test_window": "2025-01-01 to 2026-08-22",
     "training_window": "2024 calendar year",
     "uniform": {
-      "mean_log_loss": 2.3210156543359592,
-      "mean_race_brier": 0.8982554829012298,
-      "races": 577
+      "mean_log_loss": 2.319967239684188,
+      "mean_race_brier": 0.898162786154825,
+      "races": 616
     },
     "v1": {
-      "mean_log_loss": 2.335638912694416,
-      "mean_race_brier": 0.9008500768533815,
-      "races": 577,
+      "mean_log_loss": 2.305507552234254,
+      "mean_race_brier": 0.895930144169818,
+      "races": 616,
       "temperature_fitted_on_2024": 15.0,
-      "top_pick_strike_rate": 0.1369150779896014
+      "top_pick_strike_rate": 0.13636363636363635
     },
     "v2": {
-      "mean_log_loss": 2.4536531001602686,
-      "mean_race_brier": 0.9340458875535261,
-      "races": 577,
+      "mean_log_loss": 2.4595378863203936,
+      "mean_race_brier": 0.9362301013855694,
+      "races": 616,
       "temperature_fitted_on_2024": 15.0,
-      "top_pick_strike_rate": 0.12478336221837089
+      "top_pick_strike_rate": 0.12337662337662338
     }
   },
   "prediction_test_reason": "Run only after the V2 sanity gate passed.",
   "prediction_tests_rerun": true,
   "ratings": {
-    "performances": 28939,
+    "performances": 29126,
     "too_few_finishers": 27
   },
   "sanity": {
@@ -313,6 +313,17 @@
       },
       {
         "class_family": "group_1",
+        "confidence": 0.8,
+        "horse_name": "Autumn Glow",
+        "peak_rating": 119.68296857066667,
+        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 16.",
+        "race_date": "2026-08-22",
+        "race_number": 9,
+        "race_strength": 119.68296857066667,
+        "track_slug": "randwick"
+      },
+      {
+        "class_family": "group_1",
         "confidence": 0.88,
         "horse_name": "Mr Brightside",
         "peak_rating": 119.48,
@@ -409,17 +420,6 @@
         "race_number": 9,
         "race_strength": 118.46133333333333,
         "track_slug": "the-valley"
-      },
-      {
-        "class_family": "group_1",
-        "confidence": 0.8,
-        "horse_name": "Autumn Glow",
-        "peak_rating": 118.454301904,
-        "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 19.",
-        "race_date": "2026-03-21",
-        "race_number": 7,
-        "race_strength": 118.454301904,
-        "track_slug": "rosehill"
       },
       {
         "class_family": "group_1",

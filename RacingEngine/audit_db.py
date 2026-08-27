@@ -25,6 +25,24 @@ CORE_TABLES = (
     "run_performances",
     "horse_rating_states",
 )
+DATED_TABLES = {
+    "runner_results": (
+        "runner_results rr",
+        "rr.race_date",
+    ),
+    "v2_clean_runner_results": (
+        "v2_clean_runner_results rr JOIN v2_clean_races r ON r.race_id = rr.race_id",
+        "r.race_date",
+    ),
+    "v2_run_performances": (
+        "v2_run_performances p JOIN v2_clean_races r ON r.race_id = p.race_id",
+        "r.race_date",
+    ),
+    "run_performances": (
+        "run_performances p",
+        "p.race_date",
+    ),
+}
 
 
 def main() -> None:
@@ -56,6 +74,38 @@ def main() -> None:
             else:
                 count = connection.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0]
                 print(f"  {table}: {count}")
+
+        print("rating_date_coverage:")
+        for table, (from_clause, date_column) in DATED_TABLES.items():
+            if table not in table_names:
+                print(f"  {table}: MISSING")
+                continue
+            minimum, maximum = connection.execute(
+                f"SELECT MIN({date_column}), MAX({date_column}) FROM {from_clause}"
+            ).fetchone()
+            latest_count = (
+                connection.execute(
+                    f"SELECT COUNT(*) FROM {from_clause} WHERE {date_column} = ?",
+                    (maximum,),
+                ).fetchone()[0]
+                if maximum is not None
+                else 0
+            )
+            print(f"  {table}: {minimum} to {maximum} (latest rows: {latest_count})")
+
+        if {"v2_run_performances", "v2_clean_races"}.issubset(table_names):
+            latest_v2_date = connection.execute(
+                "SELECT MAX(r.race_date) FROM v2_run_performances p "
+                "JOIN v2_clean_races r ON r.race_id = p.race_id"
+            ).fetchone()[0]
+            print(f"latest_v2_top_performances ({latest_v2_date}):")
+            for horse, rating, track, race_number in connection.execute(
+                "SELECT p.horse_name, p.performance_rating, r.track_slug, r.race_number "
+                "FROM v2_run_performances p JOIN v2_clean_races r ON r.race_id = p.race_id "
+                "WHERE r.race_date = ? ORDER BY p.performance_rating DESC LIMIT 10",
+                (latest_v2_date,),
+            ):
+                print(f"  {horse}: {rating:.3f} ({track} R{race_number})")
 
         if "runner_results" in table_names:
             date_range = connection.execute(

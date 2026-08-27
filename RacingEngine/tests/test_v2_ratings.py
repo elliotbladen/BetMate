@@ -4,7 +4,7 @@ from pathlib import Path
 
 from racing_engine.storage import RacingStore
 from racing_engine.v2_ratings import (
-    MODEL_VERSION, build_form_first, plausible_race_clock,
+    MODEL_VERSION, build_form_first, load_audit_set, plausible_race_clock,
     plausible_runner_clock, pounds_per_length, rebuild_clean_history,
 )
 
@@ -60,6 +60,22 @@ class V2RatingsTests(unittest.TestCase):
         winner=self.store.connection.execute("SELECT performance_rating FROM v2_run_performances WHERE model_version=? AND runner_number=1",(MODEL_VERSION,)).fetchone()[0]
         second=self.store.connection.execute("SELECT performance_rating FROM v2_run_performances WHERE model_version=? AND runner_number=2",(MODEL_VERSION,)).fetchone()[0]
         self.assertGreater(winner,115); self.assertGreater(winner,second)
+
+    def test_missing_audit_csv_preserves_restored_reference_rows(self):
+        missing = Path(self.temp.name) / "missing-audit.csv"
+        self.assertEqual(load_audit_set(self.store, missing), 0)
+        self.store.connection.execute(
+            "INSERT INTO v2_audit_classifications VALUES (?,?,?,?,?,?,?,?)",
+            ("2024/25", "Audit Horse", "AUDIT HORSE", 115.0,
+             "2025-01-01", "Audit Race", 1, "https://example.test/audit"),
+        )
+        self.store.connection.commit()
+
+        self.assertEqual(load_audit_set(self.store, missing), 1)
+        count = self.store.connection.execute(
+            "SELECT count(*) FROM v2_audit_classifications"
+        ).fetchone()[0]
+        self.assertEqual(count, 1)
 
 
 if __name__ == "__main__": unittest.main()
