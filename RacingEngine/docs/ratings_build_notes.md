@@ -2250,3 +2250,40 @@ research, sources, grey areas and gates are recorded in
 - Suitable lower-cost next setups improved +2.19 points across 2,100 pairs.
 - The next-start MAE confidence interval still crosses zero. Staying is frozen at zero because pre-2025 support is 13 NSW and zero Victoria; the Victorian 2040m source cannot produce a genuine middle third.
 - Decision: V2.3 is the strongest candidate but remains frozen. Accepted ratings unchanged and Step 3 blocked. Forward-test sprint/middle; solve staying resolution separately.
+
+## Exit update — 29 August 2026: final Horse Ability and Group 1 pricing test
+
+Horse Ability V2 is complete as
+`horse-ability-v2.8-final-research-freeze`. The configuration is locked: four
+runs, 90-day half-life, 25% peak blend, 1.5-run reliability prior, 10%
+trajectory; 25% initial handicap response with effective-dated collateral
+revision; zero mechanical layoff decay; zero distance/going base adjustment.
+It is a final research freeze, not production promotion, because the validation
+interval against V1 includes zero. All named chronological gates pass: Natural
+Fling achieved 104.22/current 99.67; Sheza Alibi achieved 116.24 versus
+Gringotts 112.37 and current initial ability is 110.83 versus 110.28.
+
+The requested one-year Sydney/Melbourne Group 1 Betfair-close test was then run
+without changing the rating. The rule used the frozen ratings-only temperature
+of 60, converted runner probabilities to a 110% book, and staked $1 when
+`Betfair scheduled-off best back / model 110% price - 1 > 10%`. It covered 58
+of 59 races; Betfair has not published August 2026, so the 22 August Winx
+Stakes is excluded. Result: 452 bets, nine winners, $452 stake, -$252 gross P&L
+and -$264.225 after commission, or -58.46% ROI. The race-bootstrap 95% interval
+is [-87.74%, -15.96%]. Reject this direct pricing rule.
+
+The 2026 Doncaster explains the failure. Ratings-only probabilities were very
+compressed: all 16 runners received 4.77%–7.58%, producing 110% quoted prices
+from 11.99 to 19.04. Betfair had Sheza Alibi at 2.02 while the model rated her
+102.85, assigned 6.31% and quoted 14.40. The rule did not bet the winner and bet
+14 of the other 15 runners. Pericles was the highest model ability at 113.83
+and 11.99; Gringotts was 108.36 and 13.14. This is not a bookmaker-margin bug:
+the underlying ability-to-win probability conversion and missing race-specific
+information are inadequate for Group 1 pricing.
+
+Do not change the completed Horse Ability ratings to fit these returns. The
+next task is a separately versioned Pricing Engine. It must address probability
+dispersion, sparse/emerging-horse uncertainty and current race context, choose
+its rules on a declared development partition, and reserve new races or an
+untouched time block for confirmation. The observed one-year Group 1 set is no
+longer an untouched final holdout.
