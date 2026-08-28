@@ -18,6 +18,13 @@ out/
 __pycache__/
 *.pyc
 .uv-cache/
+**/.venv/
+**/venv/
+
+# local SQLite working databases (rebuilt from seeds; see RacingEngine/restore_db.sh)
+**/*.sqlite
+**/*.sqlite-wal
+**/*.sqlite-shm
 
 # logs
 dev-server*.log
