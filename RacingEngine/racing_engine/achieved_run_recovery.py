@@ -182,19 +182,19 @@ def build(store: RacingStore) -> dict[str, Any]:
     return {"model_version": MODEL_VERSION, **dict(counts), "named": dict(named)}
 
 
-def audits(store: RacingStore) -> dict[str, Any]:
+def audits(store: RacingStore, model_version: str = MODEL_VERSION) -> dict[str, Any]:
     natural = store.connection.execute(
         """SELECT a.*,r.race_date FROM v2_achieved_run_candidates a
              JOIN v2_clean_races r USING(race_id)
             WHERE a.model_version=? AND a.horse_key='naturalfling'
-              AND r.race_date='2026-08-15'""", (MODEL_VERSION,)
+              AND r.race_date='2026-08-15'""", (model_version,)
     ).fetchone()
     pair = [dict(row) for row in store.connection.execute(
         """SELECT a.horse_name,a.achieved_rating,a.base_rating,a.weight_component,
                   a.beaten_margin_component FROM v2_achieved_run_candidates a
             WHERE a.model_version=? AND a.race_id='2026-08-22|randwick|9'
               AND a.horse_key IN ('gringotts','shezaalibi') ORDER BY a.horse_key""",
-        (MODEL_VERSION,),
+        (model_version,),
     )]
     # Preserve the already reviewed official-classification gate on the same
     # historical season, comparing peak candidate figures rather than fitting.
@@ -204,7 +204,7 @@ def audits(store: RacingStore) -> dict[str, Any]:
              JOIN v2_clean_races r USING(race_id)
             WHERE c.model_version=? AND a.season='2024/25'
               AND r.race_date>='2024-08-01' AND r.race_date<'2025-08-01'
-            GROUP BY a.horse_key""", (MODEL_VERSION,)
+            GROUP BY a.horse_key""", (model_version,)
     ).fetchall()
     rho = correlation([float(x[0]) for x in matches], [float(x[1]) for x in matches])
     natural_rating = float(natural["achieved_rating"]) if natural else None
@@ -215,7 +215,7 @@ def audits(store: RacingStore) -> dict[str, Any]:
         and pair_by_name["Sheza Alibi"]["weight_component"] == 0.0
         and pair_by_name["Gringotts"]["weight_component"] == 0.0
     )
-    cohort = breakout_cohort(store)
+    cohort = breakout_cohort(store, model_version)
     gates = {
         "natural_fling_100_to_110": natural_rating is not None and 100.0 <= natural_rating <= 110.0,
         "gringotts_sheza_wfa_semantics": pair_pass,
@@ -229,7 +229,7 @@ def audits(store: RacingStore) -> dict[str, Any]:
             "promotion_warning": "Partial only: frozen breakout cohort, time/variant, sectional and collateral gates remain required."}
 
 
-def breakout_cohort(store: RacingStore) -> dict[str, Any]:
+def breakout_cohort(store: RacingStore, model_version: str = MODEL_VERSION) -> dict[str, Any]:
     """Evaluate pre-race flagged improvers without selecting on future success.
 
     The database currently ends on 22 August 2026, so censoring is explicit and
@@ -244,7 +244,7 @@ def breakout_cohort(store: RacingStore) -> dict[str, Any]:
             WHERE c.model_version=? AND rr.finish_position=1
               AND rr.beaten_lengths>=3 AND rr.official_handicap_rating IS NOT NULL
               AND rr.official_handicap_rating < c.race_strength
-            ORDER BY r.race_date,c.race_id""", (MODEL_VERSION,)
+            ORDER BY r.race_date,c.race_id""", (model_version,)
     ).fetchall()
     selected = []
     for row in raw:

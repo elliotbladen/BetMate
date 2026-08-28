@@ -60,6 +60,15 @@ classification gate (Spearman 0.402) and loses to class-only on the frozen
 Therefore collateral and Horse Ability remain gated. See
 `reports/v2_ratings/achieved_run_v2_1_findings.md` and the 28 August handover.
 
+V2.2 then required training-frozen clock/energy corroboration. It recovered the
+elite and 90-day cohort gates but left Natural Fling at 83.53 because neither
+stored signal crossed its threshold. V2.3 fitted a 35% partial fallback on 1,022
+pre-2025 examples (named audits excluded), lifting Natural Fling to 91.73 and
+beating class-only at 90 and 365 days. It still failed the Natural Fling band,
+missed elite Spearman narrowly (0.498) and missed class-only narrowly at 180
+days. Both remain shadow-only; forcing the roughly 70% update needed for Natural
+Fling would contradict the training optimum.
+
 ## Six-stage V2 ratings-to-market programme — 23 August 2026
 
 Pace shape and pace counterfactuals are first-class requirements. The engine

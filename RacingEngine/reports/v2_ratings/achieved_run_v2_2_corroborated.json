@@ -1,0 +1,114 @@
+{
+  "accepted_ratings_changed": false,
+  "audits": {
+    "frozen_breakout_cohort": {
+      "database_last_date": "2026-08-22",
+      "horizons": {
+        "180": {
+          "candidate_beats_both_baselines": false,
+          "censored_or_no_followup": 24,
+          "eligible": 80,
+          "false_discovery_rate": 0.36363636363636365,
+          "future_peak_mae": {
+            "candidate": 9.975143651908333,
+            "class_only": 8.972328267633335,
+            "official": 14.223819535733336
+          },
+          "precision": 0.6363636363636364,
+          "recall": 0.3684210526315789
+        },
+        "365": {
+          "candidate_beats_both_baselines": false,
+          "censored_or_no_followup": 27,
+          "eligible": 77,
+          "false_discovery_rate": 0.2631578947368421,
+          "future_peak_mae": {
+            "candidate": 10.602024043952381,
+            "class_only": 9.428353634640693,
+            "official": 17.782563217480522
+          },
+          "precision": 0.7368421052631579,
+          "recall": 0.34146341463414637
+        },
+        "90": {
+          "candidate_beats_both_baselines": true,
+          "censored_or_no_followup": 34,
+          "eligible": 70,
+          "false_discovery_rate": 0.45,
+          "future_peak_mae": {
+            "candidate": 8.493723918908334,
+            "class_only": 9.108145532028573,
+            "official": 12.307065025380954
+          },
+          "precision": 0.55,
+          "recall": 0.3793103448275862
+        }
+      },
+      "limitations": "Age/sex stratification and 2026 untouched test remain mandatory before promotion.",
+      "selected": 104,
+      "selection": "winner margin >=3L; <=8 prior starts; official below candidate race strength; no future outcome used"
+    },
+    "gates": {
+      "elite_spearman_at_least_0_50": true,
+      "frozen_breakout_cohort_90d_mae": true,
+      "gringotts_sheza_wfa_semantics": true,
+      "natural_fling_100_to_110": false
+    },
+    "gringotts_sheza_alibi": [
+      {
+        "achieved_rating": 112.566301904,
+        "base_rating": 116.975547144,
+        "beaten_margin_component": -7.116666666666667,
+        "horse_name": "Gringotts",
+        "weight_component": 0.0
+      },
+      {
+        "achieved_rating": 116.43963523733333,
+        "base_rating": 115.33732392733333,
+        "beaten_margin_component": -3.243333333333333,
+        "horse_name": "Sheza Alibi",
+        "weight_component": 0.0
+      }
+    ],
+    "natural_fling": {
+      "achieved_rating": 83.53333333333333,
+      "base_race_strength": 83.53333333333333,
+      "base_rating": 83.53333333333333,
+      "beaten_margin_component": 0.0,
+      "collateral_revision_component": 0.0,
+      "confidence": 0.88,
+      "detail_json": "{\"base_model_version\": \"form-first-v2.0\", \"breakout_anchor_relief\": false, \"breakout_flags\": {\"winner_prior\": 71.0, \"winner_prior_starts\": 1, \"winning_margin\": 4.0}, \"candidate_collateral_weight\": 0.8, \"candidate_version\": \"achieved-run-v2.2-corroborated-shadow\", \"class_standard\": 105.0, \"collateral_anchor\": 78.16666666666666, \"collateral_revision_status\": \"not_yet_applied_zero\", \"independent_corroboration\": {\"clock\": {\"adjusted_fast_mad\": 0.1449275362318851, \"available\": true, \"meeting_variant_seconds\": 0.28000000000000114, \"other_meeting_races\": 8, \"prior_clocks\": 89, \"supported\": false, \"track_distance_mad_seconds\": 0.6900000000000048, \"track_distance_median_seconds\": 63.73}, \"energy\": {\"achievement_signal\": 0.0, \"available\": true, \"compensation_signal\": 1.1201268001685971, \"confidence\": 0.95, \"supported\": false, \"training_threshold\": 2.723857675250848}, \"supported\": false}, \"original_collateral_weight\": 0.8, \"race_weight_policy\": \"set_weight_allowance_neutral\", \"research_only\": true, \"sectional_status\": \"not_promoted_zero\", \"time_variant_status\": \"not_promoted_zero\", \"training_thresholds\": {\"clock_fast_threshold_mad\": 0.5, \"energy_compensation_threshold\": 2.723857675250848, \"energy_quantile\": 0.75, \"energy_winner_rows\": 886, \"named_audit_horses_excluded\": true, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"winner_margin_cap_points\": 12.0, \"winner_margin_requires_corroboration\": true}",
+      "horse_key": "naturalfling",
+      "horse_name": "Natural Fling",
+      "model_version": "achieved-run-v2.2-corroborated-shadow",
+      "race_date": "2026-08-15",
+      "race_id": "2026-08-15|caulfield|6",
+      "race_strength": 83.53333333333333,
+      "runner_number": 5,
+      "sectional_component": 0.0,
+      "time_variant_component": 0.0,
+      "weight_component": 0.0,
+      "winner_margin_component": 0.0
+    },
+    "official_audit_matches": 24,
+    "official_audit_spearman": 0.5088146920195488,
+    "partial_gate_passed": false,
+    "promotion_warning": "Partial only: frozen breakout cohort, time/variant, sectional and collateral gates remain required."
+  },
+  "build": {
+    "breakout_anchor_relief_races": 25,
+    "corroborated_dominant_winners": 44,
+    "model_version": "achieved-run-v2.2-corroborated-shadow",
+    "performances": 29126,
+    "races": 2712,
+    "thresholds": {
+      "clock_fast_threshold_mad": 0.5,
+      "energy_compensation_threshold": 2.723857675250848,
+      "energy_quantile": 0.75,
+      "energy_winner_rows": 886,
+      "named_audit_horses_excluded": true,
+      "training_cutoff_exclusive": "2025-01-01"
+    }
+  },
+  "decision": "REVISE_OR_REJECT"
+}
