@@ -1,0 +1,393 @@
+{
+  "accepted_ratings_changed": false,
+  "audits": {
+    "frozen_breakout_cohort": {
+      "database_last_date": "2026-08-22",
+      "horizons": {
+        "180": {
+          "candidate_beats_both_baselines": false,
+          "censored_or_no_followup": 25,
+          "eligible": 80,
+          "false_discovery_rate": 0.40540540540540543,
+          "future_peak_mae": {
+            "candidate": 10.185029562572918,
+            "class_only": 8.972328267633335,
+            "official": 14.223819535733336
+          },
+          "precision": 0.5945945945945946,
+          "recall": 0.5789473684210527
+        },
+        "365": {
+          "candidate_beats_both_baselines": false,
+          "censored_or_no_followup": 28,
+          "eligible": 77,
+          "false_discovery_rate": 0.34375,
+          "future_peak_mae": {
+            "candidate": 9.619281971683982,
+            "class_only": 9.428353634640693,
+            "official": 17.782563217480522
+          },
+          "precision": 0.65625,
+          "recall": 0.5121951219512195
+        },
+        "90": {
+          "candidate_beats_both_baselines": false,
+          "censored_or_no_followup": 35,
+          "eligible": 70,
+          "false_discovery_rate": 0.4666666666666667,
+          "future_peak_mae": {
+            "candidate": 11.386320622879763,
+            "class_only": 9.108145532028573,
+            "official": 12.307065025380954
+          },
+          "precision": 0.5333333333333333,
+          "recall": 0.5517241379310345
+        }
+      },
+      "limitations": "Age/sex stratification and 2026 untouched test remain mandatory before promotion.",
+      "selected": 105,
+      "selection": "winner margin >=3L; <=8 prior starts; official below candidate race strength; no future outcome used"
+    },
+    "gates": {
+      "elite_spearman_at_least_0_50": false,
+      "frozen_breakout_cohort_90d_mae": false,
+      "gringotts_sheza_wfa_semantics": true,
+      "natural_fling_100_to_110": true
+    },
+    "gringotts_sheza_alibi": [
+      {
+        "achieved_rating": 112.566301904,
+        "base_rating": 116.975547144,
+        "beaten_margin_component": -7.116666666666667,
+        "horse_name": "Gringotts",
+        "weight_component": 0.0
+      },
+      {
+        "achieved_rating": 116.43963523733333,
+        "base_rating": 115.33732392733333,
+        "beaten_margin_component": -3.243333333333333,
+        "horse_name": "Sheza Alibi",
+        "weight_component": 0.0
+      }
+    ],
+    "natural_fling": {
+      "achieved_rating": 106.94166666666665,
+      "base_race_strength": 83.53333333333333,
+      "base_rating": 83.53333333333333,
+      "beaten_margin_component": 0.0,
+      "collateral_revision_component": 0.0,
+      "confidence": 0.88,
+      "detail_json": "{\"base_model_version\": \"form-first-v2.0\", \"breakout_anchor_relief\": true, \"breakout_flags\": {\"winner_prior\": 71.0, \"winner_prior_starts\": 1, \"winning_margin\": 4.0}, \"candidate_collateral_weight\": 0.35, \"class_standard\": 105.0, \"collateral_anchor\": 78.16666666666666, \"collateral_revision_status\": \"not_yet_applied_zero\", \"original_collateral_weight\": 0.8, \"race_weight_policy\": \"set_weight_allowance_neutral\", \"research_only\": true, \"sectional_status\": \"not_promoted_zero\", \"time_variant_status\": \"not_promoted_zero\", \"winner_margin_cap_points\": 12.0}",
+      "horse_key": "naturalfling",
+      "horse_name": "Natural Fling",
+      "model_version": "achieved-run-v2.1-margin-weight-shadow",
+      "race_date": "2026-08-15",
+      "race_id": "2026-08-15|caulfield|6",
+      "race_strength": 95.60833333333332,
+      "runner_number": 5,
+      "sectional_component": 0.0,
+      "time_variant_component": 0.0,
+      "weight_component": 0.0,
+      "winner_margin_component": 11.333333333333334
+    },
+    "official_audit_matches": 24,
+    "official_audit_spearman": 0.4017423829163046,
+    "partial_gate_passed": false,
+    "promotion_warning": "Partial only: frozen breakout cohort, time/variant, sectional and collateral gates remain required."
+  },
+  "build": {
+    "breakout_anchor_relief_races": 77,
+    "model_version": "achieved-run-v2.1-margin-weight-shadow",
+    "named": {
+      "gringotts": [
+        {
+          "base_rating": 74.56686166533333,
+          "candidate_rating": 74.56686166533333,
+          "finish_position": 3,
+          "policy": "handicap_relative_burden",
+          "race_date": "2023-08-26",
+          "race_id": "2023-08-26|the-valley|10",
+          "weight_component": -6.613867859999999,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 77.67549369133333,
+          "candidate_rating": 77.67549369133333,
+          "finish_position": 5,
+          "policy": "handicap_relative_burden",
+          "race_date": "2023-09-16",
+          "race_id": "2023-09-16|randwick|4",
+          "weight_component": 1.10231131,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 78.306009406,
+          "candidate_rating": 78.306009406,
+          "finish_position": 3,
+          "policy": "handicap_relative_burden",
+          "race_date": "2023-10-07",
+          "race_id": "2023-10-07|rosehill|10",
+          "weight_component": -3.3069339299999996,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 82.68339619199999,
+          "candidate_rating": 83.24339619199999,
+          "finish_position": 1,
+          "policy": "handicap_relative_burden",
+          "race_date": "2023-10-28",
+          "race_id": "2023-10-28|randwick|10",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.56
+        },
+        {
+          "base_rating": 80.85103142933333,
+          "candidate_rating": 80.85103142933333,
+          "finish_position": 3,
+          "policy": "handicap_relative_burden",
+          "race_date": "2023-11-11",
+          "race_id": "2023-11-11|rosehill|9",
+          "weight_component": 4.40924524,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 83.66911952266666,
+          "candidate_rating": 86.09578618933332,
+          "finish_position": 1,
+          "policy": "handicap_relative_burden",
+          "race_date": "2024-03-30",
+          "race_id": "2024-03-30|rosehill|10",
+          "weight_component": 0.0,
+          "winner_margin_component": 2.4266666666666667
+        },
+        {
+          "base_rating": 99.97488047733334,
+          "candidate_rating": 99.97488047733334,
+          "finish_position": 2,
+          "policy": "handicap_relative_burden",
+          "race_date": "2024-09-21",
+          "race_id": "2024-09-21|randwick|6",
+          "weight_component": 4.40924524,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 97.03333333333333,
+          "candidate_rating": 97.03333333333333,
+          "finish_position": 2,
+          "policy": "handicap_relative_burden",
+          "race_date": "2024-10-12",
+          "race_id": "2024-10-12|rosehill|8",
+          "weight_component": -6.613867859999999,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 108.792197982,
+          "candidate_rating": 108.792197982,
+          "finish_position": 13,
+          "policy": "handicap_relative_burden",
+          "race_date": "2024-12-14",
+          "race_id": "2024-12-14|randwick|8",
+          "weight_component": 14.33004703,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 112.436094288,
+          "candidate_rating": 112.436094288,
+          "finish_position": 3,
+          "policy": "handicap_relative_burden",
+          "race_date": "2025-03-01",
+          "race_id": "2025-03-01|randwick|9",
+          "weight_component": 8.81849048,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 115.31066666666668,
+          "candidate_rating": 115.35400000000001,
+          "finish_position": 1,
+          "policy": "wfa_allowance_neutral",
+          "race_date": "2025-03-22",
+          "race_id": "2025-03-22|rosehill|2",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.04333333333333333
+        },
+        {
+          "base_rating": 111.33109428800002,
+          "candidate_rating": 111.33109428800002,
+          "finish_position": 11,
+          "policy": "handicap_relative_burden",
+          "race_date": "2025-04-05",
+          "race_id": "2025-04-05|randwick|8",
+          "weight_component": 2.20462262,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 113.017849048,
+          "candidate_rating": 108.608603808,
+          "finish_position": 5,
+          "policy": "wfa_allowance_neutral",
+          "race_date": "2025-08-23",
+          "race_id": "2025-08-23|randwick|8",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 108.83857857333334,
+          "candidate_rating": 108.83857857333334,
+          "finish_position": 2,
+          "policy": "handicap_relative_burden",
+          "race_date": "2025-10-11",
+          "race_id": "2025-10-11|rosehill|9",
+          "weight_component": 6.613867859999999,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 114.463433816,
+          "candidate_rating": 114.463433816,
+          "finish_position": 11,
+          "policy": "handicap_relative_burden",
+          "race_date": "2025-12-13",
+          "race_id": "2025-12-13|randwick|8",
+          "weight_component": 17.63698096,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 113.800547144,
+          "candidate_rating": 109.391301904,
+          "finish_position": 9,
+          "policy": "wfa_allowance_neutral",
+          "race_date": "2026-03-07",
+          "race_id": "2026-03-07|randwick|9",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 116.81854714400001,
+          "candidate_rating": 112.409301904,
+          "finish_position": 2,
+          "policy": "wfa_allowance_neutral",
+          "race_date": "2026-03-21",
+          "race_id": "2026-03-21|rosehill|7",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 119.82851869800001,
+          "candidate_rating": 119.82851869800001,
+          "finish_position": 4,
+          "policy": "handicap_relative_burden",
+          "race_date": "2026-04-04",
+          "race_id": "2026-04-04|randwick|8",
+          "weight_component": 20.94391489,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 116.975547144,
+          "candidate_rating": 112.566301904,
+          "finish_position": 3,
+          "policy": "wfa_allowance_neutral",
+          "race_date": "2026-08-22",
+          "race_id": "2026-08-22|randwick|9",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.0
+        }
+      ],
+      "naturalfling": [
+        {
+          "base_rating": 73.410815482125,
+          "candidate_rating": 81.910815482125,
+          "finish_position": 1,
+          "policy": "handicap_relative_burden",
+          "race_date": "2026-05-09",
+          "race_id": "2026-05-09|caulfield|1",
+          "weight_component": 0.0,
+          "winner_margin_component": 8.5
+        },
+        {
+          "base_rating": 83.53333333333333,
+          "candidate_rating": 106.94166666666665,
+          "finish_position": 1,
+          "policy": "set_weight_allowance_neutral",
+          "race_date": "2026-08-15",
+          "race_id": "2026-08-15|caulfield|6",
+          "weight_component": 0.0,
+          "winner_margin_component": 11.333333333333334
+        }
+      ],
+      "shezaalibi": [
+        {
+          "base_rating": 75.834292498,
+          "candidate_rating": 83.550471668,
+          "finish_position": 3,
+          "policy": "set_weight_allowance_neutral",
+          "race_date": "2025-10-18",
+          "race_id": "2025-10-18|caulfield|4",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.0
+        },
+        {
+          "base_rating": 80.141849048,
+          "candidate_rating": 84.22518238133333,
+          "finish_position": 1,
+          "policy": "set_weight_allowance_neutral",
+          "race_date": "2025-11-01",
+          "race_id": "2025-11-01|flemington|2",
+          "weight_component": 0.0,
+          "winner_margin_component": 4.083333333333334
+        },
+        {
+          "base_rating": 84.31260380799999,
+          "candidate_rating": 110.26176416599999,
+          "finish_position": 1,
+          "policy": "set_weight_allowance_neutral",
+          "race_date": "2025-11-15",
+          "race_id": "2025-11-15|caulfield|7",
+          "weight_component": 0.0,
+          "winner_margin_component": 11.5
+        },
+        {
+          "base_rating": 93.86666666666667,
+          "candidate_rating": 99.11666666666667,
+          "finish_position": 1,
+          "policy": "set_weight_allowance_neutral",
+          "race_date": "2026-02-21",
+          "race_id": "2026-02-21|caulfield|5",
+          "weight_component": 0.0,
+          "winner_margin_component": 5.25
+        },
+        {
+          "base_rating": 106.156301904,
+          "candidate_rating": 117.530882083,
+          "finish_position": 1,
+          "policy": "set_weight_allowance_neutral",
+          "race_date": "2026-03-07",
+          "race_id": "2026-03-07|randwick|8",
+          "weight_component": 0.0,
+          "winner_margin_component": 6.4
+        },
+        {
+          "base_rating": 111.464603808,
+          "candidate_rating": 120.044603808,
+          "finish_position": 1,
+          "policy": "handicap_relative_burden",
+          "race_date": "2026-04-04",
+          "race_id": "2026-04-04|randwick|8",
+          "weight_component": 0.0,
+          "winner_margin_component": 8.58
+        },
+        {
+          "base_rating": 115.33732392733333,
+          "candidate_rating": 116.43963523733333,
+          "finish_position": 2,
+          "policy": "wfa_allowance_neutral",
+          "race_date": "2026-08-22",
+          "race_id": "2026-08-22|randwick|9",
+          "weight_component": 0.0,
+          "winner_margin_component": 0.0
+        }
+      ]
+    },
+    "performances": 29126,
+    "races": 2712
+  },
+  "decision": "REVISE"
+}

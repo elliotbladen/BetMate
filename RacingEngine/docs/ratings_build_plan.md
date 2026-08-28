@@ -49,6 +49,17 @@ machine-readable companion JSON. Do not tune the sustainable-peak blend against
 the observed validation/holdout. The next state-family experiment, after the
 upstream run gate passes, is explicit history-depth/uncertainty calibration.
 
+## Achieved Run V2.1 recovery audit — 28 August 2026
+
+`achieved-run-v2.1-margin-weight-shadow` corrects the two named semantics in a
+separate ledger: Natural Fling reaches 106.94 and Sheza Alibi rates above
+Gringotts in their 22 August WFA race without treating the sex allowance as a
+merit bonus. It is **not promoted**. The broad candidate misses the official
+classification gate (Spearman 0.402) and loses to class-only on the frozen
+90/180/365-day breakout cohort. A V2.2 sectional rerun also fails promotion.
+Therefore collateral and Horse Ability remain gated. See
+`reports/v2_ratings/achieved_run_v2_1_findings.md` and the 28 August handover.
+
 ## Six-stage V2 ratings-to-market programme — 23 August 2026
 
 Pace shape and pace counterfactuals are first-class requirements. The engine

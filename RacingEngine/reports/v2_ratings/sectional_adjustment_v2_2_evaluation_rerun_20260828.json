@@ -1,0 +1,297 @@
+{
+  "accepted_rating_changed": false,
+  "coefficients": {
+    "achievement_only": {
+      "NSW": {
+        "achievement": 0.0,
+        "steward": 0.0,
+        "trip": 0.0
+      },
+      "VIC": {
+        "achievement": 0.0,
+        "steward": 0.0,
+        "trip": 0.0
+      }
+    },
+    "base": {
+      "NSW": {
+        "achievement": 0.0,
+        "steward": 0.0,
+        "trip": 0.0
+      },
+      "VIC": {
+        "achievement": 0.0,
+        "steward": 0.0,
+        "trip": 0.0
+      }
+    },
+    "combined": {
+      "NSW": {
+        "achievement": 0.0,
+        "steward": 0,
+        "trip": 1.0
+      },
+      "VIC": {
+        "achievement": 0.0,
+        "steward": 1.0,
+        "trip": 0.4
+      }
+    },
+    "steward_only": {
+      "NSW": {
+        "achievement": 0.0,
+        "steward": 0,
+        "trip": 0.0
+      },
+      "VIC": {
+        "achievement": 0.0,
+        "steward": 1.0,
+        "trip": 0.0
+      }
+    },
+    "trip_only": {
+      "NSW": {
+        "achievement": 0.0,
+        "steward": 0.0,
+        "trip": 1.0
+      },
+      "VIC": {
+        "achievement": 0.0,
+        "steward": 0.0,
+        "trip": 0.3
+      }
+    }
+  },
+  "fit_window": "before 2025-01-01",
+  "next_start": {
+    "achievement_only": {
+      "jurisdiction": {
+        "NSW": {
+          "mae": 8.19603535067433,
+          "pairs": 1697
+        },
+        "VIC": {
+          "mae": 7.9998104149809315,
+          "pairs": 4411
+        }
+      },
+      "overall": {
+        "mae": 8.054328050192408,
+        "pairs": 6108
+      }
+    },
+    "base": {
+      "jurisdiction": {
+        "NSW": {
+          "mae": 8.19603535067433,
+          "pairs": 1697
+        },
+        "VIC": {
+          "mae": 7.9998104149809315,
+          "pairs": 4411
+        }
+      },
+      "overall": {
+        "mae": 8.054328050192408,
+        "pairs": 6108
+      }
+    },
+    "combined": {
+      "jurisdiction": {
+        "NSW": {
+          "mae": 8.191207547412272,
+          "pairs": 1697
+        },
+        "VIC": {
+          "mae": 7.996143723049931,
+          "pairs": 4411
+        }
+      },
+      "overall": {
+        "mae": 8.05033876397051,
+        "pairs": 6108
+      }
+    },
+    "steward_only": {
+      "jurisdiction": {
+        "NSW": {
+          "mae": 8.19603535067433,
+          "pairs": 1697
+        },
+        "VIC": {
+          "mae": 7.99961712233958,
+          "pairs": 4411
+        }
+      },
+      "overall": {
+        "mae": 8.054188460500038,
+        "pairs": 6108
+      }
+    },
+    "trip_only": {
+      "jurisdiction": {
+        "NSW": {
+          "mae": 8.191207547412272,
+          "pairs": 1697
+        },
+        "VIC": {
+          "mae": 7.995789212633656,
+          "pairs": 4411
+        }
+      },
+      "overall": {
+        "mae": 8.050082748016647,
+        "pairs": 6108
+      }
+    }
+  },
+  "promotion_decisions": {
+    "achievement_only": {
+      "both_jurisdictions_log_loss_improved": false,
+      "both_jurisdictions_next_start_mae_improved": false,
+      "next_start_mae_improved": false,
+      "overall_log_loss_improved": false,
+      "promote": false
+    },
+    "combined": {
+      "both_jurisdictions_log_loss_improved": false,
+      "both_jurisdictions_next_start_mae_improved": true,
+      "next_start_mae_improved": true,
+      "overall_log_loss_improved": true,
+      "promote": false
+    },
+    "steward_only": {
+      "both_jurisdictions_log_loss_improved": true,
+      "both_jurisdictions_next_start_mae_improved": false,
+      "next_start_mae_improved": true,
+      "overall_log_loss_improved": true,
+      "promote": false
+    },
+    "trip_only": {
+      "both_jurisdictions_log_loss_improved": false,
+      "both_jurisdictions_next_start_mae_improved": true,
+      "next_start_mae_improved": true,
+      "overall_log_loss_improved": false,
+      "promote": false
+    }
+  },
+  "ranking": {
+    "achievement_only": {
+      "jurisdiction": {
+        "NSW": {
+          "brier": 0.9533146495210136,
+          "log_loss": 2.5216508184366377,
+          "races": 182,
+          "strike": 0.10989010989010989
+        },
+        "VIC": {
+          "brier": 0.9441621303950706,
+          "log_loss": 2.4844125340939063,
+          "races": 515,
+          "strike": 0.1145631067961165
+        }
+      },
+      "overall": {
+        "brier": 0.946552027785202,
+        "log_loss": 2.4941361607085075,
+        "races": 697,
+        "strike": 0.1133428981348637
+      },
+      "temperature": 15
+    },
+    "base": {
+      "jurisdiction": {
+        "NSW": {
+          "brier": 0.9533146495210136,
+          "log_loss": 2.5216508184366377,
+          "races": 182,
+          "strike": 0.10989010989010989
+        },
+        "VIC": {
+          "brier": 0.9441621303950706,
+          "log_loss": 2.4844125340939063,
+          "races": 515,
+          "strike": 0.1145631067961165
+        }
+      },
+      "overall": {
+        "brier": 0.946552027785202,
+        "log_loss": 2.4941361607085075,
+        "races": 697,
+        "strike": 0.1133428981348637
+      },
+      "temperature": 15
+    },
+    "combined": {
+      "jurisdiction": {
+        "NSW": {
+          "brier": 0.9536726044713433,
+          "log_loss": 2.525204832671105,
+          "races": 182,
+          "strike": 0.10989010989010989
+        },
+        "VIC": {
+          "brier": 0.9433675094908952,
+          "log_loss": 2.481948325578625,
+          "races": 515,
+          "strike": 0.11262135922330097
+        }
+      },
+      "overall": {
+        "brier": 0.9460583664298358,
+        "log_loss": 2.4932434249915825,
+        "races": 697,
+        "strike": 0.11190817790530846
+      },
+      "temperature": 15
+    },
+    "steward_only": {
+      "jurisdiction": {
+        "NSW": {
+          "brier": 0.9531972378233179,
+          "log_loss": 2.5212192341960376,
+          "races": 182,
+          "strike": 0.10989010989010989
+        },
+        "VIC": {
+          "brier": 0.9435527065091475,
+          "log_loss": 2.4824897843641383,
+          "races": 515,
+          "strike": 0.1145631067961165
+        }
+      },
+      "overall": {
+        "brier": 0.9460710776700929,
+        "log_loss": 2.4926027827420514,
+        "races": 697,
+        "strike": 0.1133428981348637
+      },
+      "temperature": 15
+    },
+    "trip_only": {
+      "jurisdiction": {
+        "NSW": {
+          "brier": 0.9537885904653189,
+          "log_loss": 2.5253455692411926,
+          "races": 182,
+          "strike": 0.10989010989010989
+        },
+        "VIC": {
+          "brier": 0.94390607854248,
+          "log_loss": 2.4836401782310276,
+          "races": 515,
+          "strike": 0.11650485436893204
+        }
+      },
+      "overall": {
+        "brier": 0.9464865909814422,
+        "log_loss": 2.494530251636838,
+        "races": 697,
+        "strike": 0.11477761836441894
+      },
+      "temperature": 15
+    }
+  },
+  "test_window": "2025 onward",
+  "version": "sectional-adjustment-v2.2-shadow"
+}
