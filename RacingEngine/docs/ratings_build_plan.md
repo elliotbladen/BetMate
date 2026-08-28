@@ -69,6 +69,16 @@ missed elite Spearman narrowly (0.498) and missed class-only narrowly at 180
 days. Both remain shadow-only; forcing the roughly 70% update needed for Natural
 Fling would contradict the training optimum.
 
+### Going/rail/time evidence — 28 August 2026
+
+`race-time-context-v2.1-shadow` adds strictly prior going pars, bounded rail
+residuals, leave-one-out meeting variants and provenance-safe Racing NSW clocks
+without giving that source result-identity ownership. It built 1,266 figures,
+but 2,603 pre-2025 next-start pairs selected a rating coefficient of zero.
+Natural Fling's meeting-adjusted Soft clock is −0.70 fast MAD. The candidate is
+not promoted. Her absolute 56 kg versus 49.5 kg WFA difference is also not a
+valid personal bonus because 56 kg was the field's prescribed SWP base.
+
 ## Six-stage V2 ratings-to-market programme — 23 August 2026
 
 Pace shape and pace counterfactuals are first-class requirements. The engine
