@@ -1,0 +1,1582 @@
+{
+  "accepted_ratings_changed": false,
+  "build": {
+    "gringotts_initial": 103.14541719355785,
+    "gringotts_revised": 109.61910469084505,
+    "initial_weight_coefficient": 0.25,
+    "lookahead_policy": "revision unavailable before effective_date",
+    "revision_effective_date": "2026-08-22"
+  },
+  "chronological_evaluation_initial_figures": {
+    "as_of_date": "2026-08-23",
+    "current_top_50": [
+      {
+        "ability_rating": 117.83504114800328,
+        "horse_key": "autumnglow",
+        "horse_name": "Autumn Glow",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 13,
+        "recency_rating": 119.33488546074003,
+        "sustainable_peak": 120.43902998306442,
+        "uncertainty": 3.4328179031924275
+      },
+      {
+        "ability_rating": 113.96198145578113,
+        "horse_key": "joliestar",
+        "horse_name": "Joliestar",
+        "last_run_date": "2026-04-04",
+        "rated_runs": 17,
+        "recency_rating": 114.67550050034994,
+        "sustainable_peak": 116.18111806280314,
+        "uncertainty": 3.34659576674557
+      },
+      {
+        "ability_rating": 113.7787365139841,
+        "horse_key": "viasistina",
+        "horse_name": "Via Sistina",
+        "last_run_date": "2025-11-08",
+        "rated_runs": 16,
+        "recency_rating": 114.71922348247242,
+        "sustainable_peak": 116.16784083873392,
+        "uncertainty": 3.118881684387901
+      },
+      {
+        "ability_rating": 113.60152774978273,
+        "horse_key": "sirdelius",
+        "horse_name": "Sir Delius",
+        "last_run_date": "2026-04-11",
+        "rated_runs": 6,
+        "recency_rating": 114.97624134674034,
+        "sustainable_peak": 119.87891470869269,
+        "uncertainty": 6.3615551256884535
+      },
+      {
+        "ability_rating": 112.26768731271011,
+        "horse_key": "alligatorblood",
+        "horse_name": "Alligator Blood",
+        "last_run_date": "2023-11-11",
+        "rated_runs": 6,
+        "recency_rating": 115.2571102825409,
+        "sustainable_peak": 117.47738206987484,
+        "uncertainty": 4.793866063086091
+      },
+      {
+        "ability_rating": 112.07470620045085,
+        "horse_key": "bellanipotina",
+        "horse_name": "Bella Nipotina",
+        "last_run_date": "2024-11-09",
+        "rated_runs": 14,
+        "recency_rating": 113.27523547469418,
+        "sustainable_peak": 115.90327743961461,
+        "uncertainty": 3.7599677009687458
+      },
+      {
+        "ability_rating": 111.72853359451244,
+        "horse_key": "jigsaw",
+        "horse_name": "Jigsaw",
+        "last_run_date": "2026-03-21",
+        "rated_runs": 10,
+        "recency_rating": 111.63714375179106,
+        "sustainable_peak": 116.36812483586566,
+        "uncertainty": 8.18514004087909
+      },
+      {
+        "ability_rating": 111.12542227297322,
+        "horse_key": "imperatriz",
+        "horse_name": "Imperatriz",
+        "last_run_date": "2024-04-06",
+        "rated_runs": 7,
+        "recency_rating": 112.87226297861116,
+        "sustainable_peak": 115.8531703221982,
+        "uncertainty": 4.989652894202035
+      },
+      {
+        "ability_rating": 110.94780015561948,
+        "horse_key": "atishu",
+        "horse_name": "Atishu",
+        "last_run_date": "2025-04-12",
+        "rated_runs": 19,
+        "recency_rating": 110.59343297388365,
+        "sustainable_peak": 113.31075619914401,
+        "uncertainty": 3.893782808519096
+      },
+      {
+        "ability_rating": 110.82863519986215,
+        "horse_key": "shezaalibi",
+        "horse_name": "Sheza Alibi",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 7,
+        "recency_rating": 111.5094459553327,
+        "sustainable_peak": 114.8678902476181,
+        "uncertainty": 5.891430037409897
+      },
+      {
+        "ability_rating": 110.52371167696404,
+        "horse_key": "thinkitover",
+        "horse_name": "Think It Over",
+        "last_run_date": "2024-03-23",
+        "rated_runs": 7,
+        "recency_rating": 111.71577588456366,
+        "sustainable_peak": 115.12108519888551,
+        "uncertainty": 6.050310775217213
+      },
+      {
+        "ability_rating": 110.27649494946169,
+        "horse_key": "gringotts",
+        "horse_name": "Gringotts",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 19,
+        "recency_rating": 110.09976803566607,
+        "sustainable_peak": 112.23273831639773,
+        "uncertainty": 3.3302736006471862
+      },
+      {
+        "ability_rating": 110.19408727074297,
+        "horse_key": "sunshineinparis",
+        "horse_name": "Sunshine In Paris",
+        "last_run_date": "2025-04-19",
+        "rated_runs": 11,
+        "recency_rating": 110.53392096568955,
+        "sustainable_peak": 113.0892635224298,
+        "uncertainty": 3.879356631909935
+      },
+      {
+        "ability_rating": 109.71327460113916,
+        "horse_key": "dubaihonour",
+        "horse_name": "Dubai Honour",
+        "last_run_date": "2026-04-11",
+        "rated_runs": 3,
+        "recency_rating": 114.60135810766344,
+        "sustainable_peak": 114.93623924913229,
+        "uncertainty": 6.053200927765889
+      },
+      {
+        "ability_rating": 109.58640402380597,
+        "horse_key": "jimmysstar",
+        "horse_name": "Jimmysstar",
+        "last_run_date": "2026-04-18",
+        "rated_runs": 18,
+        "recency_rating": 109.10937580048203,
+        "sustainable_peak": 113.65420625586769,
+        "uncertainty": 4.04883096035476
+      },
+      {
+        "ability_rating": 109.35601947196128,
+        "horse_key": "mrbrightside",
+        "horse_name": "Mr Brightside",
+        "last_run_date": "2025-11-08",
+        "rated_runs": 23,
+        "recency_rating": 109.18716616808608,
+        "sustainable_peak": 115.50328011540282,
+        "uncertainty": 4.408417149358616
+      },
+      {
+        "ability_rating": 109.18697706509775,
+        "horse_key": "cascadian",
+        "horse_name": "Cascadian",
+        "last_run_date": "2024-04-13",
+        "rated_runs": 6,
+        "recency_rating": 110.62294338574071,
+        "sustainable_peak": 114.62209544433644,
+        "uncertainty": 5.953902817024114
+      },
+      {
+        "ability_rating": 109.17777317037627,
+        "horse_key": "ladyshenandoah",
+        "horse_name": "Lady Shenandoah",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 13,
+        "recency_rating": 110.0919625661218,
+        "sustainable_peak": 111.09795813902267,
+        "uncertainty": 2.9723657939024886
+      },
+      {
+        "ability_rating": 109.12719187651697,
+        "horse_key": "ceolwulf",
+        "horse_name": "Ceolwulf",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 25,
+        "recency_rating": 107.98284802935548,
+        "sustainable_peak": 115.03529313332629,
+        "uncertainty": 3.3327372260460884
+      },
+      {
+        "ability_rating": 108.89821976837285,
+        "horse_key": "overpass",
+        "horse_name": "Overpass",
+        "last_run_date": "2026-04-04",
+        "rated_runs": 7,
+        "recency_rating": 110.18048058401968,
+        "sustainable_peak": 112.49131426932308,
+        "uncertainty": 5.166377500842607
+      },
+      {
+        "ability_rating": 108.86698284730093,
+        "horse_key": "iwishiwin",
+        "horse_name": "I Wish I Win",
+        "last_run_date": "2025-02-22",
+        "rated_runs": 6,
+        "recency_rating": 109.8753970359629,
+        "sustainable_peak": 112.77450987889901,
+        "uncertainty": 4.515170883967115
+      },
+      {
+        "ability_rating": 108.75917220252092,
+        "horse_key": "privateeye",
+        "horse_name": "Private Eye",
+        "last_run_date": "2026-08-15",
+        "rated_runs": 20,
+        "recency_rating": 108.53664492781827,
+        "sustainable_peak": 110.85374827171887,
+        "uncertainty": 3.612650584428856
+      },
+      {
+        "ability_rating": 108.70892447650164,
+        "horse_key": "beiwacht",
+        "horse_name": "Beiwacht",
+        "last_run_date": "2026-04-18",
+        "rated_runs": 13,
+        "recency_rating": 107.6874399492224,
+        "sustainable_peak": 112.59288166287854,
+        "uncertainty": 3.9651055829747808
+      },
+      {
+        "ability_rating": 108.6291928537455,
+        "horse_key": "zaaki",
+        "horse_name": "Zaaki",
+        "last_run_date": "2023-11-11",
+        "rated_runs": 4,
+        "recency_rating": 111.79104040124405,
+        "sustainable_peak": 113.84736051786587,
+        "uncertainty": 5.8785423308034765
+      },
+      {
+        "ability_rating": 108.60556435564969,
+        "horse_key": "pericles",
+        "horse_name": "Pericles",
+        "last_run_date": "2026-04-18",
+        "rated_runs": 26,
+        "recency_rating": 107.84149120601401,
+        "sustainable_peak": 113.49266349042938,
+        "uncertainty": 4.0168211904393525
+      },
+      {
+        "ability_rating": 108.55918641865011,
+        "horse_key": "caballus",
+        "horse_name": "Caballus",
+        "last_run_date": "2026-03-07",
+        "rated_runs": 13,
+        "recency_rating": 108.4180711103307,
+        "sustainable_peak": 111.2636385666163,
+        "uncertainty": 4.482994565872213
+      },
+      {
+        "ability_rating": 108.52956049725879,
+        "horse_key": "goldtrip",
+        "horse_name": "Gold Trip",
+        "last_run_date": "2024-02-24",
+        "rated_runs": 5,
+        "recency_rating": 110.35459285791498,
+        "sustainable_peak": 116.48993601200073,
+        "uncertainty": 4.7671426182056855
+      },
+      {
+        "ability_rating": 108.43012518425517,
+        "horse_key": "prideofjenni",
+        "horse_name": "Pride Of Jenni",
+        "last_run_date": "2026-04-11",
+        "rated_runs": 22,
+        "recency_rating": 107.63363751557165,
+        "sustainable_peak": 111.23956034030937,
+        "uncertainty": 3.013434901381321
+      },
+      {
+        "ability_rating": 108.36786000914881,
+        "horse_key": "thinkaboutit",
+        "horse_name": "Think About It",
+        "last_run_date": "2024-10-19",
+        "rated_runs": 8,
+        "recency_rating": 108.78708373911444,
+        "sustainable_peak": 110.18608382611359,
+        "uncertainty": 5.164248080680299
+      },
+      {
+        "ability_rating": 108.30733231546759,
+        "horse_key": "lazzura",
+        "horse_name": "Lazzura",
+        "last_run_date": "2026-04-18",
+        "rated_runs": 14,
+        "recency_rating": 107.82214741340019,
+        "sustainable_peak": 110.95586586397474,
+        "uncertainty": 4.325296338531134
+      },
+      {
+        "ability_rating": 108.26347947944728,
+        "horse_key": "buckaroo",
+        "horse_name": "Buckaroo",
+        "last_run_date": "2026-03-14",
+        "rated_runs": 19,
+        "recency_rating": 107.74828849185444,
+        "sustainable_peak": 115.61857227784077,
+        "uncertainty": 3.200301539303383
+      },
+      {
+        "ability_rating": 108.18407448260312,
+        "horse_key": "treasurethemoment",
+        "horse_name": "Treasurethe Moment",
+        "last_run_date": "2026-04-11",
+        "rated_runs": 12,
+        "recency_rating": 107.89724943285563,
+        "sustainable_peak": 111.69473702083495,
+        "uncertainty": 4.929396471331673
+      },
+      {
+        "ability_rating": 108.06229542444935,
+        "horse_key": "romanticwarrior",
+        "horse_name": "Romantic Warrior",
+        "last_run_date": "2023-10-28",
+        "rated_runs": 2,
+        "recency_rating": 114.16741493960753,
+        "sustainable_peak": 113.81702725868047,
+        "uncertainty": 9.242227815326032
+      },
+      {
+        "ability_rating": 108.04929834414371,
+        "horse_key": "insecret",
+        "horse_name": "In Secret",
+        "last_run_date": "2023-11-11",
+        "rated_runs": 4,
+        "recency_rating": 110.32734789811121,
+        "sustainable_peak": 111.78810089197398,
+        "uncertainty": 5.67162466768324
+      },
+      {
+        "ability_rating": 107.87537974709011,
+        "horse_key": "kayingrising",
+        "horse_name": "Ka Ying Rising",
+        "last_run_date": "2025-10-18",
+        "rated_runs": 1,
+        "recency_rating": 119.68844936772528,
+        "sustainable_peak": 119.6884493677253,
+        "uncertainty": 10.0
+      },
+      {
+        "ability_rating": 107.75842201384462,
+        "horse_key": "switzerland",
+        "horse_name": "Switzerland",
+        "last_run_date": "2025-04-05",
+        "rated_runs": 10,
+        "recency_rating": 107.9425386912584,
+        "sustainable_peak": 113.89061334764483,
+        "uncertainty": 3.9958410543146075
+      },
+      {
+        "ability_rating": 107.69433324145288,
+        "horse_key": "skybird",
+        "horse_name": "Skybird",
+        "last_run_date": "2026-04-04",
+        "rated_runs": 10,
+        "recency_rating": 106.3835621872379,
+        "sustainable_peak": 113.39199514260405,
+        "uncertainty": 6.199338864576398
+      },
+      {
+        "ability_rating": 107.65716560624226,
+        "horse_key": "westwindblows",
+        "horse_name": "West Wind Blows",
+        "last_run_date": "2023-11-11",
+        "rated_runs": 3,
+        "recency_rating": 111.50952483862315,
+        "sustainable_peak": 114.61441912158406,
+        "uncertainty": 7.329881228387631
+      },
+      {
+        "ability_rating": 107.64137298804033,
+        "horse_key": "belclare",
+        "horse_name": "Belclare",
+        "last_run_date": "2025-04-19",
+        "rated_runs": 5,
+        "recency_rating": 108.70481622590002,
+        "sustainable_peak": 112.89056368433717,
+        "uncertainty": 5.491326664933688
+      },
+      {
+        "ability_rating": 107.49720315297938,
+        "horse_key": "vauban",
+        "horse_name": "Vauban",
+        "last_run_date": "2026-03-28",
+        "rated_runs": 8,
+        "recency_rating": 107.71266198977489,
+        "sustainable_peak": 110.1031941862376,
+        "uncertainty": 6.134924054356755
+      },
+      {
+        "ability_rating": 107.48910407855774,
+        "horse_key": "withoutafight",
+        "horse_name": "Without A Fight",
+        "last_run_date": "2024-11-09",
+        "rated_runs": 3,
+        "recency_rating": 110.77030501764649,
+        "sustainable_peak": 113.91012464580442,
+        "uncertainty": 6.004871118173757
+      },
+      {
+        "ability_rating": 107.46669276983344,
+        "horse_key": "tomkitten",
+        "horse_name": "Tom Kitten",
+        "last_run_date": "2026-03-28",
+        "rated_runs": 26,
+        "recency_rating": 107.79198752980044,
+        "sustainable_peak": 110.89570497579521,
+        "uncertainty": 3.3753488972938444
+      },
+      {
+        "ability_rating": 107.44976188493555,
+        "horse_key": "shelbysixtysix",
+        "horse_name": "Shelby Sixtysix",
+        "last_run_date": "2025-03-08",
+        "rated_runs": 5,
+        "recency_rating": 110.6151368826602,
+        "sustainable_peak": 103.69335115368429,
+        "uncertainty": 11.341682083333978
+      },
+      {
+        "ability_rating": 107.3309527532179,
+        "horse_key": "soulcombe",
+        "horse_name": "Soulcombe",
+        "last_run_date": "2023-10-21",
+        "rated_runs": 4,
+        "recency_rating": 109.53293390096385,
+        "sustainable_peak": 111.9748442751189,
+        "uncertainty": 5.890705188629315
+      },
+      {
+        "ability_rating": 106.95180902292412,
+        "horse_key": "mazu",
+        "horse_name": "Mazu",
+        "last_run_date": "2026-04-18",
+        "rated_runs": 22,
+        "recency_rating": 107.01129212553799,
+        "sustainable_peak": 108.20276539359517,
+        "uncertainty": 2.7409655443337444
+      },
+      {
+        "ability_rating": 106.9075647807613,
+        "horse_key": "idleflyer",
+        "horse_name": "Idle Flyer",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 9,
+        "recency_rating": 106.12079832456915,
+        "sustainable_peak": 111.42772851346999,
+        "uncertainty": 6.961944829255009
+      },
+      {
+        "ability_rating": 106.81861001163627,
+        "horse_key": "headleygrange",
+        "horse_name": "Headley Grange",
+        "last_run_date": "2026-04-18",
+        "rated_runs": 13,
+        "recency_rating": 106.47322377001295,
+        "sustainable_peak": 109.6505057925146,
+        "uncertainty": 2.9713963792775164
+      },
+      {
+        "ability_rating": 106.77319885440642,
+        "horse_key": "evaporate",
+        "horse_name": "Evaporate",
+        "last_run_date": "2026-08-15",
+        "rated_runs": 19,
+        "recency_rating": 105.94678325829598,
+        "sustainable_peak": 109.9303231169921,
+        "uncertainty": 4.06183017506696
+      },
+      {
+        "ability_rating": 106.76475621150175,
+        "horse_key": "angelcapital",
+        "horse_name": "Angel Capital",
+        "last_run_date": "2026-08-08",
+        "rated_runs": 13,
+        "recency_rating": 107.44157984428068,
+        "sustainable_peak": 108.34026963654574,
+        "uncertainty": 2.9359584903403952
+      },
+      {
+        "ability_rating": 106.76269317275592,
+        "horse_key": "lindermann",
+        "horse_name": "Lindermann",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 26,
+        "recency_rating": 104.86298772072607,
+        "sustainable_peak": 115.52230415483953,
+        "uncertainty": 5.9906360959822225
+      }
+    ],
+    "decision": "REVISE_OR_FREEZE",
+    "evaluation": {
+      "historical_holdout": {
+        "candidate": {
+          "mean_log_loss": 2.3232431057166765,
+          "mean_race_brier": 0.8971370361386325,
+          "mean_winner_rank": 5.087425149700599,
+          "races": 835,
+          "top_1": 0.1497005988023952,
+          "top_3": 0.3904191616766467
+        },
+        "candidate_vs_rejected_v2": {
+          "log_loss_delta": -0.00354269299127008,
+          "paired_log_loss_interval": {
+            "blocks": 86,
+            "delta": -0.0035426929912702764,
+            "interpretation": "candidate minus rejected_v2; negative favours candidate",
+            "lower": -0.011170383840797037,
+            "repetitions": 10000,
+            "upper": 0.004021792795115982
+          },
+          "race_brier_delta": -0.001086421961814965,
+          "top_1_delta": 0.0119760479041916
+        },
+        "candidate_vs_uniform": {
+          "log_loss_delta": -0.017522976313308014,
+          "paired_log_loss_interval": {
+            "blocks": 86,
+            "delta": -0.01752297631330819,
+            "interpretation": "candidate minus uniform; negative favours candidate",
+            "lower": -0.02563539762652994,
+            "repetitions": 10000,
+            "upper": -0.009341158867265225
+          },
+          "race_brier_delta": -0.003197778088582681,
+          "top_1_delta": 0.0047904191616766345
+        },
+        "candidate_vs_v1": {
+          "log_loss_delta": -0.011672199412199546,
+          "paired_log_loss_interval": {
+            "blocks": 86,
+            "delta": -0.01167219941219965,
+            "interpretation": "candidate minus v1; negative favours candidate",
+            "lower": -0.019718184105385582,
+            "repetitions": 10000,
+            "upper": -0.0036638598875190767
+          },
+          "race_brier_delta": -0.0021423614045499306,
+          "top_1_delta": 0.02035928143712573
+        },
+        "rejected_v2": {
+          "mean_log_loss": 2.3267857987079466,
+          "mean_race_brier": 0.8982234581004475,
+          "mean_winner_rank": 5.209580838323354,
+          "races": 835,
+          "top_1": 0.1377245508982036,
+          "top_3": 0.3688622754491018
+        },
+        "uniform": {
+          "mean_log_loss": 2.3407660820299845,
+          "mean_race_brier": 0.9003348142272152,
+          "mean_winner_rank": 5.3053892215568865,
+          "races": 835,
+          "top_1": 0.14491017964071856,
+          "top_3": 0.38203592814371257
+        },
+        "v1": {
+          "mean_log_loss": 2.334915305128876,
+          "mean_race_brier": 0.8992793975431824,
+          "mean_winner_rank": 5.3077844311377245,
+          "races": 835,
+          "top_1": 0.12934131736526946,
+          "top_3": 0.3664670658682635
+        }
+      },
+      "prospective_holdout": {
+        "candidate": {
+          "mean_log_loss": 2.237927056888524,
+          "mean_race_brier": 0.887242016504465,
+          "mean_winner_rank": 4.578947368421052,
+          "races": 19,
+          "top_1": 0.10526315789473684,
+          "top_3": 0.42105263157894735
+        },
+        "candidate_vs_rejected_v2": {
+          "log_loss_delta": -0.04032737848433765,
+          "paired_log_loss_interval": {
+            "blocks": 2,
+            "delta": -0.040327378484337685,
+            "interpretation": "candidate minus rejected_v2; negative favours candidate",
+            "lower": -0.0431870783118478,
+            "repetitions": 10000,
+            "upper": -0.037149934231548665
+          },
+          "race_brier_delta": -0.006128503329401291,
+          "top_1_delta": 0.05263157894736842
+        },
+        "candidate_vs_uniform": {
+          "log_loss_delta": -0.01154920859818409,
+          "paired_log_loss_interval": {
+            "blocks": 2,
+            "delta": -0.011549208598184231,
+            "interpretation": "candidate minus uniform; negative favours candidate",
+            "lower": -0.04164341768763006,
+            "repetitions": 10000,
+            "upper": 0.015535579582317017
+          },
+          "race_brier_delta": -0.0032943477161097023,
+          "top_1_delta": -0.05263157894736842
+        },
+        "candidate_vs_v1": {
+          "log_loss_delta": -0.039628610318168445,
+          "paired_log_loss_interval": {
+            "blocks": 2,
+            "delta": -0.039628610318168174,
+            "interpretation": "candidate minus v1; negative favours candidate",
+            "lower": -0.0642150802310165,
+            "repetitions": 10000,
+            "upper": -0.017500787396604676
+          },
+          "race_brier_delta": -0.008308960227450757,
+          "top_1_delta": -0.05263157894736842
+        },
+        "rejected_v2": {
+          "mean_log_loss": 2.2782544353728618,
+          "mean_race_brier": 0.8933705198338663,
+          "mean_winner_rank": 5.421052631578948,
+          "races": 19,
+          "top_1": 0.05263157894736842,
+          "top_3": 0.3684210526315789
+        },
+        "uniform": {
+          "mean_log_loss": 2.249476265486708,
+          "mean_race_brier": 0.8905363642205747,
+          "mean_winner_rank": 4.052631578947368,
+          "races": 19,
+          "top_1": 0.15789473684210525,
+          "top_3": 0.47368421052631576
+        },
+        "v1": {
+          "mean_log_loss": 2.2775556672066926,
+          "mean_race_brier": 0.8955509767319157,
+          "mean_winner_rank": 5.368421052631579,
+          "races": 19,
+          "top_1": 0.15789473684210525,
+          "top_3": 0.3684210526315789
+        }
+      },
+      "train": {
+        "candidate": {
+          "mean_log_loss": 2.340576319807541,
+          "mean_race_brier": 0.9003434794589826,
+          "mean_winner_rank": 5.462717058222676,
+          "races": 979,
+          "top_1": 0.11746680286006128,
+          "top_3": 0.3432073544433095
+        },
+        "candidate_vs_rejected_v2": {
+          "log_loss_delta": -0.02334325527408554,
+          "paired_log_loss_interval": {
+            "blocks": 100,
+            "delta": -0.023343255274085636,
+            "interpretation": "candidate minus rejected_v2; negative favours candidate",
+            "lower": -0.03368610201027412,
+            "repetitions": 10000,
+            "upper": -0.014175495837404264
+          },
+          "race_brier_delta": -0.004096068327327451,
+          "top_1_delta": -0.0030643513789581217
+        },
+        "candidate_vs_uniform": {
+          "log_loss_delta": 0.003202231109252107,
+          "paired_log_loss_interval": {
+            "blocks": 100,
+            "delta": 0.0032022311092520304,
+            "interpretation": "candidate minus uniform; negative favours candidate",
+            "lower": -0.003646984354602959,
+            "repetitions": 10000,
+            "upper": 0.010614160021187403
+          },
+          "race_brier_delta": 0.000651811080304987,
+          "top_1_delta": -0.010214504596527063
+        },
+        "candidate_vs_v1": {
+          "log_loss_delta": 0.004803184913290792,
+          "paired_log_loss_interval": {
+            "blocks": 100,
+            "delta": 0.004803184913291018,
+            "interpretation": "candidate minus v1; negative favours candidate",
+            "lower": -0.001017372388820711,
+            "repetitions": 10000,
+            "upper": 0.010677669968027447
+          },
+          "race_brier_delta": 0.0013476237166480942,
+          "top_1_delta": -0.025536261491317686
+        },
+        "rejected_v2": {
+          "mean_log_loss": 2.3639195750816264,
+          "mean_race_brier": 0.9044395477863101,
+          "mean_winner_rank": 5.526046986721144,
+          "races": 979,
+          "top_1": 0.1205311542390194,
+          "top_3": 0.3176710929519918
+        },
+        "uniform": {
+          "mean_log_loss": 2.3373740886982888,
+          "mean_race_brier": 0.8996916683786776,
+          "mean_winner_rank": 5.337078651685394,
+          "races": 979,
+          "top_1": 0.12768130745658834,
+          "top_3": 0.36057201225740554
+        },
+        "v1": {
+          "mean_log_loss": 2.33577313489425,
+          "mean_race_brier": 0.8989958557423345,
+          "mean_winner_rank": 5.2951991828396325,
+          "races": 979,
+          "top_1": 0.14300306435137897,
+          "top_3": 0.3738508682328907
+        }
+      },
+      "validation": {
+        "candidate": {
+          "mean_log_loss": 2.3285783853228517,
+          "mean_race_brier": 0.8976155480659177,
+          "mean_winner_rank": 5.204337899543379,
+          "races": 876,
+          "top_1": 0.1449771689497717,
+          "top_3": 0.3687214611872146
+        },
+        "candidate_vs_rejected_v2": {
+          "log_loss_delta": -0.01865915241473326,
+          "paired_log_loss_interval": {
+            "blocks": 90,
+            "delta": -0.018659152414733263,
+            "interpretation": "candidate minus rejected_v2; negative favours candidate",
+            "lower": -0.025266632029019357,
+            "repetitions": 10000,
+            "upper": -0.012182183705502373
+          },
+          "race_brier_delta": -0.004141750511168607,
+          "top_1_delta": 0.025114155251141565
+        },
+        "candidate_vs_uniform": {
+          "log_loss_delta": -0.011435048903639444,
+          "paired_log_loss_interval": {
+            "blocks": 90,
+            "delta": -0.011435048903639321,
+            "interpretation": "candidate minus uniform; negative favours candidate",
+            "lower": -0.020024802968261406,
+            "repetitions": 10000,
+            "upper": -0.0030357532499786584
+          },
+          "race_brier_delta": -0.0023065005744025147,
+          "top_1_delta": 0.02625570776255709
+        },
+        "candidate_vs_v1": {
+          "log_loss_delta": -0.004638668551951497,
+          "paired_log_loss_interval": {
+            "blocks": 90,
+            "delta": -0.0046386685519514085,
+            "interpretation": "candidate minus v1; negative favours candidate",
+            "lower": -0.012381230620648467,
+            "repetitions": 10000,
+            "upper": 0.0029254273837535675
+          },
+          "race_brier_delta": -0.0008455288361162161,
+          "top_1_delta": -0.0011415525114155112
+        },
+        "rejected_v2": {
+          "mean_log_loss": 2.347237537737585,
+          "mean_race_brier": 0.9017572985770863,
+          "mean_winner_rank": 5.573059360730594,
+          "races": 876,
+          "top_1": 0.11986301369863013,
+          "top_3": 0.3253424657534247
+        },
+        "uniform": {
+          "mean_log_loss": 2.340013434226491,
+          "mean_race_brier": 0.8999220486403202,
+          "mean_winner_rank": 5.309360730593608,
+          "races": 876,
+          "top_1": 0.1187214611872146,
+          "top_3": 0.3767123287671233
+        },
+        "v1": {
+          "mean_log_loss": 2.333217053874803,
+          "mean_race_brier": 0.8984610769020339,
+          "mean_winner_rank": 5.273972602739726,
+          "races": 876,
+          "top_1": 0.1461187214611872,
+          "top_3": 0.3858447488584475
+        }
+      }
+    },
+    "exclusions": {
+      "insufficient_starters": 27,
+      "invalid_winner_count": 3
+    },
+    "generated_at": "2026-08-28T04:24:52+00:00",
+    "model_version": "horse-ability-v2.5-collateral-revised-shadow",
+    "named_horses": {
+      "Autumn Glow": {
+        "ability_rating": 117.83504114800328,
+        "horse_key": "autumnglow",
+        "horse_name": "Autumn Glow",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 13,
+        "recency_rating": 119.33488546074003,
+        "sustainable_peak": 120.43902998306442,
+        "uncertainty": 3.4328179031924275
+      },
+      "Gringotts": {
+        "ability_rating": 110.27649494946169,
+        "horse_key": "gringotts",
+        "horse_name": "Gringotts",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 19,
+        "recency_rating": 110.09976803566607,
+        "sustainable_peak": 112.23273831639773,
+        "uncertainty": 3.3302736006471862
+      },
+      "Natural Fling": {
+        "ability_rating": 99.66829412497677,
+        "horse_key": "naturalfling",
+        "horse_name": "Natural Fling",
+        "last_run_date": "2026-08-15",
+        "rated_runs": 2,
+        "recency_rating": 99.83156285763633,
+        "sustainable_peak": 97.35927402407435,
+        "uncertainty": 10.500704823902652
+      },
+      "Sheza Alibi": {
+        "ability_rating": 110.82863519986215,
+        "horse_key": "shezaalibi",
+        "horse_name": "Sheza Alibi",
+        "last_run_date": "2026-08-22",
+        "rated_runs": 7,
+        "recency_rating": 111.5094459553327,
+        "sustainable_peak": 114.8678902476181,
+        "uncertainty": 5.891430037409897
+      }
+    },
+    "named_run_audits": {
+      "natural_fling_group3": {
+        "interpretation": "Hard upstream achieved-performance gate; it is not fitted by this Horse Ability candidate.",
+        "latest_run": {
+          "anchor_coverage": 1.0,
+          "class_standard": 105.0,
+          "detail_json": "{\"base_model_version\": \"form-first-v2.0\", \"breakout_anchor_relief\": false, \"breakout_flags\": {\"winner_prior\": 71.0, \"winner_prior_starts\": 1, \"winning_margin\": 4.0}, \"candidate_collateral_weight\": 0.8, \"candidate_version\": \"achieved-run-v2.9-collateral-revised-shadow\", \"candidate_weight_component\": 0.0, \"class_standard\": 105.0, \"collateral_anchor\": 78.16666666666666, \"collateral_revision_status\": \"not_yet_applied_zero\", \"handicap_weight_coefficient\": 0.25, \"handicap_weight_parent\": \"achieved-run-v2.7-breakout-separated-shadow\", \"independent_corroboration\": {\"clock\": {\"adjusted_fast_mad\": 0.1449275362318851, \"available\": true, \"meeting_variant_seconds\": 0.28000000000000114, \"other_meeting_races\": 8, \"prior_clocks\": 89, \"supported\": false, \"track_distance_mad_seconds\": 0.6900000000000048, \"track_distance_median_seconds\": 63.73}, \"energy\": {\"achievement_signal\": 0.0, \"available\": true, \"compensation_signal\": 1.1201268001685971, \"confidence\": 0.95, \"supported\": false, \"training_threshold\": 2.723857675250848}, \"supported\": false}, \"named_audits_excluded_from_fit\": true, \"opposition_evidence\": {\"opposition_anchor\": 77.53009822218701, \"principal_coverage\": 1.0, \"principals\": [{\"adjusted_anchor\": 71.94858197730629, \"anchor\": 71.94858197730629, \"dispersion\": 0.0, \"finish_position\": 1, \"horse_key\": \"naturalfling\", \"official\": 71.0, \"prior_median\": 73.410815482125, \"reliability\": 0.3934693402873666, \"runs\": 1}, {\"adjusted_anchor\": 90.71855469256174, \"anchor\": 79.38522135922841, \"dispersion\": 0.7694412228713503, \"finish_position\": 2, \"horse_key\": \"scintillation\", \"official\": 72.0, \"prior_median\": 84.31495721462865, \"reliability\": 0.5996952511094132, \"runs\": 2}, {\"adjusted_anchor\": 78.45833333333333, \"anchor\": 65.0, \"dispersion\": 17.113281301024507, \"finish_position\": 3, \"horse_key\": \"ohyesshedid\", \"official\": 65.0, \"prior_median\": 60.60231131, \"reliability\": 0.0, \"runs\": 3}, {\"adjusted_anchor\": 76.6018631110407, \"anchor\": 61.72686311104069, \"dispersion\": 0.1149437944166678, \"finish_position\": 4, \"horse_key\": \"portinari\", \"official\": 63.0, \"prior_median\": 61.34854166666667, \"reliability\": 0.770916748707543, \"runs\": 3}]}, \"opposition_fit\": {\"horizon_days\": 90, \"named_audit_horses_excluded\": true, \"samples\": 43, \"selected_coefficient\": 0.2, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"opposition_revision_coefficient\": 0.2, \"opposition_revision_component\": -2.0458970222292634, \"original_collateral_weight\": 0.8, \"original_weight_component\": 0.0, \"partial_update_coefficient\": 0.35, \"partial_update_fit\": {\"horizon_days\": 90, \"named_audit_horses_excluded\": true, \"samples\": 1022, \"selected_coefficient\": 0.35, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"race_weight_policy\": \"set_weight_allowance_neutral\", \"research_only\": true, \"sectional_status\": \"not_promoted_zero\", \"separated_achievement_detail\": {\"base_model_version\": \"form-first-v2.0\", \"breakout_flags\": {\"winner_prior\": 71.0, \"winner_prior_starts\": 1, \"winning_margin\": 4.0}, \"candidate_version\": \"achieved-run-v2.6-separated-shadow\", \"class_standard\": 105.0, \"future_peak_not_a_fit_target\": true, \"layer\": \"completed_run_achievement\", \"opposition_evidence\": {\"opposition_anchor\": 77.53009822218701, \"principal_coverage\": 1.0, \"principals\": [{\"adjusted_anchor\": 71.94858197730629, \"anchor\": 71.94858197730629, \"dispersion\": 0.0, \"finish_position\": 1, \"horse_key\": \"naturalfling\", \"official\": 71.0, \"prior_median\": 73.410815482125, \"reliability\": 0.3934693402873666, \"runs\": 1}, {\"adjusted_anchor\": 90.71855469256174, \"anchor\": 79.38522135922841, \"dispersion\": 0.7694412228713503, \"finish_position\": 2, \"horse_key\": \"scintillation\", \"official\": 72.0, \"prior_median\": 84.31495721462865, \"reliability\": 0.5996952511094132, \"runs\": 2}, {\"adjusted_anchor\": 78.45833333333333, \"anchor\": 65.0, \"dispersion\": 17.113281301024507, \"finish_position\": 3, \"horse_key\": \"ohyesshedid\", \"official\": 65.0, \"prior_median\": 60.60231131, \"reliability\": 0.0, \"runs\": 3}, {\"adjusted_anchor\": 76.6018631110407, \"anchor\": 61.72686311104069, \"dispersion\": 0.1149437944166678, \"finish_position\": 4, \"horse_key\": \"portinari\", \"official\": 63.0, \"prior_median\": 61.34854166666667, \"reliability\": 0.770916748707543, \"runs\": 3}]}, \"opposition_reliability\": 0.44102033502608073, \"pounds_per_length\": 2.8333333333333335, \"race_weight_policy\": \"set_weight_allowance_neutral\", \"repeatability_deferred_to_horse_ability\": true, \"research_only\": true, \"sectional_status\": \"not_promoted_zero\", \"time_variant_status\": \"not_promoted_zero\", \"winner_margin_cap_points\": 12.0}, \"separated_achievement_eligible\": true, \"separated_achievement_rules\": {\"maximum_opposition_reliability_exclusive\": 0.5, \"maximum_prior_starts\": 8, \"minimum_winning_margin_lengths\": 3.0}, \"strictly_prior_evidence\": true, \"time_variant_status\": \"not_promoted_zero\", \"training_selected\": false, \"training_thresholds\": {\"clock_fast_threshold_mad\": 0.5, \"energy_compensation_threshold\": 2.723857675250848, \"energy_quantile\": 0.75, \"energy_winner_rows\": 886, \"named_audit_horses_excluded\": true, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"uncorroborated_partial_update\": 8.19291666666666, \"winner_margin_cap_points\": 12.0, \"winner_margin_requires_corroboration\": true}",
+          "performance_rating": 104.2185480481487,
+          "race_date": "2026-08-15",
+          "race_number": 6,
+          "race_strength": 92.88521471481538,
+          "track_slug": "caulfield"
+        },
+        "passed": true,
+        "required_range": [
+          100.0,
+          110.0
+        ]
+      }
+    },
+    "prospective_warning": "The 2026-08-16 onward period has been observed before this candidate was specified; it is diagnostic only and not an untouched promotion holdout.",
+    "protocol_hash": "30714852ca6da02dca3cc7dd3da0d5af4064c0832af9b6f675933e14c410c693",
+    "race_counts": {
+      "historical_holdout": 835,
+      "prospective_holdout": 19,
+      "train": 979,
+      "validation": 876
+    },
+    "reasons": [
+      "validation uncertainty includes no improvement vs v1"
+    ],
+    "report_name": "horse-ability-v2.5-collateral-revised",
+    "run_model_version": "achieved-run-v2.9-collateral-revised-shadow",
+    "specification": {
+      "fitted_parameters": "probability temperature only; training period only",
+      "recency_half_life_days": 180.0,
+      "reliability_prior_runs": 2.0,
+      "sustainable_peak_blend": 0.35,
+      "uncertainty": "max(2, 10/sqrt(all_prior_runs) + 0.5*recent_MAD)",
+      "weight_wfa_policy": "accepted V2 run figures frozen; WFA semantics registered separately",
+      "window_runs": 6
+    },
+    "temperature_fits": {
+      "candidate": {
+        "selected": 60.0,
+        "trials": [
+          {
+            "temperature": 3.0,
+            "training_log_loss": 3.9099926633253244
+          },
+          {
+            "temperature": 5.0,
+            "training_log_loss": 3.041676702398057
+          },
+          {
+            "temperature": 8.0,
+            "training_log_loss": 2.641115125017549
+          },
+          {
+            "temperature": 10.0,
+            "training_log_loss": 2.5356951065624176
+          },
+          {
+            "temperature": 12.0,
+            "training_log_loss": 2.4758267547831974
+          },
+          {
+            "temperature": 15.0,
+            "training_log_loss": 2.4254310200979408
+          },
+          {
+            "temperature": 20.0,
+            "training_log_loss": 2.385479384202398
+          },
+          {
+            "temperature": 30.0,
+            "training_log_loss": 2.3569021515412585
+          },
+          {
+            "temperature": 40.0,
+            "training_log_loss": 2.3471545199732584
+          },
+          {
+            "temperature": 60.0,
+            "training_log_loss": 2.340576319807541
+          }
+        ]
+      },
+      "rejected_v2": {
+        "selected": 60.0,
+        "trials": [
+          {
+            "temperature": 3.0,
+            "training_log_loss": 5.94323614301789
+          },
+          {
+            "temperature": 5.0,
+            "training_log_loss": 4.180519461010036
+          },
+          {
+            "temperature": 8.0,
+            "training_log_loss": 3.259493187386909
+          },
+          {
+            "temperature": 10.0,
+            "training_log_loss": 2.98453750137376
+          },
+          {
+            "temperature": 12.0,
+            "training_log_loss": 2.816595646103656
+          },
+          {
+            "temperature": 15.0,
+            "training_log_loss": 2.6630743668145223
+          },
+          {
+            "temperature": 20.0,
+            "training_log_loss": 2.532617734038793
+          },
+          {
+            "temperature": 30.0,
+            "training_log_loss": 2.4309125628319466
+          },
+          {
+            "temperature": 40.0,
+            "training_log_loss": 2.3927097316280608
+          },
+          {
+            "temperature": 60.0,
+            "training_log_loss": 2.3639195750816264
+          }
+        ]
+      },
+      "v1": {
+        "selected": 60.0,
+        "trials": [
+          {
+            "temperature": 3.0,
+            "training_log_loss": 2.59378348713378
+          },
+          {
+            "temperature": 5.0,
+            "training_log_loss": 2.43922865676999
+          },
+          {
+            "temperature": 8.0,
+            "training_log_loss": 2.3757599172755004
+          },
+          {
+            "temperature": 10.0,
+            "training_log_loss": 2.3598743744063766
+          },
+          {
+            "temperature": 12.0,
+            "training_log_loss": 2.3513256965870513
+          },
+          {
+            "temperature": 15.0,
+            "training_log_loss": 2.3445218784064403
+          },
+          {
+            "temperature": 20.0,
+            "training_log_loss": 2.339571243276387
+          },
+          {
+            "temperature": 30.0,
+            "training_log_loss": 2.336600722804968
+          },
+          {
+            "temperature": 40.0,
+            "training_log_loss": 2.335906322589998
+          },
+          {
+            "temperature": 60.0,
+            "training_log_loss": 2.33577313489425
+          }
+        ]
+      }
+    }
+  },
+  "current_states_with_available_revisions": [
+    {
+      "ability_rating": 117.83504114800328,
+      "horse_key": "autumnglow",
+      "horse_name": "Autumn Glow",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 13,
+      "recency_rating": 119.33488546074003,
+      "sustainable_peak": 120.43902998306442,
+      "uncertainty": 3.4328179031924275
+    },
+    {
+      "ability_rating": 113.96198145578113,
+      "horse_key": "joliestar",
+      "horse_name": "Joliestar",
+      "last_run_date": "2026-04-04",
+      "rated_runs": 17,
+      "recency_rating": 114.67550050034994,
+      "sustainable_peak": 116.18111806280314,
+      "uncertainty": 3.34659576674557
+    },
+    {
+      "ability_rating": 113.7787365139841,
+      "horse_key": "viasistina",
+      "horse_name": "Via Sistina",
+      "last_run_date": "2025-11-08",
+      "rated_runs": 16,
+      "recency_rating": 114.71922348247242,
+      "sustainable_peak": 116.16784083873392,
+      "uncertainty": 3.118881684387901
+    },
+    {
+      "ability_rating": 113.60152774978273,
+      "horse_key": "sirdelius",
+      "horse_name": "Sir Delius",
+      "last_run_date": "2026-04-11",
+      "rated_runs": 6,
+      "recency_rating": 114.97624134674034,
+      "sustainable_peak": 119.87891470869269,
+      "uncertainty": 6.3615551256884535
+    },
+    {
+      "ability_rating": 112.26768731271011,
+      "horse_key": "alligatorblood",
+      "horse_name": "Alligator Blood",
+      "last_run_date": "2023-11-11",
+      "rated_runs": 6,
+      "recency_rating": 115.2571102825409,
+      "sustainable_peak": 117.47738206987484,
+      "uncertainty": 4.793866063086091
+    },
+    {
+      "ability_rating": 112.07470620045085,
+      "horse_key": "bellanipotina",
+      "horse_name": "Bella Nipotina",
+      "last_run_date": "2024-11-09",
+      "rated_runs": 14,
+      "recency_rating": 113.27523547469418,
+      "sustainable_peak": 115.90327743961461,
+      "uncertainty": 3.7599677009687458
+    },
+    {
+      "ability_rating": 111.72853359451244,
+      "horse_key": "jigsaw",
+      "horse_name": "Jigsaw",
+      "last_run_date": "2026-03-21",
+      "rated_runs": 10,
+      "recency_rating": 111.63714375179106,
+      "sustainable_peak": 116.36812483586566,
+      "uncertainty": 8.18514004087909
+    },
+    {
+      "ability_rating": 111.12542227297322,
+      "horse_key": "imperatriz",
+      "horse_name": "Imperatriz",
+      "last_run_date": "2024-04-06",
+      "rated_runs": 7,
+      "recency_rating": 112.87226297861116,
+      "sustainable_peak": 115.8531703221982,
+      "uncertainty": 4.989652894202035
+    },
+    {
+      "ability_rating": 110.94780015561948,
+      "horse_key": "atishu",
+      "horse_name": "Atishu",
+      "last_run_date": "2025-04-12",
+      "rated_runs": 19,
+      "recency_rating": 110.59343297388365,
+      "sustainable_peak": 113.31075619914401,
+      "uncertainty": 3.893782808519096
+    },
+    {
+      "ability_rating": 110.873904371746,
+      "horse_key": "gringotts",
+      "horse_name": "Gringotts",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 19,
+      "recency_rating": 111.24691857871476,
+      "sustainable_peak": 112.23273831639773,
+      "uncertainty": 2.981883338705619
+    },
+    {
+      "ability_rating": 110.82863519986215,
+      "horse_key": "shezaalibi",
+      "horse_name": "Sheza Alibi",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 7,
+      "recency_rating": 111.5094459553327,
+      "sustainable_peak": 114.8678902476181,
+      "uncertainty": 5.891430037409897
+    },
+    {
+      "ability_rating": 110.52371167696404,
+      "horse_key": "thinkitover",
+      "horse_name": "Think It Over",
+      "last_run_date": "2024-03-23",
+      "rated_runs": 7,
+      "recency_rating": 111.71577588456366,
+      "sustainable_peak": 115.12108519888551,
+      "uncertainty": 6.050310775217213
+    },
+    {
+      "ability_rating": 110.19408727074297,
+      "horse_key": "sunshineinparis",
+      "horse_name": "Sunshine In Paris",
+      "last_run_date": "2025-04-19",
+      "rated_runs": 11,
+      "recency_rating": 110.53392096568955,
+      "sustainable_peak": 113.0892635224298,
+      "uncertainty": 3.879356631909935
+    },
+    {
+      "ability_rating": 109.71327460113916,
+      "horse_key": "dubaihonour",
+      "horse_name": "Dubai Honour",
+      "last_run_date": "2026-04-11",
+      "rated_runs": 3,
+      "recency_rating": 114.60135810766344,
+      "sustainable_peak": 114.93623924913229,
+      "uncertainty": 6.053200927765889
+    },
+    {
+      "ability_rating": 109.58640402380597,
+      "horse_key": "jimmysstar",
+      "horse_name": "Jimmysstar",
+      "last_run_date": "2026-04-18",
+      "rated_runs": 18,
+      "recency_rating": 109.10937580048203,
+      "sustainable_peak": 113.65420625586769,
+      "uncertainty": 4.04883096035476
+    },
+    {
+      "ability_rating": 109.35601947196128,
+      "horse_key": "mrbrightside",
+      "horse_name": "Mr Brightside",
+      "last_run_date": "2025-11-08",
+      "rated_runs": 23,
+      "recency_rating": 109.18716616808608,
+      "sustainable_peak": 115.50328011540282,
+      "uncertainty": 4.408417149358616
+    },
+    {
+      "ability_rating": 109.18697706509775,
+      "horse_key": "cascadian",
+      "horse_name": "Cascadian",
+      "last_run_date": "2024-04-13",
+      "rated_runs": 6,
+      "recency_rating": 110.62294338574071,
+      "sustainable_peak": 114.62209544433644,
+      "uncertainty": 5.953902817024114
+    },
+    {
+      "ability_rating": 109.17777317037627,
+      "horse_key": "ladyshenandoah",
+      "horse_name": "Lady Shenandoah",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 13,
+      "recency_rating": 110.0919625661218,
+      "sustainable_peak": 111.09795813902267,
+      "uncertainty": 2.9723657939024886
+    },
+    {
+      "ability_rating": 109.12719187651697,
+      "horse_key": "ceolwulf",
+      "horse_name": "Ceolwulf",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 25,
+      "recency_rating": 107.98284802935548,
+      "sustainable_peak": 115.03529313332629,
+      "uncertainty": 3.3327372260460884
+    },
+    {
+      "ability_rating": 108.89821976837285,
+      "horse_key": "overpass",
+      "horse_name": "Overpass",
+      "last_run_date": "2026-04-04",
+      "rated_runs": 7,
+      "recency_rating": 110.18048058401968,
+      "sustainable_peak": 112.49131426932308,
+      "uncertainty": 5.166377500842607
+    },
+    {
+      "ability_rating": 108.86698284730093,
+      "horse_key": "iwishiwin",
+      "horse_name": "I Wish I Win",
+      "last_run_date": "2025-02-22",
+      "rated_runs": 6,
+      "recency_rating": 109.8753970359629,
+      "sustainable_peak": 112.77450987889901,
+      "uncertainty": 4.515170883967115
+    },
+    {
+      "ability_rating": 108.75917220252092,
+      "horse_key": "privateeye",
+      "horse_name": "Private Eye",
+      "last_run_date": "2026-08-15",
+      "rated_runs": 20,
+      "recency_rating": 108.53664492781827,
+      "sustainable_peak": 110.85374827171887,
+      "uncertainty": 3.612650584428856
+    },
+    {
+      "ability_rating": 108.70892447650164,
+      "horse_key": "beiwacht",
+      "horse_name": "Beiwacht",
+      "last_run_date": "2026-04-18",
+      "rated_runs": 13,
+      "recency_rating": 107.6874399492224,
+      "sustainable_peak": 112.59288166287854,
+      "uncertainty": 3.9651055829747808
+    },
+    {
+      "ability_rating": 108.6291928537455,
+      "horse_key": "zaaki",
+      "horse_name": "Zaaki",
+      "last_run_date": "2023-11-11",
+      "rated_runs": 4,
+      "recency_rating": 111.79104040124405,
+      "sustainable_peak": 113.84736051786587,
+      "uncertainty": 5.8785423308034765
+    },
+    {
+      "ability_rating": 108.60556435564969,
+      "horse_key": "pericles",
+      "horse_name": "Pericles",
+      "last_run_date": "2026-04-18",
+      "rated_runs": 26,
+      "recency_rating": 107.84149120601401,
+      "sustainable_peak": 113.49266349042938,
+      "uncertainty": 4.0168211904393525
+    },
+    {
+      "ability_rating": 108.55918641865011,
+      "horse_key": "caballus",
+      "horse_name": "Caballus",
+      "last_run_date": "2026-03-07",
+      "rated_runs": 13,
+      "recency_rating": 108.4180711103307,
+      "sustainable_peak": 111.2636385666163,
+      "uncertainty": 4.482994565872213
+    },
+    {
+      "ability_rating": 108.52956049725879,
+      "horse_key": "goldtrip",
+      "horse_name": "Gold Trip",
+      "last_run_date": "2024-02-24",
+      "rated_runs": 5,
+      "recency_rating": 110.35459285791498,
+      "sustainable_peak": 116.48993601200073,
+      "uncertainty": 4.7671426182056855
+    },
+    {
+      "ability_rating": 108.43012518425517,
+      "horse_key": "prideofjenni",
+      "horse_name": "Pride Of Jenni",
+      "last_run_date": "2026-04-11",
+      "rated_runs": 22,
+      "recency_rating": 107.63363751557165,
+      "sustainable_peak": 111.23956034030937,
+      "uncertainty": 3.013434901381321
+    },
+    {
+      "ability_rating": 108.36786000914881,
+      "horse_key": "thinkaboutit",
+      "horse_name": "Think About It",
+      "last_run_date": "2024-10-19",
+      "rated_runs": 8,
+      "recency_rating": 108.78708373911444,
+      "sustainable_peak": 110.18608382611359,
+      "uncertainty": 5.164248080680299
+    },
+    {
+      "ability_rating": 108.30733231546759,
+      "horse_key": "lazzura",
+      "horse_name": "Lazzura",
+      "last_run_date": "2026-04-18",
+      "rated_runs": 14,
+      "recency_rating": 107.82214741340019,
+      "sustainable_peak": 110.95586586397474,
+      "uncertainty": 4.325296338531134
+    },
+    {
+      "ability_rating": 108.26347947944728,
+      "horse_key": "buckaroo",
+      "horse_name": "Buckaroo",
+      "last_run_date": "2026-03-14",
+      "rated_runs": 19,
+      "recency_rating": 107.74828849185444,
+      "sustainable_peak": 115.61857227784077,
+      "uncertainty": 3.200301539303383
+    },
+    {
+      "ability_rating": 108.18407448260312,
+      "horse_key": "treasurethemoment",
+      "horse_name": "Treasurethe Moment",
+      "last_run_date": "2026-04-11",
+      "rated_runs": 12,
+      "recency_rating": 107.89724943285563,
+      "sustainable_peak": 111.69473702083495,
+      "uncertainty": 4.929396471331673
+    },
+    {
+      "ability_rating": 108.06229542444935,
+      "horse_key": "romanticwarrior",
+      "horse_name": "Romantic Warrior",
+      "last_run_date": "2023-10-28",
+      "rated_runs": 2,
+      "recency_rating": 114.16741493960753,
+      "sustainable_peak": 113.81702725868047,
+      "uncertainty": 9.242227815326032
+    },
+    {
+      "ability_rating": 108.04929834414371,
+      "horse_key": "insecret",
+      "horse_name": "In Secret",
+      "last_run_date": "2023-11-11",
+      "rated_runs": 4,
+      "recency_rating": 110.32734789811121,
+      "sustainable_peak": 111.78810089197398,
+      "uncertainty": 5.67162466768324
+    },
+    {
+      "ability_rating": 107.87537974709011,
+      "horse_key": "kayingrising",
+      "horse_name": "Ka Ying Rising",
+      "last_run_date": "2025-10-18",
+      "rated_runs": 1,
+      "recency_rating": 119.68844936772528,
+      "sustainable_peak": 119.6884493677253,
+      "uncertainty": 10.0
+    },
+    {
+      "ability_rating": 107.75842201384462,
+      "horse_key": "switzerland",
+      "horse_name": "Switzerland",
+      "last_run_date": "2025-04-05",
+      "rated_runs": 10,
+      "recency_rating": 107.9425386912584,
+      "sustainable_peak": 113.89061334764483,
+      "uncertainty": 3.9958410543146075
+    },
+    {
+      "ability_rating": 107.69433324145288,
+      "horse_key": "skybird",
+      "horse_name": "Skybird",
+      "last_run_date": "2026-04-04",
+      "rated_runs": 10,
+      "recency_rating": 106.3835621872379,
+      "sustainable_peak": 113.39199514260405,
+      "uncertainty": 6.199338864576398
+    },
+    {
+      "ability_rating": 107.65716560624226,
+      "horse_key": "westwindblows",
+      "horse_name": "West Wind Blows",
+      "last_run_date": "2023-11-11",
+      "rated_runs": 3,
+      "recency_rating": 111.50952483862315,
+      "sustainable_peak": 114.61441912158406,
+      "uncertainty": 7.329881228387631
+    },
+    {
+      "ability_rating": 107.64137298804033,
+      "horse_key": "belclare",
+      "horse_name": "Belclare",
+      "last_run_date": "2025-04-19",
+      "rated_runs": 5,
+      "recency_rating": 108.70481622590002,
+      "sustainable_peak": 112.89056368433717,
+      "uncertainty": 5.491326664933688
+    },
+    {
+      "ability_rating": 107.49720315297938,
+      "horse_key": "vauban",
+      "horse_name": "Vauban",
+      "last_run_date": "2026-03-28",
+      "rated_runs": 8,
+      "recency_rating": 107.71266198977489,
+      "sustainable_peak": 110.1031941862376,
+      "uncertainty": 6.134924054356755
+    },
+    {
+      "ability_rating": 107.48910407855774,
+      "horse_key": "withoutafight",
+      "horse_name": "Without A Fight",
+      "last_run_date": "2024-11-09",
+      "rated_runs": 3,
+      "recency_rating": 110.77030501764649,
+      "sustainable_peak": 113.91012464580442,
+      "uncertainty": 6.004871118173757
+    },
+    {
+      "ability_rating": 107.46669276983344,
+      "horse_key": "tomkitten",
+      "horse_name": "Tom Kitten",
+      "last_run_date": "2026-03-28",
+      "rated_runs": 26,
+      "recency_rating": 107.79198752980044,
+      "sustainable_peak": 110.89570497579521,
+      "uncertainty": 3.3753488972938444
+    },
+    {
+      "ability_rating": 107.44976188493555,
+      "horse_key": "shelbysixtysix",
+      "horse_name": "Shelby Sixtysix",
+      "last_run_date": "2025-03-08",
+      "rated_runs": 5,
+      "recency_rating": 110.6151368826602,
+      "sustainable_peak": 103.69335115368429,
+      "uncertainty": 11.341682083333978
+    },
+    {
+      "ability_rating": 107.3309527532179,
+      "horse_key": "soulcombe",
+      "horse_name": "Soulcombe",
+      "last_run_date": "2023-10-21",
+      "rated_runs": 4,
+      "recency_rating": 109.53293390096385,
+      "sustainable_peak": 111.9748442751189,
+      "uncertainty": 5.890705188629315
+    },
+    {
+      "ability_rating": 106.95180902292412,
+      "horse_key": "mazu",
+      "horse_name": "Mazu",
+      "last_run_date": "2026-04-18",
+      "rated_runs": 22,
+      "recency_rating": 107.01129212553799,
+      "sustainable_peak": 108.20276539359517,
+      "uncertainty": 2.7409655443337444
+    },
+    {
+      "ability_rating": 106.9075647807613,
+      "horse_key": "idleflyer",
+      "horse_name": "Idle Flyer",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 9,
+      "recency_rating": 106.12079832456915,
+      "sustainable_peak": 111.42772851346999,
+      "uncertainty": 6.961944829255009
+    },
+    {
+      "ability_rating": 106.81861001163627,
+      "horse_key": "headleygrange",
+      "horse_name": "Headley Grange",
+      "last_run_date": "2026-04-18",
+      "rated_runs": 13,
+      "recency_rating": 106.47322377001295,
+      "sustainable_peak": 109.6505057925146,
+      "uncertainty": 2.9713963792775164
+    },
+    {
+      "ability_rating": 106.77319885440642,
+      "horse_key": "evaporate",
+      "horse_name": "Evaporate",
+      "last_run_date": "2026-08-15",
+      "rated_runs": 19,
+      "recency_rating": 105.94678325829598,
+      "sustainable_peak": 109.9303231169921,
+      "uncertainty": 4.06183017506696
+    },
+    {
+      "ability_rating": 106.76475621150175,
+      "horse_key": "angelcapital",
+      "horse_name": "Angel Capital",
+      "last_run_date": "2026-08-08",
+      "rated_runs": 13,
+      "recency_rating": 107.44157984428068,
+      "sustainable_peak": 108.34026963654574,
+      "uncertainty": 2.9359584903403952
+    },
+    {
+      "ability_rating": 106.76269317275592,
+      "horse_key": "lindermann",
+      "horse_name": "Lindermann",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 26,
+      "recency_rating": 104.86298772072607,
+      "sustainable_peak": 115.52230415483953,
+      "uncertainty": 5.9906360959822225
+    }
+  ],
+  "named_horses": {
+    "Autumn Glow": {
+      "ability_rating": 117.83504114800328,
+      "horse_key": "autumnglow",
+      "horse_name": "Autumn Glow",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 13,
+      "recency_rating": 119.33488546074003,
+      "sustainable_peak": 120.43902998306442,
+      "uncertainty": 3.4328179031924275
+    },
+    "Gringotts": {
+      "ability_rating": 110.873904371746,
+      "horse_key": "gringotts",
+      "horse_name": "Gringotts",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 19,
+      "recency_rating": 111.24691857871476,
+      "sustainable_peak": 112.23273831639773,
+      "uncertainty": 2.981883338705619
+    },
+    "Natural Fling": {
+      "ability_rating": 99.66829412497677,
+      "horse_key": "naturalfling",
+      "horse_name": "Natural Fling",
+      "last_run_date": "2026-08-15",
+      "rated_runs": 2,
+      "recency_rating": 99.83156285763633,
+      "sustainable_peak": 97.35927402407435,
+      "uncertainty": 10.500704823902652
+    },
+    "Sheza Alibi": {
+      "ability_rating": 110.82863519986215,
+      "horse_key": "shezaalibi",
+      "horse_name": "Sheza Alibi",
+      "last_run_date": "2026-08-22",
+      "rated_runs": 7,
+      "recency_rating": 111.5094459553327,
+      "sustainable_peak": 114.8678902476181,
+      "uncertainty": 5.891430037409897
+    }
+  },
+  "sheza_above_gringotts": false
+}

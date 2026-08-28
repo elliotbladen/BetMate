@@ -1,0 +1,237 @@
+{
+  "all_pairs": 1520,
+  "interpretation": "Retrospective collateral consistency; not proof of a deterministic equal-weight result.",
+  "model_version": "handicap-weight-rematch-v1",
+  "named_audit": [
+    {
+      "coefficient_matching_later_gap": 0.5590963641786774,
+      "days": 140,
+      "first": {
+        "date": "2026-04-04",
+        "finish_position": 4,
+        "horse_key": "gringotts",
+        "horse_name": "Gringotts",
+        "race_id": "2026-04-04|randwick|8",
+        "rating": 118.85335336105784,
+        "weight": 20.94391489
+      },
+      "handicap_date": "2026-04-04",
+      "handicap_gap_at_selected": -10.347021277499998,
+      "later_wfa_date": "2026-08-22",
+      "later_wfa_gap": -3.873333333333335,
+      "second": {
+        "date": "2026-04-04",
+        "finish_position": 1,
+        "horse_key": "shezaalibi",
+        "horse_name": "Sheza Alibi",
+        "race_id": "2026-04-04|randwick|8",
+        "rating": 113.49243847105784,
+        "weight": 0.0
+      },
+      "selected_coefficient": 0.25
+    }
+  ],
+  "named_horses_excluded_from_fit": [
+    "gringotts",
+    "shezaalibi",
+    "tropicus"
+  ],
+  "segments": {
+    "group_1": {
+      "selection": {
+        "coefficient": 0.15,
+        "mae": 10.028622154731652,
+        "median_error": -0.07729324383333075,
+        "pairs": 218
+      },
+      "validation": {
+        "mae": 6.6424885273933345,
+        "median_error": -0.23930307974999487,
+        "pairs": 150
+      },
+      "validation_full": {
+        "mae": 8.305841406266667,
+        "median_error": 3.3462931583333244,
+        "pairs": 150
+      },
+      "validation_zero": {
+        "mae": 6.737698211111113,
+        "median_error": -1.509999999999998,
+        "pairs": 150
+      }
+    },
+    "group_1_mile": {
+      "selection": {
+        "coefficient": 0.0,
+        "mae": 11.1469924863388,
+        "median_error": 0.3024999999999949,
+        "pairs": 122
+      },
+      "validation": {
+        "mae": 5.83890235930736,
+        "median_error": -1.0751999999999953,
+        "pairs": 77
+      },
+      "validation_full": {
+        "mae": 7.987131472077924,
+        "median_error": 4.679245239999997,
+        "pairs": 77
+      },
+      "validation_zero": {
+        "mae": 5.83890235930736,
+        "median_error": -1.0751999999999953,
+        "pairs": 77
+      }
+    }
+  },
+  "selection": {
+    "coefficient": 0.25,
+    "mae": 9.981227504194347,
+    "median_error": 0.059011384583322,
+    "pairs": 860
+  },
+  "training_cutoff_exclusive": "2025-01-01",
+  "trials": [
+    {
+      "coefficient": 0.0,
+      "mae": 10.124927141685626,
+      "median_error": -1.3249999999999886,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.05,
+      "mae": 10.078095372875355,
+      "median_error": -1.138531056416662,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.1,
+      "mae": 10.04008993671392,
+      "median_error": -0.8337287794999975,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.15,
+      "mae": 10.009036162311789,
+      "median_error": -0.5896198955833369,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.2,
+      "mae": 9.988421551270896,
+      "median_error": -0.31980976133333483,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.25,
+      "mae": 9.981227504194347,
+      "median_error": 0.059011384583322,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.3,
+      "mae": 9.985774083782138,
+      "median_error": 0.32520044750000565,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.35,
+      "mae": 10.002435782985431,
+      "median_error": 0.6652826050833294,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.4,
+      "mae": 10.027254912815858,
+      "median_error": 0.9192578573333314,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.45,
+      "mae": 10.057567266505973,
+      "median_error": 1.1287468456666703,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.5,
+      "mae": 10.095574102342603,
+      "median_error": 1.368384377500004,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.55,
+      "mae": 10.138401466541247,
+      "median_error": 1.6873462665833339,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.6,
+      "mae": 10.187002868287951,
+      "median_error": 1.9424905369999947,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.65,
+      "mae": 10.247901514112952,
+      "median_error": 2.1982594059999947,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.7,
+      "mae": 10.314873254024773,
+      "median_error": 2.4123293761666584,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.75,
+      "mae": 10.38774480707613,
+      "median_error": 2.669367114166665,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.8,
+      "mae": 10.465335343239113,
+      "median_error": 2.882305001333327,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.85,
+      "mae": 10.550710482699772,
+      "median_error": 3.093244867083332,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.9,
+      "mae": 10.643491388498417,
+      "median_error": 3.268113959833327,
+      "pairs": 860
+    },
+    {
+      "coefficient": 0.95,
+      "mae": 10.74483241389706,
+      "median_error": 3.587043616750006,
+      "pairs": 860
+    },
+    {
+      "coefficient": 1.0,
+      "mae": 10.853905000503454,
+      "median_error": 3.747900895000001,
+      "pairs": 860
+    }
+  ],
+  "validation": {
+    "mae": 9.215429488504473,
+    "median_error": 0.3100668158333342,
+    "pairs": 649
+  },
+  "validation_full": {
+    "mae": 10.591695822407914,
+    "median_error": 4.656933929999994,
+    "pairs": 649
+  },
+  "validation_zero": {
+    "mae": 9.295261980754088,
+    "median_error": -1.3166666666666629,
+    "pairs": 649
+  }
+}

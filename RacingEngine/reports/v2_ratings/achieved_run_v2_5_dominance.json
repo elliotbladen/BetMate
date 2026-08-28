@@ -1,0 +1,449 @@
+{
+  "accepted_ratings_changed": false,
+  "audits": {
+    "frozen_breakout_cohort": {
+      "database_last_date": "2026-08-22",
+      "horizons": {
+        "180": {
+          "candidate_beats_both_baselines": true,
+          "censored_or_no_followup": 24,
+          "eligible": 80,
+          "false_discovery_rate": 0.34782608695652173,
+          "future_peak_mae": {
+            "candidate": 8.912831410876121,
+            "class_only": 8.972328267633335,
+            "official": 14.223819535733336
+          },
+          "precision": 0.6521739130434783,
+          "recall": 0.39473684210526316
+        },
+        "365": {
+          "candidate_beats_both_baselines": true,
+          "censored_or_no_followup": 27,
+          "eligible": 77,
+          "false_discovery_rate": 0.2222222222222222,
+          "future_peak_mae": {
+            "candidate": 9.338846057736921,
+            "class_only": 9.428353634640693,
+            "official": 17.782563217480522
+          },
+          "precision": 0.7777777777777778,
+          "recall": 0.34146341463414637
+        },
+        "90": {
+          "candidate_beats_both_baselines": true,
+          "censored_or_no_followup": 34,
+          "eligible": 70,
+          "false_discovery_rate": 0.42857142857142855,
+          "future_peak_mae": {
+            "candidate": 8.105862175468832,
+            "class_only": 9.108145532028573,
+            "official": 12.307065025380954
+          },
+          "precision": 0.5714285714285714,
+          "recall": 0.41379310344827586
+        }
+      },
+      "limitations": "Age/sex stratification and 2026 untouched test remain mandatory before promotion.",
+      "selected": 104,
+      "selection": "winner margin >=3L; <=8 prior starts; official below candidate race strength; no future outcome used"
+    },
+    "gates": {
+      "elite_spearman_at_least_0_50": true,
+      "frozen_breakout_cohort_90d_mae": true,
+      "gringotts_sheza_wfa_semantics": true,
+      "natural_fling_100_to_110": false
+    },
+    "gringotts_sheza_alibi": [
+      {
+        "achieved_rating": 112.37000869084505,
+        "base_rating": 116.975547144,
+        "beaten_margin_component": -7.116666666666667,
+        "horse_name": "Gringotts",
+        "weight_component": 0.0
+      },
+      {
+        "achieved_rating": 116.24334202417839,
+        "base_rating": 115.33732392733333,
+        "beaten_margin_component": -3.243333333333333,
+        "horse_name": "Sheza Alibi",
+        "weight_component": 0.0
+      }
+    ],
+    "natural_fling": {
+      "achieved_rating": 89.68035297777072,
+      "base_race_strength": 83.53333333333333,
+      "base_rating": 83.53333333333333,
+      "beaten_margin_component": 0.0,
+      "collateral_revision_component": -2.0458970222292634,
+      "confidence": 0.88,
+      "detail_json": "{\"base_model_version\": \"form-first-v2.0\", \"breakout_anchor_relief\": false, \"breakout_flags\": {\"winner_prior\": 71.0, \"winner_prior_starts\": 1, \"winning_margin\": 4.0}, \"candidate_collateral_weight\": 0.8, \"candidate_version\": \"achieved-run-v2.5-dominance-pit-shadow\", \"class_standard\": 105.0, \"collateral_anchor\": 78.16666666666666, \"collateral_revision_status\": \"not_yet_applied_zero\", \"dominance_coefficient\": 0.0, \"dominance_evidence\": {\"available\": true, \"class_family\": \"group_3\", \"distance_band\": \"sprint\", \"margin_lengths\": 4.0, \"percentile\": 0.9858156028368794, \"prior_median\": 0.75, \"prior_races\": 141, \"reliability\": 0.9432624113475176}, \"dominance_fit\": {\"horizon_days\": 90, \"named_audit_horses_excluded\": [\"gringotts\", \"naturalfling\", \"ninja\", \"shezaalibi\"], \"samples\": 158, \"selected_coefficient\": 0.0, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"dominance_update_component\": 0.0, \"independent_corroboration\": {\"clock\": {\"adjusted_fast_mad\": 0.1449275362318851, \"available\": true, \"meeting_variant_seconds\": 0.28000000000000114, \"other_meeting_races\": 8, \"prior_clocks\": 89, \"supported\": false, \"track_distance_mad_seconds\": 0.6900000000000048, \"track_distance_median_seconds\": 63.73}, \"energy\": {\"achievement_signal\": 0.0, \"available\": true, \"compensation_signal\": 1.1201268001685971, \"confidence\": 0.95, \"supported\": false, \"training_threshold\": 2.723857675250848}, \"supported\": false}, \"named_audits_excluded_from_fit\": true, \"opposition_evidence\": {\"opposition_anchor\": 77.53009822218701, \"principal_coverage\": 1.0, \"principals\": [{\"adjusted_anchor\": 71.94858197730629, \"anchor\": 71.94858197730629, \"dispersion\": 0.0, \"finish_position\": 1, \"horse_key\": \"naturalfling\", \"official\": 71.0, \"prior_median\": 73.410815482125, \"reliability\": 0.3934693402873666, \"runs\": 1}, {\"adjusted_anchor\": 90.71855469256174, \"anchor\": 79.38522135922841, \"dispersion\": 0.7694412228713503, \"finish_position\": 2, \"horse_key\": \"scintillation\", \"official\": 72.0, \"prior_median\": 84.31495721462865, \"reliability\": 0.5996952511094132, \"runs\": 2}, {\"adjusted_anchor\": 78.45833333333333, \"anchor\": 65.0, \"dispersion\": 17.113281301024507, \"finish_position\": 3, \"horse_key\": \"ohyesshedid\", \"official\": 65.0, \"prior_median\": 60.60231131, \"reliability\": 0.0, \"runs\": 3}, {\"adjusted_anchor\": 76.6018631110407, \"anchor\": 61.72686311104069, \"dispersion\": 0.1149437944166678, \"finish_position\": 4, \"horse_key\": \"portinari\", \"official\": 63.0, \"prior_median\": 61.34854166666667, \"reliability\": 0.770916748707543, \"runs\": 3}]}, \"opposition_fit\": {\"horizon_days\": 90, \"named_audit_horses_excluded\": true, \"samples\": 43, \"selected_coefficient\": 0.2, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"opposition_revision_coefficient\": 0.2, \"opposition_revision_component\": -2.0458970222292634, \"original_collateral_weight\": 0.8, \"partial_update_coefficient\": 0.35, \"partial_update_fit\": {\"horizon_days\": 90, \"named_audit_horses_excluded\": true, \"samples\": 1022, \"selected_coefficient\": 0.35, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"race_weight_policy\": \"set_weight_allowance_neutral\", \"research_only\": true, \"sectional_status\": \"not_promoted_zero\", \"strictly_prior_evidence\": true, \"time_variant_status\": \"not_promoted_zero\", \"training_thresholds\": {\"clock_fast_threshold_mad\": 0.5, \"energy_compensation_threshold\": 2.723857675250848, \"energy_quantile\": 0.75, \"energy_winner_rows\": 886, \"named_audit_horses_excluded\": true, \"training_cutoff_exclusive\": \"2025-01-01\"}, \"uncorroborated_partial_update\": 8.19291666666666, \"winner_margin_cap_points\": 12.0, \"winner_margin_requires_corroboration\": true}",
+      "horse_key": "naturalfling",
+      "horse_name": "Natural Fling",
+      "model_version": "achieved-run-v2.5-dominance-pit-shadow",
+      "race_date": "2026-08-15",
+      "race_id": "2026-08-15|caulfield|6",
+      "race_strength": 85.71368631110406,
+      "runner_number": 5,
+      "sectional_component": 0.0,
+      "time_variant_component": 0.0,
+      "weight_component": 0.0,
+      "winner_margin_component": 3.966666666666667
+    },
+    "official_audit_matches": 24,
+    "official_audit_spearman": 0.5397860210989995,
+    "partial_gate_passed": false,
+    "promotion_warning": "Partial only: frozen breakout cohort, time/variant, sectional and collateral gates remain required."
+  },
+  "build": {
+    "dominance_updated_winners": 0,
+    "fit": {
+      "horizon_days": 90,
+      "named_audit_horses_excluded": [
+        "gringotts",
+        "naturalfling",
+        "ninja",
+        "shezaalibi"
+      ],
+      "samples": 158,
+      "selected_coefficient": 0.0,
+      "training_cutoff_exclusive": "2025-01-01",
+      "trials": [
+        {
+          "coefficient": 0.0,
+          "training_future_peak_mae": 7.4708571500002545
+        },
+        {
+          "coefficient": 0.05,
+          "training_future_peak_mae": 7.47910399197822
+        },
+        {
+          "coefficient": 0.1,
+          "training_future_peak_mae": 7.489558106634104
+        },
+        {
+          "coefficient": 0.15,
+          "training_future_peak_mae": 7.501066308867647
+        },
+        {
+          "coefficient": 0.2,
+          "training_future_peak_mae": 7.513602617616359
+        },
+        {
+          "coefficient": 0.25,
+          "training_future_peak_mae": 7.5277056413252685
+        },
+        {
+          "coefficient": 0.3,
+          "training_future_peak_mae": 7.543445213713203
+        },
+        {
+          "coefficient": 0.35,
+          "training_future_peak_mae": 7.559464059782008
+        },
+        {
+          "coefficient": 0.4,
+          "training_future_peak_mae": 7.5760519296873605
+        },
+        {
+          "coefficient": 0.45,
+          "training_future_peak_mae": 7.592639799592712
+        },
+        {
+          "coefficient": 0.5,
+          "training_future_peak_mae": 7.609227669498064
+        },
+        {
+          "coefficient": 0.55,
+          "training_future_peak_mae": 7.625815539403417
+        },
+        {
+          "coefficient": 0.6,
+          "training_future_peak_mae": 7.644252044622316
+        },
+        {
+          "coefficient": 0.65,
+          "training_future_peak_mae": 7.663559342594334
+        },
+        {
+          "coefficient": 0.7,
+          "training_future_peak_mae": 7.683034744483057
+        },
+        {
+          "coefficient": 0.75,
+          "training_future_peak_mae": 7.70603632702298
+        },
+        {
+          "coefficient": 0.8,
+          "training_future_peak_mae": 7.73095377202317
+        },
+        {
+          "coefficient": 0.85,
+          "training_future_peak_mae": 7.759363935548958
+        },
+        {
+          "coefficient": 0.9,
+          "training_future_peak_mae": 7.788602350939247
+        },
+        {
+          "coefficient": 0.95,
+          "training_future_peak_mae": 7.8179927359840224
+        },
+        {
+          "coefficient": 1.0,
+          "training_future_peak_mae": 7.847383121028797
+        }
+      ]
+    },
+    "model_version": "achieved-run-v2.5-dominance-pit-shadow",
+    "parent": {
+      "fit": {
+        "horizon_days": 90,
+        "named_audit_horses_excluded": true,
+        "samples": 43,
+        "selected_coefficient": 0.2,
+        "training_cutoff_exclusive": "2025-01-01",
+        "trials": [
+          {
+            "coefficient": 0.0,
+            "training_future_peak_mae": 8.061266295877136
+          },
+          {
+            "coefficient": 0.05,
+            "training_future_peak_mae": 8.024157278146124
+          },
+          {
+            "coefficient": 0.1,
+            "training_future_peak_mae": 7.996410051297282
+          },
+          {
+            "coefficient": 0.15,
+            "training_future_peak_mae": 7.96866282444844
+          },
+          {
+            "coefficient": 0.2,
+            "training_future_peak_mae": 7.949026041392884
+          },
+          {
+            "coefficient": 0.25,
+            "training_future_peak_mae": 7.963481896026232
+          },
+          {
+            "coefficient": 0.3,
+            "training_future_peak_mae": 7.999262927327022
+          },
+          {
+            "coefficient": 0.35,
+            "training_future_peak_mae": 8.037358017105536
+          },
+          {
+            "coefficient": 0.4,
+            "training_future_peak_mae": 8.09927810072928
+          },
+          {
+            "coefficient": 0.45,
+            "training_future_peak_mae": 8.16119818435302
+          },
+          {
+            "coefficient": 0.5,
+            "training_future_peak_mae": 8.223118267976764
+          },
+          {
+            "coefficient": 0.55,
+            "training_future_peak_mae": 8.285038351600504
+          },
+          {
+            "coefficient": 0.6,
+            "training_future_peak_mae": 8.346958435224245
+          },
+          {
+            "coefficient": 0.65,
+            "training_future_peak_mae": 8.408878518847988
+          },
+          {
+            "coefficient": 0.7,
+            "training_future_peak_mae": 8.47079860247173
+          },
+          {
+            "coefficient": 0.75,
+            "training_future_peak_mae": 8.532718686095473
+          },
+          {
+            "coefficient": 0.8,
+            "training_future_peak_mae": 8.596454592593009
+          },
+          {
+            "coefficient": 0.85,
+            "training_future_peak_mae": 8.660710174406052
+          },
+          {
+            "coefficient": 0.9,
+            "training_future_peak_mae": 8.731702113377754
+          },
+          {
+            "coefficient": 0.95,
+            "training_future_peak_mae": 8.811558909928767
+          },
+          {
+            "coefficient": 1.0,
+            "training_future_peak_mae": 8.891415706479782
+          }
+        ]
+      },
+      "model_version": "achieved-run-v2.4-opposition-pit-shadow",
+      "parent": {
+        "fit": {
+          "horizon_days": 90,
+          "named_audit_horses_excluded": true,
+          "samples": 1022,
+          "selected_coefficient": 0.35,
+          "training_cutoff_exclusive": "2025-01-01",
+          "trials": [
+            {
+              "coefficient": 0.0,
+              "training_future_peak_mae": 7.572800517696003
+            },
+            {
+              "coefficient": 0.05,
+              "training_future_peak_mae": 7.543391524327082
+            },
+            {
+              "coefficient": 0.1,
+              "training_future_peak_mae": 7.51706781965498
+            },
+            {
+              "coefficient": 0.15,
+              "training_future_peak_mae": 7.493862656267012
+            },
+            {
+              "coefficient": 0.2,
+              "training_future_peak_mae": 7.4738239331052165
+            },
+            {
+              "coefficient": 0.25,
+              "training_future_peak_mae": 7.45966792042833
+            },
+            {
+              "coefficient": 0.3,
+              "training_future_peak_mae": 7.451802846657705
+            },
+            {
+              "coefficient": 0.35,
+              "training_future_peak_mae": 7.44970381825969
+            },
+            {
+              "coefficient": 0.4,
+              "training_future_peak_mae": 7.449807440813339
+            },
+            {
+              "coefficient": 0.45,
+              "training_future_peak_mae": 7.453762542200018
+            },
+            {
+              "coefficient": 0.5,
+              "training_future_peak_mae": 7.4609722179598235
+            },
+            {
+              "coefficient": 0.55,
+              "training_future_peak_mae": 7.469507333085578
+            },
+            {
+              "coefficient": 0.6,
+              "training_future_peak_mae": 7.480517896840132
+            },
+            {
+              "coefficient": 0.65,
+              "training_future_peak_mae": 7.493596248441571
+            },
+            {
+              "coefficient": 0.7,
+              "training_future_peak_mae": 7.511055375321288
+            },
+            {
+              "coefficient": 0.75,
+              "training_future_peak_mae": 7.533972244182642
+            },
+            {
+              "coefficient": 0.8,
+              "training_future_peak_mae": 7.5616270689408
+            },
+            {
+              "coefficient": 0.85,
+              "training_future_peak_mae": 7.591019712752448
+            },
+            {
+              "coefficient": 0.9,
+              "training_future_peak_mae": 7.622768691192309
+            },
+            {
+              "coefficient": 0.95,
+              "training_future_peak_mae": 7.656133040493976
+            },
+            {
+              "coefficient": 1.0,
+              "training_future_peak_mae": 7.691311134721312
+            }
+          ]
+        },
+        "model_version": "achieved-run-v2.3-calibrated-shadow",
+        "parent": {
+          "breakout_anchor_relief_races": 25,
+          "corroborated_dominant_winners": 44,
+          "model_version": "achieved-run-v2.2-corroborated-shadow",
+          "performances": 29126,
+          "races": 2712,
+          "thresholds": {
+            "clock_fast_threshold_mad": 0.5,
+            "energy_compensation_threshold": 2.723857675250848,
+            "energy_quantile": 0.75,
+            "energy_winner_rows": 886,
+            "named_audit_horses_excluded": true,
+            "training_cutoff_exclusive": "2025-01-01"
+          }
+        },
+        "partially_updated_rows": 3170,
+        "performances": 29126
+      },
+      "performances": 29126,
+      "revised_rows": 28903
+    },
+    "performances": 29126
+  },
+  "decision": "REJECT_OR_REVISE",
+  "named_winner_audit": {
+    "Natural Fling": {
+      "achieved_rating": 89.68035297777072,
+      "collateral_revision_component": -2.0458970222292634,
+      "dominance_evidence": {
+        "available": true,
+        "class_family": "group_3",
+        "distance_band": "sprint",
+        "margin_lengths": 4.0,
+        "percentile": 0.9858156028368794,
+        "prior_median": 0.75,
+        "prior_races": 141,
+        "reliability": 0.9432624113475176
+      },
+      "horse_name": "Natural Fling",
+      "race_date": "2026-08-15",
+      "winner_margin_component": 3.966666666666667
+    },
+    "Ninja": {
+      "achieved_rating": 112.93572297915462,
+      "collateral_revision_component": -0.8688996408453961,
+      "dominance_evidence": {
+        "available": true,
+        "class_family": "group_2",
+        "distance_band": "sprint",
+        "margin_lengths": 1.2,
+        "percentile": 0.8125,
+        "prior_median": 0.5,
+        "prior_races": 80,
+        "reliability": 0.25
+      },
+      "horse_name": "Ninja",
+      "race_date": "2026-08-08",
+      "winner_margin_component": 1.1199999999999999
+    }
+  }
+}

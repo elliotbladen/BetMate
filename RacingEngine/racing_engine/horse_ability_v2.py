@@ -16,7 +16,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from .evaluation_protocol import load_protocol, period_for, protocol_hash, score_race
 from .horse_identity import identity_key
@@ -131,22 +131,38 @@ def _v1_history(store: RacingStore) -> dict[str, list[tuple[str, float]]]:
     return histories
 
 
-def build_point_in_time_examples(store: RacingStore, protocol: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, int]]:
+def _performance_rows(store: RacingStore, model_version: str) -> list[Any]:
+    if model_version == RUN_MODEL_VERSION:
+        return store.connection.execute(
+            """SELECT p.*,r.race_date FROM v2_run_performances p
+                 JOIN v2_clean_races r ON r.race_id=p.race_id
+                WHERE p.model_version=? ORDER BY r.race_date,p.race_id,p.runner_number""",
+            (model_version,),).fetchall()
+    return store.connection.execute(
+        """SELECT p.*,p.achieved_rating performance_rating,r.race_date
+             FROM v2_achieved_run_candidates p JOIN v2_clean_races r ON r.race_id=p.race_id
+            WHERE p.model_version=? ORDER BY r.race_date,p.race_id,p.runner_number""",
+        (model_version,),).fetchall()
+
+
+def build_point_in_time_examples(store: RacingStore, protocol: dict[str, Any], *,
+                                 run_model_version: str = RUN_MODEL_VERSION,
+                                 ability_version: str = ABILITY_VERSION,
+                                 state_builder: Callable[[list[tuple[str, float]], str], AbilityState] = ability_state) -> tuple[list[dict[str, Any]], dict[str, int]]:
     """Materialise pre-race states without same-day or future leakage."""
     schema(store)
     store.connection.execute(
-        "DELETE FROM v2_horse_ability_states WHERE model_version=?", (ABILITY_VERSION,)
+        "DELETE FROM v2_horse_ability_states WHERE model_version=?", (ability_version,)
     )
     v1_histories = _v1_history(store)
     v2_histories: dict[str, list[tuple[str, float]]] = defaultdict(list)
+    rejected_histories: dict[str, list[tuple[str, float]]] = defaultdict(list)
     performance_by_race: dict[str, list[Any]] = defaultdict(list)
-    for row in store.connection.execute(
-        """SELECT p.*,r.race_date FROM v2_run_performances p
-             JOIN v2_clean_races r ON r.race_id=p.race_id
-            WHERE p.model_version=? ORDER BY r.race_date,p.race_id,p.runner_number""",
-        (RUN_MODEL_VERSION,),
-    ):
+    for row in _performance_rows(store, run_model_version):
         performance_by_race[row["race_id"]].append(row)
+    rejected_by_race: dict[str, list[Any]] = defaultdict(list)
+    for row in _performance_rows(store, RUN_MODEL_VERSION):
+        rejected_by_race[row["race_id"]].append(row)
 
     races_by_date: dict[str, list[Any]] = defaultdict(list)
     for race in store.connection.execute(
@@ -171,7 +187,7 @@ def build_point_in_time_examples(store: RacingStore, protocol: dict[str, Any]) -
             state_rows = []
             for runner in runners:
                 key = runner["horse_key"]
-                state = ability_state(v2_histories[key], race_date)
+                state = state_builder(v2_histories[key], race_date)
                 v1_values = [rating for day, rating in v1_histories[key] if day < race_date]
                 state_rows.append(
                     {
@@ -180,7 +196,7 @@ def build_point_in_time_examples(store: RacingStore, protocol: dict[str, Any]) -
                         "horse_name": runner["horse_name"],
                         "finish_position": int(runner["finish_position"]),
                         "ability": state.ability_rating,
-                        "rejected_v2": rejected_v2_state(v2_histories[key], race_date),
+                        "rejected_v2": rejected_v2_state(rejected_histories[key], race_date),
                         "v1": statistics.median(v1_values[-3:]) if v1_values else NEUTRAL,
                         "state": state,
                     }
@@ -189,7 +205,7 @@ def build_point_in_time_examples(store: RacingStore, protocol: dict[str, Any]) -
                     """INSERT INTO v2_horse_ability_states VALUES
                        (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                     (
-                        ABILITY_VERSION,
+                        ability_version,
                         race["race_id"],
                         runner["runner_number"],
                         key,
@@ -245,6 +261,10 @@ def build_point_in_time_examples(store: RacingStore, protocol: dict[str, Any]) -
         for race in races_by_date[race_date]:
             for performance in performance_by_race.get(race["race_id"], []):
                 v2_histories[performance["horse_key"]].append(
+                    (race_date, float(performance["performance_rating"]))
+                )
+            for performance in rejected_by_race.get(race["race_id"], []):
+                rejected_histories[performance["horse_key"]].append(
                     (race_date, float(performance["performance_rating"]))
                 )
     store.connection.commit()
@@ -351,21 +371,19 @@ def evaluate(
     return results
 
 
-def current_states(store: RacingStore, as_of_date: str) -> list[dict[str, Any]]:
+def current_states(store: RacingStore, as_of_date: str, *,
+                   run_model_version: str = RUN_MODEL_VERSION,
+                   state_builder: Callable[[list[tuple[str, float]], str], AbilityState] = ability_state) -> list[dict[str, Any]]:
     histories: dict[str, list[tuple[str, float]]] = defaultdict(list)
     names: dict[str, str] = {}
-    for row in store.connection.execute(
-        """SELECT r.race_date,p.horse_key,p.horse_name,p.performance_rating
-             FROM v2_run_performances p JOIN v2_clean_races r ON r.race_id=p.race_id
-            WHERE p.model_version=? AND r.race_date<?
-            ORDER BY r.race_date""",
-        (RUN_MODEL_VERSION, as_of_date),
-    ):
+    for row in _performance_rows(store, run_model_version):
+        if row["race_date"] >= as_of_date:
+            continue
         histories[row["horse_key"]].append((row["race_date"], float(row["performance_rating"])))
         names[row["horse_key"]] = row["horse_name"]
     rows = []
     for key, history in histories.items():
-        state = ability_state(history, as_of_date)
+        state = state_builder(history, as_of_date)
         rows.append(
             {
                 "horse_key": key,
@@ -381,15 +399,22 @@ def current_states(store: RacingStore, as_of_date: str) -> list[dict[str, Any]]:
     return sorted(rows, key=lambda row: row["ability_rating"], reverse=True)
 
 
-def named_run_audits(store: RacingStore) -> dict[str, Any]:
-    natural_fling = store.connection.execute(
-        """SELECT r.race_date,r.track_slug,r.race_number,p.performance_rating,
-                  p.race_strength,p.class_standard,p.anchor_coverage,p.detail_json
-             FROM v2_run_performances p JOIN v2_clean_races r ON r.race_id=p.race_id
-            WHERE p.model_version=? AND p.horse_key='naturalfling'
-            ORDER BY r.race_date DESC LIMIT 1""",
-        (RUN_MODEL_VERSION,),
-    ).fetchone()
+def named_run_audits(store: RacingStore, *, run_model_version: str = RUN_MODEL_VERSION) -> dict[str, Any]:
+    if run_model_version == RUN_MODEL_VERSION:
+        natural_fling = store.connection.execute(
+            """SELECT r.race_date,r.track_slug,r.race_number,p.performance_rating,
+                      p.race_strength,p.class_standard,p.anchor_coverage,p.detail_json
+                 FROM v2_run_performances p JOIN v2_clean_races r ON r.race_id=p.race_id
+                WHERE p.model_version=? AND p.horse_key='naturalfling'
+                ORDER BY r.race_date DESC LIMIT 1""", (run_model_version,)).fetchone()
+    else:
+        natural_fling = store.connection.execute(
+            """SELECT r.race_date,r.track_slug,r.race_number,p.achieved_rating performance_rating,
+                      p.race_strength,json_extract(p.detail_json,'$.class_standard') class_standard,
+                      json_extract(p.detail_json,'$.opposition_evidence.principal_coverage') anchor_coverage,
+                      p.detail_json FROM v2_achieved_run_candidates p JOIN v2_clean_races r USING(race_id)
+                WHERE p.model_version=? AND p.horse_key='naturalfling'
+                ORDER BY r.race_date DESC LIMIT 1""", (run_model_version,)).fetchone()
     latest = dict(natural_fling) if natural_fling else None
     natural_fling_passed = bool(
         latest and 100.0 <= float(latest["performance_rating"]) <= 110.0
@@ -407,9 +432,15 @@ def named_run_audits(store: RacingStore) -> dict[str, Any]:
     }
 
 
-def run(store: RacingStore, protocol_path: Path, as_of_date: str) -> dict[str, Any]:
+def run(store: RacingStore, protocol_path: Path, as_of_date: str, *,
+        run_model_version: str = RUN_MODEL_VERSION,
+        ability_version: str = ABILITY_VERSION,
+        report_name: str = "horse-ability-v2.1-first-candidate",
+        state_builder: Callable[[list[tuple[str, float]], str], AbilityState] = ability_state) -> dict[str, Any]:
     protocol = load_protocol(protocol_path)
-    examples, exclusions = build_point_in_time_examples(store, protocol)
+    examples, exclusions = build_point_in_time_examples(store, protocol,
+        run_model_version=run_model_version, ability_version=ability_version,
+        state_builder=state_builder)
     training = [race for race in examples if race["period"] == "train"]
     fits = {
         "candidate": fit_temperature(training, "ability"),
@@ -431,8 +462,9 @@ def run(store: RacingStore, protocol_path: Path, as_of_date: str) -> dict[str, A
         if holdout_comparison["log_loss_delta"] >= 0:
             reasons.append(f"historical holdout did not beat {baseline}")
 
-    current = current_states(store, as_of_date)
-    run_audits = named_run_audits(store)
+    current = current_states(store, as_of_date, run_model_version=run_model_version,
+                             state_builder=state_builder)
+    run_audits = named_run_audits(store, run_model_version=run_model_version)
     upstream_failures = [
         name for name, audit in run_audits.items() if not audit["passed"]
     ]
@@ -441,9 +473,9 @@ def run(store: RacingStore, protocol_path: Path, as_of_date: str) -> dict[str, A
         for name in ("Sheza Alibi", "Gringotts", "Autumn Glow", "Natural Fling")
     }
     return {
-        "report_name": "horse-ability-v2.1-first-candidate",
-        "model_version": ABILITY_VERSION,
-        "run_model_version": RUN_MODEL_VERSION,
+        "report_name": report_name,
+        "model_version": ability_version,
+        "run_model_version": run_model_version,
         "as_of_date": as_of_date,
         "protocol_hash": protocol_hash(protocol),
         "specification": {

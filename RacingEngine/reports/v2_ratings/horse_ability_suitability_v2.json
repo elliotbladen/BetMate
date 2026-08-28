@@ -1,0 +1,725 @@
+{
+  "as_of_date": "2026-08-23",
+  "context_coverage": {
+    "known_going_races": 2709,
+    "nonzero_distance_signal": 5159,
+    "nonzero_going_signal": 6764,
+    "races": 2709,
+    "runner_states": 29092
+  },
+  "decision": "REVISE_OR_FREEZE",
+  "evaluation": {
+    "historical_holdout": {
+      "candidate": {
+        "mean_log_loss": 2.3232431057166765,
+        "mean_race_brier": 0.8971370361386325,
+        "mean_winner_rank": 5.087425149700599,
+        "races": 835,
+        "top_1": 0.1497005988023952,
+        "top_3": 0.3904191616766467
+      },
+      "candidate_vs_rejected_v2": {
+        "log_loss_delta": -0.00354269299127008,
+        "paired_log_loss_interval": {
+          "blocks": 86,
+          "delta": -0.0035426929912702764,
+          "interpretation": "candidate minus rejected_v2; negative favours candidate",
+          "lower": -0.011170383840797037,
+          "repetitions": 10000,
+          "upper": 0.004021792795115982
+        },
+        "race_brier_delta": -0.001086421961814965,
+        "top_1_delta": 0.0119760479041916
+      },
+      "candidate_vs_uniform": {
+        "log_loss_delta": -0.017522976313308014,
+        "paired_log_loss_interval": {
+          "blocks": 86,
+          "delta": -0.01752297631330819,
+          "interpretation": "candidate minus uniform; negative favours candidate",
+          "lower": -0.02563539762652994,
+          "repetitions": 10000,
+          "upper": -0.009341158867265225
+        },
+        "race_brier_delta": -0.003197778088582681,
+        "top_1_delta": 0.0047904191616766345
+      },
+      "candidate_vs_v1": {
+        "log_loss_delta": -0.011672199412199546,
+        "paired_log_loss_interval": {
+          "blocks": 86,
+          "delta": -0.01167219941219965,
+          "interpretation": "candidate minus v1; negative favours candidate",
+          "lower": -0.019718184105385582,
+          "repetitions": 10000,
+          "upper": -0.0036638598875190767
+        },
+        "race_brier_delta": -0.0021423614045499306,
+        "top_1_delta": 0.02035928143712573
+      },
+      "rejected_v2": {
+        "mean_log_loss": 2.3267857987079466,
+        "mean_race_brier": 0.8982234581004475,
+        "mean_winner_rank": 5.209580838323354,
+        "races": 835,
+        "top_1": 0.1377245508982036,
+        "top_3": 0.3688622754491018
+      },
+      "uniform": {
+        "mean_log_loss": 2.3407660820299845,
+        "mean_race_brier": 0.9003348142272152,
+        "mean_winner_rank": 5.3053892215568865,
+        "races": 835,
+        "top_1": 0.14491017964071856,
+        "top_3": 0.38203592814371257
+      },
+      "v1": {
+        "mean_log_loss": 2.334915305128876,
+        "mean_race_brier": 0.8992793975431824,
+        "mean_winner_rank": 5.3077844311377245,
+        "races": 835,
+        "top_1": 0.12934131736526946,
+        "top_3": 0.3664670658682635
+      }
+    },
+    "prospective_holdout": {
+      "candidate": {
+        "mean_log_loss": 2.237927056888524,
+        "mean_race_brier": 0.887242016504465,
+        "mean_winner_rank": 4.578947368421052,
+        "races": 19,
+        "top_1": 0.10526315789473684,
+        "top_3": 0.42105263157894735
+      },
+      "candidate_vs_rejected_v2": {
+        "log_loss_delta": -0.04032737848433765,
+        "paired_log_loss_interval": {
+          "blocks": 2,
+          "delta": -0.040327378484337685,
+          "interpretation": "candidate minus rejected_v2; negative favours candidate",
+          "lower": -0.0431870783118478,
+          "repetitions": 10000,
+          "upper": -0.037149934231548665
+        },
+        "race_brier_delta": -0.006128503329401291,
+        "top_1_delta": 0.05263157894736842
+      },
+      "candidate_vs_uniform": {
+        "log_loss_delta": -0.01154920859818409,
+        "paired_log_loss_interval": {
+          "blocks": 2,
+          "delta": -0.011549208598184231,
+          "interpretation": "candidate minus uniform; negative favours candidate",
+          "lower": -0.04164341768763006,
+          "repetitions": 10000,
+          "upper": 0.015535579582317017
+        },
+        "race_brier_delta": -0.0032943477161097023,
+        "top_1_delta": -0.05263157894736842
+      },
+      "candidate_vs_v1": {
+        "log_loss_delta": -0.039628610318168445,
+        "paired_log_loss_interval": {
+          "blocks": 2,
+          "delta": -0.039628610318168174,
+          "interpretation": "candidate minus v1; negative favours candidate",
+          "lower": -0.0642150802310165,
+          "repetitions": 10000,
+          "upper": -0.017500787396604676
+        },
+        "race_brier_delta": -0.008308960227450757,
+        "top_1_delta": -0.05263157894736842
+      },
+      "rejected_v2": {
+        "mean_log_loss": 2.2782544353728618,
+        "mean_race_brier": 0.8933705198338663,
+        "mean_winner_rank": 5.421052631578948,
+        "races": 19,
+        "top_1": 0.05263157894736842,
+        "top_3": 0.3684210526315789
+      },
+      "uniform": {
+        "mean_log_loss": 2.249476265486708,
+        "mean_race_brier": 0.8905363642205747,
+        "mean_winner_rank": 4.052631578947368,
+        "races": 19,
+        "top_1": 0.15789473684210525,
+        "top_3": 0.47368421052631576
+      },
+      "v1": {
+        "mean_log_loss": 2.2775556672066926,
+        "mean_race_brier": 0.8955509767319157,
+        "mean_winner_rank": 5.368421052631579,
+        "races": 19,
+        "top_1": 0.15789473684210525,
+        "top_3": 0.3684210526315789
+      }
+    },
+    "train": {
+      "candidate": {
+        "mean_log_loss": 2.340576319807541,
+        "mean_race_brier": 0.9003434794589826,
+        "mean_winner_rank": 5.462717058222676,
+        "races": 979,
+        "top_1": 0.11746680286006128,
+        "top_3": 0.3432073544433095
+      },
+      "candidate_vs_rejected_v2": {
+        "log_loss_delta": -0.02334325527408554,
+        "paired_log_loss_interval": {
+          "blocks": 100,
+          "delta": -0.023343255274085636,
+          "interpretation": "candidate minus rejected_v2; negative favours candidate",
+          "lower": -0.03368610201027412,
+          "repetitions": 10000,
+          "upper": -0.014175495837404264
+        },
+        "race_brier_delta": -0.004096068327327451,
+        "top_1_delta": -0.0030643513789581217
+      },
+      "candidate_vs_uniform": {
+        "log_loss_delta": 0.003202231109252107,
+        "paired_log_loss_interval": {
+          "blocks": 100,
+          "delta": 0.0032022311092520304,
+          "interpretation": "candidate minus uniform; negative favours candidate",
+          "lower": -0.003646984354602959,
+          "repetitions": 10000,
+          "upper": 0.010614160021187403
+        },
+        "race_brier_delta": 0.000651811080304987,
+        "top_1_delta": -0.010214504596527063
+      },
+      "candidate_vs_v1": {
+        "log_loss_delta": 0.004803184913290792,
+        "paired_log_loss_interval": {
+          "blocks": 100,
+          "delta": 0.004803184913291018,
+          "interpretation": "candidate minus v1; negative favours candidate",
+          "lower": -0.001017372388820711,
+          "repetitions": 10000,
+          "upper": 0.010677669968027447
+        },
+        "race_brier_delta": 0.0013476237166480942,
+        "top_1_delta": -0.025536261491317686
+      },
+      "rejected_v2": {
+        "mean_log_loss": 2.3639195750816264,
+        "mean_race_brier": 0.9044395477863101,
+        "mean_winner_rank": 5.526046986721144,
+        "races": 979,
+        "top_1": 0.1205311542390194,
+        "top_3": 0.3176710929519918
+      },
+      "uniform": {
+        "mean_log_loss": 2.3373740886982888,
+        "mean_race_brier": 0.8996916683786776,
+        "mean_winner_rank": 5.337078651685394,
+        "races": 979,
+        "top_1": 0.12768130745658834,
+        "top_3": 0.36057201225740554
+      },
+      "v1": {
+        "mean_log_loss": 2.33577313489425,
+        "mean_race_brier": 0.8989958557423345,
+        "mean_winner_rank": 5.2951991828396325,
+        "races": 979,
+        "top_1": 0.14300306435137897,
+        "top_3": 0.3738508682328907
+      }
+    },
+    "validation": {
+      "candidate": {
+        "mean_log_loss": 2.3285783853228517,
+        "mean_race_brier": 0.8976155480659177,
+        "mean_winner_rank": 5.204337899543379,
+        "races": 876,
+        "top_1": 0.1449771689497717,
+        "top_3": 0.3687214611872146
+      },
+      "candidate_vs_rejected_v2": {
+        "log_loss_delta": -0.01865915241473326,
+        "paired_log_loss_interval": {
+          "blocks": 90,
+          "delta": -0.018659152414733263,
+          "interpretation": "candidate minus rejected_v2; negative favours candidate",
+          "lower": -0.025266632029019357,
+          "repetitions": 10000,
+          "upper": -0.012182183705502373
+        },
+        "race_brier_delta": -0.004141750511168607,
+        "top_1_delta": 0.025114155251141565
+      },
+      "candidate_vs_uniform": {
+        "log_loss_delta": -0.011435048903639444,
+        "paired_log_loss_interval": {
+          "blocks": 90,
+          "delta": -0.011435048903639321,
+          "interpretation": "candidate minus uniform; negative favours candidate",
+          "lower": -0.020024802968261406,
+          "repetitions": 10000,
+          "upper": -0.0030357532499786584
+        },
+        "race_brier_delta": -0.0023065005744025147,
+        "top_1_delta": 0.02625570776255709
+      },
+      "candidate_vs_v1": {
+        "log_loss_delta": -0.004638668551951497,
+        "paired_log_loss_interval": {
+          "blocks": 90,
+          "delta": -0.0046386685519514085,
+          "interpretation": "candidate minus v1; negative favours candidate",
+          "lower": -0.012381230620648467,
+          "repetitions": 10000,
+          "upper": 0.0029254273837535675
+        },
+        "race_brier_delta": -0.0008455288361162161,
+        "top_1_delta": -0.0011415525114155112
+      },
+      "rejected_v2": {
+        "mean_log_loss": 2.347237537737585,
+        "mean_race_brier": 0.9017572985770863,
+        "mean_winner_rank": 5.573059360730594,
+        "races": 876,
+        "top_1": 0.11986301369863013,
+        "top_3": 0.3253424657534247
+      },
+      "uniform": {
+        "mean_log_loss": 2.340013434226491,
+        "mean_race_brier": 0.8999220486403202,
+        "mean_winner_rank": 5.309360730593608,
+        "races": 876,
+        "top_1": 0.1187214611872146,
+        "top_3": 0.3767123287671233
+      },
+      "v1": {
+        "mean_log_loss": 2.333217053874803,
+        "mean_race_brier": 0.8984610769020339,
+        "mean_winner_rank": 5.273972602739726,
+        "races": 876,
+        "top_1": 0.1461187214611872,
+        "top_3": 0.3858447488584475
+      }
+    }
+  },
+  "exclusions": {
+    "insufficient_starters": 27,
+    "invalid_winner_count": 3
+  },
+  "generated_at": "2026-08-28T04:38:42+00:00",
+  "model_version": "horse-ability-v2.7-distance-going-shadow",
+  "named_profiles": {
+    "Autumn Glow": {
+      "base_ability": 117.83504114800328,
+      "distance_adjustments": {
+        "middle": 0.0,
+        "mile": 0.0,
+        "sprint": 0.0,
+        "staying": 0.0
+      },
+      "going_adjustments": {
+        "dry": 0.0,
+        "heavy": 0.0,
+        "soft": 0.0
+      },
+      "rated_runs": 13
+    },
+    "Gringotts": {
+      "base_ability": 110.27649494946169,
+      "distance_adjustments": {
+        "middle": 0.0,
+        "mile": 0.0,
+        "sprint": 0.0,
+        "staying": 0.0
+      },
+      "going_adjustments": {
+        "dry": 0.0,
+        "heavy": 0.0,
+        "soft": 0.0
+      },
+      "rated_runs": 19
+    },
+    "Natural Fling": {
+      "base_ability": 99.66829412497677,
+      "distance_adjustments": {
+        "middle": 0.0,
+        "mile": 0.0,
+        "sprint": 0.0,
+        "staying": 0.0
+      },
+      "going_adjustments": {
+        "dry": 0.0,
+        "heavy": 0.0,
+        "soft": 0.0
+      },
+      "rated_runs": 2
+    },
+    "Sheza Alibi": {
+      "base_ability": 110.82863519986215,
+      "distance_adjustments": {
+        "middle": 0.0,
+        "mile": 0.0,
+        "sprint": 0.0,
+        "staying": 0.0
+      },
+      "going_adjustments": {
+        "dry": 0.0,
+        "heavy": 0.0,
+        "soft": 0.0
+      },
+      "rated_runs": 7
+    }
+  },
+  "race_counts": {
+    "historical_holdout": 835,
+    "prospective_holdout": 19,
+    "train": 979,
+    "validation": 876
+  },
+  "reasons": [
+    "validation uncertainty includes no improvement vs v1"
+  ],
+  "report_name": "horse-ability-v2.7-distance-going",
+  "run_model_version": "achieved-run-v2.9-collateral-revised-shadow",
+  "selection": {
+    "selected": {
+      "distance_coefficient": 0.0,
+      "going_coefficient": 0.0,
+      "temperature": 60.0,
+      "training_log_loss": 2.340576319807541,
+      "training_races": 979
+    },
+    "selection_data": "training only",
+    "trials": [
+      {
+        "distance_coefficient": 0.0,
+        "going_coefficient": 0.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.340576319807541,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.0,
+        "going_coefficient": 0.25,
+        "temperature": 60.0,
+        "training_log_loss": 2.3405799396409255,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.0,
+        "going_coefficient": 0.5,
+        "temperature": 60.0,
+        "training_log_loss": 2.340586832901594,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.0,
+        "going_coefficient": 0.75,
+        "temperature": 60.0,
+        "training_log_loss": 2.3405969904977497,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.0,
+        "going_coefficient": 1.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406104036393414,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.25,
+        "going_coefficient": 0.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406100975397504,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.25,
+        "going_coefficient": 0.25,
+        "temperature": 60.0,
+        "training_log_loss": 2.340613874412073,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.25,
+        "going_coefficient": 0.5,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406209257000197,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.25,
+        "going_coefficient": 0.75,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406312423190387,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.25,
+        "going_coefficient": 1.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.34064481548616,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.5,
+        "going_coefficient": 0.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.340647114826208,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.5,
+        "going_coefficient": 0.25,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406510486319396,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.5,
+        "going_coefficient": 0.5,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406582578789994,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.5,
+        "going_coefficient": 0.75,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406687334898657,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.5,
+        "going_coefficient": 1.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.340682466688392,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.75,
+        "going_coefficient": 0.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406873727568307,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.75,
+        "going_coefficient": 0.25,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406914634169134,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.75,
+        "going_coefficient": 0.5,
+        "temperature": 60.0,
+        "training_log_loss": 2.3406988305812018,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.75,
+        "going_coefficient": 0.75,
+        "temperature": 60.0,
+        "training_log_loss": 2.3407094651789566,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 0.75,
+        "going_coefficient": 1.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.34072335844057,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 1.0,
+        "going_coefficient": 0.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.34073087264892,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 1.0,
+        "going_coefficient": 0.25,
+        "temperature": 60.0,
+        "training_log_loss": 2.34073512011059,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 1.0,
+        "going_coefficient": 0.5,
+        "temperature": 60.0,
+        "training_log_loss": 2.340742645176287,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 1.0,
+        "going_coefficient": 0.75,
+        "temperature": 60.0,
+        "training_log_loss": 2.3407534387817774,
+        "training_races": 979
+      },
+      {
+        "distance_coefficient": 1.0,
+        "going_coefficient": 1.0,
+        "temperature": 60.0,
+        "training_log_loss": 2.3407674921636743,
+        "training_races": 979
+      }
+    ]
+  },
+  "specification": {
+    "current_condition_boundary": "known target distance/going modifies expected performance, not base ability",
+    "distance_bands": [
+      "sprint",
+      "mile",
+      "middle",
+      "staying"
+    ],
+    "going_buckets": [
+      "dry",
+      "soft",
+      "heavy"
+    ],
+    "maximum_combined_adjustment": 8.0,
+    "maximum_dimension_adjustment": 6.0,
+    "minimum_context_runs": 2
+  },
+  "temperature_fits": {
+    "candidate": {
+      "selected": 60.0,
+      "trials": [
+        {
+          "temperature": 3.0,
+          "training_log_loss": 3.9099926633253244
+        },
+        {
+          "temperature": 5.0,
+          "training_log_loss": 3.041676702398057
+        },
+        {
+          "temperature": 8.0,
+          "training_log_loss": 2.641115125017549
+        },
+        {
+          "temperature": 10.0,
+          "training_log_loss": 2.5356951065624176
+        },
+        {
+          "temperature": 12.0,
+          "training_log_loss": 2.4758267547831974
+        },
+        {
+          "temperature": 15.0,
+          "training_log_loss": 2.4254310200979408
+        },
+        {
+          "temperature": 20.0,
+          "training_log_loss": 2.385479384202398
+        },
+        {
+          "temperature": 30.0,
+          "training_log_loss": 2.3569021515412585
+        },
+        {
+          "temperature": 40.0,
+          "training_log_loss": 2.3471545199732584
+        },
+        {
+          "temperature": 60.0,
+          "training_log_loss": 2.340576319807541
+        }
+      ]
+    },
+    "rejected_v2": {
+      "selected": 60.0,
+      "trials": [
+        {
+          "temperature": 3.0,
+          "training_log_loss": 5.94323614301789
+        },
+        {
+          "temperature": 5.0,
+          "training_log_loss": 4.180519461010036
+        },
+        {
+          "temperature": 8.0,
+          "training_log_loss": 3.259493187386909
+        },
+        {
+          "temperature": 10.0,
+          "training_log_loss": 2.98453750137376
+        },
+        {
+          "temperature": 12.0,
+          "training_log_loss": 2.816595646103656
+        },
+        {
+          "temperature": 15.0,
+          "training_log_loss": 2.6630743668145223
+        },
+        {
+          "temperature": 20.0,
+          "training_log_loss": 2.532617734038793
+        },
+        {
+          "temperature": 30.0,
+          "training_log_loss": 2.4309125628319466
+        },
+        {
+          "temperature": 40.0,
+          "training_log_loss": 2.3927097316280608
+        },
+        {
+          "temperature": 60.0,
+          "training_log_loss": 2.3639195750816264
+        }
+      ]
+    },
+    "v1": {
+      "selected": 60.0,
+      "trials": [
+        {
+          "temperature": 3.0,
+          "training_log_loss": 2.59378348713378
+        },
+        {
+          "temperature": 5.0,
+          "training_log_loss": 2.43922865676999
+        },
+        {
+          "temperature": 8.0,
+          "training_log_loss": 2.3757599172755004
+        },
+        {
+          "temperature": 10.0,
+          "training_log_loss": 2.3598743744063766
+        },
+        {
+          "temperature": 12.0,
+          "training_log_loss": 2.3513256965870513
+        },
+        {
+          "temperature": 15.0,
+          "training_log_loss": 2.3445218784064403
+        },
+        {
+          "temperature": 20.0,
+          "training_log_loss": 2.339571243276387
+        },
+        {
+          "temperature": 30.0,
+          "training_log_loss": 2.336600722804968
+        },
+        {
+          "temperature": 40.0,
+          "training_log_loss": 2.335906322589998
+        },
+        {
+          "temperature": 60.0,
+          "training_log_loss": 2.33577313489425
+        }
+      ]
+    }
+  }
+}

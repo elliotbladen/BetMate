@@ -79,6 +79,137 @@ Natural Fling's meeting-adjusted Soft clock is −0.70 fast MAD. The candidate i
 not promoted. Her absolute 56 kg versus 49.5 kg WFA difference is also not a
 valid personal bonus because 56 kg was the field's prescribed SWP base.
 
+### Point-in-time opposition strength — 28 August 2026
+
+`achieved-run-v2.4-opposition-pit-shadow` reliability-weights official ratings
+and up to three strictly prior V2 runs for the first four finishers. A pre-2025
+dominant-winner fit selected a 0.20 revision coefficient with the three named
+audits excluded. It passes elite Spearman, WFA semantics and 90/180/365-day
+breakout MAE against both baselines, but Natural Fling falls to 89.68 because
+her principals support only a 77.53 opposition anchor. It is not promoted and
+Horse Ability remains blocked. Preserve the useful opposition component; the
+next distinct family must explain independent winner achievement/dominance.
+
+### Point-in-time dominance rarity — 28 August 2026
+
+`achieved-run-v2.5-dominance-pit-shadow` ranks winning margins against strictly
+prior races of the same class family and distance band. Natural Fling's four
+lengths is at the 98.58th percentile; Ninja's 1.2 lengths is at the 81.25th.
+Despite plausible evidence, a pre-2025 fit against 90-day future peak selected
+coefficient zero on 158 examples, leaving all V2.4 ratings unchanged. This
+exposes a target-layer mismatch: future peak measures sustainable ability and
+mean reversion, not completed-run achievement. Freeze V2.5. The next candidate
+must pre-register separate achieved-performance and sustainable-ability targets.
+
+### Separated achieved-run breakout — 28 August 2026
+
+V2.6 separated completed achievement from future repeatability and rated
+Natural Fling 104.22, but universal application damaged elite Spearman. V2.7
+therefore applies the separated construction only to winners by at least three
+lengths, with no more than eight prior starts and opposition reliability below
+0.50. Only 75/2,712 winners qualify. Natural Fling remains 104.22, elite
+Spearman passes at 0.540 and Sheza Alibi remains correctly above Gringotts.
+Future-peak MAE fails, showing that these exceptional figures require explicit
+downstream shrinkage. Keep V2.7 shadow-only and rerun Horse Ability with
+achieved performance and sustainable recurrence as separate inputs.
+
+### Horse Ability V2.2 on separated achievement — 28 August 2026
+
+`horse-ability-v2.2-separated-achievement-shadow` consumes V2.7 without
+changing its achieved figures. Natural Fling's 104.22 completed run becomes a
+99.17 sustainable state with uncertainty 10.50 from two runs. Validation now
+beats V1 directionally (-0.00041 log loss versus +0.00094 for V2.1), while the
+historical-holdout deficit to rejected V2 narrows to +0.00061. It still fails
+promotion because that deficit remains and validation uncertainty versus V1
+and uniform includes zero. Freeze V2.2. Next test explicit history-depth and
+uncertainty calibration selected on training data only.
+
+### Horse Ability V2.3 history/trajectory — 28 August 2026
+
+Four predeclared families were selected on 979 training races; a four-run,
+90-day responsive state won without using named-horse ordering. V2.3 beats
+rejected V2, V1 and uniform on headline validation and historical-holdout log
+loss, but validation uncertainty versus V1 still crosses zero. Sheza Alibi
+rises to 110.83 versus Gringotts 112.51, narrowing but not reversing the gap.
+Their WFA achieved-run figures remain correctly ordered 116.24 to 112.37.
+Freeze V2.3 and audit handicap weight response—especially Gringotts' 118.85
+Doncaster run and Jigsaw's 121.88 open-race figure—before another aggregation
+candidate.
+
+### Handicap weight V2 audit — 28 August 2026
+
+Training-only tests of 0/25/50/75/100% of the mechanical 2.2046-points-per-kg
+relative-to-winner handicap response selected zero monotonically. Gringotts'
+Doncaster figure falls 118.85 to 97.91; Tropicus' 58.5 kg Oakleigh Plate win
+remains 111.35 and Jigsaw's 61 kg open win remains 121.88 because winners never
+received that relative bonus. Horse Ability now has Sheza Alibi 110.83 above
+Gringotts 109.79 and improves all headline baselines in validation/holdout.
+Validation uncertainty versus V1 still crosses zero. Keep shadow-only; future
+weight research requires allocated weight/claims and bounded race/distance
+response rather than the rejected mechanical formulation.
+
+### Handicap-to-WFA rematch calibration — 28 August 2026
+
+First subsequent WFA/set-weight rematches support 25% initial weight response
+on 860 pre-2025 pairs and repeat directionally on 649 validation pairs. Full
+response is materially worse. Group 1 selects 15% and Group 1 miles zero, so a
+universal 50% rule is unsupported. Independently, the later Sheza
+Alibi/Gringotts WFA rematch implies 55.91% for their Doncaster and a revised
+Gringotts figure near 109.62. Use 25% initially, then store later collateral
+revision separately without leaking it into pre-rematch predictions.
+
+### Time-stamped collateral revision — 28 August 2026
+
+`achieved-run-v2.9-collateral-revised-shadow` applies the training-selected 25%
+handicap response initially and stores later collateral evidence in a separate
+revision ledger. Gringotts' Doncaster run is 103.15 on the information then
+available and 109.62 retrospectively from 22 August, when the subsequent WFA
+rematch became available. Chronological evaluation never sees that revision
+early. The current revised ability states put Gringotts 110.87 and Sheza Alibi
+110.83—effectively level—while the initial-only states put Sheza Alibi 110.83
+above Gringotts 110.28. This is not a final promotion: the named ordering is
+still sensitive to whether retrospective collateral is used.
+
+### Campaign and layoff audit — 28 August 2026
+
+`horse-ability-v2.6-campaign-layoff-shadow` tested no decay and three explicit
+post-layoff decays on 979 training races. No decay won at 2.34058 log loss;
+slow, medium and fast decay returned 2.34152, 2.34198 and 2.34252. Mechanical
+ability erosion after time away is therefore rejected. Layoff should remain an
+uncertainty/current-condition input rather than lowering demonstrated ability.
+The existing probability evaluator does not yet consume uncertainty, so that
+part requires an uncertainty-aware test. Next build distance/going suitability,
+then run the final Horse Ability gate.
+
+### Distance and going suitability audit — 28 August 2026
+
+`horse-ability-v2.7-distance-going-shadow` estimated horse-specific distance
+band and going residuals using only prior runs, with two-run minimums, strong
+shrinkage and bounded adjustments. A 5x5 coefficient grid was selected on 979
+training races. Training selected zero for both distance and going; every
+positive distance/going treatment was worse. Consequently no speciality bonus
+enters base Horse Ability. The evidence should be retained as a scenario/profile
+input for the later race-specific pricing layer, where today's distance and
+going are known, rather than rewriting demonstrated general ability. Proceed
+to the final Horse Ability validation and freeze decision.
+
+### Final Horse Ability V2 validation — 28 August 2026
+
+`horse-ability-v2.8-final-research-freeze` locks the responsive four-run state,
+25% initial handicap response, effective-dated collateral revisions, zero
+campaign decay and zero distance/going base adjustments. Across 876 validation
+races it beats rejected V2 by 0.01866 log loss, equal chance by 0.01144 and V1
+by 0.00464. Across 835 historical-holdout races it beats all three, including
+V1 by 0.01167. The validation interval against V1 is [-0.01238, +0.00293], so
+the strict production-promotion gate is not met.
+
+All named gates pass: Natural Fling's achieved run is 104.22; Sheza Alibi's WFA
+run is 116.24 versus Gringotts 112.37; and chronological current ability is
+Sheza Alibi 110.83 versus Gringotts 110.28. Segment weaknesses remain in sparse
+histories and listed/other races versus V1. Freeze this exact research model
+for the untouched one-year Betfair backtest; do not alter configuration after
+viewing prices or returns. Accepted production ratings remain unchanged.
+
 ## Six-stage V2 ratings-to-market programme — 23 August 2026
 
 Pace shape and pace counterfactuals are first-class requirements. The engine
