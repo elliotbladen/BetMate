@@ -1,0 +1,1519 @@
+{
+  "sport": "NRL",
+  "season": 2026,
+  "round": 25,
+  "stage": "MONDAY_FORECAST",
+  "forecast_at": "2026-08-17T03:15:00.221855+00:00",
+  "model_version": "availability_rules_v1",
+  "players": [
+    {
+      "team": "Manly-Warringah Sea Eagles",
+      "player": "Luke Brooks",
+      "miss_probability": 0.98,
+      "player_points": 3.0,
+      "expected_absence_points": 2.94,
+      "classification": "likely_out",
+      "evidence": "ACL | Return: Next Season"
+    },
+    {
+      "team": "Brisbane Broncos",
+      "player": "Adam Reynolds",
+      "miss_probability": 0.72,
+      "player_points": 3.0,
+      "expected_absence_points": 2.16,
+      "classification": "doubtful",
+      "evidence": "Calf | Return: TBC"
+    },
+    {
+      "team": "South Sydney Rabbitohs",
+      "player": "Latrell Mitchell",
+      "miss_probability": 0.72,
+      "player_points": 3.0,
+      "expected_absence_points": 2.16,
+      "classification": "doubtful",
+      "evidence": "Calf | Return: TBC"
+    },
+    {
+      "team": "Newcastle Knights",
+      "player": "Dylan Brown",
+      "miss_probability": 0.98,
+      "player_points": 2.0,
+      "expected_absence_points": 1.96,
+      "classification": "likely_out",
+      "evidence": "ACL | Return: Next Season"
+    },
+    {
+      "team": "Dolphins",
+      "player": "Connelly Lemuelu",
+      "miss_probability": 0.72,
+      "player_points": 2.0,
+      "expected_absence_points": 1.44,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "Brisbane Broncos",
+      "player": "Reece Walsh",
+      "miss_probability": 0.58,
+      "player_points": 2.0,
+      "expected_absence_points": 1.16,
+      "classification": "doubtful",
+      "evidence": "Ankle | Return: TBC"
+    },
+    {
+      "team": "Manly-Warringah Sea Eagles",
+      "player": "Tom Trbojevic",
+      "miss_probability": 0.25,
+      "player_points": 3.0,
+      "expected_absence_points": 0.75,
+      "classification": "probable",
+      "evidence": "Hamstring | Return: Round 25"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Harry Grant",
+      "miss_probability": 0.25,
+      "player_points": 3.0,
+      "expected_absence_points": 0.75,
+      "classification": "probable",
+      "evidence": "Hamstring | Return: Round 25"
+    },
+    {
+      "team": "Sydney Roosters",
+      "player": "James Tedesco",
+      "miss_probability": 0.25,
+      "player_points": 3.0,
+      "expected_absence_points": 0.75,
+      "classification": "probable",
+      "evidence": "Ankle | Return: Round 25"
+    },
+    {
+      "team": "Brisbane Broncos",
+      "player": "Cory Paix",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Next Season"
+    },
+    {
+      "team": "Canberra Raiders",
+      "player": "Hudson Young",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Achilles | Return: Next Season"
+    },
+    {
+      "team": "Cronulla-Sutherland Sharks",
+      "player": "Jesse Ramien",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Pectoral | Return: Next Season"
+    },
+    {
+      "team": "Gold Coast Titans",
+      "player": "Jaimin Jolliffe",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Next Season"
+    },
+    {
+      "team": "Gold Coast Titans",
+      "player": "Jensen Taumoepeau",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: Next Season"
+    },
+    {
+      "team": "Gold Coast Titans",
+      "player": "Zane Harrison",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Next Season"
+    },
+    {
+      "team": "Manly-Warringah Sea Eagles",
+      "player": "Kobe Hetherington",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Biceps | Return: Next Season"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Eliesa Katoa",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Medical Episode | Return: Indefinite"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Will Warbrick",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Achilles | Return: Next Season"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Xavier Coates",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Achilles | Return: Next Season"
+    },
+    {
+      "team": "New Zealand Warriors",
+      "player": "Tanah Boyd",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "ACL | Return: Next Season"
+    },
+    {
+      "team": "Newcastle Knights",
+      "player": "Dylan Lucas",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: Next Season"
+    },
+    {
+      "team": "Parramatta Eels",
+      "player": "Isaiah Iongi",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Next Season"
+    },
+    {
+      "team": "Parramatta Eels",
+      "player": "J'maine Hopgood",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "ACL | Return: Next Season"
+    },
+    {
+      "team": "Parramatta Eels",
+      "player": "Matt Doorey",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Next Season"
+    },
+    {
+      "team": "South Sydney Rabbitohs",
+      "player": "Ashton Ward",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Next Season"
+    },
+    {
+      "team": "St. George Illawarra Dragons",
+      "player": "David Fale",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Calf | Return: Next Season"
+    },
+    {
+      "team": "St. George Illawarra Dragons",
+      "player": "Hayden Buchanan",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Next Season"
+    },
+    {
+      "team": "Sydney Roosters",
+      "player": "Blake Steep",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "ACL | Return: Next Season"
+    },
+    {
+      "team": "Wests Tigers",
+      "player": "Taylan May",
+      "miss_probability": 0.98,
+      "player_points": 0.75,
+      "expected_absence_points": 0.735,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Next Season"
+    },
+    {
+      "team": "Canberra Raiders",
+      "player": "Noah Martin",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Quad | Return: Round 26"
+    },
+    {
+      "team": "Dolphins",
+      "player": "Kurt Donoghoe",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Thumb | Return: Round 26"
+    },
+    {
+      "team": "Manly-Warringah Sea Eagles",
+      "player": "Taniela Paseka",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Round 26"
+    },
+    {
+      "team": "New Zealand Warriors",
+      "player": "Te Maire Martin",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Round 26"
+    },
+    {
+      "team": "North Queensland Cowboys",
+      "player": "Jeremiah Nanai",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Round 26"
+    },
+    {
+      "team": "North Queensland Cowboys",
+      "player": "Tom Dearden",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: Round 26"
+    },
+    {
+      "team": "South Sydney Rabbitohs",
+      "player": "Talanoa Penitani",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Round 26"
+    },
+    {
+      "team": "St. George Illawarra Dragons",
+      "player": "Jaydn Su'A",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Pectoral | Return: Round 27"
+    },
+    {
+      "team": "Sydney Roosters",
+      "player": "Angus Crichton",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Round 26"
+    },
+    {
+      "team": "Sydney Roosters",
+      "player": "Daniel Tupou",
+      "miss_probability": 0.95,
+      "player_points": 0.75,
+      "expected_absence_points": 0.712,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Round 26"
+    },
+    {
+      "team": "Brisbane Broncos",
+      "player": "Brendan Piakura",
+      "miss_probability": 0.82,
+      "player_points": 0.75,
+      "expected_absence_points": 0.615,
+      "classification": "likely_out",
+      "evidence": "Concussion | Return: TBC"
+    },
+    {
+      "team": "New Zealand Warriors",
+      "player": "Jackson Ford",
+      "miss_probability": 0.8,
+      "player_points": 0.75,
+      "expected_absence_points": 0.6,
+      "classification": "likely_out",
+      "evidence": "Pectoral | Return: Finals"
+    },
+    {
+      "team": "Penrith Panthers",
+      "player": "Mitch Kenny",
+      "miss_probability": 0.8,
+      "player_points": 0.75,
+      "expected_absence_points": 0.6,
+      "classification": "likely_out",
+      "evidence": "Leg | Return: Finals"
+    },
+    {
+      "team": "Canberra Raiders",
+      "player": "Simi Sasagi",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Shoulder | Return: TBC"
+    },
+    {
+      "team": "Canterbury-Bankstown Bulldogs",
+      "player": "Jethro Rinakama",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Knee | Return: TBC"
+    },
+    {
+      "team": "Canterbury-Bankstown Bulldogs",
+      "player": "Sitili Tupouniua",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "Cronulla-Sutherland Sharks",
+      "player": "Braydon Trindall",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Shoulder | Return: TBC"
+    },
+    {
+      "team": "Gold Coast Titans",
+      "player": "Dean Ieremia",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Jahrome Hughes",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "New Zealand Warriors",
+      "player": "Luke Metcalf",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "Newcastle Knights",
+      "player": "Brodie Jones",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "Newcastle Knights",
+      "player": "Dane Gagai",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "South Sydney Rabbitohs",
+      "player": "Dayne Jennings",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Knee | Return: TBC"
+    },
+    {
+      "team": "St. George Illawarra Dragons",
+      "player": "Clinton Gutherson",
+      "miss_probability": 0.72,
+      "player_points": 0.75,
+      "expected_absence_points": 0.54,
+      "classification": "doubtful",
+      "evidence": "Knee | Return: TBC"
+    },
+    {
+      "team": "Brisbane Broncos",
+      "player": "Preston Riki",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Ankle | Return: TBC"
+    },
+    {
+      "team": "Canberra Raiders",
+      "player": "Morgan Smithies",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Head knock | Return: TBC"
+    },
+    {
+      "team": "Canterbury-Bankstown Bulldogs",
+      "player": "Samuel Hughes",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Neck | Return: TBC"
+    },
+    {
+      "team": "Gold Coast Titans",
+      "player": "Brock Gray",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "ACL | Return: TBC"
+    },
+    {
+      "team": "Gold Coast Titans",
+      "player": "Josh Patston",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Head knock | Return: TBC"
+    },
+    {
+      "team": "Manly-Warringah Sea Eagles",
+      "player": "Siosiua Taukeiaho",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Leg | Return: TBC"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Tui Kamikamica",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Medical Episode | Return: TBC"
+    },
+    {
+      "team": "Parramatta Eels",
+      "player": "Bailey Simonsson",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Ankle | Return: TBC"
+    },
+    {
+      "team": "Penrith Panthers",
+      "player": "Isaah Yeo",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Pectoral | Return: TBC"
+    },
+    {
+      "team": "South Sydney Rabbitohs",
+      "player": "Adam Elliott",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Groin | Return: TBC"
+    },
+    {
+      "team": "St. George Illawarra Dragons",
+      "player": "Hame Sele",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Achilles | Return: TBC"
+    },
+    {
+      "team": "Wests Tigers",
+      "player": "Alex Twal",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Illness | Return: TBC"
+    },
+    {
+      "team": "Wests Tigers",
+      "player": "Kai Pearce-Paul",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Pectoral | Return: TBC"
+    },
+    {
+      "team": "Wests Tigers",
+      "player": "Royce Hunt",
+      "miss_probability": 0.58,
+      "player_points": 0.75,
+      "expected_absence_points": 0.435,
+      "classification": "doubtful",
+      "evidence": "Pectoral | Return: TBC"
+    },
+    {
+      "team": "Cronulla-Sutherland Sharks",
+      "player": "Addin Fonua-Blake",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Suspension | Return: Round 25"
+    },
+    {
+      "team": "Manly-Warringah Sea Eagles",
+      "player": "Ben Trbojevic",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Concussion | Return: Round 25"
+    },
+    {
+      "team": "Manly-Warringah Sea Eagles",
+      "player": "Ethan Bullemor",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Concussion | Return: Round 25"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Ativalu Lisati",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Ankle | Return: Round 25"
+    },
+    {
+      "team": "Melbourne Storm",
+      "player": "Jack Howarth",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Shoulder | Return: Round 25"
+    },
+    {
+      "team": "Newcastle Knights",
+      "player": "Bradman Best",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Calf | Return: Round 25"
+    },
+    {
+      "team": "Newcastle Knights",
+      "player": "Jacob Saifiti",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Hamstring | Return: Round 25"
+    },
+    {
+      "team": "Newcastle Knights",
+      "player": "James Schiller",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Neck | Return: Round 25"
+    },
+    {
+      "team": "Parramatta Eels",
+      "player": "Jonah Pezet",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Shoulder | Return: Round 25"
+    },
+    {
+      "team": "Penrith Panthers",
+      "player": "Casey McLean",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Hand | Return: Round 25"
+    },
+    {
+      "team": "South Sydney Rabbitohs",
+      "player": "Jamie Humphreys",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Ankle | Return: Round 25"
+    },
+    {
+      "team": "Wests Tigers",
+      "player": "Latu Fainu",
+      "miss_probability": 0.25,
+      "player_points": 0.75,
+      "expected_absence_points": 0.188,
+      "classification": "probable",
+      "evidence": "Suspension | Return: Round 25"
+    }
+  ],
+  "teams": {
+    "Manly-Warringah Sea Eagles": {
+      "expected_absence_points": 5.948,
+      "players": [
+        {
+          "team": "Manly-Warringah Sea Eagles",
+          "player": "Luke Brooks",
+          "miss_probability": 0.98,
+          "player_points": 3.0,
+          "expected_absence_points": 2.94,
+          "classification": "likely_out",
+          "evidence": "ACL | Return: Next Season"
+        },
+        {
+          "team": "Manly-Warringah Sea Eagles",
+          "player": "Tom Trbojevic",
+          "miss_probability": 0.25,
+          "player_points": 3.0,
+          "expected_absence_points": 0.75,
+          "classification": "probable",
+          "evidence": "Hamstring | Return: Round 25"
+        },
+        {
+          "team": "Manly-Warringah Sea Eagles",
+          "player": "Kobe Hetherington",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Biceps | Return: Next Season"
+        },
+        {
+          "team": "Manly-Warringah Sea Eagles",
+          "player": "Taniela Paseka",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Round 26"
+        },
+        {
+          "team": "Manly-Warringah Sea Eagles",
+          "player": "Siosiua Taukeiaho",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Leg | Return: TBC"
+        },
+        {
+          "team": "Manly-Warringah Sea Eagles",
+          "player": "Ben Trbojevic",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Concussion | Return: Round 25"
+        },
+        {
+          "team": "Manly-Warringah Sea Eagles",
+          "player": "Ethan Bullemor",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Concussion | Return: Round 25"
+        }
+      ]
+    },
+    "Brisbane Broncos": {
+      "expected_absence_points": 5.105,
+      "players": [
+        {
+          "team": "Brisbane Broncos",
+          "player": "Adam Reynolds",
+          "miss_probability": 0.72,
+          "player_points": 3.0,
+          "expected_absence_points": 2.16,
+          "classification": "doubtful",
+          "evidence": "Calf | Return: TBC"
+        },
+        {
+          "team": "Brisbane Broncos",
+          "player": "Reece Walsh",
+          "miss_probability": 0.58,
+          "player_points": 2.0,
+          "expected_absence_points": 1.16,
+          "classification": "doubtful",
+          "evidence": "Ankle | Return: TBC"
+        },
+        {
+          "team": "Brisbane Broncos",
+          "player": "Cory Paix",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Next Season"
+        },
+        {
+          "team": "Brisbane Broncos",
+          "player": "Brendan Piakura",
+          "miss_probability": 0.82,
+          "player_points": 0.75,
+          "expected_absence_points": 0.615,
+          "classification": "likely_out",
+          "evidence": "Concussion | Return: TBC"
+        },
+        {
+          "team": "Brisbane Broncos",
+          "player": "Preston Riki",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Ankle | Return: TBC"
+        }
+      ]
+    },
+    "South Sydney Rabbitohs": {
+      "expected_absence_points": 4.77,
+      "players": [
+        {
+          "team": "South Sydney Rabbitohs",
+          "player": "Latrell Mitchell",
+          "miss_probability": 0.72,
+          "player_points": 3.0,
+          "expected_absence_points": 2.16,
+          "classification": "doubtful",
+          "evidence": "Calf | Return: TBC"
+        },
+        {
+          "team": "South Sydney Rabbitohs",
+          "player": "Ashton Ward",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Next Season"
+        },
+        {
+          "team": "South Sydney Rabbitohs",
+          "player": "Talanoa Penitani",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Round 26"
+        },
+        {
+          "team": "South Sydney Rabbitohs",
+          "player": "Dayne Jennings",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Knee | Return: TBC"
+        },
+        {
+          "team": "South Sydney Rabbitohs",
+          "player": "Adam Elliott",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Groin | Return: TBC"
+        },
+        {
+          "team": "South Sydney Rabbitohs",
+          "player": "Jamie Humphreys",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Ankle | Return: Round 25"
+        }
+      ]
+    },
+    "Newcastle Knights": {
+      "expected_absence_points": 4.339,
+      "players": [
+        {
+          "team": "Newcastle Knights",
+          "player": "Dylan Brown",
+          "miss_probability": 0.98,
+          "player_points": 2.0,
+          "expected_absence_points": 1.96,
+          "classification": "likely_out",
+          "evidence": "ACL | Return: Next Season"
+        },
+        {
+          "team": "Newcastle Knights",
+          "player": "Dylan Lucas",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: Next Season"
+        },
+        {
+          "team": "Newcastle Knights",
+          "player": "Brodie Jones",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        },
+        {
+          "team": "Newcastle Knights",
+          "player": "Dane Gagai",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        },
+        {
+          "team": "Newcastle Knights",
+          "player": "Bradman Best",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Calf | Return: Round 25"
+        },
+        {
+          "team": "Newcastle Knights",
+          "player": "Jacob Saifiti",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Hamstring | Return: Round 25"
+        },
+        {
+          "team": "Newcastle Knights",
+          "player": "James Schiller",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Neck | Return: Round 25"
+        }
+      ]
+    },
+    "Dolphins": {
+      "expected_absence_points": 2.152,
+      "players": [
+        {
+          "team": "Dolphins",
+          "player": "Connelly Lemuelu",
+          "miss_probability": 0.72,
+          "player_points": 2.0,
+          "expected_absence_points": 1.44,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        },
+        {
+          "team": "Dolphins",
+          "player": "Kurt Donoghoe",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Thumb | Return: Round 26"
+        }
+      ]
+    },
+    "Melbourne Storm": {
+      "expected_absence_points": 4.306,
+      "players": [
+        {
+          "team": "Melbourne Storm",
+          "player": "Harry Grant",
+          "miss_probability": 0.25,
+          "player_points": 3.0,
+          "expected_absence_points": 0.75,
+          "classification": "probable",
+          "evidence": "Hamstring | Return: Round 25"
+        },
+        {
+          "team": "Melbourne Storm",
+          "player": "Eliesa Katoa",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Medical Episode | Return: Indefinite"
+        },
+        {
+          "team": "Melbourne Storm",
+          "player": "Will Warbrick",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Achilles | Return: Next Season"
+        },
+        {
+          "team": "Melbourne Storm",
+          "player": "Xavier Coates",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Achilles | Return: Next Season"
+        },
+        {
+          "team": "Melbourne Storm",
+          "player": "Jahrome Hughes",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        },
+        {
+          "team": "Melbourne Storm",
+          "player": "Tui Kamikamica",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Medical Episode | Return: TBC"
+        },
+        {
+          "team": "Melbourne Storm",
+          "player": "Ativalu Lisati",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Ankle | Return: Round 25"
+        },
+        {
+          "team": "Melbourne Storm",
+          "player": "Jack Howarth",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Shoulder | Return: Round 25"
+        }
+      ]
+    },
+    "Sydney Roosters": {
+      "expected_absence_points": 2.909,
+      "players": [
+        {
+          "team": "Sydney Roosters",
+          "player": "James Tedesco",
+          "miss_probability": 0.25,
+          "player_points": 3.0,
+          "expected_absence_points": 0.75,
+          "classification": "probable",
+          "evidence": "Ankle | Return: Round 25"
+        },
+        {
+          "team": "Sydney Roosters",
+          "player": "Blake Steep",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "ACL | Return: Next Season"
+        },
+        {
+          "team": "Sydney Roosters",
+          "player": "Angus Crichton",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Round 26"
+        },
+        {
+          "team": "Sydney Roosters",
+          "player": "Daniel Tupou",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Round 26"
+        }
+      ]
+    },
+    "Canberra Raiders": {
+      "expected_absence_points": 2.422,
+      "players": [
+        {
+          "team": "Canberra Raiders",
+          "player": "Hudson Young",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Achilles | Return: Next Season"
+        },
+        {
+          "team": "Canberra Raiders",
+          "player": "Noah Martin",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Quad | Return: Round 26"
+        },
+        {
+          "team": "Canberra Raiders",
+          "player": "Simi Sasagi",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Shoulder | Return: TBC"
+        },
+        {
+          "team": "Canberra Raiders",
+          "player": "Morgan Smithies",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Head knock | Return: TBC"
+        }
+      ]
+    },
+    "Cronulla-Sutherland Sharks": {
+      "expected_absence_points": 1.463,
+      "players": [
+        {
+          "team": "Cronulla-Sutherland Sharks",
+          "player": "Jesse Ramien",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Pectoral | Return: Next Season"
+        },
+        {
+          "team": "Cronulla-Sutherland Sharks",
+          "player": "Braydon Trindall",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Shoulder | Return: TBC"
+        },
+        {
+          "team": "Cronulla-Sutherland Sharks",
+          "player": "Addin Fonua-Blake",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Suspension | Return: Round 25"
+        }
+      ]
+    },
+    "Gold Coast Titans": {
+      "expected_absence_points": 3.615,
+      "players": [
+        {
+          "team": "Gold Coast Titans",
+          "player": "Jaimin Jolliffe",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Next Season"
+        },
+        {
+          "team": "Gold Coast Titans",
+          "player": "Jensen Taumoepeau",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: Next Season"
+        },
+        {
+          "team": "Gold Coast Titans",
+          "player": "Zane Harrison",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Next Season"
+        },
+        {
+          "team": "Gold Coast Titans",
+          "player": "Dean Ieremia",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        },
+        {
+          "team": "Gold Coast Titans",
+          "player": "Brock Gray",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "ACL | Return: TBC"
+        },
+        {
+          "team": "Gold Coast Titans",
+          "player": "Josh Patston",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Head knock | Return: TBC"
+        }
+      ]
+    },
+    "New Zealand Warriors": {
+      "expected_absence_points": 2.587,
+      "players": [
+        {
+          "team": "New Zealand Warriors",
+          "player": "Tanah Boyd",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "ACL | Return: Next Season"
+        },
+        {
+          "team": "New Zealand Warriors",
+          "player": "Te Maire Martin",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Round 26"
+        },
+        {
+          "team": "New Zealand Warriors",
+          "player": "Jackson Ford",
+          "miss_probability": 0.8,
+          "player_points": 0.75,
+          "expected_absence_points": 0.6,
+          "classification": "likely_out",
+          "evidence": "Pectoral | Return: Finals"
+        },
+        {
+          "team": "New Zealand Warriors",
+          "player": "Luke Metcalf",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        }
+      ]
+    },
+    "Parramatta Eels": {
+      "expected_absence_points": 2.828,
+      "players": [
+        {
+          "team": "Parramatta Eels",
+          "player": "Isaiah Iongi",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Next Season"
+        },
+        {
+          "team": "Parramatta Eels",
+          "player": "J'maine Hopgood",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "ACL | Return: Next Season"
+        },
+        {
+          "team": "Parramatta Eels",
+          "player": "Matt Doorey",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Next Season"
+        },
+        {
+          "team": "Parramatta Eels",
+          "player": "Bailey Simonsson",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Ankle | Return: TBC"
+        },
+        {
+          "team": "Parramatta Eels",
+          "player": "Jonah Pezet",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Shoulder | Return: Round 25"
+        }
+      ]
+    },
+    "St. George Illawarra Dragons": {
+      "expected_absence_points": 3.157,
+      "players": [
+        {
+          "team": "St. George Illawarra Dragons",
+          "player": "David Fale",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Calf | Return: Next Season"
+        },
+        {
+          "team": "St. George Illawarra Dragons",
+          "player": "Hayden Buchanan",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Next Season"
+        },
+        {
+          "team": "St. George Illawarra Dragons",
+          "player": "Jaydn Su'A",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Pectoral | Return: Round 27"
+        },
+        {
+          "team": "St. George Illawarra Dragons",
+          "player": "Clinton Gutherson",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Knee | Return: TBC"
+        },
+        {
+          "team": "St. George Illawarra Dragons",
+          "player": "Hame Sele",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Achilles | Return: TBC"
+        }
+      ]
+    },
+    "Wests Tigers": {
+      "expected_absence_points": 2.228,
+      "players": [
+        {
+          "team": "Wests Tigers",
+          "player": "Taylan May",
+          "miss_probability": 0.98,
+          "player_points": 0.75,
+          "expected_absence_points": 0.735,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Next Season"
+        },
+        {
+          "team": "Wests Tigers",
+          "player": "Alex Twal",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Illness | Return: TBC"
+        },
+        {
+          "team": "Wests Tigers",
+          "player": "Kai Pearce-Paul",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Pectoral | Return: TBC"
+        },
+        {
+          "team": "Wests Tigers",
+          "player": "Royce Hunt",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Pectoral | Return: TBC"
+        },
+        {
+          "team": "Wests Tigers",
+          "player": "Latu Fainu",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Suspension | Return: Round 25"
+        }
+      ]
+    },
+    "North Queensland Cowboys": {
+      "expected_absence_points": 1.424,
+      "players": [
+        {
+          "team": "North Queensland Cowboys",
+          "player": "Jeremiah Nanai",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Round 26"
+        },
+        {
+          "team": "North Queensland Cowboys",
+          "player": "Tom Dearden",
+          "miss_probability": 0.95,
+          "player_points": 0.75,
+          "expected_absence_points": 0.712,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: Round 26"
+        }
+      ]
+    },
+    "Penrith Panthers": {
+      "expected_absence_points": 1.223,
+      "players": [
+        {
+          "team": "Penrith Panthers",
+          "player": "Mitch Kenny",
+          "miss_probability": 0.8,
+          "player_points": 0.75,
+          "expected_absence_points": 0.6,
+          "classification": "likely_out",
+          "evidence": "Leg | Return: Finals"
+        },
+        {
+          "team": "Penrith Panthers",
+          "player": "Isaah Yeo",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Pectoral | Return: TBC"
+        },
+        {
+          "team": "Penrith Panthers",
+          "player": "Casey McLean",
+          "miss_probability": 0.25,
+          "player_points": 0.75,
+          "expected_absence_points": 0.188,
+          "classification": "probable",
+          "evidence": "Hand | Return: Round 25"
+        }
+      ]
+    },
+    "Canterbury-Bankstown Bulldogs": {
+      "expected_absence_points": 1.515,
+      "players": [
+        {
+          "team": "Canterbury-Bankstown Bulldogs",
+          "player": "Jethro Rinakama",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Knee | Return: TBC"
+        },
+        {
+          "team": "Canterbury-Bankstown Bulldogs",
+          "player": "Sitili Tupouniua",
+          "miss_probability": 0.72,
+          "player_points": 0.75,
+          "expected_absence_points": 0.54,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        },
+        {
+          "team": "Canterbury-Bankstown Bulldogs",
+          "player": "Samuel Hughes",
+          "miss_probability": 0.58,
+          "player_points": 0.75,
+          "expected_absence_points": 0.435,
+          "classification": "doubtful",
+          "evidence": "Neck | Return: TBC"
+        }
+      ]
+    }
+  }
+}

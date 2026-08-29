@@ -139,6 +139,7 @@ from pricing.tier8_weather import compute_weather_adjustments
 from pricing.engine import derive_final_prices
 from db.queries import (
     get_team_stats, get_prior_season_stats,
+    get_recent_team_results,
     get_team_style_stats, get_style_league_norms,
     get_situational_context,
     get_team_venue_edge, get_venue_total_edge, get_venue_name,
@@ -615,15 +616,26 @@ def step3_rebuild_elo(conn, season: int, as_of_date: str,
     """
     header(f'STEP 3 — Rebuild ELO  (as_of={as_of_date}, cutoff≤{cutoff_date})')
 
-    # Find most recent ELO snapshot
+    # Find most recent ELO snapshot — restrict to the single most recent date
+    # to avoid older snapshots (e.g. baseline 1500) overwriting newer ELOs
+    # in the dict comprehension below.
+    prior_date_row = conn.execute('''
+        SELECT MAX(ts.as_of_date) AS max_date
+        FROM   team_stats ts
+        WHERE  ts.season = ? AND ts.elo_rating IS NOT NULL
+          AND  ts.as_of_date < ?
+    ''', (season, as_of_date)).fetchone()
+
+    prior_max_date = prior_date_row['max_date'] if prior_date_row else None
+
     prior = conn.execute('''
         SELECT ts.team_id, ts.elo_rating, ts.as_of_date, t.team_name
         FROM   team_stats ts
         JOIN   teams t ON t.team_id = ts.team_id
         WHERE  ts.season = ? AND ts.elo_rating IS NOT NULL
-          AND  ts.as_of_date < ?
+          AND  ts.as_of_date = ?
         ORDER  BY ts.as_of_date DESC
-    ''', (season, as_of_date)).fetchall()
+    ''', (season, prior_max_date)).fetchall()
 
     if not prior:
         die('No prior ELO snapshot found in team_stats. '
@@ -1136,8 +1148,12 @@ def price_match(conn, match_row, tier2_cfg, tiers_cfg, origin_data=None) -> dict
     away_stats = get_team_stats(conn, away_tid, season, match_date) or {}
     home_prior = get_prior_season_stats(conn, home_tid, season)
     away_prior = get_prior_season_stats(conn, away_tid, season)
+    home_recent = get_recent_team_results(conn, home_tid, season, match_date)
+    away_recent = get_recent_team_results(conn, away_tid, season, match_date)
 
     t1 = compute_baseline(home_stats, away_stats, {}, t1_cfg,
+                          home_last_n_results=home_recent,
+                          away_last_n_results=away_recent,
                           home_prior_stats=home_prior, away_prior_stats=away_prior)
     t1_home   = t1['baseline_home_points']
     t1_away   = t1['baseline_away_points']
@@ -1163,7 +1179,13 @@ def price_match(conn, match_row, tier2_cfg, tiers_cfg, origin_data=None) -> dict
                      + fc.get('totals_delta', 0.0) + fd.get('totals_delta', 0.0))
     totals_T2 = round(max(-3.0, min(3.0, raw_totals_T2)), 3)
 
-    cap_t2 = float(tier2_cfg.get('max_home_points_delta', 4.0))
+    cap_t2 = float(tier2_cfg.get('max_home_points_delta', 1.0))
+    # Directional cap: if T2 net goes same direction as T1 margin,
+    # halve the cap to avoid doubling up on the ELO signal.
+    t2_net_raw = raw_home_t2 - raw_away_t2
+    t2_same_dir_as_t1 = (t1_mrg > 0 and t2_net_raw > 0) or (t1_mrg < 0 and t2_net_raw < 0)
+    if t2_same_dir_as_t1:
+        cap_t2 = cap_t2 * 0.5  # halve cap when amplifying T1
     scale_t2 = 1.0
     if abs(raw_home_t2) > cap_t2 and raw_home_t2 != 0.0:
         scale_t2 = min(scale_t2, cap_t2 / abs(raw_home_t2))
@@ -1663,6 +1685,8 @@ def main():
                         help='Skip step 6a (weather already fetched or mock-clear preferred)')
     parser.add_argument('--skip-matrices', action='store_true',
                         help='Skip step 8 (matrix regeneration) — use if historical xlsx not yet updated')
+    parser.add_argument('--skip-ml-shadow', action='store_true',
+                        help='Skip the independent NRL XGBoost shadow after official pricing')
     parser.add_argument('--strict-injuries', action='store_true',
                         help='Treat missing injury data as a fatal error')
     parser.add_argument('--settings',     default='config/settings.yaml')
@@ -1769,6 +1793,23 @@ def main():
 
     # ── Step 7: Price ─────────────────────────────────────────────────────
     step7_price(conn, season, round_num, tiers_cfg, args.dry_run)
+
+    # Independent XGBoost shadow. It writes only to the shadow ledger/output
+    # and cannot alter the official rules prices produced above.
+    if not args.dry_run and not args.skip_ml_shadow:
+        shadow_out = Path('outputs/results') / f'nrl_r{round_num}_ml_shadow_{season}.txt'
+        shadow_out.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            subprocess.run([
+                sys.executable, 'ml/run_r9_shadow.py', '--season', str(season),
+                '--round', str(round_num), '--output', str(shadow_out),
+            ], check=True, timeout=120)
+            ok(f'Step 7b ML shadow saved to {shadow_out}')
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
+            warn(f'Step 7b ML shadow failed ({exc}); official rules prices are unaffected.')
+    else:
+        reason = 'dry-run' if args.dry_run else '--skip-ml-shadow'
+        ok(f'Step 7b ML shadow skipped ({reason}).')
 
     # ── Step 8: Regenerate matrices from latest historical data ───────────
     if not args.skip_matrices and not args.dry_run:

@@ -1,0 +1,92 @@
+[
+  {
+    "game_id": "epl-2627-gw2-1",
+    "home_team": "Crystal Palace",
+    "away_team": "Manchester City",
+    "selection": "away",
+    "h2h_home": 5.58,
+    "h2h_draw": 4.44,
+    "h2h_away": 1.68
+  },
+  {
+    "game_id": "epl-2627-gw2-2",
+    "home_team": "Liverpool",
+    "away_team": "Nottingham Forest",
+    "selection": "home",
+    "h2h_home": 1.7,
+    "h2h_draw": 4.6,
+    "h2h_away": 5.13
+  },
+  {
+    "game_id": "epl-2627-gw2-3",
+    "home_team": "AFC Bournemouth",
+    "away_team": "Everton",
+    "selection": "home",
+    "h2h_home": 2.07,
+    "h2h_draw": 3.91,
+    "h2h_away": 3.85
+  },
+  {
+    "game_id": "epl-2627-gw2-4",
+    "home_team": "Coventry City",
+    "away_team": "Hull City",
+    "selection": "home",
+    "h2h_home": 1.85,
+    "h2h_draw": 4.05,
+    "h2h_away": 4.72
+  },
+  {
+    "game_id": "epl-2627-gw2-5",
+    "home_team": "Tottenham Hotspur",
+    "away_team": "Newcastle United",
+    "selection": "home",
+    "h2h_home": 2.22,
+    "h2h_draw": 4.01,
+    "h2h_away": 3.32
+  },
+  {
+    "game_id": "epl-2627-gw2-8",
+    "home_team": "Sunderland",
+    "away_team": "Fulham",
+    "selection": "home",
+    "h2h_home": 2.4,
+    "h2h_draw": 3.4,
+    "h2h_away": 3.46
+  },
+  {
+    "game_id": "epl-2627-gw2-7",
+    "home_team": "Leeds United",
+    "away_team": "Brentford",
+    "selection": "home",
+    "h2h_home": 2.49,
+    "h2h_draw": 3.86,
+    "h2h_away": 2.94
+  },
+  {
+    "game_id": "epl-2627-gw2-6",
+    "home_team": "Chelsea",
+    "away_team": "Brighton and Hove Albion",
+    "selection": "home",
+    "h2h_home": 2.11,
+    "h2h_draw": 3.93,
+    "h2h_away": 3.67
+  },
+  {
+    "game_id": "epl-2627-gw2-9",
+    "home_team": "Manchester United",
+    "away_team": "Ipswich Town",
+    "selection": "home",
+    "h2h_home": 1.62,
+    "h2h_draw": 4.63,
+    "h2h_away": 6.01
+  },
+  {
+    "game_id": "epl-2627-gw2-10",
+    "home_team": "Aston Villa",
+    "away_team": "Arsenal",
+    "selection": "away",
+    "h2h_home": 3.51,
+    "h2h_draw": 3.89,
+    "h2h_away": 2.18
+  }
+]

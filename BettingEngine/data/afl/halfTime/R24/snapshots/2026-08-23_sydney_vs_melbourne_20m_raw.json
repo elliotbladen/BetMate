@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-23T05:53:44.391658+00:00",
+  "game": {
+    "is_grand_final": 0,
+    "localtime": "2026-08-23 15:20:00",
+    "ascore": 20,
+    "unixtime": 1787462400,
+    "is_final": 0,
+    "hteamid": 16,
+    "round": 24,
+    "hteam": "Sydney",
+    "timestr": "1/4 Time",
+    "hscore": 27,
+    "ateamid": 12,
+    "complete": 25,
+    "date": "2026-08-23 15:20:00",
+    "ateam": "North Melbourne",
+    "tz": "+10:00",
+    "roundname": "Round 24",
+    "updated": "2026-08-23 15:53:01",
+    "winner": null,
+    "year": 2026,
+    "venue": "S.C.G.",
+    "hbehinds": 3,
+    "hgoals": 4,
+    "winnerteamid": null,
+    "id": 38698,
+    "abehinds": 2,
+    "agoals": 3,
+    "_round_game_num": 8,
+    "fox_match_id": "AFL20262408"
+  }
+}

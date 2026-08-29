@@ -33,6 +33,8 @@ ROOT       = Path(__file__).resolve().parent.parent
 DB_PATH    = ROOT / 'data' / 'model.db'
 MODELS_DIR = ROOT / 'ml' / 'models'
 REF_LOG    = ROOT / 'ml' / 'data' / 'game_log_referee.csv'
+sys.path.insert(0, str(ROOT))  # required to unpickle versioned ml.nrl bundles
+from ml.nrl.models import margin_to_home_win_probability
 
 # ── Rest classification (matches game_log.py) ────────────────────────────────
 SHORT_MAX  = 6
@@ -175,21 +177,8 @@ def build_team_form(conn, season: int, round_before: int) -> dict:
 
 
 # ── Convert to float array matching feature_columns.json order ───────────────
-FEATURE_COLS = [
-    'elo_diff', 'home_elo_win_prob', 'elo_predicted_margin',
-    'home_rest_days', 'away_rest_days', 'rest_diff',
-    'home_rest_class', 'away_rest_class',           # → NaN (string, XGB handles)
-    'home_had_bye', 'away_had_bye',
-    'home_prev_margin', 'away_prev_margin',
-    'home_off_big_win', 'home_off_big_loss',
-    'away_off_big_win', 'away_off_big_loss',
-    'home_win_streak', 'away_win_streak',
-    'home_loss_streak', 'away_loss_streak',
-    'home_travel_km', 'away_travel_km', 'travel_diff', 'is_neutral_venue',
-    'venue_avg_total', 'venue_home_win_pct',
-    'ref_total_diff', 'ref_penalty_rate', 'ref_home_bias', 'ref_home_win_pct',
-    'rain_mm', 'wind_kmh', 'wind_gusts_kmh', 'temp_c',
-]
+from ml.nrl.features import PREMARKET_FEATURES
+FEATURE_COLS = PREMARKET_FEATURES
 
 
 def to_float(v):
@@ -427,11 +416,17 @@ def main():
 
         ml_margin   = float(margin_model.predict(X)[0])
         ml_total    = float(total_model.predict(X)[0])
-        ml_h2h_prob = float(h2h_model.predict_proba(X)[0][1])
+        classifier_h2h_prob = float(h2h_model.predict_proba(X)[0][1])
+        # H2H and handicap must be two views of the same forecast. Convert the
+        # expected margin through its held-out residual distribution; retain
+        # the old direct classifier as a diagnostic challenger only.
+        ml_h2h_prob = float(margin_to_home_win_probability(
+            ml_margin, margin_model.residual_scale
+        ))
 
-        # Apply the normal engine's T2-T8 overlays to the ML baseline. T1 is
-        # the ML prediction itself; the overlays let us isolate which tier is
-        # driving a rules-vs-shadow disagreement.
+        # Retain tier values for diagnostics only. The 2026-08-12 rebuild made
+        # the shadow genuinely independent: rule adjustments are NOT added to
+        # ML predictions, avoiding double counting and enabling a clean audit.
         t2_hcap   = (float(m['t2a_home_delta'] or 0.0)
                      + float(m['t2b_home_delta'] or 0.0)
                      + float(m['t2c_home_delta'] or 0.0))
@@ -452,13 +447,9 @@ def main():
         )
         t8_tot = round(float(m['rules_total'] or 0.0) - known_rules_totals, 3)
 
-        ml_adj_margin = ml_margin + t2_hcap + t3_hcap + t4_hcap + t5_hcap + t6_hcap + t7_hcap
-        ml_adj_total  = ml_total  + t2_tot  + t3_tot  + t4_tot  + t5_tot  + t6_tot  + t7_tot + t8_tot
-
-        # Convert adjusted margin → win probability (normal distribution approx)
-        # std dev ~13 pts is a reasonable NRL approximation
-        STD = 13.0
-        ml_adj_h2h_prob = 0.5 * (1 + math.erf(ml_adj_margin / (STD * math.sqrt(2))))
+        ml_adj_margin = ml_margin
+        ml_adj_total = ml_total
+        ml_adj_h2h_prob = ml_h2h_prob
 
         results.append({
             'match_id':        m['match_id'],
@@ -472,6 +463,7 @@ def main():
             'ml_margin':       round(ml_margin, 1),
             'ml_total':        round(ml_total, 1),
             'ml_h2h_prob':     round(ml_h2h_prob, 3),
+            '_classifier_h2h_prob': round(classifier_h2h_prob, 3),
             # ML adjusted (+ all rule tiers T2-T8)
             'ml_adj_margin':   round(ml_adj_margin, 1),
             'ml_adj_total':    round(ml_adj_total, 1),
@@ -522,13 +514,13 @@ def main():
     p()
     p('=' * W)
     p(f'  NRL {args.season} — Round {args.round_number}  |  ML Shadow Mode vs Rules Model')
-    p(f'  Models: XGBoost trained on 2009–2023  |  T2–T8 rule tiers layered on top')
+    p(f'  Models: independent versioned XGBoost shadow  |  rule tiers are diagnostic only')
     p('=' * W)
 
     # ── MARGIN COMPARISON ─────────────────────────────────────────────────────
     p()
     p('  MARGIN  (home perspective, +ve = home wins)')
-    p(f"  {'Game':<44} {'ELO Δ':>7} {'ML Raw':>8} {'T2':>5} {'T3':>5} {'T4':>5} {'T5':>5} {'T6':>5} {'T7':>5} {'ML+T2-T8':>10} {'Rules':>8} {'Diff':>7}")
+    p(f"  {'Game':<44} {'ELO Δ':>7} {'ML Raw':>8} {'T2':>5} {'T3':>5} {'T4':>5} {'T5':>5} {'T6':>5} {'T7':>5} {'ML Indep':>10} {'Rules':>8} {'Diff':>7}")
     p(f'  {SEP[:105]}')
     for r in results:
         game  = f"{r['home_name'].split()[-1]} vs {r['away_name'].split()[-1]}"[:44]
@@ -543,7 +535,7 @@ def main():
     # ── TOTAL COMPARISON ──────────────────────────────────────────────────────
     p()
     p('  TOTAL  (expected combined score)')
-    p(f"  {'Game':<44} {'ML Raw':>8} {'T2':>5} {'T3':>5} {'T4':>5} {'T5':>5} {'T6':>5} {'T7':>5} {'T8':>5} {'ML+T2-T8':>10} {'Rules':>8} {'Diff':>7}")
+    p(f"  {'Game':<44} {'ML Raw':>8} {'T2':>5} {'T3':>5} {'T4':>5} {'T5':>5} {'T6':>5} {'T7':>5} {'T8':>5} {'ML Indep':>10} {'Rules':>8} {'Diff':>7}")
     p(f'  {SEP[:95]}')
     for r in results:
         game = f"{r['home_name'].split()[-1]} vs {r['away_name'].split()[-1]}"[:44]
@@ -557,8 +549,8 @@ def main():
 
     # ── H2H WIN PROBABILITY ───────────────────────────────────────────────────
     p()
-    p('  H2H WIN PROBABILITY  (home team %)')
-    p(f"  {'Game':<44} {'ML Raw':>8} {'ML+T2-T8':>10} {'Rules':>8} {'Diff':>8}  {'ML H(fair)':>11}  {'Rules H(fair)':>14}")
+    p('  H2H WIN PROBABILITY  (home team %, derived from ML margin distribution)')
+    p(f"  {'Game':<44} {'ML Margin':>10} {'Classifier':>11} {'Rules':>8} {'Diff':>8}  {'ML H(fair)':>11}  {'Rules H(fair)':>14}")
     p(f'  {SEP[:112]}')
     for r in results:
         game  = f"{r['home_name'].split()[-1]} vs {r['away_name'].split()[-1]}"[:44]
@@ -566,8 +558,8 @@ def main():
         ml_odds   = round(1/r['ml_adj_h2h_prob'], 3) if r['ml_adj_h2h_prob'] > 0 else 99
         rules_odds= round(1/r['rules_h2h_prob'], 3)  if r['rules_h2h_prob'] > 0 else 99
         arrow = '▲' if diff > 2 else ('▼' if diff < -2 else ' ')
-        p(f"  {game:<44} {r['ml_h2h_prob']*100:>7.1f}% "
-          f"{r['ml_adj_h2h_prob']*100:>9.1f}% "
+        p(f"  {game:<44} {r['ml_h2h_prob']*100:>9.1f}% "
+          f"{r['_classifier_h2h_prob']*100:>10.1f}% "
           f"{r['rules_h2h_prob']*100:>7.1f}% "
           f"{diff:>+7.1f}%{arrow}  {ml_odds:>11.3f}  {rules_odds:>14.3f}")
 
@@ -591,7 +583,7 @@ def main():
 
     # ── SUMMARY — WHERE THEY DIVERGE ─────────────────────────────────────────
     p()
-    p('  DIVERGENCE SUMMARY  (ML+T2-T8 vs Rules, margin ≥ 3 pts OR H2H ≥ 5%)')
+    p('  DIVERGENCE SUMMARY  (independent ML vs Rules, margin ≥ 3 pts OR H2H ≥ 5%)')
     p(f"  {'Game':<44} {'Margin Δ':>10} {'Total Δ':>9} {'H2H Δ':>8}  Notes")
     p(f'  {SEP[:100]}')
     any_diverge = False
@@ -613,7 +605,7 @@ def main():
     p()
     p('=' * W)
     p(f'  Legend: ML Raw = XGBoost prediction (ELO + rest/form + venue + ref + weather from history)')
-    p(f'          T2 = style  |  T3 = situational  |  T4 = venue  |  T5 = injury')
+    p(f'          T2 = style  |  T3 = situational  |  T4 = venue  |  T5 = injury (diagnostic only)')
     p(f'          T6 = referee  |  T7 = emotional  |  T8 = weather  |  Rules = full 8-tier model')
     p('=' * W)
 

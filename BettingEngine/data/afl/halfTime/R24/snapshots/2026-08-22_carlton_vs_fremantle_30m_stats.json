@@ -1,0 +1,43 @@
+{
+  "season": 2026,
+  "round": 24,
+  "game_date": "2026-08-22",
+  "home_team": "Carlton",
+  "away_team": "Fremantle",
+  "venue": "Docklands",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-22T04:11:32.976200+00:00",
+  "home_ht_score": 48,
+  "away_ht_score": 36,
+  "home_goals": 7,
+  "home_behinds": 6,
+  "away_goals": 5,
+  "away_behinds": 6,
+  "squiggle_id": 38693,
+  "round_game_num": 3,
+  "fox_match_id": "AFL20262403",
+  "timestr": "Q2 16:19",
+  "notes": "",
+  "snapshot_label": "30m",
+  "snapshot_complete_pct": 38.0,
+  "home_inside_50s": 18,
+  "home_clearances": 17,
+  "home_clangers": 15,
+  "away_inside_50s": 17,
+  "away_clearances": 13,
+  "away_clangers": 20,
+  "live_stats_source": "footywire",
+  "live_stats_sources": [
+    "footywire",
+    "foxsports"
+  ],
+  "live_stats_status": "complete",
+  "footywire_mid": 11604,
+  "live_stats_crosscheck": "disagreement",
+  "live_stats_disagreements": {
+    "away_clangers": {
+      "footywire": 20,
+      "foxsports": 19
+    }
+  }
+}

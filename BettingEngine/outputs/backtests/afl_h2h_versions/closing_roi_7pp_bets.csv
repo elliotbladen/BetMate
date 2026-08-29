@@ -1,0 +1,813 @@
+model,season,date,home_team,away_team,side,edge,odds,profit
+current_shadow,2023,2023-03-16,Richmond Tigers,Carlton Blues,home,0.07156766366355027,1.65,-1.0
+current_shadow,2023,2023-03-17,Geelong Cats,Collingwood Magpies,home,0.09852218451758321,1.56,-1.0
+current_shadow,2023,2023-03-18,North Melbourne Kangaroos,West Coast Eagles,away,0.1666666567325592,1.93,-1.0
+current_shadow,2023,2023-03-18,Port Adelaide Power,Brisbane Lions,home,0.17811294976315373,2.02,1.02
+current_shadow,2023,2023-03-18,Melbourne Demons,Western Bulldogs,home,0.12137861220867596,1.8,0.8
+current_shadow,2023,2023-03-19,Greater Western Sydney Giants,Adelaide Crows,home,0.07289392661444749,1.65,0.6499999999999999
+current_shadow,2023,2023-03-19,Hawthorn Hawks,Essendon Bombers,home,0.1523498033865905,2.18,-1.0
+current_shadow,2023,2023-03-19,St Kilda Saints,Fremantle Dockers,home,0.3166368423506271,2.85,1.85
+current_shadow,2023,2023-03-24,Brisbane Lions,Melbourne Demons,home,0.1964818035909372,2.1,1.1
+current_shadow,2023,2023-03-25,Collingwood Magpies,Port Adelaide Power,away,0.20399883565644328,2.5,-1.0
+current_shadow,2023,2023-03-25,Adelaide Crows,Richmond Tigers,home,0.2709359544251352,2.5,-1.0
+current_shadow,2023,2023-03-25,Fremantle Dockers,North Melbourne Kangaroos,away,0.09327971380628741,6.5,5.5
+current_shadow,2023,2023-03-26,Sydney Swans,Hawthorn Hawks,away,0.17857141154153,9.0,-1.0
+current_shadow,2023,2023-03-26,West Coast Eagles,Greater Western Sydney Giants,home,0.18763994009463814,2.05,1.0499999999999998
+current_shadow,2023,2023-03-30,Western Bulldogs,Brisbane Lions,home,0.25384614467620853,2.4,1.4
+current_shadow,2023,2023-03-31,Collingwood Magpies,Richmond Tigers,away,0.2564380538353722,2.9,-1.0
+current_shadow,2023,2023-04-01,Hawthorn Hawks,North Melbourne Kangaroos,home,0.09045226130653267,2.35,1.35
+current_shadow,2023,2023-04-01,Greater Western Sydney Giants,Carlton Blues,home,0.26178659132633253,2.45,-1.0
+current_shadow,2023,2023-04-01,St Kilda Saints,Essendon Bombers,home,0.1470964042816083,1.9,0.8999999999999999
+current_shadow,2023,2023-04-02,Gold Coast Suns,Geelong Cats,home,0.11991921757935453,3.3,2.3
+current_shadow,2023,2023-04-02,Melbourne Demons,Sydney Swans,home,0.10256409339415717,1.75,0.75
+current_shadow,2023,2023-04-06,Brisbane Lions,Collingwood Magpies,away,0.0814855484638135,1.9,-1.0
+current_shadow,2023,2023-04-07,North Melbourne Kangaroos,Carlton Blues,home,0.1483803652110145,5.2,-1.0
+current_shadow,2023,2023-04-08,Adelaide Crows,Fremantle Dockers,home,0.07156766366355027,1.65,0.6499999999999999
+current_shadow,2023,2023-04-08,Richmond Tigers,Western Bulldogs,home,0.12383347000908007,1.63,-1.0
+current_shadow,2023,2023-04-09,Essendon Bombers,Greater Western Sydney Giants,away,0.23835349216810642,2.75,-1.0
+current_shadow,2023,2023-04-09,West Coast Eagles,Melbourne Demons,home,0.33769063706751223,13.0,-1.0
+current_shadow,2023,2023-04-13,Adelaide Crows,Carlton Blues,away,0.12403099781783045,1.77,-1.0
+current_shadow,2023,2023-04-14,Fremantle Dockers,Gold Coast Suns,home,0.07289392661444749,1.65,0.6499999999999999
+current_shadow,2023,2023-04-14,Richmond Tigers,Sydney Swans,home,0.296564212328271,2.3,-1.0
+current_shadow,2023,2023-04-15,Brisbane Lions,North Melbourne Kangaroos,away,0.14615385532379144,4.8,-1.0
+current_shadow,2023,2023-04-16,Geelong Cats,West Coast Eagles,home,0.0861369423351841,1.05,0.050000000000000044
+current_shadow,2023,2023-04-21,Fremantle Dockers,Western Bulldogs,home,0.12137861220867596,1.8,-1.0
+current_shadow,2023,2023-04-22,Greater Western Sydney Giants,Brisbane Lions,home,0.12453066858839484,3.35,-1.0
+current_shadow,2023,2023-04-23,Hawthorn Hawks,Adelaide Crows,home,0.4236909261456242,4.15,-1.0
+current_shadow,2023,2023-04-23,Carlton Blues,St Kilda Saints,away,0.12403099781783045,1.77,0.77
+current_shadow,2023,2023-04-23,Gold Coast Suns,North Melbourne Kangaroos,away,0.28671328671328666,4.5,-1.0
+current_shadow,2023,2023-04-24,Melbourne Demons,Richmond Tigers,away,0.10516713805623934,4.0,-1.0
+current_shadow,2023,2023-04-29,Brisbane Lions,Fremantle Dockers,home,0.17059764601069782,1.16,0.15999999999999992
+current_shadow,2023,2023-04-29,Sydney Swans,Greater Western Sydney Giants,away,0.08482759237289439,3.7,2.7
+current_shadow,2023,2023-04-29,Western Bulldogs,Hawthorn Hawks,away,0.13286714203707817,4.5,-1.0
+current_shadow,2023,2023-04-29,West Coast Eagles,Carlton Blues,home,0.42798093520444164,4.25,-1.0
+current_shadow,2023,2023-04-29,Melbourne Demons,North Melbourne Kangaroos,home,0.09069551460470704,1.06,0.06000000000000005
+current_shadow,2023,2023-05-06,Richmond Tigers,West Coast Eagles,away,0.12050019974236947,8.0,-1.0
+current_shadow,2023,2023-05-06,Greater Western Sydney Giants,Western Bulldogs,home,0.10065360003047524,3.1,-1.0
+current_shadow,2023,2023-05-07,Port Adelaide Power,Essendon Bombers,away,0.24397299377644655,2.8,-1.0
+current_shadow,2023,2023-05-07,Collingwood Magpies,Sydney Swans,away,0.23835349216810642,2.75,-1.0
+current_shadow,2023,2023-05-07,North Melbourne Kangaroos,St Kilda Saints,home,0.20055822365021592,7.25,-1.0
+current_shadow,2023,2023-05-12,West Coast Eagles,Gold Coast Suns,home,0.3938461446762085,3.7,-1.0
+current_shadow,2023,2023-05-13,North Melbourne Kangaroos,Port Adelaide Power,home,0.1333333432674408,4.8,-1.0
+current_shadow,2023,2023-05-13,Hawthorn Hawks,Melbourne Demons,home,0.21245422238831993,8.0,-1.0
+current_shadow,2023,2023-05-13,Brisbane Lions,Essendon Bombers,away,0.15987461431646788,5.2,-1.0
+current_shadow,2023,2023-05-13,Carlton Blues,Western Bulldogs,home,0.14082531134287524,1.87,-1.0
+current_shadow,2023,2023-05-14,Collingwood Magpies,Greater Western Sydney Giants,away,0.13145175176963764,6.25,-1.0
+current_shadow,2023,2023-05-19,Port Adelaide Power,Melbourne Demons,home,0.23612462568886672,2.3,1.2999999999999998
+current_shadow,2023,2023-05-20,North Melbourne Kangaroos,Sydney Swans,home,0.17249418242828,6.0,-1.0
+current_shadow,2023,2023-05-20,Fremantle Dockers,Geelong Cats,away,0.0941475727630936,1.68,-1.0
+current_shadow,2023,2023-05-20,Essendon Bombers,Richmond Tigers,home,0.27864429026769244,2.55,1.5499999999999998
+current_shadow,2023,2023-05-21,Hawthorn Hawks,West Coast Eagles,away,0.10384087510534212,4.0,-1.0
+current_shadow,2023,2023-05-21,Greater Western Sydney Giants,St Kilda Saints,home,0.25384614467620853,2.4,-1.0
+current_shadow,2023,2023-05-26,Sydney Swans,Carlton Blues,home,0.17811294976315373,2.02,1.02
+current_shadow,2023,2023-05-27,St Kilda Saints,Hawthorn Hawks,away,0.1202886458520247,4.25,3.25
+current_shadow,2023,2023-05-27,Geelong Cats,Greater Western Sydney Giants,away,0.13423646347863327,9.0,8.0
+current_shadow,2023,2023-05-27,West Coast Eagles,Essendon Bombers,home,0.2789895915243614,7.25,-1.0
+current_shadow,2023,2023-05-27,Gold Coast Suns,Western Bulldogs,home,0.28669638622210225,2.62,1.62
+current_shadow,2023,2023-05-28,Richmond Tigers,Port Adelaide Power,away,0.0882352888584137,1.93,0.9299999999999999
+current_shadow,2023,2023-05-28,Collingwood Magpies,North Melbourne Kangaroos,home,0.0861369423351841,1.05,0.050000000000000044
+current_shadow,2023,2023-05-28,Adelaide Crows,Brisbane Lions,home,0.2806122619278577,2.22,1.2200000000000002
+current_shadow,2023,2023-06-02,Melbourne Demons,Carlton Blues,home,0.07988764770430135,1.42,0.41999999999999993
+current_shadow,2023,2023-06-03,Port Adelaide Power,Hawthorn Hawks,away,0.1434016892688853,6.75,-1.0
+current_shadow,2023,2023-06-03,West Coast Eagles,Collingwood Magpies,home,0.2592592691933667,13.0,-1.0
+current_shadow,2023,2023-06-03,Gold Coast Suns,Adelaide Crows,away,0.07521445552508044,1.87,-1.0
+current_shadow,2023,2023-06-03,Western Bulldogs,Geelong Cats,away,0.08227848101265822,2.3,1.2999999999999998
+current_shadow,2023,2023-06-04,Greater Western Sydney Giants,Richmond Tigers,home,0.13436562519568895,1.85,-1.0
+current_shadow,2023,2023-06-04,Essendon Bombers,North Melbourne Kangaroos,away,0.09346871133382173,5.0,-1.0
+current_shadow,2023,2023-06-09,Western Bulldogs,Port Adelaide Power,home,0.17811294976315373,2.02,-1.0
+current_shadow,2023,2023-06-10,Hawthorn Hawks,Brisbane Lions,home,0.0923466259998886,4.0,3.0
+current_shadow,2023,2023-06-10,Fremantle Dockers,Richmond Tigers,home,0.08132706070674278,1.68,-1.0
+current_shadow,2023,2023-06-11,Carlton Blues,Essendon Bombers,away,0.09498502925301389,1.952,0.952
+current_shadow,2023,2023-06-15,Port Adelaide Power,Geelong Cats,home,0.15862067937850954,1.6,0.6000000000000001
+current_shadow,2023,2023-06-17,Greater Western Sydney Giants,Fremantle Dockers,home,0.10389035634505439,1.75,0.75
+current_shadow,2023,2023-06-17,Richmond Tigers,St Kilda Saints,away,0.14720964783277268,2.18,-1.0
+current_shadow,2023,2023-06-18,Carlton Blues,Gold Coast Suns,home,0.08751961406396358,1.7,0.7
+current_shadow,2023,2023-06-18,North Melbourne Kangaroos,Western Bulldogs,home,0.14108778591687537,5.0,-1.0
+current_shadow,2023,2023-06-22,Geelong Cats,Melbourne Demons,home,0.2343538742915643,1.833,0.833
+current_shadow,2023,2023-06-23,St Kilda Saints,Brisbane Lions,home,0.2263652286456741,2.25,-1.0
+current_shadow,2023,2023-06-24,Fremantle Dockers,Essendon Bombers,home,0.14795920070336788,1.7,0.7
+current_shadow,2023,2023-06-25,Gold Coast Suns,Hawthorn Hawks,away,0.08482759237289439,3.7,-1.0
+current_shadow,2023,2023-06-30,Sydney Swans,Geelong Cats,home,0.1668669780095418,1.97,-1.0
+current_shadow,2023,2023-07-01,Adelaide Crows,North Melbourne Kangaroos,away,0.1496838188913867,10.5,-1.0
+current_shadow,2023,2023-07-01,Gold Coast Suns,Collingwood Magpies,away,0.08438817571990098,1.65,0.6499999999999999
+current_shadow,2023,2023-07-01,Essendon Bombers,Port Adelaide Power,home,0.30958384959424123,2.8,-1.0
+current_shadow,2023,2023-07-02,West Coast Eagles,St Kilda Saints,home,0.2690788204976342,15.0,-1.0
+current_shadow,2023,2023-07-06,Richmond Tigers,Sydney Swans,away,0.0814855484638135,1.9,-1.0
+current_shadow,2023,2023-07-08,Greater Western Sydney Giants,Hawthorn Hawks,away,0.08054015978232965,6.0,-1.0
+current_shadow,2023,2023-07-08,Port Adelaide Power,Gold Coast Suns,home,0.19900001287460334,1.2,0.19999999999999996
+current_shadow,2023,2023-07-09,Geelong Cats,North Melbourne Kangaroos,away,0.1771247978516839,15.0,-1.0
+current_shadow,2023,2023-07-09,Fremantle Dockers,Carlton Blues,home,0.13090560254016048,1.833,-1.0
+current_shadow,2023,2023-07-09,Essendon Bombers,Adelaide Crows,home,0.16059588507080869,1.952,0.952
+current_shadow,2023,2023-07-14,Melbourne Demons,Brisbane Lions,home,0.17811294976315373,2.02,1.02
+current_shadow,2023,2023-07-15,Collingwood Magpies,Fremantle Dockers,away,0.08832329565485864,10.0,-1.0
+current_shadow,2023,2023-07-15,Carlton Blues,Port Adelaide Power,away,0.12070282132594623,2.05,-1.0
+current_shadow,2023,2023-07-15,Geelong Cats,Essendon Bombers,away,0.11334611089141289,4.15,-1.0
+current_shadow,2023,2023-07-16,North Melbourne Kangaroos,Hawthorn Hawks,home,0.35253610100808624,3.2,-1.0
+current_shadow,2023,2023-07-16,West Coast Eagles,Richmond Tigers,home,0.1910207638519389,6.75,-1.0
+current_shadow,2023,2023-07-21,Essendon Bombers,Western Bulldogs,home,0.24429840598274116,2.35,-1.0
+current_shadow,2023,2023-07-22,Fremantle Dockers,Sydney Swans,home,0.31796310530152433,2.85,-1.0
+current_shadow,2023,2023-07-22,Port Adelaide Power,Collingwood Magpies,home,0.1470964042816083,1.9,-1.0
+current_shadow,2023,2023-07-23,Greater Western Sydney Giants,Gold Coast Suns,home,0.07289392661444749,1.65,0.6499999999999999
+current_shadow,2023,2023-07-23,Melbourne Demons,Adelaide Crows,away,0.09664118475848926,3.85,-1.0
+current_shadow,2023,2023-07-23,St Kilda Saints,North Melbourne Kangaroos,away,0.19672798555769122,6.5,-1.0
+current_shadow,2023,2023-07-29,Geelong Cats,Fremantle Dockers,away,0.1496838188913867,10.5,9.5
+current_shadow,2023,2023-07-29,Essendon Bombers,Sydney Swans,home,0.26960969147423797,2.5,-1.0
+current_shadow,2023,2023-07-30,West Coast Eagles,North Melbourne Kangaroos,home,0.25517240762710575,2.4,1.4
+current_shadow,2023,2023-08-05,Essendon Bombers,West Coast Eagles,home,0.07307408694867734,1.04,0.040000000000000036
+current_shadow,2023,2023-08-05,Hawthorn Hawks,Collingwood Magpies,home,0.1617357101313461,5.6,4.6
+current_shadow,2023,2023-08-06,North Melbourne Kangaroos,Melbourne Demons,home,0.2366757100244417,10.0,-1.0
+current_shadow,2023,2023-08-06,St Kilda Saints,Carlton Blues,away,0.0762143954260266,1.63,0.6299999999999999
+current_shadow,2023,2023-08-11,Collingwood Magpies,Geelong Cats,home,0.08751961406396358,1.7,0.7
+current_shadow,2023,2023-08-12,West Coast Eagles,Fremantle Dockers,home,0.1617357101313461,5.6,-1.0
+current_shadow,2023,2023-08-12,Carlton Blues,Melbourne Demons,home,0.2709359544251352,2.5,1.5
+current_shadow,2023,2023-08-13,Hawthorn Hawks,Western Bulldogs,home,0.33257917635041667,3.0,2.0
+current_shadow,2023,2023-08-13,St Kilda Saints,Richmond Tigers,away,0.12070282132594623,2.05,-1.0
+current_shadow,2023,2023-08-13,Port Adelaide Power,Greater Western Sydney Giants,home,0.08143548976971904,1.52,0.52
+current_shadow,2023,2023-08-19,Richmond Tigers,North Melbourne Kangaroos,away,0.09327971380628741,6.5,-1.0
+current_shadow,2023,2023-08-20,Fremantle Dockers,Port Adelaide Power,home,0.26960969147423797,2.5,-1.0
+current_shadow,2023,2023-08-20,Melbourne Demons,Hawthorn Hawks,away,0.086176618412658,4.5,-1.0
+current_shadow,2023,2023-08-25,Essendon Bombers,Collingwood Magpies,home,0.12643679154330284,4.6,-1.0
+current_shadow,2023,2023-08-26,North Melbourne Kangaroos,Gold Coast Suns,home,0.38149687232693613,3.5,2.5
+current_shadow,2023,2023-08-26,West Coast Eagles,Adelaide Crows,home,0.1510903526132352,5.25,-1.0
+current_shadow,2023,2023-08-26,Geelong Cats,Western Bulldogs,home,0.20062695308165113,2.1,-1.0
+current_shadow,2023,2023-08-27,Port Adelaide Power,Richmond Tigers,away,0.09551861102884907,6.5,-1.0
+current_shadow,2023,2023-08-27,Sydney Swans,Melbourne Demons,home,0.17903768954015586,1.78,-1.0
+current_shadow,2023,2023-09-15,Melbourne Demons,Carlton Blues,away,0.17347701913831182,2.3,1.2999999999999998
+current_shadow,2023,2023-09-16,Port Adelaide Power,Greater Western Sydney Giants,home,0.5703089910668212,5.0,-1.0
+current_shadow,2023,2023-09-22,Collingwood Magpies,Greater Western Sydney Giants,away,0.2867238362580907,2.5,-1.0
+current_shadow,2023,2023-09-23,Brisbane Lions,Carlton Blues,away,0.08912574287399233,3.7,-1.0
+current_shadow,2023,2023-09-30,Collingwood Magpies,Brisbane Lions,home,0.08241757324763699,1.65,0.6499999999999999
+current_shadow,2024,2024-03-07,Sydney Swans,Melbourne Demons,home,0.10817903976935839,1.85,0.8500000000000001
+current_shadow,2024,2024-03-08,Brisbane Lions,Carlton Blues,away,0.1399999761581422,3.7,2.7
+current_shadow,2024,2024-03-09,Greater Western Sydney Giants,Collingwood Magpies,home,0.0822050137953324,1.75,0.75
+current_shadow,2024,2024-03-17,Port Adelaide Power,West Coast Eagles,away,0.28520351128954124,11.0,-1.0
+current_shadow,2024,2024-03-21,St Kilda Saints,Collingwood Magpies,home,0.1062304940812453,2.55,1.5499999999999998
+current_shadow,2024,2024-03-23,North Melbourne Kangaroos,Fremantle Dockers,home,0.17129629629629634,2.9,-1.0
+current_shadow,2024,2024-03-23,Sydney Swans,Essendon Bombers,away,0.18140192942326117,5.0,-1.0
+current_shadow,2024,2024-03-24,West Coast Eagles,Greater Western Sydney Giants,home,0.07467533009392875,9.0,-1.0
+current_shadow,2024,2024-03-24,Richmond Tigers,Port Adelaide Power,home,0.19868995633187775,3.2,-1.0
+current_shadow,2024,2024-03-29,North Melbourne Kangaroos,Carlton Blues,home,0.3150470219435737,5.2,-1.0
+current_shadow,2024,2024-03-29,Fremantle Dockers,Adelaide Crows,away,0.08356791917158635,2.22,-1.0
+current_shadow,2024,2024-03-30,Essendon Bombers,St Kilda Saints,home,0.1789416105319292,2.15,1.15
+current_shadow,2024,2024-03-31,Richmond Tigers,Sydney Swans,home,0.25127712995917706,4.15,3.1500000000000004
+current_shadow,2024,2024-04-01,Hawthorn Hawks,Geelong Cats,home,0.31654844813876687,3.1,-1.0
+current_shadow,2024,2024-04-04,Adelaide Crows,Melbourne Demons,home,0.25113144189046466,2.55,-1.0
+current_shadow,2024,2024-04-05,Port Adelaide Power,Essendon Bombers,away,0.14647523127835527,4.25,-1.0
+current_shadow,2024,2024-04-06,West Coast Eagles,Sydney Swans,home,0.34905095501141353,19.0,-1.0
+current_shadow,2024,2024-04-06,Fremantle Dockers,Carlton Blues,home,0.2181118205564106,2.35,-1.0
+current_shadow,2024,2024-04-06,Western Bulldogs,Geelong Cats,home,0.12765955924987793,1.93,-1.0
+current_shadow,2024,2024-04-07,Gold Coast Suns,Greater Western Sydney Giants,home,0.22275861144065856,3.7,-1.0
+current_shadow,2024,2024-04-07,Richmond Tigers,St Kilda Saints,away,0.08179723502304148,1.44,0.43999999999999995
+current_shadow,2024,2024-04-07,Collingwood Magpies,Hawthorn Hawks,away,0.26039747841708305,4.5,-1.0
+current_shadow,2024,2024-04-12,Western Bulldogs,Essendon Bombers,home,0.16958699074197325,1.35,-1.0
+current_shadow,2024,2024-04-13,Greater Western Sydney Giants,St Kilda Saints,away,0.12282777018481983,3.85,-1.0
+current_shadow,2024,2024-04-13,Carlton Blues,Adelaide Crows,away,0.11234044075012217,3.7,2.7
+current_shadow,2024,2024-04-13,Port Adelaide Power,Fremantle Dockers,away,0.12282777018481983,3.85,-1.0
+current_shadow,2024,2024-04-13,Gold Coast Suns,Hawthorn Hawks,away,0.09652831577598597,3.5,-1.0
+current_shadow,2024,2024-04-14,West Coast Eagles,Richmond Tigers,away,0.08179723502304148,1.44,-1.0
+current_shadow,2024,2024-04-18,St Kilda Saints,Western Bulldogs,home,0.1471400787303973,2.0,-1.0
+current_shadow,2024,2024-04-20,Carlton Blues,Greater Western Sydney Giants,home,0.07573321875491268,1.833,0.833
+current_shadow,2024,2024-04-20,Brisbane Lions,Geelong Cats,away,0.07368419170379636,2.4,1.4
+current_shadow,2024,2024-04-21,Sydney Swans,Gold Coast Suns,away,0.07103039708199987,3.2,-1.0
+current_shadow,2024,2024-04-21,North Melbourne Kangaroos,Hawthorn Hawks,home,0.34042551669668647,3.35,-1.0
+current_shadow,2024,2024-04-24,Richmond Tigers,Melbourne Demons,home,0.2284023728243698,5.6,-1.0
+current_shadow,2024,2024-04-25,Essendon Bombers,Collingwood Magpies,home,0.09868996229234223,3.2,-1.0
+current_shadow,2024,2024-04-26,Port Adelaide Power,St Kilda Saints,away,0.15905372746340873,4.5,-1.0
+current_shadow,2024,2024-04-27,Fremantle Dockers,Western Bulldogs,home,0.16012709171741035,2.05,1.0499999999999998
+current_shadow,2024,2024-05-02,Adelaide Crows,Port Adelaide Power,away,0.1774809160305344,1.68,-1.0
+current_shadow,2024,2024-05-04,Sydney Swans,Greater Western Sydney Giants,home,0.10817903976935839,1.85,0.8500000000000001
+current_shadow,2024,2024-05-04,West Coast Eagles,Essendon Bombers,home,0.16149164311486675,3.0,-1.0
+current_shadow,2024,2024-05-05,Richmond Tigers,Fremantle Dockers,home,0.14554930911507719,2.85,-1.0
+current_shadow,2024,2024-05-05,Western Bulldogs,Hawthorn Hawks,home,0.10821815766054854,1.24,-1.0
+current_shadow,2024,2024-05-09,Carlton Blues,Melbourne Demons,home,0.17029521816460663,2.1,1.1
+current_shadow,2024,2024-05-10,Fremantle Dockers,Sydney Swans,home,0.07321087274719124,2.35,-1.0
+current_shadow,2024,2024-05-10,Geelong Cats,Port Adelaide Power,away,0.1313537234825699,4.0,3.0
+current_shadow,2024,2024-05-11,Hawthorn Hawks,St Kilda Saints,away,0.11714975845410625,1.52,-1.0
+current_shadow,2024,2024-05-11,Essendon Bombers,Greater Western Sydney Giants,home,0.1239069367995102,2.68,1.6800000000000002
+current_shadow,2024,2024-05-11,Richmond Tigers,Western Bulldogs,home,0.1716475003295475,3.1,-1.0
+current_shadow,2024,2024-05-16,Gold Coast Suns,Geelong Cats,away,0.21753246753246758,1.8,-1.0
+current_shadow,2024,2024-05-18,St Kilda Saints,Fremantle Dockers,home,0.10817903976935839,1.85,-1.0
+current_shadow,2024,2024-05-19,Port Adelaide Power,Hawthorn Hawks,away,0.30208655856770184,5.6,-1.0
+current_shadow,2024,2024-05-23,Western Bulldogs,Sydney Swans,home,0.12631580829620365,2.4,-1.0
+current_shadow,2024,2024-05-24,Fremantle Dockers,Collingwood Magpies,away,0.11724138855934141,2.4,1.4
+current_shadow,2024,2024-05-25,North Melbourne Kangaroos,Port Adelaide Power,away,0.09069550168260632,1.06,0.06000000000000005
+current_shadow,2024,2024-05-26,Hawthorn Hawks,Brisbane Lions,home,0.13287681475035118,2.75,1.75
+current_shadow,2024,2024-05-26,Melbourne Demons,St Kilda Saints,away,0.0804949471878903,3.3,-1.0
+current_shadow,2024,2024-05-26,Adelaide Crows,West Coast Eagles,away,0.15905372746340873,4.5,-1.0
+current_shadow,2024,2024-05-30,Port Adelaide Power,Carlton Blues,away,0.11724138855934141,2.4,1.4
+current_shadow,2024,2024-05-31,Collingwood Magpies,Western Bulldogs,home,0.19398608986212285,2.22,-1.0
+current_shadow,2024,2024-06-01,West Coast Eagles,St Kilda Saints,home,0.1239069367995102,2.68,-1.0
+current_shadow,2024,2024-06-01,Geelong Cats,Richmond Tigers,away,0.28520351128954124,11.0,-1.0
+current_shadow,2024,2024-06-02,Melbourne Demons,Fremantle Dockers,away,0.11483251706264819,2.68,1.6800000000000002
+current_shadow,2024,2024-06-06,Adelaide Crows,Richmond Tigers,home,0.10821815766054854,1.24,-1.0
+current_shadow,2024,2024-06-07,Western Bulldogs,Brisbane Lions,home,0.08868848971831489,1.75,-1.0
+current_shadow,2024,2024-06-08,Hawthorn Hawks,Greater Western Sydney Giants,away,0.08927262616931064,1.87,-1.0
+current_shadow,2024,2024-06-08,West Coast Eagles,North Melbourne Kangaroos,away,0.14085895926864067,4.15,3.1500000000000004
+current_shadow,2024,2024-06-08,St Kilda Saints,Gold Coast Suns,home,0.092411517474421,1.78,0.78
+current_shadow,2024,2024-06-09,Sydney Swans,Geelong Cats,away,0.11234044075012217,3.7,-1.0
+current_shadow,2024,2024-06-09,Essendon Bombers,Carlton Blues,home,0.1062304940812453,2.55,-1.0
+current_shadow,2024,2024-06-10,Collingwood Magpies,Melbourne Demons,home,0.17029521816460663,2.1,1.1
+current_shadow,2024,2024-06-14,Brisbane Lions,St Kilda Saints,away,0.2180779238353725,6.25,-1.0
+current_shadow,2024,2024-06-15,Western Bulldogs,Fremantle Dockers,home,0.07637750796782661,1.75,0.75
+current_shadow,2024,2024-06-15,Adelaide Crows,Sydney Swans,home,0.1955245688874671,3.35,-1.0
+current_shadow,2024,2024-06-16,North Melbourne Kangaroos,Collingwood Magpies,home,0.12912087912087913,8.0,-1.0
+current_shadow,2024,2024-06-22,Port Adelaide Power,Brisbane Lions,home,0.17029521816460663,2.1,-1.0
+current_shadow,2024,2024-06-22,Greater Western Sydney Giants,Sydney Swans,home,0.1716475003295475,3.1,-1.0
+current_shadow,2024,2024-06-22,Melbourne Demons,North Melbourne Kangaroos,away,0.15905372746340873,4.5,-1.0
+current_shadow,2024,2024-06-23,Essendon Bombers,West Coast Eagles,away,0.224240833934919,6.5,-1.0
+current_shadow,2024,2024-06-29,North Melbourne Kangaroos,Western Bulldogs,home,0.2791208850813436,8.0,-1.0
+current_shadow,2024,2024-06-29,Sydney Swans,Fremantle Dockers,away,0.172340440750122,4.8,3.8
+current_shadow,2024,2024-06-29,Gold Coast Suns,Collingwood Magpies,home,0.13440929964447812,1.952,0.952
+current_shadow,2024,2024-06-29,Adelaide Crows,Greater Western Sydney Giants,home,0.15192636433682316,2.02,1.02
+current_shadow,2024,2024-06-30,St Kilda Saints,Port Adelaide Power,home,0.07637750796782661,1.75,-1.0
+current_shadow,2024,2024-06-30,West Coast Eagles,Hawthorn Hawks,home,0.12933088367308798,2.4,-1.0
+current_shadow,2024,2024-07-06,North Melbourne Kangaroos,Gold Coast Suns,home,0.22275861144065856,3.7,2.7
+current_shadow,2024,2024-07-06,Geelong Cats,Hawthorn Hawks,away,0.133004935357371,2.5,-1.0
+current_shadow,2024,2024-07-06,Greater Western Sydney Giants,Carlton Blues,home,0.12631580829620365,2.4,1.4
+current_shadow,2024,2024-07-07,Melbourne Demons,West Coast Eagles,away,0.19425824896930022,5.4,-1.0
+current_shadow,2024,2024-07-07,St Kilda Saints,Sydney Swans,home,0.2568934019688917,4.25,3.25
+current_shadow,2024,2024-07-07,Brisbane Lions,Adelaide Crows,away,0.15905372746340873,4.5,-1.0
+current_shadow,2024,2024-07-12,Collingwood Magpies,Geelong Cats,home,0.1789416105319292,2.15,-1.0
+current_shadow,2024,2024-07-13,Hawthorn Hawks,Fremantle Dockers,home,0.15645537076820254,2.02,1.02
+current_shadow,2024,2024-07-13,Western Bulldogs,Carlton Blues,home,0.09852215823868804,2.5,1.5
+current_shadow,2024,2024-07-13,Melbourne Demons,Essendon Bombers,home,0.14512768948432236,2.5,1.5
+current_shadow,2024,2024-07-14,Gold Coast Suns,Port Adelaide Power,home,0.1033927541629327,1.833,0.833
+current_shadow,2024,2024-07-14,West Coast Eagles,Brisbane Lions,home,0.07840236686390531,5.6,-1.0
+current_shadow,2024,2024-07-14,Richmond Tigers,Greater Western Sydney Giants,home,0.23324594087535647,3.85,-1.0
+current_shadow,2024,2024-07-20,St Kilda Saints,West Coast Eagles,away,0.23002786133462017,6.75,-1.0
+current_shadow,2024,2024-07-20,Port Adelaide Power,Richmond Tigers,away,0.27568280750712304,10.0,-1.0
+current_shadow,2024,2024-07-21,Brisbane Lions,Sydney Swans,home,0.0951920267823454,1.8,0.8
+current_shadow,2024,2024-07-21,Fremantle Dockers,Melbourne Demons,away,0.09652831577598597,3.5,-1.0
+current_shadow,2024,2024-07-27,St Kilda Saints,Essendon Bombers,home,0.20993804026253615,2.3,1.2999999999999998
+current_shadow,2024,2024-07-28,Collingwood Magpies,Richmond Tigers,away,0.14085895926864067,4.15,-1.0
+current_shadow,2024,2024-08-02,West Coast Eagles,Gold Coast Suns,home,0.16149164311486675,3.0,2.0
+current_shadow,2024,2024-08-02,Western Bulldogs,Melbourne Demons,away,0.11234044075012217,3.7,-1.0
+current_shadow,2024,2024-08-03,North Melbourne Kangaroos,Richmond Tigers,home,0.19398608986212285,2.22,1.2200000000000002
+current_shadow,2024,2024-08-03,Geelong Cats,Adelaide Crows,away,0.0804949471878903,3.3,-1.0
+current_shadow,2024,2024-08-03,Collingwood Magpies,Carlton Blues,home,0.104767119884491,2.4,1.4
+current_shadow,2024,2024-08-04,Greater Western Sydney Giants,Hawthorn Hawks,home,0.11463872591654467,1.87,0.8700000000000001
+current_shadow,2024,2024-08-04,St Kilda Saints,Brisbane Lions,home,0.0827586114406586,2.4,-1.0
+current_shadow,2024,2024-08-10,Brisbane Lions,Greater Western Sydney Giants,away,0.08510639819693055,3.35,2.35
+current_shadow,2024,2024-08-10,North Melbourne Kangaroos,West Coast Eagles,away,0.07251908396946571,2.25,1.25
+current_shadow,2024,2024-08-10,Fremantle Dockers,Geelong Cats,away,0.11576354679802958,2.5,1.5
+current_shadow,2024,2024-08-10,Melbourne Demons,Port Adelaide Power,home,0.1509613764176171,2.9,-1.0
+current_shadow,2024,2024-08-11,Richmond Tigers,St Kilda Saints,home,0.25901328273244784,4.0,-1.0
+current_shadow,2024,2024-08-11,Adelaide Crows,Western Bulldogs,home,0.27777776255957054,2.75,1.75
+current_shadow,2024,2024-08-16,Essendon Bombers,Sydney Swans,home,0.18663391822423697,2.18,-1.0
+current_shadow,2024,2024-08-17,Gold Coast Suns,Melbourne Demons,away,0.07103039708199987,3.2,2.2
+current_shadow,2024,2024-08-17,Greater Western Sydney Giants,Fremantle Dockers,away,0.08510639819693055,3.35,-1.0
+current_shadow,2024,2024-08-17,Collingwood Magpies,Brisbane Lions,away,0.12652811735941327,1.54,-1.0
+current_shadow,2024,2024-08-17,St Kilda Saints,Geelong Cats,home,0.14978769093679034,2.55,1.5499999999999998
+current_shadow,2024,2024-08-18,West Coast Eagles,Carlton Blues,away,0.29263565891472865,2.1,1.1
+current_shadow,2024,2024-08-24,Richmond Tigers,Gold Coast Suns,home,0.11881188118811875,2.5,-1.0
+current_shadow,2024,2024-08-24,Brisbane Lions,Essendon Bombers,away,0.220373005200597,6.25,-1.0
+current_shadow,2024,2024-08-25,Western Bulldogs,Greater Western Sydney Giants,away,0.16735959186903415,2.75,-1.0
+current_shadow,2024,2024-08-25,Carlton Blues,St Kilda Saints,home,0.16012709171741035,2.05,-1.0
+current_shadow,2024,2024-09-05,Port Adelaide Power,Geelong Cats,away,0.07103039708199987,3.2,2.2
+current_shadow,2024,2024-09-07,Brisbane Lions,Carlton Blues,away,0.1313537234825699,4.0,-1.0
+current_shadow,2024,2024-09-13,Port Adelaide Power,Hawthorn Hawks,home,0.0725190839694656,2.25,1.25
+current_shadow,2024,2024-09-20,Sydney Swans,Port Adelaide Power,away,0.18183869814156461,3.3,-1.0
+current_shadow,2024,2024-09-21,Geelong Cats,Brisbane Lions,home,0.11463872591654467,1.87,-1.0
+current_shadow,2024,2024-09-28,Sydney Swans,Brisbane Lions,home,0.07637750796782661,1.75,-1.0
+current_shadow,2025,2025-03-09,Greater Western Sydney Giants,Collingwood Magpies,home,0.14230767243947745,2.18,1.1800000000000002
+current_shadow,2025,2025-03-13,Richmond Tigers,Carlton Blues,home,0.37440153437036694,11.0,10.0
+current_shadow,2025,2025-03-14,Hawthorn Hawks,Essendon Bombers,home,0.10834581389719122,1.3,0.30000000000000004
+current_shadow,2025,2025-03-15,Geelong Cats,Fremantle Dockers,away,0.2171945678432603,3.0,-1.0
+current_shadow,2025,2025-03-15,Sydney Swans,Brisbane Lions,home,0.42853954785909415,2.18,-1.0
+current_shadow,2025,2025-03-15,Western Bulldogs,North Melbourne Kangaroos,home,0.16141068244696688,1.36,0.3600000000000001
+current_shadow,2025,2025-03-16,Adelaide Crows,St Kilda Saints,away,0.2784615361690522,3.7,-1.0
+current_shadow,2025,2025-03-20,Carlton Blues,Hawthorn Hawks,home,0.1297412288079064,2.9,-1.0
+current_shadow,2025,2025-03-21,Western Bulldogs,Collingwood Magpies,home,0.28202326979699616,3.2,-1.0
+current_shadow,2025,2025-03-22,Essendon Bombers,Adelaide Crows,home,0.23907101838315115,2.8,-1.0
+current_shadow,2025,2025-03-22,Port Adelaide Power,Richmond Tigers,away,0.2743541071193797,6.75,-1.0
+current_shadow,2025,2025-03-22,St Kilda Saints,Geelong Cats,home,0.1527593078547671,3.5,2.5
+current_shadow,2025,2025-03-23,Fremantle Dockers,Sydney Swans,away,0.10478806678129704,2.22,1.2200000000000002
+current_shadow,2025,2025-03-23,North Melbourne Kangaroos,Melbourne Demons,home,0.15042735271983682,3.1,2.1
+current_shadow,2025,2025-03-29,Melbourne Demons,Gold Coast Suns,home,0.13461536474716967,2.15,-1.0
+current_shadow,2025,2025-03-29,St Kilda Saints,Richmond Tigers,home,0.09543039835650191,1.24,0.24
+current_shadow,2025,2025-03-29,Brisbane Lions,Geelong Cats,home,0.2013624239077766,1.44,0.43999999999999995
+current_shadow,2025,2025-03-29,Hawthorn Hawks,Greater Western Sydney Giants,away,0.15727341735717104,2.5,-1.0
+current_shadow,2025,2025-04-03,Collingwood Magpies,Carlton Blues,away,0.2171945678432603,3.0,-1.0
+current_shadow,2025,2025-04-04,Geelong Cats,Melbourne Demons,home,0.08285190217144844,1.22,0.21999999999999997
+current_shadow,2025,2025-04-05,Richmond Tigers,Brisbane Lions,home,0.0700090383907213,10.0,-1.0
+current_shadow,2025,2025-04-06,Fremantle Dockers,Western Bulldogs,away,0.12074001718171035,2.3,-1.0
+current_shadow,2025,2025-04-10,Adelaide Crows,Geelong Cats,away,0.2012522338434708,2.85,1.85
+current_shadow,2025,2025-04-12,North Melbourne Kangaroos,Gold Coast Suns,home,0.12004662998072754,4.5,-1.0
+current_shadow,2025,2025-04-12,Carlton Blues,West Coast Eagles,home,0.08009284045523579,1.12,0.1200000000000001
+current_shadow,2025,2025-04-12,Western Bulldogs,Brisbane Lions,home,0.09438870537684163,2.62,-1.0
+current_shadow,2025,2025-04-13,St Kilda Saints,Greater Western Sydney Giants,home,0.10268678918979951,2.68,-1.0
+current_shadow,2025,2025-04-13,Port Adelaide Power,Hawthorn Hawks,home,0.12432916150536649,2.85,1.85
+current_shadow,2025,2025-04-17,Brisbane Lions,Collingwood Magpies,home,0.24609330624414827,1.54,-1.0
+current_shadow,2025,2025-04-18,West Coast Eagles,Essendon Bombers,home,0.3075211884909823,3.5,-1.0
+current_shadow,2025,2025-04-19,Melbourne Demons,Fremantle Dockers,home,0.17430442127775642,3.35,2.35
+current_shadow,2025,2025-04-20,Western Bulldogs,St Kilda Saints,away,0.1542250829670817,2.5,-1.0
+current_shadow,2025,2025-04-21,Geelong Cats,Hawthorn Hawks,home,0.3695651888847351,1.93,0.9299999999999999
+current_shadow,2025,2025-04-24,Melbourne Demons,Richmond Tigers,home,0.1453773138588712,1.333,0.33299999999999996
+current_shadow,2025,2025-04-25,Collingwood Magpies,Essendon Bombers,home,0.16097395508377632,1.25,0.25
+current_shadow,2025,2025-04-26,St Kilda Saints,Brisbane Lions,home,0.12432916150536649,2.85,-1.0
+current_shadow,2025,2025-04-26,Port Adelaide Power,North Melbourne Kangaroos,home,0.13177513249182826,1.11,0.1100000000000001
+current_shadow,2025,2025-04-26,Greater Western Sydney Giants,Western Bulldogs,away,0.16193341880963896,2.55,1.5499999999999998
+current_shadow,2025,2025-04-27,Gold Coast Suns,Sydney Swans,away,0.2171945678432603,3.0,-1.0
+current_shadow,2025,2025-05-01,Essendon Bombers,North Melbourne Kangaroos,away,0.262649411194916,3.5,-1.0
+current_shadow,2025,2025-05-02,St Kilda Saints,Fremantle Dockers,home,0.10268678918979951,2.68,1.6800000000000002
+current_shadow,2025,2025-05-03,Western Bulldogs,Port Adelaide Power,away,0.1399999761581422,3.7,-1.0
+current_shadow,2025,2025-05-03,Adelaide Crows,Carlton Blues,away,0.16193341880963896,2.55,-1.0
+current_shadow,2025,2025-05-03,West Coast Eagles,Melbourne Demons,home,0.23345151677481102,2.75,-1.0
+current_shadow,2025,2025-05-03,Collingwood Magpies,Geelong Cats,away,0.07945738420930026,2.85,1.85
+current_shadow,2025,2025-05-04,Hawthorn Hawks,Richmond Tigers,home,0.09069551460470704,1.06,0.06000000000000005
+current_shadow,2025,2025-05-09,St Kilda Saints,Carlton Blues,home,0.19127376011524244,2.45,-1.0
+current_shadow,2025,2025-05-10,Melbourne Demons,Hawthorn Hawks,home,0.2300569823494664,4.15,-1.0
+current_shadow,2025,2025-05-10,Gold Coast Suns,Western Bulldogs,away,0.07092906863658466,2.05,-1.0
+current_shadow,2025,2025-05-10,Port Adelaide Power,Adelaide Crows,home,0.16022842016282562,3.2,-1.0
+current_shadow,2025,2025-05-11,Richmond Tigers,West Coast Eagles,home,0.2091878303941691,1.44,0.43999999999999995
+current_shadow,2025,2025-05-11,Geelong Cats,Greater Western Sydney Giants,away,0.2202797179872339,3.0,2.0
+current_shadow,2025,2025-05-17,Greater Western Sydney Giants,Fremantle Dockers,away,0.1408545615607455,3.5,2.5
+current_shadow,2025,2025-05-17,Western Bulldogs,Essendon Bombers,away,0.3125963266972853,4.25,-1.0
+current_shadow,2025,2025-05-18,Richmond Tigers,North Melbourne Kangaroos,home,0.20214519465323716,2.5,-1.0
+current_shadow,2025,2025-05-18,Brisbane Lions,Melbourne Demons,home,0.16445719719971197,1.14,-1.0
+current_shadow,2025,2025-05-23,Essendon Bombers,Richmond Tigers,away,0.17567996926732943,4.0,-1.0
+current_shadow,2025,2025-05-24,Hawthorn Hawks,Brisbane Lions,away,0.07240439145291444,2.8,1.7999999999999998
+current_shadow,2025,2025-05-24,Fremantle Dockers,Port Adelaide Power,home,0.1453773138588712,1.333,0.33299999999999996
+current_shadow,2025,2025-05-24,North Melbourne Kangaroos,Collingwood Magpies,home,0.10185186178595931,4.15,-1.0
+current_shadow,2025,2025-05-25,Melbourne Demons,Sydney Swans,home,0.07031248013178515,1.87,0.8700000000000001
+current_shadow,2025,2025-05-25,St Kilda Saints,Gold Coast Suns,home,0.10268678918979951,2.68,-1.0
+current_shadow,2025,2025-05-31,Gold Coast Suns,Fremantle Dockers,home,0.1708752325528573,1.38,-1.0
+current_shadow,2025,2025-05-31,Greater Western Sydney Giants,Richmond Tigers,home,0.09069551460470704,1.06,0.06000000000000005
+current_shadow,2025,2025-06-01,West Coast Eagles,Geelong Cats,away,0.09565763319550169,1.07,0.07000000000000006
+current_shadow,2025,2025-06-05,Western Bulldogs,Hawthorn Hawks,away,0.262649411194916,3.5,2.5
+current_shadow,2025,2025-06-06,Adelaide Crows,Brisbane Lions,away,0.1540678261558791,2.62,-1.0
+current_shadow,2025,2025-06-07,Richmond Tigers,Sydney Swans,home,0.10268678918979951,2.68,-1.0
+current_shadow,2025,2025-06-07,Geelong Cats,Gold Coast Suns,away,0.09539971820908977,3.0,-1.0
+current_shadow,2025,2025-06-07,Greater Western Sydney Giants,Port Adelaide Power,home,0.1453773138588712,1.333,-1.0
+current_shadow,2025,2025-06-08,Carlton Blues,Essendon Bombers,away,0.1153566428667594,3.2,-1.0
+current_shadow,2025,2025-06-09,Melbourne Demons,Collingwood Magpies,home,0.21231028996747264,4.25,-1.0
+current_shadow,2025,2025-06-12,St Kilda Saints,Western Bulldogs,home,0.3518518319836369,4.15,-1.0
+current_shadow,2025,2025-06-14,Brisbane Lions,Greater Western Sydney Giants,away,0.21666668653488153,4.8,3.8
+current_shadow,2025,2025-06-14,Essendon Bombers,Geelong Cats,home,0.3134388570157447,6.5,-1.0
+current_shadow,2025,2025-06-14,North Melbourne Kangaroos,Fremantle Dockers,home,0.2804718260137,6.5,-1.0
+current_shadow,2025,2025-06-15,West Coast Eagles,Carlton Blues,home,0.0923466259998886,4.0,-1.0
+current_shadow,2025,2025-06-20,Geelong Cats,Brisbane Lions,away,0.24661604260682035,3.3,2.3
+current_shadow,2025,2025-06-21,Carlton Blues,North Melbourne Kangaroos,home,0.1010466703662165,1.25,-1.0
+current_shadow,2025,2025-06-21,Port Adelaide Power,Sydney Swans,home,0.35654435555140185,1.87,-1.0
+current_shadow,2025,2025-06-21,Collingwood Magpies,St Kilda Saints,away,0.22840234302204754,5.6,-1.0
+current_shadow,2025,2025-06-22,Greater Western Sydney Giants,Gold Coast Suns,home,0.08333331346511841,1.91,0.9099999999999999
+current_shadow,2025,2025-06-27,Sydney Swans,Western Bulldogs,home,0.10268678918979951,2.68,-1.0
+current_shadow,2025,2025-06-28,Gold Coast Suns,Melbourne Demons,home,0.23998673014215544,1.27,0.27
+current_shadow,2025,2025-06-28,Hawthorn Hawks,North Melbourne Kangaroos,away,0.262404169620132,6.25,-1.0
+current_shadow,2025,2025-06-29,Fremantle Dockers,St Kilda Saints,away,0.16715401596957935,3.85,-1.0
+current_shadow,2025,2025-06-29,Richmond Tigers,Adelaide Crows,home,0.3076923119497823,8.0,-1.0
+current_shadow,2025,2025-07-03,North Melbourne Kangaroos,Western Bulldogs,home,0.35449735875482913,13.0,-1.0
+current_shadow,2025,2025-07-04,West Coast Eagles,Greater Western Sydney Giants,home,0.13672593926667143,3.3,-1.0
+current_shadow,2025,2025-07-04,Carlton Blues,Collingwood Magpies,home,0.21528471954218995,4.5,-1.0
+current_shadow,2025,2025-07-05,Essendon Bombers,Gold Coast Suns,home,0.18572633885681178,3.5,-1.0
+current_shadow,2025,2025-07-05,Geelong Cats,Richmond Tigers,away,0.0735693464828101,17.0,-1.0
+current_shadow,2025,2025-07-05,St Kilda Saints,Hawthorn Hawks,home,0.14133739027571174,3.35,-1.0
+current_shadow,2025,2025-07-10,Carlton Blues,Brisbane Lions,home,0.2436184547724769,5.2,-1.0
+current_shadow,2025,2025-07-12,Richmond Tigers,Essendon Bombers,home,0.1696929702687161,3.3,2.3
+current_shadow,2025,2025-07-13,Melbourne Demons,North Melbourne Kangaroos,home,0.07646174060887301,1.2,0.19999999999999996
+current_shadow,2025,2025-07-13,St Kilda Saints,Sydney Swans,home,0.17378557477165107,2.35,-1.0
+current_shadow,2025,2025-07-13,Port Adelaide Power,West Coast Eagles,away,0.3083044744280383,10.5,-1.0
+current_shadow,2025,2025-07-17,Essendon Bombers,Greater Western Sydney Giants,home,0.340659342951827,8.0,-1.0
+current_shadow,2025,2025-07-18,Brisbane Lions,Western Bulldogs,away,0.12074001718171035,2.3,-1.0
+current_shadow,2025,2025-07-19,Hawthorn Hawks,Port Adelaide Power,away,0.25582752569572076,6.0,-1.0
+current_shadow,2025,2025-07-19,Sydney Swans,North Melbourne Kangaroos,away,0.3095238293920244,9.0,-1.0
+current_shadow,2025,2025-07-19,West Coast Eagles,Richmond Tigers,away,0.12074001718171035,2.3,1.2999999999999998
+current_shadow,2025,2025-07-19,Carlton Blues,Melbourne Demons,home,0.21618355501101216,2.62,1.62
+current_shadow,2025,2025-07-20,Geelong Cats,St Kilda Saints,away,0.2743541071193797,6.75,-1.0
+current_shadow,2025,2025-07-20,Collingwood Magpies,Fremantle Dockers,away,0.23715149250092993,3.2,2.2
+current_shadow,2025,2025-07-20,Adelaide Crows,Gold Coast Suns,away,0.1399999761581422,3.7,-1.0
+current_shadow,2025,2025-07-24,Hawthorn Hawks,Carlton Blues,home,0.08285190217144844,1.22,0.21999999999999997
+current_shadow,2025,2025-07-25,Essendon Bombers,Western Bulldogs,home,0.35449735875482913,13.0,-1.0
+current_shadow,2025,2025-07-25,Greater Western Sydney Giants,Sydney Swans,away,0.07945738420930026,2.85,-1.0
+current_shadow,2025,2025-07-26,Gold Coast Suns,Brisbane Lions,home,0.0850103464715346,2.55,1.5499999999999998
+current_shadow,2025,2025-07-26,Fremantle Dockers,West Coast Eagles,home,0.07307408694867734,1.04,0.040000000000000036
+current_shadow,2025,2025-07-26,North Melbourne Kangaroos,Geelong Cats,home,0.3368759310987994,10.5,-1.0
+current_shadow,2025,2025-07-27,Richmond Tigers,Collingwood Magpies,home,0.09259259755964631,13.0,-1.0
+current_shadow,2025,2025-07-27,St Kilda Saints,Melbourne Demons,home,0.10760011855206364,2.02,1.02
+current_shadow,2025,2025-07-31,Western Bulldogs,Greater Western Sydney Giants,away,0.10555557542377048,3.1,-1.0
+current_shadow,2025,2025-08-02,Sydney Swans,Essendon Bombers,home,0.11085813548392232,1.12,0.1200000000000001
+current_shadow,2025,2025-08-02,Collingwood Magpies,Brisbane Lions,home,0.2284168635258833,1.5,-1.0
+current_shadow,2025,2025-08-03,St Kilda Saints,North Melbourne Kangaroos,home,0.11907785945003735,1.28,0.28
+current_shadow,2025,2025-08-08,Geelong Cats,Essendon Bombers,away,0.37927312859337836,26.0,-1.0
+current_shadow,2025,2025-08-09,Richmond Tigers,St Kilda Saints,home,0.1696929702687161,3.3,-1.0
+current_shadow,2025,2025-08-09,Brisbane Lions,Sydney Swans,away,0.17567996926732943,4.0,3.0
+current_shadow,2025,2025-08-09,Carlton Blues,Gold Coast Suns,home,0.19708995134742172,4.15,-1.0
+current_shadow,2025,2025-08-09,Port Adelaide Power,Fremantle Dockers,home,0.18572633885681178,3.5,-1.0
+current_shadow,2025,2025-08-10,West Coast Eagles,Adelaide Crows,home,0.10980120700126547,17.0,-1.0
+current_shadow,2025,2025-08-10,Melbourne Demons,Western Bulldogs,home,0.3075211884909823,3.5,-1.0
+current_shadow,2025,2025-08-15,Fremantle Dockers,Brisbane Lions,away,0.09743589514341111,2.18,1.1800000000000002
+current_shadow,2025,2025-08-15,Essendon Bombers,St Kilda Saints,home,0.26929290648038245,5.0,-1.0
+current_shadow,2025,2025-08-16,Gold Coast Suns,Greater Western Sydney Giants,home,0.16141068244696688,1.36,-1.0
+current_shadow,2025,2025-08-16,Carlton Blues,Port Adelaide Power,away,0.08486945151184011,2.9,-1.0
+current_shadow,2025,2025-08-16,Hawthorn Hawks,Melbourne Demons,away,0.1408545615607455,3.5,-1.0
+current_shadow,2025,2025-08-16,Adelaide Crows,Collingwood Magpies,home,0.2284168635258833,1.5,0.5
+current_shadow,2025,2025-08-17,Sydney Swans,Geelong Cats,home,0.13672593926667143,3.3,-1.0
+current_shadow,2025,2025-08-17,Western Bulldogs,West Coast Eagles,away,0.08828921724553307,23.0,-1.0
+current_shadow,2025,2025-08-21,Essendon Bombers,Carlton Blues,home,0.3233333134651184,3.7,-1.0
+current_shadow,2025,2025-08-22,Collingwood Magpies,Melbourne Demons,away,0.17567996926732943,4.0,-1.0
+current_shadow,2025,2025-08-22,Port Adelaide Power,Gold Coast Suns,home,0.187584715561351,4.0,3.0
+current_shadow,2025,2025-08-23,North Melbourne Kangaroos,Adelaide Crows,home,0.2436184547724769,5.2,-1.0
+current_shadow,2025,2025-08-23,Richmond Tigers,Geelong Cats,home,0.10980120700126547,17.0,-1.0
+current_shadow,2025,2025-08-23,West Coast Eagles,Sydney Swans,home,0.16699257093772835,6.25,-1.0
+current_shadow,2025,2025-08-24,Greater Western Sydney Giants,St Kilda Saints,away,0.21504699810171568,5.2,-1.0
+current_shadow,2025,2025-08-24,Western Bulldogs,Fremantle Dockers,home,0.16141068244696688,1.36,-1.0
+current_shadow,2025,2025-09-06,Greater Western Sydney Giants,Hawthorn Hawks,away,0.07092906863658466,2.05,1.0499999999999998
+current_shadow,2025,2025-09-06,Fremantle Dockers,Gold Coast Suns,away,0.12074001718171035,2.3,1.2999999999999998
+current_shadow,2025,2025-09-12,Adelaide Crows,Hawthorn Hawks,away,0.08974358745110345,2.15,1.15
+current_shadow,2025,2025-09-13,Brisbane Lions,Gold Coast Suns,away,0.1384615361690521,2.4,-1.0
+current_shadow,2025,2025-09-20,Collingwood Magpies,Brisbane Lions,home,0.2872867078720769,1.65,-1.0
+legacy_primary,2023,2023-03-16,Richmond Tigers,Carlton Blues,home,0.07838774632804002,1.65,-1.0
+legacy_primary,2023,2023-03-17,Geelong Cats,Collingwood Magpies,home,0.3544639331366628,1.56,-1.0
+legacy_primary,2023,2023-03-18,North Melbourne Kangaroos,West Coast Eagles,away,0.22946804761886597,1.93,-1.0
+legacy_primary,2023,2023-03-18,Melbourne Demons,Western Bulldogs,home,0.20284290282757245,1.8,0.8
+legacy_primary,2023,2023-03-19,Hawthorn Hawks,Essendon Bombers,home,0.22447088712301017,2.18,-1.0
+legacy_primary,2023,2023-03-19,St Kilda Saints,Fremantle Dockers,home,0.3999140082403671,2.85,1.85
+legacy_primary,2023,2023-03-23,Carlton Blues,Geelong Cats,away,0.15672353237940229,1.54,-1.0
+legacy_primary,2023,2023-03-25,Collingwood Magpies,Port Adelaide Power,away,0.11631047901848857,2.5,-1.0
+legacy_primary,2023,2023-03-26,West Coast Eagles,Greater Western Sydney Giants,home,0.21342794926135567,2.05,1.0499999999999998
+legacy_primary,2023,2023-03-30,Western Bulldogs,Brisbane Lions,home,0.15509990453720096,2.4,1.4
+legacy_primary,2023,2023-03-31,Collingwood Magpies,Richmond Tigers,away,0.20563969730232168,2.9,-1.0
+legacy_primary,2023,2023-04-01,Greater Western Sydney Giants,Carlton Blues,home,0.1629746072641377,2.45,-1.0
+legacy_primary,2023,2023-04-01,St Kilda Saints,Essendon Bombers,home,0.21138066932295962,1.9,0.8999999999999999
+legacy_primary,2023,2023-04-02,Fremantle Dockers,West Coast Eagles,away,0.2221090315386307,2.85,-1.0
+legacy_primary,2023,2023-04-06,Brisbane Lions,Collingwood Magpies,away,0.2793836085472028,1.9,-1.0
+legacy_primary,2023,2023-04-08,Adelaide Crows,Fremantle Dockers,away,0.17794819760926162,2.3,-1.0
+legacy_primary,2023,2023-04-08,Richmond Tigers,Western Bulldogs,home,0.16057591881584277,1.63,-1.0
+legacy_primary,2023,2023-04-09,Essendon Bombers,Greater Western Sydney Giants,home,0.13811942801126065,1.48,0.48
+legacy_primary,2023,2023-04-10,Geelong Cats,Hawthorn Hawks,home,0.1182422842179145,1.15,0.1499999999999999
+legacy_primary,2023,2023-04-13,Adelaide Crows,Carlton Blues,away,0.17021446472914636,1.77,-1.0
+legacy_primary,2023,2023-04-14,Fremantle Dockers,Gold Coast Suns,home,0.08895988177649583,1.65,0.6499999999999999
+legacy_primary,2023,2023-04-15,Brisbane Lions,North Melbourne Kangaroos,away,0.313758897781372,4.8,-1.0
+legacy_primary,2023,2023-04-15,Essendon Bombers,Melbourne Demons,away,0.1846626383727834,1.333,-1.0
+legacy_primary,2023,2023-04-15,Port Adelaide Power,Western Bulldogs,away,0.08884365547106465,2.62,-1.0
+legacy_primary,2023,2023-04-16,Geelong Cats,West Coast Eagles,home,0.07122511190992165,1.05,0.050000000000000044
+legacy_primary,2023,2023-04-16,Collingwood Magpies,St Kilda Saints,home,0.22619115125729838,1.52,0.52
+legacy_primary,2023,2023-04-21,Fremantle Dockers,Western Bulldogs,away,0.07578315169780292,2.05,1.0499999999999998
+legacy_primary,2023,2023-04-23,Hawthorn Hawks,Adelaide Crows,home,0.40982134253890423,4.15,-1.0
+legacy_primary,2023,2023-04-25,Collingwood Magpies,Essendon Bombers,home,0.12257838591434156,1.5,0.5
+legacy_primary,2023,2023-04-28,St Kilda Saints,Port Adelaide Power,home,0.14535731419421827,1.5,-1.0
+legacy_primary,2023,2023-04-29,Sydney Swans,Greater Western Sydney Giants,away,0.17026673793792735,3.7,2.7
+legacy_primary,2023,2023-04-30,Essendon Bombers,Geelong Cats,away,0.24337720737107826,1.48,0.48
+legacy_primary,2023,2023-04-30,Richmond Tigers,Gold Coast Suns,home,0.1187192381814468,1.45,-1.0
+legacy_primary,2023,2023-04-30,Adelaide Crows,Collingwood Magpies,home,0.09853524275315112,2.15,-1.0
+legacy_primary,2023,2023-05-05,Carlton Blues,Brisbane Lions,home,0.10141892402203045,1.8,-1.0
+legacy_primary,2023,2023-05-06,Richmond Tigers,West Coast Eagles,home,0.08345169549459952,1.1,0.10000000000000009
+legacy_primary,2023,2023-05-06,Geelong Cats,Adelaide Crows,home,0.16666241042263863,1.22,0.21999999999999997
+legacy_primary,2023,2023-05-06,Fremantle Dockers,Hawthorn Hawks,home,0.07442901111305211,1.333,0.33299999999999996
+legacy_primary,2023,2023-05-06,Greater Western Sydney Giants,Western Bulldogs,away,0.11576287812656827,1.4,0.3999999999999999
+legacy_primary,2023,2023-05-12,West Coast Eagles,Gold Coast Suns,home,0.1776043379306793,3.7,-1.0
+legacy_primary,2023,2023-05-12,Richmond Tigers,Geelong Cats,away,0.07844610937040852,1.42,-1.0
+legacy_primary,2023,2023-05-13,North Melbourne Kangaroos,Port Adelaide Power,away,0.1433980099856853,1.2,0.19999999999999996
+legacy_primary,2023,2023-05-13,Carlton Blues,Western Bulldogs,home,0.2900972763697307,1.87,-1.0
+legacy_primary,2023,2023-05-14,Adelaide Crows,St Kilda Saints,away,0.18113661561180006,2.35,-1.0
+legacy_primary,2023,2023-05-19,Port Adelaide Power,Melbourne Demons,home,0.24141722012169753,2.3,1.2999999999999998
+legacy_primary,2023,2023-05-20,Western Bulldogs,Adelaide Crows,home,0.16834132682874003,1.52,0.52
+legacy_primary,2023,2023-05-20,Fremantle Dockers,Geelong Cats,away,0.2172978469206177,1.68,-1.0
+legacy_primary,2023,2023-05-20,Brisbane Lions,Gold Coast Suns,home,0.11534212915985664,1.25,0.25
+legacy_primary,2023,2023-05-20,Essendon Bombers,Richmond Tigers,home,0.2712491419904097,2.55,1.5499999999999998
+legacy_primary,2023,2023-05-21,Hawthorn Hawks,West Coast Eagles,away,0.14574681468435213,4.0,-1.0
+legacy_primary,2023,2023-05-21,Carlton Blues,Collingwood Magpies,away,0.19721541150905297,1.5,0.5
+legacy_primary,2023,2023-05-26,Sydney Swans,Carlton Blues,home,0.3298887867077338,2.02,1.02
+legacy_primary,2023,2023-05-27,Melbourne Demons,Fremantle Dockers,home,0.16513750400949034,1.35,-1.0
+legacy_primary,2023,2023-05-27,West Coast Eagles,Essendon Bombers,home,0.09088207118248826,7.25,-1.0
+legacy_primary,2023,2023-05-27,Gold Coast Suns,Western Bulldogs,away,0.19824493240906993,1.52,-1.0
+legacy_primary,2023,2023-05-28,Adelaide Crows,Brisbane Lions,home,0.22028860632254155,2.22,1.2200000000000002
+legacy_primary,2023,2023-06-02,Melbourne Demons,Carlton Blues,home,0.10724170930784749,1.42,0.41999999999999993
+legacy_primary,2023,2023-06-03,Gold Coast Suns,Adelaide Crows,away,0.23524127403895068,1.87,-1.0
+legacy_primary,2023,2023-06-04,Greater Western Sydney Giants,Richmond Tigers,away,0.07737328905563856,2.0,1.0
+legacy_primary,2023,2023-06-09,Western Bulldogs,Port Adelaide Power,home,0.26903488818249577,2.02,-1.0
+legacy_primary,2023,2023-06-10,Fremantle Dockers,Richmond Tigers,away,0.09647460793720863,2.25,1.25
+legacy_primary,2023,2023-06-11,North Melbourne Kangaroos,Greater Western Sydney Giants,away,0.07385668024667336,1.48,0.48
+legacy_primary,2023,2023-06-11,Carlton Blues,Essendon Bombers,home,0.22915340348815127,1.9,-1.0
+legacy_primary,2023,2023-06-12,Melbourne Demons,Collingwood Magpies,home,0.12187882844052189,2.02,1.02
+legacy_primary,2023,2023-06-15,Port Adelaide Power,Geelong Cats,home,0.28353431224823,1.6,0.6000000000000001
+legacy_primary,2023,2023-06-16,Brisbane Lions,Sydney Swans,away,0.1267693514389603,4.0,-1.0
+legacy_primary,2023,2023-06-17,Richmond Tigers,St Kilda Saints,home,0.16872277504358535,1.72,0.72
+legacy_primary,2023,2023-06-18,Carlton Blues,Gold Coast Suns,home,0.18870040591882198,1.7,0.7
+legacy_primary,2023,2023-06-18,North Melbourne Kangaroos,Western Bulldogs,home,0.10633902307088233,5.0,-1.0
+legacy_primary,2023,2023-06-22,Geelong Cats,Melbourne Demons,home,0.2583942156688226,1.833,0.833
+legacy_primary,2023,2023-06-23,St Kilda Saints,Brisbane Lions,home,0.3589177927898086,2.25,-1.0
+legacy_primary,2023,2023-06-24,Fremantle Dockers,Essendon Bombers,home,0.2765265982978198,1.7,0.7
+legacy_primary,2023,2023-06-25,Collingwood Magpies,Adelaide Crows,home,0.08445262218237948,1.36,0.3600000000000001
+legacy_primary,2023,2023-06-25,Gold Coast Suns,Hawthorn Hawks,away,0.11158524990081797,3.7,-1.0
+legacy_primary,2023,2023-06-29,Brisbane Lions,Richmond Tigers,home,0.12432802677154531,1.3,0.30000000000000004
+legacy_primary,2023,2023-06-30,Sydney Swans,Geelong Cats,home,0.09105112155278522,1.97,-1.0
+legacy_primary,2023,2023-07-01,Western Bulldogs,Fremantle Dockers,home,0.2164993268515676,1.56,0.56
+legacy_primary,2023,2023-07-01,Gold Coast Suns,Collingwood Magpies,away,0.09790194939963426,1.65,0.6499999999999999
+legacy_primary,2023,2023-07-02,Hawthorn Hawks,Carlton Blues,home,0.30840512666296455,3.35,-1.0
+legacy_primary,2023,2023-07-02,West Coast Eagles,St Kilda Saints,home,0.07252457693302847,15.0,-1.0
+legacy_primary,2023,2023-07-02,Melbourne Demons,Greater Western Sydney Giants,home,0.2738816929618697,1.42,-1.0
+legacy_primary,2023,2023-07-06,Richmond Tigers,Sydney Swans,away,0.19091720267867252,1.9,-1.0
+legacy_primary,2023,2023-07-08,Port Adelaide Power,Gold Coast Suns,home,0.10526646375656135,1.2,0.19999999999999996
+legacy_primary,2023,2023-07-08,St Kilda Saints,Melbourne Demons,home,0.3986114574944155,2.75,-1.0
+legacy_primary,2023,2023-07-09,Fremantle Dockers,Carlton Blues,home,0.14059070166506893,1.833,-1.0
+legacy_primary,2023,2023-07-09,Essendon Bombers,Adelaide Crows,home,0.3327072770919879,1.952,0.952
+legacy_primary,2023,2023-07-14,Melbourne Demons,Brisbane Lions,home,0.09282734576306217,2.02,1.02
+legacy_primary,2023,2023-07-15,Gold Coast Suns,St Kilda Saints,away,0.09550012282047327,2.45,-1.0
+legacy_primary,2023,2023-07-16,North Melbourne Kangaroos,Hawthorn Hawks,home,0.27080835785928253,3.2,-1.0
+legacy_primary,2023,2023-07-22,Brisbane Lions,Geelong Cats,away,0.11093504417345723,2.62,-1.0
+legacy_primary,2023,2023-07-23,Greater Western Sydney Giants,Gold Coast Suns,away,0.08285751033432875,2.3,-1.0
+legacy_primary,2023,2023-07-23,Melbourne Demons,Adelaide Crows,home,0.0969675164706062,1.28,0.28
+legacy_primary,2023,2023-07-28,Collingwood Magpies,Carlton Blues,home,0.15077906156302523,1.36,-1.0
+legacy_primary,2023,2023-07-29,Western Bulldogs,Greater Western Sydney Giants,away,0.2902098609482425,2.75,1.75
+legacy_primary,2023,2023-07-29,Gold Coast Suns,Brisbane Lions,away,0.17275240716147922,1.35,-1.0
+legacy_primary,2023,2023-07-29,Essendon Bombers,Sydney Swans,home,0.2280265110466867,2.5,-1.0
+legacy_primary,2023,2023-07-30,West Coast Eagles,North Melbourne Kangaroos,home,0.3023817896842957,2.4,1.4
+legacy_primary,2023,2023-07-30,Richmond Tigers,Melbourne Demons,home,0.34932634830474857,2.4,-1.0
+legacy_primary,2023,2023-08-04,Western Bulldogs,Richmond Tigers,home,0.08649303443831013,1.42,0.41999999999999993
+legacy_primary,2023,2023-08-05,Adelaide Crows,Gold Coast Suns,away,0.20632587909698497,3.7,-1.0
+legacy_primary,2023,2023-08-05,Hawthorn Hawks,Collingwood Magpies,away,0.084358203781427,1.16,-1.0
+legacy_primary,2023,2023-08-05,Geelong Cats,Port Adelaide Power,home,0.11783072796273741,1.35,0.3500000000000001
+legacy_primary,2023,2023-08-06,Fremantle Dockers,Brisbane Lions,away,0.13542312711550153,1.54,0.54
+legacy_primary,2023,2023-08-06,St Kilda Saints,Carlton Blues,home,0.2013729289548481,2.35,-1.0
+legacy_primary,2023,2023-08-12,North Melbourne Kangaroos,Essendon Bombers,home,0.11743574761688258,3.5,-1.0
+legacy_primary,2023,2023-08-12,West Coast Eagles,Fremantle Dockers,away,0.11884642727452621,1.16,0.15999999999999992
+legacy_primary,2023,2023-08-12,Carlton Blues,Melbourne Demons,home,0.4289879220459848,2.5,1.5
+legacy_primary,2023,2023-08-13,Hawthorn Hawks,Western Bulldogs,home,0.10210544936257793,3.0,2.0
+legacy_primary,2023,2023-08-13,St Kilda Saints,Richmond Tigers,home,0.08139086930782757,1.8,0.8
+legacy_primary,2023,2023-08-18,Collingwood Magpies,Brisbane Lions,home,0.10769981451523608,2.15,-1.0
+legacy_primary,2023,2023-08-19,Richmond Tigers,North Melbourne Kangaroos,away,0.1871886197892586,6.5,-1.0
+legacy_primary,2023,2023-08-19,Gold Coast Suns,Carlton Blues,away,0.19414045282688097,1.58,0.5800000000000001
+legacy_primary,2023,2023-08-19,Greater Western Sydney Giants,Essendon Bombers,home,0.07032214904547762,1.36,0.3600000000000001
+legacy_primary,2023,2023-08-19,Adelaide Crows,Sydney Swans,away,0.11946550145498691,2.75,1.75
+legacy_primary,2023,2023-08-19,St Kilda Saints,Geelong Cats,home,0.19012745236622464,2.25,1.25
+legacy_primary,2023,2023-08-20,Fremantle Dockers,Port Adelaide Power,home,0.4472332614396005,2.5,-1.0
+legacy_primary,2023,2023-08-20,Melbourne Demons,Hawthorn Hawks,away,0.11897127278201225,4.5,-1.0
+legacy_primary,2023,2023-08-25,Essendon Bombers,Collingwood Magpies,home,0.0777635194104293,4.6,-1.0
+legacy_primary,2023,2023-08-26,North Melbourne Kangaroos,Gold Coast Suns,away,0.16511510727683132,1.31,-1.0
+legacy_primary,2023,2023-08-26,West Coast Eagles,Adelaide Crows,away,0.10416399798939158,1.17,0.16999999999999993
+legacy_primary,2023,2023-08-26,Geelong Cats,Western Bulldogs,home,0.390167160467668,2.1,-1.0
+legacy_primary,2023,2023-08-27,Sydney Swans,Melbourne Demons,home,0.25739037928319786,1.78,-1.0
+legacy_primary,2023,2023-08-27,Carlton Blues,Greater Western Sydney Giants,home,0.291504699356702,1.62,-1.0
+legacy_primary,2023,2023-09-07,Collingwood Magpies,Melbourne Demons,away,0.12861071248630895,3.2,-1.0
+legacy_primary,2023,2023-09-08,Carlton Blues,Sydney Swans,home,0.1198934969447909,1.45,0.44999999999999996
+legacy_primary,2023,2023-09-09,St Kilda Saints,Greater Western Sydney Giants,home,0.163970914613985,2.2,-1.0
+legacy_primary,2023,2023-09-09,Brisbane Lions,Port Adelaide Power,home,0.10372094517556307,1.43,0.42999999999999994
+legacy_primary,2023,2023-09-16,Port Adelaide Power,Greater Western Sydney Giants,home,0.28155464708030997,5.0,-1.0
+legacy_primary,2023,2023-09-22,Collingwood Magpies,Greater Western Sydney Giants,away,0.33151654799286245,2.5,-1.0
+legacy_primary,2023,2023-09-23,Brisbane Lions,Carlton Blues,home,0.07377840045944273,1.28,0.28
+legacy_primary,2023,2023-09-30,Collingwood Magpies,Brisbane Lions,home,0.23672928980418606,1.65,0.6499999999999999
+legacy_primary,2024,2024-03-09,Greater Western Sydney Giants,Collingwood Magpies,home,0.1384135647253556,1.75,0.75
+legacy_primary,2024,2024-03-14,Carlton Blues,Richmond Tigers,home,0.11415084018263699,1.45,0.44999999999999996
+legacy_primary,2024,2024-03-15,Collingwood Magpies,Sydney Swans,home,0.08128737222745219,1.52,-1.0
+legacy_primary,2024,2024-03-16,Essendon Bombers,Hawthorn Hawks,home,0.14704067211646532,1.85,0.8500000000000001
+legacy_primary,2024,2024-03-16,Greater Western Sydney Giants,North Melbourne Kangaroos,home,0.07021946234327126,1.05,0.050000000000000044
+legacy_primary,2024,2024-03-16,Geelong Cats,St Kilda Saints,home,0.11702816964294505,1.44,0.43999999999999995
+legacy_primary,2024,2024-03-16,Gold Coast Suns,Adelaide Crows,home,0.23741045411752193,1.7,0.7
+legacy_primary,2024,2024-03-17,Melbourne Demons,Western Bulldogs,home,0.2287080771574015,1.58,0.5800000000000001
+legacy_primary,2024,2024-03-17,Fremantle Dockers,Brisbane Lions,home,0.15476982880242263,2.3,1.2999999999999998
+legacy_primary,2024,2024-03-21,St Kilda Saints,Collingwood Magpies,home,0.20848491460012042,2.55,1.5499999999999998
+legacy_primary,2024,2024-03-22,Adelaide Crows,Geelong Cats,away,0.18497831694680644,3.0,2.0
+legacy_primary,2024,2024-03-23,North Melbourne Kangaroos,Fremantle Dockers,away,0.11435613256913646,1.42,0.41999999999999993
+legacy_primary,2024,2024-03-24,Western Bulldogs,Gold Coast Suns,home,0.12203248739242556,1.6,0.6000000000000001
+legacy_primary,2024,2024-03-24,West Coast Eagles,Greater Western Sydney Giants,away,0.07999161710696556,1.08,0.08000000000000007
+legacy_primary,2024,2024-03-24,Richmond Tigers,Port Adelaide Power,home,0.3264007755762625,3.2,-1.0
+legacy_primary,2024,2024-03-29,North Melbourne Kangaroos,Carlton Blues,home,0.29112794621611093,5.2,-1.0
+legacy_primary,2024,2024-03-29,Fremantle Dockers,Adelaide Crows,home,0.07021722015069454,1.7,0.7
+legacy_primary,2024,2024-03-30,Essendon Bombers,St Kilda Saints,away,0.08647173337447334,1.75,-1.0
+legacy_primary,2024,2024-03-30,Port Adelaide Power,Melbourne Demons,home,0.08468345135523225,1.54,-1.0
+legacy_primary,2024,2024-03-31,Richmond Tigers,Sydney Swans,home,0.24441293985755355,4.15,3.1500000000000004
+legacy_primary,2024,2024-04-01,Hawthorn Hawks,Geelong Cats,home,0.08479584389262734,3.1,-1.0
+legacy_primary,2024,2024-04-04,Adelaide Crows,Melbourne Demons,home,0.17565253049062335,2.55,-1.0
+legacy_primary,2024,2024-04-05,Brisbane Lions,North Melbourne Kangaroos,home,0.10974674727744038,1.12,0.1200000000000001
+legacy_primary,2024,2024-04-05,Port Adelaide Power,Essendon Bombers,home,0.08609505928713546,1.24,0.24
+legacy_primary,2024,2024-04-06,Fremantle Dockers,Carlton Blues,home,0.33399928364921455,2.35,-1.0
+legacy_primary,2024,2024-04-06,Western Bulldogs,Geelong Cats,home,0.2919357419013977,1.93,-1.0
+legacy_primary,2024,2024-04-07,Collingwood Magpies,Hawthorn Hawks,away,0.0838345135008538,4.5,-1.0
+legacy_primary,2024,2024-04-11,Melbourne Demons,Brisbane Lions,home,0.17134213789798414,1.5,-1.0
+legacy_primary,2024,2024-04-12,Western Bulldogs,Essendon Bombers,home,0.1301719888727716,1.35,-1.0
+legacy_primary,2024,2024-04-14,West Coast Eagles,Richmond Tigers,away,0.16805230857040476,1.44,-1.0
+legacy_primary,2024,2024-04-18,St Kilda Saints,Western Bulldogs,home,0.2958587338398028,2.0,-1.0
+legacy_primary,2024,2024-04-19,Adelaide Crows,Essendon Bombers,home,0.10821767576139973,1.42,-1.0
+legacy_primary,2024,2024-04-20,Carlton Blues,Greater Western Sydney Giants,away,0.19142263713917607,2.02,-1.0
+legacy_primary,2024,2024-04-20,West Coast Eagles,Fremantle Dockers,away,0.13425759778364554,1.15,-1.0
+legacy_primary,2024,2024-04-20,Brisbane Lions,Geelong Cats,home,0.14179720878601076,1.6,-1.0
+legacy_primary,2024,2024-04-21,North Melbourne Kangaroos,Hawthorn Hawks,home,0.08460175547193977,3.35,-1.0
+legacy_primary,2024,2024-04-24,Richmond Tigers,Melbourne Demons,home,0.29712086580914154,5.6,-1.0
+legacy_primary,2024,2024-04-25,Greater Western Sydney Giants,Brisbane Lions,home,0.07800843318303424,1.97,0.97
+legacy_primary,2024,2024-04-27,North Melbourne Kangaroos,Adelaide Crows,away,0.1363399513182595,1.18,0.17999999999999994
+legacy_primary,2024,2024-04-27,Geelong Cats,Carlton Blues,home,0.22469886785898452,1.72,0.72
+legacy_primary,2024,2024-04-27,Fremantle Dockers,Western Bulldogs,home,0.13172780306308296,2.05,1.0499999999999998
+legacy_primary,2024,2024-04-28,Gold Coast Suns,West Coast Eagles,away,0.08333572346076923,6.25,-1.0
+legacy_primary,2024,2024-04-28,Hawthorn Hawks,Sydney Swans,home,0.22973820753032473,3.85,-1.0
+legacy_primary,2024,2024-05-02,Adelaide Crows,Port Adelaide Power,away,0.16368449712527622,1.68,-1.0
+legacy_primary,2024,2024-05-03,Carlton Blues,Collingwood Magpies,home,0.16899332732035066,1.54,-1.0
+legacy_primary,2024,2024-05-04,Sydney Swans,Greater Western Sydney Giants,home,0.31421083908576464,1.85,0.8500000000000001
+legacy_primary,2024,2024-05-04,St Kilda Saints,North Melbourne Kangaroos,home,0.09285706836305463,1.13,0.1299999999999999
+legacy_primary,2024,2024-05-04,Melbourne Demons,Geelong Cats,home,0.09561435335366303,2.1,1.1
+legacy_primary,2024,2024-05-05,Richmond Tigers,Fremantle Dockers,home,0.3056834755941879,2.85,-1.0
+legacy_primary,2024,2024-05-05,Western Bulldogs,Hawthorn Hawks,home,0.08547403849322066,1.24,-1.0
+legacy_primary,2024,2024-05-05,Brisbane Lions,Gold Coast Suns,home,0.10019988163806592,1.5,0.5
+legacy_primary,2024,2024-05-09,Carlton Blues,Melbourne Demons,home,0.16437063568322235,2.1,1.1
+legacy_primary,2024,2024-05-10,Fremantle Dockers,Sydney Swans,home,0.18221069131065254,2.35,-1.0
+legacy_primary,2024,2024-05-11,Hawthorn Hawks,St Kilda Saints,home,0.09109969127581319,2.62,1.62
+legacy_primary,2024,2024-05-11,Richmond Tigers,Western Bulldogs,home,0.21563987069659768,3.1,-1.0
+legacy_primary,2024,2024-05-12,Adelaide Crows,Brisbane Lions,home,0.2631715931965194,1.68,-1.0
+legacy_primary,2024,2024-05-16,Gold Coast Suns,Geelong Cats,away,0.30169008343250725,1.8,-1.0
+legacy_primary,2024,2024-05-17,Sydney Swans,Carlton Blues,home,0.07579513258404202,1.4,0.3999999999999999
+legacy_primary,2024,2024-05-18,Collingwood Magpies,Adelaide Crows,home,0.1197051337507904,1.47,0.47
+legacy_primary,2024,2024-05-25,Richmond Tigers,Essendon Bombers,away,0.08578140095814124,1.15,0.1499999999999999
+legacy_primary,2024,2024-05-26,Hawthorn Hawks,Brisbane Lions,away,0.2244034396136625,1.48,-1.0
+legacy_primary,2024,2024-05-30,Port Adelaide Power,Carlton Blues,home,0.09189828634262087,1.6,-1.0
+legacy_primary,2024,2024-05-31,Collingwood Magpies,Western Bulldogs,home,0.20211157385183842,2.22,-1.0
+legacy_primary,2024,2024-06-01,Hawthorn Hawks,Adelaide Crows,home,0.10844362478751635,1.85,0.8500000000000001
+legacy_primary,2024,2024-06-01,Geelong Cats,Richmond Tigers,away,0.2340103931941433,11.0,-1.0
+legacy_primary,2024,2024-06-02,Melbourne Demons,Fremantle Dockers,away,0.07527404681347216,2.68,1.6800000000000002
+legacy_primary,2024,2024-06-07,Western Bulldogs,Brisbane Lions,home,0.38485300235259223,1.75,-1.0
+legacy_primary,2024,2024-06-08,West Coast Eagles,North Melbourne Kangaroos,home,0.13459502546875557,1.25,-1.0
+legacy_primary,2024,2024-06-08,St Kilda Saints,Gold Coast Suns,home,0.07099270758367393,1.78,0.78
+legacy_primary,2024,2024-06-10,Collingwood Magpies,Melbourne Demons,home,0.42416940086571747,2.1,1.1
+legacy_primary,2024,2024-06-15,Western Bulldogs,Fremantle Dockers,home,0.12793290309416938,1.75,0.75
+legacy_primary,2024,2024-06-15,Richmond Tigers,Hawthorn Hawks,away,0.25177503719426797,1.5,0.5
+legacy_primary,2024,2024-06-15,Adelaide Crows,Sydney Swans,home,0.09516465220045539,3.35,-1.0
+legacy_primary,2024,2024-06-16,North Melbourne Kangaroos,Collingwood Magpies,away,0.10474069391960628,1.1,0.10000000000000009
+legacy_primary,2024,2024-06-16,Greater Western Sydney Giants,Port Adelaide Power,home,0.20315217795630391,1.56,0.56
+legacy_primary,2024,2024-06-21,Carlton Blues,Geelong Cats,home,0.30727755274604907,1.63,0.6299999999999999
+legacy_primary,2024,2024-06-22,Port Adelaide Power,Brisbane Lions,home,0.18313686006753022,2.1,-1.0
+legacy_primary,2024,2024-06-23,Essendon Bombers,West Coast Eagles,away,0.19550316971220172,6.5,-1.0
+legacy_primary,2024,2024-06-28,Brisbane Lions,Melbourne Demons,home,0.07822635157467561,1.17,0.16999999999999993
+legacy_primary,2024,2024-06-29,Gold Coast Suns,Collingwood Magpies,home,0.1531948359336932,1.952,0.952
+legacy_primary,2024,2024-06-29,Geelong Cats,Essendon Bombers,home,0.20364629316933547,2.3,1.2999999999999998
+legacy_primary,2024,2024-06-30,St Kilda Saints,Port Adelaide Power,home,0.1486707299183576,1.75,-1.0
+legacy_primary,2024,2024-06-30,West Coast Eagles,Hawthorn Hawks,away,0.10118265921746072,1.58,0.5800000000000001
+legacy_primary,2024,2024-06-30,Richmond Tigers,Carlton Blues,away,0.10841645032131786,1.11,0.1100000000000001
+legacy_primary,2024,2024-07-05,Collingwood Magpies,Essendon Bombers,home,0.20740627224121866,1.58,-1.0
+legacy_primary,2024,2024-07-06,North Melbourne Kangaroos,Gold Coast Suns,home,0.08352508187294005,3.7,2.7
+legacy_primary,2024,2024-07-06,Greater Western Sydney Giants,Carlton Blues,home,0.16744807958602909,2.4,1.4
+legacy_primary,2024,2024-07-07,St Kilda Saints,Sydney Swans,home,0.21274179779332408,4.25,3.25
+legacy_primary,2024,2024-07-12,Collingwood Magpies,Geelong Cats,home,0.3646313578654558,2.15,-1.0
+legacy_primary,2024,2024-07-13,Hawthorn Hawks,Fremantle Dockers,home,0.23765519557823062,2.02,1.02
+legacy_primary,2024,2024-07-13,Western Bulldogs,Carlton Blues,away,0.14510917487402863,1.56,-1.0
+legacy_primary,2024,2024-07-13,Adelaide Crows,St Kilda Saints,away,0.13773373329993532,2.5,-1.0
+legacy_primary,2024,2024-07-13,Melbourne Demons,Essendon Bombers,home,0.3682796117102745,2.5,1.5
+legacy_primary,2024,2024-07-14,Gold Coast Suns,Port Adelaide Power,home,0.181224439705993,1.833,0.833
+legacy_primary,2024,2024-07-14,West Coast Eagles,Brisbane Lions,away,0.12026682458597526,1.16,0.15999999999999992
+legacy_primary,2024,2024-07-19,Essendon Bombers,Adelaide Crows,home,0.08259903670456004,1.44,-1.0
+legacy_primary,2024,2024-07-20,Greater Western Sydney Giants,Gold Coast Suns,home,0.10510941214031644,1.4,0.3999999999999999
+legacy_primary,2024,2024-07-20,St Kilda Saints,West Coast Eagles,away,0.19946510288888042,6.75,-1.0
+legacy_primary,2024,2024-07-20,Hawthorn Hawks,Collingwood Magpies,home,0.07073015671271776,1.85,0.8500000000000001
+legacy_primary,2024,2024-07-20,Port Adelaide Power,Richmond Tigers,away,0.133771300854291,10.0,-1.0
+legacy_primary,2024,2024-07-20,Geelong Cats,Western Bulldogs,home,0.18671774115394701,1.63,-1.0
+legacy_primary,2024,2024-07-21,Fremantle Dockers,Melbourne Demons,away,0.1189434173041537,3.5,-1.0
+legacy_primary,2024,2024-07-21,Carlton Blues,North Melbourne Kangaroos,home,0.11946154195390546,1.13,0.1299999999999999
+legacy_primary,2024,2024-07-26,Carlton Blues,Port Adelaide Power,home,0.18597161021064867,1.63,-1.0
+legacy_primary,2024,2024-07-27,North Melbourne Kangaroos,Geelong Cats,away,0.16863833181923127,1.28,0.28
+legacy_primary,2024,2024-07-27,Gold Coast Suns,Brisbane Lions,away,0.1817604506662649,1.77,0.77
+legacy_primary,2024,2024-07-27,St Kilda Saints,Essendon Bombers,home,0.19252209950097,2.3,1.2999999999999998
+legacy_primary,2024,2024-07-27,Fremantle Dockers,West Coast Eagles,home,0.09656877046103018,1.1,0.10000000000000009
+legacy_primary,2024,2024-07-28,Sydney Swans,Western Bulldogs,home,0.169528865814209,1.6,-1.0
+legacy_primary,2024,2024-07-28,Adelaide Crows,Hawthorn Hawks,home,0.2545362371548163,2.02,-1.0
+legacy_primary,2024,2024-08-02,Western Bulldogs,Melbourne Demons,away,0.09201817750930796,3.7,-1.0
+legacy_primary,2024,2024-08-03,North Melbourne Kangaroos,Richmond Tigers,home,0.08779964033438237,2.22,1.2200000000000002
+legacy_primary,2024,2024-08-03,Geelong Cats,Adelaide Crows,home,0.07138519788504671,1.36,0.3600000000000001
+legacy_primary,2024,2024-08-03,Port Adelaide Power,Sydney Swans,away,0.2380759078606116,2.02,-1.0
+legacy_primary,2024,2024-08-03,Collingwood Magpies,Carlton Blues,home,0.10325477123260501,2.4,1.4
+legacy_primary,2024,2024-08-04,Greater Western Sydney Giants,Hawthorn Hawks,home,0.13600037495295214,1.87,0.8700000000000001
+legacy_primary,2024,2024-08-04,St Kilda Saints,Brisbane Lions,home,0.1333381295204163,2.4,-1.0
+legacy_primary,2024,2024-08-10,Fremantle Dockers,Geelong Cats,away,0.11560076651314799,2.5,1.5
+legacy_primary,2024,2024-08-10,Essendon Bombers,Gold Coast Suns,home,0.09063802969052592,1.52,-1.0
+legacy_primary,2024,2024-08-10,Melbourne Demons,Port Adelaide Power,home,0.11434004424903799,2.9,-1.0
+legacy_primary,2024,2024-08-11,Carlton Blues,Hawthorn Hawks,away,0.09124531928143376,2.02,1.02
+legacy_primary,2024,2024-08-11,Adelaide Crows,Western Bulldogs,home,0.20900377765051292,2.75,1.75
+legacy_primary,2024,2024-08-16,Essendon Bombers,Sydney Swans,away,0.12832459455881362,1.72,0.72
+legacy_primary,2024,2024-08-17,Gold Coast Suns,Melbourne Demons,away,0.2345251032358695,3.2,2.2
+legacy_primary,2024,2024-08-17,Greater Western Sydney Giants,Fremantle Dockers,home,0.14458033886361632,1.35,0.3500000000000001
+legacy_primary,2024,2024-08-17,Port Adelaide Power,Adelaide Crows,home,0.18155667051919522,1.48,0.48
+legacy_primary,2024,2024-08-17,St Kilda Saints,Geelong Cats,home,0.2525869873158797,2.55,1.5499999999999998
+legacy_primary,2024,2024-08-18,West Coast Eagles,Carlton Blues,away,0.483042983497067,2.1,1.1
+legacy_primary,2024,2024-08-23,Melbourne Demons,Collingwood Magpies,home,0.1799747827765229,2.05,-1.0
+legacy_primary,2024,2024-08-24,Geelong Cats,West Coast Eagles,away,0.08482508410514555,12.0,-1.0
+legacy_primary,2024,2024-08-25,Western Bulldogs,Greater Western Sydney Giants,away,0.08683565392843662,2.75,-1.0
+legacy_primary,2024,2024-08-25,Carlton Blues,St Kilda Saints,home,0.14599620134799507,2.05,-1.0
+legacy_primary,2024,2024-08-25,Fremantle Dockers,Port Adelaide Power,home,0.195306429380103,1.65,-1.0
+legacy_primary,2024,2024-09-05,Port Adelaide Power,Geelong Cats,home,0.1815847567075204,1.38,-1.0
+legacy_primary,2024,2024-09-13,Port Adelaide Power,Hawthorn Hawks,away,0.07364157820475925,1.68,-1.0
+legacy_primary,2024,2024-09-20,Sydney Swans,Port Adelaide Power,away,0.1456388304161923,3.3,-1.0
+legacy_primary,2024,2024-09-21,Geelong Cats,Brisbane Lions,home,0.25894014040629076,1.87,-1.0
+legacy_primary,2025,2025-03-09,Greater Western Sydney Giants,Collingwood Magpies,home,0.3289103841170287,2.18,1.1800000000000002
+legacy_primary,2025,2025-03-13,Richmond Tigers,Carlton Blues,home,0.5654770679988307,11.0,10.0
+legacy_primary,2025,2025-03-14,Hawthorn Hawks,Essendon Bombers,home,0.19290203585916632,1.3,0.30000000000000004
+legacy_primary,2025,2025-03-15,Geelong Cats,Fremantle Dockers,away,0.3160688387592454,3.0,-1.0
+legacy_primary,2025,2025-03-15,Sydney Swans,Brisbane Lions,home,0.3055848216399169,2.18,-1.0
+legacy_primary,2025,2025-03-15,Western Bulldogs,North Melbourne Kangaroos,home,0.2187405755591495,1.36,0.3600000000000001
+legacy_primary,2025,2025-03-16,West Coast Eagles,Gold Coast Suns,home,0.17745627096805616,2.45,-1.0
+legacy_primary,2025,2025-03-20,Carlton Blues,Hawthorn Hawks,away,0.12512638450767588,1.44,0.43999999999999995
+legacy_primary,2025,2025-03-22,Essendon Bombers,Adelaide Crows,home,0.0911577710362731,2.8,-1.0
+legacy_primary,2025,2025-03-22,Port Adelaide Power,Richmond Tigers,away,0.20022220108681743,6.75,-1.0
+legacy_primary,2025,2025-03-22,St Kilda Saints,Geelong Cats,home,0.11015840791999842,3.5,2.5
+legacy_primary,2025,2025-03-23,Fremantle Dockers,Sydney Swans,home,0.18557116206811397,1.7,-1.0
+legacy_primary,2025,2025-03-23,North Melbourne Kangaroos,Melbourne Demons,away,0.14210655159420438,1.4,-1.0
+legacy_primary,2025,2025-03-27,Essendon Bombers,Port Adelaide Power,away,0.29038467491401065,1.68,-1.0
+legacy_primary,2025,2025-03-29,Melbourne Demons,Gold Coast Suns,home,0.08031392403137988,2.15,-1.0
+legacy_primary,2025,2025-03-29,Brisbane Lions,Geelong Cats,home,0.13850276948120188,1.44,0.43999999999999995
+legacy_primary,2025,2025-03-29,Hawthorn Hawks,Greater Western Sydney Giants,home,0.12861844336632444,1.54,0.54
+legacy_primary,2025,2025-03-30,West Coast Eagles,Fremantle Dockers,home,0.18926519714635143,4.25,-1.0
+legacy_primary,2025,2025-04-03,Collingwood Magpies,Carlton Blues,away,0.08756224386292888,3.0,-1.0
+legacy_primary,2025,2025-04-05,North Melbourne Kangaroos,Sydney Swans,away,0.24538598772214382,1.7,0.7
+legacy_primary,2025,2025-04-06,Port Adelaide Power,St Kilda Saints,away,0.09506708041332568,2.68,1.6800000000000002
+legacy_primary,2025,2025-04-06,Fremantle Dockers,Western Bulldogs,away,0.11189069438584243,2.3,-1.0
+legacy_primary,2025,2025-04-10,Adelaide Crows,Geelong Cats,away,0.3813772021337998,2.85,1.85
+legacy_primary,2025,2025-04-11,Collingwood Magpies,Sydney Swans,away,0.08138206783606083,2.22,-1.0
+legacy_primary,2025,2025-04-12,North Melbourne Kangaroos,Gold Coast Suns,away,0.10634479723818646,1.22,0.21999999999999997
+legacy_primary,2025,2025-04-12,Carlton Blues,West Coast Eagles,home,0.08032744433707173,1.12,0.1200000000000001
+legacy_primary,2025,2025-04-12,Western Bulldogs,Brisbane Lions,home,0.14626390922472676,2.62,-1.0
+legacy_primary,2025,2025-04-12,Melbourne Demons,Essendon Bombers,away,0.09375732258225278,1.952,0.952
+legacy_primary,2025,2025-04-13,St Kilda Saints,Greater Western Sydney Giants,away,0.09902185543872521,1.5,0.5
+legacy_primary,2025,2025-04-13,Port Adelaide Power,Hawthorn Hawks,home,0.15982176051583402,2.85,1.85
+legacy_primary,2025,2025-04-17,Brisbane Lions,Collingwood Magpies,home,0.08132681578470613,1.54,-1.0
+legacy_primary,2025,2025-04-18,North Melbourne Kangaroos,Carlton Blues,away,0.2457558102077908,1.4,0.3999999999999999
+legacy_primary,2025,2025-04-18,West Coast Eagles,Essendon Bombers,away,0.08222404695213292,1.333,0.33299999999999996
+legacy_primary,2025,2025-04-19,Melbourne Demons,Fremantle Dockers,away,0.15339990404058002,1.35,-1.0
+legacy_primary,2025,2025-04-19,Adelaide Crows,Greater Western Sydney Giants,away,0.2763522981445571,2.62,-1.0
+legacy_primary,2025,2025-04-20,Sydney Swans,Port Adelaide Power,home,0.0981388074423879,1.56,-1.0
+legacy_primary,2025,2025-04-20,Western Bulldogs,St Kilda Saints,away,0.08249455866555278,2.5,-1.0
+legacy_primary,2025,2025-04-21,Geelong Cats,Hawthorn Hawks,home,0.24645483493804932,1.93,0.9299999999999999
+legacy_primary,2025,2025-04-25,Collingwood Magpies,Essendon Bombers,home,0.11157869188873848,1.25,0.25
+legacy_primary,2025,2025-04-26,Port Adelaide Power,North Melbourne Kangaroos,home,0.08274315960669643,1.11,0.1100000000000001
+legacy_primary,2025,2025-04-26,Greater Western Sydney Giants,Western Bulldogs,home,0.17440304488016511,1.54,-1.0
+legacy_primary,2025,2025-04-27,Gold Coast Suns,Sydney Swans,away,0.19498426787454082,3.0,-1.0
+legacy_primary,2025,2025-05-02,St Kilda Saints,Fremantle Dockers,home,0.24794935837887117,2.68,1.6800000000000002
+legacy_primary,2025,2025-05-04,Sydney Swans,Greater Western Sydney Giants,home,0.2850925063475585,2.18,1.1800000000000002
+legacy_primary,2025,2025-05-04,Brisbane Lions,Gold Coast Suns,home,0.24289375885821973,1.5,0.5
+legacy_primary,2025,2025-05-09,St Kilda Saints,Carlton Blues,home,0.2569428794733052,2.45,-1.0
+legacy_primary,2025,2025-05-10,Essendon Bombers,Sydney Swans,away,0.09452779006354417,1.65,-1.0
+legacy_primary,2025,2025-05-10,Gold Coast Suns,Western Bulldogs,away,0.2310300055262331,2.05,-1.0
+legacy_primary,2025,2025-05-10,Port Adelaide Power,Adelaide Crows,home,0.3127398082262564,3.2,-1.0
+legacy_primary,2025,2025-05-11,Geelong Cats,Greater Western Sydney Giants,away,0.3873215263540094,3.0,2.0
+legacy_primary,2025,2025-05-15,Gold Coast Suns,Hawthorn Hawks,away,0.1376887023448944,2.4,-1.0
+legacy_primary,2025,2025-05-17,Port Adelaide Power,Geelong Cats,home,0.07140672802925113,2.4,-1.0
+legacy_primary,2025,2025-05-17,Western Bulldogs,Essendon Bombers,away,0.5006420966271712,4.25,-1.0
+legacy_primary,2025,2025-05-18,Richmond Tigers,North Melbourne Kangaroos,home,0.20664421284552842,2.5,-1.0
+legacy_primary,2025,2025-05-18,West Coast Eagles,St Kilda Saints,away,0.14706066773648852,1.36,-1.0
+legacy_primary,2025,2025-05-18,Brisbane Lions,Melbourne Demons,home,0.15307449818695562,1.14,-1.0
+legacy_primary,2025,2025-05-22,Geelong Cats,Western Bulldogs,home,0.09186044749179012,1.833,0.833
+legacy_primary,2025,2025-05-23,Essendon Bombers,Richmond Tigers,away,0.11106471963354037,4.0,-1.0
+legacy_primary,2025,2025-05-24,Carlton Blues,Greater Western Sydney Giants,away,0.14360219836235044,2.4,1.4
+legacy_primary,2025,2025-05-24,Hawthorn Hawks,Brisbane Lions,away,0.1652256318780243,2.8,1.7999999999999998
+legacy_primary,2025,2025-05-24,Fremantle Dockers,Port Adelaide Power,home,0.17742267823875402,1.333,0.33299999999999996
+legacy_primary,2025,2025-05-24,North Melbourne Kangaroos,Collingwood Magpies,away,0.18546684845178218,1.25,0.25
+legacy_primary,2025,2025-05-25,Melbourne Demons,Sydney Swans,away,0.1283035775025685,1.97,-1.0
+legacy_primary,2025,2025-05-25,St Kilda Saints,Gold Coast Suns,home,0.36514174595974275,2.68,-1.0
+legacy_primary,2025,2025-05-30,Collingwood Magpies,Hawthorn Hawks,home,0.07629751410316576,1.63,0.6299999999999999
+legacy_primary,2025,2025-05-31,Sydney Swans,Adelaide Crows,away,0.13181563087787584,1.58,0.5800000000000001
+legacy_primary,2025,2025-06-05,Western Bulldogs,Hawthorn Hawks,away,0.46585502647697474,3.5,2.5
+legacy_primary,2025,2025-06-06,Adelaide Crows,Brisbane Lions,away,0.15874434698031148,2.62,-1.0
+legacy_primary,2025,2025-06-07,Richmond Tigers,Sydney Swans,away,0.07441279634334252,1.5,0.5
+legacy_primary,2025,2025-06-07,Geelong Cats,Gold Coast Suns,away,0.1609555291374345,3.0,-1.0
+legacy_primary,2025,2025-06-07,Greater Western Sydney Giants,Port Adelaide Power,home,0.17634067512214635,1.333,-1.0
+legacy_primary,2025,2025-06-08,Carlton Blues,Essendon Bombers,away,0.12220438208642492,3.2,-1.0
+legacy_primary,2025,2025-06-09,Melbourne Demons,Collingwood Magpies,away,0.08239523507315383,1.24,0.24
+legacy_primary,2025,2025-06-12,St Kilda Saints,Western Bulldogs,home,0.3898234477749577,4.15,-1.0
+legacy_primary,2025,2025-06-14,Essendon Bombers,Geelong Cats,home,0.250212455209867,6.5,-1.0
+legacy_primary,2025,2025-06-15,Port Adelaide Power,Melbourne Demons,home,0.24724335175055956,1.85,0.8500000000000001
+legacy_primary,2025,2025-06-20,Geelong Cats,Brisbane Lions,away,0.19818855022667814,3.3,2.3
+legacy_primary,2025,2025-06-21,Port Adelaide Power,Sydney Swans,home,0.261902133623759,1.87,-1.0
+legacy_primary,2025,2025-06-22,Greater Western Sydney Giants,Gold Coast Suns,home,0.30627185106277466,1.91,0.9099999999999999
+legacy_primary,2025,2025-06-27,Sydney Swans,Western Bulldogs,away,0.10393369540073083,1.5,0.5
+legacy_primary,2025,2025-06-28,Gold Coast Suns,Melbourne Demons,home,0.20136011890939787,1.27,0.27
+legacy_primary,2025,2025-06-29,Richmond Tigers,Adelaide Crows,home,0.16770594591622826,8.0,-1.0
+legacy_primary,2025,2025-07-03,North Melbourne Kangaroos,Western Bulldogs,home,0.22252376432772036,13.0,-1.0
+legacy_primary,2025,2025-07-04,West Coast Eagles,Greater Western Sydney Giants,away,0.11825164461852145,1.36,0.3600000000000001
+legacy_primary,2025,2025-07-04,Carlton Blues,Collingwood Magpies,away,0.08034263603337155,1.22,0.21999999999999997
+legacy_primary,2025,2025-07-05,Essendon Bombers,Gold Coast Suns,home,0.2019343020850375,3.5,-1.0
+legacy_primary,2025,2025-07-05,St Kilda Saints,Hawthorn Hawks,away,0.14165486839223407,1.35,0.3500000000000001
+legacy_primary,2025,2025-07-06,Sydney Swans,Fremantle Dockers,away,0.2689951717853546,2.4,-1.0
+legacy_primary,2025,2025-07-11,Gold Coast Suns,Collingwood Magpies,away,0.08383433191807244,1.8,-1.0
+legacy_primary,2025,2025-07-12,Western Bulldogs,Adelaide Crows,away,0.11148234873937224,2.55,1.5499999999999998
+legacy_primary,2025,2025-07-12,Greater Western Sydney Giants,Geelong Cats,away,0.1730847025528932,1.72,-1.0
+legacy_primary,2025,2025-07-12,Fremantle Dockers,Hawthorn Hawks,away,0.07045527878842228,2.02,-1.0
+legacy_primary,2025,2025-07-12,Richmond Tigers,Essendon Bombers,home,0.1533999810147183,3.3,2.3
+legacy_primary,2025,2025-07-13,St Kilda Saints,Sydney Swans,home,0.15764332566429023,2.35,-1.0
+legacy_primary,2025,2025-07-17,Essendon Bombers,Greater Western Sydney Giants,home,0.1475526320410299,8.0,-1.0
+legacy_primary,2025,2025-07-19,Sydney Swans,North Melbourne Kangaroos,away,0.19886375325066696,9.0,-1.0
+legacy_primary,2025,2025-07-19,West Coast Eagles,Richmond Tigers,away,0.16866078067429457,2.3,1.2999999999999998
+legacy_primary,2025,2025-07-25,Essendon Bombers,Western Bulldogs,home,0.1862419104134595,13.0,-1.0
+legacy_primary,2025,2025-07-26,Gold Coast Suns,Brisbane Lions,home,0.12511571913884723,2.55,1.5499999999999998
+legacy_primary,2025,2025-07-31,Western Bulldogs,Greater Western Sydney Giants,away,0.10262076192431979,3.1,-1.0
+legacy_primary,2025,2025-08-01,Adelaide Crows,Hawthorn Hawks,away,0.10658394948147143,2.68,-1.0
+legacy_primary,2025,2025-08-02,Sydney Swans,Essendon Bombers,home,0.09564875867194111,1.12,0.1200000000000001
+legacy_primary,2025,2025-08-02,Collingwood Magpies,Brisbane Lions,home,0.18412000283099805,1.5,-1.0
+legacy_primary,2025,2025-08-07,Hawthorn Hawks,Collingwood Magpies,home,0.13009249258644973,2.3,1.2999999999999998
+legacy_primary,2025,2025-08-08,Geelong Cats,Essendon Bombers,away,0.08451904066842109,26.0,-1.0
+legacy_primary,2025,2025-08-09,Richmond Tigers,St Kilda Saints,home,0.08551431392907072,3.3,-1.0
+legacy_primary,2025,2025-08-09,Port Adelaide Power,Fremantle Dockers,home,0.2675286176139071,3.5,-1.0
+legacy_primary,2025,2025-08-10,Melbourne Demons,Western Bulldogs,home,0.2778908851081088,3.5,-1.0
+legacy_primary,2025,2025-08-15,Fremantle Dockers,Brisbane Lions,away,0.19583204740133042,2.18,1.1800000000000002
+legacy_primary,2025,2025-08-15,Essendon Bombers,St Kilda Saints,home,0.45154343600804664,5.0,-1.0
+legacy_primary,2025,2025-08-16,Carlton Blues,Port Adelaide Power,away,0.1279026341328423,2.9,-1.0
+legacy_primary,2025,2025-08-16,Hawthorn Hawks,Melbourne Demons,away,0.11963363909065272,3.5,-1.0
+legacy_primary,2025,2025-08-16,Adelaide Crows,Collingwood Magpies,home,0.2322177921185652,1.5,0.5
+legacy_primary,2025,2025-08-17,North Melbourne Kangaroos,Richmond Tigers,away,0.14823809617604966,2.18,-1.0
+legacy_primary,2025,2025-08-21,Essendon Bombers,Carlton Blues,home,0.26830368280410766,3.7,-1.0
+legacy_primary,2025,2025-08-22,Port Adelaide Power,Gold Coast Suns,home,0.07700945682950897,4.0,3.0
+legacy_primary,2025,2025-08-23,North Melbourne Kangaroos,Adelaide Crows,away,0.11230673269605185,1.18,0.17999999999999994
+legacy_primary,2025,2025-08-24,Western Bulldogs,Fremantle Dockers,away,0.09103626703499723,3.3,2.3
+legacy_primary,2025,2025-08-24,Brisbane Lions,Hawthorn Hawks,away,0.12970129006948228,2.18,-1.0
+legacy_primary,2025,2025-09-04,Adelaide Crows,Collingwood Magpies,home,0.16106440669806432,1.77,-1.0
+legacy_primary,2025,2025-09-05,Geelong Cats,Brisbane Lions,home,0.08499198846327949,1.75,0.75
+legacy_primary,2025,2025-09-06,Greater Western Sydney Giants,Hawthorn Hawks,away,0.1640916052576784,2.05,1.0499999999999998
+legacy_primary,2025,2025-09-06,Fremantle Dockers,Gold Coast Suns,home,0.10775596808783616,1.65,-1.0
+legacy_primary,2025,2025-09-12,Adelaide Crows,Hawthorn Hawks,away,0.1924017102290423,2.15,1.15
+legacy_primary,2025,2025-09-13,Brisbane Lions,Gold Coast Suns,home,0.10965987443923952,1.6,0.6000000000000001
+legacy_primary,2025,2025-09-20,Collingwood Magpies,Brisbane Lions,home,0.16185671996466722,1.65,-1.0
+legacy_primary,2025,2025-09-27,Geelong Cats,Brisbane Lions,away,0.1383323338620529,2.55,1.5499999999999998

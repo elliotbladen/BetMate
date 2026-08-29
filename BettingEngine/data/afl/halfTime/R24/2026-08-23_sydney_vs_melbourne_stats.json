@@ -1,0 +1,46 @@
+{
+  "season": 2026,
+  "round": 24,
+  "game_date": "2026-08-23",
+  "home_team": "Sydney",
+  "away_team": "North Melbourne",
+  "venue": "S.C.G.",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-23T06:32:19.319554+00:00",
+  "home_ht_score": 61,
+  "away_ht_score": 35,
+  "home_goals": 9,
+  "home_behinds": 7,
+  "away_goals": 5,
+  "away_behinds": 5,
+  "squiggle_id": 38698,
+  "round_game_num": 8,
+  "fox_match_id": "AFL20262408",
+  "timestr": "1/2 Time",
+  "notes": "",
+  "capture_quality": "exact_halftime",
+  "home_inside_50s": 34,
+  "home_clearances": 22,
+  "home_clangers": 36,
+  "away_inside_50s": 21,
+  "away_clearances": 21,
+  "away_clangers": 22,
+  "live_stats_source": "footywire",
+  "live_stats_sources": [
+    "footywire",
+    "foxsports"
+  ],
+  "live_stats_status": "complete",
+  "footywire_mid": 11609,
+  "live_stats_crosscheck": "disagreement",
+  "live_stats_disagreements": {
+    "home_inside_50s": {
+      "footywire": 34,
+      "foxsports": 33
+    },
+    "away_clangers": {
+      "footywire": 22,
+      "foxsports": 23
+    }
+  }
+}

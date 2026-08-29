@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-22T04:11:32.976200+00:00",
+  "game": {
+    "localtime": "2026-08-22 13:15:00",
+    "ascore": 36,
+    "id": 38693,
+    "tz": "+10:00",
+    "hteam": "Carlton",
+    "is_final": 0,
+    "agoals": 5,
+    "hbehinds": 6,
+    "roundname": "Round 24",
+    "ateamid": 6,
+    "date": "2026-08-22 13:15:00",
+    "winner": null,
+    "winnerteamid": null,
+    "hteamid": 3,
+    "complete": 38,
+    "abehinds": 6,
+    "is_grand_final": 0,
+    "hgoals": 7,
+    "venue": "Docklands",
+    "ateam": "Fremantle",
+    "unixtime": 1787368500,
+    "updated": "2026-08-22 14:11:22",
+    "round": 24,
+    "timestr": "Q2 16:19",
+    "hscore": 48,
+    "year": 2026,
+    "_round_game_num": 3,
+    "fox_match_id": "AFL20262403"
+  }
+}

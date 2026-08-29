@@ -2,10 +2,15 @@
 """
 scripts/prepare_afl_round.py
 
-AFL round pricing — Rules engine (T1–T5) with ML shadow comparison.
+AFL round pricing — Hybrid model (ML margin + rules totals) with tier overlays.
 
 Architecture:
-    T1: Rules-based baseline — ELO margin + team scoring rates (explicit, auditable)
+    MARGIN/H2H: ML XGBoost baseline (primary) + T2–T8 tier adjustments
+    TOTALS:     Rules-based T1 baseline (primary) + T2–T8 tier adjustments
+    Both models kept for audit. --legacy flag restores rules-only pricing.
+
+Tiers:
+    T1: Rules-based baseline — ELO margin + team scoring rates (audit for margin, primary for totals)
     T2: Style matchup — 5-family z-score engine from Footywire snapshots
     T3: Situational — rest, travel, form momentum, occasion
     T4: Venue — fortress ratings, venue scoring tendencies
@@ -113,6 +118,28 @@ FIXTURE = {
         ('Port Adelaide Power',           'Adelaide Crows',                'Adelaide Oval',          '2026-06-28'),
         ('North Melbourne Kangaroos',     'Essendon Bombers',              'Marvel Stadium',         '2026-06-29'),
         ('Fremantle Dockers',             'Gold Coast Suns',               'Optus Stadium',          '2026-06-29'),
+    ],
+    23: [
+        ('Fremantle Dockers',             'Adelaide Crows',                'Optus Stadium',          '2026-08-14'),
+        ('Richmond Tigers',               'St Kilda Saints',               'MCG',                    '2026-08-15'),
+        ('North Melbourne Kangaroos',     'Geelong Cats',                  'Marvel Stadium',         '2026-08-15'),
+        ('Brisbane Lions',                'Gold Coast Suns',               'The Gabba',              '2026-08-15'),
+        ('Hawthorn Hawks',                'Collingwood Magpies',           'MCG',                    '2026-08-15'),
+        ('Port Adelaide Power',           'Melbourne Demons',              'Adelaide Oval',          '2026-08-15'),
+        ('Greater Western Sydney Giants', 'West Coast Eagles',             'Sydney Showground Stadium', '2026-08-16'),
+        ('Western Bulldogs',              'Carlton Blues',                 'Marvel Stadium',         '2026-08-16'),
+        ('Essendon Bombers',              'Sydney Swans',                  'MCG',                    '2026-08-16'),
+    ],
+    24: [
+        ('St Kilda Saints',               'Gold Coast Suns',               'Marvel Stadium',         '2026-08-20'),
+        ('Collingwood Magpies',           'Brisbane Lions',                'MCG',                    '2026-08-21'),
+        ('Carlton Blues',                 'Fremantle Dockers',             'Marvel Stadium',         '2026-08-22'),
+        ('Melbourne Demons',              'Western Bulldogs',              'MCG',                    '2026-08-22'),
+        ('Geelong Cats',                  'Richmond Tigers',               'GMHBA Stadium',          '2026-08-22'),
+        ('Adelaide Crows',                'Greater Western Sydney Giants', 'Adelaide Oval',          '2026-08-22'),
+        ('Essendon Bombers',              'Port Adelaide Power',           'Marvel Stadium',         '2026-08-23'),
+        ('Sydney Swans',                  'North Melbourne Kangaroos',     'SCG',                    '2026-08-23'),
+        ('West Coast Eagles',             'Hawthorn Hawks',                'Optus Stadium',          '2026-08-23'),
     ],
 }
 
@@ -698,6 +725,207 @@ INJURIES = {
             {'player': 'Will Graham',            'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 4-6w
         ],
     },
+    23: {
+        # Sources: AFL.com.au injury list scraped 2026-08-10
+        'Fremantle Dockers': [
+            # No confirmed outs
+        ],
+        'Adelaide Crows': [
+            {'player': 'Jordon Butts',           'position': 'key_defender', 'quality': 'good'},    # leg/calf -- out TBC
+            {'player': 'Luke Pedlar',            'position': 'midfielder',   'quality': 'good'},    # hamstring -- out 5w
+            {'player': 'Wayne Milera',           'position': 'winger',       'quality': 'good'},    # hamstring -- out 2-3w
+            {'player': 'Darcy Fogarty',          'position': 'key_forward',  'quality': 'good'},    # suspended -- out R23
+        ],
+        'Richmond Tigers': [
+            {'player': 'Jacob Hopper',           'position': 'midfielder',   'quality': 'elite'},   # ankle -- season
+            {'player': 'Josh Gibcus',            'position': 'key_defender', 'quality': 'good'},    # knee -- season
+            {'player': 'Jonty Faull',            'position': 'key_forward',  'quality': 'average'}, # back -- season
+            {'player': 'Josh Smillie',           'position': 'midfielder',   'quality': 'average'}, # quad -- season
+            {'player': 'Kaleb Smith',            'position': 'winger',       'quality': 'average'}, # quad -- season
+            {'player': 'Rhyan Mansell',          'position': 'key_defender', 'quality': 'average'}, # foot -- season
+            {'player': 'Sam Cumming',            'position': 'key_defender', 'quality': 'average'}, # shoulder -- season
+            {'player': 'Thomas Sims',            'position': 'midfielder',   'quality': 'average'}, # toe -- season
+        ],
+        'St Kilda Saints': [
+            {'player': 'Jack Sinclair',          'position': 'midfielder',   'quality': 'elite'},   # leg/calf -- season
+            {'player': 'Max King',               'position': 'key_forward',  'quality': 'elite'},   # hamstring -- season
+            {'player': 'Sam Flanders',           'position': 'midfielder',   'quality': 'good'},    # leg/calf -- season
+            {'player': 'James Barrat',           'position': 'key_defender', 'quality': 'average'}, # foot -- season
+        ],
+        'North Melbourne Kangaroos': [
+            {'player': 'Jackson Archer',         'position': 'key_defender', 'quality': 'good'},    # knee -- season
+            {'player': 'Zane Duursma',           'position': 'midfielder',   'quality': 'good'},    # shoulder -- season
+            {'player': 'Blake Thredgold',        'position': 'key_forward',  'quality': 'average'}, # foot -- season
+            {'player': 'Toby Pink',              'position': 'key_defender', 'quality': 'average'}, # shoulder -- season
+        ],
+        'Geelong Cats': [
+            {'player': 'Max Holmes',             'position': 'midfielder',   'quality': 'good'},    # ankle -- out 5-7w
+            {'player': 'Toby Conway',            'position': 'ruck',         'quality': 'good'},    # foot -- season
+            {'player': 'Harley Barker',          'position': 'midfielder',   'quality': 'average'}, # knee -- TBC
+        ],
+        'Brisbane Lions': [
+            {'player': 'Jack Payne',             'position': 'midfielder',   'quality': 'average'}, # knee -- season
+            {'player': 'Henry Smith',            'position': 'key_forward',  'quality': 'average'}, # foot -- season
+            {'player': 'Keidean Coleman',        'position': 'winger',       'quality': 'good'},    # head -- TBC
+        ],
+        'Gold Coast Suns': [
+            {'player': 'Elliott Himmelberg',     'position': 'key_forward',  'quality': 'good'},    # knee -- season
+            {'player': 'Will Graham',            'position': 'key_defender', 'quality': 'average'}, # shoulder -- season
+        ],
+        'Hawthorn Hawks': [
+            {'player': 'Conor Nash',             'position': 'midfielder',   'quality': 'good'},    # neck -- TBC
+            {'player': 'Noah Mraz',              'position': 'ruck',         'quality': 'average'}, # kidney -- out 4-5w
+        ],
+        'Collingwood Magpies': [
+            {'player': 'Darcy Moore',            'position': 'key_defender', 'quality': 'elite'},   # hamstring -- season
+            {'player': 'Brayden Maynard',        'position': 'key_defender', 'quality': 'elite'},   # hamstring -- out 2-3w
+            {'player': 'Jamie Elliott',          'position': 'key_forward',  'quality': 'good'},    # knee -- season
+            {'player': 'Harry Perryman',         'position': 'midfielder',   'quality': 'good'},    # hamstring -- out 3-4w
+            {'player': 'Patrick Lipinski',       'position': 'midfielder',   'quality': 'good'},    # leg/calf -- out 2-3w
+            {'player': 'Jeremy Howe',            'position': 'key_defender', 'quality': 'good'},    # hand -- TBC
+            {'player': 'Oscar Steene',           'position': 'midfielder',   'quality': 'average'}, # knee -- season
+            {'player': 'Reef McInnes',           'position': 'midfielder',   'quality': 'average'}, # knee -- season
+            {'player': 'Tew Jiath',              'position': 'winger',       'quality': 'average'}, # hamstring -- season
+            {'player': 'Joel Cochran',           'position': 'midfielder',   'quality': 'average'}, # head -- TBC
+        ],
+        'Port Adelaide Power': [
+            {'player': 'Connor Rozee',           'position': 'midfielder',   'quality': 'elite'},   # hamstring -- season
+            {'player': 'Zak Butters',            'position': 'midfielder',   'quality': 'elite'},   # ankle -- out 2-3w
+            {'player': 'Jack Lukosius',          'position': 'key_forward',  'quality': 'good'},    # knee -- season
+            {'player': 'Sam Powell-Pepper',      'position': 'midfielder',   'quality': 'good'},    # knee -- season
+            {'player': 'Kane Farrell',           'position': 'winger',       'quality': 'good'},    # hip/groin -- season
+            {'player': 'Esava Ratugolea',        'position': 'ruck',         'quality': 'good'},    # knee -- season
+            {'player': 'Ollie Lord',             'position': 'key_forward',  'quality': 'average'}, # knee -- season
+            {'player': 'Josh Sinn',              'position': 'midfielder',   'quality': 'average'}, # shoulder -- season
+            {'player': 'Mani Liddy',             'position': 'midfielder',   'quality': 'average'}, # hip/groin -- season
+            {'player': 'Logan Evans',            'position': 'key_defender', 'quality': 'average'}, # shoulder -- season
+        ],
+        'Melbourne Demons': [
+            {'player': 'Jack Viney',             'position': 'midfielder',   'quality': 'elite'},   # leg/calf -- TBC
+            {'player': 'Brody Mihocek',          'position': 'key_forward',  'quality': 'good'},    # neck -- season
+            {'player': 'Blake Howes',            'position': 'winger',       'quality': 'average'}, # hand -- TBC
+            {'player': 'Andy Moniz-Wakefield',   'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Jai Culley',             'position': 'midfielder',   'quality': 'average'}, # knee -- season
+        ],
+        'Greater Western Sydney Giants': [
+            {'player': 'Tom Green',              'position': 'midfielder',   'quality': 'elite'},   # ACL -- season
+            {'player': 'Jesse Hogan',            'position': 'key_forward',  'quality': 'elite'},   # finger -- season
+            {'player': 'Josh Kelly',             'position': 'midfielder',   'quality': 'elite'},   # hip/groin -- season
+            {'player': 'Finn Callaghan',         'position': 'midfielder',   'quality': 'good'},    # ankle -- season
+            {'player': 'Jack Buckley',           'position': 'key_defender', 'quality': 'good'},    # hamstring -- TBC
+            {'player': 'Brent Daniels',          'position': 'small_forward','quality': 'good'},    # leg/calf -- TBC
+            {'player': 'Darcy Jones',            'position': 'midfielder',   'quality': 'average'}, # knee -- season
+            {'player': 'Nathan Wardius',         'position': 'key_forward',  'quality': 'average'}, # knee -- season
+            {'player': 'Logan Smith',            'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Phoenix Gothard',        'position': 'key_defender', 'quality': 'average'}, # shoulder -- season
+            {'player': 'Leek Aleer',             'position': 'key_defender', 'quality': 'average'}, # hip/groin -- season
+        ],
+        'West Coast Eagles': [
+            {'player': 'Reuben Ginbey',          'position': 'midfielder',   'quality': 'good'},    # quad -- season
+            {'player': 'Tyler Brockman',         'position': 'small_forward','quality': 'good'},    # hamstring -- season
+            {'player': 'Harry Edwards',          'position': 'key_defender', 'quality': 'average'}, # head -- season
+            {'player': 'Sam Allen',              'position': 'key_defender', 'quality': 'average'}, # hamstring -- season
+            {'player': 'Deven Robertson',        'position': 'midfielder',   'quality': 'average'}, # knee -- season
+            {'player': 'Jacob Newton',           'position': 'midfielder',   'quality': 'average'}, # foot -- season
+            {'player': 'Noah Long',              'position': 'midfielder',   'quality': 'average'}, # knee -- season
+            {'player': 'Archer Reid',            'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Oliver Francou',         'position': 'key_defender', 'quality': 'average'}, # knee -- out 2w
+        ],
+        'Western Bulldogs': [
+            {'player': 'Sam Darcy',              'position': 'key_forward',  'quality': 'elite'},   # knee -- season
+            {'player': 'Adam Treloar',           'position': 'midfielder',   'quality': 'good'},    # leg/calf -- out 4-6w
+            {'player': 'Bailey Dale',            'position': 'key_defender', 'quality': 'good'},    # shoulder -- out 3-5w
+            {'player': 'Riley Garcia',           'position': 'midfielder',   'quality': 'average'}, # hamstring -- season
+            {'player': 'Lachlan Smith',          'position': 'midfielder',   'quality': 'average'}, # hamstring -- out 5-7w
+            {'player': 'Will Lewis',             'position': 'midfielder',   'quality': 'average'}, # leg/calf -- out 4-6w
+            {'player': 'Connor Budarick',        'position': 'winger',       'quality': 'average'}, # ankle -- out 2-5w
+        ],
+        'Carlton Blues': [
+            {'player': 'Nic Newman',             'position': 'key_defender', 'quality': 'good'},    # hamstring -- out 6-7w
+            {'player': 'Campbell Chesser',       'position': 'midfielder',   'quality': 'good'},    # knee -- TBC
+            {'player': 'Jesse Motlop',           'position': 'winger',       'quality': 'good'},    # knee -- season
+            {'player': "Harry O'Farrell",        'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Matt Carroll',           'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Rob Monahan',            'position': 'ruck',         'quality': 'average'}, # shoulder -- season
+        ],
+        'Essendon Bombers': [
+            {'player': 'Xavier Duursma',         'position': 'midfielder',   'quality': 'good'},    # hamstring -- season
+            {'player': 'Jordan Ridley',          'position': 'key_defender', 'quality': 'good'},    # foot -- out 2-3w
+            {'player': 'Nicholas Martin',        'position': 'midfielder',   'quality': 'good'},    # knee -- season
+            {'player': 'Brayden Fiorini',        'position': 'midfielder',   'quality': 'good'},    # back -- season
+            {'player': 'Archie May',             'position': 'key_forward',  'quality': 'average'}, # shoulder -- season
+            {'player': 'Lewis Hayes',            'position': 'key_defender', 'quality': 'average'}, # knee -- season
+            {'player': 'Sullivan Robey',         'position': 'midfielder',   'quality': 'average'}, # knee -- out 3w
+        ],
+        'Sydney Swans': [
+            {'player': 'James Rowbottom',        'position': 'midfielder',   'quality': 'good'},    # hand -- out 4w
+            {'player': 'Peter Ladhams',          'position': 'ruck',         'quality': 'good'},    # hip/groin -- TBC
+            {'player': 'Joel Amartey',           'position': 'key_forward',  'quality': 'good'},    # leg/calf -- out 5w
+            {'player': 'Max King',               'position': 'key_forward',  'quality': 'good'},    # back -- season
+            {'player': 'Noah Chamberlain',       'position': 'key_defender', 'quality': 'average'}, # hamstring -- out 5-6w
+            {'player': 'Liam Hetherton',         'position': 'midfielder',   'quality': 'average'}, # back -- season
+            {'player': 'Will Edwards',           'position': 'winger',       'quality': 'average'}, # leg/calf -- TBC
+        ],
+    },
+    24: {
+        # Sources: AFL injuries scraper 2026-08-16, hand-tagged importance
+        'Collingwood Magpies': [
+            {'player': 'Darcy Moore',           'position': 'key_defender', 'quality': 'elite'},   # knee — season
+            {'player': 'Jamie Elliott',         'position': 'key_forward', 'quality': 'good'},     # calf
+            {'player': 'Jeremy Howe',           'position': 'key_defender', 'quality': 'good'},     # knee — season
+            {'player': 'Harry Perryman',        'position': 'midfielder',  'quality': 'good'},     # hamstring
+        ],
+        'Port Adelaide Power': [
+            {'player': 'Connor Rozee',          'position': 'midfielder',  'quality': 'elite'},    # knee — season
+            {'player': 'Darcy Byrne-Jones',     'position': 'key_defender', 'quality': 'good'},     # achilles — season
+            {'player': 'Jack Lukosius',         'position': 'key_forward', 'quality': 'good'},     # knee
+            {'player': 'Sam Powell-Pepper',     'position': 'midfielder',  'quality': 'average'},  # shoulder
+        ],
+        'Greater Western Sydney Giants': [
+            {'player': 'Tom Green',             'position': 'midfielder',  'quality': 'elite'},    # knee — season
+            {'player': 'Jesse Hogan',           'position': 'key_forward', 'quality': 'elite'},    # knee — season
+            {'player': 'Joshua Kelly',          'position': 'midfielder',  'quality': 'elite'},    # knee — season
+            {'player': 'Finn Callaghan',        'position': 'midfielder',  'quality': 'good'},     # hamstring
+            {'player': 'Brent Daniels',         'position': 'small_forward','quality': 'good'},    # ankle
+        ],
+        'St Kilda Saints': [
+            {'player': 'Max King',              'position': 'key_forward', 'quality': 'elite'},    # knee — season
+            {'player': 'Nasiah Wanganeen-Milera','position': 'winger',     'quality': 'good'},     # hamstring
+            {'player': 'Jack Sinclair',         'position': 'midfielder',  'quality': 'good'},     # ankle
+        ],
+        'Western Bulldogs': [
+            {'player': 'Sam Darcy',             'position': 'key_forward', 'quality': 'elite'},    # ACL — season
+            {'player': 'Timothy English',       'position': 'ruck',        'quality': 'elite'},    # knee
+            {'player': 'Adam Treloar',          'position': 'midfielder',  'quality': 'good'},     # calf
+        ],
+        'Carlton Blues': [
+            {'player': 'Nic Newman',            'position': 'key_defender', 'quality': 'good'},    # knee
+            {'player': 'Jesse Motlop',          'position': 'small_forward','quality': 'average'}, # hamstring
+        ],
+        'Sydney Swans': [
+            {'player': 'James Rowbottom',       'position': 'midfielder',  'quality': 'good'},     # hand
+            {'player': 'Peter Ladhams',         'position': 'ruck',        'quality': 'good'},     # hip
+            {'player': 'Joel Amartey',          'position': 'key_forward', 'quality': 'good'},     # calf — season
+            {'player': 'Max King',              'position': 'key_forward', 'quality': 'good'},     # back — season
+        ],
+        'Geelong Cats': [
+            {'player': 'Max Holmes',            'position': 'midfielder',  'quality': 'good'},     # hamstring
+            {'player': 'Toby Conway',           'position': 'ruck',        'quality': 'good'},     # shoulder
+        ],
+        'North Melbourne Kangaroos': [
+            {'player': 'Zane Duursma',          'position': 'midfielder',  'quality': 'good'},     # hamstring
+            {'player': 'Tom Powell',            'position': 'midfielder',  'quality': 'good'},     # knee
+            {'player': 'Jackson Archer',        'position': 'key_defender', 'quality': 'average'},  # knee
+        ],
+        'West Coast Eagles': [
+            {'player': 'Reuben Ginbey',         'position': 'midfielder',  'quality': 'good'},     # hamstring
+            {'player': 'Tyler Brockman',        'position': 'small_forward','quality': 'average'},  # ankle
+        ],
+        'Richmond Tigers': [
+            {'player': 'Noah Balta',            'position': 'key_defender', 'quality': 'good'},     # knee — season
+            {'player': 'Jacob Hopper',          'position': 'midfielder',  'quality': 'good'},     # knee
+        ],
+    },
 }
 
 # ── T6 Emotional flags — update manually before each round ───────────────────
@@ -1110,6 +1338,17 @@ def get_home_adv_elo(venue: str) -> float:
 LEAGUE_AVG_PER_TEAM = 90.2   # 2026 actual avg: 90.22 per team (R1-R11, n=99; was 83.5 from 2022-2025)
 T1_REGRESSION       = 0.25   # 25 % regression to league mean for scoring rates
 
+# ── T9 opponent-adjusted form (shadow until walk-forward validation) ─────────
+# T9 deliberately uses performance *relative to the pre-game expectation*, not
+# raw wins or raw margins. A win over a strong side is therefore worth more
+# because the expected margin already reflects the opponent, venue and ELO.
+T9_FORM_HALF_LIFE_GAMES = 2.5
+T9_FORM_WINDOW          = 5
+T9_RESIDUAL_SCALE       = 20.0
+T9_SHRINKAGE_GAMES      = 4.0
+T9_MARGIN_MULTIPLIER    = 0.25
+T9_MARGIN_CAP           = 3.0
+
 # ── T2 config ─────────────────────────────────────────────────────────────────
 T2_FAMILIES = {
     'A': {
@@ -1173,11 +1412,13 @@ def _validate_model_features(model, expected: list, name: str) -> None:
 def load_models():
     margin_model = pickle.load(open(MODELS_DIR / 'margin_model.pkl', 'rb'))
     total_model  = pickle.load(open(MODELS_DIR / 'total_model.pkl',  'rb'))
-    h2h_model    = pickle.load(open(MODELS_DIR / 'h2h_model.pkl',    'rb'))
+    h2h_model    = pickle.load(open(MODELS_DIR / 'h2h_legacy_primary.pkl', 'rb'))
+    h2h_shadow   = pickle.load(open(MODELS_DIR / 'h2h_current_shadow.pkl', 'rb'))
     _validate_model_features(margin_model, FEATURE_COLS_REG, 'margin_model')
     _validate_model_features(total_model,  FEATURE_COLS_REG, 'total_model')
-    _validate_model_features(h2h_model,    FEATURE_COLS_H2H, 'h2h_model')
-    return margin_model, total_model, h2h_model
+    _validate_model_features(h2h_model, FEATURE_COLS_H2H_LEGACY, 'h2h_legacy_primary')
+    _validate_model_features(h2h_shadow, FEATURE_COLS_H2H_SHADOW, 'h2h_current_shadow')
+    return margin_model, total_model, h2h_model, h2h_shadow
 
 
 def get_current_elo(features_df: pd.DataFrame) -> dict:
@@ -1228,10 +1469,13 @@ def get_venue_stats(features_df: pd.DataFrame, venue: str) -> dict:
 # Shared with ml/afl/train.py so a retrain can never drift from deploy again
 # (2026-07-09 incident: stale local copy silently killed the ML shadow).
 # load_models() below hard-fails if the pickles disagree with these lists.
-from ml.afl.features import FEATURES_MARGIN_TOTAL, FEATURES_H2H  # noqa: E402
+from ml.afl.features import (  # noqa: E402
+    FEATURES_MARGIN_TOTAL, FEATURES_H2H_LEGACY, FEATURES_H2H_SHADOW,
+)
 
 FEATURE_COLS_REG = FEATURES_MARGIN_TOTAL
-FEATURE_COLS_H2H = FEATURES_H2H
+FEATURE_COLS_H2H_LEGACY = FEATURES_H2H_LEGACY
+FEATURE_COLS_H2H_SHADOW = FEATURES_H2H_SHADOW
 
 
 def get_ema_form(features_df: pd.DataFrame, team: str, before_date: str,
@@ -1264,6 +1508,66 @@ def get_ema_form(features_df: pd.DataFrame, team: str, before_date: str,
         'ema_margin':     sum(w * g['margin'] for w, g in zip(weights, games)) / w_sum,
         'opp_adj_margin': sum(w * g['margin'] * (g['opponent_elo'] / 1500.0)
                               for w, g in zip(weights, games)) / w_sum,
+    }
+
+
+def compute_t9_opponent_adjusted_form(features_df: pd.DataFrame, home: str,
+                                      away: str, before_date: str) -> dict:
+    """Return the AFL T9 residual-form signal without changing live prices.
+
+    Each historical game contributes ``actual team margin - expected team
+    margin``. Expected margin is recreated from the *pre-game* ELO fields and
+    venue home advantage stored on that historical row. Residuals are smoothly
+    capped, exponentially recency weighted, then shrunk for the effective
+    sample size. This avoids rewarding an easy fixture list or a lone blowout.
+    """
+    def state(team: str) -> dict:
+        mask = (((features_df['home_team'] == team) |
+                 (features_df['away_team'] == team)) &
+                (features_df['date'] < before_date) &
+                features_df['home_margin'].notna())
+        games = features_df.loc[mask].sort_values('date').tail(T9_FORM_WINDOW)
+        if games.empty:
+            return {'state': 0.0, 'raw_residual': 0.0, 'n_eff': 0.0, 'games': 0}
+
+        weighted, weights = [], []
+        count = len(games)
+        for index, (_, game) in enumerate(games.iterrows()):
+            expected_home = ((float(game['home_elo']) + get_home_adv_elo(game['venue'])
+                              - float(game['away_elo'])) * POINTS_PER_ELO)
+            actual_team = float(game['home_margin']) if game['home_team'] == team else -float(game['home_margin'])
+            expected_team = expected_home if game['home_team'] == team else -expected_home
+            residual = actual_team - expected_team
+            bounded = T9_RESIDUAL_SCALE * math.tanh(residual / T9_RESIDUAL_SCALE)
+            # newest game gets weight 1.0
+            weight = 0.5 ** ((count - 1 - index) / T9_FORM_HALF_LIFE_GAMES)
+            weighted.append(weight * bounded)
+            weights.append(weight)
+
+        total_weight = sum(weights)
+        raw = sum(weighted) / total_weight
+        n_eff = (total_weight ** 2) / sum(w * w for w in weights)
+        return {
+            'state': raw * n_eff / (n_eff + T9_SHRINKAGE_GAMES),
+            'raw_residual': raw,
+            'n_eff': n_eff,
+            'games': count,
+        }
+
+    home_state = state(home)
+    away_state = state(away)
+    raw_delta = T9_MARGIN_MULTIPLIER * (home_state['state'] - away_state['state'])
+    adjustment = max(-T9_MARGIN_CAP, min(T9_MARGIN_CAP, raw_delta))
+    return {
+        't9_handicap_shadow': round(adjustment, 3),
+        'home_state': round(home_state['state'], 3),
+        'away_state': round(away_state['state'], 3),
+        'home_raw_residual': round(home_state['raw_residual'], 3),
+        'away_raw_residual': round(away_state['raw_residual'], 3),
+        'home_n_eff': round(home_state['n_eff'], 3),
+        'away_n_eff': round(away_state['n_eff'], 3),
+        'home_games': home_state['games'],
+        'away_games': away_state['games'],
     }
 
 
@@ -1369,8 +1673,9 @@ def build_feature_row(home: str, away: str, venue: str, date: str,
         'venue_games':       vs['venue_games'],
         'venue_avg_total':   vs['venue_avg_total'],
         'venue_home_win_pct':vs['venue_home_win_pct'],
-        # Training filled NaN market prob with elo_win_prob — same fallback here.
-        'mkt_home_prob_open': mkt_home_prob if mkt_home_prob is not None else elo_win_prob,
+        # A missing bookmaker price stays missing. The market-aware shadow then
+        # abstains; it is never fed an ELO probability labelled as market data.
+        'mkt_home_prob_open': mkt_home_prob,
     }
 
 
@@ -1653,6 +1958,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--season', type=int, default=2026)
     parser.add_argument('--round',  type=int, default=8)
+    parser.add_argument('--legacy', action='store_true',
+                        help='Use rules-only pricing (pre-hybrid behavior)')
     args = parser.parse_args()
 
     load_external_round_prep(args.round, args.season)
@@ -1737,20 +2044,22 @@ def main():
             f'T8 THIN SAMPLE: only {t8_teams_with_signal} teams have {t8_rates.get("_min_shots", 30)}+ '
             f'season shots — early-season rounds will run T8 mostly neutral, this is expected not a bug')
 
-    # Load ML models for shadow section only
+    # Load ML models — primary for margin/H2H, audit for totals
     try:
-        ml_margin_model, ml_total_model, ml_h2h_model = load_models()
+        ml_margin_model, ml_total_model, ml_h2h_model, ml_h2h_shadow = load_models()
         ml_available = True
         ml_bias = compute_ml_bias(ml_total_model, features_df)
         print(f'ML total bias (2022–2025, n={ml_bias["n"]}):  {ml_bias["bias"]:+.1f} pts  '
-              f'(MAE {ml_bias["mae"]:.1f} pts)  — correction applied to shadow totals')
+              f'(MAE {ml_bias["mae"]:.1f} pts)  — correction applied to ML totals')
+        if args.legacy:
+            print('  [LEGACY MODE] ML models loaded but not used — rules-only pricing active')
     except Exception as e:
         ml_available = False
         ml_bias = {'bias': 0.0, 'n': 0, 'mae': 0.0}
-        print(f'  (ML models not available — shadow section will be skipped: {type(e).__name__}: {e})')
+        print(f'  [!] ML models not available — falling back to rules-only pricing: {type(e).__name__}: {e}')
         health_warnings.append(
-            f'ML SHADOW DOWN: {type(e).__name__}: {e} — the model-alignment betting rule '
-            f'CANNOT be applied to this round until fixed')
+            f'ML UNAVAILABLE: {type(e).__name__}: {e} — margin/H2H falling back to rules model. '
+            f'Pricing quality is degraded for handicap and H2H markets.')
 
     mkt_probs = load_market_h2h_probs(args.season)
     snap_dir   = ROOT.parent / 'data' / 'odds_snapshots' / str(args.season)
@@ -1763,13 +2072,13 @@ def main():
         if snap_age > 2:
             health_warnings.append(
                 f'MARKET STALE: latest odds snapshot is {snap_files[-1].name} ({snap_age} days old) — '
-                f'no current market lines for EV; mkt_home_prob_open model feature on ELO fallback')
+                f'no current market lines for EV; market-aware H2H model will abstain')
     games_with_mkt = sum(1 for g in games if (g[0], g[1]) in mkt_probs)
     print(f'Market H2H probs: {games_with_mkt}/{len(games)} games matched in latest snapshot')
     if games_with_mkt == 0 and snap_files:
         health_warnings.append(
             'MARKET: 0 of this round\'s games found in the latest snapshot (snapshot likely from a '
-            'previous round) — mkt_home_prob_open falls back to elo_win_prob for all games')
+            'previous round) — market-aware H2H model will abstain for all games')
 
     # ── DATA HEALTH pre-flight report ─────────────────────────────────────────
     print('\n' + '=' * 90)
@@ -1790,7 +2099,8 @@ def main():
                                   mkt_home_prob=mkt_probs.get((home, away)))
         X     = pd.DataFrame([feat])
         X_reg = X[FEATURE_COLS_REG]
-        X_h2h = X[FEATURE_COLS_H2H]
+        X_h2h_legacy = X[FEATURE_COLS_H2H_LEGACY]
+        X_h2h_shadow = X[FEATURE_COLS_H2H_SHADOW]
 
         # ── T1: Rules-based baseline ──────────────────────────────────────────
         home_elo = elo.get(home, 1500.0)
@@ -1804,9 +2114,14 @@ def main():
             ml_margin_raw = float(ml_margin_model.predict(X_reg)[0])
             ml_total_raw  = float(ml_total_model.predict(X_reg)[0])
             ml_total_cal  = ml_total_raw + ml_bias['bias']   # bias-corrected total
-            ml_h2h_prob   = float(ml_h2h_model.predict_proba(X_h2h)[0][1])
+            ml_h2h_prob = float(ml_h2h_model.predict_proba(X_h2h_legacy)[0][1])
+            ml_h2h_shadow_prob = (
+                float(ml_h2h_shadow.predict_proba(X_h2h_shadow)[0][1])
+                if feat['mkt_home_prob_open'] is not None else None
+            )
         else:
             ml_margin_raw = ml_total_raw = ml_total_cal = ml_h2h_prob = None
+            ml_h2h_shadow_prob = None
 
         home_style = style_rows.get(home)
         away_style = style_rows.get(away)
@@ -1874,22 +2189,53 @@ def main():
         # T8 — kicking accuracy (set-shot conversion vs league average)
         t8 = compute_t8(home, away, t8_rates)
 
-        final_margin = (t1_margin
+        # T9 — opponent-adjusted residual form. Logged only: it does not alter
+        # the published rules price until the walk-forward backtest approves it.
+        t9 = compute_t9_opponent_adjusted_form(features_df, home, away, date)
+
+        # Rules baseline (kept for audit, primary for totals)
+        rules_margin = (t1_margin
                         + t2['t2_handicap'] + t3['t3_handicap']
                         + t4['t4_handicap'] + t5['t5_handicap']
                         + t6['t6_handicap'] + t8['t8_handicap'])
-        final_total  = (t1_total
+        rules_total  = (t1_total
                         + t2['t2_totals']   + t3['t3_totals']
                         + t4['t4_totals']   + t5['t5_totals']
                         + t6['t6_totals']   + t7['t7_totals']
                         + t8['t8_totals'])
 
+        # Primary hybrid: ML margin + all tiers for handicap/H2H
+        use_ml = ml_available and ml_margin_raw is not None and not args.legacy
+        if use_ml:
+            primary_margin = (ml_margin_raw
+                              + t2['t2_handicap'] + t3['t3_handicap']
+                              + t4['t4_handicap'] + t5['t5_handicap']
+                              + t6['t6_handicap'] + t8['t8_handicap'])
+        else:
+            primary_margin = rules_margin  # graceful fallback
+
+        # Primary total: rules model (unchanged — rules beats ML on totals)
+        primary_total = rules_total
+
+        # Primary H2H: ML classifier when available, else derive from margin
+        if use_ml and ml_h2h_prob is not None:
+            primary_home_prob = ml_h2h_prob
+            primary_away_prob = 1 - ml_h2h_prob
+        else:
+            primary_home_prob, primary_away_prob = margin_to_h2h(primary_margin)
+
+        # Final outputs use primary values
+        final_margin = primary_margin
+        final_total  = primary_total
+
         # Sanity floor: losing team must score at least 50 pts.
         # Losing team implied score = (total - margin) / 2, so floor = margin + 2*MIN.
         MIN_LOSING_SCORE = 50.0
         final_total = max(final_total, abs(final_margin) + 2 * MIN_LOSING_SCORE)
+        primary_total = final_total  # update after floor
 
-        home_prob, away_prob = margin_to_h2h(final_margin)
+        home_prob = primary_home_prob
+        away_prob = primary_away_prob
 
         # Totals — fair line is our model total; price over/under at that line
         fair_line = round(final_total * 2) / 2   # round to nearest 0.5
@@ -1897,6 +2243,7 @@ def main():
 
         results.append({
             'home': home, 'away': away, 'venue': venue, 'date': date,
+            'market_home_prob': feat.get('mkt_home_prob_open'),
             'home_elo': round(elo.get(home, 1500), 1),
             'away_elo': round(elo.get(away, 1500), 1),
             't1_margin': round(t1_margin, 1),
@@ -1905,10 +2252,27 @@ def main():
             'ml_total_raw':  round(ml_total_raw, 1)  if ml_total_raw  is not None else None,
             'ml_total_cal':  round(ml_total_cal, 1)  if ml_total_cal  is not None else None,
             'ml_h2h_raw':    round(ml_h2h_prob, 4)   if ml_h2h_prob   is not None else None,
+            'ml_h2h_shadow': round(ml_h2h_shadow_prob, 4) if ml_h2h_shadow_prob is not None else None,
             # ML adjusted: ML (bias-corrected) + T2 + T5 + T6 + T7 + T8
             'ml_margin': round(ml_margin_raw + t2['t2_handicap'] + t5['t5_handicap'] + t6['t6_handicap'] + t8['t8_handicap'], 1) if ml_margin_raw is not None else None,
             'ml_total':  round(ml_total_cal  + t2['t2_totals']   + t5['t5_totals']   + t6['t6_totals']   + t7['t7_totals']   + t8['t8_totals'],  1) if ml_total_cal  is not None else None,
             'ml_h2h':    round(ml_h2h_prob, 4)   if ml_h2h_prob   is not None else None,
+            # Primary hybrid outputs
+            'primary_margin':    round(primary_margin, 1),
+            'primary_total':     round(primary_total, 1),
+            'primary_home_prob': round(primary_home_prob, 4),
+            'primary_away_prob': round(primary_away_prob, 4),
+            'primary_home_odds': prob_to_odds(primary_home_prob),
+            'primary_away_odds': prob_to_odds(primary_away_prob),
+            'primary_source_margin': 'ml' if use_ml else 'rules',
+            'primary_source_h2h':    'ml_classifier' if (use_ml and ml_h2h_prob is not None) else 'margin_derived',
+            # Rules audit (always computed regardless of primary source)
+            'rules_margin': round(rules_margin, 1),
+            'rules_total':  round(rules_total, 1),
+            'rules_home_prob': margin_to_h2h(rules_margin)[0],
+            'rules_away_prob': margin_to_h2h(rules_margin)[1],
+            'rules_home_odds': prob_to_odds(margin_to_h2h(rules_margin)[0]),
+            'rules_away_odds': prob_to_odds(margin_to_h2h(rules_margin)[1]),
             't2_hcp':    t2['t2_handicap'],
             't2_tot':    t2['t2_totals'],
             't3_hcp':    t3['t3_handicap'],
@@ -1933,6 +2297,15 @@ def main():
             't8_away_conv': t8['away_conversion_pct'],
             't8_league_avg': t8['league_avg_pct'],
             't8_note':   t8['note'],
+            't9_hcp_shadow': t9['t9_handicap_shadow'],
+            't9_home_state': t9['home_state'],
+            't9_away_state': t9['away_state'],
+            't9_home_raw_residual': t9['home_raw_residual'],
+            't9_away_raw_residual': t9['away_raw_residual'],
+            't9_home_n_eff': t9['home_n_eff'],
+            't9_away_n_eff': t9['away_n_eff'],
+            't9_home_games': t9['home_games'],
+            't9_away_games': t9['away_games'],
             'weather_condition': t7['condition_type'],
             'temp_c':     round((wx_data or {}).get('temp_c'), 1) if (wx_data or {}).get('temp_c') is not None else None,
             'wind_kmh':   round((wx_data or {}).get('wind_kmh', 0.0), 1),
@@ -2060,6 +2433,19 @@ def main():
     print('      the deeper xScore ELO rebuild is banked for the 2026 off-season, not this tier).')
     print('=' * 138)
 
+    # ── T9 opponent-adjusted residual form (shadow) ──────────────────────────
+    print()
+    print(SEP)
+    print(f"  {'Matchup':<46} {'Home state':>11} {'Away state':>11} {'T9 shadow':>11}  Evidence")
+    print(SEP)
+    for r in results:
+        home_s = r['home'].split()[-1]; away_s = r['away'].split()[-1]
+        evidence = (f"{r['t9_home_games']}/{r['t9_away_games']} games; "
+                    f"effective n {r['t9_home_n_eff']:.1f}/{r['t9_away_n_eff']:.1f}")
+        print(f"  {home_s+' vs '+away_s:<46} {r['t9_home_state']:>+11.2f} {r['t9_away_state']:>+11.2f} "
+              f"{r['t9_hcp_shadow']:>+11.2f}  {evidence}")
+    print('  T9 uses actual margin minus pre-game ELO/venue expectation. It is shadow-only pending walk-forward validation.')
+
     # ── Totals table ──────────────────────────────────────────────────────────
     print()
     print('=' * 90)
@@ -2106,22 +2492,25 @@ def main():
     print(f'  O/U odds at model line are ~2.00 by definition — compare vs market line for EV.')
     print('=' * 110)
 
-    # ── ML SHADOW MODE ────────────────────────────────────────────────────────
+    # ── MODEL COMPARISON (Primary vs Rules Audit) ──────────────────────────────
     if ml_available:
-        DIVERG_MARGIN = 6.0   # flag if ML vs rules margin gap >= this
-        DIVERG_H2H    = 0.08  # flag if ML vs rules H2H probability gap >= this
-        DIVERG_TOTAL  = 8.0   # flag if ML vs rules total gap >= this
+        DIVERG_MARGIN = 6.0   # flag if primary vs rules margin gap >= this
+        DIVERG_H2H    = 0.08  # flag if primary vs rules H2H probability gap >= this
+        DIVERG_TOTAL  = 8.0   # flag if primary vs rules total gap >= this
 
+        src_label = 'ML+Tiers' if not args.legacy else 'Rules (legacy)'
         print()
         print('=' * 120)
-        print(f'  AFL R{args.round} {args.season} — ML Shadow Mode  (XGBoost trained 2009–2023)')
-        print(f'  Rules = T1–T7 full stack above.  ML = XGBoost (bias-corrected +{ml_bias["bias"]:.1f} pts, n={ml_bias["n"]}) + T2 + T5 + T6 + T7.')
+        print(f'  AFL R{args.round} {args.season} — Model Comparison  (Primary={src_label} vs Rules audit)')
+        print(f'  Primary margin = {"ML XGBoost + T2-T8" if not args.legacy else "Rules T1-T8 (legacy mode)"}')
+        print(f'  Primary H2H    = {"ML classifier (direct)" if not args.legacy else "derived from rules margin"}')
+        print(f'  Primary total  = Rules T1-T8 (rules model wins totals)')
         print(f'  Divergence flags: margin ≥{DIVERG_MARGIN:.0f}pt  |  H2H ≥{DIVERG_H2H:.0%}  |  total ≥{DIVERG_TOTAL:.0f}pt')
         print('=' * 120)
         print()
-        print(f"  {'Matchup':<46} {'Rules Mrg':>10} {'ML Mrg':>8} {'MrgΔ':>7}  "
-              f"{'Rules Tot':>10} {'ML Tot':>8} {'TotΔ':>7}  "
-              f"{'Rules H%':>9} {'ML H%':>8} {'H%Δ':>7}")
+        print(f"  {'Matchup':<46} {'Primary':>10} {'Rules':>8} {'MrgΔ':>7}  "
+              f"{'Pri Tot':>10} {'Rul Tot':>8} {'TotΔ':>7}  "
+              f"{'Pri H%':>9} {'Rul H%':>8} {'H%Δ':>7}")
         print('  ' + '─' * 118)
 
         divergences = []
@@ -2129,17 +2518,17 @@ def main():
             home_s   = r['home'].split()[-1]
             away_s   = r['away'].split()[-1]
             matchup  = f"{home_s} vs {away_s}"
-            rules_mrg = r['final_margin']
-            ml_mrg    = r['ml_margin']
-            mrg_delta = ml_mrg - rules_mrg
+            pri_mrg   = r['primary_margin']
+            rules_mrg = r['rules_margin']
+            mrg_delta = pri_mrg - rules_mrg
 
-            rules_tot = r['final_total']
-            ml_tot    = r['ml_total']
-            tot_delta = ml_tot - rules_tot
+            pri_tot   = r['primary_total']
+            rules_tot = r['rules_total']
+            tot_delta = pri_tot - rules_tot
 
-            rules_h   = r['home_prob']
-            ml_h      = r['ml_h2h']
-            h_delta   = ml_h - rules_h
+            pri_h     = r['primary_home_prob']
+            rules_h   = r['rules_home_prob']
+            h_delta   = pri_h - rules_h
 
             flags = []
             if abs(mrg_delta) >= DIVERG_MARGIN: flags.append('margin')
@@ -2149,13 +2538,13 @@ def main():
             if flags:
                 divergences.append((matchup, mrg_delta, tot_delta, h_delta, flags))
 
-            print(f"  {matchup:<46} {rules_mrg:>+10.1f} {ml_mrg:>+8.1f} {mrg_delta:>+7.1f}  "
-                  f"{rules_tot:>10.1f} {ml_tot:>8.1f} {tot_delta:>+7.1f}  "
-                  f"{rules_h:>9.1%} {ml_h:>8.1%} {h_delta:>+7.1%}{flag_str}")
+            print(f"  {matchup:<46} {pri_mrg:>+10.1f} {rules_mrg:>+8.1f} {mrg_delta:>+7.1f}  "
+                  f"{pri_tot:>10.1f} {rules_tot:>8.1f} {tot_delta:>+7.1f}  "
+                  f"{pri_h:>9.1%} {rules_h:>8.1%} {h_delta:>+7.1%}{flag_str}")
 
         if divergences:
             print()
-            print(f'  DIVERGENCE SUMMARY  (rules vs ML gap beyond thresholds)')
+            print(f'  DIVERGENCE SUMMARY  (primary vs rules gap beyond thresholds)')
             print('  ' + '─' * 80)
             for matchup, md, td, hd, flags in divergences:
                 parts = []
@@ -2163,15 +2552,16 @@ def main():
                     val = abs(md) if f == 'margin' else abs(td) if f == 'total' else abs(hd)
                     parts.append(f'{f}: {val:.1f}')
                 note = '  '.join(parts)
-                direction = 'ML more bullish home' if md > 0 else 'ML more bearish home'
+                direction = 'Primary more bullish home' if md > 0 else 'Primary more bearish home'
                 print(f'  {matchup:<46}  {direction}  |  {note}')
         print()
-        print('  ◆ = divergence flag.  ML is independent cross-check only — not used in pricing.')
+        print(f'  ◆ = divergence flag.  Primary model = {src_label}.  Rules kept for audit.')
         print('=' * 120)
 
     # ── Store to DB ───────────────────────────────────────────────────────────
     run_date = datetime.now().strftime('%Y-%m-%d')
     store_to_db(results, args.season, args.round, run_date)
+    export_h2h_forward(results, args.season, args.round, run_date)
 
     # ── SPEAK-UP RECAP — repeat every data problem so it can't be missed ──────
     if wx_issues:
@@ -2186,6 +2576,29 @@ def main():
         print('!' * 90)
     else:
         print('\n  [OK] DATA HEALTH: all inputs current — no caveats on this pricing run.')
+
+
+def export_h2h_forward(results: list, season: int, round_num: int, run_date: str):
+    """Persist the primary/shadow comparison for prospective R23+ grading."""
+    rows = []
+    for r in results:
+        market = r.get('market_home_prob')
+        legacy = r.get('ml_h2h')
+        shadow = r.get('ml_h2h_shadow')
+        rows.append({
+            'season': season, 'round': round_num, 'run_date': run_date,
+            'game_date': r.get('date'), 'home_team': r['home'], 'away_team': r['away'],
+            'market_home_prob': market,
+            'legacy_primary_home_prob': legacy,
+            'legacy_edge_home': legacy - market if legacy is not None and market is not None else None,
+            'current_shadow_home_prob': shadow,
+            'current_shadow_edge_home': shadow - market if shadow is not None and market is not None else None,
+        })
+    out_dir = ROOT / 'outputs' / 'forward_tests'
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / f'afl_h2h_r{round_num}_{season}.csv'
+    pd.DataFrame(rows).to_csv(path, index=False)
+    print(f'H2H forward ledger: {path}')
 
 
 def store_to_db(results: list, season: int, round_num: int, run_date: str):
@@ -2261,6 +2674,7 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
     ''')
     existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(afl_shadow_predictions)")}
     migration_cols = {
+        'ml_h2h_current_shadow': 'REAL',
         't8_hcp': 'REAL',
         't8_tot': 'REAL',
         'weather_condition': 'TEXT',
@@ -2272,25 +2686,60 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
         'dew_point_c': 'REAL',
         'humidity_pct': 'REAL',
         'weather_source': 'TEXT',
+        # Hybrid primary model (2026-08-25)
+        'primary_margin': 'REAL',
+        'primary_total': 'REAL',
+        'primary_home_prob': 'REAL',
+        'primary_home_odds': 'REAL',
+        'primary_away_odds': 'REAL',
+        'primary_source_margin': 'TEXT',
+        'primary_source_h2h': 'TEXT',
     }
     for col, col_type in migration_cols.items():
         if col not in existing_cols:
             conn.execute(f'ALTER TABLE afl_shadow_predictions ADD COLUMN {col} {col_type}')
 
+    # Keep the experimental form layer in its own table so shadow data cannot
+    # be mistaken for a live price adjustment.
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS afl_t9_form_shadow (
+            season INTEGER NOT NULL,
+            round_number INTEGER NOT NULL,
+            game_date TEXT,
+            home_team TEXT NOT NULL,
+            away_team TEXT NOT NULL,
+            run_date TEXT NOT NULL,
+            home_state REAL,
+            away_state REAL,
+            handicap_shadow REAL,
+            home_raw_residual REAL,
+            away_raw_residual REAL,
+            home_effective_games REAL,
+            away_effective_games REAL,
+            home_games INTEGER,
+            away_games INTEGER,
+            PRIMARY KEY (season, round_number, home_team, away_team)
+        )
+    ''')
+
     run_dt = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     for r in results:
-        # Agreement flag (ML vs Rules)
-        rules_winner = 'home' if r['final_margin'] > 0 else 'away'
-        ml_winner    = 'home' if (r['ml_margin'] or 0) > 0 else 'away'
+        # Agreement flag: primary (hybrid) vs rules audit
+        rules_winner   = 'home' if r.get('rules_margin', r['final_margin']) > 0 else 'away'
+        primary_winner = 'home' if r['primary_margin'] > 0 else 'away'
+        h2h_winner     = 'home' if r['primary_home_prob'] > 0.5 else 'away'
         if r['ml_margin'] is not None:
-            mrg_gap = abs((r['ml_margin'] or 0) - r['final_margin'])
-            h2h_gap = abs((r['ml_h2h'] or 0) - r['home_prob'])
-            if rules_winner != ml_winner:
+            mrg_gap = abs(r['primary_margin'] - r.get('rules_margin', r['final_margin']))
+            h2h_gap = abs(r['primary_home_prob'] - r.get('rules_home_prob', r['home_prob']))
+            if rules_winner != primary_winner:
                 flag = 'disagree'
             elif mrg_gap < 3.0 and h2h_gap < 0.05:
                 flag = 'strong'
             else:
                 flag = 'direction'
+            # Flag margin/H2H incoherence (ML margin says one team, ML classifier says other)
+            if primary_winner != h2h_winner:
+                flag = (flag or '') + '_h2h_incoherent'
         else:
             flag = None
 
@@ -2301,6 +2750,9 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
                  rules_home_odds, rules_away_odds,
                  ml_margin_raw, ml_total_raw, ml_h2h_raw,
                  ml_margin, ml_total, ml_h2h,
+                 primary_margin, primary_total, primary_home_prob,
+                 primary_home_odds, primary_away_odds,
+                 primary_source_margin, primary_source_h2h,
                  t1_margin, t1_total, t2_hcp, t2_tot, t3_hcp, t3_tot,
                  t4_hcp, t4_tot, t5_hcp, t5_tot, t6_hcp, t6_tot, t7_tot,
                  t8_hcp, t8_tot,
@@ -2308,7 +2760,7 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
                  wind_for_t7_kmh, precip_mm, dew_point_c, humidity_pct,
                  weather_source,
                  agreement_flag, created_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            VALUES ({','.join(['?'] * 51)})
             ON CONFLICT(home_team, away_team, season, round_number) DO UPDATE SET
                 run_date=excluded.run_date,
                 rules_margin=excluded.rules_margin,
@@ -2322,6 +2774,13 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
                 ml_margin=excluded.ml_margin,
                 ml_total=excluded.ml_total,
                 ml_h2h=excluded.ml_h2h,
+                primary_margin=excluded.primary_margin,
+                primary_total=excluded.primary_total,
+                primary_home_prob=excluded.primary_home_prob,
+                primary_home_odds=excluded.primary_home_odds,
+                primary_away_odds=excluded.primary_away_odds,
+                primary_source_margin=excluded.primary_source_margin,
+                primary_source_h2h=excluded.primary_source_h2h,
                 t1_margin=excluded.t1_margin, t1_total=excluded.t1_total,
                 t2_hcp=excluded.t2_hcp, t2_tot=excluded.t2_tot,
                 t3_hcp=excluded.t3_hcp, t3_tot=excluded.t3_tot,
@@ -2343,10 +2802,13 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
         ''', (
             season, round_num, r.get('date', ''), r['home'], r['away'], r['venue'],
             run_date,
-            r['final_margin'], r['final_total'], r['home_prob'],
-            r['home_odds'], r['away_odds'],
+            r['rules_margin'], r['rules_total'], r['rules_home_prob'],
+            r['rules_home_odds'], r['rules_away_odds'],
             r.get('ml_margin_raw'), r.get('ml_total_raw'), r.get('ml_h2h_raw'),
             r.get('ml_margin'), r.get('ml_total'), r.get('ml_h2h'),
+            r.get('primary_margin'), r.get('primary_total'), r.get('primary_home_prob'),
+            r.get('primary_home_odds'), r.get('primary_away_odds'),
+            r.get('primary_source_margin'), r.get('primary_source_h2h'),
             r['t1_margin'], r['t1_total'],
             r['t2_hcp'], r['t2_tot'], r['t3_hcp'], r['t3_tot'],
             r['t4_hcp'], r['t4_tot'], r['t5_hcp'], r['t5_tot'],
@@ -2357,12 +2819,43 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
             r.get('dew_point_c'), r.get('humidity_pct'), r.get('weather_source'),
             flag, run_dt,
         ))
+        conn.execute('''
+            UPDATE afl_shadow_predictions
+               SET ml_h2h_current_shadow = ?
+             WHERE season = ? AND round_number = ?
+               AND home_team = ? AND away_team = ?
+        ''', (r.get('ml_h2h_shadow'), season, round_num, r['home'], r['away']))
+        conn.execute('''
+            INSERT INTO afl_t9_form_shadow
+                (season, round_number, game_date, home_team, away_team, run_date,
+                 home_state, away_state, handicap_shadow,
+                 home_raw_residual, away_raw_residual,
+                 home_effective_games, away_effective_games, home_games, away_games)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(season, round_number, home_team, away_team) DO UPDATE SET
+                game_date=excluded.game_date, run_date=excluded.run_date,
+                home_state=excluded.home_state, away_state=excluded.away_state,
+                handicap_shadow=excluded.handicap_shadow,
+                home_raw_residual=excluded.home_raw_residual,
+                away_raw_residual=excluded.away_raw_residual,
+                home_effective_games=excluded.home_effective_games,
+                away_effective_games=excluded.away_effective_games,
+                home_games=excluded.home_games, away_games=excluded.away_games
+        ''', (
+            season, round_num, r.get('date', ''), r['home'], r['away'], run_date,
+            r.get('t9_home_state'), r.get('t9_away_state'), r.get('t9_hcp_shadow'),
+            r.get('t9_home_raw_residual'), r.get('t9_away_raw_residual'),
+            r.get('t9_home_n_eff'), r.get('t9_away_n_eff'),
+            r.get('t9_home_games'), r.get('t9_away_games'),
+        ))
 
     conn.commit()
     n = conn.execute('SELECT COUNT(*) FROM afl_shadow_predictions WHERE season=? AND round_number=?',
                      (season, round_num)).fetchone()[0]
+    t9_n = conn.execute('SELECT COUNT(*) FROM afl_t9_form_shadow WHERE season=? AND round_number=?',
+                        (season, round_num)).fetchone()[0]
     conn.close()
-    print(f'\nDB: {n} rows stored in afl_shadow_predictions (season={season}, round={round_num})')
+    print(f'\nDB: {n} pricing rows and {t9_n} T9 shadow rows stored (season={season}, round={round_num})')
 
 
 if __name__ == '__main__':

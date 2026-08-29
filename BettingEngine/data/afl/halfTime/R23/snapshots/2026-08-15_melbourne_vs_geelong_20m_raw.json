@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-15T06:17:57.452881+00:00",
+  "game": {
+    "unixtime": 1786772700,
+    "ascore": 6,
+    "roundname": "Round 23",
+    "round": 23,
+    "complete": 25,
+    "ateamid": 7,
+    "hgoals": 7,
+    "hbehinds": 2,
+    "venue": "Docklands",
+    "winner": null,
+    "localtime": "2026-08-15 15:45:00",
+    "hteam": "North Melbourne",
+    "year": 2026,
+    "is_final": 0,
+    "date": "2026-08-15 15:45:00",
+    "id": 38687,
+    "timestr": "1/4 Time",
+    "ateam": "Geelong",
+    "winnerteamid": null,
+    "tz": "+10:00",
+    "hscore": 44,
+    "hteamid": 12,
+    "agoals": 1,
+    "updated": "2026-08-15 16:17:30",
+    "is_grand_final": 0,
+    "abehinds": 0,
+    "_round_game_num": 3,
+    "fox_match_id": "AFL20262303"
+  }
+}

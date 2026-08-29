@@ -1,0 +1,54 @@
+{
+  "split": {
+    "train_2024": 213,
+    "calibrate_2025": 213,
+    "test_2026": 172
+  },
+  "class_counts": {
+    "EVEN": 308,
+    "UP": 159,
+    "DOWN": 131
+  },
+  "test": {
+    "accuracy": 0.5348837209302325,
+    "majority_baseline_accuracy": 0.5581395348837209,
+    "log_loss": 1.046981712642966,
+    "multiclass_brier": 0.6266291306091207,
+    "movement_mae_points": 0.6453488372093024,
+    "zero_move_baseline_mae_points": 0.6453488372093024,
+    "movement_rmse_points": 1.059288923408441,
+    "mean_actual_move": -0.25,
+    "directional_accuracy_when_market_moved": 0.039473684210526314,
+    "confidence_55_coverage": 0.3953488372093023,
+    "confidence_55_accuracy": 0.5147058823529411
+  },
+  "approved_for_live_confidence": false,
+  "approval_rule": "accuracy >= majority baseline + 2pp and movement MAE <= zero-move MAE * 0.95",
+  "classes": [
+    "DOWN",
+    "EVEN",
+    "UP"
+  ],
+  "features": [
+    "total_open",
+    "home_implied",
+    "market_balance",
+    "over_price_open",
+    "under_price_open",
+    "price_skew",
+    "month",
+    "home_for_l5",
+    "home_against_l5",
+    "away_for_l5",
+    "away_against_l5",
+    "home_total_l5",
+    "away_total_l5",
+    "combined_expected_total",
+    "combined_total_volatility",
+    "home_move_prior",
+    "away_move_prior",
+    "pair_move_prior",
+    "home_games_prior",
+    "away_games_prior"
+  ]
+}

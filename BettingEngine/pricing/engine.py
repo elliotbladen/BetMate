@@ -54,6 +54,7 @@ from pricing.tier8_weather import compute_weather_stub
 from db.queries import (
     get_match_by_id,
     get_team_stats,
+    get_recent_team_results,
     get_latest_snapshots_for_match,
     get_match_context,
 )
@@ -351,7 +352,17 @@ def run_pricing(
         'city':       (match or {}).get('venue_city'),
     }
 
-    baseline = compute_baseline(home_stats, away_stats, venue, t1_cfg)
+    home_recent = get_recent_team_results(
+        conn, match['home_team_id'], match['season'], as_of,
+    )
+    away_recent = get_recent_team_results(
+        conn, match['away_team_id'], match['season'], as_of,
+    )
+    baseline = compute_baseline(
+        home_stats, away_stats, venue, t1_cfg,
+        home_last_n_results=home_recent,
+        away_last_n_results=away_recent,
+    )
     baseline_home = baseline['baseline_home_points']
     baseline_away = baseline['baseline_away_points']
 

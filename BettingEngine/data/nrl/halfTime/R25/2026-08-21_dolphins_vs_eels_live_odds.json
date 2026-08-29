@@ -1,0 +1,73 @@
+{
+  "season": 2026,
+  "round": 25,
+  "game_date": "2026-08-21",
+  "home_team": "Dolphins",
+  "away_team": "Parramatta Eels",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-21T11:18:17.039109+00:00",
+  "odds_api_game_id": "14fbafe55f33edad77534b3bbd008362",
+  "odds_api_home": "Dolphins",
+  "odds_api_away": "Parramatta Eels",
+  "commence_time": "2026-08-21T10:02:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.0,
+        "away": 26.0
+      },
+      "spreads": {
+        "home_price": 1.96,
+        "home_point": -20.5,
+        "away_price": 1.84,
+        "away_point": 20.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 52.5,
+        "under_price": 1.9,
+        "under_point": 52.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 1.05,
+        "away": 9.0
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 1.02,
+        "away": 13.0
+      }
+    },
+    "tabtouch": {
+      "spreads": {
+        "home_price": 1.89,
+        "home_point": -18.5,
+        "away_price": 1.83,
+        "away_point": 18.5
+      },
+      "totals": {
+        "over_price": 1.96,
+        "over_point": 54.5,
+        "under_price": 1.75,
+        "under_point": 54.5
+      }
+    },
+    "unibet": {
+      "spreads": {
+        "home_price": 1.92,
+        "home_point": -18.5,
+        "away_price": 1.84,
+        "away_point": 18.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.01,
+        "away": 2.66
+      }
+    }
+  }
+}

@@ -16,14 +16,22 @@ Usage:
     python ml/football/price_match.py --home "Arsenal" --away "Chelsea" \\
         --injuries-home "ST,AM" --injuries-away "CB,GK"
 
-    # Full example
+    # Full EPL example
     python ml/football/price_match.py \\
         --home "Arsenal" --away "Man City" --date 2026-08-15 \\
         --ref "A Taylor" \\
         --injuries-home "ST" --injuries-away "AM,CM" \\
         --mkt-home 2.40 --mkt-draw 3.50 --mkt-away 3.00 --mkt-over25 1.85
 
+    # Championship with T8 (new-team prior) and T9 (new manager)
+    python ml/football/price_match.py --league championship \\
+        --home "Leeds" --away "Coventry" --matchweek 3 \\
+        --new-manager-away \\
+        --mkt-home 1.85 --mkt-draw 3.50 --mkt-away 4.20
+
 Injury positions: GK CB LB RB WB DM CM AM LW RW SS ST FW
+T8 (--matchweek N): only fires for teams new to Championship; prior weight decays to 0 by GW15.
+T9 (--new-manager-home/away): +0.07 xG boost for the match after a manager change.
 """
 
 from __future__ import annotations
@@ -44,7 +52,7 @@ from ml.football.models.dixon_coles import fit as dc_fit, expected_goals, build_
 from ml.football.models.elo import build_from_history
 from ml.football.models.tiers import (
     TeamState, MatchContext, apply_all_tiers,
-    t5_disruption_score,
+    t5_disruption_score, compute_t8_prior_weight,
 )
 from ml.football.league_config import load_league, LeagueConfig
 
@@ -118,6 +126,9 @@ def get_form5(df: pd.DataFrame, team: str, before: datetime) -> float | None:
     past  = all_m[all_m["Date"] < before].sort_values("Date")
     if len(past) < 1:
         return None
+    # Never present last season (or an old Championship spell) as current form.
+    if (before - past.iloc[-1]["Date"]).days > 45:
+        return None
     return float(past["pts"].iloc[-5:].sum())
 
 
@@ -129,7 +140,8 @@ def get_rest_days(df: pd.DataFrame, team: str, before: datetime) -> int | None:
     past = all_dates[all_dates < before]
     if past.empty:
         return None
-    return int((before - past.iloc[-1]).days)
+    days = int((before - past.iloc[-1]).days)
+    return days if days <= 45 else None
 
 
 def get_corner_stats(
@@ -152,6 +164,7 @@ def get_corner_stats(
         games = df[(df["AwayTeam"] == team) & (df["Date"] < before)].sort_values("Date")
         won_col, conceded_col = "AC", "HC"
 
+    games = games[(before - games["Date"]).dt.days <= 180]
     recent = games.dropna(subset=[won_col, conceded_col]).iloc[-n:]
     if recent.empty:
         return None, None
@@ -166,12 +179,83 @@ def fmt_clv(model_odds: float, market_odds: float) -> str:
     if market_odds <= 0:
         return ""
     pct = (market_odds - model_odds) / model_odds * 100
-    if pct < -3:
+    if pct > 3:
         return f"{pct:+.1f}%  ← VALUE (model shorter)"
-    elif pct > 3:
+    elif pct < -3:
         return f"{pct:+.1f}%  model longer"
     else:
         return f"{pct:+.1f}%  aligned"
+
+
+def _load_t8_elo_diff(
+    cfg: LeagueConfig,
+    df: pd.DataFrame,
+    team: str,
+    as_of: datetime,
+) -> float | None:
+    """
+    Look up ClubElo pre-season diff for a new Championship team.
+    Returns (elo_diff, champ_avg) or None if team is not new / no ClubElo data.
+    """
+    # Determine current season from as_of date
+    year = as_of.year if as_of.month >= 7 else as_of.year - 1
+    season = f"{year}/{str(year + 1)[-2:]}"
+
+    prev_year = year - 1
+    prev_season = f"{prev_year}/{str(prev_year + 1)[-2:]}"
+
+    # Is the team new to the Championship this season?
+    current_teams = set(df[df["Season"] == season]["HomeTeam"].unique()) | \
+                    set(df[df["Season"] == season]["AwayTeam"].unique())
+    prev_teams    = set(df[df["Season"] == prev_season]["HomeTeam"].unique()) | \
+                    set(df[df["Season"] == prev_season]["AwayTeam"].unique())
+
+    if team in prev_teams:
+        return None  # established team — no T8 prior needed
+
+    fallback = cfg.raw.get("new_team_elo_priors", {}).get(season, {}).get(team)
+    if cfg.clubelo_csv is None or not cfg.clubelo_csv.exists():
+        return float(fallback) if fallback is not None else None
+
+    clubelo = pd.read_csv(cfg.clubelo_csv)
+
+    season_elo = clubelo[clubelo["season"] == season]
+    champ_elo  = season_elo[season_elo["level"] == 2]
+    if champ_elo.empty:
+        return float(fallback) if fallback is not None else None
+    champ_avg = float(champ_elo["elo"].mean())
+
+    # Fuzzy match
+    team_lower = team.lower().strip()
+    exact = season_elo[season_elo["club"].str.lower().str.strip() == team_lower]
+    if not exact.empty:
+        return float(exact.iloc[0]["elo"]) - champ_avg
+    last = team_lower.split()[-1]
+    partial = season_elo[season_elo["club"].str.lower().str.contains(last, na=False)]
+    if len(partial) == 1:
+        return float(partial.iloc[0]["elo"]) - champ_avg
+    first = team_lower.split()[0]
+    partial2 = season_elo[season_elo["club"].str.lower().str.contains(first, na=False)]
+    if len(partial2) == 1:
+        return float(partial2.iloc[0]["elo"]) - champ_avg
+    return float(fallback) if fallback is not None else None
+
+
+def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str], as_of: datetime) -> dict:
+    """Remove ancient Championship parameters for clubs returning this season."""
+    year = as_of.year if as_of.month >= 7 else as_of.year - 1
+    prev_season = f"{year - 1}/{str(year)[-2:]}"
+    prev_teams = set(df[df["Season"] == prev_season]["HomeTeam"]) | set(df[df["Season"] == prev_season]["AwayTeam"])
+    reset = [team for team in teams if team not in prev_teams]
+    if not reset:
+        return ratings
+    ratings = {**ratings, "attack": dict(ratings["attack"]), "defence": dict(ratings["defence"]),
+               "home_adv": dict(ratings["home_adv"]), "new_team_resets": reset}
+    for team in reset:
+        ratings["attack"][team] = 1.0
+        ratings["defence"][team] = 1.0
+        ratings["home_adv"][team] = 1.0
+    return ratings
 
 
 def price_match(
@@ -186,6 +270,9 @@ def price_match(
     mkt_away: float = 0,
     mkt_over25: float = 0,
     league: str = "epl",
+    matchweek: int | None = None,       # for T8 prior weight decay (Championship)
+    new_manager_home: bool = False,     # T9: home team has new manager
+    new_manager_away: bool = False,     # T9: away team has new manager
 ):
     cfg = load_league(league)
     rho       = float(cfg.model["rho"])
@@ -216,6 +303,7 @@ def price_match(
         suggestion = f"Did you mean: {close}?" if close else f"Known teams: {known[:10]}..."
         print(f"  '{home}' not found. {suggestion}")
         return
+    ratings = _reset_new_team_dc_ratings(ratings, df, [home, away], as_of)
 
     elo = build_from_history(df[df["Date"] < as_of], as_of=as_of, **cfg.elo)
 
@@ -235,7 +323,13 @@ def price_match(
     h_corners_won, h_corners_conceded = get_corner_stats(df, home, "home", as_of)
     a_corners_won, a_corners_conceded = get_corner_stats(df, away, "away", as_of)
 
-    # ── T2–T7 adjustments ────────────────────────────────────────────────────
+    # ── T8: ClubElo prior for new Championship teams ──────────────────────────
+    t8_elo_diff_h = _load_t8_elo_diff(cfg, df, home, as_of) if matchweek is not None else None
+    t8_elo_diff_a = _load_t8_elo_diff(cfg, df, away, as_of) if matchweek is not None else None
+    t8_weight_h   = compute_t8_prior_weight(matchweek or 0, cfg.tier_params) if t8_elo_diff_h is not None else 0.0
+    t8_weight_a   = compute_t8_prior_weight(matchweek or 0, cfg.tier_params) if t8_elo_diff_a is not None else 0.0
+
+    # ── T2–T9 adjustments ────────────────────────────────────────────────────
     context = MatchContext(
         home=TeamState(
             name=home,
@@ -245,6 +339,9 @@ def price_match(
             injuries=injuries_home,
             corners_won_avg=h_corners_won,
             corners_conceded_avg=h_corners_conceded,
+            t8_elo_diff=t8_elo_diff_h,
+            t8_prior_weight=t8_weight_h,
+            new_manager=new_manager_home,
         ),
         away=TeamState(
             name=away,
@@ -254,6 +351,9 @@ def price_match(
             injuries=injuries_away,
             corners_won_avg=a_corners_won,
             corners_conceded_avg=a_corners_conceded,
+            t8_elo_diff=t8_elo_diff_a,
+            t8_prior_weight=t8_weight_a,
+            new_manager=new_manager_away,
         ),
         ref_goals_pg=ref_goals_pg,
     )
@@ -346,6 +446,16 @@ def price_match(
         sp_a_desc = f"{a_corners_won:.1f} won/{a_corners_conceded:.1f} conceded" if a_corners_won else "n/a"
         print(f"  T7 Set-piece:  λ {adj.t7_sp_adj_lam:+.3f}   μ {adj.t7_sp_adj_mu:+.3f}  "
               f"(home corners {sp_h_desc} | away {sp_a_desc})")
+    if hasattr(adj, "t8_adj_lam") and (adj.t8_adj_lam != 0 or adj.t8_adj_mu != 0):
+        any_adj = True
+        print(f"  T8 New-team:   λ {adj.t8_adj_lam:+.3f}   μ {adj.t8_adj_mu:+.3f}  "
+              f"(ClubElo prior, wt={t8_weight_h or t8_weight_a:.2f})")
+    if hasattr(adj, "t9_adj_lam") and (adj.t9_adj_lam != 0 or adj.t9_adj_mu != 0):
+        any_adj = True
+        if adj.t9_adj_lam != 0:
+            print(f"  T9 New mgr:    λ {adj.t9_adj_lam:+.3f}  ({home} new manager bounce)")
+        if adj.t9_adj_mu != 0:
+            print(f"  T9 New mgr:    μ {adj.t9_adj_mu:+.3f}  ({away} new manager bounce)")
     if not any_adj:
         print(f"  No significant adjustments (all tiers within noise threshold)")
 
@@ -380,21 +490,38 @@ def price_match(
     print(f"  Model data:    {ratings['n_matches']} matches fitted  |  "
           f"{len(prior)} calibration rows  |  as of {as_of.date()}")
     print(f"{'='*W}\n")
+    return {
+        "league": league, "home": home, "away": away, "as_of": as_of.date().isoformat(),
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": round(lam, 4), "lambda_away": round(mu, 4),
+        "p_home": round(p_home, 6), "p_draw": round(p_draw, 6), "p_away": round(p_away, 6),
+        "p_over25": round(p_o, 6), "p_under25": round(p_u, 6),
+        "fair_home": to_odds(p_home), "fair_draw": to_odds(p_draw), "fair_away": to_odds(p_away),
+        "fair_over25": to_odds(p_o), "fair_under25": to_odds(p_u),
+        "new_team_resets": ratings.get("new_team_resets", []),
+        "t8_home_elo_diff": t8_elo_diff_h, "t8_away_elo_diff": t8_elo_diff_a,
+    }
 
 
 def main():
     parser = argparse.ArgumentParser(description="Price a football match")
-    parser.add_argument("--league",         default="epl",  help="League config key (leagues/*.yaml)")
-    parser.add_argument("--home",           required=True,  help="Home team name")
-    parser.add_argument("--away",           required=True,  help="Away team name")
-    parser.add_argument("--date",           default=None,   help="As-of date YYYY-MM-DD (default: today)")
-    parser.add_argument("--ref",            default=None,   help="Referee name (e.g. 'M Oliver')")
-    parser.add_argument("--injuries-home",  default="",     help="Missing home players by position (e.g. 'ST,AM')")
-    parser.add_argument("--injuries-away",  default="",     help="Missing away players by position (e.g. 'CB,GK')")
-    parser.add_argument("--mkt-home",       type=float, default=0, help="Market home odds")
-    parser.add_argument("--mkt-draw",       type=float, default=0, help="Market draw odds")
-    parser.add_argument("--mkt-away",       type=float, default=0, help="Market away odds")
-    parser.add_argument("--mkt-over25",     type=float, default=0, help="Market over 2.5 odds")
+    parser.add_argument("--league",             default="epl",  help="League config key (leagues/*.yaml)")
+    parser.add_argument("--home",               required=True,  help="Home team name")
+    parser.add_argument("--away",               required=True,  help="Away team name")
+    parser.add_argument("--date",               default=None,   help="As-of date YYYY-MM-DD (default: today)")
+    parser.add_argument("--ref",                default=None,   help="Referee name (e.g. 'M Oliver')")
+    parser.add_argument("--injuries-home",      default="",     help="Missing home players by position (e.g. 'ST,AM')")
+    parser.add_argument("--injuries-away",      default="",     help="Missing away players by position (e.g. 'CB,GK')")
+    parser.add_argument("--mkt-home",           type=float, default=0, help="Market home odds")
+    parser.add_argument("--mkt-draw",           type=float, default=0, help="Market draw odds")
+    parser.add_argument("--mkt-away",           type=float, default=0, help="Market away odds")
+    parser.add_argument("--mkt-over25",         type=float, default=0, help="Market over 2.5 odds")
+    parser.add_argument("--matchweek",          type=int, default=None,
+                        help="Matchweek number (Championship only — enables T8 new-team prior)")
+    parser.add_argument("--new-manager-home",   action="store_true",
+                        help="Home team has a new manager this season (T9 bounce)")
+    parser.add_argument("--new-manager-away",   action="store_true",
+                        help="Away team has a new manager this season (T9 bounce)")
     args = parser.parse_args()
 
     as_of = datetime.strptime(args.date, "%Y-%m-%d") if args.date else None
@@ -413,6 +540,9 @@ def main():
         mkt_away=args.mkt_away,
         mkt_over25=args.mkt_over25,
         league=args.league,
+        matchweek=args.matchweek,
+        new_manager_home=args.new_manager_home,
+        new_manager_away=args.new_manager_away,
     )
 
 

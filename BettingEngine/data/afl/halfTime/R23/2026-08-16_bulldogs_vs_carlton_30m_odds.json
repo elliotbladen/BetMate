@@ -1,0 +1,87 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-16",
+  "home_team": "Western Bulldogs",
+  "away_team": "Carlton",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-16T06:16:30.688276+00:00",
+  "odds_api_game_id": "27def718860760ba0efe0c84de010eef",
+  "odds_api_home": "Western Bulldogs",
+  "odds_api_away": "Carlton Blues",
+  "commence_time": "2026-08-16T05:16:06Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "away": 1.5,
+        "home": 2.47
+      },
+      "spreads": {
+        "away_price": 1.9,
+        "away_point": -7.5,
+        "home_price": 1.84,
+        "home_point": 7.5
+      },
+      "totals": {
+        "over_price": 1.84,
+        "over_point": 184.5,
+        "under_price": 1.9,
+        "under_point": 184.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "away": 1.52,
+        "home": 2.4
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "away": 1.35,
+        "home": 2.5
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "away": 1.8,
+        "home": 1.95
+      },
+      "spreads": {
+        "away_price": 1.87,
+        "away_point": -2.5,
+        "home_price": 1.87,
+        "home_point": 2.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 184.5,
+        "under_price": 1.87,
+        "under_point": 184.5
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "away": 1.63,
+        "home": 2.16
+      },
+      "spreads": {
+        "away_price": 1.83,
+        "away_point": -4.5,
+        "home_price": 1.85,
+        "home_point": 4.5
+      },
+      "totals": {
+        "over_price": 1.85,
+        "over_point": 185.5,
+        "under_price": 1.83,
+        "under_point": 185.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "away": 1.65,
+        "home": 2.18
+      }
+    }
+  }
+}

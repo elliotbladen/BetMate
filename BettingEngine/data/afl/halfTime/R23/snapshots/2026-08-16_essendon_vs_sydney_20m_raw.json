@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-16T07:35:03.074927+00:00",
+  "game": {
+    "hteam": "Essendon",
+    "ascore": 63,
+    "localtime": "2026-08-16 16:40:00",
+    "ateamid": 16,
+    "is_grand_final": 0,
+    "unixtime": 1786862400,
+    "hgoals": 5,
+    "round": 23,
+    "updated": "2026-08-16 17:34:44",
+    "complete": 36,
+    "year": 2026,
+    "is_final": 0,
+    "hbehinds": 1,
+    "winner": null,
+    "timestr": "Q2 13:39",
+    "abehinds": 3,
+    "id": 38684,
+    "agoals": 10,
+    "date": "2026-08-16 16:40:00",
+    "roundname": "Round 23",
+    "tz": "+10:00",
+    "venue": "M.C.G.",
+    "winnerteamid": null,
+    "hteamid": 5,
+    "ateam": "Sydney",
+    "hscore": 31,
+    "_round_game_num": 9,
+    "fox_match_id": "AFL20262309"
+  }
+}

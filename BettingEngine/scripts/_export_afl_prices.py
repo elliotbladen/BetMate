@@ -45,18 +45,33 @@ with open(OUT, "w", newline="", encoding="utf-8") as f:
 print(f"Written {len(rows)} rows to {OUT.name}")
 print()
 
-print(f"  {'Matchup':<42} {'H2H Home':>9} {'H2H Away':>9}  {'Handicap':<22} {'Total':>7}")
-print("  " + "-" * 95)
+# Show primary (hybrid) prices as headline, with source indicator
+has_primary = 'primary_margin' in fields and rows[0]['primary_margin'] is not None
+src = 'Primary (hybrid)' if has_primary else 'Rules'
+print(f"  {src} prices:")
+print(f"  {'Matchup':<42} {'H2H Home':>9} {'H2H Away':>9}  {'Handicap':<22} {'Total':>7}  {'Src':>4}")
+print("  " + "-" * 100)
 for r in rows:
     home_last = r['home_team'].split()[-1]
     away_last = r['away_team'].split()[-1]
     matchup = f"{home_last} vs {away_last}"
-    margin = r['rules_margin']
+    if has_primary:
+        margin = r['primary_margin']
+        h_odds = r['primary_home_odds']
+        a_odds = r['primary_away_odds']
+        total  = r['primary_total']
+        msrc   = (r.get('primary_source_margin') or 'rules')[:2].upper()
+    else:
+        margin = r['rules_margin']
+        h_odds = r['rules_home_odds']
+        a_odds = r['rules_away_odds']
+        total  = r['rules_total']
+        msrc   = 'ELO'
     hcap_line = abs(margin)
     if margin > 0:
         hcap = f"{home_last} -{hcap_line:.1f}"
     else:
         hcap = f"{away_last} -{hcap_line:.1f}"
-    print(f"  {matchup:<42} {r['rules_home_odds']:>9.2f} {r['rules_away_odds']:>9.2f}  {hcap:<22} {r['rules_total']:>7.1f}")
+    print(f"  {matchup:<42} {h_odds:>9.2f} {a_odds:>9.2f}  {hcap:<22} {total:>7.1f}  {msrc:>4}")
 
 conn.close()

@@ -176,3 +176,119 @@ Always keep this file up to date. Every new env var added to the app must also b
 - **Style stats stale in DB** — step0b will fix this at next 7:03 PM run.
 - **BetMate UI** — changes deployed, browser hard refresh needed (`Ctrl+Shift+R`).
 - **AFL pricing** — engine built but not wired into the Monday pipeline yet.
+
+---
+
+## 2026-08-12 — Independent NRL ML Shadow v1
+
+- Built a versioned, independent XGBoost margin and calibrated H2H shadow.
+- Removed the broken string rest-class features and stopped applying T2–T8 rule
+  adjustments to ML predictions.
+- Walk-forward results: 2024 margin MAE 14.36, H2H 61.0%, Brier 0.2287; 2025
+  margin MAE 14.31, H2H 59.2%, Brier 0.2360.
+- Wired the shadow to run after every successful normal NRL price-up. It writes
+  only to `ml_shadow_predictions` and cannot alter official rules prices.
+- Generated the R24 shadow for eight games.
+- Full diary: `handover/sessions/2026-08-12_nrl-ml-shadow-v1-build.md`.
+
+## 2026-08-12 — NRL ML H2H/handicap coherence correction
+
+- Made the expected-margin model the single source of truth for both markets.
+- H2H probabilities now come from the predicted margin and its held-out error
+  distribution; the separate classifier remains diagnostic only.
+- The rebuilt 2024–25 walk-forward test improved winner accuracy from 61.0% to
+  62.7% and Brier score from 0.2316 to 0.2313. Classifier log loss was narrowly
+  better (0.6553 vs 0.6559), so it remains visible as a challenger.
+- Repriced the eight Round 24 games and saved
+  `outputs/results/nrl_r24_ml_shadow_v2_2026-08-12.txt`.
+
+## 2026-08-14 — Monday AFL/NRL availability and movement forecasting
+
+- Changed the line-movement system from late team-list reaction to a Monday
+  primary forecast for both codes; Tuesday NRL and Thursday AFL are now
+  confirmation updates.
+- Added per-player miss probabilities, value priors, expected absence points and
+  projected team availability burdens using weekend match reports, injuries,
+  HIA/judiciary information and post-game news.
+- Installed Monday morning and afternoon AFL/NRL runs and preserved immutable
+  Monday snapshots for honest scoring.
+- Explicit long-term requirement: the system must self-learn by reconciling every
+  Monday player/market prediction against confirmed selection and actual line
+  movement, then recalibrate on time-split historical data for confident 2027
+  forecasts.
+- Current `availability_rules_v1` probabilities are initial priors, not yet
+  calibrated confidence claims.
+- Full handover:
+  `handover/sessions/2026-08-14_monday-availability-line-movement-model.md`.
+
+## 2026-08-14 — Championship opening-round and player shadow repair
+
+- Repaired returning-team season resets, stale form/rest context, current-season
+  config, Matchweek-1 division priors and the reversed value label.
+- Normal Wolves–Blackburn fair H2H: $2.27 / $3.51 / $3.65.
+- Backfilled 1,483 official-lineup matches across 2023/24–2025/26 and installed
+  a 30-minute official-XI collector.
+- The first genuine player starter model failed its time-split gate: goal MAE
+  0.848123 versus base 0.847649. It was rejected; player output remains ABSTAIN.
+- Full handover:
+  `handover/sessions/2026-08-14_championship-normal-player-shadow-readiness.md`.
+
+## 2026-08-15 — NRL halftime totals v2 rebuild
+
+- Rejected the score-only five-bin lookup as the final totals model.
+- Audited 754 historical halftime rows: 737 valid score/finish rows but no
+  populated historical deep-stat features.
+- Rebuilt totals around remaining-points prediction, a continuous historical
+  score-state baseline, retained pregame prior, capped live-process evidence,
+  uncertainty/fair-price output and explicit feature coverage.
+- Full decision record:
+  `handover/sessions/2026-08-15_nrl-halftime-totals-v2.md`.
+
+## 2026-08-15 — NRL halftime totals v3 activated
+
+- Replaced the active totals import with v3 while preserving v2 for replay.
+- Added reliability-shrunk pace, opportunity, execution and defensive-stress
+  layers on top of the empirical score-state distribution.
+- Changed NRL live collection from halftime-only to 10/20/30/HT normalized,
+  raw-timeline and market snapshots, with restart deduplication and the NRL
+  feed's direct FirstHalf-to-SecondHalf transition handled.
+- Replayed 753 historical rows: missing deep stats produced zero price changes,
+  as intended. The new process weights cannot yet receive a genuine historical
+  backtest because the archive contains no historical deep halftime fields.
+- Full handover:
+  `handover/sessions/2026-08-15_nrl-halftime-totals-v3-active.md`.
+
+## 2026-08-15 — NRL halftime H2H/handicap v3 activated
+
+- Replaced separate handicap/H2H calculations with one empirical final-margin
+  distribution, making the two markets mathematically coherent.
+- Fixed the old disconnect where H2H simulation ignored the displayed adjusted
+  margin; Manly–Dolphins replay changed from an incoherent 5.0% Manly price to
+  35.9%, paired with Manly +4.2 from the same distribution.
+- Added capped, coverage-shrunk execution, opportunity, physical/defensive and
+  conversion-regression layers using the newly expanded snapshot collector.
+- Full handover:
+  `handover/sessions/2026-08-15_nrl-halftime-margin-v3-active.md`.
+- Research review then identified and corrected a fixed-weight baseline error:
+  active pricing now preserves the current score and adds only the
+  remaining-time share of pregame expected margin. Manly repriced from +4.2 and
+  $2.79 to +8.3 and $4.58, much closer to the captured +11.5/+12.5 market.
+
+## 2026-08-15 — AFL halftime margin correction and totals audit
+
+- Corrected the same scoreboard-regression defect in AFL: current margin is now
+  preserved and 61% of pregame full-game margin forecasts the remaining half.
+- Removed active double counting through the old dynamic regression, stopped
+  projecting unvalidated first-half accuracy, and calibrated H2H uncertainty to
+  the observed 23.93-point remaining-margin residual SD.
+- Leave-one-season-out margin MAE improved from 20.429 to 19.186 with the fitted
+  remaining-margin structure.
+- The 875-match totals audit found the existing bins competitive (15.480 MAE);
+  compact ridge improvement was only 0.023 points. Keep the bins as baseline but
+  add the NRL-v3 distribution, prior and forward snapshot architecture.
+- Full handover:
+  `handover/sessions/2026-08-15_afl-halftime-margin-v3-and-totals-study.md`.
+- Implemented the recommended AFL totals v3: retained bins, conservative
+  pregame prior, capped shots/inside-50/clearance evidence, injury adjustment,
+  and empirical O/U distribution. Added nominal 10/20/30/HT raw/stat/odds
+  snapshots and automatic Fox match IDs so unattended injury detection fires.

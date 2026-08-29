@@ -1,0 +1,13 @@
+{
+  "model": "ridge_position_rolling_v2",
+  "train_season": "2023/24",
+  "test_season": "2024/25",
+  "train_matches": 458,
+  "test_matches": 492,
+  "features": 56,
+  "base_goal_mae": 0.882536,
+  "adjusted_goal_mae": 0.866302,
+  "improvement": 0.016234,
+  "cap_goals": 0.12,
+  "approved": true
+}

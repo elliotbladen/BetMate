@@ -11,7 +11,7 @@
 ---
 
 ## CURRENT STATE
-**Last updated:** 2026-07-28 (NRL R22 + AFL R21 fully priced this session, resumed after a mid-session crash. See root `CLAUDE.md` Current State for the full writeup — it's now the primary session log; this file lags behind and should be treated as historical context below this line. Key carryover: AFL T5 injury tagging has regressed to generic utility/average with no hand-curation — re-tag Port Adelaide and GWS rosters before trusting T5-driven AFL prices. AFL T6 `losing_streak` flag_type is unsupported by `AFL_T6_CONFIG` — needs a fix.)
+**Last updated:** 2026-08-12 (Independent NRL XGBoost shadow v1 built and wired after official pricing. Walk-forward: 2024 margin MAE 14.36/H2H 61.0%, 2025 MAE 14.31/H2H 59.2%. R24 shadow generated and stored. Rules prices remain official; rule tiers are diagnostic only and are no longer added to ML. Historical closing-market coverage for 2024–25 is only 65/426 games in the current workbook, so ROI is preliminary. See `handover/sessions/2026-08-12_nrl-ml-shadow-v1-build.md`.)
 **Prior:** 2026-07-08 (Work/home machine git divergence reconciled — see handover `2026-07-08_machine-reconcile-architecture.md`. Work machine had the live data + Jul 7 NRL work; home machine's monorepo import carried a stale BettingEngine copy EXCEPT the Jul 5 EPL engine build and Jul 5 AFL ML retrain, which only existed in git history. Both sides merged: working tree kept for everything, HEAD restored for `ml/afl/*` + EPL tree. ⚠️ AFL ML .pkl models are NOT in git — re-run `ml/afl/game_log.py` + `ml/afl/train.py` on this machine before next AFL ML shadow run. ⚠️ Diary `2026-07-05_afl-ema-form-split-models.md` was never committed — it exists only on the home computer; commit + push it from there.)
 **Update this section at the end of every session, before writing the handover diary.**
 
@@ -116,13 +116,35 @@ cd C:\Users\ElliotBladen\Apps\BettingEngine
 - **Richmond/Carlton and Essendon/St Kilda both show the known extreme-ELO-gap undercook** — rules and ML agree with each other but sit 9-12pts short of market. T2 style-matchup layer hit its ±4.0 cap on 5/9 games this round. Reinforces the backlogged sigmoid ELO→margin rescale as the real fix, not a per-round patch.
 - Predictions pushed live to betmate.au via `scripts/push_afl_predictions.py` (main repo).
 
-### AFL Halftime Model — CALIBRATED 2026-06-19
-- BASELINE_ACCURACY updated: 0.52 → **0.529** (fitted on 875-game dataset; per-year: 0.534/0.523/0.532/0.528/0.531)
-- H2 total lookup table confirmed accurate against data (within 0.5 pts per band — no changes needed)
-- Accuracy trend (ACCURACY_TREND_WEIGHT=1.0) has near-zero historical predictive power (corr=-0.04) but retained per user preference
-- I50/clearance/clanger weights remain research-estimated (0.4/0.3/0.5) — historical dataset lacks per-quarter team stats; re-calibrate when 50+ live observations available
-- FootyWire live stats scraping working (afl_ht_live.py → enrich_with_live_stats → inside 50s, clearances, clangers)
-- betmate.au/api/afl-predictions used as primary pre-game pricing source; CSV fallback
+### AFL Halftime Model — STATS-ADJUSTED v2 2026-08-08
+**Major upgrade:** Dynamic regression factor based on process-vs-outcome stats framework.
+
+**Research basis (see handover `2026-08-08_afl-halftime-stats-adjusted-model.md`):**
+- AFL: I50 diff R=0.71 with margin, turnovers count double, clearances weakest big stat. I50 + contested poss R²=0.552.
+- NBA: HT stats predict winner at 84.1% (Adam et al, Springer 2024). Shooting accuracy H1→H2 corr = -0.007 (zero persistence).
+- AFL conversion: 51.4% avg, volume > accuracy for winning.
+
+**How it works:**
+1. Calculate `stats_implied_margin` from process stats (I50 diff × 1.4, clanger diff × -1.0, clearance diff × 0.5)
+2. If stats back the pre-game prior → raise regression factor (trust prior more)
+3. If stats oppose the pre-game prior → lower regression factor (trust live evidence more)
+4. Adjustment scaled by signal strength, capped at ±0.10
+
+**Constants:**
+| Constant | Value | Basis |
+|----------|-------|-------|
+| `STATS_IMPLIED_I50_WEIGHT` | 1.4 | AFL I50 R=0.71 |
+| `STATS_IMPLIED_CLANGER_WEIGHT` | -1.0 | Turnovers count double |
+| `STATS_IMPLIED_CLEARANCE_WEIGHT` | 0.5 | Weakest big stat |
+| `REGRESSION_ADJUSTMENT_MAX` | 0.07 | 7% cap — xG convergence ≈8%, MoS natural drift 29%, upgrade to 0.08-0.10 after 50+ obs |
+| `REGRESSION_FACTOR` | 0.45 | Base (unchanged) |
+| `BASELINE_ACCURACY` | 0.529 | 875-game dataset |
+
+**Calibration status:** Weights are research-derived, not regression-fitted to our dataset. Recalibrate when 50+ live HT observations accumulated. Consider adding contested possessions (R=0.58) once scraped at HT.
+
+**Previous calibration (2026-06-19):** BASELINE_ACCURACY 0.529, H2 total lookup confirmed, accuracy trend retained at 1.0 per user preference (corr=-0.04 historical but situationally useful).
+
+**First live test (R22 Fremantle vs Melbourne):** Stats-implied margin Melbourne +14.0 (I50 dominance 35-25) opposed the pre-game prior (Freo -14.5), dropping regression from 0.45 to 0.36. Model priced Fremantle at $1.25 / 79.8% with Freo leading 68-65 at HT.
 
 ### NRL Halftime Model — RECALIBRATED 2026-06-14
 - Sign convention bug fixed: `pg_hcap = -_safe_float(pregame.get("fair_hcap_line", 0))`

@@ -103,7 +103,18 @@ class LeagueConfig:
             ppda_goals_coef=float(t["ppda_goals_coef"]),
             form_goals_coef=float(t["form_goals_coef"]),
             ref_goals_coef=float(t["ref_goals_coef"]),
+            # T8/T9 — optional (defaults to disabled if not in yaml)
+            t8_decay_games=int(t.get("t8_decay_games", 0)),
+            t8_max_adj=float(t.get("t8_max_adj", 0.15)),
+            t8_elo_scale=float(t.get("t8_elo_scale", 600.0)),
+            t9_manager_adj=float(t.get("t9_manager_adj", 0.07)),
         )
+
+    @property
+    def clubelo_csv(self) -> Path | None:
+        """Path to pre-fetched ClubElo ratings (Championship only)."""
+        rel = self.raw.get("data", {}).get("clubelo_csv")
+        return (self.data_dir / rel) if rel else None
 
 
 def load_league(key: str) -> LeagueConfig:

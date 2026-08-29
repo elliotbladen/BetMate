@@ -1,0 +1,22 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-16",
+  "home_team": "Western Bulldogs",
+  "away_team": "Carlton",
+  "venue": "Docklands",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-16T07:01:38.303215+00:00",
+  "home_ht_score": 46,
+  "away_ht_score": 41,
+  "home_goals": 7,
+  "home_behinds": 4,
+  "away_goals": 6,
+  "away_behinds": 5,
+  "squiggle_id": 38689,
+  "round_game_num": 8,
+  "fox_match_id": "AFL20262308",
+  "timestr": "Q2 30:07",
+  "notes": "Exact halftime state was missed; scores are from the last observed Q2 snapshot. Do not use as an exact halftime training row.",
+  "capture_quality": "late_q2_fallback"
+}

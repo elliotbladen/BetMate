@@ -1,0 +1,25 @@
+game,side,model_prob,close_odds,close_implied_prob,clv_pct,ev,won,pnl,goals,actual
+Wolves v Blackburn,Over,0.449,1.82,0.549,-10.0%,-0.183,1,0.82,4,OVER
+Wolves v Blackburn,Under,0.551,1.91,0.524,+2.7%,0.052,0,-1.00,4,OVER
+Bolton v Preston,Over,0.449,1.98,0.505,-5.6%,-0.111,1,0.98,3,OVER
+Bolton v Preston,Under,0.551,1.77,0.565,-1.4%,-0.025,0,-1.00,3,OVER
+Bristol City v Millwall,Over,0.449,1.89,0.529,-8.0%,-0.151,0,-1.00,2,UNDER
+Bristol City v Millwall,Under,0.551,1.85,0.541,+1.0%,0.019,1,0.85,2,UNDER
+Charlton v Derby,Over,0.449,2.23,0.448,+0.1%,0.001,1,1.23,3,OVER
+Charlton v Derby,Under,0.551,1.61,0.621,-7.0%,-0.113,0,-1.00,3,OVER
+Middlesbrough v Lincoln,Over,0.449,1.75,0.571,-12.2%,-0.214,1,0.75,3,OVER
+Middlesbrough v Lincoln,Under,0.551,2.02,0.495,+5.6%,0.113,0,-1.00,3,OVER
+Norwich v West Brom,Over,0.449,1.86,0.538,-8.9%,-0.165,1,0.86,3,OVER
+Norwich v West Brom,Under,0.551,1.88,0.532,+1.9%,0.036,0,-1.00,3,OVER
+Portsmouth v QPR,Over,0.476,2.18,0.459,+1.7%,0.038,1,1.18,4,OVER
+Portsmouth v QPR,Under,0.524,1.64,0.610,-8.6%,-0.141,0,-1.00,4,OVER
+Stoke v Swansea,Over,0.476,1.92,0.521,-4.5%,-0.086,1,0.92,3,OVER
+Stoke v Swansea,Under,0.524,1.82,0.549,-2.5%,-0.046,0,-1.00,3,OVER
+Sheffield United v Birmingham,Over,0.476,2.02,0.495,-1.9%,-0.039,0,-1.00,0,UNDER
+Sheffield United v Birmingham,Under,0.524,1.75,0.571,-4.7%,-0.083,1,0.75,0,UNDER
+Watford v Southampton,Over,0.604,1.69,0.592,+1.2%,0.021,1,0.69,3,OVER
+Watford v Southampton,Under,0.396,2.10,0.476,-8.0%,-0.168,0,-1.00,3,OVER
+Burnley v West Ham,Over,0.449,1.74,0.575,-12.6%,-0.219,1,0.74,4,OVER
+Burnley v West Ham,Under,0.551,2.03,0.493,+5.8%,0.119,0,-1.00,4,OVER
+Cardiff v Wrexham,Over,0.476,1.65,0.606,-13.0%,-0.215,0,-1.00,2,UNDER
+Cardiff v Wrexham,Under,0.524,2.16,0.463,+6.1%,0.132,1,1.16,2,UNDER

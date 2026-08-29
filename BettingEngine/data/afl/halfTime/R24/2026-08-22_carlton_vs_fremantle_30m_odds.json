@@ -1,0 +1,87 @@
+{
+  "season": 2026,
+  "round": 24,
+  "game_date": "2026-08-22",
+  "home_team": "Carlton",
+  "away_team": "Fremantle",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-22T04:11:37.489960+00:00",
+  "odds_api_game_id": "036ab3c5210f81b6379cf8445e801d5c",
+  "odds_api_home": "Carlton Blues",
+  "odds_api_away": "Fremantle Dockers",
+  "commence_time": "2026-08-22T03:15:48Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.7,
+        "away": 2.07
+      },
+      "spreads": {
+        "home_price": 1.89,
+        "home_point": -3.5,
+        "away_price": 1.85,
+        "away_point": 3.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 201.5,
+        "under_price": 1.87,
+        "under_point": 201.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.71,
+        "away": 2.12
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 1.62,
+        "away": 2.2
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "home": 1.56,
+        "away": 2.3
+      },
+      "spreads": {
+        "home_price": 1.85,
+        "home_point": -7.5,
+        "away_price": 1.83,
+        "away_point": 7.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 198.5,
+        "under_price": 1.87,
+        "under_point": 198.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 1.58,
+        "away": 2.32
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 1.71,
+        "away": 2.1
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -5.5,
+        "away_price": 1.87,
+        "away_point": 5.5
+      },
+      "totals": {
+        "over_price": 1.95,
+        "over_point": 201.5,
+        "under_price": 1.8,
+        "under_point": 201.5
+      }
+    }
+  }
+}

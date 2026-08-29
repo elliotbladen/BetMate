@@ -1,0 +1,68 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-16",
+  "home_team": "Greater Western Sydney",
+  "away_team": "West Coast",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-16T04:53:35.887692+00:00",
+  "odds_api_game_id": "dda8e0778e24833f05b2a5e28a1318d3",
+  "odds_api_home": "Greater Western Sydney Giants",
+  "odds_api_away": "West Coast Eagles",
+  "commence_time": "2026-08-16T03:41:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.0,
+        "away": 26.0
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -44.5,
+        "away_price": 1.85,
+        "away_point": 44.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 198.5,
+        "under_price": 1.84,
+        "under_point": 198.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.02,
+        "away": 15.0
+      }
+    },
+    "pointsbetau": {
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -51.5,
+        "away_price": 1.87,
+        "away_point": 51.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 196.5,
+        "under_price": 1.87,
+        "under_point": 196.5
+      }
+    },
+    "tabtouch": {
+      "totals": {
+        "over_price": 1.88,
+        "over_point": 196.5,
+        "under_price": 1.82,
+        "under_point": 196.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 1.01,
+        "away": 15.0,
+        "draw": 61.0
+      }
+    }
+  }
+}

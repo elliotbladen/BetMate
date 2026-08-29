@@ -1,7 +1,7 @@
 const DEFAULT_OWNER_EMAILS = [
   'elliotbladen@gmail.com',
   'e_bladen@hotmail.com',
-  'e_bladen@hotmail.con',
+  'e_bladen@hotmail.com',
 ];
 
 function normalize(value: string): string {

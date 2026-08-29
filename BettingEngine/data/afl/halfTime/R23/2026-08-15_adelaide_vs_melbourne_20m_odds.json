@@ -1,0 +1,84 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "Port Adelaide",
+  "away_team": "Melbourne",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-15T09:57:18.100810+00:00",
+  "odds_api_game_id": "c80f62e329ccd46b2c7d4948235ea76d",
+  "odds_api_home": "Port Adelaide Power",
+  "odds_api_away": "Melbourne Demons",
+  "commence_time": "2026-08-15T10:10:30Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "away": 1.0,
+        "home": 21.0
+      },
+      "spreads": {
+        "away_price": 1.87,
+        "away_point": -52.5,
+        "home_price": 1.87,
+        "home_point": 52.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 195.5,
+        "under_price": 1.84,
+        "under_point": 195.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "away": 1.02,
+        "home": 17.0
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "away": 1.03,
+        "home": 11.0
+      }
+    },
+    "tabtouch": {
+      "spreads": {
+        "away_price": 1.87,
+        "away_point": -50.5,
+        "home_price": 1.83,
+        "home_point": 50.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 191.5,
+        "under_price": 1.87,
+        "under_point": 191.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "away": 1.01,
+        "home": 14.0,
+        "draw": 61.0
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "away": 1.01,
+        "home": 21.0
+      },
+      "spreads": {
+        "away_price": 1.87,
+        "away_point": -49.5,
+        "home_price": 1.87,
+        "home_point": 49.5
+      },
+      "totals": {
+        "over_price": 1.8,
+        "over_point": 191.5,
+        "under_price": 1.95,
+        "under_point": 191.5
+      }
+    }
+  }
+}

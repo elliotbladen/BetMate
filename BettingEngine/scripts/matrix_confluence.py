@@ -3,7 +3,7 @@
 scripts/matrix_confluence.py — T9 Matrix Confluence Analyser
 
 Scans the upcoming round's fixture and flags games where 3+ applicable
-matrix edges of 20%+ all point in the same direction for any market.
+matrix edges of 5%+ all point in the same direction for any market.
 
 This is a RESEARCH/FLAGGING tool only. Do not incorporate into pricing
 until end-of-season CLV review confirms edge value.
@@ -40,11 +40,12 @@ DB_PATH       = ENGINE_ROOT / 'data' / 'model.db'
 BETMATE_ROOT  = Path(os.environ.get('BETMATE_ROOT', ENGINE_ROOT.parent))
 FIXTURE_PATH  = BETMATE_ROOT / 'data' / 'nrl' / 'fixture' / 'processed' / 'latest-fixture.json'
 
-MIN_EDGE   = 20.0   # % threshold for an edge to count
+MIN_EDGE   = 5.0    # % threshold for an edge to count
 MIN_COUNT  = 3      # how many edges in the same direction to flag
 
-# Per-market overrides for NRL totals (edges can be meaningful at 10%+)
-MIN_EDGE_BY_MARKET  = {'totals': 10.0}
+# All NRL matrices now use the 5% confluence threshold. Treat the output as a
+# context/staking flag: low-threshold rows are not independent evidence.
+MIN_EDGE_BY_MARKET: dict[str, float] = {}
 MIN_COUNT_BY_MARKET = {'totals': 3}
 
 

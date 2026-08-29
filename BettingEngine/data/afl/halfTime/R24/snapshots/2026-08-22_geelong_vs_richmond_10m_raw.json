@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-22T10:01:43.246795+00:00",
+  "game": {
+    "localtime": "2026-08-22 19:45:00",
+    "ascore": 18,
+    "id": 38695,
+    "tz": "+10:00",
+    "hteam": "Geelong",
+    "is_final": 0,
+    "agoals": 3,
+    "hbehinds": 2,
+    "roundname": "Round 24",
+    "ateamid": 14,
+    "winner": null,
+    "date": "2026-08-22 19:45:00",
+    "winnerteamid": null,
+    "hteamid": 7,
+    "abehinds": 0,
+    "complete": 13,
+    "hgoals": 3,
+    "is_grand_final": 0,
+    "venue": "Kardinia Park",
+    "ateam": "Richmond",
+    "unixtime": 1787391900,
+    "updated": "2026-08-22 20:01:39",
+    "round": 24,
+    "timestr": "Q1 16:19",
+    "hscore": 20,
+    "year": 2026,
+    "_round_game_num": 5,
+    "fox_match_id": "AFL20262405"
+  }
+}

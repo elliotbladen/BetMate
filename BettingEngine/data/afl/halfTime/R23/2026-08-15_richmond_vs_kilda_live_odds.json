@@ -1,0 +1,83 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "Richmond",
+  "away_team": "St Kilda",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-15T04:02:11.365253+00:00",
+  "odds_api_game_id": "cf60ba813a771df41240c3140428e7c5",
+  "odds_api_home": "Richmond Tigers",
+  "odds_api_away": "St Kilda Saints",
+  "commence_time": "2026-08-15T02:36:22Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 19.0,
+        "away": 1.0
+      },
+      "spreads": {
+        "home_price": 1.9,
+        "home_point": 39.5,
+        "away_price": 1.84,
+        "away_point": -39.5
+      },
+      "totals": {
+        "over_price": 1.91,
+        "over_point": 157.5,
+        "under_price": 1.83,
+        "under_point": 157.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 13.0,
+        "away": 1.03
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 17.5,
+        "away": 1.03
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 21.0,
+        "away": 1.01
+      },
+      "spreads": {
+        "home_price": 1.9,
+        "home_point": 40.5,
+        "away_price": 1.83,
+        "away_point": -40.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 156.5,
+        "under_price": 1.87,
+        "under_point": 156.5
+      }
+    },
+    "tabtouch": {
+      "spreads": {
+        "home_price": 1.85,
+        "home_point": 40.5,
+        "away_price": 1.83,
+        "away_point": -40.5
+      },
+      "totals": {
+        "over_price": 1.85,
+        "over_point": 156.5,
+        "under_price": 1.85,
+        "under_point": 156.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 15.0,
+        "away": 1.01
+      }
+    }
+  }
+}

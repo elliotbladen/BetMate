@@ -1,0 +1,161 @@
+{
+  "sport": "NRL",
+  "season": 2026,
+  "round": 25,
+  "predicted_at": "2026-08-11T23:32:29.683490+00:00",
+  "model_version": "rules_v1",
+  "predictions": [
+    {
+      "home_team": "Melbourne Storm",
+      "away_team": "Penrith Panthers",
+      "prediction": "Penrith Panthers",
+      "direction": "AWAY",
+      "confidence": 33.1,
+      "weighted_score": -0.2209,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.1749,
+        "finals_stakes": -0.4,
+        "historical_pattern": -0.6667,
+        "public_bias": -0.3,
+        "recent_form": -0.1093,
+        "venue_fortress": 0.3
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Canberra Raiders",
+      "away_team": "Brisbane Broncos",
+      "prediction": "Brisbane Broncos",
+      "direction": "AWAY",
+      "confidence": 0.8,
+      "weighted_score": -0.0055,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": 0.0935,
+        "finals_stakes": 0.0,
+        "historical_pattern": 0.0,
+        "public_bias": -0.3,
+        "recent_form": 0.0584,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "OVERS",
+      "totals_score": -1.0
+    },
+    {
+      "home_team": "Dolphins",
+      "away_team": "Parramatta Eels",
+      "prediction": "Parramatta Eels",
+      "direction": "AWAY",
+      "confidence": 1.2,
+      "weighted_score": -0.0079,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": 0.1985,
+        "finals_stakes": 0.6,
+        "historical_pattern": -1.0,
+        "public_bias": 0.0,
+        "recent_form": 0.1241,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Newcastle Knights",
+      "away_team": "Manly-Warringah Sea Eagles",
+      "prediction": "Newcastle Knights",
+      "direction": "HOME",
+      "confidence": 33.3,
+      "weighted_score": 0.2222,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": 0.1226,
+        "finals_stakes": 0.6,
+        "historical_pattern": 0.6667,
+        "public_bias": 0.0,
+        "recent_form": 0.0766,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "OVERS",
+      "totals_score": -0.3333
+    },
+    {
+      "home_team": "South Sydney Rabbitohs",
+      "away_team": "New Zealand Warriors",
+      "prediction": "New Zealand Warriors",
+      "direction": "AWAY",
+      "confidence": 26.1,
+      "weighted_score": -0.1739,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.0911,
+        "finals_stakes": -0.2,
+        "historical_pattern": -1.0,
+        "public_bias": 0.3,
+        "recent_form": -0.0569,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "UNDERS",
+      "totals_score": 1.0
+    },
+    {
+      "home_team": "St. George Illawarra Dragons",
+      "away_team": "Canterbury-Bankstown Bulldogs",
+      "prediction": "Canterbury-Bankstown Bulldogs",
+      "direction": "AWAY",
+      "confidence": 17.0,
+      "weighted_score": -0.1133,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.2032,
+        "finals_stakes": -0.6,
+        "historical_pattern": 0.4,
+        "public_bias": -0.3,
+        "recent_form": -0.127,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "OVERS",
+      "totals_score": -1.0
+    },
+    {
+      "home_team": "Gold Coast Titans",
+      "away_team": "Cronulla-Sutherland Sharks",
+      "prediction": "Cronulla-Sutherland Sharks",
+      "direction": "AWAY",
+      "confidence": 33.3,
+      "weighted_score": -0.2222,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.2178,
+        "finals_stakes": -0.6,
+        "historical_pattern": -0.5,
+        "public_bias": 0.0,
+        "recent_form": -0.1361,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "UNDERS",
+      "totals_score": 1.0
+    },
+    {
+      "home_team": "Sydney Roosters",
+      "away_team": "Wests Tigers",
+      "prediction": "Sydney Roosters",
+      "direction": "HOME",
+      "confidence": 29.4,
+      "weighted_score": 0.1959,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": 0.2892,
+        "finals_stakes": 0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.3,
+        "recent_form": 0.1808,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    }
+  ]
+}

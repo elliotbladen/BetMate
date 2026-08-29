@@ -1,0 +1,93 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-09",
+  "home_team": "Canberra Raiders",
+  "away_team": "Newcastle Knights",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-09T05:01:26.153856+00:00",
+  "odds_api_game_id": "30606dee1567c095fb9519f68b2660f9",
+  "odds_api_home": "Canberra Raiders",
+  "odds_api_away": "Newcastle Knights",
+  "commence_time": "2026-08-09T04:03:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.53,
+        "away": 2.37
+      },
+      "spreads": {
+        "home_price": 1.9,
+        "home_point": -2.5,
+        "away_price": 1.9,
+        "away_point": 2.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 58.5,
+        "under_price": 1.9,
+        "under_point": 58.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 1.6,
+        "away": 2.3
+      },
+      "spreads": {
+        "home_price": 1.9,
+        "home_point": -2.5,
+        "away_price": 1.9,
+        "away_point": 2.5
+      },
+      "totals": {
+        "over_price": 2.0,
+        "over_point": 57.5,
+        "under_price": 1.8,
+        "under_point": 57.5
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 1.57,
+        "away": 2.3
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.58,
+        "away": 2.32
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "home": 1.56,
+        "away": 2.32
+      },
+      "spreads": {
+        "home_price": 1.89,
+        "home_point": -2.5,
+        "away_price": 1.82,
+        "away_point": 2.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 57.5,
+        "under_price": 1.85,
+        "under_point": 57.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 1.57,
+        "away": 2.35
+      },
+      "spreads": {
+        "home_price": 1.92,
+        "home_point": -2.5,
+        "away_price": 1.84,
+        "away_point": 2.5
+      }
+    }
+  }
+}

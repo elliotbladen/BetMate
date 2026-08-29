@@ -87,6 +87,12 @@ class TierParams:
     ppda_goals_coef: float = PPDA_GOALS_COEF
     form_goals_coef: float = FORM_GOALS_COEF
     ref_goals_coef: float = REF_GOALS_COEF
+    # T8: season-reset prior for new Championship teams (set t8_decay_games=0 to disable)
+    t8_decay_games: int = 0      # games until prior weight reaches 0 (0 = T8 off)
+    t8_max_adj: float = 0.15     # max xG adjustment per team from T8
+    t8_elo_scale: float = 600.0  # ELO point difference that equals t8_max_adj
+    # T9: new manager bounce
+    t9_manager_adj: float = 0.07  # xG boost added to a team with a new manager
 
 
 DEFAULT_TIER_PARAMS = TierParams()
@@ -105,6 +111,11 @@ class TeamState:
     # T7 set-piece (split by home/away role in this match)
     corners_won_avg: float | None = None       # rolling avg corners won in this venue role
     corners_conceded_avg: float | None = None  # rolling avg corners conceded in this venue role
+    # T8 season-reset prior (Championship only)
+    t8_elo_diff: float | None = None    # this team's ClubElo minus Championship average (None = not new)
+    t8_prior_weight: float = 0.0        # 1.0 = full prior, 0.0 = trust D-C data only
+    # T9 manager change
+    new_manager: bool = False           # True if team has a new manager this match
 
 
 @dataclass
@@ -134,6 +145,10 @@ class AdjustmentBreakdown:
     t6_ref_adj: float = 0.0
     t7_sp_adj_lam: float = 0.0
     t7_sp_adj_mu: float = 0.0
+    t8_adj_lam: float = 0.0
+    t8_adj_mu: float = 0.0
+    t9_adj_lam: float = 0.0
+    t9_adj_mu: float = 0.0
 
 
 # ── T2: PPDA pressing matchup ─────────────────────────────────────────────────
@@ -318,6 +333,76 @@ def t7_setpiece_adjustment(
     return sp_lam, sp_mu
 
 
+# ── T8: Season-reset prior (Championship) ────────────────────────────────────
+
+def t8_season_prior(
+    home: TeamState,
+    away: TeamState,
+    p: TierParams = DEFAULT_TIER_PARAMS,
+) -> tuple[float, float]:
+    """
+    Season-reset prior for newly promoted/relegated Championship teams.
+
+    When a team has no (or stale) Championship data, D-C falls back to league-average
+    attack/defence. T8 corrects this using ClubElo as an independent strength signal.
+
+    Returns (lam_adj, mu_adj):
+      lam_adj > 0 = home team is stronger than D-C thinks → boost home attack
+      mu_adj  > 0 = away team is stronger than D-C thinks → boost away attack
+
+    The prior_weight stored in TeamState decays from 1.0 (GW1) to 0.0 (GW t8_decay_games)
+    as real Championship data accumulates and D-C becomes self-sufficient.
+
+    ELO diff of +600 = t8_max_adj (default ±0.15 xG). Typical new-team range ±100–200 pts.
+    Disabled when t8_decay_games=0 (EPL) or both teams have prior_weight=0.
+    """
+    if p.t8_decay_games <= 0:
+        return 0.0, 0.0
+
+    lam_adj = 0.0
+    mu_adj  = 0.0
+
+    if home.t8_elo_diff is not None and home.t8_prior_weight > 0:
+        raw = (home.t8_elo_diff / p.t8_elo_scale) * p.t8_max_adj
+        lam_adj = float(np.clip(raw * home.t8_prior_weight, -p.t8_max_adj, p.t8_max_adj))
+
+    if away.t8_elo_diff is not None and away.t8_prior_weight > 0:
+        raw = (away.t8_elo_diff / p.t8_elo_scale) * p.t8_max_adj
+        mu_adj = float(np.clip(raw * away.t8_prior_weight, -p.t8_max_adj, p.t8_max_adj))
+
+    return lam_adj, mu_adj
+
+
+def compute_t8_prior_weight(games_played_this_season: int, p: TierParams) -> float:
+    """
+    Linear decay: 1.0 at game 0, 0.0 at game t8_decay_games.
+    Returns 0.0 if T8 is disabled or team has enough data.
+    """
+    if p.t8_decay_games <= 0:
+        return 0.0
+    return float(max(0.0, 1.0 - games_played_this_season / p.t8_decay_games))
+
+
+# ── T9: Manager change bounce ─────────────────────────────────────────────────
+
+def t9_manager_adjustment(
+    home: TeamState,
+    away: TeamState,
+    p: TierParams = DEFAULT_TIER_PARAMS,
+) -> tuple[float, float]:
+    """
+    New-manager bounce effect.
+    Research: teams with new managers show a short-term (~5-10%) performance boost
+    as players respond to a change in setup and motivation.
+
+    Returns (lam_adj, mu_adj) — boost to the team with the new manager.
+    Cap: t9_manager_adj (default 0.07 xG, ~4-5% on avg λ=1.57).
+    """
+    lam_adj = p.t9_manager_adj if home.new_manager else 0.0
+    mu_adj  = p.t9_manager_adj if away.new_manager else 0.0
+    return lam_adj, mu_adj
+
+
 # ── Master: apply all tiers ───────────────────────────────────────────────────
 
 def apply_all_tiers(
@@ -327,7 +412,7 @@ def apply_all_tiers(
     params: TierParams = DEFAULT_TIER_PARAMS,
 ) -> AdjustmentBreakdown:
     """
-    Apply T2, T3, T5, T6 adjustments to base D-C expected goals.
+    Apply T2–T9 adjustments to base D-C expected goals.
     Returns an AdjustmentBreakdown with final λ/μ and full audit trail.
     """
     lam = lam_base
@@ -367,6 +452,16 @@ def apply_all_tiers(
     lam += t7_sp_lam
     mu  += t7_sp_mu
 
+    # T8: Season-reset prior (Championship new teams)
+    t8_lam, t8_mu = t8_season_prior(context.home, context.away, params)
+    lam += t8_lam
+    mu  += t8_mu
+
+    # T9: Manager change bounce
+    t9_lam, t9_mu = t9_manager_adjustment(context.home, context.away, params)
+    lam += t9_lam
+    mu  += t9_mu
+
     # Hard floor — can't go below 0.5 expected goals
     lam = max(lam, 0.5)
     mu  = max(mu, 0.5)
@@ -388,4 +483,8 @@ def apply_all_tiers(
         t6_ref_adj=round(t6_adj, 3),
         t7_sp_adj_lam=round(t7_sp_lam, 3),
         t7_sp_adj_mu=round(t7_sp_mu, 3),
+        t8_adj_lam=round(t8_lam, 3),
+        t8_adj_mu=round(t8_mu, 3),
+        t9_adj_lam=round(t9_lam, 3),
+        t9_adj_mu=round(t9_mu, 3),
     )

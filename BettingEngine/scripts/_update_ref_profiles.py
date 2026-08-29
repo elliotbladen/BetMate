@@ -7,6 +7,16 @@ from pathlib import Path
 
 conn = sqlite3.connect("data/model.db")
 
+# Keep older databases compatible with the data-backed Tier 6 fields.
+profile_columns = {
+    row[1] for row in conn.execute("PRAGMA table_info(referee_profiles)").fetchall()
+}
+if "scoring_delta" not in profile_columns:
+    conn.execute("ALTER TABLE referee_profiles ADD COLUMN scoring_delta REAL")
+if "home_bias_adj" not in profile_columns:
+    conn.execute("ALTER TABLE referee_profiles ADD COLUMN home_bias_adj REAL")
+conn.commit()
+
 # Season averages (from all 7 refs = proxy for league)
 season_avgs = {r[0]: r[1] for r in conn.execute(
     "SELECT season, AVG(total_score) FROM referee_game_stats GROUP BY season"
@@ -78,14 +88,16 @@ for ref, stats in sorted(ref_summary.items(), key=lambda x: x[1]["effect"]):
     if existing:
         conn.execute("""
             UPDATE referee_profiles
-            SET bucket=?, games_in_sample=?, notes=?, updated_at=CURRENT_TIMESTAMP
+            SET bucket=?, games_in_sample=?, notes=?, scoring_delta=?,
+                updated_at=CURRENT_TIMESTAMP
             WHERE referee_id=?
-        """, (bucket, stats["n"], notes, ref_id))
+        """, (bucket, stats["n"], notes, stats["effect"], ref_id))
     else:
         conn.execute("""
-            INSERT INTO referee_profiles (referee_id, bucket, games_in_sample, notes)
-            VALUES (?, ?, ?, ?)
-        """, (ref_id, bucket, stats["n"], notes))
+            INSERT INTO referee_profiles
+                (referee_id, bucket, games_in_sample, notes, scoring_delta)
+            VALUES (?, ?, ?, ?, ?)
+        """, (ref_id, bucket, stats["n"], notes, stats["effect"]))
 
     print(f"  {ref:<26} {ref_id:>4} {stats['n']:>6} {stats['effect']:>+8.2f} {bucket:<16} "
           f"{stats['recent_avg_total']:>11.1f}")

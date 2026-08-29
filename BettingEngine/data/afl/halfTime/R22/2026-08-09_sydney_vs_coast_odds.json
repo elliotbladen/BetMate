@@ -1,0 +1,88 @@
+{
+  "season": 2026,
+  "round": 22,
+  "game_date": "2026-08-09",
+  "home_team": "Greater Western Sydney",
+  "away_team": "Gold Coast",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-09T04:21:21.915644+00:00",
+  "odds_api_game_id": "37cce3a4f707fe69a4e256181eb1f5f0",
+  "odds_api_home": "Greater Western Sydney Giants",
+  "odds_api_away": "Gold Coast Suns",
+  "commence_time": "2026-08-09T03:11:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "away": 1.72,
+        "home": 2.05
+      },
+      "spreads": {
+        "away_price": 1.89,
+        "away_point": -2.5,
+        "home_price": 1.85,
+        "home_point": 2.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 129.5,
+        "under_price": 1.85,
+        "under_point": 129.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "away": 1.5,
+        "home": 2.04
+      }
+    },
+    "tab": {
+      "h2h": {
+        "away": 1.58,
+        "home": 2.3
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "away": 1.71,
+        "home": 2.1
+      },
+      "spreads": {
+        "away_price": 1.87,
+        "away_point": -2.5,
+        "home_price": 1.87,
+        "home_point": 2.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 129.5,
+        "under_price": 1.87,
+        "under_point": 129.5
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "away": 1.72,
+        "home": 2.04
+      },
+      "spreads": {
+        "away_price": 1.85,
+        "away_point": -2.5,
+        "home_price": 1.83,
+        "home_point": 2.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 129.5,
+        "under_price": 1.87,
+        "under_point": 129.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "away": 1.78,
+        "home": 2.05,
+        "draw": 23.0
+      }
+    }
+  }
+}

@@ -1,75 +1,204 @@
 {
   "season": 2026,
-  "round": 22,
-  "generated_at": "2026-07-28T08:43:02.620873",
+  "round": 24,
+  "generated_at": "2026-08-12T19:40:37.098832",
   "games": [
     {
-      "home": "North Queensland Cowboys",
+      "home": "Penrith Panthers",
       "away": "Sydney Roosters",
       "confluence": {
-        "handicap_AWAY_COVERS": {
-          "count": 3,
+        "h2h_HOME_WIN": {
+          "count": 7,
           "edges": [
             {
-              "edge_pct": 20.0,
-              "row": "vs Sydney Roosters",
-              "team": "North Queensland Cowboys"
+              "edge_pct": 7.9,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Penrith Panthers"
             },
             {
-              "edge_pct": 23.0,
-              "row": "Full Moon (\u00b11 day)",
+              "edge_pct": 25.7,
+              "row": "vs Sydney Roosters",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 9.8,
+              "row": "Win % \u2014 Away",
               "team": "Sydney Roosters"
             },
             {
-              "edge_pct": 20.0,
-              "row": "vs North QLD Cowboys",
+              "edge_pct": 12.0,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 15.3,
+              "row": "After a Win",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 33.8,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 64.4,
+              "row": "vs Penrith Panthers",
               "team": "Sydney Roosters"
             }
           ]
-        }
-      }
-    },
-    {
-      "home": "St. George Illawarra Dragons",
-      "away": "Dolphins",
-      "confluence": {
+        },
         "h2h_AWAY_WIN": {
-          "count": 3,
+          "count": 7,
           "edges": [
             {
-              "edge_pct": 27.4,
-              "row": "July",
-              "team": "St. George Illawarra Dragons"
-            },
-            {
-              "edge_pct": 23.2,
-              "row": "Night Games (kick-off \u2265 18:00)",
-              "team": "Dolphins"
-            },
-            {
-              "edge_pct": 33.5,
+              "edge_pct": 12.7,
               "row": "Thursday / Friday Games",
-              "team": "Dolphins"
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 18.4,
+              "row": "August",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "CommBank Stadium",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 5.4,
+              "row": "Thursday / Friday Games",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 8.5,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 42.6,
+              "row": "August",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 14.9,
+              "row": "CommBank Stadium",
+              "team": "Sydney Roosters"
+            }
+          ]
+        },
+        "totals_UNDERS": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 6.4,
+              "row": "Total Points \u2014 Home",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 6.6,
+              "row": "After a Loss",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 13.6,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 9.6,
+              "row": "CommBank Stadium",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 13.3,
+              "row": "New Moon (\u00b11 day)",
+              "team": "Sydney Roosters"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 12.4,
+              "row": "vs Sydney Roosters",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 7.5,
+              "row": "Thursday / Friday Games",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 6.3,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 9.5,
+              "row": "August",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "vs Penrith Panthers",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 6.8,
+              "row": "CommBank Stadium",
+              "team": "Sydney Roosters"
             }
           ]
         },
         "handicap_HOME_COVERS": {
-          "count": 3,
+          "count": 9,
           "edges": [
             {
-              "edge_pct": 29.2,
+              "edge_pct": 17.8,
               "row": "Cover Rate \u2014 Home",
-              "team": "St. George Illawarra Dragons"
+              "team": "Penrith Panthers"
             },
             {
-              "edge_pct": 22.0,
+              "edge_pct": 5.2,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 6.2,
+              "row": "Thursday / Friday Games",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 22.2,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 35.8,
               "row": "After a Loss",
-              "team": "St. George Illawarra Dragons"
+              "team": "Penrith Panthers"
             },
             {
-              "edge_pct": 36.0,
-              "row": "WIN Stadium",
-              "team": "St. George Illawarra Dragons"
+              "edge_pct": 50.0,
+              "row": "vs Sydney Roosters",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 5.6,
+              "row": "Cover Rate \u2014 Away",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 5.0,
+              "row": "After a Win",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 50.0,
+              "row": "vs Penrith Panthers",
+              "team": "Sydney Roosters"
             }
           ]
         },
@@ -77,13 +206,194 @@
           "count": 5,
           "edges": [
             {
+              "edge_pct": 22.2,
+              "row": "August",
+              "team": "Penrith Panthers"
+            },
+            {
               "edge_pct": 20.0,
+              "row": "CommBank Stadium",
+              "team": "Penrith Panthers"
+            },
+            {
+              "edge_pct": 13.0,
+              "row": "Thursday / Friday Games",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 75.0,
+              "row": "August",
+              "team": "Sydney Roosters"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "CommBank Stadium",
+              "team": "Sydney Roosters"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Manly-Warringah Sea Eagles",
+      "away": "Dolphins",
+      "confluence": {
+        "h2h_HOME_WIN": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 7.2,
+              "row": "Win % \u2014 Home",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 7.4,
+              "row": "Win % \u2014 Away",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 25.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 18.0,
+              "row": "After a Win",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 30.8,
+              "row": "August",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 20.3,
+              "row": "vs Manly Sea Eagles",
+              "team": "Dolphins"
+            }
+          ]
+        },
+        "h2h_AWAY_WIN": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 38.5,
+              "row": "Thursday / Friday Games",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 44.7,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 30.5,
+              "row": "August",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 33.5,
+              "row": "Thursday / Friday Games",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 12.3,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Dolphins"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 9.1,
+              "row": "August",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 54.0,
               "row": "vs Dolphins",
-              "team": "St. George Illawarra Dragons"
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 7.7,
+              "row": "Thursday / Friday Games",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 9.0,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 16.1,
+              "row": "August",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 54.0,
+              "row": "vs Manly Sea Eagles",
+              "team": "Dolphins"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 16.6,
+              "row": "Cover Rate \u2014 Home",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 7.6,
+              "row": "After a Loss",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "vs Dolphins",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 14.2,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 14.2,
+              "row": "August",
+              "team": "Dolphins"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "vs Manly Sea Eagles",
+              "team": "Dolphins"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 6,
+          "edges": [
+            {
+              "edge_pct": 10.6,
+              "row": "Thursday / Friday Games",
+              "team": "Manly-Warringah Sea Eagles"
             },
             {
               "edge_pct": 35.2,
-              "row": "Night Games (kick-off \u2265 18:00)",
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 17.6,
+              "row": "August",
+              "team": "Manly-Warringah Sea Eagles"
+            },
+            {
+              "edge_pct": 5.6,
+              "row": "Cover Rate \u2014 Away",
               "team": "Dolphins"
             },
             {
@@ -92,13 +402,8 @@
               "team": "Dolphins"
             },
             {
-              "edge_pct": 33.4,
-              "row": "July",
-              "team": "Dolphins"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "vs St George Dragons",
+              "edge_pct": 27.2,
+              "row": "Short Rest (\u2264 6 days)",
               "team": "Dolphins"
             }
           ]
@@ -106,159 +411,151 @@
       }
     },
     {
-      "home": "Melbourne Storm",
-      "away": "Canterbury-Bankstown Bulldogs",
+      "home": "Canterbury-Bankstown Bulldogs",
+      "away": "South Sydney Rabbitohs",
       "confluence": {
         "h2h_HOME_WIN": {
-          "count": 4,
+          "count": 9,
           "edges": [
+            {
+              "edge_pct": 8.9,
+              "row": "Win % \u2014 Home",
+              "team": "Canterbury-Bankstown Bulldogs"
+            },
+            {
+              "edge_pct": 7.6,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Canterbury-Bankstown Bulldogs"
+            },
+            {
+              "edge_pct": 8.4,
+              "row": "Accor Stadium",
+              "team": "Canterbury-Bankstown Bulldogs"
+            },
             {
               "edge_pct": 21.4,
               "row": "Win % \u2014 Away",
-              "team": "Canterbury-Bankstown Bulldogs"
+              "team": "South Sydney Rabbitohs"
             },
             {
-              "edge_pct": 41.3,
+              "edge_pct": 16.7,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "South Sydney Rabbitohs"
+            },
+            {
+              "edge_pct": 13.5,
               "row": "Thursday / Friday Games",
+              "team": "South Sydney Rabbitohs"
+            },
+            {
+              "edge_pct": 15.9,
+              "row": "After a Win",
+              "team": "South Sydney Rabbitohs"
+            },
+            {
+              "edge_pct": 16.1,
+              "row": "August",
+              "team": "South Sydney Rabbitohs"
+            },
+            {
+              "edge_pct": 6.1,
+              "row": "vs Canterbury Bulldogs",
+              "team": "South Sydney Rabbitohs"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 6.0,
+              "row": "After a Loss",
               "team": "Canterbury-Bankstown Bulldogs"
             },
             {
-              "edge_pct": 27.0,
-              "row": "vs Melbourne Storm",
+              "edge_pct": 19.8,
+              "row": "vs South Sydney Rabbitohs",
               "team": "Canterbury-Bankstown Bulldogs"
             },
             {
-              "edge_pct": 27.0,
-              "row": "AAMI Park",
-              "team": "Canterbury-Bankstown Bulldogs"
+              "edge_pct": 19.8,
+              "row": "vs Canterbury Bulldogs",
+              "team": "South Sydney Rabbitohs"
             }
           ]
         },
         "handicap_AWAY_COVERS": {
-          "count": 4,
+          "count": 9,
           "edges": [
             {
-              "edge_pct": 33.4,
-              "row": "July",
-              "team": "Melbourne Storm"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "vs Canterbury Bulldogs",
-              "team": "Melbourne Storm"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "vs Melbourne Storm",
+              "edge_pct": 8.0,
+              "row": "Cover Rate \u2014 Home",
               "team": "Canterbury-Bankstown Bulldogs"
             },
             {
-              "edge_pct": 20.0,
-              "row": "AAMI Park",
+              "edge_pct": 25.0,
+              "row": "Thursday / Friday Games",
               "team": "Canterbury-Bankstown Bulldogs"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Gold Coast Titans",
-      "away": "New Zealand Warriors",
-      "confluence": {
-        "h2h_AWAY_WIN": {
-          "count": 4,
-          "edges": [
-            {
-              "edge_pct": 21.0,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Gold Coast Titans"
             },
             {
-              "edge_pct": 34.4,
-              "row": "Saturday Games",
-              "team": "Gold Coast Titans"
+              "edge_pct": 11.2,
+              "row": "After a Loss",
+              "team": "Canterbury-Bankstown Bulldogs"
             },
             {
-              "edge_pct": 31.6,
-              "row": "After a Win",
-              "team": "Gold Coast Titans"
-            },
-            {
-              "edge_pct": 49.3,
+              "edge_pct": 17.6,
               "row": "August",
-              "team": "Gold Coast Titans"
+              "team": "Canterbury-Bankstown Bulldogs"
+            },
+            {
+              "edge_pct": 14.2,
+              "row": "vs South Sydney Rabbitohs",
+              "team": "Canterbury-Bankstown Bulldogs"
+            },
+            {
+              "edge_pct": 10.6,
+              "row": "Accor Stadium",
+              "team": "Canterbury-Bankstown Bulldogs"
+            },
+            {
+              "edge_pct": 21.4,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "South Sydney Rabbitohs"
+            },
+            {
+              "edge_pct": 14.2,
+              "row": "vs Canterbury Bulldogs",
+              "team": "South Sydney Rabbitohs"
+            },
+            {
+              "edge_pct": 15.8,
+              "row": "Accor Stadium",
+              "team": "South Sydney Rabbitohs"
             }
           ]
         },
-        "h2h_HOME_WIN": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 20.4,
-              "row": "Short Rest (\u2264 6 days)",
-              "team": "Gold Coast Titans"
-            },
-            {
-              "edge_pct": 70.4,
-              "row": "vs New Zealand Warriors",
-              "team": "Gold Coast Titans"
-            },
-            {
-              "edge_pct": 54.7,
-              "row": "vs Gold Coast Titans",
-              "team": "New Zealand Warriors"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Penrith Panthers",
-      "away": "Canberra Raiders",
-      "confluence": {
         "handicap_HOME_COVERS": {
-          "count": 3,
+          "count": 4,
           "edges": [
             {
-              "edge_pct": 22.2,
-              "row": "Saturday Games",
-              "team": "Penrith Panthers"
+              "edge_pct": 17.6,
+              "row": "Cover Rate \u2014 Away",
+              "team": "South Sydney Rabbitohs"
             },
             {
-              "edge_pct": 20.0,
-              "row": "vs Canberra Raiders",
-              "team": "Penrith Panthers"
+              "edge_pct": 6.2,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "South Sydney Rabbitohs"
             },
             {
-              "edge_pct": 20.0,
-              "row": "vs Penrith Panthers",
-              "team": "Canberra Raiders"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Brisbane Broncos",
-      "away": "Newcastle Knights",
-      "confluence": {
-        "h2h_HOME_WIN": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 37.7,
-              "row": "vs Newcastle Knights",
-              "team": "Brisbane Broncos"
+              "edge_pct": 11.2,
+              "row": "Thursday / Friday Games",
+              "team": "South Sydney Rabbitohs"
             },
             {
-              "edge_pct": 34.1,
-              "row": "Night Games (kick-off \u2265 18:00)",
-              "team": "Newcastle Knights"
-            },
-            {
-              "edge_pct": 100.0,
-              "row": "vs Brisbane Broncos",
-              "team": "Newcastle Knights"
+              "edge_pct": 12.4,
+              "row": "August",
+              "team": "South Sydney Rabbitohs"
             }
           ]
         }
@@ -266,69 +563,59 @@
     },
     {
       "home": "Cronulla-Sutherland Sharks",
-      "away": "South Sydney Rabbitohs",
+      "away": "Canberra Raiders",
       "confluence": {
-        "h2h_HOME_WIN": {
+        "h2h_AWAY_WIN": {
           "count": 5,
           "edges": [
             {
-              "edge_pct": 26.1,
-              "row": "vs South Sydney Rabbitohs",
+              "edge_pct": 6.2,
+              "row": "Saturday Games",
               "team": "Cronulla-Sutherland Sharks"
             },
             {
               "edge_pct": 21.4,
-              "row": "Win % \u2014 Away",
-              "team": "South Sydney Rabbitohs"
-            },
-            {
-              "edge_pct": 38.3,
-              "row": "Sunday Games",
-              "team": "South Sydney Rabbitohs"
-            },
-            {
-              "edge_pct": 44.4,
-              "row": "vs Cronulla Sharks",
-              "team": "South Sydney Rabbitohs"
-            },
-            {
-              "edge_pct": 40.6,
-              "row": "Ocean Protect Stadium",
-              "team": "South Sydney Rabbitohs"
-            }
-          ]
-        },
-        "totals_UNDERS": {
-          "count": 4,
-          "edges": [
-            {
-              "edge_pct": 13.6,
-              "row": "vs South Sydney Rabbitohs",
+              "row": "vs Canberra Raiders",
               "team": "Cronulla-Sutherland Sharks"
             },
             {
-              "edge_pct": 12.8,
-              "row": "August",
-              "team": "South Sydney Rabbitohs"
+              "edge_pct": 14.6,
+              "row": "Win % \u2014 Away",
+              "team": "Canberra Raiders"
             },
             {
-              "edge_pct": 13.6,
+              "edge_pct": 11.3,
+              "row": "After a Loss",
+              "team": "Canberra Raiders"
+            },
+            {
+              "edge_pct": 21.7,
               "row": "vs Cronulla Sharks",
-              "team": "South Sydney Rabbitohs"
-            },
-            {
-              "edge_pct": 20.9,
-              "row": "Ocean Protect Stadium",
-              "team": "South Sydney Rabbitohs"
+              "team": "Canberra Raiders"
             }
           ]
         },
         "handicap_HOME_COVERS": {
-          "count": 4,
+          "count": 9,
           "edges": [
             {
               "edge_pct": 20.8,
               "row": "Cover Rate \u2014 Home",
+              "team": "Cronulla-Sutherland Sharks"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Cronulla-Sutherland Sharks"
+            },
+            {
+              "edge_pct": 14.2,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Cronulla-Sutherland Sharks"
+            },
+            {
+              "edge_pct": 31.6,
+              "row": "After a Loss",
               "team": "Cronulla-Sutherland Sharks"
             },
             {
@@ -342,9 +629,457 @@
               "team": "Cronulla-Sutherland Sharks"
             },
             {
-              "edge_pct": 23.0,
+              "edge_pct": 8.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Canberra Raiders"
+            },
+            {
+              "edge_pct": 18.6,
+              "row": "Short Rest (\u2264 6 days)",
+              "team": "Canberra Raiders"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "August",
+              "team": "Canberra Raiders"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Parramatta Eels",
+      "away": "North Queensland Cowboys",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 9.7,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 12.7,
+              "row": "Saturday Games",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 9.2,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 8.4,
+              "row": "After a Win",
+              "team": "North Queensland Cowboys"
+            }
+          ]
+        },
+        "h2h_HOME_WIN": {
+          "count": 8,
+          "edges": [
+            {
+              "edge_pct": 17.1,
+              "row": "After a Loss",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 33.9,
+              "row": "August",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 15.8,
+              "row": "vs North QLD Cowboys",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 9.6,
+              "row": "CommBank Stadium",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 5.9,
+              "row": "Saturday Games",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 16.5,
+              "row": "August",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 28.8,
+              "row": "vs Parramatta Eels",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 32.2,
+              "row": "CommBank Stadium",
+              "team": "North Queensland Cowboys"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 8.2,
+              "row": "Saturday Games",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 7.6,
+              "row": "August",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 5.4,
+              "row": "Saturday Games",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 8.0,
+              "row": "After a Win",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 5.8,
+              "row": "August",
+              "team": "North Queensland Cowboys"
+            }
+          ]
+        },
+        "totals_UNDERS": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 7.8,
+              "row": "vs North QLD Cowboys",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 7.8,
+              "row": "vs Parramatta Eels",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "CommBank Stadium",
+              "team": "North Queensland Cowboys"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 8,
+          "edges": [
+            {
+              "edge_pct": 10.2,
+              "row": "Cover Rate \u2014 Home",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 15.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 15.4,
+              "row": "Saturday Games",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 9.4,
+              "row": "After a Loss",
+              "team": "Parramatta Eels"
+            },
+            {
+              "edge_pct": 12.0,
+              "row": "Cover Rate \u2014 Away",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 8.0,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 9.0,
+              "row": "After a Win",
+              "team": "North Queensland Cowboys"
+            },
+            {
+              "edge_pct": 50.0,
+              "row": "CommBank Stadium",
+              "team": "North Queensland Cowboys"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Brisbane Broncos",
+      "away": "New Zealand Warriors",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 7,
+          "edges": [
+            {
+              "edge_pct": 6.2,
+              "row": "Win % \u2014 Home",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 14.5,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 8.3,
+              "row": "Saturday Games",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 12.3,
+              "row": "After a Loss",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 19.0,
+              "row": "vs New Zealand Warriors",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 7.0,
+              "row": "Suncorp Stadium",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 15.5,
+              "row": "vs Brisbane Broncos",
+              "team": "New Zealand Warriors"
+            }
+          ]
+        },
+        "h2h_HOME_WIN": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 5.5,
+              "row": "Win % \u2014 Away",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 7.7,
+              "row": "Saturday Games",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 8.3,
+              "row": "August",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 5.4,
+              "row": "Suncorp Stadium",
+              "team": "New Zealand Warriors"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 7.4,
+              "row": "After a Loss",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 5.8,
+              "row": "August",
+              "team": "Brisbane Broncos"
+            },
+            {
+              "edge_pct": 8.0,
+              "row": "Cover Rate \u2014 Away",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 7.6,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "New Zealand Warriors"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "Suncorp Stadium",
+              "team": "New Zealand Warriors"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Newcastle Knights",
+      "away": "Gold Coast Titans",
+      "confluence": {
+        "h2h_AWAY_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 11.4,
+              "row": "Win % \u2014 Home",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 6.8,
+              "row": "After a Win",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 11.4,
+              "row": "McDonald Jones Stadium",
+              "team": "Newcastle Knights"
+            }
+          ]
+        },
+        "h2h_HOME_WIN": {
+          "count": 9,
+          "edges": [
+            {
+              "edge_pct": 7.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 36.9,
+              "row": "Win % \u2014 Away",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 21.0,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 26.3,
               "row": "Sunday Games",
-              "team": "South Sydney Rabbitohs"
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 23.4,
+              "row": "Long Rest (\u2265 10 days)",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 18.7,
+              "row": "After a Loss",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 49.3,
+              "row": "August",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "vs Newcastle Knights",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 40.6,
+              "row": "McDonald Jones Stadium",
+              "team": "Gold Coast Titans"
+            }
+          ]
+        },
+        "totals_OVERS": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 7.3,
+              "row": "vs Gold Coast Titans",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 6.2,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 11.5,
+              "row": "August",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 7.3,
+              "row": "vs Newcastle Knights",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 15.4,
+              "row": "McDonald Jones Stadium",
+              "team": "Gold Coast Titans"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 11,
+          "edges": [
+            {
+              "edge_pct": 14.2,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 13.6,
+              "row": "Sunday Games",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 12.8,
+              "row": "After a Win",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 25.0,
+              "row": "August",
+              "team": "Newcastle Knights"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "Cover Rate \u2014 Away",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 13.6,
+              "row": "Sunday Games",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 23.0,
+              "row": "Long Rest (\u2265 10 days)",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 10.4,
+              "row": "After a Loss",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 29.4,
+              "row": "August",
+              "team": "Gold Coast Titans"
+            },
+            {
+              "edge_pct": 50.0,
+              "row": "McDonald Jones Stadium",
+              "team": "Gold Coast Titans"
             }
           ]
         }
@@ -352,10 +1087,10 @@
     },
     {
       "home": "Wests Tigers",
-      "away": "Parramatta Eels",
+      "away": "St. George Illawarra Dragons",
       "confluence": {
         "h2h_AWAY_WIN": {
-          "count": 5,
+          "count": 8,
           "edges": [
             {
               "edge_pct": 21.4,
@@ -373,14 +1108,134 @@
               "team": "Wests Tigers"
             },
             {
+              "edge_pct": 81.9,
+              "row": "Long Rest (\u2265 10 days)",
+              "team": "Wests Tigers"
+            },
+            {
               "edge_pct": 36.4,
               "row": "After a Loss",
               "team": "Wests Tigers"
             },
             {
-              "edge_pct": 33.9,
+              "edge_pct": 6.0,
               "row": "August",
-              "team": "Parramatta Eels"
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 32.9,
+              "row": "vs St George Dragons",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 15.2,
+              "row": "vs Wests Tigers",
+              "team": "St. George Illawarra Dragons"
+            }
+          ]
+        },
+        "h2h_HOME_WIN": {
+          "count": 7,
+          "edges": [
+            {
+              "edge_pct": 24.3,
+              "row": "CommBank Stadium",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 44.5,
+              "row": "Win % \u2014 Away",
+              "team": "St. George Illawarra Dragons"
+            },
+            {
+              "edge_pct": 7.6,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "St. George Illawarra Dragons"
+            },
+            {
+              "edge_pct": 12.9,
+              "row": "Sunday Games",
+              "team": "St. George Illawarra Dragons"
+            },
+            {
+              "edge_pct": 20.9,
+              "row": "After a Win",
+              "team": "St. George Illawarra Dragons"
+            },
+            {
+              "edge_pct": 18.4,
+              "row": "August",
+              "team": "St. George Illawarra Dragons"
+            },
+            {
+              "edge_pct": 59.2,
+              "row": "CommBank Stadium",
+              "team": "St. George Illawarra Dragons"
+            }
+          ]
+        },
+        "totals_UNDERS": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 8.2,
+              "row": "Sunday Games",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 5.1,
+              "row": "vs St George Dragons",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 8.4,
+              "row": "CommBank Stadium",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 5.1,
+              "row": "vs Wests Tigers",
+              "team": "St. George Illawarra Dragons"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 7,
+          "edges": [
+            {
+              "edge_pct": 10.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 16.6,
+              "row": "Sunday Games",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "Long Rest (\u2265 10 days)",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 13.8,
+              "row": "After a Loss",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "August",
+              "team": "Wests Tigers"
+            },
+            {
+              "edge_pct": 13.4,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "St. George Illawarra Dragons"
+            },
+            {
+              "edge_pct": 33.4,
+              "row": "August",
+              "team": "St. George Illawarra Dragons"
             }
           ]
         },
@@ -388,8 +1243,8 @@
           "count": 6,
           "edges": [
             {
-              "edge_pct": 42.8,
-              "row": "vs Parramatta Eels",
+              "edge_pct": 14.2,
+              "row": "vs St George Dragons",
               "team": "Wests Tigers"
             },
             {
@@ -398,24 +1253,24 @@
               "team": "Wests Tigers"
             },
             {
-              "edge_pct": 21.6,
+              "edge_pct": 12.4,
               "row": "Cover Rate \u2014 Away",
-              "team": "Parramatta Eels"
+              "team": "St. George Illawarra Dragons"
             },
             {
-              "edge_pct": 27.2,
-              "row": "Sunday Games",
-              "team": "Parramatta Eels"
+              "edge_pct": 16.6,
+              "row": "After a Win",
+              "team": "St. George Illawarra Dragons"
             },
             {
-              "edge_pct": 62.4,
-              "row": "Long Rest (\u2265 10 days)",
-              "team": "Parramatta Eels"
-            },
-            {
-              "edge_pct": 42.8,
+              "edge_pct": 14.2,
               "row": "vs Wests Tigers",
-              "team": "Parramatta Eels"
+              "team": "St. George Illawarra Dragons"
+            },
+            {
+              "edge_pct": 60.0,
+              "row": "CommBank Stadium",
+              "team": "St. George Illawarra Dragons"
             }
           ]
         }

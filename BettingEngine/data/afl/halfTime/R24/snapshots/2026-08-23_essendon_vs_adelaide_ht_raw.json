@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-23T03:45:02.703744+00:00",
+  "game": {
+    "is_grand_final": 0,
+    "localtime": "2026-08-23 12:20:00",
+    "ascore": 54,
+    "unixtime": 1787451600,
+    "is_final": 0,
+    "hteamid": 5,
+    "round": 24,
+    "hteam": "Essendon",
+    "timestr": "1/2 Time",
+    "hscore": 38,
+    "ateamid": 13,
+    "date": "2026-08-23 12:20:00",
+    "complete": 50,
+    "ateam": "Port Adelaide",
+    "tz": "+10:00",
+    "roundname": "Round 24",
+    "winner": null,
+    "updated": "2026-08-23 13:26:05",
+    "year": 2026,
+    "venue": "Docklands",
+    "hgoals": 5,
+    "hbehinds": 8,
+    "winnerteamid": null,
+    "id": 38694,
+    "agoals": 8,
+    "abehinds": 6,
+    "_round_game_num": 7,
+    "fox_match_id": "AFL20262407"
+  }
+}

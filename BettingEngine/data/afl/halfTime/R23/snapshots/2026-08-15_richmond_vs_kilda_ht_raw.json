@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-15T04:01:46.365093+00:00",
+  "game": {
+    "unixtime": 1786761300,
+    "ascore": 48,
+    "roundname": "Round 23",
+    "round": 23,
+    "complete": 50,
+    "ateamid": 15,
+    "hgoals": 3,
+    "hbehinds": 5,
+    "venue": "M.C.G.",
+    "winner": null,
+    "localtime": "2026-08-15 12:35:00",
+    "hteam": "Richmond",
+    "year": 2026,
+    "is_final": 0,
+    "date": "2026-08-15 12:35:00",
+    "id": 38688,
+    "timestr": "1/2 Time",
+    "ateam": "St Kilda",
+    "winnerteamid": null,
+    "tz": "+10:00",
+    "hscore": 23,
+    "hteamid": 14,
+    "agoals": 7,
+    "updated": "2026-08-15 13:43:19",
+    "is_grand_final": 0,
+    "abehinds": 6,
+    "_round_game_num": 2,
+    "fox_match_id": "AFL20262302"
+  }
+}

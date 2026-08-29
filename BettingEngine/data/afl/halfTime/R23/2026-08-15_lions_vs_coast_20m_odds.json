@@ -1,0 +1,87 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "Brisbane Lions",
+  "away_team": "Gold Coast",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-15T06:55:37.233459+00:00",
+  "odds_api_game_id": "85b71452d822880eb934fd8b1c54db31",
+  "odds_api_home": "Brisbane Lions",
+  "odds_api_away": "Gold Coast Suns",
+  "commence_time": "2026-08-15T06:15:56Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.2,
+        "away": 4.2
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -22.5,
+        "away_price": 1.85,
+        "away_point": 22.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 167.5,
+        "under_price": 1.87,
+        "under_point": 167.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 1.2,
+        "away": 4.2
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.19,
+        "away": 4.6
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 1.33,
+        "away": 3.4
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -22.5,
+        "away_price": 1.87,
+        "away_point": 22.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 167.5,
+        "under_price": 1.87,
+        "under_point": 167.5
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "home": 1.23,
+        "away": 3.85
+      },
+      "spreads": {
+        "home_price": 1.83,
+        "home_point": -21.5,
+        "away_price": 1.87,
+        "away_point": 21.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 166.5,
+        "under_price": 1.85,
+        "under_point": 166.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 1.24,
+        "away": 3.9
+      }
+    }
+  }
+}

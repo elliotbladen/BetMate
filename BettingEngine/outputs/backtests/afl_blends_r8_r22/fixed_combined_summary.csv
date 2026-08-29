@@ -1,0 +1,3 @@
+market,rules_weight,ml_weight,trigger,settled_games,bets,wins,losses,pushes,profit,roi
+H2H,0.6,0.4,7 probability points,108,58,37,21,0,12.96,0.22344827586206897
+Handicap,0.25,0.75,6 line points,108,67,40,27,0,9.0,0.13432835820895522

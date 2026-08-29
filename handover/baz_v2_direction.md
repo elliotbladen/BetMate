@@ -1,84 +1,90 @@
-# Baz v2 — The Per-Game Betting Desk
-**Created:** 2026-07-09 (replaces the May 2026 roadmap — see deprecation banner in `baz_agent_architecture.md`)
+# Baz v2 — Local Agent with Dual Data Access
+**Updated:** 2026-08-18 (replaces tunnel-based architecture — Cloudflare tunnel deleted)
+**Previous:** 2026-07-09 (per-game betting desk taxonomy — still the feature spec)
 
-## The One-Line Vision
+## Architecture Change (2026-08-18)
 
-**A user should be able to ask Baz any bet-related question about a game and get a
-grounded, honest answer.** Not alerts, not Telegram, not a crypto twin — one job,
-done completely: Baz is the betting desk for every game on the board.
+**Old model:** Baz ran as a FastAPI server (`baz_server.py` on localhost:8765), exposed to
+the internet via Cloudflare Tunnel (`baz.betmate.au`), authenticated with `BAZ_TUNNEL_TOKEN`.
+The Vercel chat route called Baz through the tunnel to fetch context before calling Claude.
 
-Everything that survives from v1: the Voice/Brain IP split (pricing logic never
-leaves the machine), the MCP tool-use loop, tunnel + token auth, and the hard rule
-that **Baz is advisory only — he never places bets**.
+**New model:** Baz is a **local agent** that pulls from two data sources directly:
 
----
+1. **BettingEngine (local)** — pricing CSVs, model outputs, matrices, ML shadow,
+   line movement predictions, confluence JSON, training data. Read directly from disk.
+2. **BetMate (Supabase)** — odds, predictions, team news, movements, history,
+   BVI — everything already pushed there by the weekly pipeline.
 
-## The Question Taxonomy (definition of "all bet-related questions")
+No tunnel. No token auth. No exposed server. The pricing IP stays local (same security
+guarantee as before), and the website data comes via Supabase reads instead of requiring
+a live connection to the user's machine.
 
-This is the spec. Baz v2 is done when every row has a ✅.
-
-| # | Question class | Example | Today | Gap |
-|---|---------------|---------|-------|-----|
-| 1 | **Value** | "Who should I bet on here?" / "Any value in this game?" | ✅ NRL / ⚠️ AFL | AFL `/context/game` returns market=0, ev=0 — model-vs-market join missing |
-| 2 | **Reasoning** | "Why does the model like the Sharks?" / "How do the injuries change it?" | ✅ NRL / ⚠️ AFL | NRL has tier notes + explanation; AFL `tier_adjustments` is empty |
-| 3 | **Price / line shopping** | "What's the best price on Storm?" / "Who's got -6.5?" | ❌ | No tool sees the odds board. Data exists (odds snapshots + Supabase) |
-| 4 | **Movement / timing** | "How's this line moved since Monday?" / "Bet now or wait?" | ❌ | No tool sees `odds_movements`, deltas, or the causal-tagged events |
-| 5 | **History** | "H2H record?" / "How do the Cats go at Marvel?" | ⚠️ | `/api/form` exists for the UI but Baz has no matchup-history tool; `get_historical_game_memory` covers only games WE priced/bet |
-| 6 | **Situational** | "Does the ref matter?" / "What's the weather doing to the total?" | ✅ NRL / ⚠️ AFL | NRL refs wired; weather in both; AFL umpire data doesn't exist (known missing layer) |
-| 7 | **Staking** | "How much should I put on it?" | ❌ | No Kelly/unit guidance exposed. Model has fair odds + EV — the math is trivial, the policy needs deciding |
-| 8 | **Accountability** | "How's the model been going on totals?" / "What did we do on this fixture last time?" | ✅ | `get_performance` + `get_historical_game_memory` |
-| 9 | **Derived markets** | "What about the alt line -13.5?" | ❌ (defer) | Needs a margin distribution, not a point estimate. Phase 3 |
+**What this means for the chat route:** `app/api/chat/route.ts` no longer calls
+`BAZ_TUNNEL_URL` / `BAZ_LOCAL_API`. It reads context from Supabase (predictions, odds,
+team news are already there) and passes it to Claude directly. The BettingEngine deep
+context (tier breakdowns, matrix signals, ML shadow) is available when running locally.
 
 ---
 
-## Build Phases
+## Tear-Down Checklist
 
-### Phase 1 — Coverage (close the ❌/⚠️ rows; this is most of the value)
-Server side (`baz_server.py`):
-1. **Fix the AFL market join** — populate `market` + `ev` in `_context_game_afl` from the
-   latest odds snapshot, and fill `tier_adjustments` from the pricing CSV columns. This is
-   the single highest-value fix: half of all games are AFL.
-2. **New `/odds/game` endpoint** — per-bookmaker current prices for a game (h2h/line/total),
-   best price per side flagged, plus movement timeline: opening (Monday baseline) → now,
-   built from `data/odds_snapshots/` + `data/odds_movements/deltas/`. Include any causal
-   tags from `data/odds_movements/tagged/` ("moved 4% after Tigers injury news Tue 10:12").
-3. **New `/history/matchup` endpoint** — H2H last 6 + each team's venue record from the
-   match-history data (same source as the UI History tab, `nrl_match_history` /
-   `afl_match_history`).
-
-Frontend (`app/api/chat/route.ts`): register three tools — `get_game_odds`,
-`get_line_movement` (can share the `/odds/game` payload), `get_matchup_history`.
-**Remember the middleware rule does not apply (chat route is server-side), but every
-new baz_server endpoint must respect the `X-Baz-Token` auth.**
-
-### Phase 2 — Judgment (make answers house-rule-compliant, not just data-rich)
-Encode the house rules in the system prompt so every recommendation:
-- States model line vs market line and **whether rules + ML agree** (the 2026-06-17
-  model-alignment rule — if they disagree, Baz must say "no bet" even on strong matrix signals)
-- Cites matrix confluence when present, with sample-size honesty (N<10 = anecdote)
-- Applies known model biases (NRL totals run 5–10 high; AFL extreme-ELO-gap undercook)
-- Gives staking as units off a fixed fractional-Kelly policy (policy to be agreed — default
-  suggestion: ¼ Kelly, 1u cap) and always says "advisory only"
-- Answers "bet now or wait?" honestly: until the market-event dataset matures, the answer
-  is CLV-informed heuristics ("NRL CLV is +5% betting Tue/Wed — early has been fine"), not prediction
-
-### Phase 3 — Depth (after Phases 1–2 prove out)
-- **Alt-line pricing**: expose a margin/total distribution (ML residual σ) so Baz can price
-  "Storm -13.5" instead of only the fair line
-- **Timing engine**: when the market-event pipeline has a season of tagged data (check-in
-  2026-07-24), graduate "bet now or wait" from heuristics to evidence
-- AFL umpire layer if a data source ever materialises (known missing layer)
+- [ ] Delete Cloudflare tunnel `betmate-baz` (ID: `ce4bfb19-82f6-4ffe-af06-e2c65636a323`) from Cloudflare dashboard
+- [ ] Remove `BAZ_TUNNEL_TOKEN` from Vercel env vars
+- [ ] Remove `BAZ_TUNNEL_URL` from Vercel env vars
+- [ ] Remove `~/.cloudflared/config.yml` on work machine
+- [ ] Update `app/api/chat/route.ts` — remove tunnel fetch, read from Supabase instead
+- [ ] Remove token auth middleware from `baz_server.py` (or retire the file entirely once chat route is rewired)
+- [ ] Remove "BetMate Baz Brain" Task Scheduler task on work machine
+- [ ] Remove `scripts/start_baz.ps1` (starts server + tunnel)
+- [ ] Clean up DNS: remove `baz.betmate.au` CNAME from Cloudflare
 
 ---
 
-## Definition of Done / Evaluation
+## The Question Taxonomy (unchanged from v1 — this is still the feature spec)
 
-Keep a battery of ~30 real questions (3–4 per taxonomy row, both sports) in
-`handover/baz_question_battery.md`. After each phase, run the battery against a live
-round and score each answer: **grounded** (used real data), **honest** (stated limits),
-**complete** (answered what was asked). Baz v2 ships when every taxonomy row passes
-on both sports. No new scope until the battery passes.
+Baz v2 is done when every row has a tick for both sports.
 
-## Explicitly Out of Scope (carried over from the v1 teardown)
+| # | Question class | Example | Status |
+|---|---------------|---------|--------|
+| 1 | **Value** | "Who should I bet on here?" | NRL tick, AFL needs market join |
+| 2 | **Reasoning** | "Why does the model like the Sharks?" | NRL tick, AFL tier notes empty |
+| 3 | **Price / line shopping** | "What's the best price on Storm?" | Needs odds snapshot access |
+| 4 | **Movement / timing** | "How's this line moved since Monday?" | Needs movement data access |
+| 5 | **History** | "H2H record?" | Supabase has it, needs wiring |
+| 6 | **Situational** | "Does the ref matter?" | NRL tick, AFL umpire data missing |
+| 7 | **Staking** | "How much should I put on it?" | Needs Kelly/unit policy |
+| 8 | **Accountability** | "How's the model been going?" | Working |
+| 9 | **Derived markets** | "What about alt line -13.5?" | Phase 3 (needs distribution) |
+
+---
+
+## Build Phases (updated for new architecture)
+
+### Phase 1 — Rewire (remove tunnel, connect to Supabase)
+1. Strip tunnel/token infrastructure (see tear-down checklist above)
+2. Update chat route to read predictions + odds + team news from Supabase
+3. Fix AFL market join — populate EV from odds snapshot data in Supabase
+4. Wire matchup history from Supabase (`nrl_match_history` / `afl_match_history`)
+
+### Phase 2 — Coverage (close the gaps in the taxonomy)
+1. Odds/line shopping — read per-bookmaker prices from snapshots in Supabase
+2. Movement/timing — expose movement data + causal tags
+3. Staking guidance — fractional Kelly, advisory only
+
+### Phase 3 — Depth (after Phases 1-2 prove out)
+- Alt-line pricing (margin/total distribution)
+- Timing engine (when market-event pipeline has a season of data)
+- AFL umpire layer if data source materialises
+
+---
+
+## Hard Rules (unchanged)
+- **Baz is advisory only — never places bets**
+- Pricing IP never leaves the local machine
+- Model alignment rule: if rules + ML disagree, Baz says "no bet"
+- Sample-size honesty on matrix signals (N<10 = anecdote)
+- State known model biases (NRL totals run high, AFL extreme-ELO undercook)
+
+## Out of Scope
 Telegram delivery, crypto agent, self-learning/auto-retraining, autonomous betting,
 proactive alerts. Baz answers questions; he doesn't push.

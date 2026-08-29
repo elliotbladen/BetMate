@@ -60,3 +60,4 @@ InPlayEngine/models/
 InPlayEngine/outputs/
 
 .vercel
+.env*

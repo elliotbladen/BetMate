@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-15T09:57:15.206868+00:00",
+  "game": {
+    "unixtime": 1786788600,
+    "ascore": 44,
+    "roundname": "Round 23",
+    "round": 23,
+    "complete": 32,
+    "ateamid": 11,
+    "hgoals": 3,
+    "hbehinds": 2,
+    "venue": "Adelaide Oval",
+    "winner": null,
+    "localtime": "2026-08-15 19:40:00",
+    "hteam": "Port Adelaide",
+    "year": 2026,
+    "is_final": 0,
+    "date": "2026-08-15 20:10:00",
+    "id": 38690,
+    "timestr": "Q2  8:34",
+    "ateam": "Melbourne",
+    "winnerteamid": null,
+    "tz": "+10:00",
+    "hscore": 20,
+    "hteamid": 13,
+    "agoals": 7,
+    "updated": "2026-08-15 20:57:16",
+    "is_grand_final": 0,
+    "abehinds": 2,
+    "_round_game_num": 6,
+    "fox_match_id": "AFL20262306"
+  }
+}

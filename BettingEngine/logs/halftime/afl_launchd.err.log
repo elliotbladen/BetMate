@@ -1,0 +1,31 @@
+python(42962) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 884, in <module>
+    main()
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 801, in main
+    odds = fetch_halftime_odds(stats["home_team"], stats["away_team"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 684, in fetch_halftime_odds
+    "odds_api_home": matched.get("home_team"),
+                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'matched' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 884, in <module>
+    main()
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 865, in main
+    odds = fetch_halftime_odds(stats["home_team"], stats["away_team"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 684, in fetch_halftime_odds
+    "odds_api_home": matched.get("home_team"),
+                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'matched' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 884, in <module>
+    main()
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 801, in main
+    odds = fetch_halftime_odds(stats["home_team"], stats["away_team"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/afl_ht_live.py", line 684, in fetch_halftime_odds
+    "odds_api_home": matched.get("home_team"),
+                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'matched' where it is not associated with a value

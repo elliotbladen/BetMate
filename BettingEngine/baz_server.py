@@ -549,10 +549,11 @@ def _context_afl() -> dict:
     for row in rows:
         home = row.get("home_team", "")
         away = row.get("away_team", "")
-        rules_home = _safe_float(row.get("rules_home_odds"), 0)
-        rules_away = _safe_float(row.get("rules_away_odds"), 0)
-        rules_margin = _safe_float(row.get("rules_margin"), 0)   # home perspective
-        rules_total = _safe_float(row.get("rules_total"), 0)
+        # Use primary (hybrid) model with fallback to rules for older data
+        pri_home = _safe_float(row.get("primary_home_odds", row.get("rules_home_odds")), 0)
+        pri_away = _safe_float(row.get("primary_away_odds", row.get("rules_away_odds")), 0)
+        pri_margin = _safe_float(row.get("primary_margin", row.get("rules_margin")), 0)
+        pri_total = _safe_float(row.get("primary_total", row.get("rules_total")), 0)
         ml_margin = _safe_float(row.get("ml_margin"), 0)
         ml_total = _safe_float(row.get("ml_total"), 0)
         ml_prob = _safe_float(row.get("ml_h2h"), 0)
@@ -566,17 +567,17 @@ def _context_afl() -> dict:
         mkt_home = mkt.get("home", 0)
         mkt_away = mkt.get("away", 0)
 
-        # EV: use rules model fair odds vs market average
-        home_ev = _ev_pct(rules_home, mkt_home) if rules_home and mkt_home else 0.0
-        away_ev = _ev_pct(rules_away, mkt_away) if rules_away and mkt_away else 0.0
+        # EV: use primary model fair odds vs market average
+        home_ev = _ev_pct(pri_home, mkt_home) if pri_home and mkt_home else 0.0
+        away_ev = _ev_pct(pri_away, mkt_away) if pri_away and mkt_away else 0.0
 
         game_summary = {
             "home": home, "away": away,
             "date": row.get("game_date", ""), "kickoff": "",
             "venue": row.get("venue", ""),
-            "model_h2h": {"home": rules_home, "away": rules_away},
+            "model_h2h": {"home": pri_home, "away": pri_away},
             "market_h2h": {"home": mkt_home, "away": mkt_away},
-            "model_hcap": rules_margin, "model_total": rules_total,
+            "model_hcap": pri_margin, "model_total": pri_total,
             "ml_model": {"margin": ml_margin, "total": ml_total,
                          "home_odds": ml_home_odds, "away_odds": ml_away_odds},
             "ev": {"home_h2h": home_ev, "away_h2h": away_ev},
@@ -734,10 +735,11 @@ def _context_game_afl(home: str, away: str) -> dict:
     if not match:
         raise HTTPException(status_code=404, detail=f"AFL game not found: {home} vs {away}")
 
-    rules_home = _safe_float(match.get("rules_home_odds"), 0)
-    rules_away = _safe_float(match.get("rules_away_odds"), 0)
-    rules_margin = _safe_float(match.get("rules_margin"), 0)
-    rules_total = _safe_float(match.get("rules_total"), 0)
+    # Use primary (hybrid) model with fallback to rules for older data
+    pri_home = _safe_float(match.get("primary_home_odds", match.get("rules_home_odds")), 0)
+    pri_away = _safe_float(match.get("primary_away_odds", match.get("rules_away_odds")), 0)
+    pri_margin = _safe_float(match.get("primary_margin", match.get("rules_margin")), 0)
+    pri_total = _safe_float(match.get("primary_total", match.get("rules_total")), 0)
     ml_margin = _safe_float(match.get("ml_margin"), 0)
     ml_total = _safe_float(match.get("ml_total"), 0)
     ml_prob = _safe_float(match.get("ml_h2h"), 0)
@@ -762,10 +764,10 @@ def _context_game_afl(home: str, away: str) -> dict:
         "kickoff": "",
         "venue": match.get("venue", ""),
         "model": {
-            "fair_home_odds": rules_home,
-            "fair_away_odds": rules_away,
-            "hcap_line": rules_margin,
-            "total_line": rules_total,
+            "fair_home_odds": pri_home,
+            "fair_away_odds": pri_away,
+            "hcap_line": pri_margin,
+            "total_line": pri_total,
         },
         "ml_model": {
             "margin": ml_margin,

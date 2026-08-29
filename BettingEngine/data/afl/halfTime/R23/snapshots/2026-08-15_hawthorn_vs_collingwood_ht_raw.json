@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-15T09:57:18.101347+00:00",
+  "game": {
+    "unixtime": 1786786800,
+    "ascore": 47,
+    "roundname": "Round 23",
+    "round": 23,
+    "complete": 50,
+    "ateamid": 4,
+    "hgoals": 3,
+    "hbehinds": 7,
+    "venue": "M.C.G.",
+    "winner": null,
+    "localtime": "2026-08-15 19:40:00",
+    "hteam": "Hawthorn",
+    "year": 2026,
+    "is_final": 0,
+    "date": "2026-08-15 19:40:00",
+    "id": 38686,
+    "timestr": "1/2 Time",
+    "ateam": "Collingwood",
+    "winnerteamid": null,
+    "tz": "+10:00",
+    "hscore": 25,
+    "hteamid": 10,
+    "agoals": 7,
+    "updated": "2026-08-15 20:47:20",
+    "is_grand_final": 0,
+    "abehinds": 5,
+    "_round_game_num": 5,
+    "fox_match_id": "AFL20262305"
+  }
+}

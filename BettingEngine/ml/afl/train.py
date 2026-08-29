@@ -154,15 +154,12 @@ def train_and_evaluate(df: pd.DataFrame, feature_cols: list[str], target: str,
     X_test  = test[feature_cols].copy()
     y_test  = test[target]
 
-    # Smart imputation: mkt_home_prob_open NaN → fall back to elo_win_prob
-    # (avoids 0 as imputed probability which would corrupt EV calc)
+    # Never manufacture a market input from ELO. XGBoost handles a genuinely
+    # missing market value natively; non-market feature gaps retain the legacy
+    # zero-imputation contract.
     for X in (X_train, X_val, X_test):
-        if 'mkt_home_prob_open' in X.columns and 'elo_win_prob' in X.columns:
-            X['mkt_home_prob_open'] = X['mkt_home_prob_open'].fillna(X['elo_win_prob'])
-
-    X_train = X_train.fillna(0)
-    X_val   = X_val.fillna(0)
-    X_test  = X_test.fillna(0)
+        non_market = [c for c in X.columns if c != 'mkt_home_prob_open']
+        X.loc[:, non_market] = X[non_market].fillna(0)
 
     # Exponential time-decay weights — upweights recent games within training window
     n = len(X_train)

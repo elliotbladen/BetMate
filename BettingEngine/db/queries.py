@@ -926,6 +926,44 @@ def get_team_stats(
     return dict(row) if row else None
 
 
+def get_recent_team_results(
+    conn: sqlite3.Connection,
+    team_id: int,
+    season: int,
+    before_date: str,
+    limit: int = 5,
+) -> list[dict]:
+    """
+    Return a team's completed recent results before a pricing date.
+
+    Scores are normalised to the requested team's perspective, so every
+    record has points_for and points_against regardless of whether the team
+    was home or away. Same-date games are deliberately excluded: match_date
+    has no reliable ordering within a day, and including one could leak a
+    completed result into another game's pre-match price.
+    """
+    rows = conn.execute(
+        """
+        SELECT m.match_date,
+               CASE WHEN m.home_team_id = ? THEN r.home_score ELSE r.away_score END
+                   AS points_for,
+               CASE WHEN m.home_team_id = ? THEN r.away_score ELSE r.home_score END
+                   AS points_against,
+               CASE WHEN m.home_team_id = ? THEN 1 ELSE 0 END AS is_home
+        FROM matches m
+        JOIN results r ON r.match_id = m.match_id
+        WHERE m.season = ?
+          AND ? IN (m.home_team_id, m.away_team_id)
+          AND m.match_date < ?
+          AND r.result_status = 'final'
+        ORDER BY m.match_date DESC, m.match_id DESC
+        LIMIT ?
+        """,
+        (team_id, team_id, team_id, season, team_id, before_date, limit),
+    ).fetchall()
+    return [dict(row) for row in rows]
+
+
 def get_prior_season_stats(
     conn: sqlite3.Connection,
     team_id: int,

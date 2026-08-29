@@ -1,0 +1,71 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-16",
+  "home_team": "Essendon",
+  "away_team": "Sydney",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-16T07:01:38.300447+00:00",
+  "odds_api_game_id": "9a93841d22a76fb879edbc6b2ce7c830",
+  "odds_api_home": "Essendon Bombers",
+  "odds_api_away": "Sydney Swans",
+  "commence_time": "2026-08-16T06:42:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 201.0,
+        "away": 1.0
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": 87.5,
+        "away_price": 1.87,
+        "away_point": -87.5
+      },
+      "totals": {
+        "over_price": 1.85,
+        "over_point": 208.5,
+        "under_price": 1.87,
+        "under_point": 208.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 26.0,
+        "away": 1.01
+      }
+    },
+    "tabtouch": {
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": 76.5,
+        "away_price": 1.83,
+        "away_point": -76.5
+      },
+      "totals": {
+        "over_price": 1.88,
+        "over_point": 204.5,
+        "under_price": 1.83,
+        "under_point": 204.5
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 23.0,
+        "away": 1.01
+      },
+      "spreads": {
+        "home_price": 1.8,
+        "home_point": 87.5,
+        "away_price": 1.95,
+        "away_point": -87.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 209.5,
+        "under_price": 1.87,
+        "under_point": 209.5
+      }
+    }
+  }
+}

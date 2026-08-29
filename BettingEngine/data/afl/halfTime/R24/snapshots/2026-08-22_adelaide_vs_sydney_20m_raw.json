@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-22T10:44:21.062747+00:00",
+  "game": {
+    "localtime": "2026-08-22 19:40:00",
+    "ascore": 10,
+    "id": 38699,
+    "tz": "+10:00",
+    "hteam": "Adelaide",
+    "is_final": 0,
+    "agoals": 1,
+    "hbehinds": 2,
+    "roundname": "Round 24",
+    "ateamid": 9,
+    "date": "2026-08-22 20:10:00",
+    "winner": null,
+    "winnerteamid": null,
+    "hteamid": 1,
+    "complete": 25,
+    "abehinds": 4,
+    "is_grand_final": 0,
+    "hgoals": 9,
+    "venue": "Adelaide Oval",
+    "ateam": "Greater Western Sydney",
+    "unixtime": 1787393400,
+    "updated": "2026-08-22 20:43:45",
+    "round": 24,
+    "timestr": "1/4 Time",
+    "hscore": 56,
+    "year": 2026,
+    "_round_game_num": 6,
+    "fox_match_id": "AFL20262406"
+  }
+}

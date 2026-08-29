@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-22T06:48:32.228326+00:00",
+  "game": {
+    "localtime": "2026-08-22 16:15:00",
+    "ascore": 34,
+    "id": 38696,
+    "tz": "+10:00",
+    "hteam": "Melbourne",
+    "is_final": 0,
+    "agoals": 5,
+    "hbehinds": 2,
+    "roundname": "Round 24",
+    "ateamid": 18,
+    "winner": null,
+    "date": "2026-08-22 16:15:00",
+    "winnerteamid": null,
+    "hteamid": 11,
+    "abehinds": 4,
+    "complete": 25,
+    "hgoals": 3,
+    "is_grand_final": 0,
+    "venue": "M.C.G.",
+    "ateam": "Western Bulldogs",
+    "unixtime": 1787379300,
+    "updated": "2026-08-22 16:48:11",
+    "round": 24,
+    "timestr": "1/4 Time",
+    "hscore": 20,
+    "year": 2026,
+    "_round_game_num": 4,
+    "fox_match_id": "AFL20262404"
+  }
+}

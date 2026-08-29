@@ -1,0 +1,43 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "Hawthorn",
+  "away_team": "Collingwood",
+  "venue": "M.C.G.",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-15T09:57:05.841292+00:00",
+  "home_ht_score": 15,
+  "away_ht_score": 12,
+  "home_goals": 2,
+  "home_behinds": 3,
+  "away_goals": 2,
+  "away_behinds": 0,
+  "squiggle_id": 38686,
+  "round_game_num": 5,
+  "fox_match_id": "AFL20262305",
+  "timestr": "Q1 16:35",
+  "notes": "",
+  "snapshot_label": "10m",
+  "snapshot_complete_pct": 13.0,
+  "home_inside_50s": 6,
+  "home_clearances": 4,
+  "home_clangers": 8,
+  "away_inside_50s": 8,
+  "away_clearances": 4,
+  "away_clangers": 7,
+  "live_stats_source": "footywire",
+  "live_stats_sources": [
+    "footywire",
+    "foxsports"
+  ],
+  "live_stats_status": "complete",
+  "footywire_mid": 11597,
+  "live_stats_crosscheck": "disagreement",
+  "live_stats_disagreements": {
+    "home_clangers": {
+      "footywire": 8,
+      "foxsports": 7
+    }
+  }
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/line_mover/scrape_ladder.py", line 23, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/line_mover/scrape_team_lists.py", line 22, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/line_mover/predict_movement.py", line 30, in <module>
+    import openpyxl
+ModuleNotFoundError: No module named 'openpyxl'

@@ -70,7 +70,8 @@ FEATURES_MARGIN_TOTAL = [
     # Flags
     'is_final',
 
-    # Market signal — opening implied probability (NaN → filled with elo_win_prob)
+    # Market signal — opening implied probability. Missing means unavailable;
+    # it must never be replaced with an ELO/model probability.
     'mkt_home_prob_open',
 ]
 
@@ -124,3 +125,9 @@ FEATURES_H2H = [
     # Market signal
     'mkt_home_prob_open',
 ]
+
+# Versioned H2H contracts.  The legacy reconstruction is deliberately
+# market-independent; the current candidate is evaluated and deployed in shadow
+# only when a genuine bookmaker probability is present.
+FEATURES_H2H_LEGACY = [c for c in FEATURES_H2H if c != 'mkt_home_prob_open']
+FEATURES_H2H_SHADOW = FEATURES_H2H.copy()
