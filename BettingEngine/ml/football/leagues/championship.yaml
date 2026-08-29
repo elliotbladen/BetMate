@@ -15,7 +15,8 @@ name: EFL Championship
 data:
   matches_csv: matches/championship_matches.csv
   xg_csv: null                        # goals-fed — no xG source for this league
-  ppda_csv: null                      # no PPDA — T2 inactive in v1
+  ppda_csv: style/ppda_dated.csv      # manual FBref seed — update weekly
+  clubelo_csv: clubelo/season_ratings.csv  # run fetch/fetch_clubelo.py to populate
   clv_dir: clv
   xg_fallback_factor: 1.0             # unused in goals-fed mode
 
@@ -23,7 +24,7 @@ source:
   provider: football-data
   league_code: E1
   seasons_from: "2014/15"
-  seasons_to: "2025/26"               # 2025/26 fetched for the vault run ONLY
+  seasons_to: "2026/27"               # live season; 2025/26 remains the sealed evaluation vault
 
 model:
   rho: -0.13                          # start at EPL value; revisit vs ~33% draw rate
@@ -50,7 +51,7 @@ backtest:
                     "2021/22", "2022/23", "2023/24", "2024/25"]
 
 tiers:
-  league_ppda_sum: 23.0               # unused (no PPDA data)
+  league_ppda_sum: 24.0               # 2 x 12.0 avg Championship opponent-shots proxy
   league_ref_goals: 1.416             # [E1-DERIVED] avg FTHG across 127 refs, n=6072 (pristine data, vault excluded)
   short_rest_days: 3                  # [E1-DERIVED] E1 median rest is 4d and 50.3% of games
                                       # are <=4d — EPL threshold would penalise half the league.
@@ -61,6 +62,27 @@ tiers:
   sp_xg_per_corner: 0.042
   sp_weight: 0.35
   sp_cap: 0.08
-  ppda_goals_coef: -0.007             # unused (no PPDA data)
+  ppda_goals_coef: -0.007             # each 1pt ppda_sum above avg → -0.007 xG per team
   form_goals_coef: 0.008
   ref_goals_coef: 0.5
+  # T8: season-reset prior for the 6 new teams each August
+  # Prior decays linearly to 0 by game 15. ELO scale: +600pts ≈ +0.15 xG.
+  # Avg champ ELO ~1440 (from fetched data). Relegated PL team ~1600-1700,
+  # promoted L1 team ~1200-1300 → diffs of +200 to -200 → ±0.05 xG at full weight.
+  t8_decay_games: 15
+  t8_max_adj: 0.15
+  t8_elo_scale: 600.0
+  # T9: new manager bounce
+  t9_manager_adj: 0.07
+
+# Opening-round priors when ClubElo is unavailable. Values are Elo points
+# relative to an established Championship club and are intentionally modest.
+# Relegated PL: Burnley, West Ham, Wolves. Promoted L1: Bolton, Cardiff, Lincoln.
+new_team_elo_priors:
+  "2026/27":
+    Burnley: 180
+    West Ham: 180
+    Wolves: 180
+    Bolton: -180
+    Cardiff: -180
+    Lincoln: -180

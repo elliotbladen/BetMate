@@ -18,6 +18,7 @@ REFS = [
     ("Todd Smith",     "todd-smith-ref"),
     ("Peter Gough",    "peter-gough-ref"),
     ("Wyatt Raymond",  "wyatt-raymond-ref"),
+    ("Liam Kennedy",   "liam-kennedy-ref"),
 ]
 
 BASE_URL = "https://www.rugbyleagueproject.org/referees/{slug}/games.html"

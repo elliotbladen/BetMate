@@ -1,0 +1,42 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-16",
+  "home_team": "Essendon",
+  "away_team": "Sydney",
+  "venue": "M.C.G.",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-16T07:54:10.079873+00:00",
+  "home_ht_score": 46,
+  "away_ht_score": 70,
+  "home_goals": 7,
+  "home_behinds": 4,
+  "away_goals": 11,
+  "away_behinds": 4,
+  "squiggle_id": 38684,
+  "round_game_num": 9,
+  "fox_match_id": "AFL20262309",
+  "timestr": "1/2 Time",
+  "notes": "",
+  "capture_quality": "exact_halftime",
+  "home_inside_50s": 29,
+  "home_clearances": 21,
+  "home_clangers": 21,
+  "away_inside_50s": 27,
+  "away_clearances": 21,
+  "away_clangers": 37,
+  "live_stats_source": "footywire",
+  "live_stats_sources": [
+    "footywire",
+    "foxsports"
+  ],
+  "live_stats_status": "complete",
+  "footywire_mid": 11595,
+  "live_stats_crosscheck": "disagreement",
+  "live_stats_disagreements": {
+    "away_clangers": {
+      "footywire": 37,
+      "foxsports": 36
+    }
+  }
+}

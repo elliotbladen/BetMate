@@ -1,0 +1,196 @@
+{
+  "sport": "AFL",
+  "scraped_at": "2026-08-13T23:12:17.568829+00:00",
+  "teams": {
+    "Fremantle Dockers": {
+      "ins": [
+        "A Pearce",
+        "C Scerri"
+      ],
+      "outs": [
+        "J McVee",
+        "M Reid"
+      ]
+    },
+    "Adelaide Crows": {
+      "ins": [
+        "D Fogarty",
+        "J Borlase",
+        "L McAndrew",
+        "J Soligo",
+        "L Nankervis",
+        "T Murray"
+      ],
+      "outs": [
+        "T Walker",
+        "A N-Bullen",
+        "R O'Brien",
+        "B Dowling",
+        "O Ryan",
+        "A Ludowyke"
+      ]
+    },
+    "Richmond Tigers": {
+      "ins": [
+        "L Trainor",
+        "H Armstrong"
+      ],
+      "outs": [
+        "S Ryan",
+        "T Sonsie"
+      ]
+    },
+    "St Kilda Saints": {
+      "ins": [
+        "J Macrae",
+        "D Butler",
+        "A Hastie",
+        "T Travaglia",
+        "A Tauru"
+      ],
+      "outs": [
+        "M Wood",
+        "L Ryan",
+        "H Clark",
+        "N W-Milera",
+        "A Caminiti"
+      ]
+    },
+    "North Melbourne Kangaroos": {
+      "ins": [],
+      "outs": []
+    },
+    "Geelong Cats": {
+      "ins": [
+        "P Dangerfield",
+        "M Edwards"
+      ],
+      "outs": [
+        "J Martin",
+        "S De Koning"
+      ]
+    },
+    "Brisbane Lions": {
+      "ins": [],
+      "outs": []
+    },
+    "Gold Coast Suns": {
+      "ins": [
+        "S Collins",
+        "B Addinsall"
+      ],
+      "outs": [
+        "J Farrar",
+        "Z Uwland"
+      ]
+    },
+    "Hawthorn Hawks": {
+      "ins": [
+        "B Macdonald",
+        "M Beattie"
+      ],
+      "outs": [
+        "N Reeves",
+        "S Butler"
+      ]
+    },
+    "Collingwood Magpies": {
+      "ins": [
+        "S Pendlebury",
+        "J De Goey"
+      ],
+      "outs": [
+        "H Harrison",
+        "L Sullivan"
+      ]
+    },
+    "Port Adelaide Power": {
+      "ins": [
+        "M Georgiades",
+        "L Jones",
+        "J Richards",
+        "X Bamert"
+      ],
+      "outs": [
+        "D B-Jones",
+        "J Mead",
+        "W Lorenz",
+        "C Moraes"
+      ]
+    },
+    "Melbourne Demons": {
+      "ins": [],
+      "outs": []
+    },
+    "Greater Western Sydney Giants": {
+      "ins": [
+        "J Riccardi",
+        "C Stone",
+        "T McMullin",
+        "C Angove",
+        "J Ough"
+      ],
+      "outs": [
+        "J Laverde",
+        "X O'Halloran"
+      ]
+    },
+    "West Coast Eagles": {
+      "ins": [
+        "M Flynn",
+        "H Schoenberg",
+        "H Davis"
+      ],
+      "outs": []
+    },
+    "Western Bulldogs": {
+      "ins": [
+        "O Baker",
+        "L McNeil",
+        "J Busslinger",
+        "L Kennedy",
+        "L Carmichael",
+        "L Emmett"
+      ],
+      "outs": [
+        "M Bontempelli",
+        "T English",
+        "N Coffield"
+      ]
+    },
+    "Carlton Blues": {
+      "ins": [
+        "J Weitering",
+        "J Boyd",
+        "J Ison"
+      ],
+      "outs": []
+    },
+    "Essendon Bombers": {
+      "ins": [
+        "N Bryan",
+        "H Jones",
+        "E Tsatas",
+        "A Clarke",
+        "L Blakiston"
+      ],
+      "outs": [
+        "S Durham",
+        "Z Johnson"
+      ]
+    },
+    "Sydney Swans": {
+      "ins": [
+        "B Grundy",
+        "D Rampe",
+        "A Sheldrick",
+        "C Cleary"
+      ],
+      "outs": [
+        "L Melican"
+      ]
+    }
+  },
+  "page_title": "AFL Team Selections",
+  "round": 23
+}

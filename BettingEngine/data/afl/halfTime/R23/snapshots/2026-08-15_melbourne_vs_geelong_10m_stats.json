@@ -1,0 +1,51 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "North Melbourne",
+  "away_team": "Geelong",
+  "venue": "Docklands",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-15T06:01:44.977951+00:00",
+  "home_ht_score": 24,
+  "away_ht_score": 6,
+  "home_goals": 4,
+  "home_behinds": 0,
+  "away_goals": 1,
+  "away_behinds": 0,
+  "squiggle_id": 38687,
+  "round_game_num": 3,
+  "fox_match_id": "AFL20262303",
+  "timestr": "Q1 15:50",
+  "notes": "",
+  "snapshot_label": "10m",
+  "snapshot_complete_pct": 13.0,
+  "home_inside_50s": 8,
+  "home_clearances": 9,
+  "home_clangers": 7,
+  "away_inside_50s": 7,
+  "away_clearances": 4,
+  "away_clangers": 9,
+  "live_stats_source": "footywire",
+  "live_stats_sources": [
+    "footywire",
+    "foxsports"
+  ],
+  "live_stats_status": "complete",
+  "footywire_mid": 11598,
+  "live_stats_crosscheck": "disagreement",
+  "live_stats_disagreements": {
+    "away_inside_50s": {
+      "footywire": 7,
+      "foxsports": 6
+    },
+    "away_clearances": {
+      "footywire": 4,
+      "foxsports": 2
+    },
+    "away_clangers": {
+      "footywire": 9,
+      "foxsports": 8
+    }
+  }
+}

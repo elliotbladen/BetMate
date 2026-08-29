@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-16T04:18:17.640774+00:00",
+  "game": {
+    "hteam": "Greater Western Sydney",
+    "ascore": 31,
+    "localtime": "2026-08-16 13:40:00",
+    "ateamid": 17,
+    "is_grand_final": 0,
+    "unixtime": 1786851600,
+    "hgoals": 5,
+    "round": 23,
+    "updated": "2026-08-16 14:15:18",
+    "complete": 25,
+    "year": 2026,
+    "is_final": 0,
+    "hbehinds": 2,
+    "winner": null,
+    "timestr": "1/4 Time",
+    "abehinds": 1,
+    "id": 38685,
+    "agoals": 5,
+    "date": "2026-08-16 13:40:00",
+    "roundname": "Round 23",
+    "tz": "+10:00",
+    "venue": "Sydney Showground",
+    "winnerteamid": null,
+    "hteamid": 9,
+    "ateam": "West Coast",
+    "hscore": 32,
+    "_round_game_num": 7,
+    "fox_match_id": "AFL20262307"
+  }
+}

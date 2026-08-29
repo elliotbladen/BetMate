@@ -1,0 +1,298 @@
+Scraping AFL ladder...
+  18 teams loaded
+     1. Fremantle Dockers
+     2. Sydney Swans
+     3. Hawthorn Hawks
+     4. Brisbane Lions
+     5. Adelaide Crows
+     6. Melbourne Demons
+     7. Geelong Cats
+     8. Collingwood Magpies
+     9. Western Bulldogs
+    10. Carlton Blues
+    11. St Kilda Saints
+    12. Greater Western Sydney Giants
+    13. North Melbourne Kangaroos
+    14. Gold Coast Suns
+    15. Port Adelaide Power
+    16. West Coast Eagles
+    17. Richmond Tigers
+    18. Essendon Bombers
+  Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/afl_ladder.json
+Scraping AFL team lists...
+Round: 22
+Teams with ins/outs: 18
+Total ins: 51, total outs: 48
+Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/team_lists/afl_r22_2026-08-13.json
+Latest: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/team_lists/afl_latest.json
+Auto-detected round: 23
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R23 2026
+  Started: 2026-08-13 18:27:05
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  WARNING: AFL source is Round 22, expected Round 23
+
+  Refusing to publish a movement prediction without valid team-list changes
+Scraping AFL ladder...
+  18 teams loaded
+     1. Fremantle Dockers
+     2. Sydney Swans
+     3. Brisbane Lions
+     4. Hawthorn Hawks
+     5. Melbourne Demons
+     6. Geelong Cats
+     7. Adelaide Crows
+     8. Collingwood Magpies
+     9. Western Bulldogs
+    10. Carlton Blues
+    11. St Kilda Saints
+    12. Greater Western Sydney Giants
+    13. North Melbourne Kangaroos
+    14. Gold Coast Suns
+    15. Port Adelaide Power
+    16. West Coast Eagles
+    17. Richmond Tigers
+    18. Essendon Bombers
+  Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/afl_ladder.json
+Scraping AFL team lists...
+ERROR: incomplete team-list parse: {'matchups': 1, 'teams_parsed': 2, 'interchange_tables': 2}
+Auto-detected round: 24
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R24 2026
+  Started: 2026-08-20 18:25:00
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  WARNING: Scrape AFL team lists exited with code 3
+
+  Refusing to publish a movement prediction without valid team-list changes
+Scraping AFL ladder...
+  18 teams loaded
+     1. Fremantle Dockers
+     2. Sydney Swans
+     3. Brisbane Lions
+     4. Hawthorn Hawks
+     5. Melbourne Demons
+     6. Geelong Cats
+     7. Adelaide Crows
+     8. Collingwood Magpies
+     9. Western Bulldogs
+    10. Carlton Blues
+    11. St Kilda Saints
+    12. Greater Western Sydney Giants
+    13. North Melbourne Kangaroos
+    14. Gold Coast Suns
+    15. Port Adelaide Power
+    16. West Coast Eagles
+    17. Richmond Tigers
+    18. Essendon Bombers
+  Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/afl_ladder.json
+Scraping AFL team lists...
+Round: 24
+Teams with ins/outs: 18
+Total ins: 56, total outs: 38
+Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/team_lists/afl_r24_2026-08-21.json
+Latest: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/team_lists/afl_latest.json
+
+======================================================================
+  LINE MOVEMENT PREDICTOR — AFL R24 2026
+======================================================================
+
+Loading data...
+  ELO data: 18 teams
+  Historical matchups: 108 pairs
+  Team lists: 18 teams with ins/outs
+  Verified injury records: 143
+  Projected availability: 0 players
+  Ladder: 18 teams
+  Fixture: 8 games
+
+Game                                               Shortens                    Conf    Totals
+-----------------------------------------------------------------------------------------------
+  Magpies vs Lions                                 Lions                         8%      EVEN
+  Blues vs Dockers                                 Dockers                      22%      EVEN
+  Demons vs Bulldogs                               Bulldogs                      4%      EVEN
+  Cats vs Tigers                                   Cats                         56%      EVEN
+  Crows vs Giants                                  Crows                        23%      EVEN
+  Bombers vs Power                                 Power                        20%      EVEN
+  Swans vs Kangaroos                               Swans                        47%      EVEN
+  Eagles vs Hawks                                  Hawks                        47%      EVEN
+
+Feature breakdown:
+  Game                            Injury     ELO  Finals    Hist  Public    Form   Venue   TOTAL
+  ------------------------------------------------------------------------------
+  Magpies v Lions                +0.000 -0.190 -0.200 +0.000 +0.300 -0.119 +0.000 -0.0499
+  Blues v Dockers                +0.000 -0.433 -0.400 +0.000 +0.300 -0.271 +0.000 -0.1436
+  Demons v Bulldogs              -0.400 +0.116 +0.300 +0.000 +0.000 +0.072 +0.000 -0.0246
+  Cats v Tigers                  +0.200 +1.000 +0.600 +0.000 -0.300 +0.500 +0.300 +0.3750
+  Crows v Giants                 +0.000 +0.233 +0.600 +0.000 +0.000 +0.146 +0.000 +0.1513
+  Bombers v Power                -0.200 -0.428 +0.000 +0.000 +0.300 -0.268 +0.000 -0.1324
+  Swans v Kangaroos              +0.200 +0.660 +0.600 +0.000 +0.000 +0.412 +0.000 +0.3132
+  Eagles v Hawks                 +0.200 -0.970 -0.600 +0.000 -0.300 -0.500 +0.000 -0.3141
+
+Predictions saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/predictions/afl_r24_2026-08-21_confirmation.json
+Latest pointer: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/predictions/afl_latest.json
+Auto-detected round: 24
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R24 2026
+  Started: 2026-08-21 09:05:00
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  Validated team-list changes for 18 AFL teams
+
+============================================================
+  STEP: Predict AFL R24 line movements
+============================================================
+
+
+############################################################
+  PIPELINE COMPLETE — AFL R24
+  Finished: 2026-08-21 09:05:05
+############################################################
+
+Scraping AFL ladder...
+  18 teams loaded
+     1. Fremantle Dockers
+     2. Sydney Swans
+     3. Brisbane Lions
+     4. Hawthorn Hawks
+     5. Geelong Cats
+     6. Adelaide Crows
+     7. Melbourne Demons
+     8. Western Bulldogs
+     9. Collingwood Magpies
+    10. Carlton Blues
+    11. St Kilda Saints
+    12. Greater Western Sydney Giants
+    13. Gold Coast Suns
+    14. North Melbourne Kangaroos
+    15. Port Adelaide Power
+    16. West Coast Eagles
+    17. Richmond Tigers
+    18. Essendon Bombers
+  Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/afl_ladder.json
+Scraping AFL team lists...
+Round: 24
+Teams with ins/outs: 18
+Total ins: 44, total outs: 41
+Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/team_lists/afl_r24_2026-08-27.json
+Latest: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/team_lists/afl_latest.json
+
+======================================================================
+  LINE MOVEMENT PREDICTOR — AFL R24 2026
+======================================================================
+
+Loading data...
+ERROR: No fixture found for AFL R24 2026
+Auto-detected round: 24
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R24 2026
+  Started: 2026-08-27 18:25:00
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  Validated team-list changes for 18 AFL teams
+
+============================================================
+  STEP: Predict AFL R24 line movements
+============================================================
+
+
+  WARNING: Predict AFL R24 line movements exited with code 1
+
+############################################################
+  PIPELINE FINISHED WITH WARNINGS — AFL R24
+  Finished: 2026-08-27 18:25:20
+############################################################
+
+Scraping AFL ladder...
+Scraping AFL team lists...
+Auto-detected round: 24
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R24 2026
+  Started: 2026-08-27 19:05:00
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+  WARNING: Scrape AFL ladder exited with code 1
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  WARNING: Scrape AFL team lists exited with code 1
+
+  Refusing to publish a movement prediction without valid team-list changes
+Scraping AFL ladder...
+Scraping AFL team lists...
+Auto-detected round: 24
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R24 2026
+  Started: 2026-08-28 09:54:37
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+  WARNING: Scrape AFL ladder exited with code 1
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  WARNING: Scrape AFL team lists exited with code 1
+
+  Refusing to publish a movement prediction without valid team-list changes

@@ -1,0 +1,124 @@
+{
+  "metrics": [
+    {
+      "model": "legacy_primary",
+      "season": 2023,
+      "games": 216,
+      "accuracy": 0.6296296296296297,
+      "log_loss": 0.6896541269475291,
+      "brier": 0.2347821146249771
+    },
+    {
+      "model": "current_shadow",
+      "season": 2023,
+      "games": 216,
+      "accuracy": 0.6388888888888888,
+      "log_loss": 0.6505693305144483,
+      "brier": 0.22303293645381927
+    },
+    {
+      "model": "legacy_primary",
+      "season": 2024,
+      "games": 216,
+      "accuracy": 0.6435185185185185,
+      "log_loss": 0.6628317049947902,
+      "brier": 0.23307283222675323
+    },
+    {
+      "model": "current_shadow",
+      "season": 2024,
+      "games": 216,
+      "accuracy": 0.5879629629629629,
+      "log_loss": 0.6522267379623516,
+      "brier": 0.23026561737060547
+    },
+    {
+      "model": "legacy_primary",
+      "season": 2025,
+      "games": 216,
+      "accuracy": 0.6712962962962963,
+      "log_loss": 0.5823104833974542,
+      "brier": 0.19932276010513306
+    },
+    {
+      "model": "current_shadow",
+      "season": 2025,
+      "games": 216,
+      "accuracy": 0.6759259259259259,
+      "log_loss": 0.6325661837012725,
+      "brier": 0.21343357861042023
+    }
+  ],
+  "closing_roi": [
+    {
+      "bets": 487,
+      "profit": -32.74600000000001,
+      "roi": -0.06724024640657086,
+      "model": "current_shadow",
+      "threshold": 0.05
+    },
+    {
+      "bets": 417,
+      "profit": -32.919,
+      "roi": -0.07894244604316546,
+      "model": "current_shadow",
+      "threshold": 0.07
+    },
+    {
+      "bets": 321,
+      "profit": -40.873999999999995,
+      "roi": -0.12733333333333333,
+      "model": "current_shadow",
+      "threshold": 0.1
+    },
+    {
+      "bets": 205,
+      "profit": -42.83500000000001,
+      "roi": -0.20895121951219517,
+      "model": "current_shadow",
+      "threshold": 0.15
+    },
+    {
+      "bets": 122,
+      "profit": -32.727,
+      "roi": -0.2682540983606557,
+      "model": "current_shadow",
+      "threshold": 0.2
+    },
+    {
+      "bets": 463,
+      "profit": -34.503,
+      "roi": -0.07452051835853132,
+      "model": "legacy_primary",
+      "threshold": 0.05
+    },
+    {
+      "bets": 395,
+      "profit": -27.206000000000003,
+      "roi": -0.06887594936708862,
+      "model": "legacy_primary",
+      "threshold": 0.07
+    },
+    {
+      "bets": 305,
+      "profit": -22.897000000000002,
+      "roi": -0.075072131147541,
+      "model": "legacy_primary",
+      "threshold": 0.1
+    },
+    {
+      "bets": 202,
+      "profit": -16.727,
+      "roi": -0.08280693069306931,
+      "model": "legacy_primary",
+      "threshold": 0.15
+    },
+    {
+      "bets": 122,
+      "profit": 0.45500000000000096,
+      "roi": 0.0037295081967213192,
+      "model": "legacy_primary",
+      "threshold": 0.2
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "North Melbourne",
+  "away_team": "Geelong",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-15T06:55:31.839015+00:00",
+  "odds_api_game_id": "697350f813b51a5831908dfe60ac2ec8",
+  "odds_api_home": "North Melbourne Kangaroos",
+  "odds_api_away": "Geelong Cats",
+  "commence_time": "2026-08-15T05:46:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "away": 1.12,
+        "home": 5.6
+      },
+      "spreads": {
+        "away_price": 1.85,
+        "away_point": -23.5,
+        "home_price": 1.89,
+        "home_point": 23.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 214.5,
+        "under_price": 1.87,
+        "under_point": 214.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "away": 1.18,
+        "home": 4.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "away": 1.1,
+        "home": 3.85
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "away": 1.13,
+        "home": 5.5
+      },
+      "spreads": {
+        "away_price": 1.8,
+        "away_point": -24.5,
+        "home_price": 1.95,
+        "home_point": 24.5
+      },
+      "totals": {
+        "over_price": 1.87,
+        "over_point": 214.5,
+        "under_price": 1.87,
+        "under_point": 214.5
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "away": 1.15,
+        "home": 4.8
+      },
+      "spreads": {
+        "away_price": 1.85,
+        "away_point": -23.5,
+        "home_price": 1.85,
+        "home_point": 23.5
+      },
+      "totals": {
+        "over_price": 1.85,
+        "over_point": 215.5,
+        "under_price": 1.85,
+        "under_point": 215.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "away": 1.16,
+        "home": 4.9
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "sport": "AFL",
+  "season": 2026,
+  "round": 23,
+  "predicted_at": "2026-08-11T23:35:17.705077+00:00",
+  "model_version": "rules_v1",
+  "predictions": [
+    {
+      "home_team": "Fremantle Dockers",
+      "away_team": "Adelaide Crows",
+      "prediction": "Fremantle Dockers",
+      "direction": "HOME",
+      "confidence": 51.7,
+      "weighted_score": 0.3446,
+      "feature_scores": {
+        "injury_differential": 1.0,
+        "elo_gap": 0.3033,
+        "finals_stakes": 0.0,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.1896,
+        "venue_fortress": 0.3
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Richmond Tigers",
+      "away_team": "St Kilda Saints",
+      "prediction": "St Kilda Saints",
+      "direction": "AWAY",
+      "confidence": 58.9,
+      "weighted_score": -0.3927,
+      "feature_scores": {
+        "injury_differential": -1.0,
+        "elo_gap": -0.6579,
+        "finals_stakes": 0.0,
+        "historical_pattern": 0.0,
+        "public_bias": 0.3,
+        "recent_form": -0.4112,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "North Melbourne Kangaroos",
+      "away_team": "Geelong Cats",
+      "prediction": "Geelong Cats",
+      "direction": "AWAY",
+      "confidence": 79.8,
+      "weighted_score": -0.5323,
+      "feature_scores": {
+        "injury_differential": -1.0,
+        "elo_gap": -0.7326,
+        "finals_stakes": -0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": -0.4579,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Brisbane Lions",
+      "away_team": "Gold Coast Suns",
+      "prediction": "Brisbane Lions",
+      "direction": "HOME",
+      "confidence": 55.2,
+      "weighted_score": 0.3677,
+      "feature_scores": {
+        "injury_differential": 0.4,
+        "elo_gap": 0.6198,
+        "finals_stakes": 0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.3874,
+        "venue_fortress": 0.3
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Hawthorn Hawks",
+      "away_team": "Collingwood Magpies",
+      "prediction": "Hawthorn Hawks",
+      "direction": "HOME",
+      "confidence": 11.6,
+      "weighted_score": 0.0773,
+      "feature_scores": {
+        "injury_differential": 0.1,
+        "elo_gap": 0.0848,
+        "finals_stakes": 0.2,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.053,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Port Adelaide Power",
+      "away_team": "Melbourne Demons",
+      "prediction": "Port Adelaide Power",
+      "direction": "HOME",
+      "confidence": 14.1,
+      "weighted_score": 0.0939,
+      "feature_scores": {
+        "injury_differential": 1.0,
+        "elo_gap": -0.2899,
+        "finals_stakes": -0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": -0.1812,
+        "venue_fortress": 0.2
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Greater Western Sydney Giants",
+      "away_team": "West Coast Eagles",
+      "prediction": "Greater Western Sydney Giants",
+      "direction": "HOME",
+      "confidence": 62.7,
+      "weighted_score": 0.4178,
+      "feature_scores": {
+        "injury_differential": 1.0,
+        "elo_gap": 0.6391,
+        "finals_stakes": 0.0,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.3994,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Western Bulldogs",
+      "away_team": "Carlton Blues",
+      "prediction": "Carlton Blues",
+      "direction": "AWAY",
+      "confidence": 29.3,
+      "weighted_score": -0.195,
+      "feature_scores": {
+        "injury_differential": -1.0,
+        "elo_gap": 0.2666,
+        "finals_stakes": 0.1,
+        "historical_pattern": 0.0,
+        "public_bias": -0.3,
+        "recent_form": 0.1666,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    },
+    {
+      "home_team": "Essendon Bombers",
+      "away_team": "Sydney Swans",
+      "prediction": "Sydney Swans",
+      "direction": "AWAY",
+      "confidence": 9.0,
+      "weighted_score": -0.06,
+      "feature_scores": {
+        "injury_differential": 1.0,
+        "elo_gap": -1.0,
+        "finals_stakes": -0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.3,
+        "recent_form": -0.5,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0
+    }
+  ]
+}

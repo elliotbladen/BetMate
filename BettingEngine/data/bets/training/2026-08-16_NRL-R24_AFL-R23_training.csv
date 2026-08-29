@@ -1,0 +1,16 @@
+date,sport,round,match,market,odds,stake,bonus_bet,result,return,profit,notes
+2026-08-13,NRL,R24,Penrith Panthers v Sydney Roosters,Sydney Roosters 1 to 12,3.15,10.00,no,win,31.50,21.50,Big Win Little Win
+2026-08-13,NRL,R24,Penrith Panthers v Sydney Roosters,Penrith Panthers 1 to 12,2.75,13.75,no,loss,0.00,-13.75,Big Win Little Win
+2026-08-13,NRL,R24,Penrith Panthers v Sydney Roosters,Penrith Panthers 1 to 12,2.85,10.00,no,loss,0.00,-10.00,Big Win Little Win
+2026-08-13,NRL,R24,Penrith Panthers v Sydney Roosters,Same Game Multi (2 Legs),2.45,12.50,no,win,30.63,18.13,SGM 2 legs
+2026-08-14,NRL,R24,Manly Sea Eagles v Dolphins,Manly Sea Eagles (+10.5),1.74,25.00,no,loss,0.00,-25.00,Pick Your Own Line
+2026-08-15,NRL,R24,Brisbane Broncos v New Zealand Warriors,New Zealand Warriors (-5.5),1.89,25.00,no,win,47.25,22.25,Line bet
+2026-08-14,AFL,R23,Fremantle v Adelaide Crows,Adelaide Crows (+22.5),1.90,25.00,no,loss,0.00,-25.00,Line bet
+2026-08-14,AFL,R23,Fremantle v Adelaide Crows,Same Game Multi (2 Legs),2.25,10.00,no,win,22.50,12.50,SGM 2 legs
+2026-08-15,AFL,R23,Hawthorn v Collingwood,Collingwood (+20.5),1.90,25.00,no,win,47.50,22.50,Line bet
+2026-08-15,AFL,R23,Brisbane Lions v Gold Coast Suns,Charlie Cameron 2+ Goals,1.49,10.00,no,win,14.90,4.90,Player prop
+2026-08-15,AFL,R23,Brisbane Lions v Gold Coast Suns,Josh Dunkley 25+ Disposals,3.18,10.00,no,loss,0.00,-10.00,Player prop
+2026-08-15,AFL,R23,Port Adelaide v Melbourne,Ollie Wines 25+ Disposals,2.50,10.00,no,win,25.00,15.00,Player prop
+2026-08-15,AFL,R23,Hawthorn v Collingwood,Jai Newcombe 25+ Disposals,2.16,10.00,no,loss,0.00,-10.00,Player prop
+2026-08-16,AFL,R23,GWS Giants v West Coast Eagles,Same Game Multi (2 Legs),1.96,10.00,no,win,19.60,9.60,SGM 2 legs
+2026-08-15,,R24/R23,,Multi (2 Legs),3.09,25.00,no,loss,0.00,-25.00,2-leg multi. 1 leg lost.

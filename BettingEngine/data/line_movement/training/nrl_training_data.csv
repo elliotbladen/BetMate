@@ -1,0 +1,591 @@
+sport,date,season,home_team,away_team,home_odds_open,home_odds_close,away_odds_open,away_odds_close,total_open,total_close,who_shortened,totals_direction,fav_side,elo_gap_proxy,home_move_pct,away_move_pct,result_margin
+NRL,2026-08-02,2026,Wests Tigers,Parramatta Eels,1.97,2.7,1.81,1.47,48.5,49.5,AWAY,OVERS,AWAY,-0.0423,37.06,-18.78,-3.0
+NRL,2026-08-02,2026,Cronulla Sharks,South Sydney Rabbitohs,1.42,1.18,2.8,4.9,50.5,51.5,HOME,OVERS,HOME,0.327,-16.9,75.0,16.0
+NRL,2026-08-01,2026,Brisbane Broncos,Newcastle Knights,1.63,1.5,2.25,2.6,45.5,45.5,HOME,EVEN,HOME,0.1598,-7.98,15.56,-24.0
+NRL,2026-08-01,2026,Penrith Panthers,Canberra Raiders,1.25,1.33,3.85,3.35,44.5,44.5,AWAY,EVEN,HOME,0.5098,6.4,-12.99,24.0
+NRL,2026-08-01,2026,Gold Coast Titans,New Zealand Warriors,2.5,2.4,1.51,1.58,49.5,49.5,HOME,EVEN,AWAY,-0.2469,-4.0,4.64,-36.0
+NRL,2026-07-31,2026,Melbourne Storm,Canterbury Bulldogs,1.61,3.75,2.25,1.27,42.5,42.5,AWAY,EVEN,HOME,0.1658,132.92,-43.56,-14.0
+NRL,2026-07-31,2026,St George Dragons,Dolphins,3.85,5.5,1.25,1.15,48.5,50.5,AWAY,OVERS,AWAY,-0.5098,42.86,-8.0,-6.0
+NRL,2026-07-30,2026,North QLD Cowboys,Sydney Roosters,2.5,2.5,1.51,1.53,45.5,44.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2469,0.0,1.32,-70.0
+NRL,2026-07-26,2026,Manly Sea Eagles,Cronulla Sharks,1.89,2.4,1.88,1.58,46.5,46.5,AWAY,EVEN,AWAY,-0.0027,26.98,-15.96,-36.0
+NRL,2026-07-26,2026,St George Dragons,Gold Coast Titans,1.97,1.8,1.81,2.0,46.5,47.5,HOME,OVERS,AWAY,-0.0423,-8.63,10.5,-20.0
+NRL,2026-07-25,2026,North QLD Cowboys,Brisbane Broncos,1.63,2.35,2.25,1.6,48.5,47.5,AWAY,UNDERS,HOME,0.1598,44.17,-28.89,8.0
+NRL,2026-07-25,2026,Canterbury Bulldogs,New Zealand Warriors,2.8,2.4,1.42,1.58,42.5,40.5,HOME,UNDERS,AWAY,-0.327,-14.29,11.27,12.0
+NRL,2026-07-25,2026,Canberra Raiders,Wests Tigers,1.33,1.2,3.25,4.55,50.5,50.5,HOME,EVEN,HOME,0.4192,-9.77,40.0,46.0
+NRL,2026-07-24,2026,South Sydney Rabbitohs,Melbourne Storm,1.55,1.95,2.4,1.85,46.5,45.5,AWAY,UNDERS,HOME,0.2152,25.81,-22.92,2.0
+NRL,2026-07-24,2026,Newcastle Knights,Sydney Roosters,2.15,3.15,1.69,1.37,45.5,44.5,AWAY,UNDERS,AWAY,-0.1198,46.51,-18.93,-1.0
+NRL,2026-07-23,2026,Parramatta Eels,Penrith Panthers,5.25,4.9,1.15,1.18,44.5,45.5,HOME,OVERS,AWAY,-0.6406,-6.67,2.61,-6.0
+NRL,2026-07-19,2026,Dolphins,North QLD Cowboys,1.6,1.6,2.35,2.35,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.1899,0.0,0.0,20.0
+NRL,2026-07-19,2026,Gold Coast Titans,Manly Sea Eagles,2.4,2.45,1.55,1.55,47.5,45.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2152,2.08,0.0,6.0
+NRL,2026-07-18,2026,Canterbury Bulldogs,Wests Tigers,1.42,1.5,2.8,2.6,44.5,44.5,AWAY,EVEN,HOME,0.327,5.63,-7.14,32.0
+NRL,2026-07-18,2026,New Zealand Warriors,St George Dragons,1.13,1.16,5.75,5.25,46.5,45.5,AWAY,UNDERS,HOME,0.6715,2.65,-8.7,8.0
+NRL,2026-07-18,2026,Canberra Raiders,South Sydney Rabbitohs,1.69,1.85,2.15,1.95,49.5,49.5,AWAY,EVEN,HOME,0.1198,9.47,-9.3,10.0
+NRL,2026-07-17,2026,Sydney Roosters,Melbourne Storm,1.42,1.27,2.8,3.75,44.5,43.5,HOME,UNDERS,HOME,0.327,-10.56,33.93,8.0
+NRL,2026-07-17,2026,Cronulla Sharks,Newcastle Knights,1.63,1.4,2.25,2.95,46.5,44.5,HOME,UNDERS,HOME,0.1598,-14.11,31.11,2.0
+NRL,2026-07-16,2026,Penrith Panthers,Brisbane Broncos,1.15,1.25,5.25,4.0,44.5,44.5,AWAY,EVEN,HOME,0.6406,8.7,-23.81,-2.0
+NRL,2026-07-12,2026,Melbourne Storm,Gold Coast Titans,1.35,1.3,3.2,3.5,47.5,47.5,HOME,EVEN,HOME,0.4066,-3.7,9.37,4.0
+NRL,2026-07-12,2026,Manly Sea Eagles,North QLD Cowboys,1.53,1.44,2.5,2.8,48.5,48.5,HOME,EVEN,HOME,0.2407,-5.88,12.0,-1.0
+NRL,2026-07-12,2026,South Sydney Rabbitohs,Newcastle Knights,1.9,2.05,1.9,1.74,48.5,49.5,AWAY,OVERS,AWAY,0.0,7.89,-8.42,2.0
+NRL,2026-07-11,2026,Sydney Roosters,Parramatta Eels,1.2,1.28,4.55,3.7,48.5,48.5,AWAY,EVEN,HOME,0.5826,6.67,-18.68,16.0
+NRL,2026-07-11,2026,Canterbury Bulldogs,Canberra Raiders,1.55,1.65,2.4,2.25,45.5,42.5,AWAY,UNDERS,HOME,0.2152,6.45,-6.25,-24.0
+NRL,2026-07-11,2026,Dolphins,Cronulla Sharks,1.51,1.77,2.5,2.05,49.5,49.5,AWAY,EVEN,HOME,0.2469,17.22,-18.0,-66.0
+NRL,2026-07-10,2026,Wests Tigers,New Zealand Warriors,2.5,3.1,1.51,1.37,46.5,45.5,AWAY,UNDERS,AWAY,-0.2469,24.0,-9.27,-26.0
+NRL,2026-07-05,2026,Newcastle Knights,Dolphins,2.15,2.0,1.69,1.8,50.5,50.5,HOME,EVEN,AWAY,-0.1198,-6.98,6.51,1.0
+NRL,2026-07-05,2026,Parramatta Eels,Manly Sea Eagles,3.45,3.15,1.3,1.36,49.5,49.5,HOME,EVEN,AWAY,-0.4526,-8.7,4.62,9.0
+NRL,2026-07-04,2026,Brisbane Broncos,Cronulla Sharks,2.65,2.6,1.46,1.5,48.5,48.5,HOME,EVEN,AWAY,-0.2895,-1.89,2.74,-12.0
+NRL,2026-07-04,2026,St George Dragons,Wests Tigers,2.8,2.45,1.42,1.55,48.5,48.5,HOME,EVEN,AWAY,-0.327,-12.5,9.15,14.0
+NRL,2026-07-03,2026,Penrith Panthers,South Sydney Rabbitohs,1.58,1.6,2.35,2.35,45.5,45.5,BOTH_OR_NEITHER,EVEN,HOME,0.1959,1.27,0.0,22.0
+NRL,2026-06-28,2026,Newcastle Knights,Wests Tigers,1.41,1.36,2.85,3.15,50.5,49.5,HOME,UNDERS,HOME,0.338,-3.55,10.53,6.0
+NRL,2026-06-28,2026,Canberra Raiders,St George Dragons,1.3,1.34,3.45,3.3,52.5,51.5,AWAY,UNDERS,HOME,0.4526,3.08,-4.35,8.0
+NRL,2026-06-27,2026,Manly Sea Eagles,Melbourne Storm,1.58,1.5,2.35,2.6,47.5,45.5,HOME,UNDERS,HOME,0.1959,-5.06,10.64,26.0
+NRL,2026-06-27,2026,North QLD Cowboys,Penrith Panthers,3.3,4.0,1.32,1.25,50.5,50.5,AWAY,EVEN,AWAY,-0.4286,21.21,-5.3,14.0
+NRL,2026-06-27,2026,Dolphins,New Zealand Warriors,1.63,1.42,2.25,2.9,50.5,50.5,HOME,EVEN,HOME,0.1598,-12.88,28.89,2.0
+NRL,2026-06-26,2026,Brisbane Broncos,Sydney Roosters,2.15,2.8,1.69,1.44,49.5,47.5,AWAY,UNDERS,AWAY,-0.1198,30.23,-14.79,-6.0
+NRL,2026-06-26,2026,Gold Coast Titans,Canterbury Bulldogs,1.87,1.8,1.9,2.02,46.5,44.5,HOME,UNDERS,HOME,0.008,-3.74,6.32,-18.0
+NRL,2026-06-25,2026,Parramatta Eels,South Sydney Rabbitohs,2.5,2.4,1.53,1.58,47.5,45.5,HOME,UNDERS,AWAY,-0.2407,-4.0,3.27,-20.0
+NRL,2026-06-21,2026,Sydney Roosters,Cronulla Sharks,1.46,1.6,2.65,2.35,49.5,49.5,AWAY,EVEN,HOME,0.2895,9.59,-11.32,19.0
+NRL,2026-06-21,2026,Melbourne Storm,Canberra Raiders,1.4,1.42,2.9,2.85,50.5,50.5,AWAY,EVEN,HOME,0.3488,1.43,-1.72,22.0
+NRL,2026-06-21,2026,New Zealand Warriors,North QLD Cowboys,1.3,1.45,3.45,2.75,50.5,50.5,AWAY,EVEN,HOME,0.4526,11.54,-20.29,18.0
+NRL,2026-06-20,2026,Canterbury Bulldogs,Manly Sea Eagles,2.9,3.1,1.4,1.37,48.5,47.5,AWAY,UNDERS,AWAY,-0.3488,6.9,-2.14,1.0
+NRL,2026-06-20,2026,Gold Coast Titans,Penrith Panthers,3.9,4.1,1.25,1.24,49.5,48.5,AWAY,UNDERS,AWAY,-0.5146,5.13,-0.8,1.0
+NRL,2026-06-20,2026,Wests Tigers,Dolphins,2.5,2.5,1.52,1.53,52.5,52.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2438,0.0,0.66,-14.0
+NRL,2026-06-19,2026,Newcastle Knights,St George Dragons,1.3,1.29,3.45,3.6,49.5,48.5,HOME,UNDERS,HOME,0.4526,-0.77,4.35,2.0
+NRL,2026-06-14,2026,Wests Tigers,Gold Coast Titans,1.31,1.55,3.35,2.45,50.5,47.5,AWAY,UNDERS,HOME,0.4378,18.32,-26.87,8.0
+NRL,2026-06-13,2026,Parramatta Eels,Canberra Raiders,2.25,2.15,1.63,1.7,49.5,47.5,HOME,UNDERS,AWAY,-0.1598,-4.44,4.29,3.0
+NRL,2026-06-13,2026,New Zealand Warriors,Cronulla Sharks,1.34,1.4,3.2,2.95,48.5,47.5,AWAY,UNDERS,HOME,0.4097,4.48,-7.81,-2.0
+NRL,2026-06-12,2026,Dolphins,Sydney Roosters,1.7,1.36,2.1,3.2,50.5,50.5,HOME,EVEN,HOME,0.1053,-20.0,52.38,38.0
+NRL,2026-06-11,2026,South Sydney Rabbitohs,Brisbane Broncos,1.57,1.43,2.35,2.85,50.5,49.5,HOME,UNDERS,HOME,0.199,-8.92,21.28,42.0
+NRL,2026-06-08,2026,Canterbury Bulldogs,Parramatta Eels,1.48,1.41,2.6,2.9,50.5,50.5,HOME,EVEN,HOME,0.2745,-4.73,11.54,2.0
+NRL,2026-06-07,2026,Cronulla Sharks,St George Dragons,1.18,1.3,4.7,3.5,52.5,52.5,AWAY,EVEN,HOME,0.5986,10.17,-25.53,22.0
+NRL,2026-06-07,2026,Wests Tigers,Penrith Panthers,3.6,4.9,1.28,1.18,49.5,49.5,AWAY,EVEN,AWAY,-0.4754,36.11,-7.81,-68.0
+NRL,2026-06-06,2026,Brisbane Broncos,Gold Coast Titans,1.19,1.4,4.55,3.0,51.5,50.5,AWAY,UNDERS,HOME,0.5854,17.65,-34.07,-5.0
+NRL,2026-06-06,2026,North QLD Cowboys,Dolphins,2.05,2.55,1.76,1.52,54.5,54.5,AWAY,EVEN,AWAY,-0.0761,24.39,-13.64,-26.0
+NRL,2026-06-05,2026,Canberra Raiders,Sydney Roosters,2.45,2.3,1.54,1.62,49.5,49.5,HOME,EVEN,AWAY,-0.2281,-6.12,5.19,-26.0
+NRL,2026-06-05,2026,Melbourne Storm,Newcastle Knights,1.58,1.65,2.35,2.25,49.5,48.5,AWAY,UNDERS,HOME,0.1959,4.43,-4.26,2.0
+NRL,2026-06-04,2026,Manly Sea Eagles,South Sydney Rabbitohs,1.51,1.62,2.5,2.3,50.5,50.5,AWAY,EVEN,HOME,0.2469,7.28,-8.0,14.0
+NRL,2026-05-31,2026,Penrith Panthers,New Zealand Warriors,1.46,1.77,2.65,2.05,46.5,45.5,AWAY,UNDERS,HOME,0.2895,21.23,-22.64,2.0
+NRL,2026-05-31,2026,Canberra Raiders,North QLD Cowboys,1.67,1.65,2.15,2.25,53.5,53.5,HOME,EVEN,HOME,0.1257,-1.2,4.65,14.0
+NRL,2026-05-31,2026,Brisbane Broncos,St George Dragons,1.13,1.1,5.75,7.0,54.5,54.5,HOME,EVEN,HOME,0.6715,-2.65,21.74,-4.0
+NRL,2026-05-30,2026,Melbourne Storm,Sydney Roosters,1.82,2.25,1.95,1.65,49.5,49.5,AWAY,EVEN,HOME,0.0345,23.63,-15.38,14.0
+NRL,2026-05-30,2026,Wests Tigers,Canterbury Bulldogs,1.85,1.74,1.92,2.1,48.5,48.5,HOME,EVEN,HOME,0.0186,-5.95,9.38,6.0
+NRL,2026-05-30,2026,Newcastle Knights,Parramatta Eels,1.32,1.2,3.3,4.5,53.5,53.5,HOME,EVEN,HOME,0.4286,-9.09,36.36,6.0
+NRL,2026-05-29,2026,Cronulla Sharks,Manly Sea Eagles,1.67,1.8,2.15,2.0,45.5,45.5,AWAY,EVEN,HOME,0.1257,7.78,-6.98,6.0
+NRL,2026-05-24,2026,North QLD Cowboys,South Sydney Rabbitohs,1.8,1.58,1.98,2.4,52.5,53.5,HOME,OVERS,HOME,0.0476,-12.22,21.21,12.0
+NRL,2026-05-23,2026,Manly Sea Eagles,Gold Coast Titans,1.26,1.28,3.75,3.7,50.5,49.5,AWAY,UNDERS,HOME,0.497,1.59,-1.33,2.0
+NRL,2026-05-23,2026,St George Dragons,New Zealand Warriors,3.85,4.0,1.26,1.25,50.5,48.5,AWAY,UNDERS,AWAY,-0.5068,3.9,-0.79,-18.0
+NRL,2026-05-22,2026,Canterbury Bulldogs,Melbourne Storm,1.7,1.7,2.1,2.15,48.5,47.5,BOTH_OR_NEITHER,UNDERS,HOME,0.1053,0.0,2.38,10.0
+NRL,2026-05-21,2026,Canberra Raiders,Dolphins,1.9,1.68,1.87,2.2,49.5,48.5,HOME,UNDERS,AWAY,-0.008,-11.58,17.65,-8.0
+NRL,2026-05-17,2026,Penrith Panthers,St George Dragons,1.03,1.06,12.0,9.5,56.5,54.5,AWAY,UNDERS,HOME,0.8419,2.91,-20.83,22.0
+NRL,2026-05-17,2026,New Zealand Warriors,Brisbane Broncos,1.65,1.74,2.2,2.1,50.5,50.5,AWAY,EVEN,HOME,0.1429,5.45,-4.55,30.0
+NRL,2026-05-17,2026,Gold Coast Titans,Newcastle Knights,3.15,3.0,1.35,1.39,54.5,54.5,HOME,EVEN,AWAY,-0.4,-4.76,2.96,-24.0
+NRL,2026-05-16,2026,Parramatta Eels,Melbourne Storm,2.75,3.05,1.45,1.38,52.5,54.5,AWAY,OVERS,AWAY,-0.3095,10.91,-4.83,-26.0
+NRL,2026-05-16,2026,Sydney Roosters,North QLD Cowboys,1.22,1.2,4.2,4.6,54.5,56.5,HOME,OVERS,HOME,0.5498,-1.64,9.52,-6.0
+NRL,2026-05-16,2026,Wests Tigers,Manly Sea Eagles,3.4,3.3,1.32,1.33,52.5,52.5,HOME,EVEN,AWAY,-0.4407,-2.94,0.76,-28.0
+NRL,2026-05-15,2026,South Sydney Rabbitohs,Dolphins,1.68,2.1,2.15,1.74,54.5,54.5,AWAY,EVEN,HOME,0.1227,25.0,-19.07,-22.0
+NRL,2026-05-15,2026,Cronulla Sharks,Canterbury Bulldogs,1.46,1.55,2.65,2.45,49.5,48.5,AWAY,UNDERS,HOME,0.2895,6.16,-7.55,22.0
+NRL,2026-05-10,2026,Canberra Raiders,Penrith Panthers,3.5,3.35,1.29,1.33,50.5,50.5,HOME,EVEN,AWAY,-0.4614,-4.29,3.1,-12.0
+NRL,2026-05-10,2026,Melbourne Storm,Wests Tigers,1.59,1.33,2.3,3.35,54.5,52.5,HOME,UNDERS,HOME,0.1825,-16.35,45.65,28.0
+NRL,2026-05-09,2026,Manly Sea Eagles,Brisbane Broncos,2.1,1.95,1.72,1.85,50.5,50.5,HOME,EVEN,AWAY,-0.0995,-7.14,7.56,28.0
+NRL,2026-05-09,2026,South Sydney Rabbitohs,Cronulla Sharks,1.53,2.4,2.45,1.58,52.5,52.5,AWAY,EVEN,HOME,0.2312,56.86,-35.51,24.0
+NRL,2026-05-09,2026,St George Dragons,Newcastle Knights,2.85,3.3,1.41,1.34,52.5,52.5,AWAY,EVEN,AWAY,-0.338,15.79,-4.96,-34.0
+NRL,2026-05-08,2026,North QLD Cowboys,Parramatta Eels,1.39,1.38,2.95,3.05,56.5,56.5,HOME,EVEN,HOME,0.3594,-0.72,3.39,-3.0
+NRL,2026-05-08,2026,Sydney Roosters,Gold Coast Titans,1.19,1.16,4.55,5.25,55.5,55.5,HOME,EVEN,HOME,0.5854,-2.52,15.38,16.0
+NRL,2026-05-07,2026,Dolphins,Canterbury Bulldogs,1.63,1.45,2.25,2.75,50.5,50.5,HOME,EVEN,HOME,0.1598,-11.04,22.22,32.0
+NRL,2026-05-03,2026,Penrith Panthers,Manly Sea Eagles,1.25,1.16,3.85,5.25,50.5,50.5,HOME,EVEN,HOME,0.5098,-7.2,36.36,2.0
+NRL,2026-05-03,2026,Cronulla Sharks,Wests Tigers,1.62,1.47,2.25,2.7,52.5,52.5,HOME,EVEN,HOME,0.1628,-9.26,20.0,42.0
+NRL,2026-05-03,2026,Newcastle Knights,South Sydney Rabbitohs,2.65,2.1,1.46,1.74,52.5,50.5,HOME,UNDERS,AWAY,-0.2895,-20.75,19.18,4.0
+NRL,2026-05-02,2026,Sydney Roosters,Brisbane Broncos,1.42,1.52,2.8,2.55,50.5,52.5,AWAY,OVERS,HOME,0.327,7.04,-8.93,14.0
+NRL,2026-05-02,2026,Parramatta Eels,New Zealand Warriors,2.5,2.8,1.51,1.44,52.5,52.5,AWAY,EVEN,AWAY,-0.2469,12.0,-4.64,-22.0
+NRL,2026-05-02,2026,Gold Coast Titans,Canberra Raiders,2.15,1.58,1.68,2.4,52.5,50.5,HOME,UNDERS,AWAY,-0.1227,-26.51,42.86,-16.0
+NRL,2026-05-01,2026,Dolphins,Melbourne Storm,1.77,1.62,2.0,2.3,52.5,52.5,HOME,EVEN,HOME,0.061,-8.47,15.0,18.0
+NRL,2026-05-01,2026,Canterbury Bulldogs,North QLD Cowboys,1.58,1.8,2.35,2.0,50.5,50.5,AWAY,EVEN,HOME,0.1959,13.92,-14.89,-16.0
+NRL,2026-04-26,2026,Manly Sea Eagles,Parramatta Eels,1.35,1.4,3.2,2.95,52.5,53.5,AWAY,OVERS,HOME,0.4066,3.7,-7.81,15.0
+NRL,2026-04-26,2026,Newcastle Knights,Penrith Panthers,3.7,5.25,1.28,1.16,50.5,52.5,AWAY,OVERS,AWAY,-0.4859,41.89,-9.38,-32.0
+NRL,2026-04-25,2026,Melbourne Storm,South Sydney Rabbitohs,1.58,1.55,2.35,2.45,50.5,52.5,HOME,OVERS,HOME,0.1959,-1.9,4.26,-42.0
+NRL,2026-04-25,2026,New Zealand Warriors,Dolphins,1.45,1.47,2.7,2.65,48.5,50.5,AWAY,OVERS,HOME,0.3012,1.38,-1.85,2.0
+NRL,2026-04-25,2026,St George Dragons,Sydney Roosters,6.5,5.0,1.11,1.17,52.5,52.5,HOME,EVEN,AWAY,-0.7083,-23.08,5.41,-46.0
+NRL,2026-04-24,2026,Brisbane Broncos,Canterbury Bulldogs,1.9,2.3,1.9,1.62,48.5,46.5,AWAY,UNDERS,AWAY,0.0,21.05,-14.74,20.0
+NRL,2026-04-24,2026,North QLD Cowboys,Cronulla Sharks,2.1,1.95,1.7,1.85,52.5,52.5,HOME,EVEN,AWAY,-0.1053,-7.14,8.82,12.0
+NRL,2026-04-23,2026,Wests Tigers,Canberra Raiders,1.55,1.48,2.4,2.65,48.5,48.5,HOME,EVEN,HOME,0.2152,-4.52,10.42,19.0
+NRL,2026-04-19,2026,Parramatta Eels,Canterbury Bulldogs,3.3,4.2,1.33,1.23,49.5,49.5,AWAY,EVEN,AWAY,-0.4255,27.27,-7.52,18.0
+NRL,2026-04-19,2026,Sydney Roosters,Newcastle Knights,1.42,1.2,2.85,4.6,53.5,53.5,HOME,EVEN,HOME,0.3349,-15.49,61.4,14.0
+NRL,2026-04-18,2026,Wests Tigers,Brisbane Broncos,1.62,1.55,2.3,2.45,51.5,50.5,HOME,UNDERS,HOME,0.1735,-4.32,6.52,-1.0
+NRL,2026-04-18,2026,South Sydney Rabbitohs,St George Dragons,1.25,1.28,4.0,3.7,52.5,51.5,AWAY,UNDERS,HOME,0.5238,2.4,-7.5,18.0
+NRL,2026-04-18,2026,New Zealand Warriors,Gold Coast Titans,1.33,1.29,3.3,3.6,48.5,48.5,HOME,EVEN,HOME,0.4255,-3.01,9.09,8.0
+NRL,2026-04-17,2026,Dolphins,Penrith Panthers,4.5,3.45,1.2,1.31,52.5,52.5,HOME,EVEN,AWAY,-0.5789,-23.33,9.17,-1.0
+NRL,2026-04-17,2026,Canberra Raiders,Melbourne Storm,2.2,2.1,1.67,1.74,48.5,48.5,HOME,EVEN,AWAY,-0.137,-4.55,4.19,4.0
+NRL,2026-04-16,2026,North QLD Cowboys,Manly Sea Eagles,1.5,1.6,2.55,2.35,54.5,54.5,AWAY,EVEN,HOME,0.2593,6.67,-7.84,-32.0
+NRL,2026-04-12,2026,Wests Tigers,Newcastle Knights,1.67,1.6,2.2,2.35,49.5,49.5,HOME,EVEN,HOME,0.137,-4.19,6.82,20.0
+NRL,2026-04-12,2026,Parramatta Eels,Gold Coast Titans,1.55,1.65,2.45,2.25,51.5,51.5,AWAY,EVEN,HOME,0.225,6.45,-8.16,-42.0
+NRL,2026-04-11,2026,Melbourne Storm,New Zealand Warriors,1.37,1.33,3.0,3.35,47.5,47.5,HOME,EVEN,HOME,0.373,-2.92,11.67,-24.0
+NRL,2026-04-11,2026,Cronulla Sharks,Sydney Roosters,2.0,2.0,1.8,1.8,50.5,51.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.0526,0.0,0.0,-12.0
+NRL,2026-04-11,2026,South Sydney Rabbitohs,Canberra Raiders,1.52,1.5,2.55,2.6,49.5,49.5,HOME,EVEN,HOME,0.2531,-1.32,1.96,-2.0
+NRL,2026-04-10,2026,Brisbane Broncos,North QLD Cowboys,1.8,1.8,2.0,2.0,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.0526,0.0,0.0,-4.0
+NRL,2026-04-10,2026,St George Dragons,Manly Sea Eagles,2.4,2.8,1.56,1.44,49.5,50.5,AWAY,OVERS,AWAY,-0.2121,16.67,-7.69,-10.0
+NRL,2026-04-09,2026,Canterbury Bulldogs,Penrith Panthers,4.8,6.0,1.18,1.13,47.5,48.5,AWAY,OVERS,AWAY,-0.6054,25.0,-4.24,16.0
+NRL,2026-04-06,2026,Parramatta Eels,Wests Tigers,1.7,1.9,2.15,1.9,49.5,50.5,AWAY,OVERS,HOME,0.1169,11.76,-11.63,-2.0
+NRL,2026-04-05,2026,Newcastle Knights,Canberra Raiders,2.25,2.25,1.63,1.65,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1598,0.0,1.23,20.0
+NRL,2026-04-05,2026,Cronulla Sharks,New Zealand Warriors,1.6,1.58,2.3,2.4,47.5,48.5,HOME,OVERS,HOME,0.1795,-1.25,4.35,14.0
+NRL,2026-04-04,2026,Gold Coast Titans,Brisbane Broncos,4.5,4.1,1.2,1.24,51.5,51.5,HOME,EVEN,AWAY,-0.5789,-8.89,3.33,-14.0
+NRL,2026-04-04,2026,St George Dragons,North QLD Cowboys,2.0,2.05,1.8,1.77,49.5,49.5,AWAY,EVEN,AWAY,-0.0526,2.5,-1.67,-32.0
+NRL,2026-04-03,2026,Penrith Panthers,Melbourne Storm,1.48,1.35,2.65,3.2,44.5,44.5,HOME,EVEN,HOME,0.2833,-8.78,20.75,40.0
+NRL,2026-04-03,2026,South Sydney Rabbitohs,Canterbury Bulldogs,1.95,1.85,1.85,1.95,46.5,45.5,HOME,UNDERS,AWAY,-0.0263,-5.13,5.41,8.0
+NRL,2026-04-02,2026,Dolphins,Manly Sea Eagles,1.33,1.34,3.25,3.3,50.5,51.5,BOTH_OR_NEITHER,OVERS,HOME,0.4192,0.75,1.54,-34.0
+NRL,2026-03-29,2026,Gold Coast Titans,St George Dragons,1.95,1.8,1.85,2.02,51.5,51.5,HOME,EVEN,AWAY,-0.0263,-7.69,9.19,8.0
+NRL,2026-03-29,2026,Canberra Raiders,Cronulla Sharks,1.8,1.8,2.0,2.0,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.0526,0.0,0.0,-12.0
+NRL,2026-03-28,2026,North QLD Cowboys,Melbourne Storm,3.7,4.0,1.27,1.25,51.5,51.5,AWAY,EVEN,AWAY,-0.4889,8.11,-1.57,4.0
+NRL,2026-03-28,2026,Penrith Panthers,Parramatta Eels,1.25,1.18,3.9,4.9,47.5,47.5,HOME,EVEN,HOME,0.5146,-5.6,25.64,28.0
+NRL,2026-03-28,2026,Canterbury Bulldogs,Newcastle Knights,1.25,1.24,3.9,4.1,46.5,46.5,HOME,EVEN,HOME,0.5146,-0.8,5.13,-8.0
+NRL,2026-03-27,2026,Brisbane Broncos,Dolphins,1.52,1.67,2.5,2.2,50.5,50.5,AWAY,EVEN,HOME,0.2438,9.87,-12.0,14.0
+NRL,2026-03-27,2026,New Zealand Warriors,Wests Tigers,1.25,1.2,3.9,4.5,47.5,46.5,HOME,UNDERS,HOME,0.5146,-4.0,15.38,-18.0
+NRL,2026-03-26,2026,Manly Sea Eagles,Sydney Roosters,2.9,2.7,1.4,1.47,47.5,44.5,HOME,UNDERS,AWAY,-0.3488,-6.9,5.0,-17.0
+NRL,2026-03-22,2026,North QLD Cowboys,Gold Coast Titans,1.48,1.63,2.65,2.3,57.5,57.5,AWAY,EVEN,HOME,0.2833,10.14,-13.21,14.0
+NRL,2026-03-22,2026,Parramatta Eels,St George Dragons,1.44,1.58,2.75,2.4,53.5,53.5,AWAY,EVEN,HOME,0.3126,9.72,-12.73,10.0
+NRL,2026-03-21,2026,South Sydney Rabbitohs,Wests Tigers,1.57,1.57,2.4,2.4,53.5,53.5,BOTH_OR_NEITHER,EVEN,HOME,0.2091,0.0,0.0,4.0
+NRL,2026-03-21,2026,Cronulla Sharks,Dolphins,1.44,1.45,2.75,2.75,55.5,55.5,BOTH_OR_NEITHER,EVEN,HOME,0.3126,0.69,0.0,-28.0
+NRL,2026-03-21,2026,Newcastle Knights,New Zealand Warriors,2.65,2.85,1.48,1.43,49.5,49.5,AWAY,EVEN,AWAY,-0.2833,7.55,-3.38,-26.0
+NRL,2026-03-20,2026,Melbourne Storm,Brisbane Broncos,1.44,1.35,2.75,3.2,55.5,55.5,HOME,EVEN,HOME,0.3126,-6.25,16.36,-4.0
+NRL,2026-03-20,2026,Sydney Roosters,Penrith Panthers,2.45,2.5,1.55,1.53,45.5,43.5,AWAY,UNDERS,AWAY,-0.225,2.04,-1.29,-36.0
+NRL,2026-03-19,2026,Canberra Raiders,Canterbury Bulldogs,1.8,1.85,2.0,1.95,49.5,47.5,AWAY,UNDERS,HOME,0.0526,2.78,-2.5,-4.0
+NRL,2026-03-15,2026,Dolphins,Gold Coast Titans,1.46,1.37,2.65,3.1,55.5,55.5,HOME,EVEN,HOME,0.2895,-6.16,16.98,4.0
+NRL,2026-03-15,2026,Manly Sea Eagles,Newcastle Knights,1.55,1.6,2.4,2.35,48.5,49.5,AWAY,OVERS,HOME,0.2152,3.23,-2.08,-20.0
+NRL,2026-03-14,2026,Penrith Panthers,Cronulla Sharks,1.55,1.35,2.4,3.2,43.5,43.5,HOME,EVEN,HOME,0.2152,-12.9,33.33,20.0
+NRL,2026-03-14,2026,St George Dragons,Melbourne Storm,2.55,3.0,1.49,1.4,47.5,47.5,AWAY,EVEN,AWAY,-0.2624,17.65,-6.04,-26.0
+NRL,2026-03-14,2026,Wests Tigers,North QLD Cowboys,1.63,1.6,2.25,2.35,51.5,51.5,HOME,EVEN,HOME,0.1598,-1.84,4.44,28.0
+NRL,2026-03-13,2026,Sydney Roosters,South Sydney Rabbitohs,1.57,1.7,2.35,2.15,49.5,49.5,AWAY,EVEN,HOME,0.199,8.28,-8.51,8.0
+NRL,2026-03-13,2026,New Zealand Warriors,Canberra Raiders,1.8,1.85,1.98,1.95,46.5,46.5,AWAY,EVEN,HOME,0.0476,2.78,-1.52,34.0
+NRL,2026-03-12,2026,Brisbane Broncos,Parramatta Eels,1.2,1.25,4.4,4.0,49.5,50.5,AWAY,OVERS,HOME,0.5714,4.17,-9.09,-8.0
+NRL,2026-03-08,2026,Dolphins,South Sydney Rabbitohs,1.61,1.7,2.25,2.15,44.5,43.5,AWAY,UNDERS,HOME,0.1658,5.59,-4.44,-10.0
+NRL,2026-03-07,2026,Manly Sea Eagles,Canberra Raiders,1.89,1.8,1.88,2.0,43.5,43.5,HOME,EVEN,AWAY,-0.0027,-4.76,6.38,-1.0
+NRL,2026-03-07,2026,Cronulla Sharks,Gold Coast Titans,1.34,1.3,3.2,3.55,48.5,47.5,HOME,UNDERS,HOME,0.4097,-2.99,10.94,40.0
+NRL,2026-03-06,2026,Brisbane Broncos,Penrith Panthers,1.64,1.77,2.2,2.05,40.5,40.5,AWAY,EVEN,HOME,0.1458,7.93,-6.82,-26.0
+NRL,2026-03-06,2026,New Zealand Warriors,Sydney Roosters,2.2,2.6,1.64,1.5,40.5,42.5,AWAY,OVERS,AWAY,-0.1458,18.18,-8.54,24.0
+NRL,2026-03-05,2026,Melbourne Storm,Parramatta Eels,1.36,1.43,3.05,2.85,43.5,44.5,AWAY,OVERS,HOME,0.3832,5.15,-6.56,48.0
+NRL,2026-02-28,2026,Canterbury Bulldogs,St George Dragons,1.41,1.5,2.85,2.55,41.5,41.5,AWAY,EVEN,HOME,0.338,6.38,-10.53,1.0
+NRL,2026-02-28,2026,Newcastle Knights,North QLD Cowboys,2.25,2.4,1.61,1.55,42.5,42.5,AWAY,EVEN,AWAY,-0.1658,6.67,-3.73,10.0
+NRL,2025-10-05,2025,Melbourne Storm,Brisbane Broncos,1.7,1.72,2.15,2.15,40.5,40.5,BOTH_OR_NEITHER,EVEN,HOME,0.1169,1.18,0.0,-4.0
+NRL,2025-09-28,2025,Brisbane Broncos,Penrith Panthers,2.1,nan,1.72,nan,46.5,48.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.0995,nan,nan,2.0
+NRL,2025-09-26,2025,Melbourne Storm,Cronulla Sharks,1.46,nan,2.7,nan,40.5,41.5,BOTH_OR_NEITHER,OVERS,HOME,0.2981,nan,nan,8.0
+NRL,2025-09-20,2025,Canterbury Bulldogs,Penrith Panthers,2.8,nan,1.43,nan,39.5,39.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3239,nan,nan,-20.0
+NRL,2025-09-20,2025,Canberra Raiders,Cronulla Sharks,1.53,nan,2.5,nan,46.5,44.5,BOTH_OR_NEITHER,UNDERS,HOME,0.2407,nan,nan,-20.0
+NRL,2025-09-14,2025,Canberra Raiders,Brisbane Broncos,1.65,nan,2.25,nan,44.5,45.5,BOTH_OR_NEITHER,OVERS,HOME,0.1538,nan,nan,-1.0
+NRL,2025-09-13,2025,Cronulla Sharks,Sydney Roosters,2.2,nan,1.67,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.137,nan,nan,10.0
+NRL,2025-09-13,2025,New Zealand Warriors,Penrith Panthers,3.15,nan,1.35,nan,43.5,43.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4,nan,nan,-16.0
+NRL,2025-09-12,2025,Melbourne Storm,Canterbury Bulldogs,1.5,nan,2.6,nan,38.5,37.5,BOTH_OR_NEITHER,UNDERS,HOME,0.2683,nan,nan,8.0
+NRL,2025-09-07,2025,Parramatta Eels,Newcastle Knights,1.25,nan,3.9,nan,49.5,51.5,BOTH_OR_NEITHER,OVERS,HOME,0.5146,nan,nan,56.0
+NRL,2025-09-07,2025,Dolphins,Canberra Raiders,1.36,nan,3.1,nan,52.5,54.5,BOTH_OR_NEITHER,OVERS,HOME,0.3901,nan,nan,38.0
+NRL,2025-09-06,2025,Canterbury Bulldogs,Cronulla Sharks,1.6,nan,2.3,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.1795,nan,nan,-18.0
+NRL,2025-09-06,2025,Gold Coast Titans,Wests Tigers,1.95,nan,1.85,nan,53.5,53.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0263,nan,nan,8.0
+NRL,2025-09-06,2025,St George Dragons,Penrith Panthers,3.15,nan,1.35,nan,47.5,49.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.4,nan,nan,-20.0
+NRL,2025-09-05,2025,Sydney Roosters,South Sydney Rabbitohs,1.4,nan,2.9,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.3488,nan,nan,30.0
+NRL,2025-09-05,2025,Manly Sea Eagles,New Zealand Warriors,1.5,nan,2.55,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,HOME,0.2593,nan,nan,1.0
+NRL,2025-09-04,2025,Brisbane Broncos,Melbourne Storm,1.9,nan,1.9,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,0.0,nan,nan,16.0
+NRL,2025-08-31,2025,Dolphins,Gold Coast Titans,1.65,nan,2.2,nan,53.5,54.5,BOTH_OR_NEITHER,OVERS,HOME,0.1429,nan,nan,6.0
+NRL,2025-08-31,2025,Cronulla Sharks,Newcastle Knights,1.12,nan,6.0,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.6854,nan,nan,24.0
+NRL,2025-08-30,2025,North QLD Cowboys,Brisbane Broncos,2.55,nan,1.5,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.2593,nan,nan,-8.0
+NRL,2025-08-30,2025,St George Dragons,Manly Sea Eagles,1.95,nan,1.85,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.0263,nan,nan,-16.0
+NRL,2025-08-30,2025,Canberra Raiders,Wests Tigers,1.26,nan,3.75,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.497,nan,nan,14.0
+NRL,2025-08-29,2025,Melbourne Storm,Sydney Roosters,1.48,nan,2.6,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.2745,nan,nan,-30.0
+NRL,2025-08-29,2025,New Zealand Warriors,Parramatta Eels,1.56,nan,2.4,nan,43.5,42.5,BOTH_OR_NEITHER,UNDERS,HOME,0.2121,nan,nan,-4.0
+NRL,2025-08-28,2025,Canterbury Bulldogs,Penrith Panthers,2.4,nan,1.56,nan,44.5,32.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2121,nan,nan,24.0
+NRL,2025-08-24,2025,Wests Tigers,North QLD Cowboys,1.7,nan,2.1,nan,48.5,35.5,BOTH_OR_NEITHER,UNDERS,HOME,0.1053,nan,nan,-6.0
+NRL,2025-08-24,2025,Newcastle Knights,Brisbane Broncos,3.05,nan,1.36,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3832,nan,nan,-34.0
+NRL,2025-08-23,2025,Parramatta Eels,Sydney Roosters,3.3,nan,1.32,nan,47.5,40.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.4286,nan,nan,20.0
+NRL,2025-08-23,2025,Gold Coast Titans,New Zealand Warriors,2.25,nan,1.62,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1628,nan,nan,-14.0
+NRL,2025-08-23,2025,Manly Sea Eagles,Dolphins,1.75,nan,2.05,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.0789,nan,nan,28.0
+NRL,2025-08-22,2025,Melbourne Storm,Canterbury Bulldogs,1.4,nan,2.85,nan,40.5,40.5,BOTH_OR_NEITHER,EVEN,HOME,0.3412,nan,nan,6.0
+NRL,2025-08-22,2025,Penrith Panthers,Canberra Raiders,1.7,nan,2.1,nan,39.5,40.5,BOTH_OR_NEITHER,OVERS,HOME,0.1053,nan,nan,-4.0
+NRL,2025-08-21,2025,South Sydney Rabbitohs,St George Dragons,2.25,nan,1.62,nan,40.5,39.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.1628,nan,nan,40.0
+NRL,2025-08-17,2025,North QLD Cowboys,Newcastle Knights,1.45,nan,2.7,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.3012,nan,nan,34.0
+NRL,2025-08-17,2025,Wests Tigers,Manly Sea Eagles,2.5,nan,1.51,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2469,nan,nan,14.0
+NRL,2025-08-16,2025,South Sydney Rabbitohs,Parramatta Eels,2.25,nan,1.63,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1598,nan,nan,4.0
+NRL,2025-08-16,2025,Brisbane Broncos,Dolphins,1.65,nan,2.2,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.1429,nan,nan,10.0
+NRL,2025-08-16,2025,Cronulla Sharks,Gold Coast Titans,1.3,nan,3.45,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.4526,nan,nan,32.0
+NRL,2025-08-15,2025,Sydney Roosters,Canterbury Bulldogs,2.2,nan,1.65,nan,41.5,42.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1429,nan,nan,20.0
+NRL,2025-08-15,2025,New Zealand Warriors,St George Dragons,1.53,nan,2.45,nan,43.5,44.5,BOTH_OR_NEITHER,OVERS,HOME,0.2312,nan,nan,4.0
+NRL,2025-08-14,2025,Penrith Panthers,Melbourne Storm,1.8,nan,1.98,nan,40.5,39.5,BOTH_OR_NEITHER,UNDERS,HOME,0.0476,nan,nan,-4.0
+NRL,2025-08-10,2025,Parramatta Eels,North QLD Cowboys,1.62,nan,2.3,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.1735,nan,nan,1.0
+NRL,2025-08-10,2025,Gold Coast Titans,South Sydney Rabbitohs,1.49,nan,2.6,nan,52.5,51.5,BOTH_OR_NEITHER,UNDERS,HOME,0.2714,nan,nan,-2.0
+NRL,2025-08-09,2025,Canterbury Bulldogs,New Zealand Warriors,1.3,nan,3.5,nan,42.5,41.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4583,nan,nan,18.0
+NRL,2025-08-09,2025,Dolphins,Sydney Roosters,1.95,nan,1.85,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.0263,nan,nan,-52.0
+NRL,2025-08-09,2025,St George Dragons,Cronulla Sharks,2.55,nan,1.5,nan,46.5,45.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2593,nan,nan,8.0
+NRL,2025-08-08,2025,Canberra Raiders,Manly Sea Eagles,1.42,nan,2.85,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.3349,nan,nan,16.0
+NRL,2025-08-08,2025,Newcastle Knights,Penrith Panthers,3.9,nan,1.25,nan,43.5,42.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.5146,nan,nan,-36.0
+NRL,2025-08-07,2025,Melbourne Storm,Brisbane Broncos,1.47,nan,2.65,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.2864,nan,nan,20.0
+NRL,2025-08-03,2025,Cronulla Sharks,North QLD Cowboys,1.38,nan,3.0,nan,47.5,45.5,BOTH_OR_NEITHER,UNDERS,HOME,0.3699,nan,nan,20.0
+NRL,2025-08-03,2025,Wests Tigers,Canterbury Bulldogs,4.0,nan,1.24,nan,44.5,42.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.5267,nan,nan,14.0
+NRL,2025-08-02,2025,Manly Sea Eagles,Sydney Roosters,1.72,nan,2.1,nan,46.5,43.5,BOTH_OR_NEITHER,UNDERS,HOME,0.0995,nan,nan,-16.0
+NRL,2025-08-02,2025,St George Dragons,Canberra Raiders,2.7,nan,1.45,nan,45.5,43.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.3012,nan,nan,6.0
+NRL,2025-08-02,2025,Gold Coast Titans,Penrith Panthers,4.0,nan,1.24,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.5267,nan,nan,-4.0
+NRL,2025-08-01,2025,Brisbane Broncos,South Sydney Rabbitohs,1.18,nan,4.75,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.602,nan,nan,46.0
+NRL,2025-08-01,2025,New Zealand Warriors,Dolphins,1.72,nan,2.1,nan,46.5,45.5,BOTH_OR_NEITHER,UNDERS,HOME,0.0995,nan,nan,-2.0
+NRL,2025-07-31,2025,Parramatta Eels,Melbourne Storm,3.15,nan,1.35,nan,47.5,46.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.4,nan,nan,-6.0
+NRL,2025-07-27,2025,Canterbury Bulldogs,Manly Sea Eagles,1.6,nan,2.35,nan,43.5,43.5,BOTH_OR_NEITHER,EVEN,HOME,0.1899,nan,nan,38.0
+NRL,2025-07-27,2025,Canberra Raiders,Newcastle Knights,1.2,nan,4.5,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.5789,nan,nan,26.0
+NRL,2025-07-26,2025,South Sydney Rabbitohs,Cronulla Sharks,4.2,nan,1.23,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.547,nan,nan,-2.0
+NRL,2025-07-26,2025,Penrith Panthers,Wests Tigers,1.25,nan,4.0,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.5238,nan,nan,34.0
+NRL,2025-07-26,2025,New Zealand Warriors,Gold Coast Titans,1.3,nan,3.4,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.4468,nan,nan,-8.0
+NRL,2025-07-25,2025,Brisbane Broncos,Parramatta Eels,1.2,nan,4.5,nan,48.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.5789,nan,nan,-2.0
+NRL,2025-07-25,2025,North QLD Cowboys,St George Dragons,1.55,nan,2.45,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.225,nan,nan,6.0
+NRL,2025-07-24,2025,Sydney Roosters,Melbourne Storm,2.6,nan,1.5,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2683,nan,nan,-4.0
+NRL,2025-07-20,2025,Newcastle Knights,New Zealand Warriors,2.6,nan,1.48,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2745,nan,nan,-5.0
+NRL,2025-07-20,2025,Wests Tigers,Gold Coast Titans,1.53,nan,2.45,nan,47.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.2312,nan,nan,1.0
+NRL,2025-07-19,2025,Melbourne Storm,Manly Sea Eagles,1.33,nan,3.25,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.4192,nan,nan,-2.0
+NRL,2025-07-19,2025,Canterbury Bulldogs,St George Dragons,1.32,nan,3.3,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.4286,nan,nan,2.0
+NRL,2025-07-19,2025,Canberra Raiders,Parramatta Eels,1.32,nan,3.3,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,HOME,0.4286,nan,nan,24.0
+NRL,2025-07-18,2025,Penrith Panthers,South Sydney Rabbitohs,1.22,nan,4.2,nan,45.5,44.5,BOTH_OR_NEITHER,UNDERS,HOME,0.5498,nan,nan,20.0
+NRL,2025-07-18,2025,Cronulla Sharks,Sydney Roosters,1.63,nan,2.25,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.1598,nan,nan,13.0
+NRL,2025-07-17,2025,Dolphins,North QLD Cowboys,1.53,nan,2.45,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.2312,nan,nan,19.0
+NRL,2025-07-13,2025,Gold Coast Titans,Brisbane Broncos,3.75,nan,1.27,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.494,nan,nan,-12.0
+NRL,2025-07-13,2025,Parramatta Eels,Penrith Panthers,3.75,nan,1.27,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.494,nan,nan,-22.0
+NRL,2025-07-13,2025,New Zealand Warriors,Wests Tigers,1.37,nan,3.05,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.3801,nan,nan,20.0
+NRL,2025-07-12,2025,North QLD Cowboys,Canterbury Bulldogs,2.85,nan,1.42,nan,48.5,47.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.3349,nan,nan,-4.0
+NRL,2025-07-12,2025,St George Dragons,Sydney Roosters,2.55,nan,1.5,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2593,nan,nan,-7.0
+NRL,2025-07-12,2025,Newcastle Knights,Melbourne Storm,4.0,nan,1.24,nan,46.5,45.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.5267,nan,nan,-18.0
+NRL,2025-07-11,2025,Cronulla Sharks,Dolphins,1.68,nan,2.15,nan,46.5,48.5,BOTH_OR_NEITHER,OVERS,HOME,0.1227,nan,nan,12.0
+NRL,2025-07-06,2025,Manly Sea Eagles,South Sydney Rabbitohs,1.35,nan,3.2,nan,46.5,47.5,BOTH_OR_NEITHER,OVERS,HOME,0.4066,nan,nan,18.0
+NRL,2025-07-06,2025,Sydney Roosters,Wests Tigers,1.2,nan,4.5,nan,47.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.5789,nan,nan,-2.0
+NRL,2025-07-05,2025,North QLD Cowboys,Melbourne Storm,3.65,nan,1.28,nan,47.5,49.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.4807,nan,nan,-6.0
+NRL,2025-07-05,2025,Canberra Raiders,St George Dragons,1.35,nan,3.2,nan,48.5,47.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4066,nan,nan,4.0
+NRL,2025-07-04,2025,Canterbury Bulldogs,Brisbane Broncos,1.55,nan,2.45,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.225,nan,nan,-4.0
+NRL,2025-06-29,2025,Gold Coast Titans,North QLD Cowboys,2.2,nan,1.65,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1429,nan,nan,-6.0
+NRL,2025-06-29,2025,Melbourne Storm,Cronulla Sharks,1.33,nan,3.25,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,HOME,0.4192,nan,nan,24.0
+NRL,2025-06-28,2025,Dolphins,South Sydney Rabbitohs,1.56,nan,2.4,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.2121,nan,nan,22.0
+NRL,2025-06-28,2025,St George Dragons,Parramatta Eels,1.63,nan,2.25,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.1598,nan,nan,14.0
+NRL,2025-06-28,2025,Brisbane Broncos,New Zealand Warriors,1.5,nan,2.55,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.2593,nan,nan,14.0
+NRL,2025-06-27,2025,Newcastle Knights,Canberra Raiders,3.2,nan,1.34,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4097,nan,nan,-4.0
+NRL,2025-06-27,2025,Manly Sea Eagles,Wests Tigers,1.54,nan,2.45,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.2281,nan,nan,18.0
+NRL,2025-06-26,2025,Penrith Panthers,Canterbury Bulldogs,2.1,nan,1.72,nan,42.5,42.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0995,nan,nan,2.0
+NRL,2025-06-22,2025,Parramatta Eels,Gold Coast Titans,2.0,nan,1.8,nan,48.5,47.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.0526,nan,nan,16.0
+NRL,2025-06-22,2025,Sydney Roosters,North QLD Cowboys,1.48,nan,2.6,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.2745,nan,nan,34.0
+NRL,2025-06-22,2025,Brisbane Broncos,Cronulla Sharks,1.5,nan,2.55,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.2593,nan,nan,6.0
+NRL,2025-06-21,2025,South Sydney Rabbitohs,Melbourne Storm,2.9,nan,1.4,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3488,nan,nan,-1.0
+NRL,2025-06-21,2025,Dolphins,Newcastle Knights,1.34,nan,3.2,nan,47.5,46.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4097,nan,nan,-6.0
+NRL,2025-06-21,2025,New Zealand Warriors,Penrith Panthers,1.26,nan,3.75,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.497,nan,nan,-10.0
+NRL,2025-06-20,2025,Wests Tigers,Canberra Raiders,3.15,nan,1.35,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4,nan,nan,-4.0
+NRL,2025-06-15,2025,South Sydney Rabbitohs,Canterbury Bulldogs,2.8,nan,1.43,nan,46.5,45.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.3239,nan,nan,-6.0
+NRL,2025-06-14,2025,North QLD Cowboys,Dolphins,2.25,nan,1.65,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1538,nan,nan,-54.0
+NRL,2025-06-14,2025,Newcastle Knights,Sydney Roosters,2.55,nan,1.5,nan,43.5,43.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2593,nan,nan,-4.0
+NRL,2025-06-13,2025,Gold Coast Titans,Manly Sea Eagles,3.4,nan,1.32,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4407,nan,nan,20.0
+NRL,2025-06-12,2025,Cronulla Sharks,St George Dragons,1.32,nan,3.4,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.4407,nan,nan,12.0
+NRL,2025-06-09,2025,Canterbury Bulldogs,Parramatta Eels,1.4,nan,2.9,nan,45.5,44.5,BOTH_OR_NEITHER,UNDERS,HOME,0.3488,nan,nan,18.0
+NRL,2025-06-08,2025,Wests Tigers,Penrith Panthers,3.5,nan,1.3,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4583,nan,nan,-4.0
+NRL,2025-06-08,2025,Canberra Raiders,South Sydney Rabbitohs,1.4,nan,2.9,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.3488,nan,nan,24.0
+NRL,2025-06-07,2025,Brisbane Broncos,Gold Coast Titans,1.4,nan,2.9,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.3488,nan,nan,30.0
+NRL,2025-06-07,2025,Cronulla Sharks,New Zealand Warriors,1.45,nan,2.7,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.3012,nan,nan,-30.0
+NRL,2025-06-06,2025,Dolphins,St George Dragons,1.6,nan,2.3,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.1795,nan,nan,50.0
+NRL,2025-06-06,2025,Melbourne Storm,North QLD Cowboys,1.23,nan,4.1,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.5385,nan,nan,24.0
+NRL,2025-06-05,2025,Newcastle Knights,Manly Sea Eagles,2.45,nan,1.53,nan,44.5,43.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2312,nan,nan,4.0
+NRL,2025-06-01,2025,Sydney Roosters,Canberra Raiders,1.9,nan,1.9,nan,46.5,47.5,BOTH_OR_NEITHER,OVERS,AWAY,0.0,nan,nan,-2.0
+NRL,2025-06-01,2025,Penrith Panthers,Parramatta Eels,1.6,nan,2.3,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,HOME,0.1795,nan,nan,8.0
+NRL,2025-06-01,2025,South Sydney Rabbitohs,New Zealand Warriors,2.05,nan,1.75,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0789,nan,nan,-6.0
+NRL,2025-05-31,2025,Manly Sea Eagles,Brisbane Broncos,1.65,nan,2.2,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.1429,nan,nan,28.0
+NRL,2025-05-31,2025,North QLD Cowboys,Wests Tigers,1.4,nan,2.9,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.3488,nan,nan,4.0
+NRL,2025-05-31,2025,Gold Coast Titans,Melbourne Storm,3.6,nan,1.28,nan,50.5,49.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.4754,nan,nan,-12.0
+NRL,2025-05-30,2025,St George Dragons,Newcastle Knights,1.5,nan,2.55,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.2593,nan,nan,14.0
+NRL,2025-05-25,2025,New Zealand Warriors,Canberra Raiders,1.65,nan,2.25,nan,43.5,45.5,BOTH_OR_NEITHER,OVERS,HOME,0.1538,nan,nan,-6.0
+NRL,2025-05-24,2025,Sydney Roosters,Cronulla Sharks,2.55,nan,1.5,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2593,nan,nan,26.0
+NRL,2025-05-24,2025,Penrith Panthers,Newcastle Knights,1.34,nan,3.2,nan,43.5,42.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4097,nan,nan,-19.0
+NRL,2025-05-23,2025,Parramatta Eels,Manly Sea Eagles,2.65,nan,1.47,nan,46.5,43.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2864,nan,nan,20.0
+NRL,2025-05-22,2025,Canterbury Bulldogs,Dolphins,1.22,nan,4.25,nan,41.5,41.5,BOTH_OR_NEITHER,EVEN,HOME,0.5539,nan,nan,-36.0
+NRL,2025-05-18,2025,Wests Tigers,South Sydney Rabbitohs,1.9,nan,1.9,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,0.0,nan,nan,-10.0
+NRL,2025-05-18,2025,Canberra Raiders,Gold Coast Titans,1.35,nan,3.2,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.4066,nan,nan,16.0
+NRL,2025-05-18,2025,Brisbane Broncos,St George Dragons,1.3,nan,3.55,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.4639,nan,nan,-4.0
+NRL,2025-05-17,2025,Cronulla Sharks,Melbourne Storm,2.35,nan,1.6,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1899,nan,nan,5.0
+NRL,2025-05-17,2025,North QLD Cowboys,Manly Sea Eagles,1.74,nan,2.1,nan,50.5,51.5,BOTH_OR_NEITHER,OVERS,HOME,0.0937,nan,nan,-18.0
+NRL,2025-05-17,2025,Dolphins,New Zealand Warriors,1.95,nan,1.85,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0263,nan,nan,-4.0
+NRL,2025-05-16,2025,Canterbury Bulldogs,Sydney Roosters,1.37,nan,3.1,nan,43.5,44.5,BOTH_OR_NEITHER,OVERS,HOME,0.387,nan,nan,4.0
+NRL,2025-05-16,2025,Newcastle Knights,Parramatta Eels,1.68,nan,2.2,nan,46.5,45.5,BOTH_OR_NEITHER,UNDERS,HOME,0.134,nan,nan,-22.0
+NRL,2025-05-11,2025,Manly Sea Eagles,Cronulla Sharks,1.65,nan,2.2,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.1429,nan,nan,-16.0
+NRL,2025-05-11,2025,Melbourne Storm,Wests Tigers,1.22,nan,4.25,nan,50.5,52.5,BOTH_OR_NEITHER,OVERS,HOME,0.5539,nan,nan,64.0
+NRL,2025-05-10,2025,North QLD Cowboys,Penrith Panthers,2.3,nan,1.6,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1795,nan,nan,0.0
+NRL,2025-05-10,2025,St George Dragons,New Zealand Warriors,2.0,nan,1.8,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0526,nan,nan,-1.0
+NRL,2025-05-10,2025,Canberra Raiders,Canterbury Bulldogs,1.9,nan,1.9,nan,46.5,44.5,BOTH_OR_NEITHER,UNDERS,AWAY,0.0,nan,nan,-12.0
+NRL,2025-05-09,2025,South Sydney Rabbitohs,Brisbane Broncos,3.3,nan,1.32,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4286,nan,nan,8.0
+NRL,2025-05-09,2025,Newcastle Knights,Gold Coast Titans,1.52,nan,2.5,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.2438,nan,nan,-4.0
+NRL,2025-05-08,2025,Parramatta Eels,Dolphins,1.8,nan,2.0,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.0526,nan,nan,-4.0
+NRL,2025-05-04,2025,Melbourne Storm,Canberra Raiders,1.5,nan,2.6,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,HOME,0.2683,nan,nan,-2.0
+NRL,2025-05-04,2025,Penrith Panthers,Brisbane Broncos,2.2,nan,1.67,nan,46.5,47.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.137,nan,nan,24.0
+NRL,2025-05-04,2025,Gold Coast Titans,Canterbury Bulldogs,4.0,nan,1.24,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.5267,nan,nan,-20.0
+NRL,2025-05-03,2025,Wests Tigers,St George Dragons,1.9,nan,1.9,nan,46.5,44.5,BOTH_OR_NEITHER,UNDERS,AWAY,0.0,nan,nan,6.0
+NRL,2025-05-03,2025,New Zealand Warriors,North QLD Cowboys,1.95,nan,1.85,nan,47.5,44.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.0263,nan,nan,4.0
+NRL,2025-05-03,2025,South Sydney Rabbitohs,Newcastle Knights,1.7,nan,2.15,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.1169,nan,nan,-26.0
+NRL,2025-05-02,2025,Sydney Roosters,Dolphins,1.85,nan,1.95,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.0263,nan,nan,10.0
+NRL,2025-05-02,2025,Cronulla Sharks,Parramatta Eels,1.48,nan,2.65,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.2833,nan,nan,10.0
+NRL,2025-04-27,2025,Wests Tigers,Cronulla Sharks,2.9,nan,1.45,nan,46.5,25.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.3333,nan,nan,2.0
+NRL,2025-04-27,2025,Canberra Raiders,Dolphins,1.56,nan,2.4,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.2121,nan,nan,12.0
+NRL,2025-04-26,2025,Penrith Panthers,Manly Sea Eagles,1.36,nan,3.1,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.3901,nan,nan,-16.0
+NRL,2025-04-26,2025,North QLD Cowboys,Gold Coast Titans,1.45,nan,2.745,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.3087,nan,nan,32.0
+NRL,2025-04-25,2025,Melbourne Storm,South Sydney Rabbitohs,1.17,nan,4.95,nan,48.5,46.5,BOTH_OR_NEITHER,UNDERS,HOME,0.6176,nan,nan,8.0
+NRL,2025-04-25,2025,New Zealand Warriors,Newcastle Knights,1.45,nan,2.75,nan,44.5,42.5,BOTH_OR_NEITHER,UNDERS,HOME,0.3095,nan,nan,14.0
+NRL,2025-04-25,2025,Sydney Roosters,St George Dragons,1.9,nan,1.9,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,AWAY,0.0,nan,nan,28.0
+NRL,2025-04-24,2025,Brisbane Broncos,Canterbury Bulldogs,2.4,nan,1.57,nan,42.5,40.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2091,nan,nan,24.0
+NRL,2025-04-21,2025,Wests Tigers,Parramatta Eels,1.45,nan,2.7,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.3012,nan,nan,-16.0
+NRL,2025-04-20,2025,Newcastle Knights,Cronulla Sharks,3.0,nan,1.38,nan,42.5,42.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3699,nan,nan,-20.0
+NRL,2025-04-20,2025,Gold Coast Titans,Canberra Raiders,1.95,nan,1.85,nan,50.5,51.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.0263,nan,nan,-10.0
+NRL,2025-04-19,2025,Sydney Roosters,Penrith Panthers,2.2,nan,1.66,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1399,nan,nan,-28.0
+NRL,2025-04-19,2025,New Zealand Warriors,Brisbane Broncos,3.0,nan,1.38,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3699,nan,nan,2.0
+NRL,2025-04-18,2025,Dolphins,Melbourne Storm,3.9,nan,1.25,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.5146,nan,nan,20.0
+NRL,2025-04-18,2025,Canterbury Bulldogs,South Sydney Rabbitohs,1.33,nan,3.3,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.4255,nan,nan,32.0
+NRL,2025-04-17,2025,Manly Sea Eagles,St George Dragons,1.6,nan,2.35,nan,48.5,28.5,BOTH_OR_NEITHER,UNDERS,HOME,0.1899,nan,nan,-2.0
+NRL,2025-04-13,2025,Newcastle Knights,Wests Tigers,1.47,nan,2.65,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.2864,nan,nan,-16.0
+NRL,2025-04-13,2025,Melbourne Storm,New Zealand Warriors,1.18,nan,4.75,nan,51.5,53.5,BOTH_OR_NEITHER,OVERS,HOME,0.602,nan,nan,28.0
+NRL,2025-04-12,2025,Parramatta Eels,Canberra Raiders,2.55,nan,1.5,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2593,nan,nan,-38.0
+NRL,2025-04-12,2025,South Sydney Rabbitohs,North QLD Cowboys,1.95,nan,1.85,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0263,nan,nan,-8.0
+NRL,2025-04-12,2025,Cronulla Sharks,Manly Sea Eagles,1.5,nan,2.55,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.2593,nan,nan,6.0
+NRL,2025-04-11,2025,Brisbane Broncos,Sydney Roosters,1.3,nan,3.45,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.4526,nan,nan,-10.0
+NRL,2025-04-11,2025,St George Dragons,Gold Coast Titans,1.68,nan,2.15,nan,48.5,47.5,BOTH_OR_NEITHER,UNDERS,HOME,0.1227,nan,nan,22.0
+NRL,2025-04-10,2025,Dolphins,Penrith Panthers,2.9,nan,1.4,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3488,nan,nan,18.0
+NRL,2025-04-06,2025,Canterbury Bulldogs,Newcastle Knights,1.46,nan,2.7,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.2981,nan,nan,20.0
+NRL,2025-04-06,2025,Manly Sea Eagles,Melbourne Storm,2.45,nan,1.55,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.225,nan,nan,-24.0
+NRL,2025-04-05,2025,Brisbane Broncos,Wests Tigers,1.22,nan,4.25,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,HOME,0.5539,nan,nan,22.0
+NRL,2025-04-05,2025,Gold Coast Titans,Dolphins,1.48,nan,2.65,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,HOME,0.2833,nan,nan,-26.0
+NRL,2025-04-05,2025,Parramatta Eels,St George Dragons,2.45,nan,1.55,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.225,nan,nan,1.0
+NRL,2025-04-04,2025,South Sydney Rabbitohs,Sydney Roosters,1.8,nan,2.0,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.0526,nan,nan,6.0
+NRL,2025-04-04,2025,Penrith Panthers,North QLD Cowboys,1.22,nan,4.25,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.5539,nan,nan,-4.0
+NRL,2025-04-03,2025,Canberra Raiders,Cronulla Sharks,2.6,nan,1.5,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2683,nan,nan,4.0
+NRL,2025-03-30,2025,Wests Tigers,New Zealand Warriors,1.65,nan,2.2,nan,47.5,45.5,BOTH_OR_NEITHER,UNDERS,HOME,0.1429,nan,nan,-2.0
+NRL,2025-03-30,2025,Manly Sea Eagles,Parramatta Eels,1.16,nan,5.0,nan,54.5,53.5,BOTH_OR_NEITHER,UNDERS,HOME,0.6234,nan,nan,14.0
+NRL,2025-03-29,2025,Cronulla Sharks,Canterbury Bulldogs,1.26,nan,3.75,nan,45.5,43.5,BOTH_OR_NEITHER,UNDERS,HOME,0.497,nan,nan,-14.0
+NRL,2025-03-29,2025,North QLD Cowboys,Canberra Raiders,1.89,nan,1.89,nan,46.5,45.5,BOTH_OR_NEITHER,UNDERS,AWAY,0.0,nan,nan,10.0
+NRL,2025-03-29,2025,St George Dragons,Melbourne Storm,2.8,nan,1.42,nan,49.5,45.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.327,nan,nan,6.0
+NRL,2025-03-28,2025,Dolphins,Brisbane Broncos,4.5,nan,1.2,nan,50.5,49.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.5789,nan,nan,-8.0
+NRL,2025-03-28,2025,Sydney Roosters,Gold Coast Titans,1.55,nan,2.4,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.2152,nan,nan,-18.0
+NRL,2025-03-27,2025,South Sydney Rabbitohs,Penrith Panthers,3.15,nan,1.35,nan,49.5,48.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.4,nan,nan,10.0
+NRL,2025-03-23,2025,Manly Sea Eagles,Canberra Raiders,1.52,nan,2.55,nan,48.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.2531,nan,nan,28.0
+NRL,2025-03-23,2025,Parramatta Eels,Canterbury Bulldogs,2.6,nan,1.5,nan,47.5,49.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.2683,nan,nan,-8.0
+NRL,2025-03-22,2025,Gold Coast Titans,Newcastle Knights,1.9,nan,1.9,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,0.0,nan,nan,20.0
+NRL,2025-03-22,2025,Dolphins,Wests Tigers,2.0,nan,1.8,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0526,nan,nan,-12.0
+NRL,2025-03-22,2025,Cronulla Sharks,South Sydney Rabbitohs,1.18,nan,4.8,nan,48.5,54.5,BOTH_OR_NEITHER,OVERS,HOME,0.6054,nan,nan,15.0
+NRL,2025-03-21,2025,Brisbane Broncos,North QLD Cowboys,1.22,nan,4.25,nan,52.5,53.5,BOTH_OR_NEITHER,OVERS,HOME,0.5539,nan,nan,10.0
+NRL,2025-03-21,2025,New Zealand Warriors,Sydney Roosters,1.74,nan,2.1,nan,48.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.0937,nan,nan,8.0
+NRL,2025-03-20,2025,Melbourne Storm,Penrith Panthers,1.43,nan,2.85,nan,45.5,43.5,BOTH_OR_NEITHER,UNDERS,HOME,0.3318,nan,nan,6.0
+NRL,2025-03-16,2025,Canterbury Bulldogs,Gold Coast Titans,1.4,nan,2.9,nan,45.5,47.5,BOTH_OR_NEITHER,OVERS,HOME,0.3488,nan,nan,16.0
+NRL,2025-03-16,2025,Parramatta Eels,Wests Tigers,2.25,nan,1.65,nan,49.5,51.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1538,nan,nan,-26.0
+NRL,2025-03-15,2025,Canberra Raiders,Brisbane Broncos,3.7,nan,1.27,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4889,nan,nan,10.0
+NRL,2025-03-15,2025,North QLD Cowboys,Cronulla Sharks,2.6,nan,1.48,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2745,nan,nan,-24.0
+NRL,2025-03-15,2025,St George Dragons,South Sydney Rabbitohs,1.45,nan,2.7,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,HOME,0.3012,nan,nan,-1.0
+NRL,2025-03-14,2025,Penrith Panthers,Sydney Roosters,1.12,nan,6.0,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.6854,nan,nan,-6.0
+NRL,2025-03-14,2025,New Zealand Warriors,Manly Sea Eagles,2.7,nan,1.45,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3012,nan,nan,20.0
+NRL,2025-03-13,2025,Newcastle Knights,Dolphins,1.6,nan,2.3,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.1795,nan,nan,14.0
+NRL,2025-03-09,2025,Melbourne Storm,Parramatta Eels,1.25,nan,4.0,nan,44.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.5238,nan,nan,38.0
+NRL,2025-03-08,2025,Manly Sea Eagles,North QLD Cowboys,1.6,nan,2.35,nan,44.5,46.5,BOTH_OR_NEITHER,OVERS,HOME,0.1899,nan,nan,30.0
+NRL,2025-03-08,2025,St George Dragons,Canterbury Bulldogs,3.5,nan,1.3,nan,40.5,40.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4583,nan,nan,-8.0
+NRL,2025-03-07,2025,South Sydney Rabbitohs,Dolphins,1.55,nan,2.45,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,HOME,0.225,nan,nan,2.0
+NRL,2025-03-07,2025,Wests Tigers,Newcastle Knights,1.7,nan,2.15,nan,42.5,27.5,BOTH_OR_NEITHER,UNDERS,HOME,0.1169,nan,nan,-2.0
+NRL,2025-03-06,2025,Sydney Roosters,Brisbane Broncos,2.0,nan,1.8,nan,42.5,43.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.0526,nan,nan,-36.0
+NRL,2025-03-02,2025,Penrith Panthers,Cronulla Sharks,1.58,nan,2.4,nan,40.5,40.5,BOTH_OR_NEITHER,EVEN,HOME,0.206,nan,nan,6.0
+NRL,2025-03-02,2025,Canberra Raiders,New Zealand Warriors,2.6,nan,1.5,nan,42.5,42.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2683,nan,nan,22.0
+NRL,2024-10-06,2024,Melbourne Storm,Penrith Panthers,2.0,nan,1.8,nan,39.5,40.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.0526,nan,nan,-8.0
+NRL,2024-09-28,2024,Penrith Panthers,Cronulla Sharks,1.25,nan,4.0,nan,41.5,41.5,BOTH_OR_NEITHER,EVEN,HOME,0.5238,nan,nan,20.0
+NRL,2024-09-27,2024,Melbourne Storm,Sydney Roosters,1.3,nan,3.5,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,HOME,0.4583,nan,nan,30.0
+NRL,2024-09-21,2024,Sydney Roosters,Manly Sea Eagles,1.62,nan,2.25,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.1628,nan,nan,24.0
+NRL,2024-09-20,2024,Cronulla Sharks,North QLD Cowboys,1.65,nan,2.25,nan,45.5,46.5,BOTH_OR_NEITHER,OVERS,HOME,0.1538,nan,nan,8.0
+NRL,2024-09-15,2024,Canterbury Bulldogs,Manly Sea Eagles,1.8,nan,2.0,nan,43.5,44.5,BOTH_OR_NEITHER,OVERS,HOME,0.0526,nan,nan,-2.0
+NRL,2024-09-14,2024,North QLD Cowboys,Newcastle Knights,1.45,nan,2.75,nan,43.5,44.5,BOTH_OR_NEITHER,OVERS,HOME,0.3095,nan,nan,12.0
+NRL,2024-09-14,2024,Melbourne Storm,Cronulla Sharks,1.3,nan,3.5,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,HOME,0.4583,nan,nan,27.0
+NRL,2024-09-13,2024,Penrith Panthers,Sydney Roosters,1.45,nan,2.75,nan,41.5,41.5,BOTH_OR_NEITHER,EVEN,HOME,0.3095,nan,nan,20.0
+NRL,2024-09-08,2024,Newcastle Knights,Dolphins,1.75,nan,2.05,nan,51.5,49.5,BOTH_OR_NEITHER,UNDERS,HOME,0.0789,nan,nan,8.0
+NRL,2024-09-08,2024,Manly Sea Eagles,Cronulla Sharks,1.85,nan,1.95,nan,49.5,52.5,BOTH_OR_NEITHER,OVERS,HOME,0.0263,nan,nan,-20.0
+NRL,2024-09-07,2024,Penrith Panthers,Gold Coast Titans,1.08,nan,7.5,nan,50.5,53.5,BOTH_OR_NEITHER,OVERS,HOME,0.7483,nan,nan,6.0
+NRL,2024-09-07,2024,Canterbury Bulldogs,North QLD Cowboys,1.7,nan,2.1,nan,47.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.1053,nan,nan,-38.0
+NRL,2024-09-07,2024,St George Dragons,Canberra Raiders,1.55,nan,2.4,nan,50.5,53.5,BOTH_OR_NEITHER,OVERS,HOME,0.2152,nan,nan,-2.0
+NRL,2024-09-06,2024,South Sydney Rabbitohs,Sydney Roosters,7.0,nan,1.1,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.7284,nan,nan,-8.0
+NRL,2024-09-06,2024,Wests Tigers,Parramatta Eels,2.15,nan,1.7,nan,52.5,54.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1169,nan,nan,-34.0
+NRL,2024-09-05,2024,Brisbane Broncos,Melbourne Storm,2.7,nan,1.45,nan,51.5,54.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.3012,nan,nan,-38.0
+NRL,2024-09-01,2024,Sydney Roosters,Canberra Raiders,1.18,nan,4.7,nan,52.5,54.5,BOTH_OR_NEITHER,OVERS,HOME,0.5986,nan,nan,-2.0
+NRL,2024-09-01,2024,Newcastle Knights,Gold Coast Titans,1.33,nan,3.25,nan,50.5,52.5,BOTH_OR_NEITHER,OVERS,HOME,0.4192,nan,nan,22.0
+NRL,2024-08-31,2024,Cronulla Sharks,New Zealand Warriors,1.2,nan,4.4,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.5714,nan,nan,-2.0
+NRL,2024-08-31,2024,Dolphins,Brisbane Broncos,2.5,nan,1.52,nan,51.5,53.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.2438,nan,nan,34.0
+NRL,2024-08-31,2024,Parramatta Eels,St George Dragons,2.3,nan,1.6,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1795,nan,nan,4.0
+NRL,2024-08-30,2024,Penrith Panthers,South Sydney Rabbitohs,1.15,nan,5.2,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.6378,nan,nan,22.0
+NRL,2024-08-30,2024,Canterbury Bulldogs,Manly Sea Eagles,1.65,nan,2.2,nan,45.5,46.5,BOTH_OR_NEITHER,OVERS,HOME,0.1429,nan,nan,-12.0
+NRL,2024-08-29,2024,North QLD Cowboys,Melbourne Storm,1.37,nan,3.1,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,HOME,0.387,nan,nan,8.0
+NRL,2024-08-25,2024,St George Dragons,Cronulla Sharks,2.3,nan,1.6,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1795,nan,nan,-28.0
+NRL,2024-08-25,2024,Gold Coast Titans,Sydney Roosters,4.2,nan,1.22,nan,54.5,54.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.5498,nan,nan,-26.0
+NRL,2024-08-24,2024,South Sydney Rabbitohs,Newcastle Knights,2.5,nan,1.52,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2438,nan,nan,-20.0
+NRL,2024-08-24,2024,Melbourne Storm,Dolphins,1.2,nan,4.4,nan,52.5,53.5,BOTH_OR_NEITHER,OVERS,HOME,0.5714,nan,nan,42.0
+NRL,2024-08-24,2024,Canberra Raiders,Penrith Panthers,3.2,nan,1.34,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4097,nan,nan,4.0
+NRL,2024-08-23,2024,Brisbane Broncos,Parramatta Eels,1.38,nan,3.0,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,HOME,0.3699,nan,nan,6.0
+NRL,2024-08-23,2024,New Zealand Warriors,Canterbury Bulldogs,2.6,nan,1.48,nan,43.5,43.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2745,nan,nan,-16.0
+NRL,2024-08-22,2024,Wests Tigers,Manly Sea Eagles,4.6,nan,1.18,nan,53.5,54.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.5917,nan,nan,8.0
+NRL,2024-08-18,2024,Cronulla Sharks,Newcastle Knights,1.35,nan,3.15,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.4,nan,nan,1.0
+NRL,2024-08-18,2024,St George Dragons,Gold Coast Titans,1.54,nan,2.45,nan,51.5,52.5,BOTH_OR_NEITHER,OVERS,HOME,0.2281,nan,nan,16.0
+NRL,2024-08-17,2024,Wests Tigers,South Sydney Rabbitohs,2.55,nan,1.5,nan,53.5,53.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.2593,nan,nan,2.0
+NRL,2024-08-17,2024,North QLD Cowboys,Canberra Raiders,1.54,nan,2.45,nan,50.5,51.5,BOTH_OR_NEITHER,OVERS,HOME,0.2281,nan,nan,38.0
+NRL,2024-08-17,2024,Canterbury Bulldogs,Dolphins,1.5,nan,2.55,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.2593,nan,nan,20.0
+NRL,2024-08-16,2024,Sydney Roosters,Parramatta Eels,1.22,nan,4.15,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,HOME,0.5456,nan,nan,24.0
+NRL,2024-08-16,2024,Manly Sea Eagles,New Zealand Warriors,1.15,nan,5.25,nan,52.5,54.5,BOTH_OR_NEITHER,OVERS,HOME,0.6406,nan,nan,14.0
+NRL,2024-08-15,2024,Penrith Panthers,Melbourne Storm,1.5,nan,2.55,nan,43.5,43.5,BOTH_OR_NEITHER,EVEN,HOME,0.2593,nan,nan,-2.0
+NRL,2024-08-11,2024,Newcastle Knights,Wests Tigers,1.3,nan,3.45,nan,51.5,50.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4526,nan,nan,16.0
+NRL,2024-08-11,2024,Dolphins,New Zealand Warriors,1.4,nan,2.9,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,HOME,0.3488,nan,nan,2.0
+NRL,2024-08-10,2024,St George Dragons,Canterbury Bulldogs,2.3,nan,1.6,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1795,nan,nan,-18.0
+NRL,2024-08-10,2024,North QLD Cowboys,Brisbane Broncos,1.5,nan,2.55,nan,51.5,52.5,BOTH_OR_NEITHER,OVERS,HOME,0.2593,nan,nan,-24.0
+NRL,2024-08-10,2024,Canberra Raiders,Manly Sea Eagles,2.15,nan,1.68,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1227,nan,nan,-22.0
+NRL,2024-08-09,2024,Parramatta Eels,Penrith Panthers,5.5,nan,1.14,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.6566,nan,nan,-2.0
+NRL,2024-08-09,2024,Gold Coast Titans,Cronulla Sharks,1.95,nan,1.85,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0263,nan,nan,-44.0
+NRL,2024-08-08,2024,South Sydney Rabbitohs,Melbourne Storm,4.4,nan,1.2,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.5714,nan,nan,-12.0
+NRL,2024-08-04,2024,Canterbury Bulldogs,Canberra Raiders,1.4,nan,2.9,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,HOME,0.3488,nan,nan,4.0
+NRL,2024-08-04,2024,Penrith Panthers,Newcastle Knights,1.2,nan,4.5,nan,48.5,47.5,BOTH_OR_NEITHER,UNDERS,HOME,0.5789,nan,nan,8.0
+NRL,2024-08-03,2024,Cronulla Sharks,South Sydney Rabbitohs,1.32,nan,3.35,nan,49.5,51.5,BOTH_OR_NEITHER,OVERS,HOME,0.4347,nan,nan,14.0
+NRL,2024-08-03,2024,Melbourne Storm,St George Dragons,1.2,nan,4.5,nan,50.5,51.5,BOTH_OR_NEITHER,OVERS,HOME,0.5789,nan,nan,-2.0
+NRL,2024-08-03,2024,Gold Coast Titans,Brisbane Broncos,3.35,nan,1.32,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4347,nan,nan,28.0
+NRL,2024-08-02,2024,Dolphins,Sydney Roosters,3.35,nan,1.32,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.4347,nan,nan,-6.0
+NRL,2024-08-02,2024,New Zealand Warriors,Parramatta Eels,1.278,nan,3.6,nan,48.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.476,nan,nan,-10.0
+NRL,2024-08-01,2024,Wests Tigers,North QLD Cowboys,3.35,nan,1.32,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4347,nan,nan,-18.0
+NRL,2024-07-28,2024,Canberra Raiders,South Sydney Rabbitohs,1.65,nan,2.2,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.1429,nan,nan,20.0
+NRL,2024-07-28,2024,Dolphins,Gold Coast Titans,1.48,nan,2.6,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,HOME,0.2745,nan,nan,-7.0
+NRL,2024-07-28,2024,St George Dragons,Penrith Panthers,3.8,nan,1.26,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.502,nan,nan,-36.0
+NRL,2024-07-27,2024,Sydney Roosters,Manly Sea Eagles,1.48,nan,2.6,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.2745,nan,nan,4.0
+NRL,2024-07-27,2024,North QLD Cowboys,Cronulla Sharks,1.8,nan,2.0,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.0526,nan,nan,8.0
+NRL,2024-07-27,2024,Brisbane Broncos,Canterbury Bulldogs,1.45,nan,2.7,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.3012,nan,nan,-25.0
+NRL,2024-07-26,2024,Parramatta Eels,Melbourne Storm,4.75,nan,1.18,nan,53.5,53.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.602,nan,nan,-18.0
+NRL,2024-07-26,2024,New Zealand Warriors,Wests Tigers,1.24,nan,4.0,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.5267,nan,nan,12.0
+NRL,2024-07-21,2024,North QLD Cowboys,Canterbury Bulldogs,1.8,nan,2.0,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.0526,nan,nan,2.0
+NRL,2024-07-21,2024,Manly Sea Eagles,Gold Coast Titans,1.38,nan,3.0,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,HOME,0.3699,nan,nan,30.0
+NRL,2024-07-21,2024,Penrith Panthers,Dolphins,1.2,nan,4.4,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.5714,nan,nan,2.0
+NRL,2024-07-20,2024,Melbourne Storm,Sydney Roosters,2.0,nan,1.8,nan,47.5,46.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.0526,nan,nan,16.0
+NRL,2024-07-20,2024,Newcastle Knights,Brisbane Broncos,2.25,nan,1.63,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1598,nan,nan,-16.0
+NRL,2024-07-20,2024,South Sydney Rabbitohs,Wests Tigers,1.28,nan,3.6,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,HOME,0.4754,nan,nan,14.0
+NRL,2024-07-19,2024,Canberra Raiders,New Zealand Warriors,2.0,nan,1.8,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0526,nan,nan,2.0
+NRL,2024-07-14,2024,Manly Sea Eagles,Newcastle Knights,1.78,nan,2.0,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.0582,nan,nan,38.0
+NRL,2024-07-13,2024,Brisbane Broncos,St George Dragons,1.47,nan,2.65,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.2864,nan,nan,-4.0
+NRL,2024-07-13,2024,Gold Coast Titans,Parramatta Eels,1.6,nan,2.3,nan,52.5,53.5,BOTH_OR_NEITHER,OVERS,HOME,0.1795,nan,nan,8.0
+NRL,2024-07-12,2024,Cronulla Sharks,Wests Tigers,1.24,nan,4.0,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.5267,nan,nan,52.0
+NRL,2024-07-11,2024,Dolphins,South Sydney Rabbitohs,1.85,nan,1.95,nan,48.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.0263,nan,nan,8.0
+NRL,2024-07-07,2024,Canberra Raiders,Newcastle Knights,1.9,nan,1.9,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,0.0,nan,nan,-4.0
+NRL,2024-07-07,2024,Sydney Roosters,St George Dragons,1.22,nan,4.2,nan,52.5,52.5,BOTH_OR_NEITHER,EVEN,HOME,0.5498,nan,nan,30.0
+NRL,2024-07-06,2024,North QLD Cowboys,Manly Sea Eagles,1.75,nan,2.05,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.0789,nan,nan,-1.0
+NRL,2024-07-06,2024,Wests Tigers,Melbourne Storm,4.2,nan,1.22,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.5498,nan,nan,-12.0
+NRL,2024-07-06,2024,Canterbury Bulldogs,New Zealand Warriors,1.52,nan,2.5,nan,45.5,46.5,BOTH_OR_NEITHER,OVERS,HOME,0.2438,nan,nan,1.0
+NRL,2024-07-05,2024,Brisbane Broncos,Penrith Panthers,2.3,nan,1.6,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1795,nan,nan,-8.0
+NRL,2024-07-05,2024,Cronulla Sharks,Gold Coast Titans,1.4,nan,2.9,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,HOME,0.3488,nan,nan,-4.0
+NRL,2024-07-04,2024,Parramatta Eels,South Sydney Rabbitohs,1.9,nan,1.9,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,0.0,nan,nan,-16.0
+NRL,2024-06-30,2024,Sydney Roosters,Wests Tigers,1.12,nan,6.0,nan,52.5,50.5,BOTH_OR_NEITHER,UNDERS,HOME,0.6854,nan,nan,34.0
+NRL,2024-06-30,2024,Penrith Panthers,North QLD Cowboys,1.28,nan,3.6,nan,47.5,46.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4754,nan,nan,-10.0
+NRL,2024-06-30,2024,St George Dragons,Dolphins,1.95,nan,1.85,nan,53.5,52.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.0263,nan,nan,20.0
+NRL,2024-06-29,2024,Melbourne Storm,Canberra Raiders,1.22,nan,4.2,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.5498,nan,nan,10.0
+NRL,2024-06-29,2024,Newcastle Knights,Parramatta Eels,1.83,nan,1.94,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.0292,nan,nan,8.0
+NRL,2024-06-29,2024,New Zealand Warriors,Brisbane Broncos,2.2,nan,1.65,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1429,nan,nan,16.0
+NRL,2024-06-28,2024,Canterbury Bulldogs,Cronulla Sharks,2.2,nan,1.65,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1429,nan,nan,1.0
+NRL,2024-06-23,2024,Wests Tigers,Canberra Raiders,2.15,nan,1.68,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1227,nan,nan,24.0
+NRL,2024-06-22,2024,South Sydney Rabbitohs,Manly Sea Eagles,1.61,nan,2.25,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.1658,nan,nan,14.0
+NRL,2024-06-22,2024,Sydney Roosters,Canterbury Bulldogs,1.22,nan,4.2,nan,49.5,46.5,BOTH_OR_NEITHER,UNDERS,HOME,0.5498,nan,nan,18.0
+NRL,2024-06-22,2024,Gold Coast Titans,New Zealand Warriors,2.3,nan,1.6,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1795,nan,nan,60.0
+NRL,2024-06-21,2024,Dolphins,Melbourne Storm,2.5,nan,1.52,nan,48.5,49.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.2438,nan,nan,-6.0
+NRL,2024-06-16,2024,Newcastle Knights,Penrith Panthers,3.95,nan,1.24,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.5222,nan,nan,-8.0
+NRL,2024-06-16,2024,Manly Sea Eagles,St George Dragons,1.43,nan,2.75,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,HOME,0.3158,nan,nan,16.0
+NRL,2024-06-15,2024,Parramatta Eels,Sydney Roosters,2.35,nan,1.57,nan,51.5,51.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.199,nan,nan,-10.0
+NRL,2024-06-15,2024,New Zealand Warriors,Melbourne Storm,2.15,nan,1.69,nan,45.5,45.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1198,nan,nan,-14.0
+NRL,2024-06-15,2024,Wests Tigers,Gold Coast Titans,2.15,nan,1.69,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1198,nan,nan,8.0
+NRL,2024-06-14,2024,South Sydney Rabbitohs,Brisbane Broncos,2.65,nan,1.46,nan,49.5,48.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2895,nan,nan,10.0
+NRL,2024-06-14,2024,Canberra Raiders,North QLD Cowboys,1.7,nan,2.1,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.1053,nan,nan,-18.0
+NRL,2024-06-13,2024,Cronulla Sharks,Dolphins,1.38,nan,3.0,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,HOME,0.3699,nan,nan,-2.0
+NRL,2024-06-10,2024,Canterbury Bulldogs,Parramatta Eels,2.05,nan,1.75,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0789,nan,nan,4.0
+NRL,2024-06-09,2024,Penrith Panthers,Manly Sea Eagles,1.33,nan,3.25,nan,43.5,42.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4192,nan,nan,10.0
+NRL,2024-06-09,2024,Melbourne Storm,Newcastle Knights,1.23,nan,4.05,nan,46.5,49.5,BOTH_OR_NEITHER,OVERS,HOME,0.5341,nan,nan,8.0
+NRL,2024-06-08,2024,Brisbane Broncos,Cronulla Sharks,1.5,nan,2.55,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,HOME,0.2593,nan,nan,-10.0
+NRL,2024-06-08,2024,North QLD Cowboys,New Zealand Warriors,1.55,nan,2.4,nan,49.5,49.5,BOTH_OR_NEITHER,EVEN,HOME,0.2152,nan,nan,-30.0
+NRL,2024-06-08,2024,Gold Coast Titans,South Sydney Rabbitohs,1.83,nan,1.95,nan,53.5,53.5,BOTH_OR_NEITHER,EVEN,HOME,0.0317,nan,nan,-34.0
+NRL,2024-06-07,2024,St George Dragons,Wests Tigers,1.38,nan,3.0,nan,46.5,43.5,BOTH_OR_NEITHER,UNDERS,HOME,0.3699,nan,nan,42.0
+NRL,2024-06-02,2024,Sydney Roosters,North QLD Cowboys,1.26,nan,3.75,nan,51.5,53.5,BOTH_OR_NEITHER,OVERS,HOME,0.497,nan,nan,-2.0
+NRL,2024-06-01,2024,Dolphins,Canberra Raiders,1.58,nan,2.35,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.1959,nan,nan,-1.0
+NRL,2024-06-01,2024,Penrith Panthers,St George Dragons,1.35,nan,3.15,nan,43.5,40.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4,nan,nan,-12.0
+NRL,2024-05-31,2024,Newcastle Knights,Canterbury Bulldogs,1.79,nan,1.99,nan,43.5,42.5,BOTH_OR_NEITHER,UNDERS,HOME,0.0529,nan,nan,-30.0
+NRL,2024-05-30,2024,Parramatta Eels,Cronulla Sharks,2.95,nan,1.39,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3594,nan,nan,12.0
+NRL,2024-05-26,2024,New Zealand Warriors,Dolphins,2.15,nan,1.67,nan,40.5,44.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1257,nan,nan,4.0
+NRL,2024-05-26,2024,Brisbane Broncos,Gold Coast Titans,1.21,nan,4.3,nan,47.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.5608,nan,nan,-2.0
+NRL,2024-05-25,2024,South Sydney Rabbitohs,Parramatta Eels,2.4,nan,1.55,nan,47.5,48.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.2152,nan,nan,16.0
+NRL,2024-05-25,2024,Cronulla Sharks,Penrith Panthers,1.8,nan,1.98,nan,40.5,40.5,BOTH_OR_NEITHER,EVEN,HOME,0.0476,nan,nan,-42.0
+NRL,2024-05-25,2024,Canberra Raiders,Sydney Roosters,4.15,nan,1.22,nan,43.5,46.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.5456,nan,nan,-28.0
+NRL,2024-05-24,2024,Manly Sea Eagles,Melbourne Storm,3.25,nan,1.33,nan,43.5,46.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.4192,nan,nan,6.0
+NRL,2024-05-24,2024,North QLD Cowboys,Wests Tigers,1.29,nan,3.5,nan,47.5,50.5,BOTH_OR_NEITHER,OVERS,HOME,0.4614,nan,nan,14.0
+NRL,2024-05-23,2024,Canterbury Bulldogs,St George Dragons,1.55,nan,2.4,nan,40.5,42.5,BOTH_OR_NEITHER,OVERS,HOME,0.2152,nan,nan,32.0
+NRL,2024-05-19,2024,Wests Tigers,Dolphins,2.9,nan,1.4,nan,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.3488,nan,nan,-12.0
+NRL,2024-05-19,2024,Melbourne Storm,Parramatta Eels,1.25,nan,3.85,nan,45.5,46.5,BOTH_OR_NEITHER,OVERS,HOME,0.5098,nan,nan,32.0
+NRL,2024-05-19,2024,New Zealand Warriors,Penrith Panthers,4.3,nan,1.21,nan,40.5,42.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.5608,nan,nan,2.0
+NRL,2024-05-18,2024,South Sydney Rabbitohs,North QLD Cowboys,3.15,nan,1.35,nan,50.5,50.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4,nan,nan,-6.0
+NRL,2024-05-18,2024,Cronulla Sharks,Sydney Roosters,2.25,nan,1.61,nan,41.5,42.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1658,nan,nan,8.0
+NRL,2024-05-18,2024,Gold Coast Titans,Newcastle Knights,1.94,nan,1.83,nan,44.5,44.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0292,nan,nan,-4.0
+NRL,2024-05-17,2024,Manly Sea Eagles,Brisbane Broncos,2.4,nan,1.56,nan,48.5,46.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.2121,nan,nan,-1.0
+NRL,2024-05-17,2024,Canberra Raiders,Canterbury Bulldogs,2.25,nan,1.63,nan,41.5,42.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.1598,nan,nan,4.0
+NRL,2024-05-12,2024,Gold Coast Titans,North QLD Cowboys,2.5,nan,1.52,nan,49.5,50.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.2438,nan,nan,2.0
+NRL,2024-05-12,2024,Sydney Roosters,New Zealand Warriors,1.41,nan,2.85,nan,43.5,43.5,BOTH_OR_NEITHER,EVEN,HOME,0.338,nan,nan,20.0
+NRL,2024-05-11,2024,Melbourne Storm,Cronulla Sharks,1.44,nan,2.75,nan,41.5,41.5,BOTH_OR_NEITHER,EVEN,HOME,0.3126,nan,nan,-7.0
+NRL,2024-05-11,2024,St George Dragons,South Sydney Rabbitohs,1.74,nan,2.05,nan,46.5,44.5,BOTH_OR_NEITHER,UNDERS,HOME,0.0818,nan,nan,14.0
+NRL,2024-05-11,2024,Wests Tigers,Newcastle Knights,2.0,nan,1.78,nan,42.5,42.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.0582,nan,nan,-6.0
+NRL,2024-05-10,2024,Parramatta Eels,Brisbane Broncos,4.55,nan,1.19,nan,45.5,43.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.5854,nan,nan,-16.0
+NRL,2024-05-10,2024,Penrith Panthers,Canterbury Bulldogs,1.16,nan,5.0,nan,39.5,39.5,BOTH_OR_NEITHER,EVEN,HOME,0.6234,nan,nan,6.0
+NRL,2024-05-09,2024,Dolphins,Manly Sea Eagles,2.25,nan,1.61,nan,47.5,47.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.1658,nan,nan,6.0
+NRL,2024-05-05,2024,Cronulla Sharks,St George Dragons,1.31,nan,3.35,nan,44.5,41.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4378,nan,nan,10.0
+NRL,2024-05-05,2024,Newcastle Knights,New Zealand Warriors,2.35,nan,1.57,nan,39.5,39.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.199,nan,nan,6.0
+NRL,2024-05-04,2024,North QLD Cowboys,Dolphins,1.47,nan,2.65,nan,48.5,48.5,BOTH_OR_NEITHER,EVEN,HOME,0.2864,nan,nan,-2.0
+NRL,2024-05-04,2024,Gold Coast Titans,Melbourne Storm,4.55,nan,1.19,nan,45.5,47.5,BOTH_OR_NEITHER,OVERS,AWAY,-0.5854,nan,nan,-2.0
+NRL,2024-05-04,2024,Canterbury Bulldogs,Wests Tigers,1.48,nan,2.6,nan,40.5,40.5,BOTH_OR_NEITHER,EVEN,HOME,0.2745,nan,nan,8.0
+NRL,2024-05-03,2024,Brisbane Broncos,Sydney Roosters,1.51,nan,2.5,nan,41.5,42.5,BOTH_OR_NEITHER,OVERS,HOME,0.2469,nan,nan,-22.0
+NRL,2024-05-03,2024,Manly Sea Eagles,Canberra Raiders,1.28,nan,3.6,nan,43.5,42.5,BOTH_OR_NEITHER,UNDERS,HOME,0.4754,nan,nan,-2.0
+NRL,2024-05-02,2024,South Sydney Rabbitohs,Penrith Panthers,4.4,nan,1.2,nan,43.5,42.5,BOTH_OR_NEITHER,UNDERS,AWAY,-0.5714,nan,nan,-30.0
+NRL,2024-04-28,2024,Canberra Raiders,Cronulla Sharks,2.0,2.9,1.82,1.42,42.5,42.5,AWAY,EVEN,AWAY,-0.0471,45.0,-21.98,-40.0
+NRL,2024-04-28,2024,Dolphins,Newcastle Knights,1.82,1.45,2.0,2.75,44.5,44.5,HOME,EVEN,HOME,0.0471,-20.33,37.5,-4.0
+NRL,2024-04-27,2024,North QLD Cowboys,Penrith Panthers,2.75,3.35,1.45,1.333,39.5,41.5,AWAY,OVERS,AWAY,-0.3095,21.82,-8.07,-6.0
+NRL,2024-04-27,2024,Wests Tigers,Brisbane Broncos,3.25,4.5,1.35,1.2,41.5,46.5,AWAY,OVERS,AWAY,-0.413,38.46,-11.11,-24.0
+NRL,2024-04-26,2024,Manly Sea Eagles,Parramatta Eels,1.56,1.333,2.45,3.35,45.5,44.5,HOME,UNDERS,HOME,0.2219,-14.55,36.73,14.0
+NRL,2024-04-25,2024,Melbourne Storm,South Sydney Rabbitohs,1.333,1.23,3.35,4.2,43.5,43.5,HOME,EVEN,HOME,0.4307,-7.73,25.37,34.0
+NRL,2024-04-25,2024,St George Dragons,Sydney Roosters,3.25,2.8,1.35,1.44,43.5,43.5,HOME,EVEN,AWAY,-0.413,-13.85,6.67,-42.0
+NRL,2024-04-25,2024,New Zealand Warriors,Gold Coast Titans,1.21,1.25,4.5,4.0,44.5,45.5,AWAY,OVERS,HOME,0.5762,3.31,-11.11,-3.0
+NRL,2024-04-21,2024,Cronulla Sharks,North QLD Cowboys,1.6,1.56,2.35,2.5,42.5,46.5,HOME,OVERS,HOME,0.1899,-2.5,6.38,36.0
+NRL,2024-04-21,2024,Canterbury Bulldogs,Newcastle Knights,2.4,1.93,1.58,1.93,42.5,42.5,HOME,EVEN,AWAY,-0.206,-19.58,22.15,24.0
+NRL,2024-04-20,2024,Brisbane Broncos,Canberra Raiders,1.38,1.4,3.1,3.1,43.5,43.5,BOTH_OR_NEITHER,EVEN,HOME,0.3839,1.45,0.0,24.0
+NRL,2024-04-20,2024,Gold Coast Titans,Manly Sea Eagles,3.5,3.5,1.31,1.333,46.5,46.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.4553,0.0,1.76,-4.0
+NRL,2024-04-20,2024,Penrith Panthers,Wests Tigers,1.16,1.18,5.0,5.0,41.5,41.5,BOTH_OR_NEITHER,EVEN,HOME,0.6234,1.72,0.0,16.0
+NRL,2024-04-19,2024,Parramatta Eels,Dolphins,1.72,1.38,2.15,3.1,44.5,44.5,HOME,EVEN,HOME,0.1111,-19.77,44.19,-28.0
+NRL,2024-04-19,2024,St George Dragons,New Zealand Warriors,2.75,3.2,1.45,1.36,43.5,43.5,AWAY,EVEN,AWAY,-0.3095,16.36,-6.21,18.0
+NRL,2024-04-18,2024,Sydney Roosters,Melbourne Storm,1.91,1.87,1.91,1.952,39.5,38.5,HOME,UNDERS,AWAY,0.0,-2.09,2.2,-6.0
+NRL,2024-04-14,2024,Canberra Raiders,Gold Coast Titans,1.44,1.37,2.8,3.2,43.5,44.5,HOME,OVERS,HOME,0.3208,-4.86,14.29,1.0
+NRL,2024-04-14,2024,Wests Tigers,St George Dragons,1.82,1.833,2.0,2.0,42.5,42.5,BOTH_OR_NEITHER,EVEN,HOME,0.0471,0.71,0.0,-12.0
+NRL,2024-04-13,2024,South Sydney Rabbitohs,Cronulla Sharks,1.87,3.7,1.952,1.3,42.5,44.5,AWAY,OVERS,HOME,0.0215,97.86,-33.4,-12.0
+NRL,2024-04-13,2024,Parramatta Eels,North QLD Cowboys,1.87,2.3,1.952,1.65,44.5,45.5,AWAY,OVERS,HOME,0.0215,22.99,-15.47,7.0
+NRL,2024-04-13,2024,New Zealand Warriors,Manly Sea Eagles,1.6,1.47,2.35,2.8,40.5,41.5,HOME,OVERS,HOME,0.1899,-8.13,19.15,0.0
+NRL,2024-04-12,2024,Brisbane Broncos,Dolphins,1.35,1.3,3.25,3.5,45.5,45.5,HOME,EVEN,HOME,0.413,-3.7,7.69,14.0
+NRL,2024-04-12,2024,Melbourne Storm,Canterbury Bulldogs,1.28,1.11,3.75,6.5,43.5,44.5,HOME,OVERS,HOME,0.4911,-13.28,73.33,2.0
+NRL,2024-04-11,2024,Newcastle Knights,Sydney Roosters,2.25,1.57,1.65,2.45,39.5,40.5,HOME,OVERS,AWAY,-0.1538,-30.22,48.48,-2.0
+NRL,2024-04-07,2024,Canberra Raiders,Parramatta Eels,1.82,1.8,2.0,2.05,44.5,42.5,HOME,UNDERS,HOME,0.0471,-1.1,2.5,33.0
+NRL,2024-04-07,2024,North QLD Cowboys,Gold Coast Titans,1.18,1.13,4.6,6.0,46.5,47.5,HOME,OVERS,HOME,0.5917,-4.24,30.43,13.0
+NRL,2024-04-06,2024,Dolphins,Wests Tigers,1.56,1.45,2.45,2.75,43.5,42.5,HOME,UNDERS,HOME,0.2219,-7.05,12.24,10.0
+NRL,2024-04-06,2024,Manly Sea Eagles,Penrith Panthers,1.82,2.25,2.0,1.67,40.5,39.5,AWAY,UNDERS,HOME,0.0471,23.63,-16.5,14.0
+NRL,2024-04-06,2024,South Sydney Rabbitohs,New Zealand Warriors,1.72,2.05,2.15,1.8,42.5,41.5,AWAY,UNDERS,HOME,0.1111,19.19,-16.28,-30.0
+NRL,2024-04-05,2024,Newcastle Knights,St George Dragons,1.38,1.52,3.1,2.55,43.5,36.5,AWAY,UNDERS,HOME,0.3839,10.14,-17.74,20.0
+NRL,2024-04-05,2024,Canterbury Bulldogs,Sydney Roosters,2.8,3.7,1.44,1.28,43.5,35.5,AWAY,UNDERS,AWAY,-0.3208,32.14,-11.11,4.0
+NRL,2024-04-04,2024,Melbourne Storm,Brisbane Broncos,1.44,1.44,2.8,2.85,39.5,39.5,BOTH_OR_NEITHER,EVEN,HOME,0.3208,0.0,1.79,2.0
+NRL,2024-04-01,2024,Parramatta Eels,Wests Tigers,1.31,1.45,3.5,2.8,43.5,45.5,AWAY,OVERS,HOME,0.4553,10.69,-20.0,-1.0
+NRL,2024-03-31,2024,Cronulla Sharks,Canberra Raiders,1.4,1.67,3.0,2.25,40.5,40.5,AWAY,EVEN,HOME,0.3636,19.29,-25.0,14.0
+NRL,2024-03-31,2024,New Zealand Warriors,Newcastle Knights,1.54,1.28,2.5,3.85,39.5,41.5,HOME,OVERS,HOME,0.2376,-16.88,54.0,8.0
+NRL,2024-03-30,2024,Gold Coast Titans,Dolphins,1.72,2.22,2.15,1.7,44.5,46.5,AWAY,OVERS,HOME,0.1111,29.07,-20.93,-16.0
+NRL,2024-03-30,2024,St George Dragons,Manly Sea Eagles,2.4,3.2,1.58,1.36,45.5,46.5,AWAY,OVERS,AWAY,-0.206,33.33,-13.92,8.0
+NRL,2024-03-29,2024,Brisbane Broncos,North QLD Cowboys,1.44,2.0,2.8,1.85,40.5,42.5,AWAY,OVERS,HOME,0.3208,38.89,-33.93,26.0
+NRL,2024-03-29,2024,South Sydney Rabbitohs,Canterbury Bulldogs,1.44,1.53,2.8,2.55,40.5,42.5,AWAY,OVERS,HOME,0.3208,6.25,-8.93,4.0
+NRL,2024-03-28,2024,Sydney Roosters,Penrith Panthers,2.35,1.54,1.6,2.55,37.5,40.5,HOME,OVERS,AWAY,-0.1899,-34.47,59.37,-6.0
+NRL,2024-03-24,2024,Newcastle Knights,Melbourne Storm,2.25,1.77,1.65,2.1,40.5,42.5,HOME,OVERS,AWAY,-0.1538,-21.33,27.27,2.0
+NRL,2024-03-24,2024,Parramatta Eels,Manly Sea Eagles,1.65,1.75,2.25,2.15,41.5,43.5,AWAY,OVERS,HOME,0.1538,6.06,-4.44,4.0
+NRL,2024-03-23,2024,Wests Tigers,Cronulla Sharks,2.55,4.0,1.52,1.25,45.5,44.5,AWAY,UNDERS,AWAY,-0.2531,56.86,-17.76,26.0
+NRL,2024-03-23,2024,St George Dragons,North QLD Cowboys,2.15,3.0,1.72,1.42,42.5,42.5,AWAY,EVEN,AWAY,-0.1111,39.53,-17.44,-22.0
+NRL,2024-03-23,2024,Canterbury Bulldogs,Gold Coast Titans,1.72,1.75,2.15,2.15,43.5,43.5,BOTH_OR_NEITHER,EVEN,HOME,0.1111,1.74,0.0,32.0
+NRL,2024-03-22,2024,Sydney Roosters,South Sydney Rabbitohs,1.65,1.56,2.25,2.45,39.5,40.5,HOME,OVERS,HOME,0.1538,-5.45,8.89,42.0
+NRL,2024-03-22,2024,New Zealand Warriors,Canberra Raiders,1.36,1.36,3.2,3.2,42.5,42.5,BOTH_OR_NEITHER,EVEN,HOME,0.4035,0.0,0.0,8.0
+NRL,2024-03-21,2024,Penrith Panthers,Brisbane Broncos,1.56,1.24,2.45,4.25,37.5,38.5,HOME,OVERS,HOME,0.2219,-20.51,73.47,22.0
+NRL,2024-03-17,2024,Dolphins,St George Dragons,1.44,2.0,2.8,1.85,45.5,45.5,AWAY,EVEN,HOME,0.3208,38.89,-33.93,38.0
+NRL,2024-03-17,2024,Manly Sea Eagles,Sydney Roosters,1.952,2.15,1.87,1.75,41.5,41.5,AWAY,EVEN,AWAY,-0.0215,10.14,-6.42,7.0
+NRL,2024-03-16,2024,Melbourne Storm,New Zealand Warriors,1.5,1.42,2.6,3.0,40.5,39.5,HOME,UNDERS,HOME,0.2683,-5.33,15.38,4.0
+NRL,2024-03-16,2024,North QLD Cowboys,Newcastle Knights,1.54,1.44,2.5,2.9,45.5,45.5,HOME,EVEN,HOME,0.2376,-6.49,16.0,1.0
+NRL,2024-03-16,2024,Canberra Raiders,Wests Tigers,1.72,1.38,2.15,3.2,44.5,44.5,HOME,EVEN,HOME,0.1111,-19.77,48.84,20.0
+NRL,2024-03-15,2024,Penrith Panthers,Parramatta Eels,1.35,1.37,3.25,3.2,36.5,35.5,AWAY,UNDERS,HOME,0.413,1.48,-1.54,8.0
+NRL,2024-03-15,2024,Cronulla Sharks,Canterbury Bulldogs,1.42,1.27,2.9,4.0,39.5,40.5,HOME,OVERS,HOME,0.3426,-10.56,37.93,19.0
+NRL,2024-03-14,2024,Brisbane Broncos,South Sydney Rabbitohs,1.44,1.38,2.8,3.1,41.5,42.5,HOME,OVERS,HOME,0.3208,-4.17,10.71,10.0
+NRL,2024-03-10,2024,Dolphins,North QLD Cowboys,2.65,2.45,1.48,1.58,42.5,43.5,HOME,OVERS,AWAY,-0.2833,-7.55,6.76,-25.0
+NRL,2024-03-09,2024,Gold Coast Titans,St George Dragons,1.42,1.52,2.9,2.55,42.5,41.5,AWAY,UNDERS,HOME,0.3426,7.04,-12.07,-24.0
+NRL,2024-03-09,2024,Parramatta Eels,Canterbury Bulldogs,1.48,1.38,2.65,3.1,39.5,40.5,HOME,OVERS,HOME,0.2833,-6.76,16.98,18.0
+NRL,2024-03-08,2024,Melbourne Storm,Penrith Panthers,2.25,2.68,1.65,1.5,35.5,36.5,AWAY,OVERS,AWAY,-0.1538,19.11,-9.09,8.0
+NRL,2024-03-08,2024,New Zealand Warriors,Cronulla Sharks,1.6,1.54,2.35,2.55,39.5,40.5,HOME,OVERS,HOME,0.1899,-3.75,8.51,-4.0
+NRL,2024-03-07,2024,Newcastle Knights,Canberra Raiders,1.44,1.37,2.8,3.2,41.5,42.5,HOME,OVERS,HOME,0.3208,-4.86,14.29,-16.0
+NRL,2024-03-03,2024,Sydney Roosters,Brisbane Broncos,2.4,2.45,1.58,1.58,42.5,42.5,BOTH_OR_NEITHER,EVEN,AWAY,-0.206,2.08,0.0,10.0
+NRL,2024-03-03,2024,Manly Sea Eagles,South Sydney Rabbitohs,2.6,1.952,1.5,1.9,42.5,40.5,HOME,UNDERS,AWAY,-0.2683,-24.92,26.67,12.0

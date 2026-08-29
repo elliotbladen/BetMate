@@ -1,0 +1,31 @@
+game,side,model_prob,close_odds,close_implied_prob,clv_pct,ev,won,pnl,result
+Arsenal v Coventry,H,0.698,1.18,0.847,-15.0%,-0.176,1,-,H
+Arsenal v Coventry,D,0.191,7.50,0.133,+5.8%,0.432,0,-1.00,H
+Arsenal v Coventry,A,0.111,13.00,0.077,+3.4%,0.446,0,-1.00,H
+Hull v Man United,H,0.325,9.00,0.111,+21.4%,1.922,1,8.00,H
+Hull v Man United,D,0.255,5.00,0.200,+5.5%,0.277,0,-1.00,H
+Hull v Man United,A,0.420,1.33,0.752,-33.2%,-0.441,0,-1.00,H
+Everton v Crystal Palace,H,0.418,2.38,0.420,-0.2%,-0.005,1,1.38,H
+Everton v Crystal Palace,D,0.282,3.40,0.294,-1.2%,-0.042,0,-1.00,H
+Everton v Crystal Palace,A,0.300,3.00,0.333,-3.4%,-0.101,0,-1.00,H
+Ipswich v Sunderland,H,0.355,3.00,0.333,+2.1%,0.064,1,2.00,H
+Ipswich v Sunderland,D,0.294,3.30,0.303,-0.9%,-0.030,0,-1.00,H
+Ipswich v Sunderland,A,0.351,2.50,0.400,-4.9%,-0.123,0,-1.00,H
+Nott'm Forest v Leeds,H,0.439,2.50,0.400,+3.9%,0.098,0,-1.00,A
+Nott'm Forest v Leeds,D,0.280,3.20,0.312,-3.3%,-0.105,0,-1.00,A
+Nott'm Forest v Leeds,A,0.281,2.90,0.345,-6.3%,-0.184,1,1.90,A
+Brentford v Tottenham,H,0.484,1.95,0.513,-2.9%,-0.057,1,0.95,H
+Brentford v Tottenham,D,0.240,3.90,0.256,-1.6%,-0.064,0,-1.00,H
+Brentford v Tottenham,A,0.276,3.50,0.286,-1.0%,-0.035,0,-1.00,H
+Man City v Bournemouth,H,0.656,1.45,0.690,-3.3%,-0.049,1,0.45,H
+Man City v Bournemouth,D,0.194,4.50,0.222,-2.9%,-0.128,0,-1.00,H
+Man City v Bournemouth,A,0.150,7.00,0.143,+0.7%,0.049,0,-1.00,H
+Brighton v Aston Villa,H,0.464,2.05,0.488,-2.4%,-0.049,1,1.05,H
+Brighton v Aston Villa,D,0.258,3.50,0.286,-2.8%,-0.098,0,-1.00,H
+Brighton v Aston Villa,A,0.279,3.50,0.286,-0.7%,-0.025,0,-1.00,H
+Newcastle v Liverpool,H,0.342,3.90,0.256,+8.6%,0.335,0,-1.00,D
+Newcastle v Liverpool,D,0.231,3.90,0.256,-2.6%,-0.100,1,2.90,D
+Newcastle v Liverpool,A,0.427,1.85,0.541,-11.4%,-0.210,0,-1.00,D
+Fulham v Chelsea,H,0.337,3.60,0.278,+5.9%,0.212,0,-1.00,A
+Fulham v Chelsea,D,0.263,3.50,0.286,-2.3%,-0.080,0,-1.00,A
+Fulham v Chelsea,A,0.400,2.05,0.488,-8.7%,-0.181,1,1.05,A

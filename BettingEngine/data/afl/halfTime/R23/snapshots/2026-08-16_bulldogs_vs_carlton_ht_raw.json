@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-16T06:23:41.251718+00:00",
+  "game": {
+    "hteam": "Western Bulldogs",
+    "ascore": 41,
+    "localtime": "2026-08-16 15:15:00",
+    "ateamid": 3,
+    "is_grand_final": 0,
+    "unixtime": 1786857300,
+    "hgoals": 7,
+    "round": 23,
+    "updated": "2026-08-16 16:22:52",
+    "complete": 50,
+    "year": 2026,
+    "is_final": 0,
+    "hbehinds": 4,
+    "winner": null,
+    "timestr": "1/2 Time",
+    "abehinds": 5,
+    "id": 38689,
+    "agoals": 6,
+    "date": "2026-08-16 15:15:00",
+    "roundname": "Round 23",
+    "tz": "+10:00",
+    "venue": "Docklands",
+    "winnerteamid": null,
+    "hteamid": 18,
+    "ateam": "Carlton",
+    "hscore": 46,
+    "_round_game_num": 8,
+    "fox_match_id": "AFL20262308"
+  }
+}

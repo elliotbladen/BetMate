@@ -1,0 +1,19 @@
+{
+  "season": 2026,
+  "round": 22,
+  "game_date": "2026-08-09",
+  "home_team": "West Coast",
+  "away_team": "Collingwood",
+  "venue": "Perth Stadium",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-09T07:30:12.995948+00:00",
+  "home_ht_score": 59,
+  "away_ht_score": 65,
+  "home_goals": 9,
+  "home_behinds": 5,
+  "away_goals": 10,
+  "away_behinds": 5,
+  "squiggle_id": 38682,
+  "timestr": "1/2 Time",
+  "notes": ""
+}

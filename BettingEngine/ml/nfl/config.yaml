@@ -1,0 +1,147 @@
+league: nfl
+version: nfl-preopen-v1-nrl-patterns
+
+objective:
+  primary: model_closer_to_close_than_open
+  secondary: positive_closing_line_value
+  markets: [spread, total]
+  prediction_cutoff_hours_before_open: 1
+
+data:
+  schedules: nflverse_nfldata
+  play_by_play: nflverse_pbp
+  rosters: nflverse_weekly_rosters
+  injuries: nflverse_injuries
+  depth_charts: nflverse_depth_charts
+  opening_snapshots: the_odds_api
+  snapshot_poll_minutes: 5
+  seasons:
+    train_from: 2014
+    development_through: 2024
+    final_vault: 2025
+
+engines:
+  structural:
+    role: official_candidate
+    family: hierarchical_margin_total
+    can_publish: true
+  ml_shadow:
+    role: independent_challenger
+    family: shallow_gradient_boosting
+    can_publish: false
+    can_mutate_structural_price: false
+    heads: [margin, h2h_direct, total]
+    exclude_structural_tier_outputs: true
+  market_shadow:
+    role: after_open_line_movement
+    target: consensus_close_minus_consensus_open
+    can_publish_as_preopen: false
+
+model:
+  distribution: empirical_residual
+  core:
+    pass_epa_weight: 1.0
+    rush_epa_weight: 0.45
+    success_rate_weight: 0.35
+    early_down_weight: 1.0
+    late_down_weight: 0.55
+    garbage_time_win_probability_low: 0.05
+    garbage_time_win_probability_high: 0.95
+  recency:
+    in_season_half_life_games: 6
+    prior_season_retention: 0.35
+    defence_regression_multiplier: 1.25
+  components:
+    - opponent_adjusted_offence
+    - opponent_adjusted_defence
+    - special_teams
+    - quarterback
+    - coaching_and_roster_prior
+    - home_field
+    - rest_travel_surface_weather
+
+tiers:
+  t0_data_health:
+    mode: active
+    action: abstain
+    triggers: [stale_features, unresolved_qb, incomplete_market_coverage]
+  t1_team_strength:
+    mode: active
+    cap_margin_points: 10.0
+    method: opponent_adjusted_ewma_epa_with_learned_shrinkage
+  t2_quarterback_personnel:
+    mode: shadow
+    cap_margin_points: 7.0
+    method: starter_mixture_and_position_weighted_availability
+  t3_roster_continuity:
+    mode: shadow
+    cap_margin_points: 3.0
+    method: snaps_weighted_continuity
+  t4_venue_travel:
+    mode: shadow
+    cap_margin_points: 2.5
+    method: hierarchical_venue_effect
+  t5_rest_schedule:
+    mode: shadow
+    cap_margin_points: 0.75
+    prior: near_zero
+  t6_weather_surface:
+    mode: shadow
+    cap_total_points: 5.0
+    primary_market: total
+  t7_scheme_matchup:
+    mode: shadow
+    cap_margin_points: 2.0
+    method: learned_interactions_only
+  t8_market_disagreement:
+    mode: diagnostic
+    may_change_preopen_price: false
+  t9_confluence:
+    mode: active_after_open
+    purpose: detect_information_not_fully_priced_by_market
+    distinct_signal_families_required: 3
+    correlated_votes_count_once: true
+    signal_families:
+      - structural_team_strength
+      - scheme_matchup
+      - quarterback_personnel
+      - venue_weather_schedule
+      - independent_ml_shadow
+    outputs: [direction, edge_points, confidence, contributing_matrices]
+    action_on_conflict: reduce_confidence_or_abstain
+    validation:
+      require_timestamped_obtainable_line: true
+      primary_metric: closing_line_value
+      secondary_metrics: [ats_roi, edge_calibration, coverage]
+      freeze_thresholds_before_test: true
+
+validation:
+  scheme: rolling_origin_by_week
+  minimum_train_seasons: 5
+  opening_tolerance_points: 0.25
+  report_segments:
+    - season
+    - week_1_to_4
+    - week_5_to_18
+    - quarterback_change
+    - key_number_3
+    - key_number_7
+    - favourite
+    - underdog
+  promotion_rule:
+    minimum_games: 250
+    minimum_seasons: 2
+    bootstrap_confidence: 0.95
+    require_positive_opening_beat_rate: true
+    require_positive_mean_clv: true
+  shadow_promotion:
+    require_frozen_predictions: true
+    require_ablation_gain: true
+    require_margin_mae_gain: true
+    require_brier_or_logloss_gain: true
+    minimum_market_coverage: 0.90
+    no_blend_before_predictions: 500
+
+staking:
+  enabled: false
+  status: paper_only

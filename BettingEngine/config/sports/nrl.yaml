@@ -101,8 +101,8 @@ tier1:
 # =============================================================================
 tier2:
   enabled: true
-  max_home_points_delta: 4.0
-  max_away_points_delta: 4.0
+  max_home_points_delta: 2.0   # capped from 4.0 → 2.0 (2026-08-17)
+  max_away_points_delta: 2.0   # capped from 4.0 → 2.0 (2026-08-17)
 
   # Style families active in NRL
   active_families: [yardage, family_a, family_c, family_d]

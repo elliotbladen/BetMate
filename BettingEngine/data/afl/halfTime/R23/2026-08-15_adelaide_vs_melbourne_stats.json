@@ -1,0 +1,22 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "Port Adelaide",
+  "away_team": "Melbourne",
+  "venue": "Adelaide Oval",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-15T11:52:41.854682+00:00",
+  "home_ht_score": 20,
+  "away_ht_score": 50,
+  "home_goals": 3,
+  "home_behinds": 2,
+  "away_goals": 8,
+  "away_behinds": 2,
+  "squiggle_id": 38690,
+  "round_game_num": 6,
+  "fox_match_id": "AFL20262306",
+  "timestr": "Q2 15:02",
+  "notes": "Exact halftime state was missed; scores are from the last observed Q2 snapshot. Do not use as an exact halftime training row.",
+  "capture_quality": "late_q2_fallback"
+}

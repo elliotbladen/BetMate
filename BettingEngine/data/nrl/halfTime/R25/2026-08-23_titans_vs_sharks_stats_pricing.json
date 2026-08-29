@@ -1,0 +1,97 @@
+{
+  "home_team": "Gold Coast Titans",
+  "away_team": "Cronulla-Sutherland Sharks",
+  "season": 2026,
+  "round": 25,
+  "game_date": "2026-08-23",
+  "priced_at": "2026-08-23T04:52:25.041190+00:00",
+  "ht_home_score": 16,
+  "ht_away_score": 8,
+  "ht_margin": 8,
+  "pregame_fair_hcap": -17.7,
+  "pregame_fair_total": 47.9,
+  "pregame_home_prob": 0.07010656197420079,
+  "second_half_expected_total": 25.18,
+  "second_half_home_expected": 7.937745302713987,
+  "second_half_away_expected": 17.242254697286015,
+  "error_adjustment": 1.89,
+  "conversion_adjustment": -2.0,
+  "restart_adjustment": -0.26,
+  "stats_implied_margin": 4.9,
+  "stats_regression_adj": -0.0408,
+  "regression_factor_used": 0.5092,
+  "ht_expected_margin": 0.61,
+  "ht_expected_total": 49.18,
+  "ht_home_win_prob": 0.5289,
+  "ht_away_win_prob": 0.4711,
+  "ht_home_odds": 1.89,
+  "ht_away_odds": 2.12,
+  "ht_hcap_line": -0.6,
+  "ht_total_line": 48.0,
+  "totals_model_version": "nrl_ht_totals_v3_process_distribution",
+  "totals_historical_h2_baseline": 23.08,
+  "totals_pregame_h2_prior": 25.39,
+  "totals_blended_h2_baseline": 24.0,
+  "totals_process_adjustment": 1.68,
+  "totals_fair_line": 48.04,
+  "totals_distribution_sample_size": 177,
+  "totals_feature_coverage": 1.0,
+  "totals_quality": "full_forward_calibration",
+  "totals_adjustments": [
+    "pace (2 proxies): +0.53",
+    "opportunity (2 proxies): +0.97",
+    "average completion 81.0%: +0.50",
+    "combined missed tackles 27: -0.32"
+  ],
+  "margin_model_version": "nrl_ht_margin_v3_remaining_margin_distribution",
+  "margin_elapsed_game_fraction": 0.5,
+  "margin_expected_remaining_pregame": -8.85,
+  "margin_baseline": -0.85,
+  "margin_process_adjustment": 0.46,
+  "margin_median": 0.64,
+  "margin_distribution_sample_size": 41,
+  "margin_feature_coverage": 1.0,
+  "margin_quality": "full_forward_calibration",
+  "margin_adjustments": [
+    "execution (2 proxies): +1.31",
+    "opportunity (2 proxies): +0.55",
+    "physical/defensive (3 proxies): +0.60",
+    "conversion regression: -2.00"
+  ],
+  "ingame_home_injuries": [],
+  "ingame_away_injuries": [
+    {
+      "name": "Jesse Colquhoun",
+      "position": "Prop",
+      "number": 10,
+      "side": "away",
+      "minute": 32,
+      "title": "Interchange - HIA",
+      "source": "nrl_api"
+    }
+  ],
+  "ingame_injury_hcap_adj": 1.0,
+  "ingame_injury_total_adj": -0.5,
+  "ingame_injury_sources": [
+    "nrl_api"
+  ],
+  "sin_bins": [
+    {
+      "name": "Lachlan Ilias",
+      "position": "Halfback",
+      "number": 7,
+      "side": "home",
+      "minute": 40,
+      "title": "On Report",
+      "type": "sin_bin"
+    }
+  ],
+  "signal_strength": "neutral",
+  "signal_direction": "NEUTRAL",
+  "signal_notes": [
+    "Conversion luck adj -2.0 pts (Cronulla-Sutherland Sharks missed conversions)",
+    "IN-GAME INJURY: Cronulla-Sutherland Sharks — Jesse Colquhoun (Prop) off at 32min [Interchange - HIA]",
+    "Injury hcap adj +1.0 pts (home perspective)",
+    "SIN BIN: Gold Coast Titans — Lachlan Ilias (Halfback) at 40min"
+  ]
+}

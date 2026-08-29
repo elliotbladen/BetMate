@@ -3,6 +3,11 @@ Walk-forward backtest engine — league-parameterised (see ml/football/leagues/*
 
 Usage:
     python ml/football/backtest/walk_forward.py --league epl
+    python ml/football/backtest/walk_forward.py --league championship
+    python ml/football/backtest/walk_forward.py --league championship --apply-tiers
+
+    --apply-tiers: applies T3/T6/T7/T8/T9 tier stack during pricing.
+    Outputs backtest_results_tiers.csv so base and tier runs can be compared.
 
 Architecture:
   Phase 1 — Snapshot precomputation:
@@ -50,14 +55,20 @@ from ml.football.models.dixon_coles import (
     derive_markets,
 )
 from ml.football.models.elo import build_from_history
+from ml.football.models.tiers import (
+    TeamState, MatchContext, apply_all_tiers, compute_t8_prior_weight,
+    TierParams, DEFAULT_TIER_PARAMS,
+)
 from ml.football.league_config import load_league
 
 # League-dependent globals — set by _configure(league_key) before any run.
 # Defaults here are the EPL values so importing modules keeps working.
-MATCHES_CSV: Path | None = None
-XG_CSV:      Path | None = None
-PPDA_CSV:    Path | None = None
-OUT_DIR:     Path | None = None
+MATCHES_CSV:  Path | None = None
+XG_CSV:       Path | None = None
+PPDA_CSV:     Path | None = None
+CLUBELO_CSV:  Path | None = None
+OUT_DIR:      Path | None = None
+TIER_PARAMS:  TierParams = DEFAULT_TIER_PARAMS
 
 TEST_SEASONS:    list[str] = []
 FEATURE_SEASONS: list[str] = []
@@ -73,15 +84,17 @@ ELO_KWARGS: dict = {}
 
 def _configure(league_key: str) -> None:
     """Load a league config and set the module-level knobs from it."""
-    global MATCHES_CSV, XG_CSV, PPDA_CSV, OUT_DIR
+    global MATCHES_CSV, XG_CSV, PPDA_CSV, CLUBELO_CSV, OUT_DIR, TIER_PARAMS
     global TEST_SEASONS, FEATURE_SEASONS, RHO, ELO_WEIGHT, DC_WEIGHT
     global MIN_TRAIN, DECAY_RATE, XG_FALLBACK, GOALS_FED, ELO_KWARGS
 
     cfg = load_league(league_key)
-    MATCHES_CSV = cfg.matches_csv
-    XG_CSV      = cfg.xg_csv
-    PPDA_CSV    = cfg.ppda_csv
-    OUT_DIR     = cfg.clv_dir
+    MATCHES_CSV  = cfg.matches_csv
+    XG_CSV       = cfg.xg_csv
+    PPDA_CSV     = cfg.ppda_csv
+    CLUBELO_CSV  = cfg.clubelo_csv
+    OUT_DIR      = cfg.clv_dir
+    TIER_PARAMS  = cfg.tier_params
 
     TEST_SEASONS    = cfg.test_seasons
     FEATURE_SEASONS = cfg.feature_seasons
@@ -93,6 +106,111 @@ def _configure(league_key: str) -> None:
     XG_FALLBACK = cfg.xg_fallback_factor
     GOALS_FED   = cfg.goals_fed
     ELO_KWARGS  = dict(cfg.elo)
+
+
+# ── T8: ClubElo season-reset prior helpers ───────────────────────────────────
+
+def load_clubelo() -> pd.DataFrame:
+    """
+    Load pre-fetched ClubElo ratings (run fetch/fetch_clubelo.py first).
+    Returns DataFrame with columns: season, club, elo, level.
+    Returns empty DataFrame if file doesn't exist.
+    """
+    if CLUBELO_CSV is None or not CLUBELO_CSV.exists():
+        return pd.DataFrame()
+    return pd.read_csv(CLUBELO_CSV)
+
+
+def build_t8_lookup(
+    df: pd.DataFrame,
+    clubelo_df: pd.DataFrame,
+) -> dict[str, dict[str, tuple[float, float]]]:
+    """
+    For each season, identify teams that are new to the Championship
+    (not present in the previous season), look up their ClubElo, and compute
+    the Championship average ELO for that season's established teams.
+
+    Returns: {season: {team_name: (elo_diff, champ_avg_elo)}}
+    where elo_diff = team_elo - champ_avg_elo (positive = stronger than avg).
+
+    Only teams new to the Championship get an entry — established teams have
+    sufficient D-C data and don't need a T8 prior.
+    """
+    if clubelo_df.empty or TIER_PARAMS.t8_decay_games <= 0:
+        return {}
+
+    seasons = sorted(df["Season"].unique())
+    lookup: dict[str, dict[str, tuple[float, float]]] = {}
+
+    for i, season in enumerate(seasons):
+        if i == 0:
+            continue  # no previous season to compare
+
+        prev_season = seasons[i - 1]
+        current_teams = set(df[df["Season"] == season]["HomeTeam"].unique()) | \
+                        set(df[df["Season"] == season]["AwayTeam"].unique())
+        prev_teams    = set(df[df["Season"] == prev_season]["HomeTeam"].unique()) | \
+                        set(df[df["Season"] == prev_season]["AwayTeam"].unique())
+
+        new_teams = current_teams - prev_teams
+        if not new_teams:
+            continue
+
+        # Championship average ELO for this season (level 2 clubs, from ClubElo)
+        season_elo = clubelo_df[clubelo_df["season"] == season]
+        champ_elo  = season_elo[season_elo["level"] == 2]
+        if champ_elo.empty:
+            continue
+        champ_avg = float(champ_elo["elo"].mean())
+
+        season_lookup: dict[str, tuple[float, float]] = {}
+        for team in new_teams:
+            # Fuzzy match ClubElo name → Championship CSV name
+            team_row = _match_clubelo_name(team, season_elo)
+            if team_row is not None:
+                elo_diff = float(team_row["elo"]) - champ_avg
+                season_lookup[team] = (elo_diff, champ_avg)
+                # Uncomment for debug: print(f"  T8 {season} {team}: ELO diff {elo_diff:+.0f}")
+
+        lookup[season] = season_lookup
+
+    return lookup
+
+
+def _match_clubelo_name(team: str, season_elo: pd.DataFrame) -> pd.Series | None:
+    """
+    Fuzzy match a Championship team name to a ClubElo club name.
+    ClubElo uses short names (e.g. 'Sheff Utd', 'QPR') that may differ from
+    football-data.co.uk names. Tries exact, then last-word, then partial.
+    """
+    team_lower = team.lower().strip()
+    # Try exact
+    exact = season_elo[season_elo["club"].str.lower().str.strip() == team_lower]
+    if not exact.empty:
+        return exact.iloc[0]
+    # Try last word (e.g. "Sheffield United" → "United")
+    last = team_lower.split()[-1]
+    partial = season_elo[season_elo["club"].str.lower().str.contains(last, na=False)]
+    if len(partial) == 1:
+        return partial.iloc[0]
+    # Try first word
+    first = team_lower.split()[0]
+    partial2 = season_elo[season_elo["club"].str.lower().str.contains(first, na=False)]
+    if len(partial2) == 1:
+        return partial2.iloc[0]
+    return None
+
+
+def build_games_played_tracker(df: pd.DataFrame) -> dict[tuple[str, str], int]:
+    """
+    Build lookup {(season, team): games_played_before_each_match}.
+    Used to compute T8 prior weight (decays as team accumulates Championship data).
+
+    Returns a dict mapping (season, team, match_date_str) → games_played_before.
+    Expensive to build once per season; computed per season in run_season.
+    """
+    # This is built inline per season in run_season for simplicity
+    return {}
 
 
 # ── Totals calibration (fit on all prior seasons' data) ──────────────────────
@@ -360,19 +478,22 @@ def run_season(
     all_snapshots: dict,
     prior_results: pd.DataFrame | None = None,
     ppda_df: pd.DataFrame | None = None,
+    apply_tiers: bool = False,
+    t8_lookup: dict | None = None,
     verbose: bool = True,
 ) -> pd.DataFrame:
     test_df = df[df["Season"] == test_season].sort_values("Date").copy()
 
     if verbose:
-        print(f"\n  Test season: {test_season} — {len(test_df)} matches")
+        print(f"\n  Test season: {test_season} — {len(test_df)} matches"
+              + (" [tiers ON]" if apply_tiers else ""))
 
     # Fit totals calibrator on all prior season results
     totals_cal = fit_totals_calibrator(prior_results) if prior_results is not None else None
 
     # T3: Build form/rest lookup using all data up to test season start
     test_start = test_df["Date"].min()
-    form_data  = df[df["Date"] < test_start + timedelta(days=400)].copy()  # include test season
+    form_data  = df[df["Date"] < test_start + timedelta(days=400)].copy()
     form_lookup = build_form_lookup(form_data)
 
     # T6: Referee lookup
@@ -380,6 +501,10 @@ def run_season(
 
     # T7: Corner lookup
     corner_lookup = build_corner_lookup(df)
+
+    # T8: Track games played per team this season (for prior weight decay)
+    season_t8 = (t8_lookup or {}).get(test_season, {})
+    games_played_this_season: dict[str, int] = {}
 
     rows = []
     skipped = 0
@@ -402,8 +527,63 @@ def run_season(
             skipped += 1
             continue
 
-        # D-C price
+        # D-C price (base)
         lam, mu   = expected_goals(home, away, dc)
+
+        # ── Apply tier stack (when --apply-tiers is on) ──────────────────────
+        if apply_tiers:
+            form_h = form_lookup.get((home, match_date), {})
+            form_a = form_lookup.get((away, match_date), {})
+            ref_stats = ref_lookup.get((row.get("Referee"), match_date), {}) if row.get("Referee") else {}
+            corn_h = corner_lookup.get((home, "home", match_date), {})
+            corn_a = corner_lookup.get((away, "away", match_date), {})
+            ppda_h = get_ppda(ppda_df, home, match_date) if ppda_df is not None and not ppda_df.empty else None
+            ppda_a = get_ppda(ppda_df, away, match_date) if ppda_df is not None and not ppda_df.empty else None
+
+            # T8: prior weight for new teams
+            h_gp = games_played_this_season.get(home, 0)
+            a_gp = games_played_this_season.get(away, 0)
+            h_t8_elo_diff, h_t8_weight, a_t8_elo_diff, a_t8_weight = None, 0.0, None, 0.0
+            if season_t8:
+                if home in season_t8:
+                    h_t8_elo_diff, _ = season_t8[home]
+                    h_t8_weight = compute_t8_prior_weight(h_gp, TIER_PARAMS)
+                if away in season_t8:
+                    a_t8_elo_diff, _ = season_t8[away]
+                    a_t8_weight = compute_t8_prior_weight(a_gp, TIER_PARAMS)
+
+            home_state = TeamState(
+                name=home,
+                ppda=ppda_h,
+                form5_pts=form_h.get("form5_pts"),
+                rest_days=form_h.get("rest_days"),
+                corners_won_avg=corn_h.get("corners_won_avg"),
+                corners_conceded_avg=corn_h.get("corners_conceded_avg"),
+                t8_elo_diff=h_t8_elo_diff,
+                t8_prior_weight=h_t8_weight,
+            )
+            away_state = TeamState(
+                name=away,
+                ppda=ppda_a,
+                form5_pts=form_a.get("form5_pts"),
+                rest_days=form_a.get("rest_days"),
+                corners_won_avg=corn_a.get("corners_won_avg"),
+                corners_conceded_avg=corn_a.get("corners_conceded_avg"),
+                t8_elo_diff=a_t8_elo_diff,
+                t8_prior_weight=a_t8_weight,
+            )
+            context = MatchContext(
+                home=home_state,
+                away=away_state,
+                ref_goals_pg=ref_stats.get("ref_goals_pg"),
+            )
+            adj = apply_all_tiers(lam, mu, context, TIER_PARAMS)
+            lam, mu = adj.lam_final, adj.mu_final
+
+        # Update games-played counter for T8 (after using the pre-match count)
+        games_played_this_season[home] = games_played_this_season.get(home, 0) + 1
+        games_played_this_season[away] = games_played_this_season.get(away, 0) + 1
+
         matrix    = build_scoreline_matrix(lam, mu, rho=RHO)
         dc_mkts   = derive_markets(matrix)
 
@@ -596,13 +776,22 @@ def summarise(results: pd.DataFrame, season: str) -> dict:
 def main():
     parser = argparse.ArgumentParser(description="Walk-forward backtest")
     parser.add_argument("--league", default="epl", help="League config key (leagues/*.yaml)")
+    parser.add_argument("--apply-tiers", action="store_true",
+                        help="Apply tier stack (T3/T6/T7/T8/T9) during backtest for ablation testing")
     args = parser.parse_args()
 
     _configure(args.league)
-    print(f"League: {args.league}")
+    print(f"League: {args.league}" + (" [--apply-tiers]" if args.apply_tiers else ""))
     print("Loading data...")
     df, ppda_df = load_and_merge()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Build T8 lookup once (Championship only — EPL has no ClubElo CSV)
+    clubelo_df = load_clubelo()
+    t8_lookup  = build_t8_lookup(df, clubelo_df) if args.apply_tiers else {}
+    if args.apply_tiers and t8_lookup:
+        print(f"  T8 lookup: {sum(len(v) for v in t8_lookup.values())} new-team entries "
+              f"across {len(t8_lookup)} seasons")
 
     all_results    = []
     all_summaries  = []
@@ -621,7 +810,8 @@ def main():
 
         # Pass all prior results for totals calibration
         prior = pd.concat(all_results) if all_results else None
-        results = run_season(df, season, snapshots, prior_results=prior, ppda_df=ppda_df)
+        results = run_season(df, season, snapshots, prior_results=prior, ppda_df=ppda_df,
+                             apply_tiers=args.apply_tiers, t8_lookup=t8_lookup)
         if results.empty:
             continue
 
@@ -634,7 +824,8 @@ def main():
         return
 
     combined = pd.concat(all_results, ignore_index=True)
-    combined.to_csv(OUT_DIR / "backtest_results.csv", index=False)
+    out_suffix = "_tiers" if args.apply_tiers else ""
+    combined.to_csv(OUT_DIR / f"backtest_results{out_suffix}.csv", index=False)
 
     # ── Feature generation for CatBoost (2017/18 – 2023/24) ──────────────────
     print(f"\n{'='*58}")
@@ -653,7 +844,8 @@ def main():
         snaps   = precompute_snapshots(df, cutoffs)
         prior   = pd.concat(all_feature_rows) if all_feature_rows else None
         res     = run_season(df, season, snaps, prior_results=prior,
-                             ppda_df=ppda_df, verbose=False)
+                             ppda_df=ppda_df, apply_tiers=args.apply_tiers,
+                             t8_lookup=t8_lookup, verbose=False)
         if not res.empty:
             all_feature_rows.append(res)
             print(f"  {season}: {len(res)} rows")
@@ -676,7 +868,7 @@ def main():
     )
     print(f"  Avg Accuracy:  {(pred == combined['result']).mean():.1%}")
 
-    with open(OUT_DIR / "backtest_summary.json", "w") as f:
+    with open(OUT_DIR / f"backtest_summary{out_suffix}.json", "w") as f:
         json.dump(all_summaries, f, indent=2)
     print(f"\nSaved to {OUT_DIR}")
 

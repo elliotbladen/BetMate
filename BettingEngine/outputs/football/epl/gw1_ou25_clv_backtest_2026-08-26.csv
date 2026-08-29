@@ -1,0 +1,21 @@
+game,side,model_prob,close_odds,close_implied_prob,clv_pct,ev,won,pnl,goals,actual
+Arsenal v Coventry,Over,0.558,1.57,0.637,-7.9%,-0.124,1,0.57,3,OVER
+Arsenal v Coventry,Under,0.442,2.38,0.420,+2.1%,0.051,0,-1.00,3,OVER
+Hull v Man United,Over,0.558,1.57,0.637,-7.9%,-0.124,0,-1.00,2,UNDER
+Hull v Man United,Under,0.442,2.38,0.420,+2.1%,0.051,1,1.38,2,UNDER
+Everton v Crystal Palace,Over,0.505,1.98,0.505,+0.0%,0.000,0,-1.00,2,UNDER
+Everton v Crystal Palace,Under,0.495,1.88,0.532,-3.7%,-0.069,1,0.88,2,UNDER
+Ipswich v Sunderland,Over,0.441,2.20,0.455,-1.3%,-0.030,1,1.20,3,OVER
+Ipswich v Sunderland,Under,0.559,1.67,0.599,-4.0%,-0.067,0,-1.00,3,OVER
+Nott'm Forest v Leeds,Over,0.505,2.20,0.455,+5.1%,0.111,0,-1.00,1,UNDER
+Nott'm Forest v Leeds,Under,0.495,1.67,0.599,-10.4%,-0.174,1,0.67,1,UNDER
+Brentford v Tottenham,Over,0.673,1.67,0.599,+7.5%,0.125,1,0.67,3,OVER
+Brentford v Tottenham,Under,0.327,2.20,0.455,-12.8%,-0.281,0,-1.00,3,OVER
+Man City v Bournemouth,Over,0.673,1.57,0.637,+3.7%,0.057,1,0.57,3,OVER
+Man City v Bournemouth,Under,0.327,2.38,0.420,-9.4%,-0.223,0,-1.00,3,OVER
+Brighton v Aston Villa,Over,0.522,2.03,0.493,+2.9%,0.060,1,1.03,4,OVER
+Brighton v Aston Villa,Under,0.478,1.83,0.546,-6.8%,-0.125,0,-1.00,4,OVER
+Newcastle v Liverpool,Over,0.778,1.44,0.694,+8.3%,0.120,1,0.44,4,OVER
+Newcastle v Liverpool,Under,0.222,2.75,0.364,-14.1%,-0.389,0,-1.00,4,OVER
+Fulham v Chelsea,Over,0.558,1.91,0.524,+3.5%,0.066,1,0.91,5,OVER
+Fulham v Chelsea,Under,0.442,1.91,0.524,-8.2%,-0.156,0,-1.00,5,OVER

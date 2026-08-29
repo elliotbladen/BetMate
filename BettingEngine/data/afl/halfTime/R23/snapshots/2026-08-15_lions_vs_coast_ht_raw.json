@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-08-15T07:34:38.910491+00:00",
+  "game": {
+    "unixtime": 1786774500,
+    "ascore": 25,
+    "roundname": "Round 23",
+    "round": 23,
+    "complete": 50,
+    "ateamid": 8,
+    "hgoals": 5,
+    "hbehinds": 7,
+    "venue": "Gabba",
+    "winner": null,
+    "localtime": "2026-08-15 16:15:00",
+    "hteam": "Brisbane Lions",
+    "year": 2026,
+    "is_final": 0,
+    "date": "2026-08-15 16:15:00",
+    "id": 38683,
+    "timestr": "1/2 Time",
+    "ateam": "Gold Coast",
+    "winnerteamid": null,
+    "tz": "+10:00",
+    "hscore": 37,
+    "hteamid": 2,
+    "agoals": 3,
+    "updated": "2026-08-15 17:21:35",
+    "is_grand_final": 0,
+    "abehinds": 7,
+    "_round_game_num": 4,
+    "fox_match_id": "AFL20262304"
+  }
+}

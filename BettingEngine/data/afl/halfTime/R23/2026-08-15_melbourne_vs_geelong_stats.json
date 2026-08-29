@@ -1,0 +1,22 @@
+{
+  "season": 2026,
+  "round": 23,
+  "game_date": "2026-08-15",
+  "home_team": "North Melbourne",
+  "away_team": "Geelong",
+  "venue": "Docklands",
+  "source": "squiggle_api",
+  "collected_at": "2026-08-15T07:34:38.909730+00:00",
+  "home_ht_score": 57,
+  "away_ht_score": 63,
+  "home_goals": 9,
+  "home_behinds": 3,
+  "away_goals": 10,
+  "away_behinds": 3,
+  "squiggle_id": 38687,
+  "round_game_num": 3,
+  "fox_match_id": "AFL20262303",
+  "timestr": "Q2 30:41",
+  "notes": "Exact halftime state was missed; scores are from the last observed Q2 snapshot. Do not use as an exact halftime training row.",
+  "capture_quality": "late_q2_fallback"
+}

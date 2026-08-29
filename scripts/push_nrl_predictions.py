@@ -21,7 +21,12 @@ from datetime import datetime
 # ---------------------------------------------------------------------------
 BETMATE_ROOT    = Path(os.environ.get('BETMATE_ROOT', Path(__file__).resolve().parent.parent))
 ENGINE_ROOT     = BETMATE_ROOT / 'BettingEngine'
-RESULTS_DIR     = ENGINE_ROOT / 'results'
+# Betting_model is the canonical engine (2026-07-12 decision) — search it first,
+# fall back to the legacy BettingEngine copy so no manual file copying is needed.
+RESULTS_DIRS    = [
+    Path.home() / 'Betting_model' / 'results',
+    ENGINE_ROOT / 'results',
+]
 PREDICTIONS_OUT = BETMATE_ROOT / 'data' / 'nrl' / 'predictions' / 'latest.json'
 FIXTURE_PATH    = BETMATE_ROOT / 'data' / 'nrl' / 'fixture' / 'processed' / 'latest-fixture.json'
 
@@ -49,20 +54,21 @@ def find_current_csv() -> Path:
         season  = fixture.get('season', 2026)
         round_  = fixture.get('round')
         if round_:
-            candidate = RESULTS_DIR / f'r{round_}_pricing_{season}.csv'
-            if candidate.exists():
-                print(f'  Round {round_} from fixture — using: {candidate.name}')
-                return candidate
-            else:
-                print(f'  WARNING: Fixture says R{round_} but {candidate.name} not found — falling back to highest round')
+            for results_dir in RESULTS_DIRS:
+                candidate = results_dir / f'r{round_}_pricing_{season}.csv'
+                if candidate.exists():
+                    print(f'  Round {round_} from fixture — using: {candidate}')
+                    return candidate
+            print(f'  WARNING: Fixture says R{round_} but no r{round_}_pricing_{season}.csv found — falling back to highest round')
     else:
         print(f'  WARNING: Fixture not found at {FIXTURE_PATH} — falling back to highest round')
 
-    # Fallback: highest round number in filename (not mtime — avoids stale edits)
+    # Fallback: highest round number in filename (not mtime — avoids stale edits).
+    # Earlier dirs in RESULTS_DIRS win ties (Betting_model is canonical).
     import re
-    csvs = list(RESULTS_DIR.glob('r*_pricing_*.csv'))
+    csvs = [p for d in RESULTS_DIRS for p in d.glob('r*_pricing_*.csv')]
     if not csvs:
-        print('ERROR: No pricing CSV found in BettingEngine/results/')
+        print('ERROR: No pricing CSV found in any results dir')
         sys.exit(1)
     def round_num(p: Path) -> int:
         m = re.match(r'r(\d+)_pricing_', p.name)
@@ -86,8 +92,17 @@ def parse_predictions(csv_path: Path) -> list:
                 pred_home = round(float(row['pred_home_score']), 1)
                 pred_away = round(float(row['pred_away_score']), 1)
             except (ValueError, KeyError):
-                print(f'  SKIP: {home} vs {away} -- missing score data')
-                continue
+                # Slim CSVs (fair lines only) — derive scores from hcap + total:
+                # margin = -fair_hcap_line (home fav = negative line), scores = (total ± margin)/2
+                try:
+                    margin = -float(str(row['fair_hcap_line']).replace('+', ''))
+                    total  = float(row['fair_total_line'])
+                    pred_home = round((total + margin) / 2, 1)
+                    pred_away = round((total - margin) / 2, 1)
+                    print(f'  NOTE: {home} vs {away} -- scores derived from fair lines')
+                except (ValueError, KeyError):
+                    print(f'  SKIP: {home} vs {away} -- missing score data')
+                    continue
 
             def _num(field: str):
                 try:

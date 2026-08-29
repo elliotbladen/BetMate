@@ -46,3 +46,7 @@ ml/results/*.json
 # OS
 .DS_Store
 Thumbs.db
+# Local football availability evidence. It can contain manual working notes and
+# must be backed up separately, not committed with model code.
+ml/football/data/*/player_layer/*.sqlite
+ml/football/data/*/player_layer/roster_espn_*.csv

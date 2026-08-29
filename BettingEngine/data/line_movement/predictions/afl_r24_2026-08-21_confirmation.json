@@ -1,0 +1,280 @@
+{
+  "sport": "AFL",
+  "season": 2026,
+  "round": 24,
+  "predicted_at": "2026-08-20T23:05:05.122340+00:00",
+  "stage": "TEAM_LIST_CONFIRMATION",
+  "model_version": "rules_v1.2_projected_availability",
+  "predictions": [
+    {
+      "home_team": "Collingwood Magpies",
+      "away_team": "Brisbane Lions",
+      "prediction": "Brisbane Lions",
+      "direction": "AWAY",
+      "confidence": 7.5,
+      "weighted_score": -0.0499,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.1902,
+        "finals_stakes": -0.2,
+        "historical_pattern": 0.0,
+        "public_bias": 0.3,
+        "recent_form": -0.1189,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": [
+            "J Howe"
+          ]
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": [
+            "T Gallop"
+          ]
+        }
+      }
+    },
+    {
+      "home_team": "Carlton Blues",
+      "away_team": "Fremantle Dockers",
+      "prediction": "Fremantle Dockers",
+      "direction": "AWAY",
+      "confidence": 21.5,
+      "weighted_score": -0.1436,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.4329,
+        "finals_stakes": -0.4,
+        "historical_pattern": 0.0,
+        "public_bias": 0.3,
+        "recent_form": -0.2706,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": []
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": []
+        }
+      }
+    },
+    {
+      "home_team": "Melbourne Demons",
+      "away_team": "Western Bulldogs",
+      "prediction": "Western Bulldogs",
+      "direction": "AWAY",
+      "confidence": 3.7,
+      "weighted_score": -0.0246,
+      "feature_scores": {
+        "injury_differential": -0.4,
+        "elo_gap": 0.1158,
+        "finals_stakes": 0.3,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.0723,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": []
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": [
+            "B Dale",
+            "C Budarick"
+          ]
+        }
+      }
+    },
+    {
+      "home_team": "Geelong Cats",
+      "away_team": "Richmond Tigers",
+      "prediction": "Geelong Cats",
+      "direction": "HOME",
+      "confidence": 56.2,
+      "weighted_score": 0.375,
+      "feature_scores": {
+        "injury_differential": 0.2,
+        "elo_gap": 1.0,
+        "finals_stakes": 0.6,
+        "historical_pattern": 0.0,
+        "public_bias": -0.3,
+        "recent_form": 0.5,
+        "venue_fortress": 0.3
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": [
+            "J Cameron"
+          ]
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": []
+        }
+      }
+    },
+    {
+      "home_team": "Adelaide Crows",
+      "away_team": "Greater Western Sydney Giants",
+      "prediction": "Adelaide Crows",
+      "direction": "HOME",
+      "confidence": 22.7,
+      "weighted_score": 0.1513,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": 0.2334,
+        "finals_stakes": 0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.1459,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": [
+            "W Milera"
+          ]
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": [
+            "X O'Halloran"
+          ]
+        }
+      }
+    },
+    {
+      "home_team": "Essendon Bombers",
+      "away_team": "Port Adelaide Power",
+      "prediction": "Port Adelaide Power",
+      "direction": "AWAY",
+      "confidence": 19.9,
+      "weighted_score": -0.1324,
+      "feature_scores": {
+        "injury_differential": -0.2,
+        "elo_gap": -0.4282,
+        "finals_stakes": 0.0,
+        "historical_pattern": 0.0,
+        "public_bias": 0.3,
+        "recent_form": -0.2676,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": []
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": [
+            "D B-Jones"
+          ]
+        }
+      }
+    },
+    {
+      "home_team": "Sydney Swans",
+      "away_team": "North Melbourne Kangaroos",
+      "prediction": "Sydney Swans",
+      "direction": "HOME",
+      "confidence": 47.0,
+      "weighted_score": 0.3132,
+      "feature_scores": {
+        "injury_differential": 0.2,
+        "elo_gap": 0.6596,
+        "finals_stakes": 0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.4123,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": [
+            "J Rowbottom",
+            "P Snell"
+          ]
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": [
+            "L McDonald"
+          ]
+        }
+      }
+    },
+    {
+      "home_team": "West Coast Eagles",
+      "away_team": "Hawthorn Hawks",
+      "prediction": "Hawthorn Hawks",
+      "direction": "AWAY",
+      "confidence": 47.1,
+      "weighted_score": -0.3141,
+      "feature_scores": {
+        "injury_differential": 0.2,
+        "elo_gap": -0.9703,
+        "finals_stakes": -0.6,
+        "historical_pattern": 0.0,
+        "public_bias": -0.3,
+        "recent_form": -0.5,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "HISTORICAL_LEAN_ONLY",
+      "verified_injury_changes": {
+        "home": {
+          "injury_outs": [],
+          "returning_ins": [
+            "J Hutchinson"
+          ]
+        },
+        "away": {
+          "injury_outs": [],
+          "returning_ins": []
+        }
+      }
+    }
+  ]
+}

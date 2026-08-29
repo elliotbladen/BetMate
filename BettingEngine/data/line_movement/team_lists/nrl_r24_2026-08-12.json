@@ -1,0 +1,163 @@
+{
+  "sport": "NRL",
+  "scraped_at": "2026-08-11T23:55:55.490239+00:00",
+  "teams": {
+    "Panthers": {
+      "ins": [],
+      "outs": [
+        "Isaah Yeo"
+      ]
+    },
+    "Roosters": {
+      "ins": [],
+      "outs": [
+        "Rex Bassingthwaighte"
+      ]
+    },
+    "Sea Eagles": {
+      "ins": [
+        "Clayton Faulalo",
+        "Hugo Hart"
+      ],
+      "outs": [
+        "Blake Wilson",
+        "Taniela Paseka",
+        "Ethan Bullemor"
+      ]
+    },
+    "Dolphins": {
+      "ins": [
+        "Ray Stone",
+        "Jake Averillo"
+      ],
+      "outs": [
+        "Kurt Donoghoe",
+        "Sebastian Su'a",
+        "Brian Pouniu"
+      ]
+    },
+    "Bulldogs": {
+      "ins": [
+        "Alekolasimi Jones"
+      ],
+      "outs": [
+        "Sitili Tupouniua"
+      ]
+    },
+    "Rabbitohs": {
+      "ins": [
+        "Euan Aitken",
+        "Peter Mamouzelos",
+        "Edward Kosi"
+      ],
+      "outs": [
+        "Ashton Ward",
+        "Jamie Humphreys",
+        "Thomas Fletcher",
+        "Moala Graham-Taufa",
+        "Liam Le Blanc"
+      ]
+    },
+    "Sharks": {
+      "ins": [
+        "KL Iro",
+        "Siosifa Talakai"
+      ],
+      "outs": [
+        "Jesse Ramien",
+        "Addin Fonua-Blake"
+      ]
+    },
+    "Raiders": {
+      "ins": [
+        "Vena Patuki-Case",
+        "Sebastian Kris"
+      ],
+      "outs": [
+        "Simi Sasagi",
+        "Corey Horsburgh"
+      ]
+    },
+    "Eels": {
+      "ins": [
+        "Apa Twidle",
+        "Dylan Walker",
+        "Sean Russell"
+      ],
+      "outs": [
+        "Isaiah Iongi",
+        "Sam Tuivaiti",
+        "Ryley Smith",
+        "Joash Papalii",
+        "Kelma Tuilagi"
+      ]
+    },
+    "Cowboys": {
+      "ins": [
+        "Reed Mahoney"
+      ],
+      "outs": [
+        "Matthew Lodge",
+        "Kaiden Lahrs"
+      ]
+    },
+    "Broncos": {
+      "ins": [
+        "Aublix Tawha"
+      ],
+      "outs": [
+        "Gehamat Shibasaki",
+        "Hayze Perham"
+      ]
+    },
+    "Warriors": {
+      "ins": [
+        "Demitric Vaimauga"
+      ],
+      "outs": [
+        "Te Maire Martin",
+        "Morgan Gannon"
+      ]
+    },
+    "Knights": {
+      "ins": [
+        "Pasami Saulo"
+      ],
+      "outs": [
+        "Brodie Jones",
+        "Toby Winter",
+        "Diesel Hagan"
+      ]
+    },
+    "Titans": {
+      "ins": [
+        "Bodhi Sharpley"
+      ],
+      "outs": [
+        "Arama Hau",
+        "Adam Christensen"
+      ]
+    },
+    "Wests Tigers": {
+      "ins": [
+        "Solomone Saukuru",
+        "Bunty Afoa",
+        "Faaletino Tavana"
+      ],
+      "outs": [
+        "Heamasi Makasini",
+        "Charlie Murray",
+        "Starford To'a"
+      ]
+    },
+    "Dragons": {
+      "ins": [
+        "Toby Couchman"
+      ],
+      "outs": [
+        "Josh Kerr"
+      ]
+    }
+  },
+  "round": 24
+}

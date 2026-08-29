@@ -73,8 +73,8 @@ def parse_predictions(csv_path: Path) -> list:
             home = row['home_team'].strip()
             away = row['away_team'].strip()
             try:
-                margin = float(row['rules_margin'])
-                total  = float(row['rules_total'])
+                margin = float(row.get('primary_margin', row['rules_margin']))
+                total  = float(row.get('primary_total', row['rules_total']))
                 home_score = round((total + margin) / 2, 1)
                 away_score = round((total - margin) / 2, 1)
             except (ValueError, KeyError):
@@ -88,9 +88,9 @@ def parse_predictions(csv_path: Path) -> list:
                     return None
                 return round(value, 3)
 
-            fair_home_odds = _num('rules_home_odds')
-            fair_away_odds = _num('rules_away_odds')
-            fair_margin = _num('rules_margin')
+            fair_home_odds = _num('primary_home_odds') or _num('rules_home_odds')
+            fair_away_odds = _num('primary_away_odds') or _num('rules_away_odds')
+            fair_margin = _num('primary_margin') or _num('rules_margin')
 
             predictions.append({
                 'homeTeam':      home,

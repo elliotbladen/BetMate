@@ -1,0 +1,43 @@
+Scraping NRL ladder...
+  17 teams loaded
+     1. Sydney Roosters
+     2. Penrith Panthers
+     3. New Zealand Warriors
+     4. Newcastle Knights
+     5. Dolphins
+     6. Cronulla-Sutherland Sharks
+     7. South Sydney Rabbitohs
+     8. North Queensland Cowboys
+     9. Canterbury-Bankstown Bulldogs
+    10. Canberra Raiders
+    11. Melbourne Storm
+    12. Manly-Warringah Sea Eagles
+    13. Parramatta Eels
+    14. Wests Tigers
+    15. Gold Coast Titans
+    16. Brisbane Broncos
+    17. St. George Illawarra Dragons
+  Saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/nrl_ladder.json
+Scraping NRL team lists...
+ERROR: source is Round 24, expected Round 25
+Auto-detected round: 25
+
+############################################################
+  LINE MOVEMENT PIPELINE — NRL R25 2026
+  Started: 2026-08-18 16:05:00
+############################################################
+
+============================================================
+  STEP: Scrape NRL ladder
+============================================================
+
+
+============================================================
+  STEP: Scrape NRL team lists
+============================================================
+
+
+  WARNING: Scrape NRL team lists exited with code 2
+
+  Refusing to publish a movement prediction without valid team-list changes
+ERROR: Could not auto-detect round for NRL 2026

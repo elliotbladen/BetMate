@@ -1,0 +1,2856 @@
+{
+  "sport": "AFL",
+  "season": 2026,
+  "round": 24,
+  "stage": "MONDAY_FORECAST",
+  "forecast_at": "2026-08-23T22:20:00.361942+00:00",
+  "model_version": "availability_rules_v1",
+  "players": [
+    {
+      "team": "Brisbane Lions",
+      "player": "Henry Smith",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "Brisbane Lions",
+      "player": "Jack Payne",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Brisbane Lions",
+      "player": "Reece Torrent",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: Season"
+    },
+    {
+      "team": "Brisbane Lions",
+      "player": "Zane Zakostelsky",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Campbell Chesser",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Harry O'Farrell",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Jesse Motlop",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Matt Carroll",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Rob Monahan",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Darcy Moore",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Jamie Elliott",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Oscar Steene",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Reef McInnes",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Tew Jiath",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Archie May",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Brayden Fiorini",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Back | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Darcy Parish",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Jordan Ridley",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Lewis Hayes",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Nicholas Martin",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Sam Durham",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "General | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Sullivan Robey",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Essendon Bombers",
+      "player": "Xavier Duursma",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Geelong Cats",
+      "player": "Toby Conway",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "Gold Coast Suns",
+      "player": "Alex Davies",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "Gold Coast Suns",
+      "player": "Christian Petracca",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "Gold Coast Suns",
+      "player": "Elliott Himmelberg",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Gold Coast Suns",
+      "player": "Lachlan Weller",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Gold Coast Suns",
+      "player": "Wil Powell",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Gold Coast Suns",
+      "player": "Will Graham",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Brent Daniels",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Darcy Jones",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Finn Callaghan",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Jack Buckley",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "James Leake",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Jayden Laverde",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Bruised Lung | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Jesse Hogan",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Finger/Thumb | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Joshua Kelly",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hip/Groin | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Leek Aleer",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hip/Groin | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Logan Smith",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Nathan Wardius",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Phoenix Gothard",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Tom Green",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Hawthorn Hawks",
+      "player": "Conor Nash",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Neck | Return: Season"
+    },
+    {
+      "team": "Melbourne Demons",
+      "player": "Andy Moniz-Wakefield",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Melbourne Demons",
+      "player": "Brody Mihocek",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Neck | Return: Season"
+    },
+    {
+      "team": "Melbourne Demons",
+      "player": "Jacob Van Rooyen",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Suspended | Return: 3 weeks"
+    },
+    {
+      "team": "Melbourne Demons",
+      "player": "Jai Culley",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Melbourne Demons",
+      "player": "Jed Adams",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Melbourne Demons",
+      "player": "Thomas Matthews",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "North Melbourne Kangaroos",
+      "player": "Blake Thredgold",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "North Melbourne Kangaroos",
+      "player": "Harry Sheezel",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Head | Return: Season"
+    },
+    {
+      "team": "North Melbourne Kangaroos",
+      "player": "Jackson Archer",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "North Melbourne Kangaroos",
+      "player": "Jacob Konstanty",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Illness | Return: Season"
+    },
+    {
+      "team": "North Melbourne Kangaroos",
+      "player": "Robert Hansen",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Wrist | Return: Season"
+    },
+    {
+      "team": "North Melbourne Kangaroos",
+      "player": "Toby Pink",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "North Melbourne Kangaroos",
+      "player": "Zane Duursma",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Aliir Aliir",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Head | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Connor Rozee",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Esava Ratugolea",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Ewan Mackinlay",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Jack Lukosius",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Jack Watkins",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Jason Horne-Francis",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Josh Sinn",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Kane Farrell",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hip/Groin | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Logan Evans",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Mani Liddy",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hip/Groin | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Ollie Lord",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Sam Powell-Pepper",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Jacob Hopper",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Jasper Alger",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Jonty Faull",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Back | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Josh Gibcus",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Josh Smillie",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Quad | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Kaleb Smith",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Quad | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Noah Balta",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Toe | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Rhyan Mansell",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Sam Cumming",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Shoulder | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Sam Lalor",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Richmond Tigers",
+      "player": "Thomas Sims",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Toe | Return: Season"
+    },
+    {
+      "team": "St Kilda Saints",
+      "player": "Jack Sinclair",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "St Kilda Saints",
+      "player": "James Barrat",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "St Kilda Saints",
+      "player": "Mason Wood",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "St Kilda Saints",
+      "player": "Max King",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "St Kilda Saints",
+      "player": "Nasiah Wanganeen-Milera",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "St Kilda Saints",
+      "player": "Patrick Said",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Head | Return: Season"
+    },
+    {
+      "team": "St Kilda Saints",
+      "player": "Sam Flanders",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Chad Warner",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Suspended | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Isaac Heeney",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Suspended | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "James Jordon",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Suspended | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Liam Hetherton",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Back | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Max King",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Back | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Nick Blakey",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Suspended | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Riley Bice",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Suspended | Return: Season"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Will Edwards",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Archer Reid",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Deven Robertson",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Harry Edwards",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Head | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Jacob Newton",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Foot | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Noah Long",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Reuben Ginbey",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Quad | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Sam Allen",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Tylah Williams",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: Season"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Tyler Brockman",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Western Bulldogs",
+      "player": "Riley Garcia",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: Season"
+    },
+    {
+      "team": "Western Bulldogs",
+      "player": "Sam Darcy",
+      "miss_probability": 0.98,
+      "player_points": 1.0,
+      "expected_absence_points": 0.98,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: Season"
+    },
+    {
+      "team": "Adelaide Crows",
+      "player": "Jordon Butts",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: 1-2 weeks"
+    },
+    {
+      "team": "Adelaide Crows",
+      "player": "Luke Pedlar",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: 3 weeks"
+    },
+    {
+      "team": "Brisbane Lions",
+      "player": "Hugh McCluggage",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: 1 week"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Nic Newman",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: 4-5 weeks"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Will Hayward",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: 1 week"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Zachary Williams",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Throat | Return: 1-2 weeks"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Harry Perryman",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: 2-3 weeks"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Isaac Quaynor",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hip/Groin | Return: 1 week"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Patrick Lipinski",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: 1 week"
+    },
+    {
+      "team": "Geelong Cats",
+      "player": "James Worpel",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: 2-4 weeks"
+    },
+    {
+      "team": "Geelong Cats",
+      "player": "Keighton Matofai-Forbes",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Finger/Thumb | Return: 1-3 weeks"
+    },
+    {
+      "team": "Geelong Cats",
+      "player": "Max Holmes",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Ankle | Return: 2-4 weeks"
+    },
+    {
+      "team": "Hawthorn Hawks",
+      "player": "Flynn Perez",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hip/Groin | Return: 1 week"
+    },
+    {
+      "team": "Hawthorn Hawks",
+      "player": "Noah Mraz",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Kidney | Return: 1 week"
+    },
+    {
+      "team": "Melbourne Demons",
+      "player": "Blake Howes",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hand | Return: 2-3 weeks"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Hayden McLean",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Head | Return: 1 week"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Joel Amartey",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: 2 weeks"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Justin McInerney",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: 2-3 weeks"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Noah Chamberlain",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: 3-4 weeks"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Oliver Francou",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: 2 weeks"
+    },
+    {
+      "team": "Western Bulldogs",
+      "player": "Adam Treloar",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: 3-4 weeks"
+    },
+    {
+      "team": "Western Bulldogs",
+      "player": "Lachlan Smith",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Hamstring | Return: 4-5 weeks"
+    },
+    {
+      "team": "Western Bulldogs",
+      "player": "Nicholas Coffield",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Head | Return: 1-2 weeks"
+    },
+    {
+      "team": "Western Bulldogs",
+      "player": "Timothy English",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Knee | Return: 1-3 weeks"
+    },
+    {
+      "team": "Western Bulldogs",
+      "player": "Will Lewis",
+      "miss_probability": 0.95,
+      "player_points": 1.0,
+      "expected_absence_points": 0.95,
+      "classification": "likely_out",
+      "evidence": "Leg/Calf | Return: 2-3 weeks"
+    },
+    {
+      "team": "Adelaide Crows",
+      "player": "Hugh Bond",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: Test"
+    },
+    {
+      "team": "Collingwood Magpies",
+      "player": "Brayden Maynard",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: Test"
+    },
+    {
+      "team": "Fremantle Dockers",
+      "player": "Brandon Walker",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Shoulder | Return: Test"
+    },
+    {
+      "team": "Fremantle Dockers",
+      "player": "Sam Sturt",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "Fremantle Dockers",
+      "player": "Sean Darcy",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Leg/Calf | Return: Test"
+    },
+    {
+      "team": "Geelong Cats",
+      "player": "Harley Barker",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Knee | Return: TBC"
+    },
+    {
+      "team": "Hawthorn Hawks",
+      "player": "Cody Anderson",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: TBC"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Elijah Hewett",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Leg/Calf | Return: Test"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Jack Hutchinson",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Hamstring | Return: Test"
+    },
+    {
+      "team": "West Coast Eagles",
+      "player": "Matt Owies",
+      "miss_probability": 0.72,
+      "player_points": 1.0,
+      "expected_absence_points": 0.72,
+      "classification": "doubtful",
+      "evidence": "Knee | Return: TBC"
+    },
+    {
+      "team": "Adelaide Crows",
+      "player": "James Peatling",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Hip/Groin | Return: TBC"
+    },
+    {
+      "team": "Carlton Blues",
+      "player": "Nick Haynes",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Ankle | Return: Test"
+    },
+    {
+      "team": "Fremantle Dockers",
+      "player": "Aiden Riddle",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Ankle | Return: Test"
+    },
+    {
+      "team": "Fremantle Dockers",
+      "player": "Corey Wagner",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Hip/Groin | Return: Test"
+    },
+    {
+      "team": "Fremantle Dockers",
+      "player": "Jaeger O'Meara",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Ankle | Return: Test"
+    },
+    {
+      "team": "Fremantle Dockers",
+      "player": "Murphy Reid",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Hip/Groin | Return: Test"
+    },
+    {
+      "team": "Geelong Cats",
+      "player": "Oliver Wiltshire",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Foot | Return: Test"
+    },
+    {
+      "team": "Gold Coast Suns",
+      "player": "Samuel Collins",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Ribs | Return: Test"
+    },
+    {
+      "team": "Greater Western Sydney Giants",
+      "player": "Toby Bedford",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Back | Return: Test"
+    },
+    {
+      "team": "Port Adelaide Power",
+      "player": "Zak Butters",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Ankle | Return: Test"
+    },
+    {
+      "team": "Sydney Swans",
+      "player": "Peter Ladhams",
+      "miss_probability": 0.58,
+      "player_points": 1.0,
+      "expected_absence_points": 0.58,
+      "classification": "doubtful",
+      "evidence": "Hip/Groin | Return: TBC"
+    }
+  ],
+  "teams": {
+    "Brisbane Lions": {
+      "expected_absence_points": 4.87,
+      "players": [
+        {
+          "team": "Brisbane Lions",
+          "player": "Henry Smith",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "Brisbane Lions",
+          "player": "Jack Payne",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Brisbane Lions",
+          "player": "Reece Torrent",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: Season"
+        },
+        {
+          "team": "Brisbane Lions",
+          "player": "Zane Zakostelsky",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Brisbane Lions",
+          "player": "Hugh McCluggage",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: 1 week"
+        }
+      ]
+    },
+    "Carlton Blues": {
+      "expected_absence_points": 8.33,
+      "players": [
+        {
+          "team": "Carlton Blues",
+          "player": "Campbell Chesser",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Harry O'Farrell",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Jesse Motlop",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Matt Carroll",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Rob Monahan",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Nic Newman",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: 4-5 weeks"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Will Hayward",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: 1 week"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Zachary Williams",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Throat | Return: 1-2 weeks"
+        },
+        {
+          "team": "Carlton Blues",
+          "player": "Nick Haynes",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Ankle | Return: Test"
+        }
+      ]
+    },
+    "Collingwood Magpies": {
+      "expected_absence_points": 8.47,
+      "players": [
+        {
+          "team": "Collingwood Magpies",
+          "player": "Darcy Moore",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Jamie Elliott",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Oscar Steene",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Reef McInnes",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Tew Jiath",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Harry Perryman",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: 2-3 weeks"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Isaac Quaynor",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hip/Groin | Return: 1 week"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Patrick Lipinski",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: 1 week"
+        },
+        {
+          "team": "Collingwood Magpies",
+          "player": "Brayden Maynard",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: Test"
+        }
+      ]
+    },
+    "Essendon Bombers": {
+      "expected_absence_points": 8.82,
+      "players": [
+        {
+          "team": "Essendon Bombers",
+          "player": "Archie May",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Brayden Fiorini",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Back | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Darcy Parish",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Jordan Ridley",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Lewis Hayes",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Nicholas Martin",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Sam Durham",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "General | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Sullivan Robey",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Essendon Bombers",
+          "player": "Xavier Duursma",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        }
+      ]
+    },
+    "Geelong Cats": {
+      "expected_absence_points": 5.13,
+      "players": [
+        {
+          "team": "Geelong Cats",
+          "player": "Toby Conway",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "Geelong Cats",
+          "player": "James Worpel",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: 2-4 weeks"
+        },
+        {
+          "team": "Geelong Cats",
+          "player": "Keighton Matofai-Forbes",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Finger/Thumb | Return: 1-3 weeks"
+        },
+        {
+          "team": "Geelong Cats",
+          "player": "Max Holmes",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: 2-4 weeks"
+        },
+        {
+          "team": "Geelong Cats",
+          "player": "Harley Barker",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Knee | Return: TBC"
+        },
+        {
+          "team": "Geelong Cats",
+          "player": "Oliver Wiltshire",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Foot | Return: Test"
+        }
+      ]
+    },
+    "Gold Coast Suns": {
+      "expected_absence_points": 6.46,
+      "players": [
+        {
+          "team": "Gold Coast Suns",
+          "player": "Alex Davies",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "Gold Coast Suns",
+          "player": "Christian Petracca",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "Gold Coast Suns",
+          "player": "Elliott Himmelberg",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Gold Coast Suns",
+          "player": "Lachlan Weller",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "Gold Coast Suns",
+          "player": "Wil Powell",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Gold Coast Suns",
+          "player": "Will Graham",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Gold Coast Suns",
+          "player": "Samuel Collins",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Ribs | Return: Test"
+        }
+      ]
+    },
+    "Greater Western Sydney Giants": {
+      "expected_absence_points": 13.32,
+      "players": [
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Brent Daniels",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Darcy Jones",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Finn Callaghan",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Jack Buckley",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "James Leake",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Jayden Laverde",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Bruised Lung | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Jesse Hogan",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Finger/Thumb | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Joshua Kelly",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hip/Groin | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Leek Aleer",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hip/Groin | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Logan Smith",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Nathan Wardius",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Phoenix Gothard",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Tom Green",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Greater Western Sydney Giants",
+          "player": "Toby Bedford",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Back | Return: Test"
+        }
+      ]
+    },
+    "Hawthorn Hawks": {
+      "expected_absence_points": 3.6,
+      "players": [
+        {
+          "team": "Hawthorn Hawks",
+          "player": "Conor Nash",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Neck | Return: Season"
+        },
+        {
+          "team": "Hawthorn Hawks",
+          "player": "Flynn Perez",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hip/Groin | Return: 1 week"
+        },
+        {
+          "team": "Hawthorn Hawks",
+          "player": "Noah Mraz",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Kidney | Return: 1 week"
+        },
+        {
+          "team": "Hawthorn Hawks",
+          "player": "Cody Anderson",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        }
+      ]
+    },
+    "Melbourne Demons": {
+      "expected_absence_points": 6.83,
+      "players": [
+        {
+          "team": "Melbourne Demons",
+          "player": "Andy Moniz-Wakefield",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Melbourne Demons",
+          "player": "Brody Mihocek",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Neck | Return: Season"
+        },
+        {
+          "team": "Melbourne Demons",
+          "player": "Jacob Van Rooyen",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Suspended | Return: 3 weeks"
+        },
+        {
+          "team": "Melbourne Demons",
+          "player": "Jai Culley",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Melbourne Demons",
+          "player": "Jed Adams",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Melbourne Demons",
+          "player": "Thomas Matthews",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Melbourne Demons",
+          "player": "Blake Howes",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hand | Return: 2-3 weeks"
+        }
+      ]
+    },
+    "North Melbourne Kangaroos": {
+      "expected_absence_points": 6.86,
+      "players": [
+        {
+          "team": "North Melbourne Kangaroos",
+          "player": "Blake Thredgold",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "North Melbourne Kangaroos",
+          "player": "Harry Sheezel",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Head | Return: Season"
+        },
+        {
+          "team": "North Melbourne Kangaroos",
+          "player": "Jackson Archer",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "North Melbourne Kangaroos",
+          "player": "Jacob Konstanty",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Illness | Return: Season"
+        },
+        {
+          "team": "North Melbourne Kangaroos",
+          "player": "Robert Hansen",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Wrist | Return: Season"
+        },
+        {
+          "team": "North Melbourne Kangaroos",
+          "player": "Toby Pink",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "North Melbourne Kangaroos",
+          "player": "Zane Duursma",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        }
+      ]
+    },
+    "Port Adelaide Power": {
+      "expected_absence_points": 13.32,
+      "players": [
+        {
+          "team": "Port Adelaide Power",
+          "player": "Aliir Aliir",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Head | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Connor Rozee",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Esava Ratugolea",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Ewan Mackinlay",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Jack Lukosius",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Jack Watkins",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Jason Horne-Francis",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Josh Sinn",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Kane Farrell",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hip/Groin | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Logan Evans",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Mani Liddy",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hip/Groin | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Ollie Lord",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Sam Powell-Pepper",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Port Adelaide Power",
+          "player": "Zak Butters",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Ankle | Return: Test"
+        }
+      ]
+    },
+    "Richmond Tigers": {
+      "expected_absence_points": 10.78,
+      "players": [
+        {
+          "team": "Richmond Tigers",
+          "player": "Jacob Hopper",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Jasper Alger",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Ankle | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Jonty Faull",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Back | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Josh Gibcus",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Josh Smillie",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Quad | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Kaleb Smith",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Quad | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Noah Balta",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Toe | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Rhyan Mansell",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Sam Cumming",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Shoulder | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Sam Lalor",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Richmond Tigers",
+          "player": "Thomas Sims",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Toe | Return: Season"
+        }
+      ]
+    },
+    "St Kilda Saints": {
+      "expected_absence_points": 6.86,
+      "players": [
+        {
+          "team": "St Kilda Saints",
+          "player": "Jack Sinclair",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "St Kilda Saints",
+          "player": "James Barrat",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "St Kilda Saints",
+          "player": "Mason Wood",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "St Kilda Saints",
+          "player": "Max King",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "St Kilda Saints",
+          "player": "Nasiah Wanganeen-Milera",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "St Kilda Saints",
+          "player": "Patrick Said",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Head | Return: Season"
+        },
+        {
+          "team": "St Kilda Saints",
+          "player": "Sam Flanders",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        }
+      ]
+    },
+    "Sydney Swans": {
+      "expected_absence_points": 12.22,
+      "players": [
+        {
+          "team": "Sydney Swans",
+          "player": "Chad Warner",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Suspended | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Isaac Heeney",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Suspended | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "James Jordon",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Suspended | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Liam Hetherton",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Back | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Max King",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Back | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Nick Blakey",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Suspended | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Riley Bice",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Suspended | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Will Edwards",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Hayden McLean",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Head | Return: 1 week"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Joel Amartey",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: 2 weeks"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Justin McInerney",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: 2-3 weeks"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Noah Chamberlain",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: 3-4 weeks"
+        },
+        {
+          "team": "Sydney Swans",
+          "player": "Peter Ladhams",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Hip/Groin | Return: TBC"
+        }
+      ]
+    },
+    "West Coast Eagles": {
+      "expected_absence_points": 11.93,
+      "players": [
+        {
+          "team": "West Coast Eagles",
+          "player": "Archer Reid",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Deven Robertson",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Harry Edwards",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Head | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Jacob Newton",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Foot | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Noah Long",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Reuben Ginbey",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Quad | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Sam Allen",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Tylah Williams",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Tyler Brockman",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Oliver Francou",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: 2 weeks"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Elijah Hewett",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Leg/Calf | Return: Test"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Jack Hutchinson",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: Test"
+        },
+        {
+          "team": "West Coast Eagles",
+          "player": "Matt Owies",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Knee | Return: TBC"
+        }
+      ]
+    },
+    "Western Bulldogs": {
+      "expected_absence_points": 6.71,
+      "players": [
+        {
+          "team": "Western Bulldogs",
+          "player": "Riley Garcia",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: Season"
+        },
+        {
+          "team": "Western Bulldogs",
+          "player": "Sam Darcy",
+          "miss_probability": 0.98,
+          "player_points": 1.0,
+          "expected_absence_points": 0.98,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: Season"
+        },
+        {
+          "team": "Western Bulldogs",
+          "player": "Adam Treloar",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: 3-4 weeks"
+        },
+        {
+          "team": "Western Bulldogs",
+          "player": "Lachlan Smith",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: 4-5 weeks"
+        },
+        {
+          "team": "Western Bulldogs",
+          "player": "Nicholas Coffield",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Head | Return: 1-2 weeks"
+        },
+        {
+          "team": "Western Bulldogs",
+          "player": "Timothy English",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Knee | Return: 1-3 weeks"
+        },
+        {
+          "team": "Western Bulldogs",
+          "player": "Will Lewis",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: 2-3 weeks"
+        }
+      ]
+    },
+    "Adelaide Crows": {
+      "expected_absence_points": 3.2,
+      "players": [
+        {
+          "team": "Adelaide Crows",
+          "player": "Jordon Butts",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Leg/Calf | Return: 1-2 weeks"
+        },
+        {
+          "team": "Adelaide Crows",
+          "player": "Luke Pedlar",
+          "miss_probability": 0.95,
+          "player_points": 1.0,
+          "expected_absence_points": 0.95,
+          "classification": "likely_out",
+          "evidence": "Hamstring | Return: 3 weeks"
+        },
+        {
+          "team": "Adelaide Crows",
+          "player": "Hugh Bond",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: Test"
+        },
+        {
+          "team": "Adelaide Crows",
+          "player": "James Peatling",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Hip/Groin | Return: TBC"
+        }
+      ]
+    },
+    "Fremantle Dockers": {
+      "expected_absence_points": 4.48,
+      "players": [
+        {
+          "team": "Fremantle Dockers",
+          "player": "Brandon Walker",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Shoulder | Return: Test"
+        },
+        {
+          "team": "Fremantle Dockers",
+          "player": "Sam Sturt",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Hamstring | Return: TBC"
+        },
+        {
+          "team": "Fremantle Dockers",
+          "player": "Sean Darcy",
+          "miss_probability": 0.72,
+          "player_points": 1.0,
+          "expected_absence_points": 0.72,
+          "classification": "doubtful",
+          "evidence": "Leg/Calf | Return: Test"
+        },
+        {
+          "team": "Fremantle Dockers",
+          "player": "Aiden Riddle",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Ankle | Return: Test"
+        },
+        {
+          "team": "Fremantle Dockers",
+          "player": "Corey Wagner",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Hip/Groin | Return: Test"
+        },
+        {
+          "team": "Fremantle Dockers",
+          "player": "Jaeger O'Meara",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Ankle | Return: Test"
+        },
+        {
+          "team": "Fremantle Dockers",
+          "player": "Murphy Reid",
+          "miss_probability": 0.58,
+          "player_points": 1.0,
+          "expected_absence_points": 0.58,
+          "classification": "doubtful",
+          "evidence": "Hip/Groin | Return: Test"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,80 @@
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:257: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1906, in <module>
+    main()
+    ~~~~^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1755, in main
+    step4_load_injuries(conn, season, round_num, injury_json, args.dry_run)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 731, in step4_load_injuries
+    from utils.validation import validate_injuries
+  File "/Users/elliotbladen/BetMate/BettingEngine/utils/validation.py", line 22, in <module>
+    from pydantic import BaseModel, field_validator, ValidationError
+ModuleNotFoundError: No module named 'pydantic'
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:257: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1923, in <module>
+    main()
+    ~~~~^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1772, in main
+    step4_load_injuries(conn, season, round_num, injury_json, args.dry_run)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 742, in step4_load_injuries
+    from utils.validation import validate_injuries
+  File "/Users/elliotbladen/BetMate/BettingEngine/utils/validation.py", line 22, in <module>
+    from pydantic import BaseModel, field_validator, ValidationError
+ModuleNotFoundError: No module named 'pydantic'
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:257: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1923, in <module>
+    main()
+    ~~~~^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1772, in main
+    step4_load_injuries(conn, season, round_num, injury_json, args.dry_run)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 742, in step4_load_injuries
+    from utils.validation import validate_injuries
+  File "/Users/elliotbladen/BetMate/BettingEngine/utils/validation.py", line 22, in <module>
+    from pydantic import BaseModel, field_validator, ValidationError
+ModuleNotFoundError: No module named 'pydantic'
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:257: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1923, in <module>
+    main()
+    ~~~~^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1772, in main
+    step4_load_injuries(conn, season, round_num, injury_json, args.dry_run)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 742, in step4_load_injuries
+    from utils.validation import validate_injuries
+  File "/Users/elliotbladen/BetMate/BettingEngine/utils/validation.py", line 22, in <module>
+    from pydantic import BaseModel, field_validator, ValidationError
+ModuleNotFoundError: No module named 'pydantic'
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:257: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1923, in <module>
+    main()
+    ~~~~^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 1772, in main
+    step4_load_injuries(conn, season, round_num, injury_json, args.dry_run)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/prepare_round.py", line 742, in step4_load_injuries
+    from utils.validation import validate_injuries
+  File "/Users/elliotbladen/BetMate/BettingEngine/utils/validation.py", line 22, in <module>
+    from pydantic import BaseModel, field_validator, ValidationError
+ModuleNotFoundError: No module named 'pydantic'

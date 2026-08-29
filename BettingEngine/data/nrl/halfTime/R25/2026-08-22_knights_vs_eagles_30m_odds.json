@@ -1,0 +1,75 @@
+{
+  "season": 2026,
+  "round": 25,
+  "game_date": "2026-08-22",
+  "home_team": "Newcastle Knights",
+  "away_team": "Manly-Warringah Sea Eagles",
+  "source": "the_odds_api",
+  "collected_at": "2026-08-22T05:39:01.211734+00:00",
+  "odds_api_game_id": "a3c12aabf5bfde1f4abb7eab6637cf0f",
+  "odds_api_home": "Newcastle Knights",
+  "odds_api_away": "Manly Warringah Sea Eagles",
+  "commence_time": "2026-08-22T05:03:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "away": 9.5,
+        "home": 1.04
+      },
+      "spreads": {
+        "away_price": 1.83,
+        "away_point": 18.5,
+        "home_price": 1.97,
+        "home_point": -18.5
+      },
+      "totals": {
+        "over_price": 1.85,
+        "over_point": 57.5,
+        "under_price": 1.95,
+        "under_point": 57.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "away": 12.0,
+        "home": 1.02
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "away": 6.25,
+        "home": 1.1
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "away": 6.2,
+        "home": 1.08
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "away": 7.0,
+        "home": 1.08
+      },
+      "spreads": {
+        "away_price": 1.97,
+        "away_point": 17.5,
+        "home_price": 1.8,
+        "home_point": -17.5
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "away": 7.5,
+        "home": 1.07
+      },
+      "spreads": {
+        "away_price": 1.85,
+        "away_point": 18.5,
+        "home_price": 1.87,
+        "home_point": -18.5
+      }
+    }
+  }
+}

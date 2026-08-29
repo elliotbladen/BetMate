@@ -1,0 +1,7 @@
+round,snapshot_date,snapshot_time,match,selection,ml_probability,market_consensus_no_vig_probability,probability_edge,odds_locked,bookmaker,stake,result,profit,notes
+23,2026-08-12,15:41:48,Western Bulldogs v Carlton Blues,Western Bulldogs,0.5882,0.3220,0.2662,3.10,TAB,1.00,pending,,raw ML H2H classifier signal
+23,2026-08-12,15:41:48,Port Adelaide Power v Melbourne Demons,Port Adelaide Power,0.4717,0.2250,0.2467,4.40,Dabble,1.00,pending,,raw ML H2H classifier signal
+23,2026-08-12,15:41:48,Richmond Tigers v St Kilda Saints,Richmond Tigers,0.5076,0.2640,0.2436,3.70,Neds,1.00,pending,,classifier qualifies but ML margin model strongly disagrees
+23,2026-08-12,15:41:48,Brisbane Lions v Gold Coast Suns,Gold Coast Suns,0.3597,0.1930,0.1667,5.50,Betr,1.00,pending,,raw ML H2H classifier signal
+23,2026-08-12,15:41:48,Fremantle Dockers v Adelaide Crows,Adelaide Crows,0.4566,0.3050,0.1516,3.40,Betr,1.00,pending,,raw ML H2H classifier signal
+23,2026-08-12,15:41:48,Hawthorn Hawks v Collingwood Magpies,Collingwood Magpies,0.4444,0.2970,0.1474,3.25,Sportsbet,1.00,pending,,raw ML H2H classifier signal

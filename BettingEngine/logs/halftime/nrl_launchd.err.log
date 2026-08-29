@@ -1,0 +1,44 @@
+Installed 5 packages in 8ms
+Installed 8 packages in 9ms
+Installed 5 packages in 7ms
+Installed 8 packages in 13ms
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 867, in <module>
+    main()
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 840, in main
+    odds = fetch_halftime_odds(stats["home_team"], stats["away_team"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 693, in fetch_halftime_odds
+    "odds_api_home": matched.get("home_team"),
+                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'matched' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 867, in <module>
+    main()
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 852, in main
+    odds = fetch_halftime_odds(stats["home_team"], stats["away_team"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 693, in fetch_halftime_odds
+    "odds_api_home": matched.get("home_team"),
+                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'matched' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 867, in <module>
+    main()
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 840, in main
+    odds = fetch_halftime_odds(stats["home_team"], stats["away_team"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 693, in fetch_halftime_odds
+    "odds_api_home": matched.get("home_team"),
+                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'matched' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 867, in <module>
+    main()
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 852, in main
+    odds = fetch_halftime_odds(stats["home_team"], stats["away_team"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/elliotbladen/BetMate/BettingEngine/scripts/nrl_ht_live.py", line 693, in fetch_halftime_odds
+    "odds_api_home": matched.get("home_team"),
+                     ^^^^^^^
+UnboundLocalError: cannot access local variable 'matched' where it is not associated with a value

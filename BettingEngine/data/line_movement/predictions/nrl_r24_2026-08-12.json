@@ -1,0 +1,193 @@
+{
+  "sport": "NRL",
+  "season": 2026,
+  "round": 24,
+  "predicted_at": "2026-08-12T00:06:33.734966+00:00",
+  "model_version": "rules_v1",
+  "predictions": [
+    {
+      "home_team": "Penrith Panthers",
+      "away_team": "Sydney Roosters",
+      "prediction": "Penrith Panthers",
+      "direction": "HOME",
+      "confidence": 1.0,
+      "weighted_score": 0.0063,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.033,
+        "finals_stakes": 0.0,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": -0.0206,
+        "venue_fortress": 0.3
+      },
+      "totals_prediction": "OVERS",
+      "totals_score": -0.3333,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    },
+    {
+      "home_team": "Manly-Warringah Sea Eagles",
+      "away_team": "Dolphins",
+      "prediction": "Dolphins",
+      "direction": "AWAY",
+      "confidence": 19.8,
+      "weighted_score": -0.1318,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.1592,
+        "finals_stakes": -0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": -0.0995,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "OVERS",
+      "totals_score": -1.0,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    },
+    {
+      "home_team": "Canterbury-Bankstown Bulldogs",
+      "away_team": "South Sydney Rabbitohs",
+      "prediction": "Canterbury-Bankstown Bulldogs",
+      "direction": "HOME",
+      "confidence": 12.1,
+      "weighted_score": 0.0805,
+      "feature_scores": {
+        "injury_differential": 0.4,
+        "elo_gap": -0.017,
+        "finals_stakes": -0.1,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": -0.0106,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "UNDERS",
+      "totals_score": 0.3333,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    },
+    {
+      "home_team": "Cronulla-Sutherland Sharks",
+      "away_team": "Canberra Raiders",
+      "prediction": "Cronulla-Sutherland Sharks",
+      "direction": "HOME",
+      "confidence": 19.0,
+      "weighted_score": 0.1269,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": 0.1406,
+        "finals_stakes": 0.6,
+        "historical_pattern": 0.0,
+        "public_bias": 0.0,
+        "recent_form": 0.0879,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "UNDERS",
+      "totals_score": 1.0,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    },
+    {
+      "home_team": "Parramatta Eels",
+      "away_team": "North Queensland Cowboys",
+      "prediction": "North Queensland Cowboys",
+      "direction": "AWAY",
+      "confidence": 52.8,
+      "weighted_score": -0.3519,
+      "feature_scores": {
+        "injury_differential": -0.3,
+        "elo_gap": -0.1407,
+        "finals_stakes": -0.6,
+        "historical_pattern": -1.0,
+        "public_bias": 0.0,
+        "recent_form": -0.088,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "OVERS",
+      "totals_score": -1.0,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    },
+    {
+      "home_team": "Brisbane Broncos",
+      "away_team": "New Zealand Warriors",
+      "prediction": "New Zealand Warriors",
+      "direction": "AWAY",
+      "confidence": 7.6,
+      "weighted_score": -0.0506,
+      "feature_scores": {
+        "injury_differential": 0.0,
+        "elo_gap": -0.25,
+        "finals_stakes": -0.6,
+        "historical_pattern": 0.5,
+        "public_bias": 0.3,
+        "recent_form": -0.1562,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "EVEN",
+      "totals_score": 0.0,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    },
+    {
+      "home_team": "Newcastle Knights",
+      "away_team": "Gold Coast Titans",
+      "prediction": "Newcastle Knights",
+      "direction": "HOME",
+      "confidence": 8.1,
+      "weighted_score": 0.054,
+      "feature_scores": {
+        "injury_differential": -0.1,
+        "elo_gap": 0.1867,
+        "finals_stakes": 0.6,
+        "historical_pattern": -0.4,
+        "public_bias": 0.0,
+        "recent_form": 0.1167,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "OVERS",
+      "totals_score": -1.0,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    },
+    {
+      "home_team": "Wests Tigers",
+      "away_team": "St. George Illawarra Dragons",
+      "prediction": "St. George Illawarra Dragons",
+      "direction": "AWAY",
+      "confidence": 16.0,
+      "weighted_score": -0.1066,
+      "feature_scores": {
+        "injury_differential": -0.2,
+        "elo_gap": 0.0702,
+        "finals_stakes": 0.0,
+        "historical_pattern": -0.5,
+        "public_bias": 0.0,
+        "recent_form": 0.0439,
+        "venue_fortress": 0.0
+      },
+      "totals_prediction": "UNDERS",
+      "totals_score": 1.0,
+      "totals_confidence": null,
+      "totals_model_status": "INSUFFICIENT_EVIDENCE",
+      "totals_backtest_accuracy": 0.5348837209302325,
+      "totals_baseline_accuracy": 0.5581395348837209
+    }
+  ]
+}

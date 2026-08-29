@@ -1,0 +1,18 @@
+league,market,games,mean_clv_pct,ev10_bets,ev10_winners,ev10_pnl,ev10_roi,notes
+EPL,1x2 Home,10,+1.8%,1,1,+8.00,+800.0%,Hull 9.00 winner drives all
+EPL,1x2 Draw,10,-0.6%,2,0,-2.00,-100.0%,
+EPL,1x2 Away,10,-6.6%,3,0,-3.00,-100.0%,Model underrates away teams
+EPL,1x2 Combined,10,-1.8%,6,1,+3.00,+50.0%,Driven by Hull upset
+EPL,O/U Over,10,+1.4%,2,2,+1.11,+55.5%,7/10 games went over
+EPL,O/U Under,10,-6.5%,1,0,-1.00,-100.0%,
+EPL,O/U Combined,10,-2.6%,3,2,+0.11,+3.7%,
+EPL,ALL COMBINED,10,-1.8%,9,3,+3.11,+34.6%,
+Championship,1x2 Home,12,-2.4%,4,1,+0.60,+15.0%,Model underrates relegated favs
+Championship,1x2 Draw,12,-1.2%,1,1,+3.27,+327.0%,Wolves draw
+Championship,1x2 Away,12,-2.7%,6,4,+5.50,+91.7%,Strong away value finding
+Championship,1x2 Combined,12,-2.1%,11,5,+6.37,+57.9%,
+Championship,O/U Over,12,-6.1%,0,0,0,0%,Model runs low on goals
+Championship,O/U Under,12,-0.8%,3,1,-0.84,-28.0%,
+Championship,O/U Combined,12,-3.5%,3,1,-0.84,-28.0%,
+Championship,ALL COMBINED,12,-2.1%,14,6,+5.53,+39.5%,
+TOTAL,ALL,22,-2.0%,23,9,+8.64,+37.6%,

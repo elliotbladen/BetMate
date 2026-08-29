@@ -1,0 +1,822 @@
+
+  Auto-detected round 24 from BetMate fixture.
+  Using BetMate injuries: /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+
+════════════════════════════════════════════════════════════════════════════════
+  prepare_round  season=2026  round=24
+  mode=WRITE
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0 — Load R24 fixture from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  ✓  BetMate fixture loaded — 8 games, R24, scraped ?
+
+  Home                                Away                                Kickoff                 Result
+  ──────────────────────────────────  ──────────────────────────────────  ──────────────────────  ────────
+  Penrith Panthers                    Sydney Roosters                     2026-08-13T09:50:00     INSERTED
+  Manly-Warringah Sea Eagles          Dolphins                            2026-08-14T08:00:00     INSERTED
+  Canterbury-Bankstown Bulldogs       South Sydney Rabbitohs              2026-08-14T10:00:00     INSERTED
+  Cronulla-Sutherland Sharks          Canberra Raiders                    2026-08-15T05:00:00     INSERTED
+  Parramatta Eels                     North Queensland Cowboys            2026-08-15T07:30:00     INSERTED
+  Brisbane Broncos                    New Zealand Warriors                2026-08-15T09:35:00     INSERTED
+  Newcastle Knights                   Gold Coast Titans                   2026-08-16T04:00:00     INSERTED
+  Wests Tigers                        St. George Illawarra Dragons        2026-08-16T06:05:00     INSERTED
+  ✓  8 fixture rows inserted from BetMate.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0b — Import style stats from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Team                                              AsOf   Rnd  Result
+  ──────────────────────────────────────────  ──────────  ────  ────────
+  Brisbane Broncos                            2026-08-11    24  INSERT
+  Canberra Raiders                            2026-08-11    24  INSERT
+  Canterbury-Bankstown Bulldogs               2026-08-11    24  INSERT
+  Cronulla-Sutherland Sharks                  2026-08-11    24  INSERT
+  Dolphins                                    2026-08-11    24  INSERT
+  Gold Coast Titans                           2026-08-11    24  INSERT
+  Manly-Warringah Sea Eagles                  2026-08-11    24  INSERT
+  Melbourne Storm                             2026-08-11    24  INSERT
+  New Zealand Warriors                        2026-08-11    24  INSERT
+  Newcastle Knights                           2026-08-11    24  INSERT
+  North Queensland Cowboys                    2026-08-11    24  INSERT
+  Parramatta Eels                             2026-08-11    24  INSERT
+  Penrith Panthers                            2026-08-11    24  INSERT
+  South Sydney Rabbitohs                      2026-08-11    24  INSERT
+  ⚠  WARNING: Unknown team: "St George Illawarra Dragons" — skipping
+  Sydney Roosters                             2026-08-11    24  INSERT
+  Wests Tigers                                2026-08-11    24  INSERT
+
+  ✓  16 style-stat rows written, 1 skipped.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 1 — Verify R23 results in DB
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+        Date  Home                                Away                                  Score  Status
+  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ──────────
+  2026-08-06  Gold Coast Titans                   North Queensland Cowboys               8-30  final
+  2026-08-07  New Zealand Warriors                Penrith Panthers                      28-12  final
+  2026-08-07  Sydney Roosters                     Canterbury-Bankstown Bulldogs         20-18  final
+  2026-08-08  Melbourne Storm                     Manly-Warringah Sea Eagles            42-20  final
+  2026-08-08  Dolphins                            Brisbane Broncos                      40-32  final
+  2026-08-08  South Sydney Rabbitohs              Parramatta Eels                       28-24  final
+  2026-08-09  Canberra Raiders                    Newcastle Knights                     24-30  final
+  2026-08-09  St. George Illawarra Dragons        Cronulla-Sutherland Sharks            24-16  final
+  ✓  All 8 R23 results confirmed.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 2 — Rebuild team_stats  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  172 results through 2026-08-09
+
+    #  Team                                         GP   W   L    PF/g    PA/g    Diff    Action
+  ───  ──────────────────────────────────────────  ───  ──  ──  ──────  ──────  ──────  ────────
+    1  Penrith Panthers                             20  15   5    29.6    15.1   +14.6    UPDATE
+    2  Sydney Roosters                              20  15   5    27.6    19.7    +7.8    UPDATE
+    3  New Zealand Warriors                         20  14   6    28.3    16.2   +12.1    UPDATE
+    4  Cronulla-Sutherland Sharks                   20  13   7    29.2    20.8    +8.4    UPDATE
+    5  Dolphins                                     20  13   7    27.8    22.9    +4.9    UPDATE
+    6  Newcastle Knights                            21  13   8    25.8    22.6    +3.1    UPDATE
+    7  North Queensland Cowboys                     21  12   9    23.0    26.7    -3.6    UPDATE
+    8  South Sydney Rabbitohs                       20  11   9    27.7    24.4    +3.3    UPDATE
+    9  Canterbury-Bankstown Bulldogs                20  10  10    19.8    22.1    -2.3    UPDATE
+   10  Manly-Warringah Sea Eagles                   20   9  11    25.2    21.9    +3.4    UPDATE
+   11  Melbourne Storm                              21   9  12    24.3    24.5    -0.2    UPDATE
+   12  Canberra Raiders                             21   9  12    22.7    25.8    -3.1    UPDATE
+   13  Parramatta Eels                              20   7  13    19.4    28.6    -9.2    UPDATE
+   14  Wests Tigers                                 20   7  13    18.9    29.4   -10.6    UPDATE
+   15  Gold Coast Titans                            20   6  14    19.4    26.6    -7.2    UPDATE
+   16  Brisbane Broncos                             20   6  14    18.9    27.1    -8.2    UPDATE
+   17  St. George Illawarra Dragons                 20   3  17    16.0    29.2   -13.2    UPDATE
+  ✓  Wrote 17 team_stats rows at as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 3 — Rebuild ELO  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Prior ELO snapshot: as_of_date=2026-01-01 (17 teams)
+  Applying 172 games from 2026-01-01 → 2026-08-09:
+
+   Rnd        Date                                Home                                Away    Score    ΔHome    ΔAway
+  ────  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ───────  ───────
+     1  2026-03-01                   Newcastle Knights            North Queensland Cowboys   28-18    +10.00   -10.00
+     1  2026-03-01       Canterbury-Bankstown Bulldogs        St. George Illawarra Dragons   15-14    +10.00   -10.00
+     1  2026-03-05                     Melbourne Storm                     Parramatta Eels   52-4     +10.00   -10.00
+     1  2026-03-06                New Zealand Warriors                     Sydney Roosters   42-18    +10.00   -10.00
+     1  2026-03-06                    Brisbane Broncos                    Penrith Panthers    0-26    -10.00   +10.00
+     1  2026-03-07          Cronulla-Sutherland Sharks                   Gold Coast Titans   50-10    +10.00   -10.00
+     1  2026-03-07          Manly-Warringah Sea Eagles                    Canberra Raiders   28-29    -10.00   +10.00
+     1  2026-03-08                            Dolphins              South Sydney Rabbitohs   30-40    -10.00   +10.00
+     2  2026-03-12                    Brisbane Broncos                     Parramatta Eels   32-40    -10.00   +10.00
+     2  2026-03-13                New Zealand Warriors                    Canberra Raiders   40-6     +10.00   -10.00
+     2  2026-03-13                     Sydney Roosters              South Sydney Rabbitohs   26-18    +10.58   -10.58
+     2  2026-03-14                        Wests Tigers            North Queensland Cowboys   44-16     +9.71    -9.71
+     2  2026-03-14        St. George Illawarra Dragons                     Melbourne Storm   20-46     -9.42    +9.42
+     2  2026-03-14                    Penrith Panthers          Cronulla-Sutherland Sharks   26-6     +10.00   -10.00
+     2  2026-03-15          Manly-Warringah Sea Eagles                   Newcastle Knights   16-36     -9.42    +9.42
+     2  2026-03-15                            Dolphins                   Gold Coast Titans   18-14    +10.00   -10.00
+     3  2026-03-19                    Canberra Raiders       Canterbury-Bankstown Bulldogs   10-14     -9.71    +9.71
+     3  2026-03-20                     Sydney Roosters                    Penrith Panthers    4-40     -9.44    +9.44
+     3  2026-03-20                     Melbourne Storm                    Brisbane Broncos   14-18    -11.13   +11.13
+     3  2026-03-21                   Newcastle Knights                New Zealand Warriors   12-38     -9.98    +9.98
+     3  2026-03-21          Cronulla-Sutherland Sharks                            Dolphins   10-38    -10.00   +10.00
+     3  2026-03-21              South Sydney Rabbitohs                        Wests Tigers   20-16    +10.30   -10.30
+     3  2026-03-22                     Parramatta Eels        St. George Illawarra Dragons   30-20     +9.44    -9.44
+     3  2026-03-22            North Queensland Cowboys                   Gold Coast Titans   30-16     +9.99    -9.99
+     4  2026-03-26          Manly-Warringah Sea Eagles                     Sydney Roosters   16-33     -9.70    +9.70
+     4  2026-03-27                New Zealand Warriors                        Wests Tigers   14-32    -10.88   +10.88
+     4  2026-03-27                    Brisbane Broncos                            Dolphins   26-12    +10.54   -10.54
+     4  2026-03-28       Canterbury-Bankstown Bulldogs                   Newcastle Knights   16-24    -10.30   +10.30
+     4  2026-03-28                    Penrith Panthers                     Parramatta Eels   48-20     +9.42    -9.42
+     4  2026-03-28            North Queensland Cowboys                     Melbourne Storm   28-24    +10.52   -10.52
+     4  2026-03-29                    Canberra Raiders          Cronulla-Sutherland Sharks   22-34    -10.01   +10.01
+     4  2026-03-29                   Gold Coast Titans        St. George Illawarra Dragons   22-14    +10.03   -10.03
+     5  2026-04-02                            Dolphins          Manly-Warringah Sea Eagles   18-52    -10.82   +10.82
+     5  2026-04-03              South Sydney Rabbitohs       Canterbury-Bankstown Bulldogs   32-24     +9.99    -9.99
+     5  2026-04-03                    Penrith Panthers                     Melbourne Storm   50-10     +8.82    -8.82
+     5  2026-04-04        St. George Illawarra Dragons            North Queensland Cowboys    0-32     -8.86    +8.86
+     5  2026-04-04                   Gold Coast Titans                    Brisbane Broncos   12-26     -9.38    +9.38
+     5  2026-04-05          Cronulla-Sutherland Sharks                New Zealand Warriors   36-22    +10.55   -10.55
+     5  2026-04-05                   Newcastle Knights                    Canberra Raiders   32-12     +8.87    -8.87
+     5  2026-04-06                     Parramatta Eels                        Wests Tigers   20-22     -9.70    +9.70
+     6  2026-04-09       Canterbury-Bankstown Bulldogs                    Penrith Panthers   32-16    +11.38   -11.38
+     6  2026-04-10        St. George Illawarra Dragons          Manly-Warringah Sea Eagles   18-28     -9.15    +9.15
+     6  2026-04-10                    Brisbane Broncos            North Queensland Cowboys   31-35    -10.04   +10.04
+     6  2026-04-11              South Sydney Rabbitohs                    Canberra Raiders   34-36    -11.38   +11.38
+     6  2026-04-11          Cronulla-Sutherland Sharks                     Sydney Roosters   22-34    -10.28   +10.28
+     6  2026-04-11                     Melbourne Storm                New Zealand Warriors   14-38     -9.44    +9.44
+     6  2026-04-12                     Parramatta Eels                   Gold Coast Titans   10-52    -10.56   +10.56
+     6  2026-04-12                        Wests Tigers                   Newcastle Knights   42-22    +10.25   -10.25
+     7  2026-04-16            North Queensland Cowboys          Manly-Warringah Sea Eagles    6-38    -10.83   +10.83
+     7  2026-04-17                    Canberra Raiders                     Melbourne Storm   26-22     +9.91    -9.91
+     7  2026-04-17                            Dolphins                    Penrith Panthers   22-23     -8.64    +8.64
+     7  2026-04-18                New Zealand Warriors                   Gold Coast Titans   28-20     +8.95    -8.95
+     7  2026-04-18              South Sydney Rabbitohs        St. George Illawarra Dragons   30-12     +8.14    -8.14
+     7  2026-04-18                        Wests Tigers                    Brisbane Broncos   20-21    -10.84   +10.84
+     7  2026-04-19                     Sydney Roosters                   Newcastle Knights   38-24    +10.21   -10.21
+     7  2026-04-19                     Parramatta Eels       Canterbury-Bankstown Bulldogs   38-20    +10.89   -10.89
+     8  2026-04-23                        Wests Tigers                    Canberra Raiders   33-14     +9.23    -9.23
+     8  2026-04-24            North Queensland Cowboys          Cronulla-Sutherland Sharks   46-34     +9.75    -9.75
+     8  2026-04-24                    Brisbane Broncos       Canterbury-Bankstown Bulldogs   32-12     +9.66    -9.66
+     8  2026-04-25        St. George Illawarra Dragons                     Sydney Roosters   16-62     -7.56    +7.56
+     8  2026-04-25                New Zealand Warriors                            Dolphins   20-18     +8.66    -8.66
+     8  2026-04-25                     Melbourne Storm              South Sydney Rabbitohs    6-48     -8.66    +8.66
+     8  2026-04-26                   Newcastle Knights                    Penrith Panthers   12-44     -8.94    +8.94
+     8  2026-04-26          Manly-Warringah Sea Eagles                     Parramatta Eels   33-18     +9.68    -9.68
+     9  2026-05-01       Canterbury-Bankstown Bulldogs            North Queensland Cowboys   12-28     -9.19    +9.19
+     9  2026-05-01                            Dolphins                     Melbourne Storm   28-10     +9.70    -9.70
+     9  2026-05-02                   Gold Coast Titans                    Canberra Raiders   12-28     -9.68    +9.68
+     9  2026-05-02                     Parramatta Eels                New Zealand Warriors   14-36     -8.44    +8.44
+     9  2026-05-02                     Sydney Roosters                    Brisbane Broncos   38-24     +9.79    -9.79
+     9  2026-05-03                   Newcastle Knights              South Sydney Rabbitohs   42-38    +10.74   -10.74
+     9  2026-05-03          Cronulla-Sutherland Sharks                        Wests Tigers   52-10    +11.09   -11.09
+     9  2026-05-03                    Penrith Panthers          Manly-Warringah Sea Eagles   18-16     +8.78    -8.78
+    10  2026-05-07                            Dolphins       Canterbury-Bankstown Bulldogs   44-12    +10.00   -10.00
+    10  2026-05-08                     Sydney Roosters                   Gold Coast Titans   28-12     +7.84    -7.84
+    10  2026-05-08            North Queensland Cowboys                     Parramatta Eels   30-33    -11.58   +11.58
+    10  2026-05-09        St. George Illawarra Dragons                   Newcastle Knights   10-44     -7.67    +7.67
+    10  2026-05-09              South Sydney Rabbitohs          Cronulla-Sutherland Sharks   36-12     +9.63    -9.63
+    10  2026-05-09          Manly-Warringah Sea Eagles                    Brisbane Broncos   32-4     +10.26   -10.26
+    10  2026-05-10                     Melbourne Storm                        Wests Tigers   44-16    +11.89   -11.89
+    10  2026-05-10                    Canberra Raiders                    Penrith Panthers   18-30     -8.03    +8.03
+    11  2026-05-15          Cronulla-Sutherland Sharks       Canterbury-Bankstown Bulldogs   38-16     +9.40    -9.40
+    11  2026-05-15              South Sydney Rabbitohs                            Dolphins   10-32    -10.95   +10.95
+    11  2026-05-16                        Wests Tigers          Manly-Warringah Sea Eagles   18-46     -9.79    +9.79
+    11  2026-05-16                     Sydney Roosters            North Queensland Cowboys   12-18    -10.87   +10.87
+    11  2026-05-16                     Parramatta Eels                     Melbourne Storm    8-34    -10.60   +10.60
+    11  2026-05-17                   Gold Coast Titans                   Newcastle Knights   12-36     -8.21    +8.21
+    11  2026-05-17                New Zealand Warriors                    Brisbane Broncos   42-12     +8.78    -8.78
+    11  2026-05-17                    Penrith Panthers        St. George Illawarra Dragons   28-6      +5.91    -5.91
+    12  2026-05-21                    Canberra Raiders                            Dolphins   22-30     -9.51    +9.51
+    12  2026-05-22       Canterbury-Bankstown Bulldogs                     Melbourne Storm   30-20    +10.35   -10.35
+    12  2026-05-23        St. George Illawarra Dragons                New Zealand Warriors   12-30     -6.20    +6.20
+    12  2026-05-23          Manly-Warringah Sea Eagles                   Gold Coast Titans   12-10     +7.84    -7.84
+    12  2026-05-24            North Queensland Cowboys              South Sydney Rabbitohs   30-18     +9.60    -9.60
+    13  2026-05-29          Cronulla-Sutherland Sharks          Manly-Warringah Sea Eagles   28-22    +10.84   -10.84
+    13  2026-05-30                   Newcastle Knights                     Parramatta Eels   28-22     +8.50    -8.50
+    13  2026-05-30                        Wests Tigers       Canterbury-Bankstown Bulldogs   22-16     +9.31    -9.31
+    13  2026-05-30                     Melbourne Storm                     Sydney Roosters   18-4     +12.05   -12.05
+    13  2026-05-31                    Brisbane Broncos        St. George Illawarra Dragons   26-30    -12.40   +12.40
+    13  2026-05-31                    Canberra Raiders            North Queensland Cowboys   26-12    +11.74   -11.74
+    13  2026-05-31                    Penrith Panthers                New Zealand Warriors   20-18     +9.49    -9.49
+    14  2026-06-04          Manly-Warringah Sea Eagles              South Sydney Rabbitohs   28-14     +9.53    -9.53
+    14  2026-06-05                     Melbourne Storm                   Newcastle Knights   32-30    +11.68   -11.68
+    14  2026-06-05                    Canberra Raiders                     Sydney Roosters    0-26     -8.96    +8.96
+    14  2026-06-06            North Queensland Cowboys                            Dolphins   14-40    -10.39   +10.39
+    14  2026-06-06                    Brisbane Broncos                   Gold Coast Titans   23-28    -11.19   +11.19
+    14  2026-06-07                        Wests Tigers                    Penrith Panthers    0-68     -7.71    +7.71
+    14  2026-06-07          Cronulla-Sutherland Sharks        St. George Illawarra Dragons   34-12     +7.41    -7.41
+    14  2026-06-08       Canterbury-Bankstown Bulldogs                     Parramatta Eels   14-12    +10.07   -10.07
+    15  2026-06-11              South Sydney Rabbitohs                    Brisbane Broncos   48-6      +9.29    -9.29
+    15  2026-06-12                            Dolphins                     Sydney Roosters   48-10    +10.31   -10.31
+    15  2026-06-13                New Zealand Warriors          Cronulla-Sutherland Sharks    8-10    -10.86   +10.86
+    15  2026-06-13                     Parramatta Eels                    Canberra Raiders   15-12    +10.67   -10.67
+    15  2026-06-14                        Wests Tigers                   Gold Coast Titans   36-28     +8.64    -8.64
+    16  2026-06-19                   Newcastle Knights        St. George Illawarra Dragons   22-20     +6.93    -6.93
+    16  2026-06-20                        Wests Tigers                            Dolphins   22-36     -9.25    +9.25
+    16  2026-06-20                   Gold Coast Titans                    Penrith Panthers   19-18    +14.13   -14.13
+    16  2026-06-20       Canterbury-Bankstown Bulldogs          Manly-Warringah Sea Eagles   13-12    +11.61   -11.61
+    16  2026-06-21                New Zealand Warriors            North Queensland Cowboys   38-20     +9.31    -9.31
+    16  2026-06-21                     Melbourne Storm                    Canberra Raiders   42-20     +9.44    -9.44
+    16  2026-06-21                     Sydney Roosters          Cronulla-Sutherland Sharks   27-8     +10.24   -10.24
+    17  2026-06-25                     Parramatta Eels              South Sydney Rabbitohs   12-32     -8.92    +8.92
+    17  2026-06-26                   Gold Coast Titans       Canterbury-Bankstown Bulldogs   12-30     -9.17    +9.17
+    17  2026-06-26                    Brisbane Broncos                     Sydney Roosters   18-24     -7.94    +7.94
+    17  2026-06-27                            Dolphins                New Zealand Warriors   26-24    +10.19   -10.19
+    17  2026-06-27            North Queensland Cowboys                    Penrith Panthers   26-12    +12.11   -12.11
+    17  2026-06-27          Manly-Warringah Sea Eagles                     Melbourne Storm   30-4      +9.40    -9.40
+    17  2026-06-28                    Canberra Raiders        St. George Illawarra Dragons   24-16     +8.50    -8.50
+    17  2026-06-28                   Newcastle Knights                        Wests Tigers   12-6      +9.06    -9.06
+    18  2026-07-03                    Penrith Panthers              South Sydney Rabbitohs   36-14     +8.42    -8.42
+    18  2026-07-04        St. George Illawarra Dragons                        Wests Tigers   24-10    +12.55   -12.55
+    18  2026-07-04                    Brisbane Broncos          Cronulla-Sutherland Sharks   16-28     -8.06    +8.06
+    18  2026-07-05                     Parramatta Eels          Manly-Warringah Sea Eagles   23-14    +12.00   -12.00
+    18  2026-07-05                   Newcastle Knights                            Dolphins   13-12    +10.37   -10.37
+    19  2026-07-10                        Wests Tigers                New Zealand Warriors    6-32     -8.22    +8.22
+    19  2026-07-11                            Dolphins          Cronulla-Sutherland Sharks    0-66    -10.37   +10.37
+    19  2026-07-11       Canterbury-Bankstown Bulldogs                    Canberra Raiders   16-40    -10.77   +10.77
+    19  2026-07-11                     Sydney Roosters                     Parramatta Eels   28-12     +7.96    -7.96
+    19  2026-07-12              South Sydney Rabbitohs                   Newcastle Knights   26-24    +11.30   -11.30
+    19  2026-07-12          Manly-Warringah Sea Eagles            North Queensland Cowboys   18-19     -9.93    +9.93
+    19  2026-07-12                     Melbourne Storm                   Gold Coast Titans   22-18     +8.83    -8.83
+    20  2026-07-16                    Penrith Panthers                    Brisbane Broncos   12-14    -13.63   +13.63
+    20  2026-07-17          Cronulla-Sutherland Sharks                   Newcastle Knights   20-18     +9.97    -9.97
+    20  2026-07-17                     Sydney Roosters                     Melbourne Storm   14-6      +8.50    -8.50
+    20  2026-07-18                    Canberra Raiders              South Sydney Rabbitohs   34-24    +11.08   -11.08
+    20  2026-07-18                New Zealand Warriors        St. George Illawarra Dragons   20-12     +6.27    -6.27
+    20  2026-07-18       Canterbury-Bankstown Bulldogs                        Wests Tigers   32-0      +9.55    -9.55
+    20  2026-07-19                   Gold Coast Titans          Manly-Warringah Sea Eagles   38-32    +11.92   -11.92
+    20  2026-07-19                            Dolphins            North Queensland Cowboys   36-16     +9.90    -9.90
+    21  2026-07-23                     Parramatta Eels                    Penrith Panthers   18-24     -7.15    +7.15
+    21  2026-07-24                   Newcastle Knights                     Sydney Roosters   22-23     -9.16    +9.16
+    21  2026-07-24              South Sydney Rabbitohs                     Melbourne Storm   28-26     +9.53    -9.53
+    21  2026-07-25                    Canberra Raiders                        Wests Tigers   56-10     +9.11    -9.11
+    21  2026-07-25       Canterbury-Bankstown Bulldogs                New Zealand Warriors   18-6     +11.71   -11.71
+    21  2026-07-25            North Queensland Cowboys                    Brisbane Broncos   18-10     +8.29    -8.29
+    21  2026-07-26        St. George Illawarra Dragons                   Gold Coast Titans   18-38     -8.69    +8.69
+    21  2026-07-26          Manly-Warringah Sea Eagles          Cronulla-Sutherland Sharks   12-48     -8.42    +8.42
+    22  2026-07-30            North Queensland Cowboys                     Sydney Roosters   12-82     -8.84    +8.84
+    22  2026-07-31        St. George Illawarra Dragons                            Dolphins   22-28     -6.03    +6.03
+    22  2026-07-31                     Melbourne Storm       Canterbury-Bankstown Bulldogs   22-36     -9.25    +9.25
+    22  2026-08-01                   Gold Coast Titans                New Zealand Warriors    6-42     -7.67    +7.67
+    22  2026-08-01                    Penrith Panthers                    Canberra Raiders   42-18     +7.96    -7.96
+    22  2026-08-01                    Brisbane Broncos                   Newcastle Knights    6-30     -8.03    +8.03
+    22  2026-08-02          Cronulla-Sutherland Sharks              South Sydney Rabbitohs   32-16     +8.75    -8.75
+    22  2026-08-02                        Wests Tigers                     Parramatta Eels   13-16     -9.85    +9.85
+    23  2026-08-06                   Gold Coast Titans            North Queensland Cowboys    8-30     -8.11    +8.11
+    23  2026-08-07                New Zealand Warriors                    Penrith Panthers   28-12    +10.84   -10.84
+    23  2026-08-07                     Sydney Roosters       Canterbury-Bankstown Bulldogs   20-18     +8.25    -8.25
+    23  2026-08-08                     Melbourne Storm          Manly-Warringah Sea Eagles   42-20    +10.46   -10.46
+    23  2026-08-08                            Dolphins                    Brisbane Broncos   40-32     +7.05    -7.05
+    23  2026-08-08              South Sydney Rabbitohs                     Parramatta Eels   28-24     +8.82    -8.82
+    23  2026-08-09                    Canberra Raiders                   Newcastle Knights   24-30     -8.94    +8.94
+    23  2026-08-09        St. George Illawarra Dragons          Cronulla-Sutherland Sharks   24-16    +14.70   -14.70
+
+  Final ELO standings entering this round:
+  Team                                             ELO    Δ1500
+  ──────────────────────────────────────────  ────────  ───────
+  Sydney Roosters                               1583.1    +83.1
+  Penrith Panthers                              1566.6    +66.6
+  New Zealand Warriors                          1559.1    +59.1
+  Dolphins                                      1553.9    +53.9
+  Cronulla-Sutherland Sharks                    1551.1    +51.1
+  Newcastle Knights                             1535.6    +35.6
+  North Queensland Cowboys                      1525.0    +25.0
+  South Sydney Rabbitohs                        1513.5    +13.5
+  Canterbury-Bankstown Bulldogs                 1505.0     +5.0
+  Canberra Raiders                              1480.8    -19.2
+  Melbourne Storm                               1479.2    -20.8
+  Manly-Warringah Sea Eagles                    1474.2    -25.8
+  Parramatta Eels                               1454.6    -45.4
+  Gold Coast Titans                             1442.2    -57.8
+  Wests Tigers                                  1438.5    -61.5
+  Brisbane Broncos                              1434.1    -65.9
+  St. George Illawarra Dragons                  1403.4    -96.6
+  ✓  Wrote ELO for 17 teams into as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 4 — Load injuries for R24
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Auto-detected round 24 from BetMate fixture.
+  Using BetMate injuries: /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+
+════════════════════════════════════════════════════════════════════════════════
+  prepare_round  season=2026  round=24
+  mode=WRITE
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0 — Load R24 fixture from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  ✓  BetMate fixture loaded — 8 games, R24, scraped ?
+
+  Home                                Away                                Kickoff                 Result
+  ──────────────────────────────────  ──────────────────────────────────  ──────────────────────  ────────
+  Penrith Panthers                    Sydney Roosters                     2026-08-13T09:50:00     INSERTED
+  Manly-Warringah Sea Eagles          Dolphins                            2026-08-14T08:00:00     INSERTED
+  Canterbury-Bankstown Bulldogs       South Sydney Rabbitohs              2026-08-14T10:00:00     INSERTED
+  Cronulla-Sutherland Sharks          Canberra Raiders                    2026-08-15T05:00:00     INSERTED
+  Parramatta Eels                     North Queensland Cowboys            2026-08-15T07:30:00     INSERTED
+  Brisbane Broncos                    New Zealand Warriors                2026-08-15T09:35:00     INSERTED
+  Newcastle Knights                   Gold Coast Titans                   2026-08-16T04:00:00     INSERTED
+  Wests Tigers                        St. George Illawarra Dragons        2026-08-16T06:05:00     INSERTED
+  ✓  8 fixture rows inserted from BetMate.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0b — Import style stats from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Team                                              AsOf   Rnd  Result
+  ──────────────────────────────────────────  ──────────  ────  ────────
+  Brisbane Broncos                            2026-08-11    24  UPDATE
+  Canberra Raiders                            2026-08-11    24  UPDATE
+  Canterbury-Bankstown Bulldogs               2026-08-11    24  UPDATE
+  Cronulla-Sutherland Sharks                  2026-08-11    24  UPDATE
+  Dolphins                                    2026-08-11    24  UPDATE
+  Gold Coast Titans                           2026-08-11    24  UPDATE
+  Manly-Warringah Sea Eagles                  2026-08-11    24  UPDATE
+  Melbourne Storm                             2026-08-11    24  UPDATE
+  New Zealand Warriors                        2026-08-11    24  UPDATE
+  Newcastle Knights                           2026-08-11    24  UPDATE
+  North Queensland Cowboys                    2026-08-11    24  UPDATE
+  Parramatta Eels                             2026-08-11    24  UPDATE
+  Penrith Panthers                            2026-08-11    24  UPDATE
+  South Sydney Rabbitohs                      2026-08-11    24  UPDATE
+  ⚠  WARNING: Unknown team: "St George Illawarra Dragons" — skipping
+  Sydney Roosters                             2026-08-11    24  UPDATE
+  Wests Tigers                                2026-08-11    24  UPDATE
+
+  ✓  16 style-stat rows written, 1 skipped.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 1 — Verify R23 results in DB
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+        Date  Home                                Away                                  Score  Status
+  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ──────────
+  2026-08-06  Gold Coast Titans                   North Queensland Cowboys               8-30  final
+  2026-08-07  New Zealand Warriors                Penrith Panthers                      28-12  final
+  2026-08-07  Sydney Roosters                     Canterbury-Bankstown Bulldogs         20-18  final
+  2026-08-08  Melbourne Storm                     Manly-Warringah Sea Eagles            42-20  final
+  2026-08-08  Dolphins                            Brisbane Broncos                      40-32  final
+  2026-08-08  South Sydney Rabbitohs              Parramatta Eels                       28-24  final
+  2026-08-09  Canberra Raiders                    Newcastle Knights                     24-30  final
+  2026-08-09  St. George Illawarra Dragons        Cronulla-Sutherland Sharks            24-16  final
+  ✓  All 8 R23 results confirmed.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 2 — Rebuild team_stats  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  172 results through 2026-08-09
+
+    #  Team                                         GP   W   L    PF/g    PA/g    Diff    Action
+  ───  ──────────────────────────────────────────  ───  ──  ──  ──────  ──────  ──────  ────────
+    1  Penrith Panthers                             20  15   5    29.6    15.1   +14.6    INSERT
+    2  Sydney Roosters                              20  15   5    27.6    19.7    +7.8    INSERT
+    3  New Zealand Warriors                         20  14   6    28.3    16.2   +12.1    INSERT
+    4  Cronulla-Sutherland Sharks                   20  13   7    29.2    20.8    +8.4    INSERT
+    5  Dolphins                                     20  13   7    27.8    22.9    +4.9    INSERT
+    6  Newcastle Knights                            21  13   8    25.8    22.6    +3.1    INSERT
+    7  North Queensland Cowboys                     21  12   9    23.0    26.7    -3.6    INSERT
+    8  South Sydney Rabbitohs                       20  11   9    27.7    24.4    +3.3    INSERT
+    9  Canterbury-Bankstown Bulldogs                20  10  10    19.8    22.1    -2.3    INSERT
+   10  Manly-Warringah Sea Eagles                   20   9  11    25.2    21.9    +3.4    INSERT
+   11  Melbourne Storm                              21   9  12    24.3    24.5    -0.2    INSERT
+   12  Canberra Raiders                             21   9  12    22.7    25.8    -3.1    INSERT
+   13  Parramatta Eels                              20   7  13    19.4    28.6    -9.2    INSERT
+   14  Wests Tigers                                 20   7  13    18.9    29.4   -10.6    INSERT
+   15  Gold Coast Titans                            20   6  14    19.4    26.6    -7.2    INSERT
+   16  Brisbane Broncos                             20   6  14    18.9    27.1    -8.2    INSERT
+   17  St. George Illawarra Dragons                 20   3  17    16.0    29.2   -13.2    INSERT
+  ✓  Wrote 17 team_stats rows at as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 3 — Rebuild ELO  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Prior ELO snapshot: as_of_date=2026-08-11 (17 teams)
+  Applying 0 games from 2026-08-11 → 2026-08-09:
+
+   Rnd        Date                                Home                                Away    Score    ΔHome    ΔAway
+  ────  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ───────  ───────
+
+  Final ELO standings entering this round:
+  Team                                             ELO    Δ1500
+  ──────────────────────────────────────────  ────────  ───────
+  Sydney Roosters                               1583.1    +83.1
+  Penrith Panthers                              1566.6    +66.6
+  New Zealand Warriors                          1559.1    +59.1
+  Dolphins                                      1553.9    +53.9
+  Cronulla-Sutherland Sharks                    1551.1    +51.1
+  Newcastle Knights                             1535.6    +35.6
+  North Queensland Cowboys                      1525.0    +25.0
+  South Sydney Rabbitohs                        1513.5    +13.5
+  Canterbury-Bankstown Bulldogs                 1505.0     +5.0
+  Canberra Raiders                              1480.8    -19.2
+  Melbourne Storm                               1479.2    -20.8
+  Manly-Warringah Sea Eagles                    1474.2    -25.8
+  Parramatta Eels                               1454.6    -45.4
+  Gold Coast Titans                             1442.2    -57.8
+  Wests Tigers                                  1438.5    -61.5
+  Brisbane Broncos                              1434.1    -65.9
+  St. George Illawarra Dragons                  1403.4    -96.6
+  ✓  Wrote ELO for 17 teams into as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 4 — Load injuries for R24
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Auto-detected round 24 from BetMate fixture.
+  Using BetMate injuries: /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+
+════════════════════════════════════════════════════════════════════════════════
+  prepare_round  season=2026  round=24
+  mode=WRITE
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0 — Load R24 fixture from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  ✓  BetMate fixture loaded — 8 games, R24, scraped ?
+
+  Home                                Away                                Kickoff                 Result
+  ──────────────────────────────────  ──────────────────────────────────  ──────────────────────  ────────
+  Penrith Panthers                    Sydney Roosters                     2026-08-13T09:50:00     EXISTS
+  Manly-Warringah Sea Eagles          Dolphins                            2026-08-14T08:00:00     EXISTS
+  Canterbury-Bankstown Bulldogs       South Sydney Rabbitohs              2026-08-14T10:00:00     EXISTS
+  Cronulla-Sutherland Sharks          Canberra Raiders                    2026-08-15T05:00:00     EXISTS
+  Parramatta Eels                     North Queensland Cowboys            2026-08-15T07:30:00     EXISTS
+  Brisbane Broncos                    New Zealand Warriors                2026-08-15T09:35:00     EXISTS
+  Newcastle Knights                   Gold Coast Titans                   2026-08-16T04:00:00     EXISTS
+  Wests Tigers                        St. George Illawarra Dragons        2026-08-16T06:05:00     EXISTS
+  ✓  0 fixture rows inserted from BetMate.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0b — Import style stats from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Team                                              AsOf   Rnd  Result
+  ──────────────────────────────────────────  ──────────  ────  ────────
+  Brisbane Broncos                            2026-08-18    25  INSERT
+  Canberra Raiders                            2026-08-18    25  INSERT
+  Canterbury-Bankstown Bulldogs               2026-08-18    25  INSERT
+  Cronulla-Sutherland Sharks                  2026-08-18    25  INSERT
+  Dolphins                                    2026-08-18    25  INSERT
+  Gold Coast Titans                           2026-08-18    25  INSERT
+  Manly-Warringah Sea Eagles                  2026-08-18    25  INSERT
+  Melbourne Storm                             2026-08-18    25  INSERT
+  New Zealand Warriors                        2026-08-18    25  INSERT
+  Newcastle Knights                           2026-08-18    25  INSERT
+  North Queensland Cowboys                    2026-08-18    25  INSERT
+  Parramatta Eels                             2026-08-18    25  INSERT
+  Penrith Panthers                            2026-08-18    25  INSERT
+  South Sydney Rabbitohs                      2026-08-18    25  INSERT
+  ⚠  WARNING: Unknown team: "St George Illawarra Dragons" — skipping
+  Sydney Roosters                             2026-08-18    25  INSERT
+  Wests Tigers                                2026-08-18    25  INSERT
+
+  ✓  16 style-stat rows written, 1 skipped.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 1 — Verify R23 results in DB
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+        Date  Home                                Away                                  Score  Status
+  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ──────────
+  2026-08-06  Gold Coast Titans                   North Queensland Cowboys               8-30  final
+  2026-08-07  New Zealand Warriors                Penrith Panthers                      28-12  final
+  2026-08-07  Sydney Roosters                     Canterbury-Bankstown Bulldogs         20-18  final
+  2026-08-08  Melbourne Storm                     Manly-Warringah Sea Eagles            42-20  final
+  2026-08-08  Dolphins                            Brisbane Broncos                      40-32  final
+  2026-08-08  South Sydney Rabbitohs              Parramatta Eels                       28-24  final
+  2026-08-09  Canberra Raiders                    Newcastle Knights                     24-30  final
+  2026-08-09  St. George Illawarra Dragons        Cronulla-Sutherland Sharks            24-16  final
+  ✓  All 8 R23 results confirmed.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 2 — Rebuild team_stats  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  172 results through 2026-08-09
+
+    #  Team                                         GP   W   L    PF/g    PA/g    Diff    Action
+  ───  ──────────────────────────────────────────  ───  ──  ──  ──────  ──────  ──────  ────────
+    1  Penrith Panthers                             20  15   5    29.6    15.1   +14.6    UPDATE
+    2  Sydney Roosters                              20  15   5    27.6    19.7    +7.8    UPDATE
+    3  New Zealand Warriors                         20  14   6    28.3    16.2   +12.1    UPDATE
+    4  Cronulla-Sutherland Sharks                   20  13   7    29.2    20.8    +8.4    UPDATE
+    5  Dolphins                                     20  13   7    27.8    22.9    +4.9    UPDATE
+    6  Newcastle Knights                            21  13   8    25.8    22.6    +3.1    UPDATE
+    7  North Queensland Cowboys                     21  12   9    23.0    26.7    -3.6    UPDATE
+    8  South Sydney Rabbitohs                       20  11   9    27.7    24.4    +3.3    UPDATE
+    9  Canterbury-Bankstown Bulldogs                20  10  10    19.8    22.1    -2.3    UPDATE
+   10  Manly-Warringah Sea Eagles                   20   9  11    25.2    21.9    +3.4    UPDATE
+   11  Melbourne Storm                              21   9  12    24.3    24.5    -0.2    UPDATE
+   12  Canberra Raiders                             21   9  12    22.7    25.8    -3.1    UPDATE
+   13  Parramatta Eels                              20   7  13    19.4    28.6    -9.2    UPDATE
+   14  Wests Tigers                                 20   7  13    18.9    29.4   -10.6    UPDATE
+   15  Gold Coast Titans                            20   6  14    19.4    26.6    -7.2    UPDATE
+   16  Brisbane Broncos                             20   6  14    18.9    27.1    -8.2    UPDATE
+   17  St. George Illawarra Dragons                 20   3  17    16.0    29.2   -13.2    UPDATE
+  ✓  Wrote 17 team_stats rows at as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 3 — Rebuild ELO  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Prior ELO snapshot: as_of_date=2026-08-11 (17 teams)
+  Applying 0 games from 2026-08-11 → 2026-08-09:
+
+   Rnd        Date                                Home                                Away    Score    ΔHome    ΔAway
+  ────  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ───────  ───────
+
+  Final ELO standings entering this round:
+  Team                                             ELO    Δ1500
+  ──────────────────────────────────────────  ────────  ───────
+  Sydney Roosters                               1583.1    +83.1
+  Penrith Panthers                              1566.6    +66.6
+  New Zealand Warriors                          1559.1    +59.1
+  Dolphins                                      1553.9    +53.9
+  Cronulla-Sutherland Sharks                    1551.1    +51.1
+  Newcastle Knights                             1535.6    +35.6
+  North Queensland Cowboys                      1525.0    +25.0
+  South Sydney Rabbitohs                        1513.5    +13.5
+  Canterbury-Bankstown Bulldogs                 1505.0     +5.0
+  Canberra Raiders                              1480.8    -19.2
+  Melbourne Storm                               1479.2    -20.8
+  Manly-Warringah Sea Eagles                    1474.2    -25.8
+  Parramatta Eels                               1454.6    -45.4
+  Gold Coast Titans                             1442.2    -57.8
+  Wests Tigers                                  1438.5    -61.5
+  Brisbane Broncos                              1434.1    -65.9
+  St. George Illawarra Dragons                  1403.4    -96.6
+  ✓  Wrote ELO for 17 teams into as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 4 — Load injuries for R24
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Auto-detected round 24 from BetMate fixture.
+  Using BetMate injuries: /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+
+════════════════════════════════════════════════════════════════════════════════
+  prepare_round  season=2026  round=24
+  mode=WRITE
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0 — Load R24 fixture from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  ✓  BetMate fixture loaded — 8 games, R24, scraped ?
+
+  Home                                Away                                Kickoff                 Result
+  ──────────────────────────────────  ──────────────────────────────────  ──────────────────────  ────────
+  Penrith Panthers                    Sydney Roosters                     2026-08-13T09:50:00     EXISTS
+  Manly-Warringah Sea Eagles          Dolphins                            2026-08-14T08:00:00     EXISTS
+  Canterbury-Bankstown Bulldogs       South Sydney Rabbitohs              2026-08-14T10:00:00     EXISTS
+  Cronulla-Sutherland Sharks          Canberra Raiders                    2026-08-15T05:00:00     EXISTS
+  Parramatta Eels                     North Queensland Cowboys            2026-08-15T07:30:00     EXISTS
+  Brisbane Broncos                    New Zealand Warriors                2026-08-15T09:35:00     EXISTS
+  Newcastle Knights                   Gold Coast Titans                   2026-08-16T04:00:00     EXISTS
+  Wests Tigers                        St. George Illawarra Dragons        2026-08-16T06:05:00     EXISTS
+  ✓  0 fixture rows inserted from BetMate.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0b — Import style stats from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Team                                              AsOf   Rnd  Result
+  ──────────────────────────────────────────  ──────────  ────  ────────
+  Brisbane Broncos                            2026-08-18    25  UPDATE
+  Canberra Raiders                            2026-08-18    25  UPDATE
+  Canterbury-Bankstown Bulldogs               2026-08-18    25  UPDATE
+  Cronulla-Sutherland Sharks                  2026-08-18    25  UPDATE
+  Dolphins                                    2026-08-18    25  UPDATE
+  Gold Coast Titans                           2026-08-18    25  UPDATE
+  Manly-Warringah Sea Eagles                  2026-08-18    25  UPDATE
+  Melbourne Storm                             2026-08-18    25  UPDATE
+  New Zealand Warriors                        2026-08-18    25  UPDATE
+  Newcastle Knights                           2026-08-18    25  UPDATE
+  North Queensland Cowboys                    2026-08-18    25  UPDATE
+  Parramatta Eels                             2026-08-18    25  UPDATE
+  Penrith Panthers                            2026-08-18    25  UPDATE
+  South Sydney Rabbitohs                      2026-08-18    25  UPDATE
+  ⚠  WARNING: Unknown team: "St George Illawarra Dragons" — skipping
+  Sydney Roosters                             2026-08-18    25  UPDATE
+  Wests Tigers                                2026-08-18    25  UPDATE
+
+  ✓  16 style-stat rows written, 1 skipped.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 1 — Verify R23 results in DB
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+        Date  Home                                Away                                  Score  Status
+  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ──────────
+  2026-08-06  Gold Coast Titans                   North Queensland Cowboys               8-30  final
+  2026-08-07  New Zealand Warriors                Penrith Panthers                      28-12  final
+  2026-08-07  Sydney Roosters                     Canterbury-Bankstown Bulldogs         20-18  final
+  2026-08-08  Melbourne Storm                     Manly-Warringah Sea Eagles            42-20  final
+  2026-08-08  Dolphins                            Brisbane Broncos                      40-32  final
+  2026-08-08  South Sydney Rabbitohs              Parramatta Eels                       28-24  final
+  2026-08-09  Canberra Raiders                    Newcastle Knights                     24-30  final
+  2026-08-09  St. George Illawarra Dragons        Cronulla-Sutherland Sharks            24-16  final
+  ✓  All 8 R23 results confirmed.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 2 — Rebuild team_stats  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  172 results through 2026-08-09
+
+    #  Team                                         GP   W   L    PF/g    PA/g    Diff    Action
+  ───  ──────────────────────────────────────────  ───  ──  ──  ──────  ──────  ──────  ────────
+    1  Penrith Panthers                             20  15   5    29.6    15.1   +14.6    UPDATE
+    2  Sydney Roosters                              20  15   5    27.6    19.7    +7.8    UPDATE
+    3  New Zealand Warriors                         20  14   6    28.3    16.2   +12.1    UPDATE
+    4  Cronulla-Sutherland Sharks                   20  13   7    29.2    20.8    +8.4    UPDATE
+    5  Dolphins                                     20  13   7    27.8    22.9    +4.9    UPDATE
+    6  Newcastle Knights                            21  13   8    25.8    22.6    +3.1    UPDATE
+    7  North Queensland Cowboys                     21  12   9    23.0    26.7    -3.6    UPDATE
+    8  South Sydney Rabbitohs                       20  11   9    27.7    24.4    +3.3    UPDATE
+    9  Canterbury-Bankstown Bulldogs                20  10  10    19.8    22.1    -2.3    UPDATE
+   10  Manly-Warringah Sea Eagles                   20   9  11    25.2    21.9    +3.4    UPDATE
+   11  Melbourne Storm                              21   9  12    24.3    24.5    -0.2    UPDATE
+   12  Canberra Raiders                             21   9  12    22.7    25.8    -3.1    UPDATE
+   13  Parramatta Eels                              20   7  13    19.4    28.6    -9.2    UPDATE
+   14  Wests Tigers                                 20   7  13    18.9    29.4   -10.6    UPDATE
+   15  Gold Coast Titans                            20   6  14    19.4    26.6    -7.2    UPDATE
+   16  Brisbane Broncos                             20   6  14    18.9    27.1    -8.2    UPDATE
+   17  St. George Illawarra Dragons                 20   3  17    16.0    29.2   -13.2    UPDATE
+  ✓  Wrote 17 team_stats rows at as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 3 — Rebuild ELO  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Prior ELO snapshot: as_of_date=2026-08-11 (17 teams)
+  Applying 0 games from 2026-08-11 → 2026-08-09:
+
+   Rnd        Date                                Home                                Away    Score    ΔHome    ΔAway
+  ────  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ───────  ───────
+
+  Final ELO standings entering this round:
+  Team                                             ELO    Δ1500
+  ──────────────────────────────────────────  ────────  ───────
+  Sydney Roosters                               1583.1    +83.1
+  Penrith Panthers                              1566.6    +66.6
+  New Zealand Warriors                          1559.1    +59.1
+  Dolphins                                      1553.9    +53.9
+  Cronulla-Sutherland Sharks                    1551.1    +51.1
+  Newcastle Knights                             1535.6    +35.6
+  North Queensland Cowboys                      1525.0    +25.0
+  South Sydney Rabbitohs                        1513.5    +13.5
+  Canterbury-Bankstown Bulldogs                 1505.0     +5.0
+  Canberra Raiders                              1480.8    -19.2
+  Melbourne Storm                               1479.2    -20.8
+  Manly-Warringah Sea Eagles                    1474.2    -25.8
+  Parramatta Eels                               1454.6    -45.4
+  Gold Coast Titans                             1442.2    -57.8
+  Wests Tigers                                  1438.5    -61.5
+  Brisbane Broncos                              1434.1    -65.9
+  St. George Illawarra Dragons                  1403.4    -96.6
+  ✓  Wrote ELO for 17 teams into as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 4 — Load injuries for R24
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Auto-detected round 24 from BetMate fixture.
+  Using BetMate injuries: /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+
+════════════════════════════════════════════════════════════════════════════════
+  prepare_round  season=2026  round=24
+  mode=WRITE
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0 — Load R24 fixture from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  ✓  BetMate fixture loaded — 8 games, R24, scraped ?
+
+  Home                                Away                                Kickoff                 Result
+  ──────────────────────────────────  ──────────────────────────────────  ──────────────────────  ────────
+  Penrith Panthers                    Sydney Roosters                     2026-08-13T09:50:00     EXISTS
+  Manly-Warringah Sea Eagles          Dolphins                            2026-08-14T08:00:00     EXISTS
+  Canterbury-Bankstown Bulldogs       South Sydney Rabbitohs              2026-08-14T10:00:00     EXISTS
+  Cronulla-Sutherland Sharks          Canberra Raiders                    2026-08-15T05:00:00     EXISTS
+  Parramatta Eels                     North Queensland Cowboys            2026-08-15T07:30:00     EXISTS
+  Brisbane Broncos                    New Zealand Warriors                2026-08-15T09:35:00     EXISTS
+  Newcastle Knights                   Gold Coast Titans                   2026-08-16T04:00:00     EXISTS
+  Wests Tigers                        St. George Illawarra Dragons        2026-08-16T06:05:00     EXISTS
+  ✓  0 fixture rows inserted from BetMate.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 0b — Import style stats from BetMate
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Team                                              AsOf   Rnd  Result
+  ──────────────────────────────────────────  ──────────  ────  ────────
+  Brisbane Broncos                            2026-08-25    26  INSERT
+  Canberra Raiders                            2026-08-25    26  INSERT
+  Canterbury-Bankstown Bulldogs               2026-08-25    26  INSERT
+  Cronulla-Sutherland Sharks                  2026-08-25    26  INSERT
+  Dolphins                                    2026-08-25    26  INSERT
+  Gold Coast Titans                           2026-08-25    26  INSERT
+  Manly-Warringah Sea Eagles                  2026-08-25    26  INSERT
+  Melbourne Storm                             2026-08-25    26  INSERT
+  New Zealand Warriors                        2026-08-25    26  INSERT
+  Newcastle Knights                           2026-08-25    26  INSERT
+  North Queensland Cowboys                    2026-08-25    26  INSERT
+  Parramatta Eels                             2026-08-25    26  INSERT
+  Penrith Panthers                            2026-08-25    26  INSERT
+  South Sydney Rabbitohs                      2026-08-25    26  INSERT
+  ⚠  WARNING: Unknown team: "St George Illawarra Dragons" — skipping
+  Sydney Roosters                             2026-08-25    26  INSERT
+  Wests Tigers                                2026-08-25    26  INSERT
+
+  ✓  16 style-stat rows written, 1 skipped.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 1 — Verify R23 results in DB
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+        Date  Home                                Away                                  Score  Status
+  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ──────────
+  2026-08-06  Gold Coast Titans                   North Queensland Cowboys               8-30  final
+  2026-08-07  New Zealand Warriors                Penrith Panthers                      28-12  final
+  2026-08-07  Sydney Roosters                     Canterbury-Bankstown Bulldogs         20-18  final
+  2026-08-08  Melbourne Storm                     Manly-Warringah Sea Eagles            42-20  final
+  2026-08-08  Dolphins                            Brisbane Broncos                      40-32  final
+  2026-08-08  South Sydney Rabbitohs              Parramatta Eels                       28-24  final
+  2026-08-09  Canberra Raiders                    Newcastle Knights                     24-30  final
+  2026-08-09  St. George Illawarra Dragons        Cronulla-Sutherland Sharks            24-16  final
+  ✓  All 8 R23 results confirmed.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 2 — Rebuild team_stats  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  172 results through 2026-08-09
+
+    #  Team                                         GP   W   L    PF/g    PA/g    Diff    Action
+  ───  ──────────────────────────────────────────  ───  ──  ──  ──────  ──────  ──────  ────────
+    1  Penrith Panthers                             20  15   5    29.6    15.1   +14.6    UPDATE
+    2  Sydney Roosters                              20  15   5    27.6    19.7    +7.8    UPDATE
+    3  New Zealand Warriors                         20  14   6    28.3    16.2   +12.1    UPDATE
+    4  Cronulla-Sutherland Sharks                   20  13   7    29.2    20.8    +8.4    UPDATE
+    5  Dolphins                                     20  13   7    27.8    22.9    +4.9    UPDATE
+    6  Newcastle Knights                            21  13   8    25.8    22.6    +3.1    UPDATE
+    7  North Queensland Cowboys                     21  12   9    23.0    26.7    -3.6    UPDATE
+    8  South Sydney Rabbitohs                       20  11   9    27.7    24.4    +3.3    UPDATE
+    9  Canterbury-Bankstown Bulldogs                20  10  10    19.8    22.1    -2.3    UPDATE
+   10  Manly-Warringah Sea Eagles                   20   9  11    25.2    21.9    +3.4    UPDATE
+   11  Melbourne Storm                              21   9  12    24.3    24.5    -0.2    UPDATE
+   12  Canberra Raiders                             21   9  12    22.7    25.8    -3.1    UPDATE
+   13  Parramatta Eels                              20   7  13    19.4    28.6    -9.2    UPDATE
+   14  Wests Tigers                                 20   7  13    18.9    29.4   -10.6    UPDATE
+   15  Gold Coast Titans                            20   6  14    19.4    26.6    -7.2    UPDATE
+   16  Brisbane Broncos                             20   6  14    18.9    27.1    -8.2    UPDATE
+   17  St. George Illawarra Dragons                 20   3  17    16.0    29.2   -13.2    UPDATE
+  ✓  Wrote 17 team_stats rows at as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 3 — Rebuild ELO  (as_of=2026-08-12, cutoff≤2026-08-09)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+  Prior ELO snapshot: as_of_date=2026-08-11 (17 teams)
+  Applying 0 games from 2026-08-11 → 2026-08-09:
+
+   Rnd        Date                                Home                                Away    Score    ΔHome    ΔAway
+  ────  ──────────  ──────────────────────────────────  ──────────────────────────────────  ───────  ───────  ───────
+
+  Final ELO standings entering this round:
+  Team                                             ELO    Δ1500
+  ──────────────────────────────────────────  ────────  ───────
+  Sydney Roosters                               1583.1    +83.1
+  Penrith Panthers                              1566.6    +66.6
+  New Zealand Warriors                          1559.1    +59.1
+  Dolphins                                      1553.9    +53.9
+  Cronulla-Sutherland Sharks                    1551.1    +51.1
+  Newcastle Knights                             1535.6    +35.6
+  North Queensland Cowboys                      1525.0    +25.0
+  South Sydney Rabbitohs                        1513.5    +13.5
+  Canterbury-Bankstown Bulldogs                 1505.0     +5.0
+  Canberra Raiders                              1480.8    -19.2
+  Melbourne Storm                               1479.2    -20.8
+  Manly-Warringah Sea Eagles                    1474.2    -25.8
+  Parramatta Eels                               1454.6    -45.4
+  Gold Coast Titans                             1442.2    -57.8
+  Wests Tigers                                  1438.5    -61.5
+  Brisbane Broncos                              1434.1    -65.9
+  St. George Illawarra Dragons                  1403.4    -96.6
+  ✓  Wrote ELO for 17 teams into as_of_date=2026-08-12.
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  STEP 4 — Load injuries for R24
+════════════════════════════════════════════════════════════════════════════════════════════════════

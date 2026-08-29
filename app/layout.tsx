@@ -28,10 +28,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://betmate.au'),
   title: 'BetMate — Best Odds. Quantitative Edge.',
   description:
-    'Find the best odds across all major bookmakers. Powered by a quantitative model. EV analysis, market sentiment, and referee intelligence.',
-  keywords: ['sports betting', 'NRL odds', 'AFL odds', 'EPL odds', 'best odds', 'EV betting', 'value betting'],
+    'Compare NRL, AFL and EPL odds across every Australian bookmaker. Find the best price, track line movements, and spot value with quantitative EV analysis.',
+  keywords: ['NRL odds comparison', 'AFL odds comparison', 'EPL odds', 'best odds Australia', 'sports betting odds', 'NRL best odds', 'AFL best odds', 'odds comparison Australia', 'value betting', 'EV betting'],
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,

@@ -312,8 +312,8 @@ tier2_matchup:
   # proportional scaling pass in compute_matchup_adjustments().
   # When multiple families fire in the same game and the sum exceeds this cap,
   # all family deltas are scaled down by the same factor to land exactly on the cap.
-  max_home_points_delta: 4.0
-  max_away_points_delta: 4.0
+  max_home_points_delta: 1.0
+  max_away_points_delta: 1.0
 
   # -----------------------------------------------------------------------
   # Bucket 1: Yardage / territory / ruck-momentum
