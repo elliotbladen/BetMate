@@ -1,6 +1,15 @@
 league: nfl
 version: nfl-preopen-v1-nrl-patterns
 
+data_contract:
+  version: nfl-data-contract-v1.0
+  canonical_game_id: nflverse_yyyy_ww_away_home
+  spread_convention: home_team_handicap_negative_home_favourite
+  historical_feature_timing: week_n_uses_completed_games_through_week_n_minus_1
+  regular_season_only: true
+  market_columns_are_features: false
+  labels_are_features: false
+
 objective:
   primary: model_closer_to_close_than_open
   secondary: positive_closing_line_value
@@ -59,6 +68,78 @@ model:
     - coaching_and_roster_prior
     - home_field
     - rest_travel_surface_weather
+
+step2_baselines:
+  status: frozen_development
+  training_start: 2014
+  rolling_test_seasons: [2019, 2020, 2021, 2022, 2023, 2024]
+  final_vault_excluded: 2025
+  ridge_alpha: 25.0
+  elo:
+    starting_rating: 1500.0
+    k_factor: 20.0
+    home_field_points: 2.2
+  rule_eras:
+    dynamic_kickoff_from: 2024
+    onside_anytime_when_trailing_from: 2025
+    kickoff_touchback_35_from: 2025
+    regular_season_ot_both_possess_from: 2025
+    onside_alignment_revision_from: 2026
+  leakage_policy:
+    actual_onside_attempts_are_pregame_features: false
+    actual_onside_recoveries_are_pregame_features: false
+
+step3_personnel_context:
+  status: shadow
+  development_seasons: [2019, 2020, 2021, 2022, 2023, 2024]
+  quarterback:
+    prior_dropbacks: 150
+    uncertain_starter_method: probability_weighted_starter_backup_mixture
+    historical_actual_starter_is_research_only: true
+  roster_continuity:
+    active_statuses: [ACT, INA]
+    features: [weekly_overlap, returning_roster, returning_ol, returning_receivers]
+  injuries:
+    method: timestamp_checked_position_weighted_report_burden
+    snap_weighted: false
+    promotion_allowed: false
+  weather:
+    historical_schedule_observation_is_oracle_only: true
+    requires_timestamped_forecast_for_live_use: true
+  promotion:
+    require_real_feature_to_beat_shuffled_control: true
+    require_prospective_starter_probabilities: true
+
+step3_5_qb_lab:
+  status: deep_shadow
+  first_source: nflverse_ftn_charting
+  current_cost_usd: 0
+  historical_from: 2022
+  posterior_prior_plays: 100
+  feature_families:
+    - accuracy_and_catchability
+    - decision_and_interception_worthy
+    - quarterback_fault_sacks
+    - pocket_movement_and_blitz
+    - play_action_and_motion
+  paid_provider_order: [pff_csv_trial, sis_api_sample, genius_ngs_enterprise]
+  paid_data_may_change_official_price: false
+
+step4_challenger:
+  status: independent_shadow
+  algorithm: shallow_gradient_boosting
+  trees: 120
+  learning_rate: 0.025
+  max_depth: 2
+  min_samples_leaf: 40
+  subsample: 0.75
+  tier_outputs_allowed: false
+  market_features_allowed: false
+  authoritative_h2h: margin_derived
+  direct_h2h_status: rejected_shadow
+  blending:
+    enabled: false
+    minimum_frozen_prospective_predictions: 500
 
 tiers:
   t0_data_health:

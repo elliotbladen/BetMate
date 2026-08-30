@@ -1,0 +1,49 @@
+# BetMate 2026 AFL and NRL Season Review
+
+## Scope and verdict
+
+This review uses every settled bet published in BetMate’s two model tables in `lib/researchData.ts`: 105 AFL bets from 15 April to 23 August and 96 NRL bets from 19 March to 22 August. Results use BetMate’s recorded `plUnits`, not a reconstructed cash ledger. That distinction matters because stakes varied and the earlier review used only 83 mid-season cash bets. The full published record finished slightly ahead overall: NRL +1.20 units and AFL −0.13 units, for +1.07 units across 201 bets. It was a win, but essentially a break-even betting season whose real value was discovering that AFL and NRL have different structural problems.
+
+## AFL: good winner selection, weak margin and totals execution
+
+The AFL table contained 28 H2H bets, 37 handicaps, 37 totals, two live bets and one multi. H2H made +1.12 units, handicap lost −0.60, totals lost −3.82, while the small live/multi group added +3.17. The latter cannot be treated as a model edge: three bets are noise. Across the 102 standard pre-match model bets, AFL lost −3.30 units. Therefore the AFL model itself did not finish profitable even though the complete AFL BetMate page was almost flat.
+
+H2H was the best standard market. The 28 published bets went 14–14 but earned +1.12 units because several winners were at useful prices. A separate audit of 58 pre-match H2H/handicap tickets found H2H approximately flat at the taken prices (−0.9% flat-stake ROI), although it would have lost heavily at consensus opening prices. This suggests BetMate’s price shopping and discretionary timing added value. It does not show that the rules model priced win probability correctly.
+
+That distinction is supported by the full model research. The rules H2H backtest lost 21.4% ROI on 41 qualifying bets, whereas the ML model broke even over 56. The longer 2023–25 walk-forward comparison was less flattering: neither AFL ML candidate beat the close, returning about −7% to −8% at a seven-percentage-point trigger. The retrospective 60/40 rules/ML blend produced excellent 2026 results, but its weights were selected on those same games. It is a promising frozen challenger, not proof.
+
+AFL handicap was a margin-calibration problem. BetMate lost −0.60 units over 37 bets and its 32 recorded CLV observations averaged −0.59 points, with only 43.8% positive. Later backtests found the standalone rules handicap model at −5% ROI and ML at +8%. The rules engine’s linear Elo-to-margin conversion alternated between overcooking ordinary favourites and underestimating extreme mismatches. The tier adjustments then added complexity without repairing the shape of the margin distribution. Historical “matrix confluence” did not solve it: high-signal AFL handicap qualifiers were poor, showing that overlapping venue, month, opponent and favourite splits were not independent confirmations.
+
+Totals were the biggest AFL betting loss. The 37 published bets returned −3.82 units despite average recorded line CLV of +0.60 points and 56.7% positive CLV over 30 observations. This differs from the selected cash-ledger sample and retrospective rules-model backtest, both of which made totals look strong. The reason is selection: the full BetMate record includes the losing late-season cluster, including six straight Round 24 losses and duplicated exposure to the same game totals. The rules totals model may still be better than the under-biased ML model, but “better model” did not become profitable published bets.
+
+### AFL changes for 2027
+
+Build AFL around three separate champions. Use a calibrated ML margin model as the handicap foundation; derive H2H probability from that same residual distribution so the two markets cannot contradict each other; retain the rules total only as the initial totals champion. Test the frozen blend in shadow and do not tune it on 2026 again. Replace the loose additive tiers with a smaller set of player availability, team process/strength, venue/travel, matchup and weather groups. Each group must improve rolling out-of-sample MAE, Brier/log loss or calibration before promotion.
+
+Most importantly, stop correlated repeat betting unless the combined game-level exposure remains within one stake cap. Two unders at adjacent lines are one opinion, not two independent edges. AFL should also require model alignment for aggressive favourite lines: the Round 24 St Kilda −11.5 bet was unsupported by both rules and ML prices. Discretion may improve execution, but it must not override the model without being tagged and scored as a separate human challenger.
+
+## NRL: strong line and totals engine, weak H2H pricing
+
+The NRL table contained 34 H2H bets, 29 handicaps, 26 totals, three live bets, three multis and one winning-margin bet. NRL finished +1.20 units. The standard pre-match markets earned +4.17 units: H2H −4.49, handicap +3.58 and totals +5.08. Specials lost most of that advantage, led by multis at −3.00. The conclusion is clearer than AFL’s: the NRL core had useful components, but poor H2H bets and side markets diluted them.
+
+Handicap was the most credible NRL strength. The published bets went 18–11, made +3.58 units, averaged +0.88 points of CLV across 26 measured bets and recorded 57.7% positive CLV. The separate opening-price audit also returned roughly +20% flat-stake ROI. The actual-cash audit remained profitable even after later rounds. This is the best combination of BetMate result, price movement and supporting analysis in either code. However, retrospective matrix filters did not improve staking: doubling the four strongest historical-confluence qualifiers reduced profit. Keep the pricing model; reject matrix-based stake inflation.
+
+NRL totals also performed well: 16–10 and +5.08 units, with +0.63 points average CLV and 56.5% positive over 23 measured bets. The late Dragons–Bulldogs under was badly wrong, but one 58-point result does not invalidate the market. The larger issue is uncertainty. Origin availability, referee, weather and team style all affect totals, yet their adjustments were repeatedly changed during the same season. The 2027 total should use one frozen expected-points baseline with explicitly capped contextual corrections and a predictive distribution, not just a point estimate.
+
+H2H was the NRL failure: 15–19 and −4.49 units. Winner accuracy alone is not the objective; probabilities must be calibrated because they drive EV and Kelly sizing. Research has found calibration more useful than accuracy for sports-betting model selection ([Machine Learning with Applications](https://doi.org/10.1016/j.mlwa.2024.100539)). The first NRL ML classifier also disagreed with its own margin model in 18.5% of games. BetMate correctly changed to margin-derived H2H, improving accuracy from 61.0% to 62.7% and Brier from 0.2316 to 0.2313. That coherent model should now be tested prospectively against the rules price and a no-vig market baseline.
+
+### NRL changes for 2027
+
+Keep the current rules handicap and totals models as champions, but freeze them before Round 1. Make coherent margin-derived ML the H2H challenger and require at least 300–500 untouched predictions before promotion. Rebuild the player-availability layer around named-team value, absorbing injuries, Origin absences and backup fatigue into one mechanism. Preserve the event-anchored early/Origin/late/finals phases, but change stake size for uncertainty rather than fitting four sets of tier weights.
+
+Remove multis and winning-margin bets from model reporting; record them in a separate entertainment ledger. They obscure whether the core system works. Use one auditable sharp close and proper vig removal—bookmaker probabilities are strong public forecasts, and the method used to remove margin affects their quality ([International Journal of Forecasting](https://doi.org/10.1016/j.ijforecast.2014.02.008)). Every bet must store model version, timestamp, bookmaker, stake, taken line/odds, closing line/odds and whether it was model-led or discretionary.
+
+## Final assessment
+
+AFL needs a model rebuild around coherent ML margin/H2H pricing and stricter exposure control; its published core lost money. NRL does not need an EPL-style rebuild. It needs to preserve its successful handicap/totals core, repair H2H calibration and stop leaking profit into specials. Both codes should adopt the best EPL/NFL research habits: immutable data contracts, rolling time-split tests, a sealed holdout, champion/challenger models, shuffled-feature controls and automatic rejection of additions that fail. Next season’s success should be judged separately by code and market—not by one combined profit number.
+
+## Decisions recorded for 2027
+
+The AFL engine will receive a selective half-rebuild, borrowing the disciplined architecture of the EPL and NFL projects while retaining the AFL components that earned their place. This is not a deletion-and-restart exercise. The rebuild should preserve useful data, the stronger rules totals baseline, contextual knowledge and operational pipelines, while replacing weak H2H/handicap foundations and introducing frozen promotion gates.
+
+The NRL pricing core will be preserved. Its 2026 handicap and totals performance indicates that the larger leak was bet selection and staking rather than a need to rebuild the entire model. The proposed default policy is: bet only when auditable model EV is at least 10%, reject multis and unsupported side markets from the model bankroll, cap total exposure per match, and keep discretionary bets in a separate ledger. The exact historical improvement from a 10% threshold has not been asserted here because a consistent pre-bet EV field is not present for every published wager; the rule must be reconstructed and backtested where possible, then frozen prospectively for 2027.

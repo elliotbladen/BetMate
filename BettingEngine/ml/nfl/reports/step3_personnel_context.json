@@ -1,0 +1,87 @@
+{
+  "status": "shadow_only",
+  "vault_2025_predictions": 0,
+  "games": 1599,
+  "margin": {
+    "core": {
+      "games": 1599,
+      "mae": 10.308588926057823,
+      "rmse": 13.259845439396482
+    },
+    "core_plus_qb": {
+      "games": 1599,
+      "mae": 10.177309838205208,
+      "rmse": 13.123750025865295
+    },
+    "core_plus_shuffled_qb": {
+      "games": 1599,
+      "mae": 10.351095802292557,
+      "rmse": 13.3264712144475
+    },
+    "core_plus_continuity": {
+      "games": 1599,
+      "mae": 10.226289653226804,
+      "rmse": 13.162284785078173
+    },
+    "core_plus_injuries": {
+      "games": 1599,
+      "mae": 10.278827670526667,
+      "rmse": 13.242215066084082
+    },
+    "core_plus_qb_continuity": {
+      "games": 1599,
+      "mae": 10.114037668963892,
+      "rmse": 13.051378632674043
+    },
+    "core_plus_all_personnel": {
+      "games": 1599,
+      "mae": 10.104453524742834,
+      "rmse": 13.068374504885519
+    }
+  },
+  "to_closing_spread": {
+    "core": {
+      "games": 1595,
+      "mae": 2.8442871873250906,
+      "rmse": 3.6615220684465455
+    },
+    "core_plus_qb": {
+      "games": 1595,
+      "mae": 2.477444204921223,
+      "rmse": 3.190114239039167
+    },
+    "core_plus_shuffled_qb": {
+      "games": 1595,
+      "mae": 2.938565882791007,
+      "rmse": 3.759661558227073
+    },
+    "core_plus_continuity": {
+      "games": 1595,
+      "mae": 2.776846302865037,
+      "rmse": 3.5723192140431825
+    },
+    "core_plus_injuries": {
+      "games": 1595,
+      "mae": 2.832189565835027,
+      "rmse": 3.631944541871154
+    },
+    "core_plus_qb_continuity": {
+      "games": 1595,
+      "mae": 2.4760978503823554,
+      "rmse": 3.1719070608358213
+    },
+    "core_plus_all_personnel": {
+      "games": 1595,
+      "mae": 2.5238080326190016,
+      "rmse": 3.225262213225753
+    }
+  },
+  "coverage": {
+    "qb_starter_id": 1.0,
+    "weekly_roster_continuity": 0.8657569025706126,
+    "returning_roster_share": 0.8882894319263726,
+    "injury_report": 0.9730244366867661
+  },
+  "weather": "diagnostic_only_no_historical_forecast_capture_timestamp",
+  "injuries": "shadow_position_weighted_final_report; snap_weighting_not_available"
+}

@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Mapping
 
+from .data_contract import validate_game_identity
+
 
 class SnapshotStage(str, Enum):
     PRE_OPEN = "pre_open"
@@ -72,6 +74,16 @@ class MarketSnapshot:
 
     def __post_init__(self) -> None:
         _aware(self.captured_at, "captured_at")
+        if not self.game_id:
+            raise ValueError("game_id is required")
+        if not self.bookmaker.strip():
+            raise ValueError("bookmaker is required")
+        if self.home_spread is None and self.total is None:
+            raise ValueError("market snapshot must contain a spread or total")
+        if self.home_spread is not None and not -40.0 <= self.home_spread <= 40.0:
+            raise ValueError("home_spread is outside the NFL contract range")
+        if self.total is not None and not 10.0 <= self.total <= 100.0:
+            raise ValueError("total is outside the NFL contract range")
         for name in ("home_spread_price", "away_spread_price", "over_price", "under_price"):
             price = getattr(self, name)
             if price is not None and price <= 1.0:
@@ -93,6 +105,7 @@ class GameFeatures:
     def __post_init__(self) -> None:
         _aware(self.kickoff_at, "kickoff_at")
         _aware(self.as_of, "as_of")
+        validate_game_identity(self.game_id, self.season, self.week, self.home_team, self.away_team)
         if self.as_of >= self.kickoff_at:
             raise ValueError("features must be frozen before kickoff")
         future = [name for name, timestamp in self.source_timestamps.items() if timestamp > self.as_of]
@@ -118,6 +131,8 @@ class PricePrediction:
     def __post_init__(self) -> None:
         _aware(self.generated_at, "generated_at")
         _aware(self.feature_as_of, "feature_as_of")
+        if not self.game_id or not self.model_version.strip():
+            raise ValueError("game_id and model_version are required")
         if self.feature_as_of > self.generated_at:
             raise ValueError("feature_as_of cannot be after prediction generation")
         if not 0.0 < self.home_win_probability < 1.0:

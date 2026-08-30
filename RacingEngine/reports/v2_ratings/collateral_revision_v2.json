@@ -588,75 +588,75 @@
       },
       "prospective_holdout": {
         "candidate": {
-          "mean_log_loss": 2.237927056888524,
-          "mean_race_brier": 0.887242016504465,
-          "mean_winner_rank": 4.578947368421052,
-          "races": 19,
-          "top_1": 0.10526315789473684,
-          "top_3": 0.42105263157894735
+          "mean_log_loss": 2.2936517366511753,
+          "mean_race_brier": 0.8917604994184756,
+          "mean_winner_rank": 4.641025641025641,
+          "races": 39,
+          "top_1": 0.15384615384615385,
+          "top_3": 0.46153846153846156
         },
         "candidate_vs_rejected_v2": {
-          "log_loss_delta": -0.04032737848433765,
+          "log_loss_delta": -0.01613096157060534,
           "paired_log_loss_interval": {
-            "blocks": 2,
-            "delta": -0.040327378484337685,
+            "blocks": 4,
+            "delta": -0.016130961570605108,
             "interpretation": "candidate minus rejected_v2; negative favours candidate",
-            "lower": -0.0431870783118478,
+            "lower": -0.040327378484337685,
             "repetitions": 10000,
-            "upper": -0.037149934231548665
+            "upper": 0.006855634497440843
           },
-          "race_brier_delta": -0.006128503329401291,
-          "top_1_delta": 0.05263157894736842
+          "race_brier_delta": -0.0022677569242330886,
+          "top_1_delta": 0.051282051282051294
         },
         "candidate_vs_uniform": {
-          "log_loss_delta": -0.01154920859818409,
+          "log_loss_delta": -0.038210623441155,
           "paired_log_loss_interval": {
-            "blocks": 2,
-            "delta": -0.011549208598184231,
+            "blocks": 4,
+            "delta": -0.03821062344115501,
             "interpretation": "candidate minus uniform; negative favours candidate",
-            "lower": -0.04164341768763006,
+            "lower": -0.07157298806196856,
             "repetitions": 10000,
-            "upper": 0.015535579582317017
+            "upper": 2.016570931666628e-05
           },
-          "race_brier_delta": -0.0032943477161097023,
-          "top_1_delta": -0.05263157894736842
+          "race_brier_delta": -0.007569977796616945,
+          "top_1_delta": 0.02564102564102566
         },
         "candidate_vs_v1": {
-          "log_loss_delta": -0.039628610318168445,
+          "log_loss_delta": -0.04426463988220908,
           "paired_log_loss_interval": {
-            "blocks": 2,
-            "delta": -0.039628610318168174,
+            "blocks": 4,
+            "delta": -0.044264639882208946,
             "interpretation": "candidate minus v1; negative favours candidate",
-            "lower": -0.0642150802310165,
+            "lower": -0.060390207256817055,
             "repetitions": 10000,
-            "upper": -0.017500787396604676
+            "upper": -0.027362545942462894
           },
-          "race_brier_delta": -0.008308960227450757,
-          "top_1_delta": -0.05263157894736842
+          "race_brier_delta": -0.008398559687384899,
+          "top_1_delta": 0.02564102564102566
         },
         "rejected_v2": {
-          "mean_log_loss": 2.2782544353728618,
-          "mean_race_brier": 0.8933705198338663,
-          "mean_winner_rank": 5.421052631578948,
-          "races": 19,
-          "top_1": 0.05263157894736842,
-          "top_3": 0.3684210526315789
+          "mean_log_loss": 2.3097826982217806,
+          "mean_race_brier": 0.8940282563427087,
+          "mean_winner_rank": 5.333333333333333,
+          "races": 39,
+          "top_1": 0.10256410256410256,
+          "top_3": 0.3333333333333333
         },
         "uniform": {
-          "mean_log_loss": 2.249476265486708,
-          "mean_race_brier": 0.8905363642205747,
-          "mean_winner_rank": 4.052631578947368,
-          "races": 19,
-          "top_1": 0.15789473684210525,
-          "top_3": 0.47368421052631576
+          "mean_log_loss": 2.3318623600923303,
+          "mean_race_brier": 0.8993304772150925,
+          "mean_winner_rank": 5.128205128205129,
+          "races": 39,
+          "top_1": 0.1282051282051282,
+          "top_3": 0.41025641025641024
         },
         "v1": {
-          "mean_log_loss": 2.2775556672066926,
-          "mean_race_brier": 0.8955509767319157,
-          "mean_winner_rank": 5.368421052631579,
-          "races": 19,
-          "top_1": 0.15789473684210525,
-          "top_3": 0.3684210526315789
+          "mean_log_loss": 2.3379163765333844,
+          "mean_race_brier": 0.9001590591058605,
+          "mean_winner_rank": 5.871794871794871,
+          "races": 39,
+          "top_1": 0.1282051282051282,
+          "top_3": 0.38461538461538464
         }
       },
       "train": {
@@ -810,7 +810,7 @@
       "insufficient_starters": 27,
       "invalid_winner_count": 3
     },
-    "generated_at": "2026-08-28T04:24:52+00:00",
+    "generated_at": "2026-08-29T23:17:20+00:00",
     "model_version": "horse-ability-v2.5-collateral-revised-shadow",
     "named_horses": {
       "Autumn Glow": {
@@ -878,7 +878,7 @@
     "protocol_hash": "30714852ca6da02dca3cc7dd3da0d5af4064c0832af9b6f675933e14c410c693",
     "race_counts": {
       "historical_holdout": 835,
-      "prospective_holdout": 19,
+      "prospective_holdout": 39,
       "train": 979,
       "validation": 876
     },

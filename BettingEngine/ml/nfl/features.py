@@ -23,6 +23,13 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from .data_contract import (
+    HISTORICAL_FEATURE_TIMING,
+    prepare_odds_for_schedule_join,
+    schedule_team_code,
+)
+from .rule_eras import rule_era_features
+
 
 # --- config from config.yaml ---
 HALF_LIFE_GAMES = 6
@@ -44,7 +51,13 @@ def load_pbp_season(year: int, pbp_dir: str = "data/nfl/pbp") -> pd.DataFrame:
     path = Path(pbp_dir) / f"play_by_play_{year}.parquet"
     df = pd.read_parquet(path)
     available = [c for c in cols if c in df.columns]
-    return df[available].copy()
+    result = df[available].copy()
+    for column in ("posteam", "defteam", "home_team", "away_team"):
+        if column in result:
+            result[column] = result[column].map(
+                lambda team: schedule_team_code(team, year) if pd.notna(team) else team
+            )
+    return result
 
 
 def _agg_stats(g: pd.DataFrame, prefix: str) -> dict:
@@ -159,6 +172,8 @@ def build_matchup_features(
     """
     sched = pd.read_csv(schedules_path)
     sched = sched[sched.game_type == "REG"].copy()
+    sched = sched[sched.season.between(int(ewma_df.season.min()), int(ewma_df.season.max()))].copy()
+    sched["gameday"] = pd.to_datetime(sched["gameday"], errors="raise").dt.date.astype(str)
 
     # Split EWMA into offense and defense column groups for renaming
     off_cols = [c for c in ewma_df.columns if c.startswith("off_")]
@@ -184,9 +199,14 @@ def build_matchup_features(
     away_feats = ewma_df[meta_cols + off_cols + def_cols].rename(columns=away_rename)
 
     # Start with schedule
-    result = sched[["game_id", "season", "week", "home_team", "away_team",
+    result = sched[["game_id", "season", "week", "gameday", "home_team", "away_team",
                      "home_score", "away_score", "spread_line", "total_line",
                      "home_rest", "away_rest", "roof", "surface", "div_game"]].copy()
+    # nflverse ``spread_line`` is the away-team handicap.  Preserve the raw
+    # field explicitly and expose ``spread_line`` using BetMate's locked home
+    # handicap convention.
+    result = result.rename(columns={"spread_line": "schedule_away_spread"})
+    result["spread_line"] = -result["schedule_away_spread"]
 
     # Merge home features
     result = result.merge(home_feats, on=["season", "week", "home_team"], how="left")
@@ -196,6 +216,13 @@ def build_matchup_features(
     # Derived labels
     result["margin"] = result.home_score - result.away_score
     result["total"] = result.home_score + result.away_score
+    result["stats_through_week"] = result.week - 1
+    result["feature_timing_rule"] = HISTORICAL_FEATURE_TIMING
+
+    # Rules are known before kickoff and are safe era indicators.  Actual
+    # onside attempts/recoveries remain excluded because they are outcomes.
+    rule_rows = result["season"].map(rule_era_features).apply(pd.Series)
+    result = pd.concat([result, rule_rows], axis=1)
 
     # Differential features (home perspective)
     for stat in off_cols:
@@ -215,16 +242,17 @@ def build_matchup_features(
 
     # Merge odds if available
     if odds_path and Path(odds_path).exists():
-        odds = pd.read_csv(odds_path)
-        odds["date"] = pd.to_datetime(odds["date"])
+        odds = prepare_odds_for_schedule_join(pd.read_csv(odds_path))
+        join_keys = ["season", "gameday", "home_team", "away_team"]
         result = result.merge(
-            odds[["season", "home_team", "away_team",
+            odds[join_keys + [
                   "h2h_home_close", "h2h_away_close",
                   "spread_home_close", "total_line_close",
                   "spread_home_open", "total_line_open",
                   "h2h_home_open", "h2h_away_open"]],
-            on=["season", "home_team", "away_team"],
-            how="left"
+            on=join_keys,
+            how="left",
+            validate="one_to_one",
         )
 
     return result

@@ -18,12 +18,15 @@ ROOT = Path(__file__).resolve().parents[1]
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--state", choices=("VIC", "NSW", "ALL"), default="ALL")
+    parser.add_argument("--date", help="Import only meetings on this ISO date (YYYY-MM-DD).")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--max-meetings", type=int, default=0, help="Bound a resumable batch; 0 means all remaining.")
     args = parser.parse_args()
     store = RacingStore(ROOT / "data" / "racing_engine.sqlite")
     try:
         states = ("VIC", "NSW") if args.state == "ALL" else (args.state,)
+        date_filter = " AND race_date = ?" if args.date else ""
+        parameters = (*states, REPORT_SOURCE, *((args.date,) if args.date else ()))
         targets = store.connection.execute(
             """SELECT DISTINCT state, race_date, track_slug FROM race_results
                WHERE state IN ({})
@@ -32,8 +35,9 @@ def main() -> None:
                     WHERE si.report_source = ? AND si.race_date = race_results.race_date
                       AND si.track_slug = race_results.track_slug AND si.status = 'complete'
                  )
+                 {}
                ORDER BY race_date, track_slug""".format(
-                   ",".join("?" for _ in states)), (*states, REPORT_SOURCE)).fetchall()
+                   ",".join("?" for _ in states), date_filter), parameters).fetchall()
         if args.dry_run:
             print(json.dumps([dict(row) for row in targets], indent=2)); return
         if args.max_meetings:

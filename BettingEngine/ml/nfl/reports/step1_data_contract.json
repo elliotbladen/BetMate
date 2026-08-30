@@ -1,0 +1,16 @@
+{
+  "contract_version": "nfl-data-contract-v1.0",
+  "errors": [],
+  "historical_feature_timing": "week_n_uses_completed_games_through_week_n_minus_1",
+  "metrics": {
+    "complete_core_feature_rows": 3151,
+    "rows_with_historical_closing_spread": 3065,
+    "schedule_vs_odds_spread_direction_conflict_rate": 0.011092985318107667
+  },
+  "passed": true,
+  "rows": 3151,
+  "season_from": 2014,
+  "season_to": 2025,
+  "spread_convention": "home_team_handicap_negative_home_favourite",
+  "unique_games": 3151
+}

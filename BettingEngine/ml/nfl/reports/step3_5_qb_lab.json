@@ -1,0 +1,100 @@
+{
+  "status": "deep_shadow_free_ftn",
+  "cost_usd": 0,
+  "test_seasons": [
+    2023,
+    2024
+  ],
+  "games": 544,
+  "vault_2025_predictions": 0,
+  "margin": {
+    "core": {
+      "games": 544,
+      "mae": 10.370542191279265,
+      "rmse": 13.442955697111351
+    },
+    "core_plus_basic_qb": {
+      "games": 544,
+      "mae": 10.50344229931918,
+      "rmse": 13.505781216244358
+    },
+    "core_plus_ftn": {
+      "games": 544,
+      "mae": 10.474288048889926,
+      "rmse": 13.507046373136525
+    },
+    "core_plus_basic_qb_ftn": {
+      "games": 544,
+      "mae": 10.581834096409148,
+      "rmse": 13.596436797214196
+    },
+    "core_plus_shuffled_ftn": {
+      "games": 544,
+      "mae": 10.378283682136225,
+      "rmse": 13.458055969651816
+    }
+  },
+  "to_closing_spread": {
+    "core": {
+      "games": 541,
+      "mae": 2.8707406307508134,
+      "rmse": 3.6253342018791033
+    },
+    "core_plus_basic_qb": {
+      "games": 541,
+      "mae": 2.9377970345532027,
+      "rmse": 3.7818014591287503
+    },
+    "core_plus_ftn": {
+      "games": 541,
+      "mae": 3.2682983468563402,
+      "rmse": 4.048329280376257
+    },
+    "core_plus_basic_qb_ftn": {
+      "games": 541,
+      "mae": 3.293153701327649,
+      "rmse": 4.216355809856233
+    },
+    "core_plus_shuffled_ftn": {
+      "games": 541,
+      "mae": 3.303474037445919,
+      "rmse": 4.130809096302202
+    }
+  },
+  "paid_adapter_schema": {
+    "identity": [
+      "season",
+      "week",
+      "game_id",
+      "player_id",
+      "captured_at",
+      "provider"
+    ],
+    "accuracy": [
+      "catchable_rate",
+      "completion_over_expected",
+      "drop_adjusted_accuracy"
+    ],
+    "decisions": [
+      "turnover_worthy_rate",
+      "throwaway_rate",
+      "big_time_throw_rate"
+    ],
+    "pressure": [
+      "pressure_rate",
+      "pressure_to_sack_rate",
+      "qb_fault_sack_rate"
+    ],
+    "context": [
+      "clean_pocket_rate",
+      "blitz_rate",
+      "play_action_rate",
+      "motion_rate"
+    ]
+  },
+  "limitations": [
+    "FTN history begins in 2022, so this is an early small-sample test",
+    "historical actual starters provide a research ceiling, not a live availability feed",
+    "vendor charting publication timestamps must be archived prospectively"
+  ]
+}

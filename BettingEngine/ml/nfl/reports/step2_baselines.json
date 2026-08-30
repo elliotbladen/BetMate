@@ -1,0 +1,67 @@
+{
+  "status": "development_only_2025_vault_untouched",
+  "train_start": 2014,
+  "test_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "ridge_margin": {
+    "games": 1599,
+    "mae": 10.308588926057823,
+    "rmse": 13.259845439396482
+  },
+  "elo_margin": {
+    "games": 1599,
+    "mae": 10.582833507891205,
+    "rmse": 13.546750041712036
+  },
+  "closing_spread_as_margin": {
+    "games": 1595,
+    "mae": 9.83448275862069,
+    "rmse": 12.79418706172975
+  },
+  "opening_spread_as_margin": {
+    "games": 1595,
+    "mae": 10.000626959247649,
+    "rmse": 12.992908603588006
+  },
+  "ridge_margin_to_close": {
+    "games": 1595,
+    "mae": 2.8442871873250892,
+    "rmse": 3.6615220684465446
+  },
+  "opener_to_close": {
+    "games": 1595,
+    "mae": 1.4357366771159874,
+    "rmse": 2.111247681149674
+  },
+  "ridge_total": {
+    "games": 1599,
+    "mae": 10.766788277585729,
+    "rmse": 13.625212611482363
+  },
+  "closing_total": {
+    "games": 1595,
+    "mae": 10.347021943573667,
+    "rmse": 13.060187414344622
+  },
+  "opening_total": {
+    "games": 1595,
+    "mae": 10.543573667711598,
+    "rmse": 13.282368637197962
+  },
+  "ridge_total_to_close": {
+    "games": 1595,
+    "mae": 2.686468351982739,
+    "rmse": 3.3779833812843676
+  },
+  "total_opener_to_close": {
+    "games": 1595,
+    "mae": 1.686206896551724,
+    "rmse": 2.206679799308707
+  }
+}

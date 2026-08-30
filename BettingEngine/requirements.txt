@@ -7,6 +7,8 @@
 
 # Data handling
 pandas
+pyarrow        # Parquet storage for NFL play-by-play and feature datasets
+scikit-learn   # Regularised NFL shadow challengers and probability calibration
 openpyxl       # Excel read/write for spreadsheet importer and exporter
 
 # Config

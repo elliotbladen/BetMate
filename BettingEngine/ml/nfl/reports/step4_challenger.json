@@ -1,0 +1,67 @@
+{
+  "status": "independent_shadow",
+  "test_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "games": 1599,
+  "vault_2025_predictions": 0,
+  "margin": {
+    "ridge": {
+      "games": 1599,
+      "mae": 10.308588926057823,
+      "rmse": 13.259845439396482
+    },
+    "shallow_tree": {
+      "games": 1599,
+      "mae": 10.293882535642544,
+      "rmse": 13.291310058344616
+    },
+    "closing_spread": {
+      "games": 1595,
+      "mae": 9.83448275862069,
+      "rmse": 12.79418706172975
+    }
+  },
+  "total": {
+    "shallow_tree": {
+      "games": 1599,
+      "mae": 10.78526603379957,
+      "rmse": 13.61353357154917
+    },
+    "closing_total": {
+      "games": 1595,
+      "mae": 10.347021943573667,
+      "rmse": 13.060187414344622
+    }
+  },
+  "h2h": {
+    "margin_derived": {
+      "games": 1599,
+      "brier": 0.22503443602920672,
+      "log_loss": 0.641265139327314,
+      "accuracy": 0.6529080675422139
+    },
+    "direct_calibrated": {
+      "games": 1599,
+      "brier": 0.22600102900638402,
+      "log_loss": 0.6446797541311253,
+      "accuracy": 0.6422764227642277
+    },
+    "closing_market": {
+      "games": 1595,
+      "brier": 0.2105581648464219,
+      "log_loss": 0.608843166069032,
+      "accuracy": 0.6695924764890282
+    }
+  },
+  "independence": {
+    "tier_outputs_used": false,
+    "market_features_used": false,
+    "official_prices_mutated": false
+  }
+}
