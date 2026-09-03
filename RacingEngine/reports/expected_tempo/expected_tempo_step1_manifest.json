@@ -1,0 +1,90 @@
+{
+  "coverage": {
+    "feature_going_bucket": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    },
+    "feature_group_grade": {
+      "present": 254,
+      "rate": 0.1623003194888179,
+      "total": 1565
+    },
+    "feature_profiled_runner_coverage": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    },
+    "feature_rail_position": {
+      "present": 1555,
+      "rate": 0.9936102236421726,
+      "total": 1565
+    },
+    "feature_temperature_c": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    },
+    "feature_wind_speed_kmh": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    },
+    "target_early_score": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    },
+    "target_late_score": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    },
+    "target_middle_score": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    },
+    "target_pace_label": {
+      "present": 1565,
+      "rate": 1.0,
+      "total": 1565
+    }
+  },
+  "dataset_version": "expected-tempo-step1-v1",
+  "date_max": "2026-08-15",
+  "date_min": "2023-08-26",
+  "field_profile_summary": {
+    "mean_likely_leader_count": 0.9884984025559106,
+    "mean_on_pace_count": 2.357188498402556,
+    "mean_profiled_runner_coverage": 0.6511170909855862,
+    "races_with_any_profiled_runner": 1497
+  },
+  "going": {
+    "good": 999,
+    "heavy": 79,
+    "soft": 487
+  },
+  "pace_labels": {
+    "even": 549,
+    "fast_early": 140,
+    "pace_collapse": 142,
+    "slow_early": 231,
+    "sprint_home": 213,
+    "sustained_high_pressure": 75,
+    "very_fast_early": 69,
+    "very_slow_early": 146
+  },
+  "pace_target_version": "pace-shape-v2.1-pit-shadow",
+  "point_in_time": {
+    "rail_and_condition": "historical official values available, timestamp not verified; flags remain 0",
+    "runner_history": "strictly prior race dates only",
+    "weather_safe_rows": 1565
+  },
+  "production_effect": "none; standalone research dataset only",
+  "rows": 1565,
+  "states": {
+    "NSW": 454,
+    "VIC": 1111
+  }
+}

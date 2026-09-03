@@ -1,0 +1,11 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+COPY cloud/requirements-tempo.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+COPY cloud /app/cloud
+COPY RacingEngine/racing_engine /app/RacingEngine/racing_engine
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app/RacingEngine:/app/cloud
+CMD ["python", "/app/cloud/race_day_tempo_worker.py"]

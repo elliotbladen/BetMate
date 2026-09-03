@@ -1,0 +1,17 @@
+{
+  "enabled_states": ["NSW", "VIC"],
+  "venues": {
+    "NSW": ["royal randwick", "randwick", "rosehill gardens"],
+    "VIC": ["caulfield", "caulfield heath", "flemington", "moonee valley", "the valley", "sportsbet sandown hillside", "sportsbet sandown lakeside"]
+  },
+  "active_window_minutes_before_first": 90,
+  "active_window_minutes_after_last": 120,
+  "poll_seconds_after_race": 75,
+  "sectional_timeout_minutes": 20,
+  "minimum_sectional_runners": 3,
+  "minimum_sectional_coverage": 0.6,
+  "live_middle_late_cap": 0.5,
+  "minimum_state_reliability": 0.2,
+  "horse_price_integration": false,
+  "model_bundle": "tempo_model_bundle.json"
+}

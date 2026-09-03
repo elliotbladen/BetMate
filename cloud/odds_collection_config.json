@@ -1,0 +1,28 @@
+{
+  "live_enabled": false,
+  "regions": "au,uk",
+  "markets": "h2h,spreads,totals",
+  "odds_format": "decimal",
+  "sports": {
+    "AFL": {"api_key": "aussierules_afl", "enabled": true},
+    "NRL": {"api_key": "rugbyleague_nrl", "enabled": true},
+    "EPL": {"api_key": "soccer_epl", "enabled": true},
+    "EFL": {"api_key": "soccer_efl_champ", "enabled": true},
+    "NFL": {"api_key": "americanfootball_nfl", "enabled": true},
+    "UCL": {"api_key": "soccer_uefa_champs_league", "enabled": true}
+  },
+  "cadence_minutes": [
+    {"within_minutes": 90, "interval": 5},
+    {"within_minutes": 360, "interval": 15},
+    {"within_minutes": 1440, "interval": 30},
+    {"within_minutes": 4320, "interval": 60},
+    {"within_minutes": 10080, "interval": 180},
+    {"within_minutes": null, "interval": 360}
+  ],
+  "checkpoints_minutes": [10080, 4320, 2880, 1440, 720, 360, 180, 90, 60, 30, 10],
+  "checkpoint_tolerance_minutes": 4,
+  "closing_window_minutes": 5,
+  "database_warning_mb": 300,
+  "database_high_mb": 400,
+  "database_critical_mb": 450
+}

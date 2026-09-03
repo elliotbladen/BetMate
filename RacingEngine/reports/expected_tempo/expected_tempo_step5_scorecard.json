@@ -1,0 +1,155 @@
+{
+  "classification": {
+    "governed": {
+      "accuracy": 0.43297380585516176,
+      "brier_multiclass": 0.6752534228331869,
+      "confidence_ece_10bin": 0.02421983604313624,
+      "log_loss": 1.2394472932758402
+    },
+    "v0": {
+      "accuracy": 0.41756548536209553,
+      "brier_multiclass": 0.6798858485511948,
+      "confidence_ece_10bin": 0.039879467643975576,
+      "log_loss": 1.248078020989641
+    }
+  },
+  "continuous": {
+    "early_score": {
+      "governed": {
+        "mae": 1.067592031791914
+      },
+      "v0": {
+        "mae": 1.067592031791914
+      }
+    },
+    "late_score": {
+      "governed": {
+        "mae": 0.9275369156938965
+      },
+      "v0": {
+        "mae": 1.0538807997053696
+      }
+    },
+    "middle_score": {
+      "governed": {
+        "mae": 0.9829511768408674
+      },
+      "v0": {
+        "mae": 1.0959545571694478
+      }
+    }
+  },
+  "eligible_updates": 649,
+  "folds": {
+    "1": {
+      "classification": {
+        "governed": {
+          "accuracy": 0.4315352697095436,
+          "brier_multiclass": 0.6796245694422794,
+          "confidence_ece_10bin": 0.03259359498396165,
+          "log_loss": 1.2570803577659284
+        },
+        "v0": {
+          "accuracy": 0.4024896265560166,
+          "brier_multiclass": 0.6869239849863614,
+          "confidence_ece_10bin": 0.06087941036729002,
+          "log_loss": 1.2704097779704893
+        }
+      },
+      "continuous_mae": {
+        "early_score": {
+          "governed": 1.0467387263853285,
+          "v0": 1.0467387263853285
+        },
+        "late_score": {
+          "governed": 0.9185097068166378,
+          "v0": 1.069566339225926
+        },
+        "middle_score": {
+          "governed": 0.919936945694132,
+          "v0": 1.0141673032994798
+        }
+      },
+      "rows": 241
+    },
+    "2": {
+      "classification": {
+        "governed": {
+          "accuracy": 0.42408376963350786,
+          "brier_multiclass": 0.6787990356987655,
+          "confidence_ece_10bin": 0.03105457649083755,
+          "log_loss": 1.2383319874904377
+        },
+        "v0": {
+          "accuracy": 0.42408376963350786,
+          "brier_multiclass": 0.675437234790843,
+          "confidence_ece_10bin": 0.030766883176625317,
+          "log_loss": 1.2322718652396172
+        }
+      },
+      "continuous_mae": {
+        "early_score": {
+          "governed": 1.022898077926642,
+          "v0": 1.022898077926642
+        },
+        "late_score": {
+          "governed": 0.8793680213956967,
+          "v0": 1.024882737960865
+        },
+        "middle_score": {
+          "governed": 0.9722283087100752,
+          "v0": 1.029460432847906
+        }
+      },
+      "rows": 191
+    },
+    "3": {
+      "classification": {
+        "governed": {
+          "accuracy": 0.4423963133640553,
+          "brier_multiclass": 0.667278038546934,
+          "confidence_ece_10bin": 0.06340241699239801,
+          "log_loss": 1.220845702782295
+        },
+        "v0": {
+          "accuracy": 0.42857142857142855,
+          "brier_multiclass": 0.6759849008431397,
+          "confidence_ece_10bin": 0.02830466095761565,
+          "log_loss": 1.2371887229060932
+        }
+      },
+      "continuous_mae": {
+        "early_score": {
+          "governed": 1.130090611475112,
+          "v0": 1.130090611475112
+        },
+        "late_score": {
+          "governed": 0.9799600315942443,
+          "v0": 1.0619840935705602
+        },
+        "middle_score": {
+          "governed": 1.062372824395451,
+          "v0": 1.2453144923218753
+        }
+      },
+      "rows": 217
+    }
+  },
+  "gates": {
+    "aggregate_brier_beats_v0": true,
+    "aggregate_log_loss_beats_v0": true,
+    "condition_regime_reset_enforced": true,
+    "early_score_is_unchanged": true,
+    "late_mae_beats_v0_each_fold": true,
+    "log_loss_beats_v0_each_fold": false,
+    "middle_mae_beats_v0_each_fold": true,
+    "minimum_live_eligible_rows": true,
+    "no_future_information_leakage": true
+  },
+  "horse_price_integration": "disabled",
+  "passed_all_gates": false,
+  "policy_version": "expected-tempo-shadow-policy-v1",
+  "snapshot_model_version": "expected-tempo-governed-shadow-v1",
+  "snapshots": 872,
+  "status": "SHADOW_ONLY_AMBER"
+}

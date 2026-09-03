@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import argparse, csv, io, json, re
 from io import BytesIO
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -18,9 +18,11 @@ from pypdf import PdfReader
 
 from .storage import RacingStore
 from .racing_com import DATE_QUERY, graphql_request, import_meeting as import_structured_result
+from .horse_identity import identity_key
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://racing.racingnsw.com.au"
+ATC_SECTIONAL_BASE = "https://feed.australianturfclub.com.au/sectionals/swiss-timing"
 MEETINGS = {
     "2026-08-01": ("Rosehill Gardens", "rosehill", "0108ROSE"),
     "2026-08-08": ("Royal Randwick", "randwick", "0808RAND"),
@@ -39,6 +41,24 @@ TIME_TOKEN = re.compile(r"(\d+:\d{2}\.\d{2})\s*\[([0-9-]+)\]")
 # The final columns vary between the legacy and newer report layouts.  The
 # stable fields are rank, TAB number, horse name and its overall clock.
 RUNNER_LINE = re.compile(r"^\s*(\d+)\s+(\d+)\s+(.+?)\s{2,}(\d+:\d{2}\.\d{2})\b.*$", re.M)
+REPORT_DATE = re.compile(
+    r"\b(\d{1,2}\s+(?:January|February|March|April|May|June|July|August|"
+    r"September|October|November|December)\s+\d{4})\b",
+    re.I,
+)
+
+
+def validate_report_date(text: str, expected_date: str) -> None:
+    """Reject a recycled day/month archive URL belonging to another year."""
+    match = REPORT_DATE.search(text)
+    if not match:
+        return
+    observed = datetime.strptime(match.group(1).title(), "%d %B %Y").date().isoformat()
+    if observed != expected_date:
+        raise ValueError(
+            f"RNSW sectional report date mismatch: requested {expected_date}, "
+            f"archive returned {observed}"
+        )
 
 
 def distance_travelled_by_runner(text: str) -> dict[int, float]:
@@ -63,6 +83,13 @@ def clock_seconds(value: str) -> float:
     return int(minutes) * 60 + float(seconds_part)
 
 
+def clean_pdf_runner_name(value: str) -> str:
+    value = re.sub(r"\s+", " ", value).strip()
+    # Legacy Swiss Timing text appends barrier and top-speed columns to the
+    # horse-name capture; both are numeric and not part of the identity.
+    return re.sub(r"\s+\d+\s+\d+(?:\.\d+)?$", "", value).strip()
+
+
 def sectional_codes(sectional_code: str) -> list[str]:
     """Return archive code candidates, including historical Rosehill RHIL."""
     if sectional_code.endswith("ROSE"):
@@ -83,6 +110,19 @@ def download_sectional_pdf(sectional_code: str) -> tuple[bytes, str]:
         except Exception as exc:  # try the legacy Rosehill code before failing
             errors.append(f"{code}: {exc}")
     raise RuntimeError("No official RNSW sectional PDF found (" + "; ".join(errors) + ")")
+
+
+def download_atc_sectional_pdf(race_date: str, slug: str) -> tuple[bytes, str]:
+    """Download ATC's year-qualified Swiss Timing report for a Sydney meeting."""
+    codes = {"rosehill": "RHIL", "randwick": "RAND"}
+    if slug not in codes:
+        raise ValueError(f"ATC sectionals do not cover {slug}")
+    day = date.fromisoformat(race_date)
+    url = f"{ATC_SECTIONAL_BASE}/{day.year}/{day.strftime('%d%m')}{codes[slug]}.pdf"
+    content = download(url)
+    if not content.startswith(b"%PDF"):
+        raise RuntimeError(f"ATC did not return a PDF for {race_date} {slug}")
+    return content, url
 
 
 def _race_markers(text: str, distance_metres: int | None = None) -> tuple[list[int], bool]:
@@ -109,9 +149,12 @@ def parse_sectional_pdf(pdf_bytes: bytes, race_date: str, slug: str, source_url:
     Margin is intentionally left null: it is not reliably represented in the
     text layer, while runner finish times are present for every finisher.
     """
+    reader = PdfReader(BytesIO(pdf_bytes))
+    first_page_text = reader.pages[0].extract_text() or "" if reader.pages else ""
+    validate_report_date(first_page_text, race_date)
     races_by_number: dict[int, dict] = {}
     current: dict | None = None
-    for page in PdfReader(BytesIO(pdf_bytes)).pages:
+    for page in reader.pages:
         text = page.extract_text(extraction_mode="layout") or ""
         header = RACE_HEADER.search(text)
         if header:
@@ -157,7 +200,7 @@ def parse_sectional_pdf(pdf_bytes: bytes, race_date: str, slug: str, source_url:
                 if not page_markers:
                     continue
                 runner = runner_parts.setdefault(key, {"runner_number": runner_number,
-                    "runner_name": re.sub(r"\s+", " ", match.group(3)).strip(),
+                    "runner_name": clean_pdf_runner_name(match.group(3)),
                     "finish_position": finish_position, "points": [], "distance_travelled_vs_winner_metres": None})
                 if runner_number in page_trip:
                     runner["distance_travelled_vs_winner_metres"] = page_trip[runner_number]
@@ -175,6 +218,19 @@ def parse_sectional_pdf(pdf_bytes: bytes, race_date: str, slug: str, source_url:
                 elif len(tokens) >= len(page_markers):
                     for marker, (value, position) in zip(page_markers, tokens[-len(page_markers):]):
                         runner["points"].append((marker, clock_seconds(value), int(position) if position != "-" else None))
+                    # Some ATC report generations stop their cumulative table
+                    # at the 200m but print Last 600m as the final clock.  The
+                    # finish clock is exactly cumulative-at-600 + Last 600m.
+                    # There are at least two non-token clocks on such a line:
+                    # Fastest 200m at the front and Last 600m at the end.
+                    clocks = re.findall(r"\d+:\d{2}\.\d{2}", match.group(0))
+                    marker_values = {marker: clock_seconds(value)
+                                     for marker, (value, _position)
+                                     in zip(page_markers, tokens[-len(page_markers):])}
+                    if 0 not in page_markers and 600 in marker_values and len(clocks) >= len(tokens) + 2:
+                        runner["points"].append(
+                            (0, marker_values[600] + clock_seconds(clocks[-1]), finish_position)
+                        )
         for runner in runner_parts.values():
             # Reports occasionally duplicate pages.  A marker is unique within
             # a runner, so preserve first observed value in report order.
@@ -271,12 +327,12 @@ def import_meeting(store: RacingStore, race_date: str, *, venue: str | None = No
     archive = ROOT / "data" / "raw" / "rnsw" / race_date / slug
     archive.mkdir(parents=True, exist_ok=True)
     try:
-        cached_pdf = archive / "sectionals.pdf"
+        cached_pdf = archive / "atc-sectionals.pdf"
         if cached_pdf.exists() and cached_pdf.read_bytes()[:4] == b"%PDF":
             pdf_bytes = cached_pdf.read_bytes()
-            pdf_url = f"{BASE}/Sectionals/{sectional_code}.pdf"
+            pdf_url = f"{ATC_SECTIONAL_BASE}/{race_date[:4]}/{race_date[8:10]}{race_date[5:7]}{'RHIL' if slug == 'rosehill' else 'RAND'}.pdf"
         else:
-            pdf_bytes, pdf_url = download_sectional_pdf(sectional_code)
+            pdf_bytes, pdf_url = download_atc_sectional_pdf(race_date, slug)
             cached_pdf.write_bytes(pdf_bytes)
         races = parse_sectional_pdf(pdf_bytes, race_date, slug, pdf_url)
         if not races or not any(race["runners"] for race in races):
@@ -286,18 +342,29 @@ def import_meeting(store: RacingStore, race_date: str, *, venue: str | None = No
         # an official runner number, but must never manufacture a horse/result.
         sectional_rows: list[dict] = []
         for race in races:
-            official_numbers = {int(row[0]) for row in store.connection.execute(
-                """SELECT runner_number FROM runner_results WHERE source=? AND race_date=?
+            official_runners = {int(row[0]): identity_key(row[1]) for row in store.connection.execute(
+                """SELECT runner_number,runner_name FROM runner_results WHERE source=? AND race_date=?
                    AND track_slug=? AND race_number=?""",
                 (result_source, race_date, slug, race["race_number"]))}
+            if race.get("official_time_seconds") is not None:
+                store.connection.execute("""UPDATE race_results SET official_time_seconds=?,source_url=?
+                    WHERE source=? AND race_date=? AND track_slug=? AND race_number=?""",
+                    (race["official_time_seconds"],pdf_url,result_source,race_date,slug,race["race_number"]))
             for runner in race["runners"]:
-                if runner["runner_number"] not in official_numbers:
+                number = runner["runner_number"]
+                if official_runners.get(number) != identity_key(runner["runner_name"]):
                     continue
+                store.connection.execute("""UPDATE runner_results
+                    SET finish_time_seconds=?,distance_travelled_vs_winner_metres=?
+                    WHERE source=? AND race_date=? AND track_slug=? AND race_number=? AND runner_number=?""",
+                    (runner.get("finish_time_seconds"),runner.get("distance_travelled_vs_winner_metres"),
+                     result_source,race_date,slug,race["race_number"],number))
                 for sectional in runner.get("sectionals", []):
                     sectional_rows.append({"source": result_source, "race_date": race_date,
                         "track_slug": slug, "race_number": race["race_number"],
                         "runner_number": runner["runner_number"], **sectional})
         store.upsert_sectionals(sectional_rows)
+        store.connection.commit()
         return imported_races, imported_runners
     except Exception as pdf_error:
         # Sectionals are optional evidence in V2.  Preserve the structured

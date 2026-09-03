@@ -1,0 +1,5930 @@
+{
+  "bundle_version": "expected-tempo-cloud-bundle-v1",
+  "contexts": {
+    "NSW|1000|good|missing": {
+      "label_counts": {
+        "even": 3,
+        "slow": 2,
+        "very_fast_or_collapse": 1
+      },
+      "n": 6,
+      "score_means": {
+        "early": 0.4809764815519448,
+        "late": 0.005846122726636556,
+        "middle": 0.2488177492620126
+      }
+    },
+    "NSW|1000|soft|missing": {
+      "label_counts": {
+        "even": 4,
+        "slow": 3,
+        "very_fast_or_collapse": 3
+      },
+      "n": 10,
+      "score_means": {
+        "early": 0.7351067428817951,
+        "late": -0.5983034429709388,
+        "middle": -0.5858706490065393
+      }
+    },
+    "NSW|1200|good|missing": {
+      "label_counts": {
+        "even": 42,
+        "fast": 2,
+        "slow": 25,
+        "very_fast_or_collapse": 19
+      },
+      "n": 88,
+      "score_means": {
+        "early": 0.24961959778051196,
+        "late": -0.18166606451461922,
+        "middle": -0.35274409609338886
+      }
+    },
+    "NSW|1200|heavy|missing": {
+      "label_counts": {
+        "even": 5,
+        "fast": 3,
+        "slow": 12,
+        "very_fast_or_collapse": 3
+      },
+      "n": 23,
+      "score_means": {
+        "early": -0.1733135240418045,
+        "late": -0.0026086851291815274,
+        "middle": 0.5892712234415244
+      }
+    },
+    "NSW|1200|soft|missing": {
+      "label_counts": {
+        "even": 15,
+        "fast": 11,
+        "slow": 35,
+        "very_fast_or_collapse": 18
+      },
+      "n": 79,
+      "score_means": {
+        "early": -0.18397366236697005,
+        "late": -0.36326868350610664,
+        "middle": -0.12549366198967457
+      }
+    },
+    "NSW|1400|good|missing": {
+      "label_counts": {
+        "even": 13,
+        "fast": 4,
+        "slow": 24,
+        "very_fast_or_collapse": 13
+      },
+      "n": 54,
+      "score_means": {
+        "early": 0.05183184911609713,
+        "late": -0.3210662876278055,
+        "middle": -0.5310959199493942
+      }
+    },
+    "NSW|1400|heavy|missing": {
+      "label_counts": {
+        "even": 10,
+        "slow": 6,
+        "very_fast_or_collapse": 6
+      },
+      "n": 22,
+      "score_means": {
+        "early": 0.3656525453634108,
+        "late": -0.4376447582602145,
+        "middle": -0.4671086501668785
+      }
+    },
+    "NSW|1400|soft|missing": {
+      "label_counts": {
+        "even": 23,
+        "fast": 8,
+        "slow": 9,
+        "very_fast_or_collapse": 22
+      },
+      "n": 62,
+      "score_means": {
+        "early": 0.3911267945111457,
+        "late": -0.33647308901648104,
+        "middle": -0.47711557762720136
+      }
+    },
+    "NSW|1600|good|missing": {
+      "label_counts": {
+        "even": 3,
+        "slow": 7,
+        "very_fast_or_collapse": 4
+      },
+      "n": 14,
+      "score_means": {
+        "early": 0.20684925224022827,
+        "late": -0.44980922567253906,
+        "middle": -0.14539848778496853
+      }
+    },
+    "NSW|1600|heavy|missing": {
+      "label_counts": {
+        "even": 1,
+        "fast": 1
+      },
+      "n": 2,
+      "score_means": {
+        "early": 0.6890271982584217,
+        "late": -0.159294626174259,
+        "middle": -0.5288620727714223
+      }
+    },
+    "NSW|1600|soft|missing": {
+      "label_counts": {
+        "even": 3,
+        "slow": 3
+      },
+      "n": 6,
+      "score_means": {
+        "early": -0.5101651228269374,
+        "late": -1.3107746680855004,
+        "middle": -0.8661233868114454
+      }
+    },
+    "NSW|1800|soft|missing": {
+      "label_counts": {
+        "slow": 3,
+        "very_fast_or_collapse": 1
+      },
+      "n": 4,
+      "score_means": {
+        "early": -0.33489768578381973,
+        "late": -0.0435031140529994,
+        "middle": -0.615879583283046
+      }
+    },
+    "NSW|2000|good|missing": {
+      "label_counts": {
+        "even": 13,
+        "fast": 2,
+        "slow": 7,
+        "very_fast_or_collapse": 1
+      },
+      "n": 23,
+      "score_means": {
+        "early": -0.30883054878082244,
+        "late": -0.4765291588923431,
+        "middle": -0.3351221596393449
+      }
+    },
+    "NSW|2000|heavy|missing": {
+      "label_counts": {
+        "even": 2,
+        "slow": 5,
+        "very_fast_or_collapse": 1
+      },
+      "n": 8,
+      "score_means": {
+        "early": -0.3006686264701891,
+        "late": -0.4981324884557193,
+        "middle": -0.42520651959337963
+      }
+    },
+    "NSW|2000|soft|missing": {
+      "label_counts": {
+        "even": 6,
+        "slow": 9,
+        "very_fast_or_collapse": 2
+      },
+      "n": 17,
+      "score_means": {
+        "early": -0.4472079912884182,
+        "late": -0.895534861095026,
+        "middle": -0.77841688489228
+      }
+    },
+    "NSW|2400|good|missing": {
+      "label_counts": {
+        "even": 3,
+        "slow": 4
+      },
+      "n": 7,
+      "score_means": {
+        "early": -0.641644632676786,
+        "late": -1.0106269871202433,
+        "middle": -0.4452075837287158
+      }
+    },
+    "NSW|2400|heavy|missing": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -0.8038988703064054,
+        "late": -3.971535652073365,
+        "middle": -1.830760632865048
+      }
+    },
+    "NSW|2400|soft|missing": {
+      "label_counts": {
+        "even": 1,
+        "fast": 1,
+        "slow": 6
+      },
+      "n": 8,
+      "score_means": {
+        "early": -0.7537997193286674,
+        "late": -0.9017727087325713,
+        "middle": -0.14749300257210302
+      }
+    },
+    "VIC|1000|good|1.0": {
+      "label_counts": {
+        "even": 2,
+        "slow": 1,
+        "very_fast_or_collapse": 2
+      },
+      "n": 5,
+      "score_means": {
+        "early": 0.1799086763056667,
+        "late": 1.332926861734319,
+        "middle": 0.3551954005155794
+      }
+    },
+    "VIC|1000|good|2.0": {
+      "label_counts": {
+        "even": 3,
+        "slow": 4,
+        "very_fast_or_collapse": 3
+      },
+      "n": 10,
+      "score_means": {
+        "early": -0.5712063670852144,
+        "late": 0.5176250622352672,
+        "middle": -0.5568877111929124
+      }
+    },
+    "VIC|1000|good|3.0": {
+      "label_counts": {
+        "even": 7,
+        "fast": 2,
+        "slow": 7,
+        "very_fast_or_collapse": 2
+      },
+      "n": 18,
+      "score_means": {
+        "early": -0.2264386599143123,
+        "late": 0.4204404826907152,
+        "middle": -0.24911885718832938
+      }
+    },
+    "VIC|1000|good|missing": {
+      "label_counts": {
+        "even": 37,
+        "fast": 17,
+        "slow": 39,
+        "very_fast_or_collapse": 14
+      },
+      "n": 107,
+      "score_means": {
+        "early": -0.3042740342839698,
+        "late": 0.24202731081320494,
+        "middle": -0.17632903254682286
+      }
+    },
+    "VIC|1000|heavy|missing": {
+      "label_counts": {
+        "even": 1,
+        "slow": 2
+      },
+      "n": 3,
+      "score_means": {
+        "early": -0.7768710894461175,
+        "late": -2.3764728084841478,
+        "middle": -2.1164387735086216
+      }
+    },
+    "VIC|1000|soft|1.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -2.376282829540611,
+        "late": 0.0984658043031546,
+        "middle": 0.6149768689345404
+      }
+    },
+    "VIC|1000|soft|2.0": {
+      "label_counts": {
+        "fast": 1,
+        "slow": 1
+      },
+      "n": 2,
+      "score_means": {
+        "early": 0.2395634096938457,
+        "late": 0.10033849954873125,
+        "middle": 0.8007104395841362
+      }
+    },
+    "VIC|1000|soft|3.0": {
+      "label_counts": {
+        "even": 2,
+        "fast": 2,
+        "slow": 3,
+        "very_fast_or_collapse": 1
+      },
+      "n": 8,
+      "score_means": {
+        "early": 0.12435063511236172,
+        "late": 0.12091651328697688,
+        "middle": -0.5331499816252429
+      }
+    },
+    "VIC|1000|soft|missing": {
+      "label_counts": {
+        "even": 30,
+        "fast": 5,
+        "slow": 20,
+        "very_fast_or_collapse": 8
+      },
+      "n": 63,
+      "score_means": {
+        "early": -0.2268592033297238,
+        "late": -0.13864571799262357,
+        "middle": -0.30311078164584826
+      }
+    },
+    "VIC|1200|good|1.0": {
+      "label_counts": {
+        "even": 1,
+        "fast": 4,
+        "slow": 1,
+        "very_fast_or_collapse": 6
+      },
+      "n": 12,
+      "score_means": {
+        "early": 1.098023183871408,
+        "late": 0.16784013465914036,
+        "middle": 0.7738508720306885
+      }
+    },
+    "VIC|1200|good|2.0": {
+      "label_counts": {
+        "even": 3,
+        "very_fast_or_collapse": 1
+      },
+      "n": 4,
+      "score_means": {
+        "early": 0.07857654984681896,
+        "late": 1.181589933334581,
+        "middle": 1.737303336131215
+      }
+    },
+    "VIC|1200|good|3.0": {
+      "label_counts": {
+        "even": 11,
+        "fast": 4,
+        "slow": 9,
+        "very_fast_or_collapse": 6
+      },
+      "n": 30,
+      "score_means": {
+        "early": 0.011061372382916141,
+        "late": 0.35560009773394025,
+        "middle": -0.1657212248066802
+      }
+    },
+    "VIC|1200|good|missing": {
+      "label_counts": {
+        "even": 35,
+        "fast": 21,
+        "slow": 41,
+        "very_fast_or_collapse": 15
+      },
+      "n": 112,
+      "score_means": {
+        "early": -0.22312281693654978,
+        "late": -0.04626816411304422,
+        "middle": -0.08542330707760283
+      }
+    },
+    "VIC|1200|heavy|1.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -1.1353927784522715,
+        "late": -3.5009282277594997,
+        "middle": -3.004549746759396
+      }
+    },
+    "VIC|1200|heavy|3.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -0.9111541838543428,
+        "late": -2.8847450943767985,
+        "middle": -3.548407908550779
+      }
+    },
+    "VIC|1200|heavy|missing": {
+      "label_counts": {
+        "even": 1,
+        "fast": 2,
+        "slow": 2
+      },
+      "n": 5,
+      "score_means": {
+        "early": -0.5015342375782362,
+        "late": -1.5060033974580966,
+        "middle": -0.7950938232493862
+      }
+    },
+    "VIC|1200|soft|2.0": {
+      "label_counts": {
+        "fast": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": 0.6669322232397866,
+        "late": 0.5139363836878544,
+        "middle": 1.24398295743348
+      }
+    },
+    "VIC|1200|soft|3.0": {
+      "label_counts": {
+        "fast": 2,
+        "slow": 1,
+        "very_fast_or_collapse": 3
+      },
+      "n": 6,
+      "score_means": {
+        "early": 1.1447938392455634,
+        "late": 0.5598836406483266,
+        "middle": 1.3156318880215496
+      }
+    },
+    "VIC|1200|soft|missing": {
+      "label_counts": {
+        "even": 14,
+        "fast": 17,
+        "slow": 12,
+        "very_fast_or_collapse": 9
+      },
+      "n": 52,
+      "score_means": {
+        "early": 0.11557115883716639,
+        "late": 0.26997828229528553,
+        "middle": -0.15069147714775508
+      }
+    },
+    "VIC|1400|good|1.0": {
+      "label_counts": {
+        "even": 5,
+        "fast": 1,
+        "slow": 1,
+        "very_fast_or_collapse": 3
+      },
+      "n": 10,
+      "score_means": {
+        "early": 0.8153759500044305,
+        "late": -0.36138534339627826,
+        "middle": 1.1017417989505074
+      }
+    },
+    "VIC|1400|good|2.0": {
+      "label_counts": {
+        "even": 7,
+        "fast": 2,
+        "slow": 9,
+        "very_fast_or_collapse": 2
+      },
+      "n": 20,
+      "score_means": {
+        "early": -0.49723685341215756,
+        "late": -0.29848291141230254,
+        "middle": -0.1278144432895328
+      }
+    },
+    "VIC|1400|good|3.0": {
+      "label_counts": {
+        "even": 11,
+        "fast": 1,
+        "slow": 11,
+        "very_fast_or_collapse": 2
+      },
+      "n": 25,
+      "score_means": {
+        "early": -0.32972543483450295,
+        "late": 0.1801856273676604,
+        "middle": 0.23693921207772578
+      }
+    },
+    "VIC|1400|good|missing": {
+      "label_counts": {
+        "even": 42,
+        "fast": 14,
+        "slow": 48,
+        "very_fast_or_collapse": 10
+      },
+      "n": 114,
+      "score_means": {
+        "early": -0.5885120790228674,
+        "late": 0.06619867550106026,
+        "middle": -0.09098917850586408
+      }
+    },
+    "VIC|1400|heavy|missing": {
+      "label_counts": {
+        "even": 2,
+        "slow": 3
+      },
+      "n": 5,
+      "score_means": {
+        "early": -0.7098322664600035,
+        "late": 0.11213869304458905,
+        "middle": -0.7896162183958897
+      }
+    },
+    "VIC|1400|soft|1.0": {
+      "label_counts": {
+        "very_fast_or_collapse": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": 1.9008375948885996,
+        "late": 1.4332928638877735,
+        "middle": 2.446682166728813
+      }
+    },
+    "VIC|1400|soft|2.0": {
+      "label_counts": {
+        "even": 3,
+        "slow": 2
+      },
+      "n": 5,
+      "score_means": {
+        "early": -0.6448439853769734,
+        "late": 1.3181180804165595,
+        "middle": -0.20590160244232916
+      }
+    },
+    "VIC|1400|soft|3.0": {
+      "label_counts": {
+        "even": 2
+      },
+      "n": 2,
+      "score_means": {
+        "early": 0.011493548020333,
+        "late": -0.5562046671249526,
+        "middle": -0.10848951898459713
+      }
+    },
+    "VIC|1400|soft|missing": {
+      "label_counts": {
+        "even": 21,
+        "fast": 6,
+        "slow": 18,
+        "very_fast_or_collapse": 9
+      },
+      "n": 54,
+      "score_means": {
+        "early": -0.11622575054756373,
+        "late": 0.09599549941286974,
+        "middle": 0.11915164892251749
+      }
+    },
+    "VIC|1600|good|1.0": {
+      "label_counts": {
+        "even": 5,
+        "fast": 4,
+        "slow": 9,
+        "very_fast_or_collapse": 3
+      },
+      "n": 21,
+      "score_means": {
+        "early": -0.6829921143124534,
+        "late": -0.15287044309180542,
+        "middle": 0.43412795854124686
+      }
+    },
+    "VIC|1600|good|2.0": {
+      "label_counts": {
+        "even": 3,
+        "fast": 1,
+        "slow": 3,
+        "very_fast_or_collapse": 2
+      },
+      "n": 9,
+      "score_means": {
+        "early": -0.35632668198118805,
+        "late": 0.581561139596487,
+        "middle": 0.19823945517596467
+      }
+    },
+    "VIC|1600|good|3.0": {
+      "label_counts": {
+        "even": 3,
+        "fast": 1,
+        "slow": 8,
+        "very_fast_or_collapse": 2
+      },
+      "n": 14,
+      "score_means": {
+        "early": -1.0982765852787433,
+        "late": 0.2048044201768325,
+        "middle": 0.5077095376048298
+      }
+    },
+    "VIC|1600|good|missing": {
+      "label_counts": {
+        "even": 24,
+        "fast": 6,
+        "slow": 54,
+        "very_fast_or_collapse": 10
+      },
+      "n": 94,
+      "score_means": {
+        "early": -0.6157592830205081,
+        "late": 0.12473156574106219,
+        "middle": -0.43775888452494066
+      }
+    },
+    "VIC|1600|heavy|1.0": {
+      "label_counts": {
+        "very_fast_or_collapse": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": 1.105635833181238,
+        "late": -4.0,
+        "middle": -2.0649794020898904
+      }
+    },
+    "VIC|1600|heavy|missing": {
+      "label_counts": {
+        "even": 2,
+        "slow": 2
+      },
+      "n": 4,
+      "score_means": {
+        "early": -1.1724415321912427,
+        "late": -0.5131308802433708,
+        "middle": -0.7806203480407005
+      }
+    },
+    "VIC|1600|soft|2.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -0.7191667065559048,
+        "late": -0.8453033544089801,
+        "middle": -1.1165939463604155
+      }
+    },
+    "VIC|1600|soft|missing": {
+      "label_counts": {
+        "even": 7,
+        "fast": 1,
+        "slow": 37,
+        "very_fast_or_collapse": 2
+      },
+      "n": 47,
+      "score_means": {
+        "early": -0.7884285231564162,
+        "late": -0.07012689294171101,
+        "middle": -0.47671526791893876
+      }
+    },
+    "VIC|1800|good|1.0": {
+      "label_counts": {
+        "slow": 2
+      },
+      "n": 2,
+      "score_means": {
+        "early": -1.3461645838894234,
+        "late": -0.9085169821562945,
+        "middle": 0.5204346320937383
+      }
+    },
+    "VIC|1800|good|2.0": {
+      "label_counts": {
+        "even": 1,
+        "slow": 4
+      },
+      "n": 5,
+      "score_means": {
+        "early": -1.1762657848265108,
+        "late": -0.060317721587480166,
+        "middle": 0.484505124356017
+      }
+    },
+    "VIC|1800|good|missing": {
+      "label_counts": {
+        "fast": 1,
+        "slow": 24
+      },
+      "n": 25,
+      "score_means": {
+        "early": -1.6170525687240496,
+        "late": -0.2889423597101997,
+        "middle": -0.1925579230920679
+      }
+    },
+    "VIC|1800|soft|3.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -1.4741894444363697,
+        "late": 0.7363190790952827,
+        "middle": 1.465022939938425
+      }
+    },
+    "VIC|1800|soft|missing": {
+      "label_counts": {
+        "even": 1,
+        "slow": 9,
+        "very_fast_or_collapse": 1
+      },
+      "n": 11,
+      "score_means": {
+        "early": -0.9328118776059864,
+        "late": -0.2504649186225286,
+        "middle": -0.4960736695299761
+      }
+    },
+    "VIC|2000|good|1.0": {
+      "label_counts": {
+        "even": 2,
+        "slow": 3,
+        "very_fast_or_collapse": 2
+      },
+      "n": 7,
+      "score_means": {
+        "early": -0.5280842217172286,
+        "late": -0.517612723511353,
+        "middle": 0.8628237184904337
+      }
+    },
+    "VIC|2000|good|2.0": {
+      "label_counts": {
+        "even": 3,
+        "slow": 3
+      },
+      "n": 6,
+      "score_means": {
+        "early": -1.4855519964266841,
+        "late": -0.663715902417441,
+        "middle": 0.2476859026652137
+      }
+    },
+    "VIC|2000|good|3.0": {
+      "label_counts": {
+        "even": 3,
+        "slow": 4,
+        "very_fast_or_collapse": 1
+      },
+      "n": 8,
+      "score_means": {
+        "early": -0.9044115279012329,
+        "late": 0.2149752844123024,
+        "middle": 0.39140360029221744
+      }
+    },
+    "VIC|2000|good|missing": {
+      "label_counts": {
+        "even": 17,
+        "fast": 6,
+        "slow": 46,
+        "very_fast_or_collapse": 8
+      },
+      "n": 77,
+      "score_means": {
+        "early": -0.7907268065952131,
+        "late": -0.0057682395214742836,
+        "middle": -0.09454257585226858
+      }
+    },
+    "VIC|2000|heavy|missing": {
+      "label_counts": {
+        "slow": 3
+      },
+      "n": 3,
+      "score_means": {
+        "early": -3.356018001280828,
+        "late": 0.1793423884820311,
+        "middle": -0.5585981182338186
+      }
+    },
+    "VIC|2000|soft|1.0": {
+      "label_counts": {
+        "slow": 2
+      },
+      "n": 2,
+      "score_means": {
+        "early": -2.085116584285528,
+        "late": -1.8690513721843889,
+        "middle": -0.48504436877596313
+      }
+    },
+    "VIC|2000|soft|3.0": {
+      "label_counts": {
+        "slow": 2
+      },
+      "n": 2,
+      "score_means": {
+        "early": -2.147780722241455,
+        "late": 0.3372453797382976,
+        "middle": -0.05951389054205092
+      }
+    },
+    "VIC|2000|soft|missing": {
+      "label_counts": {
+        "even": 5,
+        "slow": 17,
+        "very_fast_or_collapse": 3
+      },
+      "n": 25,
+      "score_means": {
+        "early": -1.3576779870199787,
+        "late": -0.4227426053807143,
+        "middle": -0.25538667593685643
+      }
+    },
+    "VIC|2400|good|1.0": {
+      "label_counts": {
+        "slow": 3
+      },
+      "n": 3,
+      "score_means": {
+        "early": -3.5981307899282577,
+        "late": -1.7304505852798089,
+        "middle": -0.8752680263950143
+      }
+    },
+    "VIC|2400|good|2.0": {
+      "label_counts": {
+        "slow": 2
+      },
+      "n": 2,
+      "score_means": {
+        "early": -3.588940638605976,
+        "late": -0.6361909465535854,
+        "middle": -0.17705382436260464
+      }
+    },
+    "VIC|2400|good|3.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -3.822590034240612,
+        "late": 0.9060323634760196,
+        "middle": 0.4694984698317467
+      }
+    },
+    "VIC|2400|good|missing": {
+      "label_counts": {
+        "slow": 16
+      },
+      "n": 16,
+      "score_means": {
+        "early": -3.457998791497679,
+        "late": -0.5391914599263842,
+        "middle": -0.23819103119200702
+      }
+    },
+    "VIC|2400|soft|1.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -3.289920101287384,
+        "late": -1.3199086413895376,
+        "middle": -0.391091280704916
+      }
+    },
+    "VIC|2400|soft|2.0": {
+      "label_counts": {
+        "slow": 1
+      },
+      "n": 1,
+      "score_means": {
+        "early": -3.2395156549594035,
+        "late": -0.6420388455772491,
+        "middle": 0.8132483952817294
+      }
+    },
+    "VIC|2400|soft|missing": {
+      "label_counts": {
+        "slow": 12
+      },
+      "n": 12,
+      "score_means": {
+        "early": -3.513988528533209,
+        "late": -0.309093555120701,
+        "middle": -0.5338327093228783
+      }
+    }
+  },
+  "global": {
+    "label_counts": {
+      "even": 463,
+      "fast": 154,
+      "slow": 669,
+      "very_fast_or_collapse": 226
+    },
+    "n": 1512,
+    "score_means": {
+      "early": -0.3843338930634425,
+      "late": -0.09508475328180618,
+      "middle": -0.17941044919110827
+    }
+  },
+  "labels": [
+    "even",
+    "fast",
+    "slow",
+    "very_fast_or_collapse"
+  ],
+  "pars": {
+    "source_distance": {
+      "racing-com-nsw-authorised-v2|1000": {
+        "early": {
+          "median": 13.555,
+          "scale": 0.20015099999999966
+        },
+        "late": {
+          "median": 23.1875,
+          "scale": 0.7450064999999992
+        },
+        "middle": {
+          "median": 21.677500000000002,
+          "scale": 0.37806300000000115
+        },
+        "n": 26
+      },
+      "racing-com-nsw-authorised-v2|1200": {
+        "early": {
+          "median": 24.895000000000003,
+          "scale": 0.6671700000000041
+        },
+        "late": {
+          "median": 23.275,
+          "scale": 0.9117990000000002
+        },
+        "middle": {
+          "median": 22.825,
+          "scale": 0.7116479999999953
+        },
+        "n": 144
+      },
+      "racing-com-nsw-authorised-v2|1300": {
+        "early": {
+          "median": 23.23,
+          "scale": 0.9414510000000023
+        },
+        "late": {
+          "median": 23.62,
+          "scale": 0.8969730000000006
+        },
+        "middle": {
+          "median": 23.555,
+          "scale": 0.5708009999999997
+        },
+        "n": 50
+      },
+      "racing-com-nsw-authorised-v2|1400": {
+        "early": {
+          "median": 23.2675,
+          "scale": 0.9599835000000012
+        },
+        "late": {
+          "median": 23.525,
+          "scale": 0.9451574999999989
+        },
+        "middle": {
+          "median": 23.3325,
+          "scale": 0.6226920000000025
+        },
+        "n": 120
+      },
+      "racing-com-nsw-authorised-v2|1500": {
+        "early": {
+          "median": 24.705,
+          "scale": 0.7857780000000016
+        },
+        "late": {
+          "median": 23.880000000000003,
+          "scale": 1.0971239999999975
+        },
+        "middle": {
+          "median": 23.64,
+          "scale": 0.5633880000000038
+        },
+        "n": 24
+      },
+      "racing-com-nsw-authorised-v2|1600": {
+        "early": {
+          "median": 24.729999999999997,
+          "scale": 1.1860800000000036
+        },
+        "late": {
+          "median": 23.8125,
+          "scale": 1.178667
+        },
+        "middle": {
+          "median": 22.985,
+          "scale": 0.9006794999999999
+        },
+        "n": 22
+      },
+      "racing-com-nsw-authorised-v2|2000": {
+        "early": {
+          "median": 25.005,
+          "scale": 0.9155054999999995
+        },
+        "late": {
+          "median": 24.125,
+          "scale": 0.9933419999999972
+        },
+        "middle": {
+          "median": 23.5875,
+          "scale": 0.7894845000000036
+        },
+        "n": 48
+      },
+      "racing-com-nsw-authorised-v2|2400": {
+        "early": {
+          "median": 25.3875,
+          "scale": 0.9822224999999994
+        },
+        "late": {
+          "median": 24.212500000000002,
+          "scale": 1.126775999999997
+        },
+        "middle": {
+          "median": 23.265,
+          "scale": 0.29281349999999967
+        },
+        "n": 16
+      },
+      "racing-com-rv-authorised|1000": {
+        "early": {
+          "median": 13.66,
+          "scale": 0.37065
+        },
+        "late": {
+          "median": 23.02,
+          "scale": 0.7783649999999979
+        },
+        "middle": {
+          "median": 21.655,
+          "scale": 0.5337359999999991
+        },
+        "n": 93
+      },
+      "racing-com-rv-authorised|1100": {
+        "early": {
+          "median": 19.2075,
+          "scale": 0.6189855000000006
+        },
+        "late": {
+          "median": 23.16,
+          "scale": 0.6597570000000004
+        },
+        "middle": {
+          "median": 21.9925,
+          "scale": 0.5485619999999988
+        },
+        "n": 144
+      },
+      "racing-com-rv-authorised|1200": {
+        "early": {
+          "median": 24.950000000000003,
+          "scale": 0.6523440000000018
+        },
+        "late": {
+          "median": 23.37,
+          "scale": 0.6523439999999966
+        },
+        "middle": {
+          "median": 22.455,
+          "scale": 0.6375179999999996
+        },
+        "n": 231
+      },
+      "racing-com-rv-authorised|1400": {
+        "early": {
+          "median": 37.58,
+          "scale": 0.9043859999999991
+        },
+        "late": {
+          "median": 23.455,
+          "scale": 0.7709519999999993
+        },
+        "middle": {
+          "median": 23.1,
+          "scale": 0.5263230000000059
+        },
+        "n": 229
+      },
+      "racing-com-rv-authorised|1500": {
+        "early": {
+          "median": 44.19,
+          "scale": 0.6078660000000055
+        },
+        "late": {
+          "median": 23.45,
+          "scale": 0.800604000000004
+        },
+        "middle": {
+          "median": 23.08,
+          "scale": 0.10378199999999514
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|1600": {
+        "early": {
+          "median": 50.41,
+          "scale": 1.3639920000000025
+        },
+        "late": {
+          "median": 23.82,
+          "scale": 0.8450820000000003
+        },
+        "middle": {
+          "median": 23.455,
+          "scale": 0.5782140000000008
+        },
+        "n": 183
+      },
+      "racing-com-rv-authorised|1700": {
+        "early": {
+          "median": 57.035,
+          "scale": 0.4114214999999998
+        },
+        "late": {
+          "median": 23.9025,
+          "scale": 0.555975
+        },
+        "middle": {
+          "median": 23.9775,
+          "scale": 0.6041594999999983
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|1800": {
+        "early": {
+          "median": 63.825,
+          "scale": 1.2120255000000038
+        },
+        "late": {
+          "median": 23.8025,
+          "scale": 0.8562015000000008
+        },
+        "middle": {
+          "median": 23.2875,
+          "scale": 0.38918249999999893
+        },
+        "n": 44
+      },
+      "racing-com-rv-authorised|2000": {
+        "early": {
+          "median": 76.39500000000001,
+          "scale": 1.6605119999999856
+        },
+        "late": {
+          "median": 24.27,
+          "scale": 0.9043859999999991
+        },
+        "middle": {
+          "median": 23.435000000000002,
+          "scale": 0.4818450000000042
+        },
+        "n": 105
+      },
+      "racing-com-rv-authorised|2040": {
+        "early": {
+          "median": 78.25,
+          "scale": 1.8087719999999983
+        },
+        "late": {
+          "median": 24.335,
+          "scale": 0.8673210000000012
+        },
+        "middle": {
+          "median": 23.71,
+          "scale": 0.34099800000000063
+        },
+        "n": 25
+      },
+      "racing-com-rv-authorised|2400": {
+        "early": {
+          "median": 104.50999999999999,
+          "scale": 2.4648224999999915
+        },
+        "late": {
+          "median": 24.37,
+          "scale": 0.6819959999999986
+        },
+        "middle": {
+          "median": 23.490000000000002,
+          "scale": 0.5596815000000018
+        },
+        "n": 24
+      },
+      "racing-com-rv-authorised|2500": {
+        "early": {
+          "median": 110.81,
+          "scale": 1.6308600000000126
+        },
+        "late": {
+          "median": 24.38,
+          "scale": 0.7413
+        },
+        "middle": {
+          "median": 23.66,
+          "scale": 0.9488640000000008
+        },
+        "n": 11
+      }
+    },
+    "source_distance_going": {
+      "racing-com-nsw-authorised-v2|1000|good": {
+        "early": {
+          "median": 13.47,
+          "scale": 0.2223900000000005
+        },
+        "late": {
+          "median": 22.990000000000002,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 21.66,
+          "scale": 0.32617200000000357
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|1000|soft": {
+        "early": {
+          "median": 13.6,
+          "scale": 0.15567300000000062
+        },
+        "late": {
+          "median": 23.45,
+          "scale": 0.5485620000000014
+        },
+        "middle": {
+          "median": 21.78,
+          "scale": 0.5633880000000038
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|1200|good": {
+        "early": {
+          "median": 24.61,
+          "scale": 0.5930399999999979
+        },
+        "late": {
+          "median": 23.03,
+          "scale": 0.7783649999999979
+        },
+        "middle": {
+          "median": 22.590000000000003,
+          "scale": 0.5040840000000051
+        },
+        "n": 75
+      },
+      "racing-com-nsw-authorised-v2|1200|heavy": {
+        "early": {
+          "median": 25.8775,
+          "scale": 0.4744320000000004
+        },
+        "late": {
+          "median": 23.96,
+          "scale": 0.42624749999999945
+        },
+        "middle": {
+          "median": 23.945,
+          "scale": 0.6671700000000016
+        },
+        "n": 16
+      },
+      "racing-com-nsw-authorised-v2|1200|soft": {
+        "early": {
+          "median": 25.130000000000003,
+          "scale": 0.429954000000004
+        },
+        "late": {
+          "median": 23.47,
+          "scale": 0.8450820000000003
+        },
+        "middle": {
+          "median": 23.1,
+          "scale": 0.6819960000000013
+        },
+        "n": 53
+      },
+      "racing-com-nsw-authorised-v2|1300|good": {
+        "early": {
+          "median": 23.22,
+          "scale": 1.11195
+        },
+        "late": {
+          "median": 23.095,
+          "scale": 0.9117990000000029
+        },
+        "middle": {
+          "median": 22.915,
+          "scale": 0.8673210000000012
+        },
+        "n": 17
+      },
+      "racing-com-nsw-authorised-v2|1300|heavy": {
+        "early": {
+          "median": 23.335,
+          "scale": 1.149014999999998
+        },
+        "late": {
+          "median": 24.09,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 23.795,
+          "scale": 0.3632370000000015
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|1300|soft": {
+        "early": {
+          "median": 23.0325,
+          "scale": 0.6634634999999997
+        },
+        "late": {
+          "median": 23.810000000000002,
+          "scale": 0.7412999999999947
+        },
+        "middle": {
+          "median": 23.615000000000002,
+          "scale": 0.3187589999999998
+        },
+        "n": 26
+      },
+      "racing-com-nsw-authorised-v2|1400|good": {
+        "early": {
+          "median": 22.89,
+          "scale": 1.0822980000000058
+        },
+        "late": {
+          "median": 22.93,
+          "scale": 0.7116480000000006
+        },
+        "middle": {
+          "median": 23.174999999999997,
+          "scale": 0.585626999999994
+        },
+        "n": 43
+      },
+      "racing-com-nsw-authorised-v2|1400|heavy": {
+        "early": {
+          "median": 24.240000000000002,
+          "scale": 0.41883450000000355
+        },
+        "late": {
+          "median": 25.0125,
+          "scale": 1.9792710000000011
+        },
+        "middle": {
+          "median": 24.394999999999996,
+          "scale": 0.8154299999999983
+        },
+        "n": 18
+      },
+      "racing-com-nsw-authorised-v2|1400|soft": {
+        "early": {
+          "median": 23.38,
+          "scale": 0.6597570000000057
+        },
+        "late": {
+          "median": 23.615,
+          "scale": 0.7190609999999991
+        },
+        "middle": {
+          "median": 23.34,
+          "scale": 0.5633879999999984
+        },
+        "n": 59
+      },
+      "racing-com-nsw-authorised-v2|1500|good": {
+        "early": {
+          "median": 24.91,
+          "scale": 0.7412999999999947
+        },
+        "late": {
+          "median": 23.53,
+          "scale": 1.3046880000000036
+        },
+        "middle": {
+          "median": 23.64,
+          "scale": 0.6968219999999983
+        },
+        "n": 17
+      },
+      "racing-com-nsw-authorised-v2|1600|good": {
+        "early": {
+          "median": 24.37,
+          "scale": 1.9273799999999983
+        },
+        "late": {
+          "median": 23.1325,
+          "scale": 0.722767500000001
+        },
+        "middle": {
+          "median": 22.8375,
+          "scale": 0.46701900000000185
+        },
+        "n": 14
+      },
+      "racing-com-nsw-authorised-v2|1600|soft": {
+        "early": {
+          "median": 24.845,
+          "scale": 0.6189855000000006
+        },
+        "late": {
+          "median": 24.9475,
+          "scale": 0.9117990000000029
+        },
+        "middle": {
+          "median": 24.1175,
+          "scale": 0.7264740000000003
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|2000|good": {
+        "early": {
+          "median": 24.634999999999998,
+          "scale": 0.9711030000000016
+        },
+        "late": {
+          "median": 24.049999999999997,
+          "scale": 1.11195
+        },
+        "middle": {
+          "median": 23.14,
+          "scale": 0.5337359999999991
+        },
+        "n": 23
+      },
+      "racing-com-nsw-authorised-v2|2000|heavy": {
+        "early": {
+          "median": 25.7925,
+          "scale": 0.8191364999999976
+        },
+        "late": {
+          "median": 24.439999999999998,
+          "scale": 1.1786670000000026
+        },
+        "middle": {
+          "median": 24.0725,
+          "scale": 0.704235000000002
+        },
+        "n": 8
+      },
+      "racing-com-nsw-authorised-v2|2000|soft": {
+        "early": {
+          "median": 25.165,
+          "scale": 0.8821469999999982
+        },
+        "late": {
+          "median": 24.07,
+          "scale": 0.4892579999999974
+        },
+        "middle": {
+          "median": 23.82,
+          "scale": 0.6226920000000025
+        },
+        "n": 17
+      },
+      "racing-com-nsw-authorised-v2|2400|good": {
+        "early": {
+          "median": 25.314999999999998,
+          "scale": 0.6968219999999983
+        },
+        "late": {
+          "median": 24.325000000000003,
+          "scale": 0.9192119999999961
+        },
+        "middle": {
+          "median": 23.095,
+          "scale": 0.1
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|2400|soft": {
+        "early": {
+          "median": 25.5575,
+          "scale": 0.9673964999999971
+        },
+        "late": {
+          "median": 24.060000000000002,
+          "scale": 1.000755000000001
+        },
+        "middle": {
+          "median": 23.277499999999996,
+          "scale": 0.5448554999999943
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|1000|good": {
+        "early": {
+          "median": 13.825,
+          "scale": 0.37435650000000187
+        },
+        "late": {
+          "median": 22.775,
+          "scale": 0.6671699999999989
+        },
+        "middle": {
+          "median": 21.57,
+          "scale": 0.4336605000000006
+        },
+        "n": 58
+      },
+      "racing-com-rv-authorised|1000|soft": {
+        "early": {
+          "median": 13.62,
+          "scale": 0.21497699999999936
+        },
+        "late": {
+          "median": 23.645,
+          "scale": 0.630105000000001
+        },
+        "middle": {
+          "median": 22.055,
+          "scale": 0.6597570000000004
+        },
+        "n": 35
+      },
+      "racing-com-rv-authorised|1100|good": {
+        "early": {
+          "median": 19.18,
+          "scale": 0.6634634999999997
+        },
+        "late": {
+          "median": 22.97,
+          "scale": 0.4447799999999984
+        },
+        "middle": {
+          "median": 21.84,
+          "scale": 0.41512799999999905
+        },
+        "n": 102
+      },
+      "racing-com-rv-authorised|1100|soft": {
+        "early": {
+          "median": 19.21,
+          "scale": 0.4373670000000025
+        },
+        "late": {
+          "median": 23.77,
+          "scale": 0.6819960000000013
+        },
+        "middle": {
+          "median": 22.44,
+          "scale": 0.26686799999999955
+        },
+        "n": 39
+      },
+      "racing-com-rv-authorised|1200|good": {
+        "early": {
+          "median": 24.810000000000002,
+          "scale": 0.5633880000000038
+        },
+        "late": {
+          "median": 23.26,
+          "scale": 0.5337360000000044
+        },
+        "middle": {
+          "median": 22.365000000000002,
+          "scale": 0.5485619999999962
+        },
+        "n": 165
+      },
+      "racing-com-rv-authorised|1200|heavy": {
+        "early": {
+          "median": 25.81,
+          "scale": 0.49667100000000125
+        },
+        "late": {
+          "median": 24.615000000000002,
+          "scale": 0.3780629999999985
+        },
+        "middle": {
+          "median": 22.91,
+          "scale": 0.41512800000000166
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|1200|soft": {
+        "early": {
+          "median": 25.34,
+          "scale": 0.5708010000000023
+        },
+        "late": {
+          "median": 23.695,
+          "scale": 0.7190609999999991
+        },
+        "middle": {
+          "median": 22.91,
+          "scale": 0.5930399999999979
+        },
+        "n": 59
+      },
+      "racing-com-rv-authorised|1400|good": {
+        "early": {
+          "median": 37.400000000000006,
+          "scale": 0.9117989999999924
+        },
+        "late": {
+          "median": 23.270000000000003,
+          "scale": 0.5633879999999932
+        },
+        "middle": {
+          "median": 22.935,
+          "scale": 0.45219299999999957
+        },
+        "n": 163
+      },
+      "racing-com-rv-authorised|1400|heavy": {
+        "early": {
+          "median": 39.05,
+          "scale": 1.089710999999999
+        },
+        "late": {
+          "median": 24.045,
+          "scale": 1.1193630000000037
+        },
+        "middle": {
+          "median": 23.73,
+          "scale": 0.7635390000000009
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|1400|soft": {
+        "early": {
+          "median": 37.945,
+          "scale": 0.889560000000002
+        },
+        "late": {
+          "median": 24.03,
+          "scale": 0.8524950000000042
+        },
+        "middle": {
+          "median": 23.425,
+          "scale": 0.6004530000000017
+        },
+        "n": 61
+      },
+      "racing-com-rv-authorised|1500|good": {
+        "early": {
+          "median": 44.19,
+          "scale": 0.6078660000000055
+        },
+        "late": {
+          "median": 23.45,
+          "scale": 0.800604000000004
+        },
+        "middle": {
+          "median": 23.08,
+          "scale": 0.10378199999999514
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|1600|good": {
+        "early": {
+          "median": 50.28,
+          "scale": 1.3195140000000007
+        },
+        "late": {
+          "median": 23.69,
+          "scale": 0.7413
+        },
+        "middle": {
+          "median": 23.34,
+          "scale": 0.5337359999999991
+        },
+        "n": 133
+      },
+      "racing-com-rv-authorised|1600|heavy": {
+        "early": {
+          "median": 51.29,
+          "scale": 0.3632369999999962
+        },
+        "late": {
+          "median": 25.28,
+          "scale": 0.9117990000000029
+        },
+        "middle": {
+          "median": 23.98,
+          "scale": 0.31134600000000123
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|1600|soft": {
+        "early": {
+          "median": 50.91,
+          "scale": 1.312100999999997
+        },
+        "late": {
+          "median": 24.31,
+          "scale": 0.9266249999999947
+        },
+        "middle": {
+          "median": 23.7,
+          "scale": 0.7709519999999993
+        },
+        "n": 45
+      },
+      "racing-com-rv-authorised|1700|good": {
+        "early": {
+          "median": 56.97,
+          "scale": 0.26686799999999955
+        },
+        "late": {
+          "median": 23.895,
+          "scale": 0.630105000000001
+        },
+        "middle": {
+          "median": 23.965,
+          "scale": 0.3187589999999998
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|1800|good": {
+        "early": {
+          "median": 63.545,
+          "scale": 1.326926999999994
+        },
+        "late": {
+          "median": 23.575,
+          "scale": 0.7561259999999996
+        },
+        "middle": {
+          "median": 23.19,
+          "scale": 0.4003019999999967
+        },
+        "n": 32
+      },
+      "racing-com-rv-authorised|1800|soft": {
+        "early": {
+          "median": 64.62,
+          "scale": 1.0452330000000027
+        },
+        "late": {
+          "median": 24.292499999999997,
+          "scale": 0.6189855000000059
+        },
+        "middle": {
+          "median": 23.61,
+          "scale": 0.4077150000000005
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|2000|good": {
+        "early": {
+          "median": 76.225,
+          "scale": 1.5048389999999796
+        },
+        "late": {
+          "median": 24.05,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 23.325,
+          "scale": 0.40771500000000316
+        },
+        "n": 75
+      },
+      "racing-com-rv-authorised|2000|soft": {
+        "early": {
+          "median": 77.515,
+          "scale": 1.697576999999994
+        },
+        "late": {
+          "median": 24.89,
+          "scale": 0.6671699999999989
+        },
+        "middle": {
+          "median": 23.85,
+          "scale": 0.704235000000002
+        },
+        "n": 27
+      },
+      "racing-com-rv-authorised|2040|good": {
+        "early": {
+          "median": 78.25,
+          "scale": 1.8384239999999923
+        },
+        "late": {
+          "median": 24.23,
+          "scale": 0.7487129999999985
+        },
+        "middle": {
+          "median": 23.68,
+          "scale": 0.29651999999999895
+        },
+        "n": 23
+      },
+      "racing-com-rv-authorised|2400|good": {
+        "early": {
+          "median": 104.32249999999999,
+          "scale": 3.1912965000000155
+        },
+        "late": {
+          "median": 23.9,
+          "scale": 0.5745075000000015
+        },
+        "middle": {
+          "median": 23.1325,
+          "scale": 0.42254100000000017
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|2400|soft": {
+        "early": {
+          "median": 104.89500000000001,
+          "scale": 2.401812000000017
+        },
+        "late": {
+          "median": 24.775,
+          "scale": 0.5856269999999993
+        },
+        "middle": {
+          "median": 23.8,
+          "scale": 0.5930400000000005
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|2500|good": {
+        "early": {
+          "median": 110.41499999999999,
+          "scale": 1.4900130000000142
+        },
+        "late": {
+          "median": 24.02,
+          "scale": 1.1786669999999972
+        },
+        "middle": {
+          "median": 23.66,
+          "scale": 0.9488640000000008
+        },
+        "n": 9
+      }
+    },
+    "source_phase": {
+      "racing-com-nsw-authorised-v2|distance_1000": {
+        "early": {
+          "median": 13.555,
+          "scale": 0.20015099999999966
+        },
+        "late": {
+          "median": 23.1875,
+          "scale": 0.7450064999999992
+        },
+        "middle": {
+          "median": 21.677500000000002,
+          "scale": 0.37806300000000115
+        },
+        "n": 26
+      },
+      "racing-com-nsw-authorised-v2|standard_3x400": {
+        "early": {
+          "median": 24.427500000000002,
+          "scale": 1.4047635000000023
+        },
+        "late": {
+          "median": 23.57,
+          "scale": 0.9970485000000018
+        },
+        "middle": {
+          "median": 23.25,
+          "scale": 0.7968974999999995
+        },
+        "n": 428
+      },
+      "racing-com-rv-authorised|distance_1000": {
+        "early": {
+          "median": 13.66,
+          "scale": 0.37065
+        },
+        "late": {
+          "median": 23.02,
+          "scale": 0.7783649999999979
+        },
+        "middle": {
+          "median": 21.655,
+          "scale": 0.5337359999999991
+        },
+        "n": 93
+      },
+      "racing-com-rv-authorised|distance_1100": {
+        "early": {
+          "median": 19.2075,
+          "scale": 0.6189855000000006
+        },
+        "late": {
+          "median": 23.16,
+          "scale": 0.6597570000000004
+        },
+        "middle": {
+          "median": 21.9925,
+          "scale": 0.5485619999999988
+        },
+        "n": 144
+      },
+      "racing-com-rv-authorised|standard_3x400": {
+        "early": {
+          "median": 38.9975,
+          "scale": 19.7519385
+        },
+        "late": {
+          "median": 23.665,
+          "scale": 0.8376689999999992
+        },
+        "middle": {
+          "median": 23.14,
+          "scale": 0.6671700000000016
+        },
+        "n": 874
+      }
+    },
+    "source_phase_going": {
+      "racing-com-nsw-authorised-v2|distance_1000|good": {
+        "early": {
+          "median": 13.47,
+          "scale": 0.2223900000000005
+        },
+        "late": {
+          "median": 22.990000000000002,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 21.66,
+          "scale": 0.32617200000000357
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|distance_1000|soft": {
+        "early": {
+          "median": 13.6,
+          "scale": 0.15567300000000062
+        },
+        "late": {
+          "median": 23.45,
+          "scale": 0.5485620000000014
+        },
+        "middle": {
+          "median": 21.78,
+          "scale": 0.5633880000000038
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|standard_3x400|good": {
+        "early": {
+          "median": 24.427500000000002,
+          "scale": 1.3639919999999999
+        },
+        "late": {
+          "median": 23.195,
+          "scale": 0.8821470000000009
+        },
+        "middle": {
+          "median": 22.92,
+          "scale": 0.6671700000000016
+        },
+        "n": 196
+      },
+      "racing-com-nsw-authorised-v2|standard_3x400|heavy": {
+        "early": {
+          "median": 24.755000000000003,
+          "scale": 1.3788179999999968
+        },
+        "late": {
+          "median": 24.2325,
+          "scale": 0.9970484999999991
+        },
+        "middle": {
+          "median": 24.015,
+          "scale": 0.704235000000002
+        },
+        "n": 56
+      },
+      "racing-com-nsw-authorised-v2|standard_3x400|soft": {
+        "early": {
+          "median": 24.265,
+          "scale": 1.475186999999996
+        },
+        "late": {
+          "median": 23.714999999999996,
+          "scale": 0.8376689999999966
+        },
+        "middle": {
+          "median": 23.43,
+          "scale": 0.644930999999998
+        },
+        "n": 176
+      },
+      "racing-com-rv-authorised|distance_1000|good": {
+        "early": {
+          "median": 13.825,
+          "scale": 0.37435650000000187
+        },
+        "late": {
+          "median": 22.775,
+          "scale": 0.6671699999999989
+        },
+        "middle": {
+          "median": 21.57,
+          "scale": 0.4336605000000006
+        },
+        "n": 58
+      },
+      "racing-com-rv-authorised|distance_1000|soft": {
+        "early": {
+          "median": 13.62,
+          "scale": 0.21497699999999936
+        },
+        "late": {
+          "median": 23.645,
+          "scale": 0.630105000000001
+        },
+        "middle": {
+          "median": 22.055,
+          "scale": 0.6597570000000004
+        },
+        "n": 35
+      },
+      "racing-com-rv-authorised|distance_1100|good": {
+        "early": {
+          "median": 19.18,
+          "scale": 0.6634634999999997
+        },
+        "late": {
+          "median": 22.97,
+          "scale": 0.4447799999999984
+        },
+        "middle": {
+          "median": 21.84,
+          "scale": 0.41512799999999905
+        },
+        "n": 102
+      },
+      "racing-com-rv-authorised|distance_1100|soft": {
+        "early": {
+          "median": 19.21,
+          "scale": 0.4373670000000025
+        },
+        "late": {
+          "median": 23.77,
+          "scale": 0.6819960000000013
+        },
+        "middle": {
+          "median": 22.44,
+          "scale": 0.26686799999999955
+        },
+        "n": 39
+      },
+      "racing-com-rv-authorised|standard_3x400|good": {
+        "early": {
+          "median": 38.98,
+          "scale": 19.944676499999993
+        },
+        "late": {
+          "median": 23.465,
+          "scale": 0.7338870000000014
+        },
+        "middle": {
+          "median": 23.025,
+          "scale": 0.6338114999999976
+        },
+        "n": 630
+      },
+      "racing-com-rv-authorised|standard_3x400|heavy": {
+        "early": {
+          "median": 39.4175,
+          "scale": 19.763057999999994
+        },
+        "late": {
+          "median": 24.64,
+          "scale": 0.9711030000000043
+        },
+        "middle": {
+          "median": 23.7425,
+          "scale": 0.6671700000000016
+        },
+        "n": 20
+      },
+      "racing-com-rv-authorised|standard_3x400|soft": {
+        "early": {
+          "median": 38.962500000000006,
+          "scale": 19.611091500000008
+        },
+        "late": {
+          "median": 24.307499999999997,
+          "scale": 0.9525705000000027
+        },
+        "middle": {
+          "median": 23.475,
+          "scale": 0.6560504999999985
+        },
+        "n": 224
+      }
+    },
+    "track_distance": {
+      "racing-com-nsw-authorised-v2|randwick|1000": {
+        "early": {
+          "median": 13.555,
+          "scale": 0.20015099999999966
+        },
+        "late": {
+          "median": 23.1875,
+          "scale": 0.7450064999999992
+        },
+        "middle": {
+          "median": 21.677500000000002,
+          "scale": 0.37806300000000115
+        },
+        "n": 26
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200": {
+        "early": {
+          "median": 24.625,
+          "scale": 0.6745829999999974
+        },
+        "late": {
+          "median": 23.39,
+          "scale": 0.9043859999999991
+        },
+        "middle": {
+          "median": 22.560000000000002,
+          "scale": 0.5930400000000031
+        },
+        "n": 79
+      },
+      "racing-com-nsw-authorised-v2|randwick|1300": {
+        "early": {
+          "median": 22.7125,
+          "scale": 0.7301805000000048
+        },
+        "late": {
+          "median": 24.167499999999997,
+          "scale": 1.2157320000000003
+        },
+        "middle": {
+          "median": 23.62,
+          "scale": 0.7190610000000017
+        },
+        "n": 12
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400": {
+        "early": {
+          "median": 23.12,
+          "scale": 0.9859290000000013
+        },
+        "late": {
+          "median": 23.799999999999997,
+          "scale": 1.3788179999999943
+        },
+        "middle": {
+          "median": 23.380000000000003,
+          "scale": 0.8599079999999948
+        },
+        "n": 66
+      },
+      "racing-com-nsw-authorised-v2|randwick|1600": {
+        "early": {
+          "median": 24.729999999999997,
+          "scale": 1.1860800000000036
+        },
+        "late": {
+          "median": 23.8125,
+          "scale": 1.178667
+        },
+        "middle": {
+          "median": 22.985,
+          "scale": 0.9006794999999999
+        },
+        "n": 22
+      },
+      "racing-com-nsw-authorised-v2|randwick|2000": {
+        "early": {
+          "median": 24.61,
+          "scale": 1.1267759999999996
+        },
+        "late": {
+          "median": 24.165,
+          "scale": 0.9340380000000011
+        },
+        "middle": {
+          "median": 23.215,
+          "scale": 0.7190609999999991
+        },
+        "n": 22
+      },
+      "racing-com-nsw-authorised-v2|randwick|2400": {
+        "early": {
+          "median": 24.845,
+          "scale": 0.8450820000000003
+        },
+        "late": {
+          "median": 24.65,
+          "scale": 0.5189100000000021
+        },
+        "middle": {
+          "median": 23.09,
+          "scale": 0.1
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200": {
+        "early": {
+          "median": 25.130000000000003,
+          "scale": 0.6004530000000017
+        },
+        "late": {
+          "median": 23.189999999999998,
+          "scale": 0.8302560000000033
+        },
+        "middle": {
+          "median": 23.17,
+          "scale": 0.5930400000000031
+        },
+        "n": 65
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1300": {
+        "early": {
+          "median": 23.305,
+          "scale": 0.9006794999999999
+        },
+        "late": {
+          "median": 23.575,
+          "scale": 0.8043104999999979
+        },
+        "middle": {
+          "median": 23.520000000000003,
+          "scale": 0.5300294999999998
+        },
+        "n": 38
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400": {
+        "early": {
+          "median": 23.48,
+          "scale": 0.7079414999999987
+        },
+        "late": {
+          "median": 23.4,
+          "scale": 0.5300294999999998
+        },
+        "middle": {
+          "median": 23.307499999999997,
+          "scale": 0.49296450000000197
+        },
+        "n": 54
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1500": {
+        "early": {
+          "median": 24.705,
+          "scale": 0.7857780000000016
+        },
+        "late": {
+          "median": 23.880000000000003,
+          "scale": 1.0971239999999975
+        },
+        "middle": {
+          "median": 23.64,
+          "scale": 0.5633880000000038
+        },
+        "n": 24
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2000": {
+        "early": {
+          "median": 25.2125,
+          "scale": 0.9117989999999976
+        },
+        "late": {
+          "median": 24.04,
+          "scale": 1.0267005000000011
+        },
+        "middle": {
+          "median": 23.909999999999997,
+          "scale": 0.7561260000000075
+        },
+        "n": 26
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2400": {
+        "early": {
+          "median": 25.700000000000003,
+          "scale": 0.6671699999999936
+        },
+        "late": {
+          "median": 24.02,
+          "scale": 0.9488639999999955
+        },
+        "middle": {
+          "median": 23.365,
+          "scale": 0.6152789999999987
+        },
+        "n": 11
+      },
+      "racing-com-rv-authorised|caulfield-heath|1200": {
+        "early": {
+          "median": 24.4925,
+          "scale": 0.4558994999999988
+        },
+        "late": {
+          "median": 23.5,
+          "scale": 0.4484865000000003
+        },
+        "middle": {
+          "median": 22.450000000000003,
+          "scale": 0.22980300000000167
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|caulfield-heath|1800": {
+        "early": {
+          "median": 63.385000000000005,
+          "scale": 1.6086209999999905
+        },
+        "late": {
+          "median": 24.425,
+          "scale": 1.208319000000002
+        },
+        "middle": {
+          "median": 23.62,
+          "scale": 0.6375179999999996
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|caulfield|1000": {
+        "early": {
+          "median": 13.475,
+          "scale": 0.2075639999999982
+        },
+        "late": {
+          "median": 23.25,
+          "scale": 0.689409000000005
+        },
+        "middle": {
+          "median": 21.82,
+          "scale": 0.45960599999999807
+        },
+        "n": 21
+      },
+      "racing-com-rv-authorised|caulfield|1100": {
+        "early": {
+          "median": 18.88,
+          "scale": 0.429954000000004
+        },
+        "late": {
+          "median": 23.165,
+          "scale": 0.570800999999997
+        },
+        "middle": {
+          "median": 22.195,
+          "scale": 0.49667100000000125
+        },
+        "n": 85
+      },
+      "racing-com-rv-authorised|caulfield|1200": {
+        "early": {
+          "median": 24.822499999999998,
+          "scale": 0.47072550000000113
+        },
+        "late": {
+          "median": 23.275,
+          "scale": 0.574507499999999
+        },
+        "middle": {
+          "median": 22.494999999999997,
+          "scale": 0.43736699999999723
+        },
+        "n": 92
+      },
+      "racing-com-rv-authorised|caulfield|1400": {
+        "early": {
+          "median": 37.41,
+          "scale": 0.9340380000000037
+        },
+        "late": {
+          "median": 23.52,
+          "scale": 0.7190609999999991
+        },
+        "middle": {
+          "median": 23.244999999999997,
+          "scale": 0.6301049999999957
+        },
+        "n": 123
+      },
+      "racing-com-rv-authorised|caulfield|1600": {
+        "early": {
+          "median": 50.71,
+          "scale": 1.3936439999999966
+        },
+        "late": {
+          "median": 23.87,
+          "scale": 0.800604000000004
+        },
+        "middle": {
+          "median": 23.52,
+          "scale": 0.4151279999999964
+        },
+        "n": 61
+      },
+      "racing-com-rv-authorised|caulfield|1700": {
+        "early": {
+          "median": 57.125,
+          "scale": 0.5003774999999978
+        },
+        "late": {
+          "median": 23.9025,
+          "scale": 0.5077905000000017
+        },
+        "middle": {
+          "median": 24.03,
+          "scale": 0.4521929999999969
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|caulfield|1800": {
+        "early": {
+          "median": 63.52,
+          "scale": 0.8154300000000063
+        },
+        "late": {
+          "median": 24.16,
+          "scale": 0.6671699999999989
+        },
+        "middle": {
+          "median": 23.44,
+          "scale": 0.2816940000000019
+        },
+        "n": 17
+      },
+      "racing-com-rv-authorised|caulfield|2000": {
+        "early": {
+          "median": 76.54499999999999,
+          "scale": 1.7568809999999822
+        },
+        "late": {
+          "median": 24.285,
+          "scale": 0.7931910000000002
+        },
+        "middle": {
+          "median": 23.49,
+          "scale": 0.5337360000000044
+        },
+        "n": 59
+      },
+      "racing-com-rv-authorised|caulfield|2400": {
+        "early": {
+          "median": 103.91999999999999,
+          "scale": 1.74946800000001
+        },
+        "late": {
+          "median": 24.4325,
+          "scale": 0.5893334999999986
+        },
+        "middle": {
+          "median": 23.490000000000002,
+          "scale": 0.7264739999999976
+        },
+        "n": 20
+      },
+      "racing-com-rv-authorised|flemington|1000": {
+        "early": {
+          "median": 14.045,
+          "scale": 0.22980299999999904
+        },
+        "late": {
+          "median": 22.71,
+          "scale": 0.7968974999999995
+        },
+        "middle": {
+          "median": 21.6625,
+          "scale": 0.4188344999999983
+        },
+        "n": 30
+      },
+      "racing-com-rv-authorised|flemington|1100": {
+        "early": {
+          "median": 19.68,
+          "scale": 0.31134600000000123
+        },
+        "late": {
+          "median": 23.049999999999997,
+          "scale": 0.6671700000000041
+        },
+        "middle": {
+          "median": 21.655,
+          "scale": 0.3632370000000015
+        },
+        "n": 55
+      },
+      "racing-com-rv-authorised|flemington|1200": {
+        "early": {
+          "median": 25.45,
+          "scale": 0.4744320000000004
+        },
+        "late": {
+          "median": 23.25,
+          "scale": 0.5189100000000021
+        },
+        "middle": {
+          "median": 21.994999999999997,
+          "scale": 0.43736699999999196
+        },
+        "n": 71
+      },
+      "racing-com-rv-authorised|flemington|1400": {
+        "early": {
+          "median": 37.5325,
+          "scale": 0.782071500000005
+        },
+        "late": {
+          "median": 23.38,
+          "scale": 0.7264740000000003
+        },
+        "middle": {
+          "median": 22.895,
+          "scale": 0.4003019999999993
+        },
+        "n": 76
+      },
+      "racing-com-rv-authorised|flemington|1600": {
+        "early": {
+          "median": 50.5325,
+          "scale": 1.1008304999999943
+        },
+        "late": {
+          "median": 23.5775,
+          "scale": 0.7931910000000002
+        },
+        "middle": {
+          "median": 23.005000000000003,
+          "scale": 0.4966709999999986
+        },
+        "n": 72
+      },
+      "racing-com-rv-authorised|flemington|1800": {
+        "early": {
+          "median": 64.41,
+          "scale": 1.2750359999999992
+        },
+        "late": {
+          "median": 23.59,
+          "scale": 0.6375179999999996
+        },
+        "middle": {
+          "median": 23.285,
+          "scale": 0.3928890000000008
+        },
+        "n": 11
+      },
+      "racing-com-rv-authorised|flemington|2000": {
+        "early": {
+          "median": 76.295,
+          "scale": 1.630860000000002
+        },
+        "late": {
+          "median": 24.235,
+          "scale": 0.9117989999999976
+        },
+        "middle": {
+          "median": 23.4025,
+          "scale": 0.34841100000000175
+        },
+        "n": 46
+      },
+      "racing-com-rv-authorised|flemington|2500": {
+        "early": {
+          "median": 110.935,
+          "scale": 1.5752625000000104
+        },
+        "late": {
+          "median": 24.0175,
+          "scale": 1.1897864999999976
+        },
+        "middle": {
+          "median": 23.325000000000003,
+          "scale": 0.9340380000000037
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1000": {
+        "early": {
+          "median": 13.7225,
+          "scale": 0.19273799999999852
+        },
+        "late": {
+          "median": 22.705,
+          "scale": 0.555975
+        },
+        "middle": {
+          "median": 21.37,
+          "scale": 0.2520419999999999
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1400": {
+        "early": {
+          "median": 38.765,
+          "scale": 0.9859289999999987
+        },
+        "late": {
+          "median": 23.095,
+          "scale": 1.0081679999999995
+        },
+        "middle": {
+          "median": 23.13,
+          "scale": 0.45960599999999807
+        },
+        "n": 26
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1600": {
+        "early": {
+          "median": 51.605,
+          "scale": 0.704235000000002
+        },
+        "late": {
+          "median": 23.975,
+          "scale": 0.6226919999999972
+        },
+        "middle": {
+          "median": 23.479999999999997,
+          "scale": 0.6375180000000048
+        },
+        "n": 13
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1800": {
+        "early": {
+          "median": 64.57,
+          "scale": 1.0526459999999906
+        },
+        "late": {
+          "median": 23.314999999999998,
+          "scale": 1.0155810000000034
+        },
+        "middle": {
+          "median": 23.18,
+          "scale": 0.19273799999999852
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-lakeside|1000": {
+        "early": {
+          "median": 13.71,
+          "scale": 0.19273800000000116
+        },
+        "late": {
+          "median": 22.24,
+          "scale": 0.4151279999999964
+        },
+        "middle": {
+          "median": 21.04,
+          "scale": 0.3261719999999983
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|the-valley|1000": {
+        "early": {
+          "median": 13.4375,
+          "scale": 0.20015099999999966
+        },
+        "late": {
+          "median": 23.4225,
+          "scale": 0.4410734999999991
+        },
+        "middle": {
+          "median": 22.13,
+          "scale": 0.6968220000000009
+        },
+        "n": 22
+      },
+      "racing-com-rv-authorised|the-valley|1200": {
+        "early": {
+          "median": 24.67,
+          "scale": 0.429954000000004
+        },
+        "late": {
+          "median": 23.92,
+          "scale": 0.8450820000000003
+        },
+        "middle": {
+          "median": 23.04,
+          "scale": 0.4744320000000004
+        },
+        "n": 55
+      },
+      "racing-com-rv-authorised|the-valley|1600": {
+        "early": {
+          "median": 49.3025,
+          "scale": 0.9043859999999991
+        },
+        "late": {
+          "median": 24.41,
+          "scale": 0.5596815000000018
+        },
+        "middle": {
+          "median": 23.7075,
+          "scale": 0.5189099999999994
+        },
+        "n": 32
+      },
+      "racing-com-rv-authorised|the-valley|2040": {
+        "early": {
+          "median": 78.25,
+          "scale": 1.8087719999999983
+        },
+        "late": {
+          "median": 24.335,
+          "scale": 0.8673210000000012
+        },
+        "middle": {
+          "median": 23.71,
+          "scale": 0.34099800000000063
+        },
+        "n": 25
+      }
+    },
+    "track_distance_going": {
+      "racing-com-nsw-authorised-v2|randwick|1000|good": {
+        "early": {
+          "median": 13.47,
+          "scale": 0.2223900000000005
+        },
+        "late": {
+          "median": 22.990000000000002,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 21.66,
+          "scale": 0.32617200000000357
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|randwick|1000|soft": {
+        "early": {
+          "median": 13.6,
+          "scale": 0.15567300000000062
+        },
+        "late": {
+          "median": 23.45,
+          "scale": 0.5485620000000014
+        },
+        "middle": {
+          "median": 21.78,
+          "scale": 0.5633880000000038
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|good": {
+        "early": {
+          "median": 24.5,
+          "scale": 0.4558994999999988
+        },
+        "late": {
+          "median": 23.11,
+          "scale": 0.7413
+        },
+        "middle": {
+          "median": 22.4675,
+          "scale": 0.46331249999999735
+        },
+        "n": 48
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|heavy": {
+        "early": {
+          "median": 25.7425,
+          "scale": 0.1186080000000001
+        },
+        "late": {
+          "median": 24.7875,
+          "scale": 1.208319000000002
+        },
+        "middle": {
+          "median": 23.355,
+          "scale": 0.307639500000002
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|soft": {
+        "early": {
+          "median": 24.91,
+          "scale": 0.6375179999999996
+        },
+        "late": {
+          "median": 23.585,
+          "scale": 0.941450999999997
+        },
+        "middle": {
+          "median": 22.724999999999998,
+          "scale": 0.5559750000000052
+        },
+        "n": 25
+      },
+      "racing-com-nsw-authorised-v2|randwick|1300|soft": {
+        "early": {
+          "median": 22.8525,
+          "scale": 0.5930400000000031
+        },
+        "late": {
+          "median": 24.31,
+          "scale": 0.555975
+        },
+        "middle": {
+          "median": 23.650000000000002,
+          "scale": 0.30763949999999934
+        },
+        "n": 8
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|good": {
+        "early": {
+          "median": 22.865,
+          "scale": 1.2750359999999938
+        },
+        "late": {
+          "median": 22.895,
+          "scale": 0.7338870000000014
+        },
+        "middle": {
+          "median": 23.174999999999997,
+          "scale": 0.6745829999999974
+        },
+        "n": 27
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|heavy": {
+        "early": {
+          "median": 24.240000000000002,
+          "scale": 0.4373670000000025
+        },
+        "late": {
+          "median": 25.615000000000002,
+          "scale": 0.9266249999999999
+        },
+        "middle": {
+          "median": 24.67,
+          "scale": 0.6968219999999983
+        },
+        "n": 9
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|soft": {
+        "early": {
+          "median": 23.1425,
+          "scale": 0.7709519999999993
+        },
+        "late": {
+          "median": 23.927500000000002,
+          "scale": 0.9525705000000027
+        },
+        "middle": {
+          "median": 23.4875,
+          "scale": 0.7338869999999962
+        },
+        "n": 30
+      },
+      "racing-com-nsw-authorised-v2|randwick|1600|good": {
+        "early": {
+          "median": 24.37,
+          "scale": 1.9273799999999983
+        },
+        "late": {
+          "median": 23.1325,
+          "scale": 0.722767500000001
+        },
+        "middle": {
+          "median": 22.8375,
+          "scale": 0.46701900000000185
+        },
+        "n": 14
+      },
+      "racing-com-nsw-authorised-v2|randwick|1600|soft": {
+        "early": {
+          "median": 24.845,
+          "scale": 0.6189855000000006
+        },
+        "late": {
+          "median": 24.9475,
+          "scale": 0.9117990000000029
+        },
+        "middle": {
+          "median": 24.1175,
+          "scale": 0.7264740000000003
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|randwick|2000|good": {
+        "early": {
+          "median": 24.240000000000002,
+          "scale": 1.245384000000005
+        },
+        "late": {
+          "median": 24.049999999999997,
+          "scale": 0.8228429999999942
+        },
+        "middle": {
+          "median": 22.955000000000002,
+          "scale": 0.5411489999999977
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|randwick|2000|soft": {
+        "early": {
+          "median": 25.43,
+          "scale": 1.1934929999999995
+        },
+        "late": {
+          "median": 24.14,
+          "scale": 0.9266249999999999
+        },
+        "middle": {
+          "median": 23.485,
+          "scale": 0.7413
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|good": {
+        "early": {
+          "median": 24.78,
+          "scale": 0.5189100000000021
+        },
+        "late": {
+          "median": 22.77,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 22.689999999999998,
+          "scale": 0.4447800000000063
+        },
+        "n": 27
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|heavy": {
+        "early": {
+          "median": 26.095,
+          "scale": 0.3224654999999964
+        },
+        "late": {
+          "median": 23.9325,
+          "scale": 0.2631615000000003
+        },
+        "middle": {
+          "median": 24.020000000000003,
+          "scale": 0.2557484999999965
+        },
+        "n": 10
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|soft": {
+        "early": {
+          "median": 25.2075,
+          "scale": 0.29652000000000156
+        },
+        "late": {
+          "median": 23.244999999999997,
+          "scale": 0.6708765000000008
+        },
+        "middle": {
+          "median": 23.26,
+          "scale": 0.32617200000000357
+        },
+        "n": 28
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1300|good": {
+        "early": {
+          "median": 23.43,
+          "scale": 1.089710999999999
+        },
+        "late": {
+          "median": 23.105,
+          "scale": 0.7931910000000002
+        },
+        "middle": {
+          "median": 23.009999999999998,
+          "scale": 0.9859290000000039
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1300|heavy": {
+        "early": {
+          "median": 23.335,
+          "scale": 1.149014999999998
+        },
+        "late": {
+          "median": 24.09,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 23.795,
+          "scale": 0.3632370000000015
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1300|soft": {
+        "early": {
+          "median": 23.1525,
+          "scale": 0.7524195000000004
+        },
+        "late": {
+          "median": 23.64,
+          "scale": 0.7894845000000009
+        },
+        "middle": {
+          "median": 23.525,
+          "scale": 0.38918250000000154
+        },
+        "n": 18
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|good": {
+        "early": {
+          "median": 23.0375,
+          "scale": 0.8117234999999965
+        },
+        "late": {
+          "median": 23.25,
+          "scale": 0.5077905000000017
+        },
+        "middle": {
+          "median": 23.2,
+          "scale": 0.4855514999999982
+        },
+        "n": 16
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|heavy": {
+        "early": {
+          "median": 24.24,
+          "scale": 0.3780629999999985
+        },
+        "late": {
+          "median": 23.545,
+          "scale": 0.8302559999999928
+        },
+        "middle": {
+          "median": 23.98,
+          "scale": 0.6523440000000018
+        },
+        "n": 9
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|soft": {
+        "early": {
+          "median": 23.48,
+          "scale": 0.5114970000000035
+        },
+        "late": {
+          "median": 23.380000000000003,
+          "scale": 0.45960600000000335
+        },
+        "middle": {
+          "median": 23.215,
+          "scale": 0.42254100000000017
+        },
+        "n": 29
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1500|good": {
+        "early": {
+          "median": 24.91,
+          "scale": 0.7412999999999947
+        },
+        "late": {
+          "median": 23.53,
+          "scale": 1.3046880000000036
+        },
+        "middle": {
+          "median": 23.64,
+          "scale": 0.6968219999999983
+        },
+        "n": 17
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2000|good": {
+        "early": {
+          "median": 25.095,
+          "scale": 0.7672455000000027
+        },
+        "late": {
+          "median": 23.805,
+          "scale": 1.167547500000002
+        },
+        "middle": {
+          "median": 23.5,
+          "scale": 0.7746585000000012
+        },
+        "n": 10
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2000|heavy": {
+        "early": {
+          "median": 25.985,
+          "scale": 0.4670189999999966
+        },
+        "late": {
+          "median": 24.12,
+          "scale": 0.5337359999999991
+        },
+        "middle": {
+          "median": 24.015,
+          "scale": 0.17049900000000295
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2000|soft": {
+        "early": {
+          "median": 25.165,
+          "scale": 0.5411489999999977
+        },
+        "late": {
+          "median": 23.924999999999997,
+          "scale": 0.37065000000000525
+        },
+        "middle": {
+          "median": 23.909999999999997,
+          "scale": 0.6449309999999928
+        },
+        "n": 11
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2400|soft": {
+        "early": {
+          "median": 25.925,
+          "scale": 0.8524949999999989
+        },
+        "late": {
+          "median": 23.705,
+          "scale": 0.5337359999999991
+        },
+        "middle": {
+          "median": 23.2575,
+          "scale": 0.5152035000000001
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|caulfield-heath|1200|good": {
+        "early": {
+          "median": 24.35,
+          "scale": 0.5226165000000014
+        },
+        "late": {
+          "median": 23.342499999999998,
+          "scale": 0.25204199999999727
+        },
+        "middle": {
+          "median": 22.42,
+          "scale": 0.1
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|caulfield|1000|good": {
+        "early": {
+          "median": 13.39,
+          "scale": 0.20756400000000083
+        },
+        "late": {
+          "median": 22.865000000000002,
+          "scale": 0.4521930000000022
+        },
+        "middle": {
+          "median": 21.695,
+          "scale": 0.5411490000000003
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|caulfield|1000|soft": {
+        "early": {
+          "median": 13.495000000000001,
+          "scale": 0.16308599999999915
+        },
+        "late": {
+          "median": 23.715000000000003,
+          "scale": 0.4818450000000042
+        },
+        "middle": {
+          "median": 22.055,
+          "scale": 0.34841099999999914
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|caulfield|1100|good": {
+        "early": {
+          "median": 18.79,
+          "scale": 0.37065
+        },
+        "late": {
+          "median": 22.955,
+          "scale": 0.3854760000000076
+        },
+        "middle": {
+          "median": 22.045,
+          "scale": 0.4373670000000025
+        },
+        "n": 55
+      },
+      "racing-com-rv-authorised|caulfield|1100|soft": {
+        "early": {
+          "median": 19.145000000000003,
+          "scale": 0.429954000000004
+        },
+        "late": {
+          "median": 23.765,
+          "scale": 0.6301049999999957
+        },
+        "middle": {
+          "median": 22.46,
+          "scale": 0.29651999999999895
+        },
+        "n": 29
+      },
+      "racing-com-rv-authorised|caulfield|1200|good": {
+        "early": {
+          "median": 24.66,
+          "scale": 0.41512800000000166
+        },
+        "late": {
+          "median": 23.22,
+          "scale": 0.44477999999999573
+        },
+        "middle": {
+          "median": 22.37,
+          "scale": 0.34099800000000063
+        },
+        "n": 67
+      },
+      "racing-com-rv-authorised|caulfield|1200|soft": {
+        "early": {
+          "median": 24.995,
+          "scale": 0.6857025000000004
+        },
+        "late": {
+          "median": 23.810000000000002,
+          "scale": 0.6931154999999963
+        },
+        "middle": {
+          "median": 22.915,
+          "scale": 0.38547599999999704
+        },
+        "n": 22
+      },
+      "racing-com-rv-authorised|caulfield|1400|good": {
+        "early": {
+          "median": 37.295,
+          "scale": 0.8080170000000025
+        },
+        "late": {
+          "median": 23.3875,
+          "scale": 0.526322999999998
+        },
+        "middle": {
+          "median": 23.125,
+          "scale": 0.4855515000000008
+        },
+        "n": 90
+      },
+      "racing-com-rv-authorised|caulfield|1400|soft": {
+        "early": {
+          "median": 37.715,
+          "scale": 0.7783649999999979
+        },
+        "late": {
+          "median": 24.299999999999997,
+          "scale": 1.1082435000000006
+        },
+        "middle": {
+          "median": 23.8325,
+          "scale": 0.6115724999999994
+        },
+        "n": 32
+      },
+      "racing-com-rv-authorised|caulfield|1600|good": {
+        "early": {
+          "median": 50.665,
+          "scale": 1.4603609999999991
+        },
+        "late": {
+          "median": 23.73,
+          "scale": 0.7338870000000014
+        },
+        "middle": {
+          "median": 23.46,
+          "scale": 0.37806300000000376
+        },
+        "n": 49
+      },
+      "racing-com-rv-authorised|caulfield|1600|soft": {
+        "early": {
+          "median": 51.379999999999995,
+          "scale": 1.497425999999997
+        },
+        "late": {
+          "median": 24.502499999999998,
+          "scale": 0.9970485000000043
+        },
+        "middle": {
+          "median": 23.89,
+          "scale": 0.6078660000000001
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|caulfield|1700|good": {
+        "early": {
+          "median": 56.995000000000005,
+          "scale": 0.2965199999999937
+        },
+        "late": {
+          "median": 23.9025,
+          "scale": 0.41512800000000166
+        },
+        "middle": {
+          "median": 23.9775,
+          "scale": 0.21868350000000125
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|caulfield|1800|good": {
+        "early": {
+          "median": 63.05500000000001,
+          "scale": 0.7375934999999876
+        },
+        "late": {
+          "median": 24.0,
+          "scale": 0.9155054999999995
+        },
+        "middle": {
+          "median": 23.345,
+          "scale": 0.3187590000000024
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|caulfield|1800|soft": {
+        "early": {
+          "median": 64.6,
+          "scale": 0.8302559999999822
+        },
+        "late": {
+          "median": 24.205,
+          "scale": 0.25945500000000105
+        },
+        "middle": {
+          "median": 23.57,
+          "scale": 0.41512800000000166
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|caulfield|2000|good": {
+        "early": {
+          "median": 76.225,
+          "scale": 1.4900129999999931
+        },
+        "late": {
+          "median": 24.1,
+          "scale": 0.6523439999999966
+        },
+        "middle": {
+          "median": 23.29,
+          "scale": 0.45219299999999957
+        },
+        "n": 39
+      },
+      "racing-com-rv-authorised|caulfield|2000|soft": {
+        "early": {
+          "median": 77.7475,
+          "scale": 1.286155499999989
+        },
+        "late": {
+          "median": 24.915,
+          "scale": 0.6078660000000001
+        },
+        "middle": {
+          "median": 24.015,
+          "scale": 0.6671699999999989
+        },
+        "n": 20
+      },
+      "racing-com-rv-authorised|caulfield|2400|good": {
+        "early": {
+          "median": 103.91999999999999,
+          "scale": 3.1950030000000016
+        },
+        "late": {
+          "median": 24.1,
+          "scale": 0.46331249999999996
+        },
+        "middle": {
+          "median": 23.0775,
+          "scale": 0.5967464999999997
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|caulfield|2400|soft": {
+        "early": {
+          "median": 104.025,
+          "scale": 1.3528725000000021
+        },
+        "late": {
+          "median": 24.83,
+          "scale": 0.5856269999999993
+        },
+        "middle": {
+          "median": 23.9725,
+          "scale": 0.7190609999999991
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|flemington|1000|good": {
+        "early": {
+          "median": 14.04,
+          "scale": 0.22238999999999787
+        },
+        "late": {
+          "median": 22.43,
+          "scale": 0.5040839999999998
+        },
+        "middle": {
+          "median": 21.625,
+          "scale": 0.34841099999999914
+        },
+        "n": 23
+      },
+      "racing-com-rv-authorised|flemington|1000|soft": {
+        "early": {
+          "median": 14.055,
+          "scale": 0.2520419999999999
+        },
+        "late": {
+          "median": 23.53,
+          "scale": 0.45960600000000335
+        },
+        "middle": {
+          "median": 21.895,
+          "scale": 0.49667100000000125
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|flemington|1100|good": {
+        "early": {
+          "median": 19.64,
+          "scale": 0.3669434999999981
+        },
+        "late": {
+          "median": 22.9575,
+          "scale": 0.6523439999999993
+        },
+        "middle": {
+          "median": 21.61,
+          "scale": 0.3187589999999998
+        },
+        "n": 44
+      },
+      "racing-com-rv-authorised|flemington|1100|soft": {
+        "early": {
+          "median": 19.805,
+          "scale": 0.185325
+        },
+        "late": {
+          "median": 23.785,
+          "scale": 0.8747339999999998
+        },
+        "middle": {
+          "median": 22.09,
+          "scale": 0.4299539999999987
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|flemington|1200|good": {
+        "early": {
+          "median": 25.29,
+          "scale": 0.49296450000000197
+        },
+        "late": {
+          "median": 23.125,
+          "scale": 0.41883450000000094
+        },
+        "middle": {
+          "median": 21.802500000000002,
+          "scale": 0.35953049999999953
+        },
+        "n": 48
+      },
+      "racing-com-rv-authorised|flemington|1200|soft": {
+        "early": {
+          "median": 25.65,
+          "scale": 0.1927380000000038
+        },
+        "late": {
+          "median": 23.42,
+          "scale": 0.4003019999999993
+        },
+        "middle": {
+          "median": 22.31,
+          "scale": 0.3558240000000029
+        },
+        "n": 19
+      },
+      "racing-com-rv-authorised|flemington|1400|good": {
+        "early": {
+          "median": 37.44,
+          "scale": 0.7709520000000046
+        },
+        "late": {
+          "median": 23.1125,
+          "scale": 0.6301049999999984
+        },
+        "middle": {
+          "median": 22.737499999999997,
+          "scale": 0.3521175000000063
+        },
+        "n": 56
+      },
+      "racing-com-rv-authorised|flemington|1400|soft": {
+        "early": {
+          "median": 37.47,
+          "scale": 0.6671700000000041
+        },
+        "late": {
+          "median": 24.02,
+          "scale": 0.8376690000000019
+        },
+        "middle": {
+          "median": 23.055,
+          "scale": 0.34099800000000063
+        },
+        "n": 17
+      },
+      "racing-com-rv-authorised|flemington|1600|good": {
+        "early": {
+          "median": 50.36,
+          "scale": 0.8599079999999975
+        },
+        "late": {
+          "median": 23.33,
+          "scale": 0.6226920000000025
+        },
+        "middle": {
+          "median": 22.93,
+          "scale": 0.41512800000000166
+        },
+        "n": 51
+      },
+      "racing-com-rv-authorised|flemington|1600|soft": {
+        "early": {
+          "median": 50.715,
+          "scale": 1.0600589999999996
+        },
+        "late": {
+          "median": 24.197499999999998,
+          "scale": 0.6263985000000017
+        },
+        "middle": {
+          "median": 23.295,
+          "scale": 0.4670190000000045
+        },
+        "n": 18
+      },
+      "racing-com-rv-authorised|flemington|1800|good": {
+        "early": {
+          "median": 63.745000000000005,
+          "scale": 0.956276999999994
+        },
+        "late": {
+          "median": 23.575,
+          "scale": 0.5782139999999982
+        },
+        "middle": {
+          "median": 23.1875,
+          "scale": 0.43736699999999723
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|flemington|2000|good": {
+        "early": {
+          "median": 76.14750000000001,
+          "scale": 1.6419795000000024
+        },
+        "late": {
+          "median": 23.925,
+          "scale": 0.815430000000001
+        },
+        "middle": {
+          "median": 23.37,
+          "scale": 0.3261719999999983
+        },
+        "n": 36
+      },
+      "racing-com-rv-authorised|flemington|2000|soft": {
+        "early": {
+          "median": 76.05,
+          "scale": 0.5263230000000059
+        },
+        "late": {
+          "median": 24.655,
+          "scale": 0.5040840000000051
+        },
+        "middle": {
+          "median": 23.16,
+          "scale": 0.26686799999999955
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|flemington|2500|good": {
+        "early": {
+          "median": 110.81,
+          "scale": 2.4314640000000005
+        },
+        "late": {
+          "median": 24.015,
+          "scale": 1.1860799999999958
+        },
+        "middle": {
+          "median": 22.87,
+          "scale": 0.6745830000000027
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1000|soft": {
+        "early": {
+          "median": 13.7,
+          "scale": 0.17049899999999768
+        },
+        "late": {
+          "median": 22.835,
+          "scale": 0.5708010000000023
+        },
+        "middle": {
+          "median": 21.39,
+          "scale": 0.2372160000000002
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1400|good": {
+        "early": {
+          "median": 38.974999999999994,
+          "scale": 1.1267760000000075
+        },
+        "late": {
+          "median": 22.95,
+          "scale": 1.0229939999999966
+        },
+        "middle": {
+          "median": 22.935,
+          "scale": 0.37806300000000376
+        },
+        "n": 13
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1400|soft": {
+        "early": {
+          "median": 38.60249999999999,
+          "scale": 0.9155054999999995
+        },
+        "late": {
+          "median": 23.6725,
+          "scale": 0.8562014999999982
+        },
+        "middle": {
+          "median": 23.229999999999997,
+          "scale": 0.3335850000000021
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1600|soft": {
+        "early": {
+          "median": 51.5725,
+          "scale": 0.9340380000000037
+        },
+        "late": {
+          "median": 24.0075,
+          "scale": 0.5337359999999991
+        },
+        "middle": {
+          "median": 23.6625,
+          "scale": 0.8858535000000028
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1800|good": {
+        "early": {
+          "median": 64.57,
+          "scale": 1.0526459999999906
+        },
+        "late": {
+          "median": 22.93,
+          "scale": 0.570800999999997
+        },
+        "middle": {
+          "median": 23.08,
+          "scale": 0.20015099999999703
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-lakeside|1000|good": {
+        "early": {
+          "median": 13.71,
+          "scale": 0.19273800000000116
+        },
+        "late": {
+          "median": 22.24,
+          "scale": 0.4151279999999964
+        },
+        "middle": {
+          "median": 21.04,
+          "scale": 0.3261719999999983
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|the-valley|1000|good": {
+        "early": {
+          "median": 13.41,
+          "scale": 0.185325
+        },
+        "late": {
+          "median": 23.21,
+          "scale": 0.3261719999999983
+        },
+        "middle": {
+          "median": 21.7,
+          "scale": 0.37065
+        },
+        "n": 13
+      },
+      "racing-com-rv-authorised|the-valley|1000|soft": {
+        "early": {
+          "median": 13.465,
+          "scale": 0.14825999999999948
+        },
+        "late": {
+          "median": 24.035,
+          "scale": 0.5114969999999983
+        },
+        "middle": {
+          "median": 22.59,
+          "scale": 0.15567300000000062
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|the-valley|1200|good": {
+        "early": {
+          "median": 24.4925,
+          "scale": 0.38547599999999965
+        },
+        "late": {
+          "median": 23.6925,
+          "scale": 0.5819204999999974
+        },
+        "middle": {
+          "median": 22.8925,
+          "scale": 0.4558994999999988
+        },
+        "n": 40
+      },
+      "racing-com-rv-authorised|the-valley|1200|soft": {
+        "early": {
+          "median": 25.04,
+          "scale": 0.32617200000000357
+        },
+        "late": {
+          "median": 24.825,
+          "scale": 0.4818449999999989
+        },
+        "middle": {
+          "median": 23.43,
+          "scale": 0.34099799999999536
+        },
+        "n": 15
+      },
+      "racing-com-rv-authorised|the-valley|1600|good": {
+        "early": {
+          "median": 49.225,
+          "scale": 0.9933419999999972
+        },
+        "late": {
+          "median": 24.17,
+          "scale": 0.5337360000000018
+        },
+        "middle": {
+          "median": 23.595,
+          "scale": 0.46701899999999924
+        },
+        "n": 26
+      },
+      "racing-com-rv-authorised|the-valley|1600|soft": {
+        "early": {
+          "median": 49.542500000000004,
+          "scale": 0.34099799999999536
+        },
+        "late": {
+          "median": 25.815,
+          "scale": 0.9562769999999967
+        },
+        "middle": {
+          "median": 24.494999999999997,
+          "scale": 0.16308600000000179
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|the-valley|2040|good": {
+        "early": {
+          "median": 78.25,
+          "scale": 1.8384239999999923
+        },
+        "late": {
+          "median": 24.23,
+          "scale": 0.7487129999999985
+        },
+        "middle": {
+          "median": 23.68,
+          "scale": 0.29651999999999895
+        },
+        "n": 23
+      }
+    },
+    "track_distance_going_rail": {
+      "racing-com-nsw-authorised-v2|randwick|1000|good|true": {
+        "early": {
+          "median": 13.47,
+          "scale": 0.8524949999999989
+        },
+        "late": {
+          "median": 23.22,
+          "scale": 1.11195
+        },
+        "middle": {
+          "median": 21.69,
+          "scale": 0.815430000000001
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|good|out_1_3m": {
+        "early": {
+          "median": 24.71,
+          "scale": 0.2446289999999987
+        },
+        "late": {
+          "median": 22.57,
+          "scale": 0.4003019999999993
+        },
+        "middle": {
+          "median": 22.205,
+          "scale": 0.2891070000000004
+        },
+        "n": 9
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|good|out_4_6m": {
+        "early": {
+          "median": 24.5,
+          "scale": 0.34470449999999986
+        },
+        "late": {
+          "median": 23.21,
+          "scale": 0.8599080000000027
+        },
+        "middle": {
+          "median": 22.6575,
+          "scale": 0.42254100000000017
+        },
+        "n": 18
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|good|out_7m_plus": {
+        "early": {
+          "median": 24.259999999999998,
+          "scale": 0.9192120000000015
+        },
+        "late": {
+          "median": 23.225,
+          "scale": 0.6894089999999945
+        },
+        "middle": {
+          "median": 22.54,
+          "scale": 0.5633879999999984
+        },
+        "n": 11
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|good|true": {
+        "early": {
+          "median": 24.5325,
+          "scale": 0.5003774999999978
+        },
+        "late": {
+          "median": 23.16,
+          "scale": 0.971102999999999
+        },
+        "middle": {
+          "median": 22.44,
+          "scale": 0.4670190000000045
+        },
+        "n": 10
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|soft|out_7m_plus": {
+        "early": {
+          "median": 24.895000000000003,
+          "scale": 0.4818450000000042
+        },
+        "late": {
+          "median": 24.045,
+          "scale": 0.8599079999999975
+        },
+        "middle": {
+          "median": 22.82,
+          "scale": 0.615279000000004
+        },
+        "n": 8
+      },
+      "racing-com-nsw-authorised-v2|randwick|1200|soft|true": {
+        "early": {
+          "median": 25.08,
+          "scale": 0.6745829999999974
+        },
+        "late": {
+          "median": 23.39,
+          "scale": 0.6523439999999966
+        },
+        "middle": {
+          "median": 22.560000000000002,
+          "scale": 0.5930400000000031
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|randwick|1300|soft|out_7m_plus": {
+        "early": {
+          "median": 22.900000000000002,
+          "scale": 0.6819960000000065
+        },
+        "late": {
+          "median": 24.64,
+          "scale": 0.7783650000000031
+        },
+        "middle": {
+          "median": 23.630000000000003,
+          "scale": 0.1
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|good|out_1_3m": {
+        "early": {
+          "median": 22.46,
+          "scale": 0.6745829999999974
+        },
+        "late": {
+          "median": 22.64,
+          "scale": 0.20756400000000083
+        },
+        "middle": {
+          "median": 22.979999999999997,
+          "scale": 0.40030199999999405
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|good|out_4_6m": {
+        "early": {
+          "median": 22.9,
+          "scale": 0.1
+        },
+        "late": {
+          "median": 22.895,
+          "scale": 0.9117989999999976
+        },
+        "middle": {
+          "median": 23.43,
+          "scale": 0.20756400000000083
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|good|out_7m_plus": {
+        "early": {
+          "median": 22.939999999999998,
+          "scale": 1.7642940000000018
+        },
+        "late": {
+          "median": 23.04,
+          "scale": 0.7857780000000016
+        },
+        "middle": {
+          "median": 22.975,
+          "scale": 0.6523440000000018
+        },
+        "n": 12
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|good|true": {
+        "early": {
+          "median": 22.165,
+          "scale": 0.6745829999999974
+        },
+        "late": {
+          "median": 22.86,
+          "scale": 1.245384000000005
+        },
+        "middle": {
+          "median": 23.174999999999997,
+          "scale": 1.2527970000000035
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|heavy|out_7m_plus": {
+        "early": {
+          "median": 24.29,
+          "scale": 0.5040840000000051
+        },
+        "late": {
+          "median": 25.615000000000002,
+          "scale": 0.9266249999999999
+        },
+        "middle": {
+          "median": 25.08,
+          "scale": 0.41512800000000166
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|soft|out_4_6m": {
+        "early": {
+          "median": 23.25,
+          "scale": 0.7709520000000046
+        },
+        "late": {
+          "median": 23.294999999999998,
+          "scale": 0.4966710000000065
+        },
+        "middle": {
+          "median": 23.34,
+          "scale": 0.444780000000001
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|soft|out_7m_plus": {
+        "early": {
+          "median": 22.94,
+          "scale": 0.5226165000000039
+        },
+        "late": {
+          "median": 24.15,
+          "scale": 0.8339624999999999
+        },
+        "middle": {
+          "median": 23.6125,
+          "scale": 0.6078659999999976
+        },
+        "n": 16
+      },
+      "racing-com-nsw-authorised-v2|randwick|1400|soft|true": {
+        "early": {
+          "median": 23.615,
+          "scale": 0.6523439999999966
+        },
+        "late": {
+          "median": 23.88,
+          "scale": 2.364746999999998
+        },
+        "middle": {
+          "median": 23.189999999999998,
+          "scale": 0.9266249999999999
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|randwick|1600|good|out_4_6m": {
+        "early": {
+          "median": 23.48,
+          "scale": 2.446290000000003
+        },
+        "late": {
+          "median": 23.64,
+          "scale": 1.7939460000000012
+        },
+        "middle": {
+          "median": 22.87,
+          "scale": 0.4892580000000027
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|2000|good|out_1_3m": {
+        "early": {
+          "median": 24.0,
+          "scale": 0.6523439999999966
+        },
+        "late": {
+          "median": 24.18,
+          "scale": 0.9192120000000015
+        },
+        "middle": {
+          "median": 22.91,
+          "scale": 1.2453839999999998
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|randwick|2000|good|out_7m_plus": {
+        "early": {
+          "median": 24.39,
+          "scale": 0.9192120000000015
+        },
+        "late": {
+          "median": 24.049999999999997,
+          "scale": 0.4299539999999987
+        },
+        "middle": {
+          "median": 22.955000000000002,
+          "scale": 0.2446289999999987
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|good|out_1_3m": {
+        "early": {
+          "median": 24.77,
+          "scale": 0.3298785000000002
+        },
+        "late": {
+          "median": 22.619999999999997,
+          "scale": 0.5226164999999987
+        },
+        "middle": {
+          "median": 22.645000000000003,
+          "scale": 0.34099800000000063
+        },
+        "n": 12
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|good|out_4_6m": {
+        "early": {
+          "median": 24.74,
+          "scale": 0.4003019999999993
+        },
+        "late": {
+          "median": 22.31,
+          "scale": 0.19273799999999852
+        },
+        "middle": {
+          "median": 22.8,
+          "scale": 0.22239000000000314
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|good|true": {
+        "early": {
+          "median": 24.43,
+          "scale": 2.0089230000000007
+        },
+        "late": {
+          "median": 23.259999999999998,
+          "scale": 1.801359000000005
+        },
+        "middle": {
+          "median": 22.8,
+          "scale": 0.49667100000000125
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|heavy|out_4_6m": {
+        "early": {
+          "median": 25.905,
+          "scale": 0.11119499999999893
+        },
+        "late": {
+          "median": 24.095000000000002,
+          "scale": 0.3632370000000015
+        },
+        "middle": {
+          "median": 23.9,
+          "scale": 0.4892580000000027
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|soft|out_1_3m": {
+        "early": {
+          "median": 25.2475,
+          "scale": 0.2816939999999966
+        },
+        "late": {
+          "median": 23.24,
+          "scale": 0.6708765000000008
+        },
+        "middle": {
+          "median": 23.1825,
+          "scale": 0.32987850000000285
+        },
+        "n": 10
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|soft|out_7m_plus": {
+        "early": {
+          "median": 25.020000000000003,
+          "scale": 0.48925800000000796
+        },
+        "late": {
+          "median": 23.6,
+          "scale": 0.3854760000000023
+        },
+        "middle": {
+          "median": 23.23,
+          "scale": 0.35582399999999764
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1200|soft|true": {
+        "early": {
+          "median": 25.259999999999998,
+          "scale": 0.2816940000000019
+        },
+        "late": {
+          "median": 22.83,
+          "scale": 0.756125999999997
+        },
+        "middle": {
+          "median": 23.450000000000003,
+          "scale": 0.20756400000000083
+        },
+        "n": 9
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1300|good|true": {
+        "early": {
+          "median": 23.07,
+          "scale": 0.796897500000002
+        },
+        "late": {
+          "median": 22.659999999999997,
+          "scale": 0.5819205000000001
+        },
+        "middle": {
+          "median": 22.965,
+          "scale": 0.9599835000000012
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1300|soft|out_1_3m": {
+        "early": {
+          "median": 22.7675,
+          "scale": 0.6819960000000013
+        },
+        "late": {
+          "median": 23.715,
+          "scale": 0.678289500000002
+        },
+        "middle": {
+          "median": 23.5625,
+          "scale": 0.33358499999999947
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1300|soft|true": {
+        "early": {
+          "median": 23.259999999999998,
+          "scale": 0.5782140000000008
+        },
+        "late": {
+          "median": 23.729999999999997,
+          "scale": 0.9636899999999978
+        },
+        "middle": {
+          "median": 23.56,
+          "scale": 1.0822980000000006
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|good|out_4_6m": {
+        "early": {
+          "median": 22.9225,
+          "scale": 1.0267005000000011
+        },
+        "late": {
+          "median": 23.049999999999997,
+          "scale": 0.6004529999999964
+        },
+        "middle": {
+          "median": 23.125,
+          "scale": 0.24092249999999946
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|soft|out_1_3m": {
+        "early": {
+          "median": 23.48,
+          "scale": 0.3261719999999983
+        },
+        "late": {
+          "median": 23.56,
+          "scale": 0.35582399999999764
+        },
+        "middle": {
+          "median": 23.259999999999998,
+          "scale": 0.3558240000000029
+        },
+        "n": 7
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|soft|out_4_6m": {
+        "early": {
+          "median": 23.515,
+          "scale": 2.6612670000000023
+        },
+        "late": {
+          "median": 24.28,
+          "scale": 0.7116479999999953
+        },
+        "middle": {
+          "median": 23.165,
+          "scale": 0.3928890000000008
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|soft|out_7m_plus": {
+        "early": {
+          "median": 23.18,
+          "scale": 0.1482600000000021
+        },
+        "late": {
+          "median": 23.439999999999998,
+          "scale": 0.3261719999999983
+        },
+        "middle": {
+          "median": 23.72,
+          "scale": 0.5633880000000038
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1400|soft|true": {
+        "early": {
+          "median": 23.740000000000002,
+          "scale": 0.5411490000000003
+        },
+        "late": {
+          "median": 23.130000000000003,
+          "scale": 0.3632370000000015
+        },
+        "middle": {
+          "median": 23.195,
+          "scale": 0.34099800000000063
+        },
+        "n": 12
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1500|good|out_1_3m": {
+        "early": {
+          "median": 25.225,
+          "scale": 0.5040839999999971
+        },
+        "late": {
+          "median": 23.69,
+          "scale": 0.7672455
+        },
+        "middle": {
+          "median": 23.65,
+          "scale": 0.14825999999999948
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|rosehill|1500|good|true": {
+        "early": {
+          "median": 25.025,
+          "scale": 0.9340380000000011
+        },
+        "late": {
+          "median": 22.855,
+          "scale": 0.6671700000000016
+        },
+        "middle": {
+          "median": 23.259999999999998,
+          "scale": 0.3780629999999959
+        },
+        "n": 6
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2000|good|out_1_3m": {
+        "early": {
+          "median": 25.299999999999997,
+          "scale": 0.4818450000000042
+        },
+        "late": {
+          "median": 23.345,
+          "scale": 0.3928890000000008
+        },
+        "middle": {
+          "median": 23.14,
+          "scale": 0.2891070000000004
+        },
+        "n": 5
+      },
+      "racing-com-nsw-authorised-v2|rosehill|2000|soft|out_1_3m": {
+        "early": {
+          "median": 25.59,
+          "scale": 0.4818449999999989
+        },
+        "late": {
+          "median": 23.744999999999997,
+          "scale": 0.26686799999999955
+        },
+        "middle": {
+          "median": 23.91,
+          "scale": 0.4892580000000027
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|caulfield|1000|soft|out_7m_plus": {
+        "early": {
+          "median": 13.54,
+          "scale": 0.11860800000000274
+        },
+        "late": {
+          "median": 23.39,
+          "scale": 0.5337359999999991
+        },
+        "middle": {
+          "median": 22.055,
+          "scale": 0.34841099999999914
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|caulfield|1100|good|out_4_6m": {
+        "early": {
+          "median": 18.965,
+          "scale": 0.5300294999999973
+        },
+        "late": {
+          "median": 22.9225,
+          "scale": 0.29281349999999967
+        },
+        "middle": {
+          "median": 22.165,
+          "scale": 0.5411489999999977
+        },
+        "n": 16
+      },
+      "racing-com-rv-authorised|caulfield|1100|good|out_7m_plus": {
+        "early": {
+          "median": 18.76,
+          "scale": 0.2742809999999981
+        },
+        "late": {
+          "median": 22.895000000000003,
+          "scale": 0.18532500000000526
+        },
+        "middle": {
+          "median": 21.925,
+          "scale": 0.35582399999999764
+        },
+        "n": 19
+      },
+      "racing-com-rv-authorised|caulfield|1100|good|true": {
+        "early": {
+          "median": 18.82,
+          "scale": 0.41883450000000094
+        },
+        "late": {
+          "median": 23.1525,
+          "scale": 0.34841100000000175
+        },
+        "middle": {
+          "median": 22.104999999999997,
+          "scale": 0.5189099999999942
+        },
+        "n": 18
+      },
+      "racing-com-rv-authorised|caulfield|1100|soft|out_4_6m": {
+        "early": {
+          "median": 19.439999999999998,
+          "scale": 0.185325
+        },
+        "late": {
+          "median": 23.73,
+          "scale": 0.42254100000000017
+        },
+        "middle": {
+          "median": 22.86,
+          "scale": 0.1
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|caulfield|1100|soft|out_7m_plus": {
+        "early": {
+          "median": 19.135,
+          "scale": 0.34099799999999797
+        },
+        "late": {
+          "median": 23.7725,
+          "scale": 0.6486374999999973
+        },
+        "middle": {
+          "median": 22.362499999999997,
+          "scale": 0.2891070000000004
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|caulfield|1100|soft|true": {
+        "early": {
+          "median": 18.855,
+          "scale": 0.444780000000001
+        },
+        "late": {
+          "median": 23.67,
+          "scale": 0.7487130000000037
+        },
+        "middle": {
+          "median": 22.475,
+          "scale": 0.126020999999996
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|caulfield|1200|good|out_4_6m": {
+        "early": {
+          "median": 24.7325,
+          "scale": 0.4262475000000021
+        },
+        "late": {
+          "median": 23.16,
+          "scale": 0.4114214999999998
+        },
+        "middle": {
+          "median": 22.42,
+          "scale": 0.307639500000002
+        },
+        "n": 26
+      },
+      "racing-com-rv-authorised|caulfield|1200|good|out_7m_plus": {
+        "early": {
+          "median": 24.62,
+          "scale": 0.5040839999999998
+        },
+        "late": {
+          "median": 23.305,
+          "scale": 0.3928890000000008
+        },
+        "middle": {
+          "median": 22.314999999999998,
+          "scale": 0.4299539999999987
+        },
+        "n": 19
+      },
+      "racing-com-rv-authorised|caulfield|1200|good|true": {
+        "early": {
+          "median": 24.7575,
+          "scale": 0.29281349999999967
+        },
+        "late": {
+          "median": 23.15,
+          "scale": 0.4818449999999989
+        },
+        "middle": {
+          "median": 22.415,
+          "scale": 0.3187589999999998
+        },
+        "n": 20
+      },
+      "racing-com-rv-authorised|caulfield|1200|soft|out_4_6m": {
+        "early": {
+          "median": 24.92,
+          "scale": 0.34099800000000063
+        },
+        "late": {
+          "median": 24.15,
+          "scale": 1.3565789999999986
+        },
+        "middle": {
+          "median": 22.994999999999997,
+          "scale": 0.11119500000000421
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|caulfield|1200|soft|out_7m_plus": {
+        "early": {
+          "median": 25.2875,
+          "scale": 0.4818449999999989
+        },
+        "late": {
+          "median": 23.740000000000002,
+          "scale": 0.7450065000000019
+        },
+        "middle": {
+          "median": 22.877499999999998,
+          "scale": 0.30022649999999557
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|caulfield|1200|soft|true": {
+        "early": {
+          "median": 24.869999999999997,
+          "scale": 0.704235000000002
+        },
+        "late": {
+          "median": 23.895,
+          "scale": 0.4299539999999987
+        },
+        "middle": {
+          "median": 22.615000000000002,
+          "scale": 0.30393300000000006
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|caulfield|1400|good|out_1_3m": {
+        "early": {
+          "median": 37.06,
+          "scale": 0.6968219999999983
+        },
+        "late": {
+          "median": 23.54,
+          "scale": 0.8006039999999987
+        },
+        "middle": {
+          "median": 23.645,
+          "scale": 0.7783649999999979
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|caulfield|1400|good|out_4_6m": {
+        "early": {
+          "median": 37.41,
+          "scale": 0.5856270000000046
+        },
+        "late": {
+          "median": 23.42,
+          "scale": 0.45219299999999957
+        },
+        "middle": {
+          "median": 23.24,
+          "scale": 0.5559749999999947
+        },
+        "n": 35
+      },
+      "racing-com-rv-authorised|caulfield|1400|good|out_7m_plus": {
+        "early": {
+          "median": 37.3,
+          "scale": 0.8080170000000025
+        },
+        "late": {
+          "median": 23.17,
+          "scale": 0.45960599999999807
+        },
+        "middle": {
+          "median": 23.005000000000003,
+          "scale": 0.45219299999999957
+        },
+        "n": 21
+      },
+      "racing-com-rv-authorised|caulfield|1400|good|true": {
+        "early": {
+          "median": 37.04,
+          "scale": 0.9192119999999961
+        },
+        "late": {
+          "median": 23.375,
+          "scale": 0.6597570000000004
+        },
+        "middle": {
+          "median": 23.13,
+          "scale": 0.34099800000000063
+        },
+        "n": 27
+      },
+      "racing-com-rv-authorised|caulfield|1400|soft|out_7m_plus": {
+        "early": {
+          "median": 38.57,
+          "scale": 0.44477999999999573
+        },
+        "late": {
+          "median": 23.64,
+          "scale": 0.5782140000000008
+        },
+        "middle": {
+          "median": 23.2,
+          "scale": 0.26686799999999955
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|caulfield|1400|soft|true": {
+        "early": {
+          "median": 37.56,
+          "scale": 0.8636144999999941
+        },
+        "late": {
+          "median": 24.5225,
+          "scale": 0.8784405000000016
+        },
+        "middle": {
+          "median": 23.7025,
+          "scale": 0.6523440000000018
+        },
+        "n": 18
+      },
+      "racing-com-rv-authorised|caulfield|1600|good|out_4_6m": {
+        "early": {
+          "median": 50.665,
+          "scale": 1.0822979999999953
+        },
+        "late": {
+          "median": 23.73,
+          "scale": 0.7338870000000014
+        },
+        "middle": {
+          "median": 23.78,
+          "scale": 0.4003019999999993
+        },
+        "n": 17
+      },
+      "racing-com-rv-authorised|caulfield|1600|good|out_7m_plus": {
+        "early": {
+          "median": 50.7825,
+          "scale": 1.523371500000005
+        },
+        "late": {
+          "median": 23.2925,
+          "scale": 0.6078660000000001
+        },
+        "middle": {
+          "median": 23.3375,
+          "scale": 0.4077149999999979
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|caulfield|1600|good|true": {
+        "early": {
+          "median": 50.05,
+          "scale": 1.6605120000000066
+        },
+        "late": {
+          "median": 24.155,
+          "scale": 0.6375179999999996
+        },
+        "middle": {
+          "median": 23.36,
+          "scale": 0.20756400000000083
+        },
+        "n": 19
+      },
+      "racing-com-rv-authorised|caulfield|1600|soft|out_7m_plus": {
+        "early": {
+          "median": 51.644999999999996,
+          "scale": 1.5863820000000004
+        },
+        "late": {
+          "median": 24.104999999999997,
+          "scale": 0.9636899999999952
+        },
+        "middle": {
+          "median": 23.79,
+          "scale": 0.45960599999999807
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|caulfield|1800|good|out_4_6m": {
+        "early": {
+          "median": 63.13,
+          "scale": 0.6449309999999928
+        },
+        "late": {
+          "median": 23.93,
+          "scale": 0.9562769999999993
+        },
+        "middle": {
+          "median": 23.44,
+          "scale": 0.37065
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|caulfield|2000|good|out_4_6m": {
+        "early": {
+          "median": 76.54,
+          "scale": 1.8903149999999977
+        },
+        "late": {
+          "median": 24.035,
+          "scale": 0.6338114999999976
+        },
+        "middle": {
+          "median": 23.38,
+          "scale": 0.4336605000000006
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|caulfield|2000|good|out_7m_plus": {
+        "early": {
+          "median": 75.52,
+          "scale": 1.3417529999999804
+        },
+        "late": {
+          "median": 23.915,
+          "scale": 0.7338869999999962
+        },
+        "middle": {
+          "median": 23.39,
+          "scale": 0.34841099999999914
+        },
+        "n": 11
+      },
+      "racing-com-rv-authorised|caulfield|2000|good|true": {
+        "early": {
+          "median": 76.2125,
+          "scale": 1.4937195000000003
+        },
+        "late": {
+          "median": 24.1225,
+          "scale": 0.37065
+        },
+        "middle": {
+          "median": 23.2075,
+          "scale": 0.1445535000000002
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|caulfield|2000|soft|out_7m_plus": {
+        "early": {
+          "median": 77.15,
+          "scale": 1.1749604999999952
+        },
+        "late": {
+          "median": 24.9925,
+          "scale": 0.5152035000000001
+        },
+        "middle": {
+          "median": 23.855,
+          "scale": 0.2372160000000002
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|caulfield|2000|soft|true": {
+        "early": {
+          "median": 77.3825,
+          "scale": 1.5900885000000076
+        },
+        "late": {
+          "median": 25.7025,
+          "scale": 1.1341890000000008
+        },
+        "middle": {
+          "median": 24.1525,
+          "scale": 0.7005284999999976
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|caulfield|2400|good|out_4_6m": {
+        "early": {
+          "median": 103.63499999999999,
+          "scale": 1.4010570000000109
+        },
+        "late": {
+          "median": 23.95,
+          "scale": 0.4744320000000004
+        },
+        "middle": {
+          "median": 23.005000000000003,
+          "scale": 0.6226920000000025
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|flemington|1000|good|out_1_3m": {
+        "early": {
+          "median": 13.989999999999998,
+          "scale": 0.17420549999999693
+        },
+        "late": {
+          "median": 22.2825,
+          "scale": 0.3595304999999969
+        },
+        "middle": {
+          "median": 21.505000000000003,
+          "scale": 0.3372914999999987
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|flemington|1000|good|out_4_6m": {
+        "early": {
+          "median": 14.335,
+          "scale": 0.2075639999999982
+        },
+        "late": {
+          "median": 22.490000000000002,
+          "scale": 0.38547599999999704
+        },
+        "middle": {
+          "median": 21.79,
+          "scale": 0.3298784999999976
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|flemington|1000|good|out_7m_plus": {
+        "early": {
+          "median": 13.9,
+          "scale": 0.2816939999999992
+        },
+        "late": {
+          "median": 23.02,
+          "scale": 0.6745830000000027
+        },
+        "middle": {
+          "median": 21.6,
+          "scale": 0.17791199999999618
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|flemington|1100|good|out_4_6m": {
+        "early": {
+          "median": 19.8625,
+          "scale": 0.2594549999999958
+        },
+        "late": {
+          "median": 22.872500000000002,
+          "scale": 0.6041594999999983
+        },
+        "middle": {
+          "median": 21.752499999999998,
+          "scale": 0.2742809999999981
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|flemington|1100|good|out_7m_plus": {
+        "early": {
+          "median": 19.625,
+          "scale": 0.25945500000000105
+        },
+        "late": {
+          "median": 22.69,
+          "scale": 0.5930400000000031
+        },
+        "middle": {
+          "median": 21.51,
+          "scale": 0.31134600000000123
+        },
+        "n": 15
+      },
+      "racing-com-rv-authorised|flemington|1100|good|true": {
+        "early": {
+          "median": 19.57,
+          "scale": 0.41512800000000166
+        },
+        "late": {
+          "median": 23.005,
+          "scale": 0.6004530000000017
+        },
+        "middle": {
+          "median": 21.58,
+          "scale": 0.25204200000000254
+        },
+        "n": 19
+      },
+      "racing-com-rv-authorised|flemington|1100|soft|out_7m_plus": {
+        "early": {
+          "median": 19.84,
+          "scale": 0.1
+        },
+        "late": {
+          "median": 23.295,
+          "scale": 0.43736699999999723
+        },
+        "middle": {
+          "median": 22.015,
+          "scale": 0.5411490000000029
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|flemington|1200|good|out_1_3m": {
+        "early": {
+          "median": 25.28,
+          "scale": 0.6523439999999993
+        },
+        "late": {
+          "median": 23.1,
+          "scale": 0.5930399999999979
+        },
+        "middle": {
+          "median": 22.049999999999997,
+          "scale": 0.12602100000000127
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|flemington|1200|good|out_4_6m": {
+        "early": {
+          "median": 25.305,
+          "scale": 0.49667100000000125
+        },
+        "late": {
+          "median": 23.15,
+          "scale": 0.45960600000000335
+        },
+        "middle": {
+          "median": 21.69,
+          "scale": 0.26686799999999955
+        },
+        "n": 11
+      },
+      "racing-com-rv-authorised|flemington|1200|good|out_7m_plus": {
+        "early": {
+          "median": 25.4025,
+          "scale": 0.38176950000000043
+        },
+        "late": {
+          "median": 23.042499999999997,
+          "scale": 0.3113460000000039
+        },
+        "middle": {
+          "median": 21.8325,
+          "scale": 0.29281349999999967
+        },
+        "n": 18
+      },
+      "racing-com-rv-authorised|flemington|1200|good|true": {
+        "early": {
+          "median": 25.2,
+          "scale": 0.5782139999999956
+        },
+        "late": {
+          "median": 23.15,
+          "scale": 0.7190609999999991
+        },
+        "middle": {
+          "median": 21.770000000000003,
+          "scale": 0.5040839999999945
+        },
+        "n": 13
+      },
+      "racing-com-rv-authorised|flemington|1200|soft|true": {
+        "early": {
+          "median": 25.92,
+          "scale": 0.4077150000000005
+        },
+        "late": {
+          "median": 23.26,
+          "scale": 0.526322999999998
+        },
+        "middle": {
+          "median": 22.6575,
+          "scale": 0.3558240000000003
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|flemington|1400|good|out_4_6m": {
+        "early": {
+          "median": 37.644999999999996,
+          "scale": 0.7487130000000037
+        },
+        "late": {
+          "median": 23.41,
+          "scale": 0.4299539999999987
+        },
+        "middle": {
+          "median": 22.700000000000003,
+          "scale": 0.3928890000000008
+        },
+        "n": 15
+      },
+      "racing-com-rv-authorised|flemington|1400|good|out_7m_plus": {
+        "early": {
+          "median": 37.9125,
+          "scale": 1.3788179999999994
+        },
+        "late": {
+          "median": 22.905,
+          "scale": 0.8450819999999978
+        },
+        "middle": {
+          "median": 22.675,
+          "scale": 0.2631615000000003
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|flemington|1400|good|true": {
+        "early": {
+          "median": 37.379999999999995,
+          "scale": 0.6634635000000075
+        },
+        "late": {
+          "median": 22.955,
+          "scale": 0.5633879999999984
+        },
+        "middle": {
+          "median": 22.86,
+          "scale": 0.3595305000000022
+        },
+        "n": 28
+      },
+      "racing-com-rv-authorised|flemington|1400|soft|true": {
+        "early": {
+          "median": 37.92,
+          "scale": 0.3409980000000059
+        },
+        "late": {
+          "median": 24.49,
+          "scale": 0.34099800000000063
+        },
+        "middle": {
+          "median": 23.12,
+          "scale": 0.2816939999999966
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|flemington|1600|good|out_1_3m": {
+        "early": {
+          "median": 50.265,
+          "scale": 0.40030199999999405
+        },
+        "late": {
+          "median": 23.33,
+          "scale": 0.5337359999999991
+        },
+        "middle": {
+          "median": 22.7,
+          "scale": 0.32617200000000357
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|flemington|1600|good|out_4_6m": {
+        "early": {
+          "median": 50.14,
+          "scale": 0.9711030000000016
+        },
+        "late": {
+          "median": 23.25,
+          "scale": 0.6819960000000013
+        },
+        "middle": {
+          "median": 22.93,
+          "scale": 0.26686799999999955
+        },
+        "n": 17
+      },
+      "racing-com-rv-authorised|flemington|1600|good|out_7m_plus": {
+        "early": {
+          "median": 50.83,
+          "scale": 0.8080170000000025
+        },
+        "late": {
+          "median": 23.28,
+          "scale": 0.6449310000000034
+        },
+        "middle": {
+          "median": 22.89,
+          "scale": 0.5782140000000008
+        },
+        "n": 11
+      },
+      "racing-com-rv-authorised|flemington|1600|good|true": {
+        "early": {
+          "median": 50.065,
+          "scale": 1.1860799999999958
+        },
+        "late": {
+          "median": 23.6875,
+          "scale": 0.8376689999999992
+        },
+        "middle": {
+          "median": 22.985,
+          "scale": 0.37806300000000115
+        },
+        "n": 14
+      },
+      "racing-com-rv-authorised|flemington|1600|soft|true": {
+        "early": {
+          "median": 50.71,
+          "scale": 0.6375179999999996
+        },
+        "late": {
+          "median": 24.05,
+          "scale": 0.3484110000000044
+        },
+        "middle": {
+          "median": 23.18,
+          "scale": 0.31134600000000123
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|flemington|2000|good|out_4_6m": {
+        "early": {
+          "median": 76.28,
+          "scale": 1.645685999999999
+        },
+        "late": {
+          "median": 24.5,
+          "scale": 0.4892579999999974
+        },
+        "middle": {
+          "median": 23.365000000000002,
+          "scale": 0.6004530000000017
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|flemington|2000|good|out_7m_plus": {
+        "early": {
+          "median": 75.86500000000001,
+          "scale": 1.2157319999999898
+        },
+        "late": {
+          "median": 24.22,
+          "scale": 0.8450820000000003
+        },
+        "middle": {
+          "median": 23.23,
+          "scale": 0.3780629999999985
+        },
+        "n": 15
+      },
+      "racing-com-rv-authorised|flemington|2000|good|true": {
+        "early": {
+          "median": 75.43,
+          "scale": 1.3788179999999994
+        },
+        "late": {
+          "median": 23.79,
+          "scale": 0.37435649999999926
+        },
+        "middle": {
+          "median": 23.4525,
+          "scale": 0.12231449999999935
+        },
+        "n": 10
+      },
+      "racing-com-rv-authorised|flemington|2500|good|true": {
+        "early": {
+          "median": 111.11500000000001,
+          "scale": 1.5752625000000104
+        },
+        "late": {
+          "median": 23.8575,
+          "scale": 1.141602000000002
+        },
+        "middle": {
+          "median": 22.802500000000002,
+          "scale": 0.3965955000000027
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1000|soft|out_4_6m": {
+        "early": {
+          "median": 13.7,
+          "scale": 0.17049899999999768
+        },
+        "late": {
+          "median": 22.835,
+          "scale": 0.5708010000000023
+        },
+        "middle": {
+          "median": 21.35,
+          "scale": 0.1
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1400|good|out_1_3m": {
+        "early": {
+          "median": 38.582499999999996,
+          "scale": 0.8747339999999945
+        },
+        "late": {
+          "median": 22.575000000000003,
+          "scale": 0.7079415000000013
+        },
+        "middle": {
+          "median": 23.0625,
+          "scale": 0.3187589999999998
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1400|good|true": {
+        "early": {
+          "median": 39.03999999999999,
+          "scale": 1.0267004999999985
+        },
+        "late": {
+          "median": 22.705,
+          "scale": 0.5819205000000001
+        },
+        "middle": {
+          "median": 22.9325,
+          "scale": 0.5152035000000001
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|1400|soft|out_4_6m": {
+        "early": {
+          "median": 38.8,
+          "scale": 0.9488640000000008
+        },
+        "late": {
+          "median": 23.465,
+          "scale": 0.6894089999999997
+        },
+        "middle": {
+          "median": 23.115000000000002,
+          "scale": 0.1
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|the-valley|1000|good|true": {
+        "early": {
+          "median": 13.407499999999999,
+          "scale": 0.23721599999999757
+        },
+        "late": {
+          "median": 23.1975,
+          "scale": 0.3335849999999968
+        },
+        "middle": {
+          "median": 21.64,
+          "scale": 0.33358499999999947
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|the-valley|1000|soft|true": {
+        "early": {
+          "median": 13.4625,
+          "scale": 0.1593794999999999
+        },
+        "late": {
+          "median": 24.28,
+          "scale": 0.33358499999999947
+        },
+        "middle": {
+          "median": 22.545,
+          "scale": 0.1445535000000002
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|the-valley|1200|good|true": {
+        "early": {
+          "median": 24.49,
+          "scale": 0.38547599999999965
+        },
+        "late": {
+          "median": 23.6625,
+          "scale": 0.6301049999999984
+        },
+        "middle": {
+          "median": 22.8575,
+          "scale": 0.46701900000000185
+        },
+        "n": 36
+      },
+      "racing-com-rv-authorised|the-valley|1200|soft|out_4_6m": {
+        "early": {
+          "median": 25.009999999999998,
+          "scale": 0.38547599999999704
+        },
+        "late": {
+          "median": 24.5,
+          "scale": 0.8080170000000025
+        },
+        "middle": {
+          "median": 23.62,
+          "scale": 0.2816940000000019
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|the-valley|1200|soft|true": {
+        "early": {
+          "median": 25.095,
+          "scale": 0.24462900000000135
+        },
+        "late": {
+          "median": 24.97,
+          "scale": 0.17420549999999957
+        },
+        "middle": {
+          "median": 23.205000000000002,
+          "scale": 0.20756400000000347
+        },
+        "n": 8
+      },
+      "racing-com-rv-authorised|the-valley|1600|good|true": {
+        "early": {
+          "median": 49.16,
+          "scale": 0.9340379999999932
+        },
+        "late": {
+          "median": 24.09,
+          "scale": 0.5485620000000014
+        },
+        "middle": {
+          "median": 23.59,
+          "scale": 0.41512800000000166
+        },
+        "n": 25
+      },
+      "racing-com-rv-authorised|the-valley|1600|soft|true": {
+        "early": {
+          "median": 49.56,
+          "scale": 0.3113459999999907
+        },
+        "late": {
+          "median": 26.310000000000002,
+          "scale": 0.2668679999999943
+        },
+        "middle": {
+          "median": 24.425,
+          "scale": 0.2446289999999987
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|the-valley|2040|good|true": {
+        "early": {
+          "median": 78.2,
+          "scale": 2.0608139999999904
+        },
+        "late": {
+          "median": 24.215,
+          "scale": 0.7301804999999996
+        },
+        "middle": {
+          "median": 23.605,
+          "scale": 0.31505249999999785
+        },
+        "n": 22
+      }
+    },
+    "track_phase_going": {
+      "racing-com-nsw-authorised-v2|randwick|distance_1000|good": {
+        "early": {
+          "median": 13.47,
+          "scale": 0.2223900000000005
+        },
+        "late": {
+          "median": 22.990000000000002,
+          "scale": 0.7264739999999976
+        },
+        "middle": {
+          "median": 21.66,
+          "scale": 0.32617200000000357
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|randwick|distance_1000|soft": {
+        "early": {
+          "median": 13.6,
+          "scale": 0.15567300000000062
+        },
+        "late": {
+          "median": 23.45,
+          "scale": 0.5485620000000014
+        },
+        "middle": {
+          "median": 21.78,
+          "scale": 0.5633880000000038
+        },
+        "n": 13
+      },
+      "racing-com-nsw-authorised-v2|randwick|standard_3x400|good": {
+        "early": {
+          "median": 24.259999999999998,
+          "scale": 1.3639920000000025
+        },
+        "late": {
+          "median": 23.119999999999997,
+          "scale": 0.8599079999999975
+        },
+        "middle": {
+          "median": 22.77,
+          "scale": 0.6375180000000048
+        },
+        "n": 109
+      },
+      "racing-com-nsw-authorised-v2|randwick|standard_3x400|heavy": {
+        "early": {
+          "median": 25.0925,
+          "scale": 0.9636900000000005
+        },
+        "late": {
+          "median": 25.567500000000003,
+          "scale": 1.1712539999999987
+        },
+        "middle": {
+          "median": 24.494999999999997,
+          "scale": 0.9117990000000029
+        },
+        "n": 20
+      },
+      "racing-com-nsw-authorised-v2|randwick|standard_3x400|soft": {
+        "early": {
+          "median": 24.265,
+          "scale": 1.5122519999999993
+        },
+        "late": {
+          "median": 24.122500000000002,
+          "scale": 0.8710274999999952
+        },
+        "middle": {
+          "median": 23.4525,
+          "scale": 0.8450819999999978
+        },
+        "n": 80
+      },
+      "racing-com-nsw-authorised-v2|rosehill|standard_3x400|good": {
+        "early": {
+          "median": 24.634999999999998,
+          "scale": 1.430709000000005
+        },
+        "late": {
+          "median": 23.240000000000002,
+          "scale": 0.9043859999999991
+        },
+        "middle": {
+          "median": 23.17,
+          "scale": 0.726474000000003
+        },
+        "n": 87
+      },
+      "racing-com-nsw-authorised-v2|rosehill|standard_3x400|heavy": {
+        "early": {
+          "median": 24.432499999999997,
+          "scale": 1.727228999999996
+        },
+        "late": {
+          "median": 24.029999999999998,
+          "scale": 0.6523439999999993
+        },
+        "middle": {
+          "median": 23.93,
+          "scale": 0.5337360000000018
+        },
+        "n": 36
+      },
+      "racing-com-nsw-authorised-v2|rosehill|standard_3x400|soft": {
+        "early": {
+          "median": 24.275,
+          "scale": 1.4232960000000012
+        },
+        "late": {
+          "median": 23.47,
+          "scale": 0.6708764999999955
+        },
+        "middle": {
+          "median": 23.4175,
+          "scale": 0.5226165000000014
+        },
+        "n": 96
+      },
+      "racing-com-rv-authorised|caulfield-heath|standard_3x400|good": {
+        "early": {
+          "median": 43.18000000000001,
+          "scale": 27.272427000000008
+        },
+        "late": {
+          "median": 23.39,
+          "scale": 0.3261719999999983
+        },
+        "middle": {
+          "median": 23.08,
+          "scale": 0.6968220000000035
+        },
+        "n": 15
+      },
+      "racing-com-rv-authorised|caulfield-heath|standard_3x400|soft": {
+        "early": {
+          "median": 50.39,
+          "scale": 21.008442000000002
+        },
+        "late": {
+          "median": 24.425,
+          "scale": 0.9711029999999964
+        },
+        "middle": {
+          "median": 23.62,
+          "scale": 0.16308599999999915
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|caulfield|distance_1000|good": {
+        "early": {
+          "median": 13.39,
+          "scale": 0.20756400000000083
+        },
+        "late": {
+          "median": 22.865000000000002,
+          "scale": 0.4521930000000022
+        },
+        "middle": {
+          "median": 21.695,
+          "scale": 0.5411490000000003
+        },
+        "n": 12
+      },
+      "racing-com-rv-authorised|caulfield|distance_1000|soft": {
+        "early": {
+          "median": 13.495000000000001,
+          "scale": 0.16308599999999915
+        },
+        "late": {
+          "median": 23.715000000000003,
+          "scale": 0.4818450000000042
+        },
+        "middle": {
+          "median": 22.055,
+          "scale": 0.34841099999999914
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|caulfield|distance_1100|good": {
+        "early": {
+          "median": 18.79,
+          "scale": 0.37065
+        },
+        "late": {
+          "median": 22.955,
+          "scale": 0.3854760000000076
+        },
+        "middle": {
+          "median": 22.045,
+          "scale": 0.4373670000000025
+        },
+        "n": 55
+      },
+      "racing-com-rv-authorised|caulfield|distance_1100|soft": {
+        "early": {
+          "median": 19.145000000000003,
+          "scale": 0.429954000000004
+        },
+        "late": {
+          "median": 23.765,
+          "scale": 0.6301049999999957
+        },
+        "middle": {
+          "median": 22.46,
+          "scale": 0.29651999999999895
+        },
+        "n": 29
+      },
+      "racing-com-rv-authorised|caulfield|standard_3x400|good": {
+        "early": {
+          "median": 37.85,
+          "scale": 19.09588799999999
+        },
+        "late": {
+          "median": 23.48,
+          "scale": 0.6745830000000027
+        },
+        "middle": {
+          "median": 23.15,
+          "scale": 0.6078660000000001
+        },
+        "n": 273
+      },
+      "racing-com-rv-authorised|caulfield|standard_3x400|heavy": {
+        "early": {
+          "median": 32.5975,
+          "scale": 11.171390999999995
+        },
+        "late": {
+          "median": 25.355,
+          "scale": 0.21497699999999936
+        },
+        "middle": {
+          "median": 23.93,
+          "scale": 0.42995400000000134
+        },
+        "n": 6
+      },
+      "racing-com-rv-authorised|caulfield|standard_3x400|soft": {
+        "early": {
+          "median": 39.175,
+          "scale": 20.715628499999998
+        },
+        "late": {
+          "median": 24.384999999999998,
+          "scale": 1.000755000000001
+        },
+        "middle": {
+          "median": 23.7575,
+          "scale": 0.7635390000000009
+        },
+        "n": 102
+      },
+      "racing-com-rv-authorised|flemington|distance_1000|good": {
+        "early": {
+          "median": 14.04,
+          "scale": 0.22238999999999787
+        },
+        "late": {
+          "median": 22.43,
+          "scale": 0.5040839999999998
+        },
+        "middle": {
+          "median": 21.625,
+          "scale": 0.34841099999999914
+        },
+        "n": 23
+      },
+      "racing-com-rv-authorised|flemington|distance_1000|soft": {
+        "early": {
+          "median": 14.055,
+          "scale": 0.2520419999999999
+        },
+        "late": {
+          "median": 23.53,
+          "scale": 0.45960600000000335
+        },
+        "middle": {
+          "median": 21.895,
+          "scale": 0.49667100000000125
+        },
+        "n": 7
+      },
+      "racing-com-rv-authorised|flemington|distance_1100|good": {
+        "early": {
+          "median": 19.64,
+          "scale": 0.3669434999999981
+        },
+        "late": {
+          "median": 22.9575,
+          "scale": 0.6523439999999993
+        },
+        "middle": {
+          "median": 21.61,
+          "scale": 0.3187589999999998
+        },
+        "n": 44
+      },
+      "racing-com-rv-authorised|flemington|distance_1100|soft": {
+        "early": {
+          "median": 19.805,
+          "scale": 0.185325
+        },
+        "late": {
+          "median": 23.785,
+          "scale": 0.8747339999999998
+        },
+        "middle": {
+          "median": 22.09,
+          "scale": 0.4299539999999987
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|flemington|standard_3x400|good": {
+        "early": {
+          "median": 39.825,
+          "scale": 18.06548099999999
+        },
+        "late": {
+          "median": 23.3,
+          "scale": 0.615279000000004
+        },
+        "middle": {
+          "median": 22.75,
+          "scale": 0.5782140000000008
+        },
+        "n": 211
+      },
+      "racing-com-rv-authorised|flemington|standard_3x400|heavy": {
+        "early": {
+          "median": 39.785,
+          "scale": 20.39316299999999
+        },
+        "late": {
+          "median": 24.5,
+          "scale": 0.7561260000000023
+        },
+        "middle": {
+          "median": 23.31,
+          "scale": 0.6819960000000013
+        },
+        "n": 13
+      },
+      "racing-com-rv-authorised|flemington|standard_3x400|soft": {
+        "early": {
+          "median": 38.275,
+          "scale": 18.532499999999995
+        },
+        "late": {
+          "median": 23.964999999999996,
+          "scale": 0.8710274999999952
+        },
+        "middle": {
+          "median": 23.0475,
+          "scale": 0.6671699999999989
+        },
+        "n": 66
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|distance_1000|soft": {
+        "early": {
+          "median": 13.7,
+          "scale": 0.17049899999999768
+        },
+        "late": {
+          "median": 22.835,
+          "scale": 0.5708010000000023
+        },
+        "middle": {
+          "median": 21.39,
+          "scale": 0.2372160000000002
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|standard_3x400|good": {
+        "early": {
+          "median": 39.9525,
+          "scale": 3.4136864999999976
+        },
+        "late": {
+          "median": 22.939999999999998,
+          "scale": 0.644930999999998
+        },
+        "middle": {
+          "median": 23.064999999999998,
+          "scale": 0.3558240000000003
+        },
+        "n": 24
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-hillside|standard_3x400|soft": {
+        "early": {
+          "median": 49.94,
+          "scale": 15.952775999999997
+        },
+        "late": {
+          "median": 23.93,
+          "scale": 0.6894089999999997
+        },
+        "middle": {
+          "median": 23.475,
+          "scale": 0.555975
+        },
+        "n": 27
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-lakeside|distance_1000|good": {
+        "early": {
+          "median": 13.71,
+          "scale": 0.19273800000000116
+        },
+        "late": {
+          "median": 22.24,
+          "scale": 0.4151279999999964
+        },
+        "middle": {
+          "median": 21.04,
+          "scale": 0.3261719999999983
+        },
+        "n": 5
+      },
+      "racing-com-rv-authorised|sportsbet-sandown-lakeside|standard_3x400|good": {
+        "early": {
+          "median": 37.9425,
+          "scale": 17.761548
+        },
+        "late": {
+          "median": 22.8825,
+          "scale": 0.9488639999999982
+        },
+        "middle": {
+          "median": 22.9475,
+          "scale": 0.574507499999999
+        },
+        "n": 14
+      },
+      "racing-com-rv-authorised|the-valley|distance_1000|good": {
+        "early": {
+          "median": 13.41,
+          "scale": 0.185325
+        },
+        "late": {
+          "median": 23.21,
+          "scale": 0.3261719999999983
+        },
+        "middle": {
+          "median": 21.7,
+          "scale": 0.37065
+        },
+        "n": 13
+      },
+      "racing-com-rv-authorised|the-valley|distance_1000|soft": {
+        "early": {
+          "median": 13.465,
+          "scale": 0.14825999999999948
+        },
+        "late": {
+          "median": 24.035,
+          "scale": 0.5114969999999983
+        },
+        "middle": {
+          "median": 22.59,
+          "scale": 0.15567300000000062
+        },
+        "n": 9
+      },
+      "racing-com-rv-authorised|the-valley|standard_3x400|good": {
+        "early": {
+          "median": 48.31,
+          "scale": 35.300706
+        },
+        "late": {
+          "median": 24.0,
+          "scale": 0.704235000000002
+        },
+        "middle": {
+          "median": 23.31,
+          "scale": 0.5930400000000031
+        },
+        "n": 93
+      },
+      "racing-com-rv-authorised|the-valley|standard_3x400|soft": {
+        "early": {
+          "median": 25.29,
+          "scale": 0.785777999999999
+        },
+        "late": {
+          "median": 24.93,
+          "scale": 0.6226919999999999
+        },
+        "middle": {
+          "median": 23.675,
+          "scale": 0.6597570000000004
+        },
+        "n": 24
+      }
+    }
+  },
+  "policy": {
+    "horse_price_integration": false,
+    "probability_live_update": "held_until_prospective_gate"
+  },
+  "source_pace_version": "pace-shape-v2.1-pit-shadow"
+}

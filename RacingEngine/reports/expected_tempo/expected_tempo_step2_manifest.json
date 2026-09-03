@@ -1,0 +1,203 @@
+{
+  "date_max": "2026-08-15",
+  "date_min": "2023-09-16",
+  "descriptive_rates_only": {
+    "going": {
+      "good": {
+        "n": 949,
+        "rates": {
+          "even": 0.31822971548998946,
+          "fast": 0.09799789251844046,
+          "slow": 0.4446786090621707,
+          "very_fast_or_collapse": 0.13909378292939936
+        }
+      },
+      "heavy": {
+        "n": 79,
+        "rates": {
+          "even": 0.3037974683544304,
+          "fast": 0.0759493670886076,
+          "slow": 0.4810126582278481,
+          "very_fast_or_collapse": 0.13924050632911392
+        }
+      },
+      "soft": {
+        "n": 484,
+        "rates": {
+          "even": 0.2830578512396694,
+          "fast": 0.11363636363636363,
+          "slow": 0.4318181818181818,
+          "very_fast_or_collapse": 0.17148760330578514
+        }
+      }
+    },
+    "group_grade": {
+      "1": {
+        "n": 67,
+        "rates": {
+          "even": 0.22388059701492538,
+          "fast": 0.13432835820895522,
+          "slow": 0.373134328358209,
+          "very_fast_or_collapse": 0.26865671641791045
+        }
+      },
+      "2": {
+        "n": 66,
+        "rates": {
+          "even": 0.3484848484848485,
+          "fast": 0.07575757575757576,
+          "slow": 0.45454545454545453,
+          "very_fast_or_collapse": 0.12121212121212122
+        }
+      },
+      "3": {
+        "n": 116,
+        "rates": {
+          "even": 0.33620689655172414,
+          "fast": 0.10344827586206896,
+          "slow": 0.41379310344827586,
+          "very_fast_or_collapse": 0.14655172413793102
+        }
+      },
+      "missing": {
+        "n": 1263,
+        "rates": {
+          "even": 0.3056215360253365,
+          "fast": 0.10134600158353127,
+          "slow": 0.44813935075217737,
+          "very_fast_or_collapse": 0.14489311163895488
+        }
+      }
+    },
+    "track": {
+      "caulfield": {
+        "n": 477,
+        "rates": {
+          "even": 0.27672955974842767,
+          "fast": 0.11530398322851153,
+          "slow": 0.46540880503144655,
+          "very_fast_or_collapse": 0.14255765199161424
+        }
+      },
+      "caulfield-heath": {
+        "n": 27,
+        "rates": {
+          "even": 0.4444444444444444,
+          "fast": 0.14814814814814814,
+          "slow": 0.18518518518518517,
+          "very_fast_or_collapse": 0.2222222222222222
+        }
+      },
+      "flemington": {
+        "n": 366,
+        "rates": {
+          "even": 0.3005464480874317,
+          "fast": 0.1092896174863388,
+          "slow": 0.48633879781420764,
+          "very_fast_or_collapse": 0.10382513661202186
+        }
+      },
+      "randwick": {
+        "n": 221,
+        "rates": {
+          "even": 0.34841628959276016,
+          "fast": 0.058823529411764705,
+          "slow": 0.3891402714932127,
+          "very_fast_or_collapse": 0.20361990950226244
+        }
+      },
+      "rosehill": {
+        "n": 213,
+        "rates": {
+          "even": 0.3286384976525822,
+          "fast": 0.0892018779342723,
+          "slow": 0.352112676056338,
+          "very_fast_or_collapse": 0.2300469483568075
+        }
+      },
+      "sportsbet-sandown-hillside": {
+        "n": 64,
+        "rates": {
+          "even": 0.265625,
+          "fast": 0.109375,
+          "slow": 0.5625,
+          "very_fast_or_collapse": 0.0625
+        }
+      },
+      "sportsbet-sandown-lakeside": {
+        "n": 19,
+        "rates": {
+          "even": 0.42105263157894735,
+          "fast": 0.05263157894736842,
+          "slow": 0.5263157894736842
+        }
+      },
+      "the-valley": {
+        "n": 125,
+        "rates": {
+          "even": 0.296,
+          "fast": 0.12,
+          "slow": 0.456,
+          "very_fast_or_collapse": 0.128
+        }
+      }
+    }
+  },
+  "input_dataset_version": "expected-tempo-step1-v1",
+  "input_rows": 1565,
+  "labels_4way": {
+    "even": 463,
+    "fast": 154,
+    "slow": 669,
+    "very_fast_or_collapse": 226
+  },
+  "labels_detailed": {
+    "even": 463,
+    "fast_early": 134,
+    "pace_collapse": 95,
+    "slow_early": 243,
+    "sprint_home": 183,
+    "sustained_high_pressure": 91,
+    "very_fast_early": 60,
+    "very_slow_early": 243
+  },
+  "method": {
+    "chronology": "all races on a date scored before that date enters history",
+    "physical_par_factors": [
+      "source",
+      "sectional phase profile",
+      "track",
+      "exact distance",
+      "going",
+      "rail bucket"
+    ],
+    "pooling": {
+      "minimum_broad": 10,
+      "minimum_cell": 5,
+      "shrinkage_k": 20.0
+    },
+    "prediction_factors_not_normalised_away": [
+      "race grade",
+      "class family",
+      "field size"
+    ],
+    "scores": "positive means faster than prior-only physical par; clipped to [-4,4]"
+  },
+  "par_levels": {
+    "source_distance": 7,
+    "source_distance_going": 89,
+    "source_phase_profile": 3,
+    "source_phase_profile_going": 30,
+    "track_distance": 39,
+    "track_distance_going": 520,
+    "track_distance_going_rail": 529,
+    "track_phase_profile_going": 295
+  },
+  "production_effect": "none; research target layer only",
+  "scored_rows": 1512,
+  "source_pace_version": "pace-shape-v2.1-pit-shadow",
+  "target_version": "expected-tempo-targets-v2.0-walk-forward",
+  "unscored": {
+    "insufficient_prior_comparable_races": 53
+  }
+}

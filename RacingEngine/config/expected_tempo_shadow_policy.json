@@ -1,0 +1,24 @@
+{
+  "version": "expected-tempo-shadow-policy-v1",
+  "status": "SHADOW_ONLY",
+  "minimum_same_regime_races": 1,
+  "minimum_state_reliability": 0.2,
+  "minimum_probability_change": 0.005,
+  "maximum_probability_change_per_class": 0.05,
+  "minimum_score_change": 0.05,
+  "maximum_middle_score_change": 0.5,
+  "maximum_late_score_change": 0.5,
+  "early_score_update_allowed": false,
+  "horse_price_integration_allowed": false,
+  "required_gates": {
+    "minimum_live_eligible_rows": 500,
+    "aggregate_log_loss_beats_v0": true,
+    "aggregate_brier_beats_v0": true,
+    "log_loss_beats_v0_each_fold": true,
+    "middle_mae_beats_v0_each_fold": true,
+    "late_mae_beats_v0_each_fold": true,
+    "early_score_is_unchanged": true,
+    "no_future_information_leakage": true,
+    "condition_regime_reset_enforced": true
+  }
+}
