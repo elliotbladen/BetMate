@@ -1,0 +1,939 @@
+{
+  "season": 2026,
+  "week": 1,
+  "mode": "shadow",
+  "staking_enabled": false,
+  "instructions": "Populate only from timestamped sources; null means unresolved and produces no adjustment.",
+  "games": [
+    {
+      "game_id": "2026_01_NE_SEA",
+      "home_team": "SEA",
+      "away_team": "NE",
+      "kickoff_at_utc": "2026-09-10T00:20:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.5333333333333333,
+          "returning_ol_share": 0.7857142857142857,
+          "returning_receiver_share": 0.3888888888888889,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.449438202247191,
+          "returning_ol_share": 0.4375,
+          "returning_receiver_share": 0.375,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_SF_LA",
+      "home_team": "LA",
+      "away_team": "SF",
+      "kickoff_at_utc": "2026-09-11T00:35:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.5,
+          "returning_ol_share": 0.5714285714285714,
+          "returning_receiver_share": 0.5,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4090909090909091,
+          "returning_ol_share": 0.4666666666666667,
+          "returning_receiver_share": 0.3333333333333333,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_CHI_CAR",
+      "home_team": "CAR",
+      "away_team": "CHI",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.45555555555555555,
+          "returning_ol_share": 0.25,
+          "returning_receiver_share": 0.4444444444444444,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.3595505617977528,
+          "returning_ol_share": 0.4375,
+          "returning_receiver_share": 0.375,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_TB_CIN",
+      "home_team": "CIN",
+      "away_team": "TB",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.5333333333333333,
+          "returning_ol_share": 0.4666666666666667,
+          "returning_receiver_share": 0.5263157894736842,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4,
+          "returning_ol_share": 0.5,
+          "returning_receiver_share": 0.47058823529411764,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_NO_DET",
+      "home_team": "DET",
+      "away_team": "NO",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.375,
+          "returning_ol_share": 0.3125,
+          "returning_receiver_share": 0.35294117647058826,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4444444444444444,
+          "returning_ol_share": 0.5333333333333333,
+          "returning_receiver_share": 0.3157894736842105,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_BUF_HOU",
+      "home_team": "HOU",
+      "away_team": "BUF",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.449438202247191,
+          "returning_ol_share": 0.4666666666666667,
+          "returning_receiver_share": 0.3684210526315789,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.39325842696629215,
+          "returning_ol_share": 0.5,
+          "returning_receiver_share": 0.4444444444444444,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_BAL_IND",
+      "home_team": "IND",
+      "away_team": "BAL",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.3707865168539326,
+          "returning_ol_share": 0.5,
+          "returning_receiver_share": 0.42105263157894735,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.3888888888888889,
+          "returning_ol_share": 0.4,
+          "returning_receiver_share": 0.3125,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_CLE_JAX",
+      "home_team": "JAX",
+      "away_team": "CLE",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4666666666666667,
+          "returning_ol_share": 0.6,
+          "returning_receiver_share": 0.35,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.43820224719101125,
+          "returning_ol_share": 0.4117647058823529,
+          "returning_receiver_share": 0.5,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_ATL_PIT",
+      "home_team": "PIT",
+      "away_team": "ATL",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.42696629213483145,
+          "returning_ol_share": 0.4375,
+          "returning_receiver_share": 0.1875,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.3333333333333333,
+          "returning_ol_share": 0.4117647058823529,
+          "returning_receiver_share": 0.3333333333333333,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_NYJ_TEN",
+      "home_team": "TEN",
+      "away_team": "NYJ",
+      "kickoff_at_utc": "2026-09-13T17:00:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.3888888888888889,
+          "returning_ol_share": 0.4375,
+          "returning_receiver_share": 0.3157894736842105,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4157303370786517,
+          "returning_ol_share": 0.5333333333333333,
+          "returning_receiver_share": 0.29411764705882354,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_ARI_LAC",
+      "home_team": "LAC",
+      "away_team": "ARI",
+      "kickoff_at_utc": "2026-09-13T20:25:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.43820224719101125,
+          "returning_ol_share": 0.1875,
+          "returning_receiver_share": 0.35294117647058826,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4431818181818182,
+          "returning_ol_share": 0.4666666666666667,
+          "returning_receiver_share": 0.3888888888888889,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_MIA_LV",
+      "home_team": "LV",
+      "away_team": "MIA",
+      "kickoff_at_utc": "2026-09-13T20:25:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.3793103448275862,
+          "returning_ol_share": 0.375,
+          "returning_receiver_share": 0.3684210526315789,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.35555555555555557,
+          "returning_ol_share": 0.3333333333333333,
+          "returning_receiver_share": 0.25,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_GB_MIN",
+      "home_team": "MIN",
+      "away_team": "GB",
+      "kickoff_at_utc": "2026-09-13T20:25:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4666666666666667,
+          "returning_ol_share": 0.47058823529411764,
+          "returning_receiver_share": 0.4444444444444444,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.45555555555555555,
+          "returning_ol_share": 0.4117647058823529,
+          "returning_receiver_share": 0.4375,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_WAS_PHI",
+      "home_team": "PHI",
+      "away_team": "WAS",
+      "kickoff_at_utc": "2026-09-13T20:25:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.45454545454545453,
+          "returning_ol_share": 0.5,
+          "returning_receiver_share": 0.3157894736842105,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.43333333333333335,
+          "returning_ol_share": 0.5714285714285714,
+          "returning_receiver_share": 0.2777777777777778,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_DAL_NYG",
+      "home_team": "NYG",
+      "away_team": "DAL",
+      "kickoff_at_utc": "2026-09-14T00:20:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.43333333333333335,
+          "returning_ol_share": 0.3333333333333333,
+          "returning_receiver_share": 0.47368421052631576,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4606741573033708,
+          "returning_ol_share": 0.4,
+          "returning_receiver_share": 0.42105263157894735,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    },
+    {
+      "game_id": "2026_01_DEN_KC",
+      "home_team": "KC",
+      "away_team": "DEN",
+      "kickoff_at_utc": "2026-09-15T00:15:00+00:00",
+      "as_of_utc": "2026-08-31T02:37:23.637916+00:00",
+      "source_timestamps": {
+        "qb": null,
+        "injuries": null,
+        "roster": "2026-08-31T02:37:23.637916+00:00"
+      },
+      "home": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.4111111111111111,
+          "returning_ol_share": 0.5333333333333333,
+          "returning_receiver_share": 0.3684210526315789,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "away": {
+        "qb": {
+          "starter_id": null,
+          "backup_id": null,
+          "starter_probability": null,
+          "starter_profile": null,
+          "backup_profile": null
+        },
+        "availability": {
+          "injury_burden": null,
+          "players_out": null,
+          "players_questionable": null,
+          "injury_report_rows": null
+        },
+        "continuity": {
+          "weekly_roster_continuity": 0.0,
+          "returning_roster_share": 0.5280898876404494,
+          "returning_ol_share": 0.4375,
+          "returning_receiver_share": 0.42105263157894735,
+          "week_one_weekly_continuity_encoding": "not_applicable_encoded_zero_as_in_training"
+        }
+      },
+      "status": "precut_continuity_diagnostic_do_not_score",
+      "continuity_qualifies": false
+    }
+  ],
+  "continuity_source": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
+  "continuity_observed_at_utc": "2026-08-31T02:37:23.637916+00:00"
+}

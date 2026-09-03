@@ -1,0 +1,16 @@
+{
+  "status": "2026_week01_paper_predictions_frozen_before_market_capture",
+  "generated_at_utc": "2026-08-30T21:32:12.965683+00:00",
+  "games": 16,
+  "training_through": 2025,
+  "hyperparameters_retuned_after_vault": false,
+  "market_fields_in_prediction": false,
+  "staking_enabled": false,
+  "sha256": {
+    "prediction": "d263696ed0abef4c6383f24ff246ecbd0213f07d7fe436b3117f53cd0c6fc538",
+    "team_state": "b0b31a59244d98cef183c2ae7d2c39a70abb550fcf105d379c3a13eb80d7b6b5",
+    "historical_features": "0fe015c04f1b9cb3b026c8d0a62b5494df1ac36d915234dbf9728bd6c1cdfc89",
+    "paper_config": "40a49ccb1bb6c1580e2eebc36977b3b90a18d2712e867329ca02258ba1cf4754",
+    "step6_code": "1db3e7e0c5825cb9b779ada95828d3f64ea00e663056c90bfc0110f54a713367"
+  }
+}

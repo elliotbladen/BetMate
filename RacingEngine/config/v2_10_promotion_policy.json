@@ -1,0 +1,36 @@
+{
+  "accepted_model": "form-first-v2.0",
+  "candidate_model": "achieved-run-v2.10-young-wfa-shadow",
+  "current_status": "SHADOW_ONLY_AMBER",
+  "policy_created": "2026-09-01",
+  "review_schedule_months": {
+    "safety_review": 3,
+    "restricted_promotion_review": 6,
+    "full_promotion_review": 12
+  },
+  "minimum_eligible_young_group_listed_runs": 150,
+  "required_gates": {
+    "next_start_mae_beats_accepted": true,
+    "minimum_next_start_mae_improvement_points": 0.5,
+    "nsw_improves_independently": true,
+    "victoria_improves_independently": true,
+    "female_cohort_improves_independently": true,
+    "male_cohort_improves_independently": true,
+    "race_ranking_or_log_loss_improves": true,
+    "false_breakout_rate_not_materially_worse": true,
+    "open_age_accuracy_not_materially_worse": true,
+    "no_future_information_leakage": true,
+    "adequate_time_sectional_age_sex_coverage": true
+  },
+  "historical_baseline": {
+    "cohort": "three-year-old Group and Listed winners",
+    "fit_cutoff_exclusive": "2025-01-01",
+    "selected_achieved_run_uplift_carry_forward": 0.15,
+    "accepted_next_start_mae": 8.36078303165625,
+    "shrunk_candidate_next_start_mae": 7.683999106170972,
+    "raw_candidate_next_start_mae": 10.159921053147377
+  },
+  "production_switch_authorised": false,
+  "prospective_snapshot_required": true,
+  "retrospective_snapshot_overwrite_allowed": false
+}

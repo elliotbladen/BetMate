@@ -18,12 +18,28 @@ from ml.nfl.rule_eras import rule_era_features
 from ml.nfl.personnel import starter_mixture
 from ml.nfl.qb_lab import paid_qb_schema
 from ml.nfl.challenger import _normal_win_probability
+from ml.nfl.step5_vault import _spread_bet_summary
+from ml.nfl.step6_paper import LABEL_COLUMNS
 
 
 UTC = timezone.utc
 
 
 class NFLArchitectureTests(unittest.TestCase):
+    def test_step6_forbids_markets_and_results_in_pre_market_card(self):
+        self.assertIn("margin", LABEL_COLUMNS)
+        self.assertIn("spread_line", LABEL_COLUMNS)
+        self.assertIn("h2h_home_close", LABEL_COLUMNS)
+
+    def test_opening_spread_bet_grades_home_and_away_consistently(self):
+        rows = pd.DataFrame([
+            {"fair": -5.0, "spread_home_open": -3.0, "margin": 7.0},
+            {"fair": 4.0, "spread_home_open": 2.0, "margin": -4.0},
+        ])
+        result = _spread_bet_summary(rows, "fair", 0.0)
+        self.assertEqual(result["wins"], 2)
+        self.assertEqual(result["losses"], 0)
+
     def test_margin_probability_is_symmetric_and_monotonic(self):
         probabilities = _normal_win_probability(pd.Series([-7.0, 0.0, 7.0]).to_numpy(), 13.0)
         self.assertLess(probabilities[0], 0.5)

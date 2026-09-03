@@ -39,17 +39,20 @@ WAYBACK_URL = "https://web.archive.org/web/2026id_/{url}"
 
 # Columns to keep (some may be absent in older seasons — handled gracefully)
 KEEP_COLS = [
-    "Date", "HomeTeam", "AwayTeam",
+    "Date", "Time", "HomeTeam", "AwayTeam",
     "FTHG", "FTAG", "FTR",
     "Referee",
+    "HxG", "AxG",
     "HS", "AS",           # shots
     "HST", "AST",         # shots on target
     "HC", "AC",           # corners
     "HF", "AF",           # fouls
     "HY", "AY",           # yellow cards
     "B365H", "B365D", "B365A",
+    "AvgH", "AvgD", "AvgA",
     "MaxH",  "MaxD",  "MaxA",
     "Max>2.5", "Max<2.5",
+    "Avg>2.5", "Avg<2.5",
     "MaxAHH", "MaxAHA", "AHh",
     # Pinnacle opening + closing (for CLV backtests; present from ~2019/20)
     "PSH", "PSD", "PSA",
@@ -57,6 +60,14 @@ KEEP_COLS = [
     "P>2.5", "P<2.5",
     "PC>2.5", "PC<2.5",
     "AHCh", "PAHH", "PAHA", "PCAHH", "PCAHA",
+    # Modern football-data closing columns.  The older Pinnacle C columns above
+    # are absent in recent seasons, so dropping these silently removed the live
+    # closing market from 2026/27 imports.
+    "B365CH", "B365CD", "B365CA",
+    "MaxCH", "MaxCD", "MaxCA", "AvgCH", "AvgCD", "AvgCA",
+    "B365C>2.5", "B365C<2.5", "MaxC>2.5", "MaxC<2.5",
+    "AvgC>2.5", "AvgC<2.5",
+    "B365CAHH", "B365CAHA", "MaxCAHH", "MaxCAHA", "AvgCAHH", "AvgCAHA",
 ]
 
 DATE_FMTS = ["%d/%m/%Y", "%d/%m/%y"]
@@ -127,12 +138,16 @@ def fetch_season(code: str, label: str, league_code: str) -> pd.DataFrame | None
 def main():
     parser = argparse.ArgumentParser(description="Fetch football-data.co.uk results")
     parser.add_argument("--league", default="epl", help="League config key (leagues/*.yaml)")
+    parser.add_argument("--live-merge", action="store_true",
+                        help="Fetch only the configured latest season and merge by date/home/away")
     args = parser.parse_args()
 
     cfg = load_league(args.league)
     src = cfg.raw["source"]
     league_code = src["league_code"]
     seasons = _season_codes(src["seasons_from"], src.get("seasons_to", "2025/26"))
+    if args.live_merge:
+        seasons = seasons[-1:]
 
     out_csv = cfg.matches_csv
     out_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -148,7 +163,17 @@ def main():
         print("No data fetched.")
         return
 
-    combined = pd.concat(frames, ignore_index=True).sort_values("Date")
+    fresh = pd.concat(frames, ignore_index=True)
+    if args.live_merge and out_csv.exists():
+        existing = pd.read_csv(out_csv, low_memory=False)
+        existing["Date"] = pd.to_datetime(existing["Date"], errors="coerce")
+        combined = pd.concat([existing, fresh], ignore_index=True, sort=False)
+        before = len(combined)
+        combined = combined.drop_duplicates(["Date", "HomeTeam", "AwayTeam"], keep="last")
+        print(f"  live merge: {len(fresh)} source rows; {before-len(combined)} existing rows refreshed")
+    else:
+        combined = fresh
+    combined = combined.sort_values(["Date", "HomeTeam", "AwayTeam"])
     combined.to_csv(out_csv, index=False)
     print(f"\nSaved {len(combined)} matches to {out_csv}")
     print(f"Seasons: {combined['Season'].nunique()}")

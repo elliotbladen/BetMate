@@ -1,0 +1,18 @@
+{
+  "training_games": 1494,
+  "test_games": 378,
+  "raw": {
+    "brier": 0.2439760329100529,
+    "mean_probability": 0.7045465608465609,
+    "actual_rate": 0.6587301587301587,
+    "accuracy": 0.6190476190476191
+  },
+  "calibrated": {
+    "brier": 0.2296353660099328,
+    "mean_probability": 0.5783022269964035,
+    "actual_rate": 0.6587301587301587,
+    "accuracy": 0.6587301587301587
+  },
+  "method": "isotonic regression fit on pre-2024/25 predictions",
+  "decision": "paper_calibrated_candidate"
+}

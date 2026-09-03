@@ -1,0 +1,117 @@
+{
+  "status": "shadow_framework_ready_live_inputs_blocked",
+  "games": 16,
+  "ready_to_publish_t1_paper": true,
+  "ready_to_bet": false,
+  "staking_enabled": false,
+  "blockers": [
+    "no_valid_timestamped_market_quotes",
+    "quarterback_review_incomplete",
+    "post_cut_roster_continuity_missing",
+    "official_2026_injury_report_not_available",
+    "stadium_coordinates_and_weather_capture_incomplete"
+  ],
+  "tier_registry": {
+    "T0 market data": {
+      "status": "active_gate",
+      "reason": "abstain when quotes are missing or invalid"
+    },
+    "T1 team strength": {
+      "status": "active_paper",
+      "reason": "official frozen structural baseline"
+    },
+    "T2 quarterback/personnel": {
+      "status": "prospective_shadow",
+      "reason": "historically useful; live QB review unresolved"
+    },
+    "T3 continuity/injuries": {
+      "status": "prospective_shadow",
+      "reason": "historically useful; pre-cut roster rejected"
+    },
+    "T4 venue/travel": {
+      "status": "rejected_spread_diagnostic",
+      "reason": "spread MAE worsened; travel coordinates untested"
+    },
+    "T5 rest/schedule": {
+      "status": "rejected",
+      "reason": "nonlinear additions worsened spread and total models"
+    },
+    "T6 weather": {
+      "status": "totals_shadow",
+      "reason": "small oracle gain; timestamped live forecasts required"
+    },
+    "T7 scheme/matchup": {
+      "status": "rejected_diagnostic",
+      "reason": "negligible spread gain and totals worsened"
+    },
+    "T8 market disagreement": {
+      "status": "after_open_watch",
+      "reason": "promising direction signal; no betting authority"
+    },
+    "T9 confluence": {
+      "status": "frozen_prospective_shadow",
+      "reason": "retrospective rule frozen; no betting authority"
+    },
+    "Context events": {
+      "status": "diagnostic",
+      "reason": "objective timestamped register; always zero points"
+    }
+  },
+  "historical_consolidation": {
+    "development_games": 1599,
+    "t1_margin_mae": 10.308588926057823,
+    "t1_t2_t3_margin_mae": 10.104453524742834,
+    "t2_t3_gain": 0.2041354013149892,
+    "t2_t3_better_seasons": 6,
+    "t8_large_spread_direction": {
+      "threshold_points": 3.0,
+      "games": 412,
+      "direction_accuracy": 0.6577669902912622,
+      "mean_market_move_points": 1.9745145631067962
+    },
+    "t9_spread": {
+      "games": 124,
+      "moving_line_games": 103,
+      "closing_direction_accuracy": 0.7864077669902912,
+      "mean_clv_points": 1.7903225806451613,
+      "wins": 67,
+      "losses": 55,
+      "pushes": 2,
+      "win_rate_ex_pushes": 0.5491803278688525,
+      "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+    },
+    "t9_total_oracle": {
+      "games": 308,
+      "moving_line_games": 277,
+      "closing_direction_accuracy": 0.6859205776173285,
+      "mean_clv_points": 0.8685064935064936,
+      "wins": 176,
+      "losses": 126,
+      "pushes": 6,
+      "win_rate_ex_pushes": 0.5827814569536424,
+      "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+    }
+  },
+  "promotion_gates": {
+    "minimum_frozen_predictions": 500,
+    "minimum_seasons": 2,
+    "market_coverage": 0.9,
+    "required": [
+      "audited_true_openers",
+      "timestamped_obtainable_prices",
+      "positive_mean_clv",
+      "positive_opening_beat_rate",
+      "out_of_sample_score_gain",
+      "no_threshold_retuning"
+    ],
+    "current_promotion_allowed": false
+  },
+  "next_live_actions": [
+    "complete official QB probability review",
+    "refresh post-cut rosters and injury reports",
+    "verify stadium coordinates and capture forecasts",
+    "resume Odds API quote capture",
+    "run frozen T8/T9 shadow without changing thresholds"
+  ],
+  "prediction_sha256": "d263696ed0abef4c6383f24ff246ecbd0213f07d7fe436b3117f53cd0c6fc538"
+}

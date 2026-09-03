@@ -60,7 +60,7 @@ The example file said `NEXT_PUBLIC_ODDS_API_KEY` but the API routes read `ODDS_A
 1. git pull
 2. cp .env.local.example .env.local
 3. Fill in .env.local:
-     ODDS_API_KEY=29cffda625d3420dc24db352a076a5db
+    ODDS_API_KEY=<set-in-local-environment>
      NEXT_PUBLIC_SUPABASE_URL=<supabase url>
      NEXT_PUBLIC_SUPABASE_ANON_KEY=<supabase anon key>
 4. npm install

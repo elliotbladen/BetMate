@@ -1,0 +1,103 @@
+{
+  "games": 378,
+  "seasons": {
+    "2024-25": {
+      "games": 189,
+      "1x2_home": {
+        "brier": 0.24936775816006654,
+        "calibration_error": 0.14311183511760872,
+        "mean_probability": 0.45095633910894783,
+        "actual_rate": 0.5079365079365079
+      },
+      "1x2_draw": {
+        "brier": 0.12631400841684345,
+        "calibration_error": 0.06409699116608054,
+        "mean_probability": 0.21304040341827674,
+        "actual_rate": 0.13756613756613756
+      },
+      "1x2_away": {
+        "brier": 0.20659897182265285,
+        "calibration_error": 0.03658049114142467,
+        "mean_probability": 0.33600325747277543,
+        "actual_rate": 0.3544973544973545
+      },
+      "over25": {
+        "brier": 0.2407861391005291,
+        "calibration_error": 0.1684326485976076,
+        "mean_probability": 0.6998037037037037,
+        "actual_rate": 0.656084656084656
+      }
+    },
+    "2025-26": {
+      "games": 189,
+      "1x2_home": {
+        "brier": 0.22772867675972366,
+        "calibration_error": 0.07376052966073061,
+        "mean_probability": 0.46108205175687017,
+        "actual_rate": 0.5026455026455027
+      },
+      "1x2_draw": {
+        "brier": 0.1427552756524602,
+        "calibration_error": 0.039326860174921964,
+        "mean_probability": 0.21204719508488917,
+        "actual_rate": 0.1746031746031746
+      },
+      "1x2_away": {
+        "brier": 0.20451363500253733,
+        "calibration_error": 0.07526862468322126,
+        "mean_probability": 0.3268707531582405,
+        "actual_rate": 0.32275132275132273
+      },
+      "over25": {
+        "brier": 0.2450198248677248,
+        "calibration_error": 0.19205190273317768,
+        "mean_probability": 0.7151777777777779,
+        "actual_rate": 0.6613756613756614
+      }
+    },
+    "combined": {
+      "games": 378,
+      "1x2_home": {
+        "brier": 0.2385482174598951,
+        "calibration_error": 0.08525610016663303,
+        "mean_probability": 0.456019195432909,
+        "actual_rate": 0.5052910052910053
+      },
+      "1x2_draw": {
+        "brier": 0.13453464203465185,
+        "calibration_error": 0.052044536283614565,
+        "mean_probability": 0.21254379925158293,
+        "actual_rate": 0.15608465608465608
+      },
+      "1x2_away": {
+        "brier": 0.2055563034125951,
+        "calibration_error": 0.05210392633186328,
+        "mean_probability": 0.33143700531550796,
+        "actual_rate": 0.3386243386243386
+      },
+      "over25": {
+        "brier": 0.242902981984127,
+        "calibration_error": 0.15307104057934234,
+        "mean_probability": 0.7074907407407408,
+        "actual_rate": 0.6587301587301587
+      }
+    }
+  },
+  "markets": {
+    "1x2": {
+      "brier": 0.578639162907142,
+      "log_loss": 0.9699361183509867,
+      "accuracy": 0.5476190476190477
+    },
+    "over25": {
+      "brier": 0.242902981984127,
+      "log_loss": 0.7042877863934026,
+      "calibration_error": 0.15307104057934234
+    },
+    "asian_handicap_home_minus_0_5": {
+      "brier": 0.23854867484126982,
+      "calibration_error": 0.08525969734498551
+    }
+  },
+  "promotion_decision": "paper_only_pending_closing_line_calibration_and_stability"
+}

@@ -15,6 +15,12 @@
 **Prior:** 2026-07-08 (Work/home machine git divergence reconciled — see handover `2026-07-08_machine-reconcile-architecture.md`. Work machine had the live data + Jul 7 NRL work; home machine's monorepo import carried a stale BettingEngine copy EXCEPT the Jul 5 EPL engine build and Jul 5 AFL ML retrain, which only existed in git history. Both sides merged: working tree kept for everything, HEAD restored for `ml/afl/*` + EPL tree. ⚠️ AFL ML .pkl models are NOT in git — re-run `ml/afl/game_log.py` + `ml/afl/train.py` on this machine before next AFL ML shadow run. ⚠️ Diary `2026-07-05_afl-ema-form-split-models.md` was never committed — it exists only on the home computer; commit + push it from there.)
 **Update this section at the end of every session, before writing the handover diary.**
 
+**Latest UCL handover (2026-09-03):** UCL has separate 1X2 and U/O 2.5 market
+layers on a shared foundation. The corner challenger has 342 validated SofaScore
+matches and remains paper-only. The UCL player shadow framework exists but has
+0 timestamped player events and cannot influence production prices yet. See
+`handover/sessions/2026-09-03_ucl-market-architecture-and-player-shadow.md`.
+
 ### Season Phase Tagging — LIVE 2026-07-10
 `scripts/season_phases.py` — event-anchored NRL phases (early/origin/late/finals + `origin_window` bool; Origin window = camp_start → game + 7d so backup-fatigue rounds like R19 are captured) from `{BETMATE_ROOT}/data/nrl/origin/{season}.json` + `model.db` round dates. AFL = descriptive round split only. `update_clv_running.py` and `generate_model_accuracy.py` now emit `phase`/`origin_window` columns in the running CSVs (full-regenerate scripts → backfill automatic). Purpose: measure per-phase model bias/CLV through end of 2026 BEFORE fitting any phase weights for the planned 2027 four-phase NRL split. CLI check: `python scripts/season_phases.py --season 2026`.
 

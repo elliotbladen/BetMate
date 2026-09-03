@@ -1,0 +1,14 @@
+{
+  "status": "nfl_end_to_end_backtest_archived",
+  "walk_forward_games": 1599,
+  "sealed_vault_games": 272,
+  "total_games": 1871,
+  "decision": "paper_price_now_no_live_betting_promotion",
+  "staking_enabled": false,
+  "sha256": {
+    "step13_end_to_end_backtest.py": "071b10d1a3e8cdb18cd8385a4b9361dceda285d1470793b891cd290a87e01380",
+    "step13_end_to_end_backtest.md": "c41f05d7c92b3f84e29a8c18698126597124578aea56bd40357d95098dfc1ea9",
+    "step13_end_to_end_backtest.json": "0eb88bc8e404836deba750b101234c60c36af57b4dbb8c63784670a24d9331d7",
+    "step13_end_to_end_backtest.csv": "6fd65e7344c967cecebcc46a053e261792aed65e911562a89e6f285c85cda311"
+  }
+}

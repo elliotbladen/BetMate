@@ -1,0 +1,55 @@
+league: nfl
+status: frozen_paper_only
+effective_season: 2026
+staking_enabled: false
+
+authoritative_paper_candidate:
+  margin: ridge_structural
+  total: ridge_structural
+  h2h: margin_derived_probability
+
+independent_shadows:
+  shallow_tree:
+    enabled: true
+    may_change_paper_candidate: false
+  direct_h2h:
+    enabled: true
+    may_change_paper_candidate: false
+  qb_personnel:
+    enabled_only_with_timestamped_starter_probabilities: true
+    historical_actual_starter_oracle_forbidden: true
+
+prediction_protocol:
+  archive_before_market_comparison: true
+  required_fields:
+    - game_id
+    - generated_at_utc
+    - feature_cutoff_utc
+    - model_hash
+    - config_hash
+    - fair_home_spread
+    - fair_total
+    - home_win_probability
+  actual_onside_attempts_as_pregame_features: false
+  onside_anytime_when_trailing_rule: true
+  onside_2026_alignment_rule: true
+
+market_protocol:
+  archive_first_obtainable_quote: true
+  poll_minutes: 5
+  require_bookmaker_and_timestamp: true
+  spread_convention: negative_home_favourite
+  retrospective_opener_substitution_forbidden: true
+
+diagnostic_edge_bands_points: [0, 1, 2, 3]
+selection_threshold_status: not_authorised_until_true_opener_audit
+
+promotion_gate:
+  minimum_frozen_prospective_predictions: 500
+  minimum_seasons: 2
+  require_positive_mean_clv: true
+  require_positive_opening_beat_rate: true
+  require_calibration_gain: true
+  require_ablation_gain: true
+  vault_2025_may_be_used_for_retuning: false
+

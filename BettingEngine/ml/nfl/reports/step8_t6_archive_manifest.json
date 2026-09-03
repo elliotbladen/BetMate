@@ -1,0 +1,13 @@
+{
+  "status": "t6_weather_oracle_archived",
+  "season_test_range": [2019, 2024],
+  "games": 1599,
+  "vault_2025_predictions": 0,
+  "decision": "timestamped_totals_shadow_worth_building_no_price_adjustment",
+  "sha256": {
+    "step8_t6_weather.py": "75da2e837c3729501126bc3286cab0269c8f7c7f67a6cbc0d5f4183f3764db39",
+    "step8_t6_weather.md": "beeb83bbbf603d1f079c9ead0489ee5759fe6b05c990835703cd8f2cceb5ce21",
+    "step8_t6_weather.json": "4fc685061750987eb8a8d0c3994ae5c61f21aeb321b124f102ed68d9aa3ac612",
+    "step8_t6_weather_oracle.csv": "ead0662622042ccf820c5b3f437bf7b2f30af9db9f29b146bbbc8b41180514fd"
+  }
+}

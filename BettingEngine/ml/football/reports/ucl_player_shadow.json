@@ -1,0 +1,7 @@
+{
+  "status": "ucl_player_shadow_data_pending",
+  "events": 0,
+  "mode": "shadow",
+  "production_price_influence": false,
+  "next_gate": "populate timestamped UCL player events and observed appearances"
+}

@@ -1,0 +1,121 @@
+{
+  "status": "t8_historical_market_disagreement_diagnostic",
+  "games": 1343,
+  "test_seasons": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "vault_2025_predictions": 0,
+  "spread": {
+    "opener_to_close_baseline": {
+      "games": 1339,
+      "mae": 1.4775952203136669,
+      "rmse": 2.1795351369029983
+    },
+    "calibrated_t8_to_close": {
+      "games": 1339,
+      "mae": 1.4904481563943854,
+      "rmse": 2.1414125083746436
+    },
+    "raw_ridge_direction": [
+      {
+        "threshold_points": 0.0,
+        "games": 1087,
+        "direction_accuracy": 0.593376264949402,
+        "mean_market_move_points": 1.8201471941122356
+      },
+      {
+        "threshold_points": 1.0,
+        "games": 843,
+        "direction_accuracy": 0.6180308422301305,
+        "mean_market_move_points": 1.8914590747330962
+      },
+      {
+        "threshold_points": 2.0,
+        "games": 612,
+        "direction_accuracy": 0.6405228758169934,
+        "mean_market_move_points": 1.9591503267973855
+      },
+      {
+        "threshold_points": 3.0,
+        "games": 412,
+        "direction_accuracy": 0.6577669902912622,
+        "mean_market_move_points": 1.9745145631067962
+      }
+    ],
+    "raw_tree_direction": [
+      {
+        "threshold_points": 0.0,
+        "games": 1087,
+        "direction_accuracy": 0.5758969641214351,
+        "mean_market_move_points": 1.8201471941122356
+      },
+      {
+        "threshold_points": 1.0,
+        "games": 831,
+        "direction_accuracy": 0.5944645006016848,
+        "mean_market_move_points": 1.8369434416365824
+      },
+      {
+        "threshold_points": 2.0,
+        "games": 577,
+        "direction_accuracy": 0.6117850953206239,
+        "mean_market_move_points": 1.89948006932409
+      },
+      {
+        "threshold_points": 3.0,
+        "games": 381,
+        "direction_accuracy": 0.6246719160104987,
+        "mean_market_move_points": 1.8910761154855642
+      }
+    ]
+  },
+  "total": {
+    "opener_to_close_baseline": {
+      "games": 1339,
+      "mae": 1.7352501867064973,
+      "rmse": 2.273700993122001
+    },
+    "calibrated_t8_to_close": {
+      "games": 1339,
+      "mae": 1.7145241263019362,
+      "rmse": 2.2024318133107776
+    },
+    "raw_tree_direction": [
+      {
+        "threshold_points": 0.0,
+        "games": 1197,
+        "direction_accuracy": 0.5622389306599833,
+        "mean_market_move_points": 1.9411027568922306
+      },
+      {
+        "threshold_points": 1.0,
+        "games": 913,
+        "direction_accuracy": 0.5815991237677984,
+        "mean_market_move_points": 1.9676889375684556
+      },
+      {
+        "threshold_points": 2.0,
+        "games": 637,
+        "direction_accuracy": 0.6059654631083202,
+        "mean_market_move_points": 2.013343799058085
+      },
+      {
+        "threshold_points": 3.0,
+        "games": 390,
+        "direction_accuracy": 0.6256410256410256,
+        "mean_market_move_points": 2.114102564102564
+      }
+    ]
+  },
+  "restrictions": [
+    "after-open diagnostic only",
+    "no bookmaker-dispersion history available",
+    "historical true-opener audit incomplete",
+    "no prices or ROI claimed",
+    "staking disabled"
+  ]
+}

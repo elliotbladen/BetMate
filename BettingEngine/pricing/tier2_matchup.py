@@ -1467,9 +1467,9 @@ def compute_yardage_adjustments(
         [-max_away_points_delta, +max_away_points_delta]  for away
       controlled by tier2_matchup.max_*_points_delta in config
 
-    In V1, max_points_swing (default 2.5) is smaller than the outer cap
-    (default 4.0), so the inner cap is the binding constraint.
-    Both remain in place so tuning one does not silently break the other.
+    The NRL outer-cap fallback is 3.0 points per team. Sport configuration
+    may override it (for example AFL), but missing config must not restore the
+    retired 4.0-point NRL fallback.
 
     Args:
         home_stats: team stats dict for the home team
@@ -1505,8 +1505,8 @@ def compute_yardage_adjustments(
         }
 
     max_swing      = float(yardage_cfg.get('max_points_swing', 2.5))
-    outer_home_cap = float(config.get('max_home_points_delta', 4.0))
-    outer_away_cap = float(config.get('max_away_points_delta', 4.0))
+    outer_home_cap = float(config.get('max_home_points_delta', 3.0))
+    outer_away_cap = float(config.get('max_away_points_delta', 3.0))
 
     bucket = compute_yardage_bucket(home_stats, away_stats, config)
     score  = bucket['yardage_bucket_score']
@@ -1910,12 +1910,13 @@ def compute_matchup_adjustments(match: dict, context: dict, config: dict, conn=N
     #     so the audit trail is always complete.
     #
     # Config keys used:
-    #   tier2_matchup.max_home_points_delta  (default 4.0)
-    #   tier2_matchup.max_away_points_delta  (default 4.0)
+    #   tier2_matchup.max_home_points_delta  (NRL fallback 3.0)
+    #   tier2_matchup.max_away_points_delta  (NRL fallback 3.0)
     # ------------------------------------------------------------------
     if adjustments:
-        tier2_home_cap = float(tier2_cfg.get('max_home_points_delta', 4.0))
-        tier2_away_cap = float(tier2_cfg.get('max_away_points_delta', 4.0))
+        tier2_home_cap = float(tier2_cfg.get('max_home_points_delta', 3.0))
+        tier2_away_cap = float(tier2_cfg.get('max_away_points_delta', 3.0))
+        tier2_net_cap = float(tier2_cfg.get('max_net_handicap_delta', 3.0))
 
         raw_home_total = sum(a['home_points_delta'] for a in adjustments)
         raw_away_total = sum(a['away_points_delta'] for a in adjustments)
@@ -1925,6 +1926,9 @@ def compute_matchup_adjustments(match: dict, context: dict, config: dict, conn=N
             scale = min(scale, tier2_home_cap / abs(raw_home_total))
         if abs(raw_away_total) > tier2_away_cap and raw_away_total != 0.0:
             scale = min(scale, tier2_away_cap / abs(raw_away_total))
+        raw_net_total = raw_home_total - raw_away_total
+        if abs(raw_net_total) > tier2_net_cap and raw_net_total != 0.0:
+            scale = min(scale, tier2_net_cap / abs(raw_net_total))
 
         if scale < 1.0:
             logger.debug(

@@ -1,0 +1,8 @@
+{
+  "status": "ucl_market_contract_built_data_pending",
+  "match_markets": ["h2h", "asian_handicap", "totals"],
+  "tournament_markets": ["top8", "top24", "eliminated", "final_position", "qualify", "winner"],
+  "market_fields_used_in_model": false,
+  "fabricated_quotes": 0,
+  "next_gate": "populate_timestamped_obtainable_quotes_and_backtest_clv"
+}

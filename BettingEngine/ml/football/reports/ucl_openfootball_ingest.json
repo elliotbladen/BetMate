@@ -1,0 +1,105 @@
+{
+  "status": "openfootball_matches_imported",
+  "source": "openfootball",
+  "seasons": [
+    ".git",
+    "2011-12",
+    "2012-13",
+    "2013-14",
+    "2014-15",
+    "2015-16",
+    "2016-17",
+    "2017-18",
+    "2018-19",
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "matches": 1997,
+  "files": [
+    {
+      "season": "2011-12",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2011-12\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2012-13",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2012-13\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2013-14",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2013-14\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2014-15",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2014-15\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2015-16",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2015-16\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2016-17",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2016-17\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2017-18",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2017-18\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2018-19",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2018-19\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2019-20",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2019-20\\cl.txt",
+      "matches": 119
+    },
+    {
+      "season": "2020-21",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2020-21\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2021-22",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2021-22\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2022-23",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2022-23\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2023-24",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2023-24\\cl.txt",
+      "matches": 125
+    },
+    {
+      "season": "2024-25",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2024-25\\cl.txt",
+      "matches": 189
+    },
+    {
+      "season": "2025-26",
+      "file": "F:\\dev\\BetMate\\tmp_ucl_source\\repo\\2025-26\\cl.txt",
+      "matches": 189
+    }
+  ],
+  "kickoff_precision": "date_only",
+  "odds_included": false,
+  "xg_included": false,
+  "fabricated_matches": 0,
+  "output": "data\\ucl\\matches\\ucl_matches_openfootball.csv"
+}

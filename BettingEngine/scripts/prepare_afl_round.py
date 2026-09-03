@@ -2098,9 +2098,12 @@ def main():
         feat  = build_feature_row(home, away, venue, date, elo, features_df,
                                   mkt_home_prob=mkt_probs.get((home, away)))
         X     = pd.DataFrame([feat])
-        X_reg = X[FEATURE_COLS_REG]
-        X_h2h_legacy = X[FEATURE_COLS_H2H_LEGACY]
-        X_h2h_shadow = X[FEATURE_COLS_H2H_SHADOW]
+        # XGBoost rejects object-typed frames. A missing market probability is
+        # represented as None at deploy time, which otherwise makes the whole
+        # column object even though every model feature is numeric.
+        X_reg = X[FEATURE_COLS_REG].apply(pd.to_numeric, errors='coerce')
+        X_h2h_legacy = X[FEATURE_COLS_H2H_LEGACY].apply(pd.to_numeric, errors='coerce')
+        X_h2h_shadow = X[FEATURE_COLS_H2H_SHADOW].apply(pd.to_numeric, errors='coerce')
 
         # ── T1: Rules-based baseline ──────────────────────────────────────────
         home_elo = elo.get(home, 1500.0)
@@ -2743,7 +2746,7 @@ def store_to_db(results: list, season: int, round_num: int, run_date: str):
         else:
             flag = None
 
-        conn.execute('''
+        conn.execute(f'''
             INSERT INTO afl_shadow_predictions
                 (season, round_number, game_date, home_team, away_team, venue,
                  run_date, rules_margin, rules_total, rules_home_prob,

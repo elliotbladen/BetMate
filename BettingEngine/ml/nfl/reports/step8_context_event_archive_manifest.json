@@ -1,0 +1,10 @@
+{
+  "status": "nfl_context_event_contract_archived",
+  "decision": "diagnostic_zero_points_prospective_collection",
+  "global_emotional_tier_inherited": false,
+  "sha256": {
+    "context_events.py": "db26da0d9ab9ebb8d19eaa635c37888bf4b2570f03c74570a88e4042ccd2a1b4",
+    "step8_context_event_review.md": "6c2f712109248917925b616f2f8aeab5f1ba4dda9039eb575a4ae1fdb5db2e5a",
+    "2026_week01_events.json": "bfda87e3646c06e52010a9b56dae161f013a81b52c5f6b712dca944c38710e08"
+  }
+}

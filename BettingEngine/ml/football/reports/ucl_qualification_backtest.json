@@ -1,0 +1,38 @@
+{
+  "status": "ucl_qualification_probability_backtest_complete",
+  "seasons": [
+    "2024-25",
+    "2025-26"
+  ],
+  "clubs": 72,
+  "simulations_per_season": 2000,
+  "overall": {
+    "clubs": 72,
+    "top8_brier": 0.12491305555555554,
+    "top8_calibration_error": 0.0,
+    "top24_brier": 0.18136678472222223,
+    "top24_calibration_error": 0.0
+  },
+  "by_season": {
+    "2024-25": {
+      "clubs": 36,
+      "top8_brier": 0.12911312500000005,
+      "top8_calibration_error": 0.0,
+      "top24_brier": 0.17958044444444446,
+      "top24_calibration_error": 1.1102230246251565e-16
+    },
+    "2025-26": {
+      "clubs": 36,
+      "top8_brier": 0.12071298611111111,
+      "top8_calibration_error": 0.0,
+      "top24_brier": 0.183153125,
+      "top24_calibration_error": 0.0
+    }
+  },
+  "restrictions": [
+    "uses walk-forward match probabilities",
+    "no odds",
+    "no player data",
+    "tie-break approximation follows rank_table"
+  ]
+}

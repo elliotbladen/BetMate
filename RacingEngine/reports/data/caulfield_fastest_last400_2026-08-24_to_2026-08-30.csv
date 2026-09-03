@@ -1,0 +1,128 @@
+race_date,track_slug,race_number,runner_number,runner_name,finish_position,beaten_lengths,last400_seconds
+2026-08-29,caulfield,6,3,Oliveanotherday,1,1.5,22.74
+2026-08-29,caulfield,5,12,Photograph,2,1.75,22.95
+2026-08-29,caulfield,6,5,Harry's Yacht,5,4.8,22.95
+2026-08-29,caulfield,6,1,War Machine,3,2.75,22.98
+2026-08-29,caulfield,8,7,Cosmic Crusader,3,3.35,23.07
+2026-08-29,caulfield,8,4,Buckaroo,5,3.91,23.1
+2026-08-29,caulfield,8,6,Birdman,6,4.66,23.13
+2026-08-29,caulfield,8,10,Beiwacht,1,3.0,23.2
+2026-08-29,caulfield,5,11,Custom,1,1.75,23.22
+2026-08-29,caulfield,10,13,Storm Leopard,5,3.65,23.23
+2026-08-29,caulfield,10,12,Ten Commandments,3,2.7,23.26
+2026-08-29,caulfield,5,2,Salty Pearl,3,2.75,23.27
+2026-08-29,caulfield,1,10,Naina,4,0.75,23.28
+2026-08-29,caulfield,10,14,Fancify,1,2.5,23.3
+2026-08-29,caulfield,6,6,De Bergerac,6,5.1,23.31
+2026-08-29,caulfield,10,7,Aztec Ruler,2,2.5,23.32
+2026-08-29,caulfield,8,8,Sabaj,12,6.24,23.36
+2026-08-29,caulfield,6,9,Bridal Waltz,2,1.5,23.37
+2026-08-29,caulfield,7,2,Unit Five,2,0.15,23.37
+2026-08-29,caulfield,1,6,Moonlight Circus,6,1.0,23.38
+2026-08-29,caulfield,8,9,Autumn Boy,8,4.88,23.44
+2026-08-29,caulfield,5,7,Flyer,9,6.7,23.45
+2026-08-29,caulfield,8,3,Tom Kitten,11,5.84,23.45
+2026-08-29,caulfield,8,12,Treasurethe Moment,4,3.41,23.48
+2026-08-29,caulfield,6,8,Inkaruna,4,4.5,23.49
+2026-08-29,caulfield,8,2,Jimmysstar,9,5.03,23.49
+2026-08-29,caulfield,4,6,Windstorm,4,3.9,23.5
+2026-08-29,caulfield,4,17,My Brothers Keeper,8,5.31,23.51
+2026-08-29,caulfield,10,5,Craig,7,6.85,23.51
+2026-08-29,caulfield,1,5,Butternut Princess,7,1.1,23.53
+2026-08-29,caulfield,10,10,Suntora,6,6.65,23.55
+2026-08-29,caulfield,7,9,American Eagle,1,0.15,23.56
+2026-08-29,caulfield,8,1,Mr Brightside,2,3.0,23.56
+2026-08-29,caulfield,8,5,Angel Capital,10,5.78,23.57
+2026-08-29,caulfield,1,13,All Business,10,2.55,23.63
+2026-08-29,caulfield,2,11,Politely Dun,1,1.0,23.65
+2026-08-29,caulfield,3,12,Jennivamoose,3,2.5,23.65
+2026-08-29,caulfield,5,10,Gold Medallist,5,4.1,23.67
+2026-08-29,caulfield,1,2,Tarvue,12,5.3,23.68
+2026-08-29,caulfield,4,1,Autumn Mystery,14,10.77,23.68
+2026-08-29,caulfield,7,6,Seraphox,3,2.65,23.68
+2026-08-29,caulfield,7,3,Rich On Bubbles,6,4.61,23.69
+2026-08-29,caulfield,4,12,Boltsaver,13,8.27,23.7
+2026-08-29,caulfield,10,1,Another Wil,9,8.1,23.71
+2026-08-29,caulfield,10,11,Sass Appeal,4,3.45,23.72
+2026-08-29,caulfield,1,11,Salizou,5,0.9,23.73
+2026-08-29,caulfield,8,11,Planet Red,7,4.68,23.73
+2026-08-29,caulfield,1,12,Puglia,1,0.5,23.76
+2026-08-29,caulfield,5,9,Pondalowie,8,5.95,23.77
+2026-08-29,caulfield,4,4,Stylish,3,0.9,23.79
+2026-08-29,caulfield,4,13,Itazura,6,4.35,23.79
+2026-08-29,caulfield,4,11,Savisanta,12,7.81,23.79
+2026-08-29,caulfield,1,8,Miss Maranda,11,3.3,23.86
+2026-08-29,caulfield,1,7,Enviable,8,1.2,23.88
+2026-08-29,caulfield,3,2,Saint George,1,1.25,23.91
+2026-08-29,caulfield,6,4,Recommendation,7,5.6,23.92
+2026-08-29,caulfield,6,7,Don't Hope Do,8,7.1,23.94
+2026-08-29,caulfield,4,18,Victorious Spirit,9,5.71,23.95
+2026-08-29,caulfield,7,5,Confederation,5,2.86,23.96
+2026-08-29,caulfield,7,11,Autumn Lover,7,4.71,23.97
+2026-08-29,caulfield,4,9,Porter,2,0.15,24.0
+2026-08-29,caulfield,10,4,Al Duca,8,7.1,24.01
+2026-08-29,caulfield,1,3,Stealth Of Night,2,0.5,24.03
+2026-08-29,caulfield,3,1,Berkeley Square,6,4.96,24.03
+2026-08-29,caulfield,3,14,Shockletz,4,2.96,24.05
+2026-08-29,caulfield,10,2,Cafe Millenium,10,8.35,24.1
+2026-08-29,caulfield,9,14,Zahrann,4,1.65,24.11
+2026-08-29,caulfield,1,1,Davida,3,0.6,24.13
+2026-08-29,caulfield,5,3,Wrote To Arataki,6,4.35,24.13
+2026-08-29,caulfield,1,4,Stage 'N' Screen,9,2.2,24.15
+2026-08-29,caulfield,5,5,Proved,7,5.6,24.15
+2026-08-29,caulfield,7,7,Phillip Island,4,2.71,24.16
+2026-08-29,caulfield,4,2,Home Rule,1,0.15,24.2
+2026-08-29,caulfield,3,15,Grand Pierro,8,5.04,24.21
+2026-08-29,caulfield,5,6,Shadhavar,4,2.85,24.21
+2026-08-29,caulfield,7,4,Obambulate,8,5.46,24.24
+2026-08-29,caulfield,3,8,Litzdeel,2,1.25,24.28
+2026-08-29,caulfield,4,15,Watersports,11,6.56,24.3
+2026-08-29,caulfield,9,15,Zakouma,6,4.15,24.32
+2026-08-29,caulfield,2,1,Virtuous Circle,5,2.8,24.34
+2026-08-29,caulfield,4,8,Asakura,7,4.81,24.35
+2026-08-29,caulfield,2,14,Jenni Multabella,2,1.0,24.38
+2026-08-29,caulfield,7,10,Aethera,9,8.21,24.42
+2026-08-29,caulfield,9,3,Kingswood,1,0.75,24.46
+2026-08-29,caulfield,3,11,Unlimited,11,7.39,24.47
+2026-08-29,caulfield,2,13,Oraqua,3,1.5,24.48
+2026-08-29,caulfield,2,8,Federer,4,2.5,24.5
+2026-08-29,caulfield,2,4,Lincoln Rocks,6,3.26,24.52
+2026-08-29,caulfield,3,9,See That Storm,7,4.98,24.52
+2026-08-29,caulfield,5,4,Bossy Benita,11,8.15,24.53
+2026-08-29,caulfield,4,16,Recuperato,5,4.25,24.58
+2026-08-29,caulfield,5,8,Betwitchery,10,7.95,24.59
+2026-08-29,caulfield,2,15,Blue Willow,7,4.26,24.61
+2026-08-29,caulfield,9,13,Deakin,3,1.15,24.65
+2026-08-29,caulfield,2,5,Hurry Curry,8,4.32,24.66
+2026-08-29,caulfield,3,3,Glory Daze,9,5.29,24.68
+2026-08-29,caulfield,5,1,Belle Cheval,12,10.65,24.69
+2026-08-29,caulfield,3,4,Star Of India,12,7.49,24.72
+2026-08-29,caulfield,4,3,Elouyou,10,6.46,24.73
+2026-08-29,caulfield,4,7,Space Age,15,12.52,24.75
+2026-08-29,caulfield,4,10,Dark Journey,16,17.52,24.77
+2026-08-29,caulfield,3,10,Darkbonee,13,7.95,24.81
+2026-08-29,caulfield,3,6,Machine Gun Gracie,5,3.71,24.87
+2026-08-29,caulfield,10,15,Grecian Destiny,11,15.35,24.96
+2026-08-29,caulfield,3,13,Sunset Park,14,8.15,24.97
+2026-08-29,caulfield,9,1,Middle Earth,8,5.11,25.0
+2026-08-29,caulfield,9,5,Royal Supremacy,9,6.61,25.01
+2026-08-29,caulfield,9,16,First Chorus,5,2.4,25.08
+2026-08-29,caulfield,9,9,Just Folk,2,0.75,25.17
+2026-08-29,caulfield,2,12,Autumnheat,10,4.4,25.19
+2026-08-29,caulfield,2,2,Makdane,11,6.4,25.19
+2026-08-29,caulfield,7,1,Seize The Day,10,9.21,25.2
+2026-08-29,caulfield,3,7,Magnaspin,10,7.04,25.29
+2026-08-29,caulfield,2,3,Amleto,9,4.38,25.36
+2026-08-29,caulfield,9,10,Yellow Jersey,7,4.61,25.42
+2026-08-29,caulfield,9,2,Attrition,11,8.61,25.43
+2026-08-29,caulfield,3,5,Taramansour,15,11.9,25.47
+2026-08-29,caulfield,10,8,Mcgaw,12,18.35,25.56
+2026-08-29,caulfield,9,6,Wootton Verni,10,7.86,25.6
+2026-08-29,caulfield,9,4,Knight's Choice,12,10.86,25.63
+2026-08-29,caulfield,2,7,Raf Attack,12,7.9,25.73
+2026-08-29,caulfield,2,9,Angland,13,9.65,25.83
+2026-08-29,caulfield,9,12,River Of Stars,13,14.86,26.33
+2026-08-29,caulfield,2,6,Station One,14,17.65,27.42
+2026-08-29,caulfield,9,8,Soulcombe,14,24.86,28.02
+2026-08-29,caulfield,9,11,Okita Soushi,16,28.36,28.35
+2026-08-29,caulfield,9,7,Barnavara,15,25.61,28.8

@@ -77,6 +77,15 @@ export function findCurrentGameweek(games: ApiGame[]): number | null {
   return null;
 }
 
+// When the visible round advances, explicitly resynchronise the round that just
+// finished. The normal fixture/tips requests take care of the active round, but
+// without this handoff its final match could remain stored and ungraded forever.
+export function gameweeksToSyncOnTransition(currentGameweek: number | null): number[] {
+  if (currentGameweek === null) return [38];
+  if (currentGameweek <= 1) return [];
+  return [currentGameweek - 1];
+}
+
 export async function getCurrentEplGameweek(): Promise<number | null> {
   return findCurrentGameweek(await fetchEspnSeasonScores());
 }
@@ -84,16 +93,18 @@ export async function getCurrentEplGameweek(): Promise<number | null> {
 async function completedScores(fixtures: Fixture[]): Promise<CompletedFixture[]> {
   const failures: string[] = [];
   let providerResponded = false;
+  let bestCompleted: CompletedFixture[] = [];
   for (const provider of [fetchOddsApiScores, () => fetchEspnScores(fixtures)]) {
     try {
       const games = await provider();
       providerResponded = true;
       const completed = matchCompletedFixtures(fixtures, games);
-      if (completed.length > 0) return completed;
-      failures.push('provider returned no matching completed fixtures');
+      if (completed.length > bestCompleted.length) bestCompleted = completed;
+      if (bestCompleted.length === fixtures.length) break;
+      failures.push(`provider returned ${completed.length}/${fixtures.length} completed fixtures`);
     } catch (error) { failures.push(error instanceof Error ? error.message : 'unknown provider error'); }
   }
-  if (providerResponded) return [];
+  if (providerResponded) return bestCompleted;
   throw new Error(`Unable to refresh tipping results: ${failures.join('; ')}`);
 }
 

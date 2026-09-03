@@ -1,0 +1,381 @@
+race_date,track_slug,race_number,race_id,source,official_time_seconds,clock_status,runner_number,horse_name,horse_key,finish_position,result_status,source_finish_time_seconds,runner_clock_status,sectional_rows,sectional_markers,has_finish_marker,sectional_status
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,14,Volatile,volatile,8,finished,,quarantined,0,0,0,missing
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,13,Too Soon,toosoon,9,finished,,quarantined,0,0,0,missing
+2023-10-07,rosehill,1,2023-10-07|rosehill|1,racing-com-nsw-authorised-v2,90.09,valid,1,Chase My Crown,chasemycrown,1,finished,,quarantined,0,0,0,missing
+2023-10-07,rosehill,8,2023-10-07|rosehill|8,racing-com-nsw-authorised-v2,81.21000000000001,valid,17,Wild Planet,wildplanet,13,finished,,quarantined,0,0,0,missing
+2023-10-14,randwick,6,2023-10-14|randwick|6,racing-com-nsw-authorised-v2,68.57,valid,12,Greyworm,greyworm,14,finished,,quarantined,0,0,0,missing
+2023-10-14,randwick,10,2023-10-14|randwick|10,racing-com-nsw-authorised-v2,94.7,valid,14,Premise,premise,9,finished,,quarantined,0,0,0,missing
+2023-10-28,randwick,4,2023-10-28|randwick|4,racing-com-nsw-authorised-v2,96.15,valid,4,Colour Sergeant,coloursergeant,8,finished,,quarantined,0,0,0,missing
+2023-11-04,rosehill,2,2023-11-04|rosehill|2,racing-com-nsw-authorised-v2,88.53,valid,5,Fall For Cindy,fallforcindy,3,finished,,quarantined,0,0,0,missing
+2023-11-11,rosehill,4,2023-11-11|rosehill|4,racing-com-nsw-authorised-v2,83.62,valid,15,Xeiby,xeiby,14,finished,,quarantined,0,0,0,missing
+2024-01-13,rosehill,4,2024-01-13|rosehill|4,racing-com-nsw-authorised-v2,75.71000000000001,valid,1,High Blue Sea,highbluesea,1,finished,,quarantined,0,0,0,missing
+2024-01-13,rosehill,5,2024-01-13|rosehill|5,racing-com-nsw-authorised-v2,68.69,valid,4,Billiondollarbaby,billiondollarbaby,100,finished,,quarantined,0,0,0,missing
+2024-02-10,randwick,4,2024-02-10|randwick|4,racing-com-nsw-authorised-v2,70.18,valid,21,Super Norwest,supernorwest,5,finished,,quarantined,0,0,0,missing
+2024-02-10,randwick,5,2024-02-10|randwick|5,racing-com-nsw-authorised-v2,,quarantined,7,Gently Rolled,gentlyrolled,1,finished,,quarantined,0,0,0,missing
+2024-02-10,randwick,5,2024-02-10|randwick|5,racing-com-nsw-authorised-v2,,quarantined,4,Dakota Vroom,dakotavroom,2,finished,,quarantined,0,0,0,missing
+2024-02-10,randwick,5,2024-02-10|randwick|5,racing-com-nsw-authorised-v2,,quarantined,5,Afterlight,afterlight,3,finished,,quarantined,0,0,0,missing
+2024-02-10,randwick,5,2024-02-10|randwick|5,racing-com-nsw-authorised-v2,,quarantined,2,Howgoodareyou,howgoodareyou,4,finished,,quarantined,0,0,0,missing
+2024-02-10,randwick,5,2024-02-10|randwick|5,racing-com-nsw-authorised-v2,,quarantined,1,French Bonnet,frenchbonnet,5,finished,,quarantined,0,0,0,missing
+2024-02-10,randwick,5,2024-02-10|randwick|5,racing-com-nsw-authorised-v2,,quarantined,8,Celestial Spirit,celestialspirit,6,finished,,quarantined,0,0,0,missing
+2024-02-24,rosehill,5,2024-02-24|rosehill|5,racing-com-nsw-authorised-v2,117.84,valid,7,Stroke Of Luck,strokeofluck,100,finished,,quarantined,0,0,0,missing
+2024-03-16,rosehill,1,2024-03-16|rosehill|1,racing-com-nsw-authorised-v2,71.98,valid,14,Peak,peak,2,finished,,quarantined,0,0,0,missing
+2024-03-23,rosehill,10,2024-03-23|rosehill|10,racing-com-nsw-authorised-v2,69.83,valid,5,Tintookie,tintookie,100,finished,,quarantined,0,0,0,missing
+2024-04-06,randwick,8,2024-04-06|randwick|8,racing-com-nsw-authorised-v2,95.27000000000001,valid,18,Another Wil,anotherwil,7,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,13,The Black Cloud,theblackcloud,2,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,21,Jambalaya,jambalaya,3,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,15,Chief Conductor,chiefconductor,5,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,18,Acappella Sun,acappellasun,6,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,22,Bodgie,bodgie,7,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,9,Our Bellagio Miss,ourbellagiomiss,9,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,20,Miss Ostend,missostend,11,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,6,2024-06-08|randwick|6,racing-com-nsw-authorised-v2,,quarantined,19,Austeja,austeja,13,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,7,2024-06-08|randwick|7,racing-com-nsw-authorised-v2,,quarantined,17,Excelladus,excelladus,1,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,7,2024-06-08|randwick|7,racing-com-nsw-authorised-v2,,quarantined,6,Caesars Palace,caesarspalace,5,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,7,2024-06-08|randwick|7,racing-com-nsw-authorised-v2,,quarantined,19,Secret Plan,secretplan,9,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,7,2024-06-08|randwick|7,racing-com-nsw-authorised-v2,,quarantined,16,Kayobi,kayobi,11,finished,,quarantined,0,0,0,missing
+2024-06-08,randwick,7,2024-06-08|randwick|7,racing-com-nsw-authorised-v2,,quarantined,15,Cavalier Charles,cavaliercharles,13,finished,,quarantined,0,0,0,missing
+2024-06-15,rosehill,9,2024-06-15|rosehill|9,racing-com-nsw-authorised-v2,94.8,valid,7,Presser,presser,9,finished,,quarantined,0,0,0,missing
+2024-06-29,rosehill,2,2024-06-29|rosehill|2,racing-com-nsw-authorised-v2,92.38,valid,22,Les Goh,lesgoh,13,finished,,quarantined,0,0,0,missing
+2024-07-13,randwick,1,2024-07-13|randwick|1,racing-com-nsw-authorised-v2,85.59,valid,9,Verona's Cleopatra,veronascleopatra,100,finished,,quarantined,0,0,0,missing
+2024-07-13,randwick,4,2024-07-13|randwick|4,racing-com-nsw-authorised-v2,99.62,valid,15,Brynner,brynner,11,finished,,quarantined,0,0,0,missing
+2024-07-20,rosehill,4,2024-07-20|rosehill|4,racing-com-nsw-authorised-v2,91.7,valid,10,Exceed Perfection,exceedperfection,4,finished,,quarantined,0,0,0,missing
+2024-08-03,rosehill,2,2024-08-03|rosehill|2,racing-com-nsw-authorised-v2,83.41,valid,2,Herb,herb,9,finished,,quarantined,0,0,0,missing
+2024-08-03,rosehill,6,2024-08-03|rosehill|6,racing-com-nsw-authorised-v2,121.68,valid,4,Unanimous,unanimous,100,finished,,quarantined,0,0,0,missing
+2024-08-10,randwick,9,2024-08-10|randwick|9,racing-com-nsw-authorised-v2,110.55,valid,3,Manzoice,manzoice,2,finished,,quarantined,0,0,0,missing
+2024-08-24,randwick,1,2024-08-24|randwick|1,racing-com-nsw-authorised-v2,70.41,valid,4,Smashing Eagle,smashingeagle,100,finished,,quarantined,0,0,0,missing
+2024-09-21,randwick,1,2024-09-21|randwick|1,racing-com-nsw-authorised-v2,,quarantined,11,El Castello,elcastello,1,finished,,quarantined,0,0,0,missing
+2024-09-21,randwick,1,2024-09-21|randwick|1,racing-com-nsw-authorised-v2,,quarantined,6,Extreme Freedom,extremefreedom,2,finished,,quarantined,0,0,0,missing
+2024-09-21,randwick,1,2024-09-21|randwick|1,racing-com-nsw-authorised-v2,,quarantined,7,Flying Bandit,flyingbandit,5,finished,,quarantined,0,0,0,missing
+2024-09-21,randwick,1,2024-09-21|randwick|1,racing-com-nsw-authorised-v2,,quarantined,5,State Of America,stateofamerica,6,finished,,quarantined,0,0,0,missing
+2024-09-21,randwick,1,2024-09-21|randwick|1,racing-com-nsw-authorised-v2,,quarantined,1,Humanity,humanity,7,finished,,quarantined,0,0,0,missing
+2024-09-28,rosehill,2,2024-09-28|rosehill|2,racing-com-nsw-authorised-v2,90.91,valid,1,Everido,everido,6,finished,,quarantined,0,0,0,missing
+2024-09-28,rosehill,8,2024-09-28|rosehill|8,racing-com-nsw-authorised-v2,82.69,valid,2,Traffic Warden,trafficwarden,2,finished,,quarantined,0,0,0,missing
+2024-09-28,rosehill,8,2024-09-28|rosehill|8,racing-com-nsw-authorised-v2,82.69,valid,4,Linebacker,linebacker,6,finished,,quarantined,0,0,0,missing
+2024-09-28,rosehill,9,2024-09-28|rosehill|9,racing-com-nsw-authorised-v2,89.06,valid,6,Bandersnatch,bandersnatch,9,finished,,quarantined,0,0,0,missing
+2024-10-05,randwick,2,2024-10-05|randwick|2,racing-com-nsw-authorised-v2,57.6,valid,9,Tempestuous,tempestuous,2,finished,,quarantined,0,0,0,missing
+2024-10-05,randwick,10,2024-10-05|randwick|10,racing-com-nsw-authorised-v2,69.97,valid,20,Battleton,battleton,7,finished,,quarantined,0,0,0,missing
+2024-10-19,randwick,6,2024-10-19|randwick|6,racing-com-nsw-authorised-v2,68.73,valid,2,Think About It,thinkaboutit,100,finished,,quarantined,0,0,0,missing
+2024-10-26,randwick,2,2024-10-26|randwick|2,racing-com-nsw-authorised-v2,69.28,valid,9,Mad Darcey,maddarcey,1,finished,,quarantined,0,0,0,missing
+2024-10-26,randwick,2,2024-10-26|randwick|2,racing-com-nsw-authorised-v2,69.28,valid,1,Conrad,conrad,10,finished,,quarantined,0,0,0,missing
+2024-10-26,randwick,3,2024-10-26|randwick|3,racing-com-nsw-authorised-v2,95.13,valid,19,Miss Ghent,missghent,8,finished,,quarantined,0,0,0,missing
+2024-10-26,randwick,3,2024-10-26|randwick|3,racing-com-nsw-authorised-v2,95.13,valid,8,Mazita,mazita,16,finished,,quarantined,0,0,0,missing
+2024-10-26,randwick,6,2024-10-26|randwick|6,racing-com-nsw-authorised-v2,109.28,valid,9,Naval College,navalcollege,6,finished,,quarantined,0,0,0,missing
+2024-11-02,rosehill,9,2024-11-02|rosehill|9,racing-com-nsw-authorised-v2,123.29,valid,14,Medatsu,medatsu,6,finished,,quarantined,0,0,0,missing
+2024-11-09,rosehill,9,2024-11-09|rosehill|9,racing-com-nsw-authorised-v2,69.6,valid,6,Fire Star,firestar,1,finished,,quarantined,0,0,0,missing
+2024-11-30,rosehill,9,2024-11-30|rosehill|9,racing-com-nsw-authorised-v2,125.81,valid,14,Townsend,townsend,3,finished,,quarantined,0,0,0,missing
+2024-12-14,randwick,8,2024-12-14|randwick|8,racing-com-nsw-authorised-v2,94.14,valid,1,Private Eye,privateeye,4,finished,,quarantined,0,0,0,missing
+2024-12-14,randwick,8,2024-12-14|randwick|8,racing-com-nsw-authorised-v2,94.14,valid,5,Mighty Ulysses,mightyulysses,19,finished,,quarantined,0,0,0,missing
+2024-12-28,randwick,8,2024-12-28|randwick|8,racing-com-nsw-authorised-v2,123.18,valid,16,Ring Me Up,ringmeup,100,finished,,quarantined,0,0,0,missing
+2025-01-04,randwick,10,2025-01-04|randwick|10,racing-com-nsw-authorised-v2,90.18,valid,7,Silent Impact,silentimpact,3,finished,,quarantined,0,0,0,missing
+2025-01-18,rosehill,2,2025-01-18|rosehill|2,racing-com-nsw-authorised-v2,85.33,valid,9,Oneforian,oneforian,4,finished,,quarantined,0,0,0,missing
+2025-01-25,randwick,9,2025-01-25|randwick|9,racing-com-nsw-authorised-v2,70.02,valid,10,Step Aside,stepaside,104,finished,,quarantined,0,0,0,missing
+2025-02-01,rosehill,9,2025-02-01|rosehill|9,racing-com-nsw-authorised-v2,69.59,valid,14,Spring Lee,springlee,3,finished,,quarantined,0,0,0,missing
+2025-02-22,rosehill,10,2025-02-22|rosehill|10,racing-com-nsw-authorised-v2,77.56,valid,14,Withstand,withstand,100,finished,,quarantined,0,0,0,missing
+2025-03-01,randwick,7,2025-03-01|randwick|7,racing-com-nsw-authorised-v2,80.56,valid,15,Island Dec,islanddec,14,finished,,quarantined,0,0,0,missing
+2025-03-15,rosehill,1,2025-03-15|rosehill|1,racing-com-nsw-authorised-v2,87.38,valid,10,Manaal,manaal,5,finished,,quarantined,0,0,0,missing
+2025-04-05,randwick,3,2025-04-05|randwick|3,racing-com-nsw-authorised-v2,164.43,valid,3,Alalcance,alalcance,1,finished,,quarantined,0,0,0,missing
+2025-04-19,randwick,1,2025-04-19|randwick|1,racing-com-nsw-authorised-v2,83.73,valid,10,Glounthaune,glounthaune,1,finished,,quarantined,0,0,0,missing
+2025-05-24,randwick,2,2025-05-24|randwick|2,racing-com-nsw-authorised-v2,89.39,valid,8,Shehasattitude,shehasattitude,100,finished,,quarantined,0,0,0,missing
+2025-05-24,randwick,3,2025-05-24|randwick|3,racing-com-nsw-authorised-v2,76.36,valid,19,Liquor Talk,liquortalk,7,finished,,quarantined,0,0,0,missing
+2025-05-24,randwick,10,2025-05-24|randwick|10,racing-com-nsw-authorised-v2,89.8,valid,7,Flying Thinker,flyingthinker,2,finished,,quarantined,0,0,0,missing
+2025-06-07,randwick,9,2025-06-07|randwick|9,racing-com-nsw-authorised-v2,78.73,valid,12,Green Shadows,greenshadows,2,finished,,quarantined,0,0,0,missing
+2025-06-14,rosehill,1,2025-06-14|rosehill|1,racing-com-nsw-authorised-v2,84.92,valid,1,Regulated Affair,regulatedaffair,2,finished,,quarantined,0,0,0,missing
+2025-07-05,rosehill,7,2025-07-05|rosehill|7,racing-com-nsw-authorised-v2,124.64,valid,12,Fleet Commander,fleetcommander,100,finished,,quarantined,0,0,0,missing
+2025-07-05,rosehill,9,2025-07-05|rosehill|9,racing-com-nsw-authorised-v2,85.2,valid,6,Contemporary,contemporary,10,finished,,quarantined,0,0,0,missing
+2025-07-19,rosehill,3,2025-07-19|rosehill|3,racing-com-nsw-authorised-v2,64.55,valid,9,Pony Soprano,ponysoprano,101,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,2,Elson Boy,elsonboy,1,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,7,Captain Furai,captainfurai,2,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,5,Rolling Magic,rollingmagic,3,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,9,Liberty State,libertystate,4,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,1,Fully Lit,fullylit,5,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,12,Just In Time,justintime,6,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,14,Climb The Ladder,climbtheladder,7,finished,,quarantined,0,0,0,missing
+2025-08-02,rosehill,8,2025-08-02|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,3,The Face,theface,8,finished,,quarantined,0,0,0,missing
+2025-08-23,randwick,1,2025-08-23|randwick|1,racing-com-nsw-authorised-v2,72.95,valid,7,Los Padres,lospadres,11,finished,,quarantined,0,0,0,missing
+2025-08-30,rosehill,6,2025-08-30|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,3,Grand Prairie,grandprairie,1,finished,,quarantined,0,0,0,missing
+2025-08-30,rosehill,6,2025-08-30|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,8,Fermoy,fermoy,2,finished,,quarantined,0,0,0,missing
+2025-08-30,rosehill,6,2025-08-30|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,6,Crown The King,crowntheking,3,finished,,quarantined,0,0,0,missing
+2025-08-30,rosehill,6,2025-08-30|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,1,Aerodrome,aerodrome,4,finished,,quarantined,0,0,0,missing
+2025-08-30,rosehill,6,2025-08-30|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,4,Sixties,sixties,5,finished,,quarantined,0,0,0,missing
+2025-08-30,rosehill,6,2025-08-30|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,2,Providence,providence,6,finished,,quarantined,0,0,0,missing
+2025-08-30,rosehill,6,2025-08-30|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,7,Tyreek,tyreek,100,finished,,quarantined,0,0,0,missing
+2025-09-06,randwick,2,2025-09-06|randwick|2,racing-com-nsw-authorised-v2,70.4,valid,6,Cambar,cambar,15,finished,,quarantined,0,0,0,missing
+2025-09-06,randwick,3,2025-09-06|randwick|3,racing-com-nsw-authorised-v2,63.68,valid,7,Monte Supreme,montesupreme,1,finished,,quarantined,0,0,0,missing
+2025-09-06,randwick,4,2025-09-06|randwick|4,racing-com-nsw-authorised-v2,150.85,valid,6,Muktamil,muktamil,3,finished,,quarantined,0,0,0,missing
+2025-09-06,randwick,4,2025-09-06|randwick|4,racing-com-nsw-authorised-v2,150.85,valid,2,Cleveland,cleveland,4,finished,,quarantined,0,0,0,missing
+2025-09-06,randwick,4,2025-09-06|randwick|4,racing-com-nsw-authorised-v2,150.85,valid,5,Tajanis,tajanis,5,finished,,quarantined,0,0,0,missing
+2025-09-13,rosehill,1,2025-09-13|rosehill|1,racing-com-nsw-authorised-v2,71.57,valid,10,Against The Law,againstthelaw,14,finished,,quarantined,0,0,0,missing
+2025-09-27,rosehill,2,2025-09-27|rosehill|2,racing-com-nsw-authorised-v2,89.85,valid,14,Tom Vegas,tomvegas,3,finished,,quarantined,0,0,0,missing
+2025-10-04,randwick,1,2025-10-04|randwick|1,racing-com-nsw-authorised-v2,108.0,valid,14,Webejamin,webejamin,8,finished,,quarantined,0,0,0,missing
+2025-10-04,randwick,5,2025-10-04|randwick|5,racing-com-nsw-authorised-v2,93.00999999999999,valid,19,Idle Flyer,idleflyer,2,finished,,quarantined,0,0,0,missing
+2025-10-11,rosehill,9,2025-10-11|rosehill|9,racing-com-nsw-authorised-v2,81.74,valid,13,General Salute,generalsalute,3,finished,,quarantined,0,0,0,missing
+2025-10-18,randwick,8,2025-10-18|randwick|8,racing-com-nsw-authorised-v2,75.52,valid,4,Imperial Force,imperialforce,12,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,10,Oakfield Jupiter,oakfieldjupiter,1,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,6,Motoscafo,motoscafo,2,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,15,Zoukerino,zoukerino,3,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,9,Zounaka,zounaka,4,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,11,Amaretto Bo,amarettobo,5,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,3,Mafia,mafia,6,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,5,Clear Proof,clearproof,7,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,2,Broadway Bouncer,broadwaybouncer,8,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,12,Lady Shenanigans,ladyshenanigans,9,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,14,Killer Kerr,killerkerr,10,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,8,Show County,showcounty,11,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,3,2025-10-25|randwick|3,racing-com-nsw-authorised-v2,,quarantined,4,So Good So Cool,sogoodsocool,12,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,10,Fortune,fortune,1,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,5,Ruby Flyer,rubyflyer,2,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,9,Point And Shoot,pointandshoot,3,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,12,Super Helpful,superhelpful,4,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,7,Invasive Dreams,invasivedreams,5,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,4,Kintyre,kintyre,6,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,6,Zondee,zondee,7,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,1,Victoria Road,victoriaroad,8,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,3,Jojo Was A Man,jojowasaman,9,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,11,You're On Mute,youreonmute,10,finished,,quarantined,0,0,0,missing
+2025-10-25,randwick,4,2025-10-25|randwick|4,racing-com-nsw-authorised-v2,,quarantined,8,Great Week,greatweek,11,finished,,quarantined,0,0,0,missing
+2025-11-01,randwick,6,2025-11-01|randwick|6,racing-com-nsw-authorised-v2,64.54,valid,1,Brave One,braveone,2,finished,,quarantined,0,0,0,missing
+2025-11-01,randwick,9,2025-11-01|randwick|9,racing-com-nsw-authorised-v2,124.67,valid,14,Scarlet Oak,scarletoak,7,finished,,quarantined,0,0,0,missing
+2025-11-01,randwick,10,2025-11-01|randwick|10,racing-com-nsw-authorised-v2,77.98,valid,8,Polyglot,polyglot,100,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,3,Lunaite,lunaite,1,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,1,Madrina,madrina,2,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,5,Social Circle,socialcircle,3,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,10,Highly Tempted,highlytempted,4,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,9,Get Some Fun,getsomefun,5,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,8,Star Prediction,starprediction,6,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,4,De Forza,deforza,7,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,7,Favour The Bold,favourthebold,8,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,2,My Last Hooray,mylasthooray,9,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,6,Dolly,dolly,10,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,11,Climate Control,climatecontrol,11,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,1,2025-11-08|rosehill|1,racing-com-nsw-authorised-v2,,quarantined,12,Green Pineapple,greenpineapple,12,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,6,Oakfield Jupiter,oakfieldjupiter,1,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,1,Rolling Magic,rollingmagic,2,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,4,Satness,satness,3,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,19,Alabama State,alabamastate,4,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,8,Clear Proof,clearproof,5,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,9,Norton Road,nortonroad,6,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,16,Amaretto Bo,amarettobo,7,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,7,Super Nui,supernui,8,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,10,Artful Persuasion,artfulpersuasion,9,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,5,Motoscafo,motoscafo,10,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,2,Mahogany Girl,mahoganygirl,11,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,3,Puerto Banus,puertobanus,12,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,2,2025-11-08|rosehill|2,racing-com-nsw-authorised-v2,,quarantined,18,Kirkuk,kirkuk,13,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,6,Arctic Glamour,arcticglamour,1,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,9,Bauhinia,bauhinia,2,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,8,Snow In May,snowinmay,3,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,3,Miraval Rose,miravalrose,4,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,5,Coco Jamboo,cocojamboo,5,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,7,Dark Glitter,darkglitter,6,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,2,Miss Roumbini,missroumbini,7,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,7,2025-11-08|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,4,Pounce,pounce,8,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,13,Vivy Air,vivyair,1,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,1,Transatlantic,transatlantic,2,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,7,Militarize,militarize,3,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,8,Rise At Dawn,riseatdawn,4,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,6,Ducasse,ducasse,5,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,10,Shadizi,shadizi,6,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,9,Firestorm,firestorm,7,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,2,Port Lockroy,portlockroy,8,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,4,The Inflictor,theinflictor,9,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,3,Bullet Point,bulletpoint,10,finished,,quarantined,0,0,0,missing
+2025-11-08,rosehill,8,2025-11-08|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,11,Fukubana,fukubana,11,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,4,2025-11-29|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,4,Rotagilla,rotagilla,1,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,4,2025-11-29|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,1,Meridiana,meridiana,2,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,4,2025-11-29|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,5,Belle Detelle,belledetelle,3,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,4,2025-11-29|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,2,Luskaire,luskaire,4,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,4,2025-11-29|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,7,Agita,agita,5,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,4,2025-11-29|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,3,Brosnan,brosnan,6,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,4,2025-11-29|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,11,Sapphires Son,sapphiresson,7,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,5,2025-11-29|rosehill|5,racing-com-nsw-authorised-v2,,quarantined,3,Lyles,lyles,1,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,5,2025-11-29|rosehill|5,racing-com-nsw-authorised-v2,,quarantined,7,Snack Bar,snackbar,2,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,5,2025-11-29|rosehill|5,racing-com-nsw-authorised-v2,,quarantined,1,King's Secret,kingssecret,3,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,5,2025-11-29|rosehill|5,racing-com-nsw-authorised-v2,,quarantined,6,Mailata,mailata,4,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,5,2025-11-29|rosehill|5,racing-com-nsw-authorised-v2,,quarantined,12,Micro Mikki,micromikki,5,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,5,2025-11-29|rosehill|5,racing-com-nsw-authorised-v2,,quarantined,4,The Face,theface,6,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,5,2025-11-29|rosehill|5,racing-com-nsw-authorised-v2,,quarantined,5,Apex,apex,7,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,7,Blacklist,blacklist,1,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,3,Tavros,tavros,2,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,14,Hibiki Harmony,hibikiharmony,3,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,2,Casino Bear,casinobear,4,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,9,Haze,haze,5,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,8,Poisen Point,poisenpoint,6,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,11,Southern Dancer,southerndancer,7,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,18,Scarli Japali,scarlijapali,8,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,16,Burgundy Girl,burgundygirl,9,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,12,Ring Ahoy,ringahoy,10,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,17,Behtar,behtar,11,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,6,Due Calzini,duecalzini,12,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,10,Heir Jordan,heirjordan,13,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,15,Helluva Soiree,helluvasoiree,14,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,20,Deel Me A Queen,deelmeaqueen,15,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,4,Marsabit,marsabit,16,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,21,The Herald,theherald,17,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,6,2025-11-29|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,19,Valentine John,valentinejohn,18,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,8,Flying For Fun,flyingforfun,1,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,4,Barber,barber,2,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,1,Front Page,frontpage,3,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,6,Romeo's Choice,romeoschoice,4,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,5,Zealously,zealously,5,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,9,Bandi's Boy,bandisboy,6,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,13,Who But Roo,whobutroo,7,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,2,A Little Deep,alittledeep,8,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,7,Imperial Force,imperialforce,9,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,11,Ouroboros,ouroboros,10,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,7,2025-11-29|rosehill|7,racing-com-nsw-authorised-v2,,quarantined,12,Pokerjack,pokerjack,11,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,10,Yorkshire,yorkshire,1,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,9,Arctic Glamour,arcticglamour,2,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,16,Melody Again,melodyagain,3,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,4,Accredited,accredited,4,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,22,Gallant Star,gallantstar,5,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,8,Mchale,mchale,6,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,1,Robusto,robusto,7,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,7,Konasana,konasana,8,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,18,Xidaki,xidaki,9,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,13,You Wahng,youwahng,10,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,19,Jojo Was A Man,jojowasaman,11,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,2,Waterford,waterford,12,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,14,Shadizi,shadizi,13,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,12,Phearson,phearson,14,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,11,Touristic,touristic,15,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,8,2025-11-29|rosehill|8,racing-com-nsw-authorised-v2,,quarantined,23,Altivo,altivo,16,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,5,Major Beel,majorbeel,1,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,14,Shangri La Spring,shangrilaspring,2,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,15,Hollywood Hero,hollywoodhero,3,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,2,Unspoken,unspoken,4,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,13,God's Window,godswindow,5,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,3,Future History,futurehistory,6,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,10,Naval College,navalcollege,7,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,6,Manzoice,manzoice,8,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,1,Huetor,huetor,9,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,8,Imperialist,imperialist,10,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,7,Harlem Queen,harlemqueen,11,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,9,2025-11-29|rosehill|9,racing-com-nsw-authorised-v2,,quarantined,16,Mr Waterville,mrwaterville,12,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,13,Hyperbolic,hyperbolic,1,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,3,Rubi's Serve,rubisserve,2,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,6,Covert Thinking,covertthinking,3,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,8,Lunaite,lunaite,4,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,5,Bravissima,bravissima,5,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,4,Maid Of Moolah,maidofmoolah,6,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,1,Bella Montagna,bellamontagna,7,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,12,Gold Pattern,goldpattern,8,finished,,quarantined,0,0,0,missing
+2025-11-29,rosehill,10,2025-11-29|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,16,Blue Willow,bluewillow,9,finished,,quarantined,0,0,0,missing
+2025-12-13,randwick,4,2025-12-13|randwick|4,racing-com-nsw-authorised-v2,70.28999999999999,valid,7,Huon,huon,4,finished,,quarantined,0,0,0,missing
+2025-12-13,randwick,8,2025-12-13|randwick|8,racing-com-nsw-authorised-v2,94.11,valid,22,Enxuto,enxuto,4,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,1,2025-12-20|randwick|1,racing-com-nsw-authorised-v2,,quarantined,2,Warwoven,warwoven,1,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,1,2025-12-20|randwick|1,racing-com-nsw-authorised-v2,,quarantined,6,Norman's Cay,normanscay,2,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,1,2025-12-20|randwick|1,racing-com-nsw-authorised-v2,,quarantined,4,Hardanger,hardanger,3,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,1,2025-12-20|randwick|1,racing-com-nsw-authorised-v2,,quarantined,3,Shiki,shiki,4,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,1,2025-12-20|randwick|1,racing-com-nsw-authorised-v2,,quarantined,8,Woodenbridge,woodenbridge,5,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,1,2025-12-20|randwick|1,racing-com-nsw-authorised-v2,,quarantined,5,Montana Trail,montanatrail,6,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,1,2025-12-20|randwick|1,racing-com-nsw-authorised-v2,,quarantined,1,Mr Peasant,mrpeasant,7,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,10,The Mona Lisa,themonalisa,1,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,6,Perfect Justice,perfectjustice,2,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,11,Callistemon,callistemon,3,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,5,Oakfield Saturn,oakfieldsaturn,4,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,3,Kingston Charm,kingstoncharm,5,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,9,Lugarno,lugarno,6,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,4,Artful Persuasion,artfulpersuasion,7,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,14,Trafalgar Square,trafalgarsquare,8,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,7,Highborn Harry,highbornharry,9,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,2,Missile Seeker,missileseeker,10,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,13,Djapana,djapana,11,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,15,Jessandi,jessandi,12,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,2,2025-12-20|randwick|2,racing-com-nsw-authorised-v2,,quarantined,12,Gold Pattern,goldpattern,13,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,9,Navy Buoy,navybuoy,1,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,4,Sacred Mistress,sacredmistress,2,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,5,Off The Scale,offthescale,3,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,10,Roses Imminente,rosesimminente,4,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,8,Snowy,snowy,5,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,15,She's Got Teeth,shesgotteeth,6,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,6,Stormbringer,stormbringer,7,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,19,Party It Down,partyitdown,8,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,17,Wandjad,wandjad,9,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,18,Gold Capital,goldcapital,10,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,3,Zucchero,zucchero,11,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,7,Petawawa,petawawa,12,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,13,Saint Philomena,saintphilomena,13,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,1,Santatime,santatime,14,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,3,2025-12-20|randwick|3,racing-com-nsw-authorised-v2,,quarantined,22,Age Of Aquarius,ageofaquarius,15,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,3,Plaintiff,plaintiff,1,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,13,Shady Road,shadyroad,2,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,11,Big Papa,bigpapa,3,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,6,Lancelot Du Lac,lancelotdulac,4,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,4,Sanctified,sanctified,5,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,2,Good Hotspur,goodhotspur,6,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,12,Philatelic,philatelic,7,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,4,2025-12-20|randwick|4,racing-com-nsw-authorised-v2,,quarantined,5,Namaste,namaste,8,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,8,2025-12-20|randwick|8,racing-com-nsw-authorised-v2,82.64,valid,5,Xidaki,xidaki,11,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,3,Step Aside,stepaside,1,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,2,Plundering,plundering,2,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,12,Alabama State,alabamastate,3,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,9,Mafia,mafia,4,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,10,The Great Houdini,thegreathoudini,5,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,1,Elson Boy,elsonboy,6,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,11,Clyde,clyde,7,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,8,Hellbent On You,hellbentonyou,8,finished,,quarantined,0,0,0,missing
+2025-12-20,randwick,10,2025-12-20|randwick|10,racing-com-nsw-authorised-v2,,quarantined,4,Catoggio,catoggio,9,finished,,quarantined,0,0,0,missing
+2025-12-27,randwick,9,2025-12-27|randwick|9,racing-com-nsw-authorised-v2,123.26,valid,16,Going Remote,goingremote,9,finished,,quarantined,0,0,0,missing
+2026-01-03,randwick,1,2026-01-03|randwick|1,racing-com-nsw-authorised-v2,58.03,valid,7,Tatiana,tatiana,4,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,7,Cross Tasman,crosstasman,1,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,17,Invader Zim,invaderzim,2,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,1,Pippie Beach,pippiebeach,3,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,9,Pure Alpha,purealpha,4,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,3,Walking Painting,walkingpainting,5,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,15,Barbray,barbray,6,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,14,British Columbia,britishcolumbia,7,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,5,Cormac T,cormact,8,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,16,Hereward,hereward,9,finished,,quarantined,0,0,0,missing
+2026-01-17,rosehill,10,2026-01-17|rosehill|10,racing-com-nsw-authorised-v2,,quarantined,2,Super Helpful,superhelpful,10,finished,,quarantined,0,0,0,missing
+2026-01-24,randwick,3,2026-01-24|randwick|3,racing-com-nsw-authorised-v2,70.53999999999999,valid,17,Athena's Treasure,athenastreasure,10,finished,,quarantined,0,0,0,missing
+2026-01-31,rosehill,1,2026-01-31|rosehill|1,racing-com-nsw-authorised-v2,89.93,valid,17,Tom Vegas,tomvegas,6,finished,,quarantined,0,0,0,missing
+2026-01-31,rosehill,1,2026-01-31|rosehill|1,racing-com-nsw-authorised-v2,89.93,valid,16,Antilocapra,antilocapra,8,finished,,quarantined,0,0,0,missing
+2026-02-07,randwick,6,2026-02-07|randwick|6,racing-com-nsw-authorised-v2,,quarantined,7,La Roja,laroja,2,finished,,quarantined,0,0,0,missing
+2026-02-07,randwick,6,2026-02-07|randwick|6,racing-com-nsw-authorised-v2,,quarantined,15,Bella Corazon,bellacorazon,3,finished,,quarantined,0,0,0,missing
+2026-02-07,randwick,9,2026-02-07|randwick|9,racing-com-nsw-authorised-v2,94.32,valid,16,Sun God,sungod,1,finished,,quarantined,0,0,0,missing
+2026-02-14,randwick,4,2026-02-14|randwick|4,racing-com-nsw-authorised-v2,83.16,valid,19,Changing Colours,changingcolours,7,finished,,quarantined,0,0,0,missing
+2026-02-14,randwick,9,2026-02-14|randwick|9,racing-com-nsw-authorised-v2,69.33,valid,9,Dark Glitter,darkglitter,4,finished,,quarantined,0,0,0,missing
+2026-02-14,randwick,9,2026-02-14|randwick|9,racing-com-nsw-authorised-v2,69.33,valid,11,Super Norwest,supernorwest,8,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,2,2026-02-21|rosehill|2,racing-com-nsw-authorised-v2,76.75,valid,9,Ischyros,ischyros,3,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,3,2026-02-21|rosehill|3,racing-com-nsw-authorised-v2,63.34,valid,6,Eagle Express,eagleexpress,6,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,4,2026-02-21|rosehill|4,racing-com-nsw-authorised-v2,76.35,valid,13,Transcend,transcend,9,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,3,Stretan Ruler,stretanruler,1,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,6,Eviction Notice,evictionnotice,2,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,2,Hidrix,hidrix,3,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,1,Incognito,incognito,4,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,9,Shiki,shiki,5,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,5,Savage Look,savagelook,6,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,8,Dr Hook,drhook,7,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,4,Confederation,confederation,8,finished,,quarantined,0,0,0,missing
+2026-02-21,rosehill,6,2026-02-21|rosehill|6,racing-com-nsw-authorised-v2,,quarantined,10,Wave Blaster,waveblaster,9,finished,,quarantined,0,0,0,missing
+2026-02-28,randwick,4,2026-02-28|randwick|4,racing-com-nsw-authorised-v2,69.95,valid,4,Ciaron's Star,ciaronsstar,6,finished,,quarantined,0,0,0,missing
+2026-02-28,randwick,4,2026-02-28|randwick|4,racing-com-nsw-authorised-v2,69.95,valid,13,Sumac,sumac,8,finished,,quarantined,0,0,0,missing
+2026-02-28,randwick,5,2026-02-28|randwick|5,racing-com-nsw-authorised-v2,70.07,valid,4,Warwoven,warwoven,4,finished,,quarantined,0,0,0,missing
+2026-02-28,randwick,5,2026-02-28|randwick|5,racing-com-nsw-authorised-v2,70.07,valid,13,Spring Ruler,springruler,10,finished,,quarantined,0,0,0,missing
+2026-02-28,randwick,7,2026-02-28|randwick|7,racing-com-nsw-authorised-v2,82.07,valid,6,Sunrays,sunrays,7,finished,,quarantined,0,0,0,missing
+2026-02-28,randwick,10,2026-02-28|randwick|10,racing-com-nsw-authorised-v2,69.2,valid,13,Hanau,hanau,6,finished,,quarantined,0,0,0,missing
+2026-03-14,rosehill,5,2026-03-14|rosehill|5,racing-com-nsw-authorised-v2,123.0,valid,7,Valiant King,valiantking,6,finished,,quarantined,0,0,0,missing
+2026-03-21,rosehill,1,2026-03-21|rosehill|1,racing-com-nsw-authorised-v2,91.39,valid,7,Dusty Bay,dustybay,11,finished,,quarantined,0,0,0,missing
+2026-03-21,rosehill,10,2026-03-21|rosehill|10,racing-com-nsw-authorised-v2,70.8,valid,9,Oui Oui Oui,ouiouioui,8,finished,,quarantined,0,0,0,missing
+2026-03-28,rosehill,4,2026-03-28|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,4,Wonder Boy,wonderboy,2,finished,,quarantined,0,0,0,missing
+2026-03-28,rosehill,4,2026-03-28|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,15,Cool Jakey,cooljakey,3,finished,,quarantined,0,0,0,missing
+2026-03-28,rosehill,4,2026-03-28|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,13,Our Queen,ourqueen,4,finished,,quarantined,0,0,0,missing
+2026-03-28,rosehill,4,2026-03-28|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,14,Amreekiyah,amreekiyah,7,finished,,quarantined,0,0,0,missing
+2026-03-28,rosehill,4,2026-03-28|rosehill|4,racing-com-nsw-authorised-v2,,quarantined,5,Lilac,lilac,12,finished,,quarantined,0,0,0,missing
+2026-04-04,randwick,10,2026-04-04|randwick|10,racing-com-nsw-authorised-v2,70.27,valid,22,Bird Whistle,birdwhistle,5,finished,,quarantined,0,0,0,missing
+2026-04-11,randwick,2,2026-04-11|randwick|2,racing-com-nsw-authorised-v2,81.84,valid,15,Siragusa,siragusa,104,finished,,quarantined,0,0,0,missing
+2026-04-18,randwick,4,2026-04-18|randwick|4,racing-com-nsw-authorised-v2,81.39,valid,4,Tomato Toastie,tomatotoastie,8,finished,,quarantined,0,0,0,missing
+2026-07-18,rosehill,5,2026-07-18|rosehill|5,racing-com-nsw-authorised-v2,154.72,valid,2,Sounds Unusual,soundsunusual,100,finished,,quarantined,0,0,0,missing
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,5,Espionage,espionage,1,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,12,Straight Charge,straightcharge,2,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,10,Prost,prost,3,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,6,Fearless,fearless,4,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,7,Force Red,forcered,5,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,8,Highness,highness,6,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,4,Counterpart,counterpart,7,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,11,Scampi,scampi,10,finished,,quarantined,14,7,0,partial_no_finish_marker
+2023-09-30,randwick,3,2023-09-30|randwick|3,racing-com-nsw-authorised-v2,,quarantined,2,Capitol Hill,capitolhill,11,finished,,quarantined,14,7,0,partial_no_finish_marker
+2024-09-21,randwick,7,2024-09-21|randwick|7,racing-com-nsw-authorised-v2,82.94,valid,8,Bella Khadijah,bellakhadijah,9,finished,,quarantined,14,7,0,partial_no_finish_marker
+2025-03-08,randwick,1,2025-03-08|randwick|1,racing-com-nsw-authorised-v2,93.72999999999999,valid,3,Linebacker,linebacker,1,finished,,quarantined,14,7,0,partial_no_finish_marker
+2025-03-15,rosehill,9,2025-03-15|rosehill|9,racing-com-nsw-authorised-v2,115.36,valid,1,Lincoln Rocks,lincolnrocks,3,finished,,quarantined,14,7,0,partial_no_finish_marker
+2025-03-22,rosehill,1,2025-03-22|rosehill|1,racing-com-nsw-authorised-v2,70.0,valid,12,Within The Law,withinthelaw,100,finished,,quarantined,14,7,0,partial_no_finish_marker

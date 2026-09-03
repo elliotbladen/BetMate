@@ -171,14 +171,25 @@ tiers:
     cap_total_points: 5.0
     primary_market: total
   t7_scheme_matchup:
-    mode: shadow
+    mode: rejected_diagnostic
     cap_margin_points: 2.0
     method: learned_interactions_only
+    reason: negligible_margin_gain_and_worse_closing_market_distance
+  context_event_register:
+    mode: diagnostic
+    may_change_price: false
+    inherit_global_emotional_tier: false
+    event_types: [head_coach_change, bereavement, milestone, player_return, rivalry, playoff_elimination]
+    note: player_return_belongs_to_t2_and_rivalry_playoff_context_belongs_to_t1
   t8_market_disagreement:
     mode: diagnostic
     may_change_preopen_price: false
+    live_statuses: [unresolved, watch_small, watch_medium, watch_large, watch_unstable_market]
+    historical_large_disagreement_points: 3.0
+    staking_allowed: false
+    promotion_blockers: [true_opener_audit_incomplete, prospective_market_snapshots_missing]
   t9_confluence:
-    mode: active_after_open
+    mode: prospective_shadow_after_open
     purpose: detect_information_not_fully_priced_by_market
     distinct_signal_families_required: 3
     correlated_votes_count_once: true
@@ -190,6 +201,12 @@ tiers:
       - independent_ml_shadow
     outputs: [direction, edge_points, confidence, contributing_matrices]
     action_on_conflict: reduce_confidence_or_abstain
+    betting_action: none
+    frozen_discovery_rule:
+      structural_edge_min_points: 2.0
+      independent_ml_edge_min_points: 2.0
+      require_same_direction_personnel_increment: true
+      note: threshold_is_retrospective_and_must_not_be_retuned_on_2026_shadow
     validation:
       require_timestamped_obtainable_line: true
       primary_metric: closing_line_value
@@ -226,3 +243,12 @@ validation:
 staking:
   enabled: false
   status: paper_only
+
+final_readiness_2026:
+  status: shadow_framework_ready_live_inputs_blocked
+  official_price: t1_paper_only
+  betting_enabled: false
+  thresholds_frozen: true
+  minimum_frozen_predictions_for_promotion: 500
+  minimum_seasons_for_promotion: 2
+  minimum_market_coverage: 0.90

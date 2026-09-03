@@ -1,0 +1,18 @@
+{
+  "status": "ucl_market_backtest_complete",
+  "prediction_rows": 1872,
+  "odds_rows": 2142,
+  "matched_rows": 42,
+  "match_rate": 0.022435897435897436,
+  "closing_status": "archived_closing",
+  "timestamps_present": false,
+  "market_fields_used_in_model": false,
+  "model_accuracy": 0.5952380952380952,
+  "market_no_vig_accuracy": 0.6428571428571429,
+  "mean_max_model_edge": 0.18588570809241067,
+  "restrictions": [
+    "archived closing odds without quote timestamps",
+    "no staking or ROI claim",
+    "season and conservative team-name resolver; date used for audit"
+  ]
+}

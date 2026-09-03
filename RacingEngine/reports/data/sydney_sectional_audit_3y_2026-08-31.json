@@ -1,0 +1,2817 @@
+{
+  "meeting_coverage": [
+    {
+      "finished_runs": 119,
+      "missing": 0,
+      "partial": 0,
+      "present": 119,
+      "race_date": "2023-09-02",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 106,
+      "missing": 0,
+      "partial": 0,
+      "present": 106,
+      "race_date": "2023-09-09",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 124,
+      "missing": 0,
+      "partial": 0,
+      "present": 124,
+      "race_date": "2023-09-16",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 108,
+      "missing": 0,
+      "partial": 0,
+      "present": 108,
+      "race_date": "2023-09-23",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 127,
+      "missing": 2,
+      "partial": 9,
+      "present": 116,
+      "race_date": "2023-09-30",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 123,
+      "missing": 2,
+      "partial": 0,
+      "present": 121,
+      "race_date": "2023-10-07",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 132,
+      "missing": 2,
+      "partial": 0,
+      "present": 130,
+      "race_date": "2023-10-14",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 123,
+      "missing": 0,
+      "partial": 0,
+      "present": 123,
+      "race_date": "2023-10-21",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 110,
+      "missing": 1,
+      "partial": 0,
+      "present": 109,
+      "race_date": "2023-10-28",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 108,
+      "missing": 1,
+      "partial": 0,
+      "present": 107,
+      "race_date": "2023-11-04",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 98,
+      "missing": 1,
+      "partial": 0,
+      "present": 97,
+      "race_date": "2023-11-11",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 108,
+      "missing": 0,
+      "partial": 0,
+      "present": 108,
+      "race_date": "2023-12-02",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 112,
+      "missing": 0,
+      "partial": 0,
+      "present": 112,
+      "race_date": "2023-12-09",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 96,
+      "missing": 0,
+      "partial": 0,
+      "present": 96,
+      "race_date": "2023-12-16",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 106,
+      "missing": 0,
+      "partial": 0,
+      "present": 106,
+      "race_date": "2023-12-23",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 101,
+      "missing": 0,
+      "partial": 0,
+      "present": 101,
+      "race_date": "2023-12-30",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 97,
+      "missing": 0,
+      "partial": 0,
+      "present": 97,
+      "race_date": "2024-01-06",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 100,
+      "missing": 2,
+      "partial": 0,
+      "present": 98,
+      "race_date": "2024-01-13",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 91,
+      "missing": 0,
+      "partial": 0,
+      "present": 91,
+      "race_date": "2024-01-20",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 93,
+      "missing": 0,
+      "partial": 0,
+      "present": 93,
+      "race_date": "2024-01-27",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 88,
+      "missing": 0,
+      "partial": 0,
+      "present": 88,
+      "race_date": "2024-02-03",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 103,
+      "missing": 7,
+      "partial": 0,
+      "present": 96,
+      "race_date": "2024-02-10",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 95,
+      "missing": 0,
+      "partial": 0,
+      "present": 95,
+      "race_date": "2024-02-17",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 119,
+      "missing": 1,
+      "partial": 0,
+      "present": 118,
+      "race_date": "2024-02-24",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 100,
+      "missing": 0,
+      "partial": 0,
+      "present": 100,
+      "race_date": "2024-03-02",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 109,
+      "missing": 0,
+      "partial": 0,
+      "present": 109,
+      "race_date": "2024-03-09",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 108,
+      "missing": 1,
+      "partial": 0,
+      "present": 107,
+      "race_date": "2024-03-16",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 130,
+      "missing": 1,
+      "partial": 0,
+      "present": 129,
+      "race_date": "2024-03-23",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 123,
+      "missing": 0,
+      "partial": 0,
+      "present": 123,
+      "race_date": "2024-03-30",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 132,
+      "missing": 1,
+      "partial": 0,
+      "present": 131,
+      "race_date": "2024-04-06",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 132,
+      "missing": 0,
+      "partial": 0,
+      "present": 132,
+      "race_date": "2024-04-13",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 89,
+      "missing": 0,
+      "partial": 0,
+      "present": 89,
+      "race_date": "2024-04-20",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 117,
+      "missing": 0,
+      "partial": 0,
+      "present": 117,
+      "race_date": "2024-04-27",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 122,
+      "missing": 0,
+      "partial": 0,
+      "present": 122,
+      "race_date": "2024-05-25",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 66,
+      "missing": 0,
+      "partial": 0,
+      "present": 66,
+      "race_date": "2024-06-01",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 145,
+      "missing": 13,
+      "partial": 0,
+      "present": 132,
+      "race_date": "2024-06-08",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 102,
+      "missing": 1,
+      "partial": 0,
+      "present": 101,
+      "race_date": "2024-06-15",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 144,
+      "missing": 1,
+      "partial": 0,
+      "present": 143,
+      "race_date": "2024-06-29",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 103,
+      "missing": 0,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2024-07-06",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 101,
+      "missing": 2,
+      "partial": 0,
+      "present": 99,
+      "race_date": "2024-07-13",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 106,
+      "missing": 1,
+      "partial": 0,
+      "present": 105,
+      "race_date": "2024-07-20",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 89,
+      "missing": 0,
+      "partial": 0,
+      "present": 89,
+      "race_date": "2024-07-27",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 105,
+      "missing": 2,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2024-08-03",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 102,
+      "missing": 1,
+      "partial": 0,
+      "present": 101,
+      "race_date": "2024-08-10",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 102,
+      "missing": 0,
+      "partial": 0,
+      "present": 102,
+      "race_date": "2024-08-17",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 111,
+      "missing": 1,
+      "partial": 0,
+      "present": 110,
+      "race_date": "2024-08-24",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 109,
+      "missing": 0,
+      "partial": 0,
+      "present": 109,
+      "race_date": "2024-08-31",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 108,
+      "missing": 0,
+      "partial": 0,
+      "present": 108,
+      "race_date": "2024-09-07",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 117,
+      "missing": 0,
+      "partial": 0,
+      "present": 117,
+      "race_date": "2024-09-14",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 114,
+      "missing": 5,
+      "partial": 1,
+      "present": 108,
+      "race_date": "2024-09-21",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 112,
+      "missing": 4,
+      "partial": 0,
+      "present": 108,
+      "race_date": "2024-09-28",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 121,
+      "missing": 2,
+      "partial": 0,
+      "present": 119,
+      "race_date": "2024-10-05",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 112,
+      "missing": 0,
+      "partial": 0,
+      "present": 112,
+      "race_date": "2024-10-12",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 129,
+      "missing": 1,
+      "partial": 0,
+      "present": 128,
+      "race_date": "2024-10-19",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 104,
+      "missing": 5,
+      "partial": 0,
+      "present": 99,
+      "race_date": "2024-10-26",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 119,
+      "missing": 1,
+      "partial": 0,
+      "present": 118,
+      "race_date": "2024-11-02",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 103,
+      "missing": 1,
+      "partial": 0,
+      "present": 102,
+      "race_date": "2024-11-09",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 118,
+      "missing": 1,
+      "partial": 0,
+      "present": 117,
+      "race_date": "2024-11-30",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 75,
+      "missing": 0,
+      "partial": 0,
+      "present": 75,
+      "race_date": "2024-12-07",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 127,
+      "missing": 2,
+      "partial": 0,
+      "present": 125,
+      "race_date": "2024-12-14",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 102,
+      "missing": 0,
+      "partial": 0,
+      "present": 102,
+      "race_date": "2024-12-21",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 91,
+      "missing": 1,
+      "partial": 0,
+      "present": 90,
+      "race_date": "2024-12-28",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 90,
+      "missing": 1,
+      "partial": 0,
+      "present": 89,
+      "race_date": "2025-01-04",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 97,
+      "missing": 1,
+      "partial": 0,
+      "present": 96,
+      "race_date": "2025-01-18",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 93,
+      "missing": 1,
+      "partial": 0,
+      "present": 92,
+      "race_date": "2025-01-25",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 100,
+      "missing": 1,
+      "partial": 0,
+      "present": 99,
+      "race_date": "2025-02-01",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 120,
+      "missing": 0,
+      "partial": 0,
+      "present": 120,
+      "race_date": "2025-02-08",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 108,
+      "missing": 0,
+      "partial": 0,
+      "present": 108,
+      "race_date": "2025-02-15",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 98,
+      "missing": 1,
+      "partial": 0,
+      "present": 97,
+      "race_date": "2025-02-22",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 104,
+      "missing": 1,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2025-03-01",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 103,
+      "missing": 0,
+      "partial": 1,
+      "present": 102,
+      "race_date": "2025-03-08",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 106,
+      "missing": 1,
+      "partial": 1,
+      "present": 104,
+      "race_date": "2025-03-15",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 124,
+      "missing": 0,
+      "partial": 1,
+      "present": 123,
+      "race_date": "2025-03-22",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 138,
+      "missing": 1,
+      "partial": 0,
+      "present": 137,
+      "race_date": "2025-04-05",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 117,
+      "missing": 0,
+      "partial": 0,
+      "present": 117,
+      "race_date": "2025-04-12",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 122,
+      "missing": 1,
+      "partial": 0,
+      "present": 121,
+      "race_date": "2025-04-19",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 111,
+      "missing": 0,
+      "partial": 0,
+      "present": 111,
+      "race_date": "2025-04-26",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 109,
+      "missing": 3,
+      "partial": 0,
+      "present": 106,
+      "race_date": "2025-05-24",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 114,
+      "missing": 0,
+      "partial": 0,
+      "present": 114,
+      "race_date": "2025-05-31",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 116,
+      "missing": 1,
+      "partial": 0,
+      "present": 115,
+      "race_date": "2025-06-07",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 115,
+      "missing": 1,
+      "partial": 0,
+      "present": 114,
+      "race_date": "2025-06-14",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 121,
+      "missing": 0,
+      "partial": 0,
+      "present": 121,
+      "race_date": "2025-06-21",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 100,
+      "missing": 0,
+      "partial": 0,
+      "present": 100,
+      "race_date": "2025-06-28",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 111,
+      "missing": 2,
+      "partial": 0,
+      "present": 109,
+      "race_date": "2025-07-05",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 111,
+      "missing": 0,
+      "partial": 0,
+      "present": 111,
+      "race_date": "2025-07-12",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 101,
+      "missing": 1,
+      "partial": 0,
+      "present": 100,
+      "race_date": "2025-07-19",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 104,
+      "missing": 0,
+      "partial": 0,
+      "present": 104,
+      "race_date": "2025-07-26",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 79,
+      "missing": 8,
+      "partial": 0,
+      "present": 71,
+      "race_date": "2025-08-02",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 99,
+      "missing": 0,
+      "partial": 0,
+      "present": 99,
+      "race_date": "2025-08-16",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 100,
+      "missing": 1,
+      "partial": 0,
+      "present": 99,
+      "race_date": "2025-08-23",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 110,
+      "missing": 7,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2025-08-30",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 111,
+      "missing": 5,
+      "partial": 0,
+      "present": 106,
+      "race_date": "2025-09-06",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 104,
+      "missing": 1,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2025-09-13",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 110,
+      "missing": 0,
+      "partial": 0,
+      "present": 110,
+      "race_date": "2025-09-20",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 101,
+      "missing": 1,
+      "partial": 0,
+      "present": 100,
+      "race_date": "2025-09-27",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 121,
+      "missing": 2,
+      "partial": 0,
+      "present": 119,
+      "race_date": "2025-10-04",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 123,
+      "missing": 1,
+      "partial": 0,
+      "present": 122,
+      "race_date": "2025-10-11",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 130,
+      "missing": 1,
+      "partial": 0,
+      "present": 129,
+      "race_date": "2025-10-18",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 102,
+      "missing": 23,
+      "partial": 0,
+      "present": 79,
+      "race_date": "2025-10-25",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 126,
+      "missing": 3,
+      "partial": 0,
+      "present": 123,
+      "race_date": "2025-11-01",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 101,
+      "missing": 44,
+      "partial": 0,
+      "present": 57,
+      "race_date": "2025-11-08",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 115,
+      "missing": 80,
+      "partial": 0,
+      "present": 35,
+      "race_date": "2025-11-29",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 121,
+      "missing": 2,
+      "partial": 0,
+      "present": 119,
+      "race_date": "2025-12-13",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 105,
+      "missing": 53,
+      "partial": 0,
+      "present": 52,
+      "race_date": "2025-12-20",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 104,
+      "missing": 1,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2025-12-27",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 111,
+      "missing": 1,
+      "partial": 0,
+      "present": 110,
+      "race_date": "2026-01-03",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 92,
+      "missing": 10,
+      "partial": 0,
+      "present": 82,
+      "race_date": "2026-01-17",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 97,
+      "missing": 1,
+      "partial": 0,
+      "present": 96,
+      "race_date": "2026-01-24",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 96,
+      "missing": 2,
+      "partial": 0,
+      "present": 94,
+      "race_date": "2026-01-31",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 117,
+      "missing": 3,
+      "partial": 0,
+      "present": 114,
+      "race_date": "2026-02-07",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 100,
+      "missing": 3,
+      "partial": 0,
+      "present": 97,
+      "race_date": "2026-02-14",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 101,
+      "missing": 12,
+      "partial": 0,
+      "present": 89,
+      "race_date": "2026-02-21",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 110,
+      "missing": 6,
+      "partial": 0,
+      "present": 104,
+      "race_date": "2026-02-28",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 98,
+      "missing": 0,
+      "partial": 0,
+      "present": 98,
+      "race_date": "2026-03-07",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 101,
+      "missing": 1,
+      "partial": 0,
+      "present": 100,
+      "race_date": "2026-03-14",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 123,
+      "missing": 2,
+      "partial": 0,
+      "present": 121,
+      "race_date": "2026-03-21",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 112,
+      "missing": 5,
+      "partial": 0,
+      "present": 107,
+      "race_date": "2026-03-28",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 133,
+      "missing": 1,
+      "partial": 0,
+      "present": 132,
+      "race_date": "2026-04-04",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 110,
+      "missing": 1,
+      "partial": 0,
+      "present": 109,
+      "race_date": "2026-04-11",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 118,
+      "missing": 1,
+      "partial": 0,
+      "present": 117,
+      "race_date": "2026-04-18",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 85,
+      "missing": 0,
+      "partial": 0,
+      "present": 85,
+      "race_date": "2026-04-25",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 126,
+      "missing": 0,
+      "partial": 0,
+      "present": 126,
+      "race_date": "2026-05-23",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 114,
+      "missing": 0,
+      "partial": 0,
+      "present": 114,
+      "race_date": "2026-05-30",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 120,
+      "missing": 0,
+      "partial": 0,
+      "present": 120,
+      "race_date": "2026-06-06",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 104,
+      "missing": 0,
+      "partial": 0,
+      "present": 104,
+      "race_date": "2026-06-13",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 128,
+      "missing": 0,
+      "partial": 0,
+      "present": 128,
+      "race_date": "2026-06-20",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 123,
+      "missing": 0,
+      "partial": 0,
+      "present": 123,
+      "race_date": "2026-06-27",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 112,
+      "missing": 0,
+      "partial": 0,
+      "present": 112,
+      "race_date": "2026-07-04",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 98,
+      "missing": 0,
+      "partial": 0,
+      "present": 98,
+      "race_date": "2026-07-11",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 104,
+      "missing": 1,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2026-07-18",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 111,
+      "missing": 0,
+      "partial": 0,
+      "present": 111,
+      "race_date": "2026-07-25",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 109,
+      "missing": 0,
+      "partial": 0,
+      "present": 109,
+      "race_date": "2026-08-01",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 100,
+      "missing": 0,
+      "partial": 0,
+      "present": 100,
+      "race_date": "2026-08-08",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 103,
+      "missing": 0,
+      "partial": 0,
+      "present": 103,
+      "race_date": "2026-08-15",
+      "track": "rosehill"
+    },
+    {
+      "finished_runs": 110,
+      "missing": 0,
+      "partial": 0,
+      "present": 110,
+      "race_date": "2026-08-22",
+      "track": "randwick"
+    },
+    {
+      "finished_runs": 102,
+      "missing": 0,
+      "partial": 0,
+      "present": 102,
+      "race_date": "2026-08-29",
+      "track": "rosehill"
+    }
+  ],
+  "outputs": {
+    "affected_horses_csv": "reports\\data\\sydney_horses_missing_sectionals_3y_2026-08-31.csv",
+    "missing_runner_runs_csv": "reports\\data\\sydney_missing_sectionals_3y_2026-08-31.csv"
+  },
+  "pdf_audit": [
+    {
+      "expected_date": "2023-09-02",
+      "observed_date": "2023-09-02",
+      "path": "data\\raw\\rnsw\\2023-09-02\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-09-09",
+      "observed_date": "2023-09-09",
+      "path": "data\\raw\\rnsw\\2023-09-09\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2023-09-16",
+      "observed_date": "2023-09-16",
+      "path": "data\\raw\\rnsw\\2023-09-16\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-09-23",
+      "observed_date": "2023-09-23",
+      "path": "data\\raw\\rnsw\\2023-09-23\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2023-09-30",
+      "observed_date": "2023-09-30",
+      "path": "data\\raw\\rnsw\\2023-09-30\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-10-07",
+      "observed_date": "2023-10-07",
+      "path": "data\\raw\\rnsw\\2023-10-07\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2023-10-14",
+      "observed_date": "2023-10-14",
+      "path": "data\\raw\\rnsw\\2023-10-14\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-10-21",
+      "observed_date": "2023-10-21",
+      "path": "data\\raw\\rnsw\\2023-10-21\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-10-28",
+      "observed_date": "2023-10-28",
+      "path": "data\\raw\\rnsw\\2023-10-28\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-11-04",
+      "observed_date": "2023-11-04",
+      "path": "data\\raw\\rnsw\\2023-11-04\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2023-11-11",
+      "observed_date": "2023-11-11",
+      "path": "data\\raw\\rnsw\\2023-11-11\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2023-12-02",
+      "observed_date": "2023-12-02",
+      "path": "data\\raw\\rnsw\\2023-12-02\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2023-12-09",
+      "observed_date": "2023-12-09",
+      "path": "data\\raw\\rnsw\\2023-12-09\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-12-16",
+      "observed_date": "2023-12-16",
+      "path": "data\\raw\\rnsw\\2023-12-16\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-12-23",
+      "observed_date": "2023-12-23",
+      "path": "data\\raw\\rnsw\\2023-12-23\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2023-12-30",
+      "observed_date": "2023-12-30",
+      "path": "data\\raw\\rnsw\\2023-12-30\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-01-06",
+      "observed_date": "2024-01-06",
+      "path": "data\\raw\\rnsw\\2024-01-06\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-01-13",
+      "observed_date": "2024-01-13",
+      "path": "data\\raw\\rnsw\\2024-01-13\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-01-20",
+      "observed_date": "2024-01-20",
+      "path": "data\\raw\\rnsw\\2024-01-20\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-01-27",
+      "observed_date": "2024-01-27",
+      "path": "data\\raw\\rnsw\\2024-01-27\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-02-03",
+      "observed_date": "2024-02-03",
+      "path": "data\\raw\\rnsw\\2024-02-03\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-02-10",
+      "observed_date": "2024-02-10",
+      "path": "data\\raw\\rnsw\\2024-02-10\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-02-17",
+      "observed_date": "2024-02-17",
+      "path": "data\\raw\\rnsw\\2024-02-17\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-02-24",
+      "observed_date": "2024-02-24",
+      "path": "data\\raw\\rnsw\\2024-02-24\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-03-02",
+      "observed_date": "2024-03-02",
+      "path": "data\\raw\\rnsw\\2024-03-02\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-03-09",
+      "observed_date": "2024-03-09",
+      "path": "data\\raw\\rnsw\\2024-03-09\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-03-16",
+      "observed_date": "2024-03-16",
+      "path": "data\\raw\\rnsw\\2024-03-16\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-03-23",
+      "observed_date": "2024-03-23",
+      "path": "data\\raw\\rnsw\\2024-03-23\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-03-30",
+      "observed_date": "2024-03-30",
+      "path": "data\\raw\\rnsw\\2024-03-30\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-04-06",
+      "observed_date": "2024-04-06",
+      "path": "data\\raw\\rnsw\\2024-04-06\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-04-13",
+      "observed_date": "2024-04-13",
+      "path": "data\\raw\\rnsw\\2024-04-13\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-04-20",
+      "observed_date": "2024-04-20",
+      "path": "data\\raw\\rnsw\\2024-04-20\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-04-27",
+      "observed_date": "2024-04-27",
+      "path": "data\\raw\\rnsw\\2024-04-27\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-05-25",
+      "observed_date": "2024-05-25",
+      "path": "data\\raw\\rnsw\\2024-05-25\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-06-01",
+      "observed_date": "2024-06-01",
+      "path": "data\\raw\\rnsw\\2024-06-01\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-06-08",
+      "observed_date": "2024-06-08",
+      "path": "data\\raw\\rnsw\\2024-06-08\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-06-15",
+      "observed_date": "2024-06-15",
+      "path": "data\\raw\\rnsw\\2024-06-15\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-06-29",
+      "observed_date": "2024-06-29",
+      "path": "data\\raw\\rnsw\\2024-06-29\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-07-06",
+      "observed_date": "2024-07-06",
+      "path": "data\\raw\\rnsw\\2024-07-06\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-07-13",
+      "observed_date": "2024-07-13",
+      "path": "data\\raw\\rnsw\\2024-07-13\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-07-20",
+      "observed_date": "2024-07-20",
+      "path": "data\\raw\\rnsw\\2024-07-20\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-07-27",
+      "observed_date": "2024-07-27",
+      "path": "data\\raw\\rnsw\\2024-07-27\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-08-03",
+      "observed_date": "2024-08-03",
+      "path": "data\\raw\\rnsw\\2024-08-03\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-08-10",
+      "observed_date": "2024-08-10",
+      "path": "data\\raw\\rnsw\\2024-08-10\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-08-17",
+      "observed_date": "2024-08-17",
+      "path": "data\\raw\\rnsw\\2024-08-17\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-08-24",
+      "observed_date": "2024-08-24",
+      "path": "data\\raw\\rnsw\\2024-08-24\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-08-31",
+      "observed_date": "2024-08-31",
+      "path": "data\\raw\\rnsw\\2024-08-31\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-09-07",
+      "observed_date": "2024-09-07",
+      "path": "data\\raw\\rnsw\\2024-09-07\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-09-14",
+      "observed_date": "2024-09-14",
+      "path": "data\\raw\\rnsw\\2024-09-14\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-09-21",
+      "observed_date": "2024-09-21",
+      "path": "data\\raw\\rnsw\\2024-09-21\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-09-28",
+      "observed_date": "2024-09-28",
+      "path": "data\\raw\\rnsw\\2024-09-28\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-10-05",
+      "observed_date": "2024-10-05",
+      "path": "data\\raw\\rnsw\\2024-10-05\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-10-12",
+      "observed_date": "2024-10-12",
+      "path": "data\\raw\\rnsw\\2024-10-12\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-10-19",
+      "observed_date": "2024-10-19",
+      "path": "data\\raw\\rnsw\\2024-10-19\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-10-26",
+      "observed_date": "2024-10-26",
+      "path": "data\\raw\\rnsw\\2024-10-26\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-11-02",
+      "observed_date": "2024-11-02",
+      "path": "data\\raw\\rnsw\\2024-11-02\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-11-09",
+      "observed_date": "2024-11-09",
+      "path": "data\\raw\\rnsw\\2024-11-09\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-11-30",
+      "observed_date": "2024-11-30",
+      "path": "data\\raw\\rnsw\\2024-11-30\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-12-07",
+      "observed_date": "2024-12-07",
+      "path": "data\\raw\\rnsw\\2024-12-07\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2024-12-14",
+      "observed_date": "2024-12-14",
+      "path": "data\\raw\\rnsw\\2024-12-14\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-12-21",
+      "observed_date": "2024-12-21",
+      "path": "data\\raw\\rnsw\\2024-12-21\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2024-12-28",
+      "observed_date": "2024-12-28",
+      "path": "data\\raw\\rnsw\\2024-12-28\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-01-04",
+      "observed_date": "2025-01-04",
+      "path": "data\\raw\\rnsw\\2025-01-04\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-01-18",
+      "observed_date": "2025-01-18",
+      "path": "data\\raw\\rnsw\\2025-01-18\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-01-25",
+      "observed_date": "2025-01-25",
+      "path": "data\\raw\\rnsw\\2025-01-25\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-02-01",
+      "observed_date": "2025-02-01",
+      "path": "data\\raw\\rnsw\\2025-02-01\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-02-08",
+      "observed_date": "2025-02-08",
+      "path": "data\\raw\\rnsw\\2025-02-08\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-02-15",
+      "observed_date": "2025-02-15",
+      "path": "data\\raw\\rnsw\\2025-02-15\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-02-22",
+      "observed_date": "2025-02-22",
+      "path": "data\\raw\\rnsw\\2025-02-22\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-03-01",
+      "observed_date": "2025-03-01",
+      "path": "data\\raw\\rnsw\\2025-03-01\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-03-08",
+      "observed_date": "2025-03-08",
+      "path": "data\\raw\\rnsw\\2025-03-08\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-03-15",
+      "observed_date": "2025-03-15",
+      "path": "data\\raw\\rnsw\\2025-03-15\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-03-22",
+      "observed_date": "2025-03-22",
+      "path": "data\\raw\\rnsw\\2025-03-22\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-04-05",
+      "observed_date": "2025-04-05",
+      "path": "data\\raw\\rnsw\\2025-04-05\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-04-12",
+      "observed_date": "2025-04-12",
+      "path": "data\\raw\\rnsw\\2025-04-12\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-04-19",
+      "observed_date": "2025-04-19",
+      "path": "data\\raw\\rnsw\\2025-04-19\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-04-26",
+      "observed_date": "2025-04-26",
+      "path": "data\\raw\\rnsw\\2025-04-26\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-05-24",
+      "observed_date": "2025-05-24",
+      "path": "data\\raw\\rnsw\\2025-05-24\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-05-31",
+      "observed_date": "2025-05-31",
+      "path": "data\\raw\\rnsw\\2025-05-31\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-06-07",
+      "observed_date": "2025-06-07",
+      "path": "data\\raw\\rnsw\\2025-06-07\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-06-14",
+      "observed_date": "2025-06-14",
+      "path": "data\\raw\\rnsw\\2025-06-14\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-06-21",
+      "observed_date": "2025-06-21",
+      "path": "data\\raw\\rnsw\\2025-06-21\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-06-28",
+      "observed_date": "2025-06-28",
+      "path": "data\\raw\\rnsw\\2025-06-28\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-07-05",
+      "observed_date": "2025-07-05",
+      "path": "data\\raw\\rnsw\\2025-07-05\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-07-12",
+      "observed_date": "2025-07-12",
+      "path": "data\\raw\\rnsw\\2025-07-12\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-07-19",
+      "observed_date": "2025-07-19",
+      "path": "data\\raw\\rnsw\\2025-07-19\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-07-26",
+      "observed_date": "2025-07-26",
+      "path": "data\\raw\\rnsw\\2025-07-26\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-08-02",
+      "observed_date": "2025-08-02",
+      "path": "data\\raw\\rnsw\\2025-08-02\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-08-16",
+      "observed_date": "2025-08-16",
+      "path": "data\\raw\\rnsw\\2025-08-16\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-08-23",
+      "observed_date": "2025-08-23",
+      "path": "data\\raw\\rnsw\\2025-08-23\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-08-30",
+      "observed_date": "2025-08-30",
+      "path": "data\\raw\\rnsw\\2025-08-30\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-09-06",
+      "observed_date": "2025-09-06",
+      "path": "data\\raw\\rnsw\\2025-09-06\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-09-13",
+      "observed_date": "2025-09-13",
+      "path": "data\\raw\\rnsw\\2025-09-13\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-09-20",
+      "observed_date": "2025-09-20",
+      "path": "data\\raw\\rnsw\\2025-09-20\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-09-27",
+      "observed_date": "2025-09-27",
+      "path": "data\\raw\\rnsw\\2025-09-27\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-10-04",
+      "observed_date": "2025-10-04",
+      "path": "data\\raw\\rnsw\\2025-10-04\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-10-11",
+      "observed_date": "2025-10-11",
+      "path": "data\\raw\\rnsw\\2025-10-11\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-10-18",
+      "observed_date": "2025-10-18",
+      "path": "data\\raw\\rnsw\\2025-10-18\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-10-25",
+      "observed_date": "2025-10-25",
+      "path": "data\\raw\\rnsw\\2025-10-25\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-11-01",
+      "observed_date": "2025-11-01",
+      "path": "data\\raw\\rnsw\\2025-11-01\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-11-08",
+      "observed_date": "2025-11-08",
+      "path": "data\\raw\\rnsw\\2025-11-08\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-11-29",
+      "observed_date": "2025-11-29",
+      "path": "data\\raw\\rnsw\\2025-11-29\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2025-12-13",
+      "observed_date": "2025-12-13",
+      "path": "data\\raw\\rnsw\\2025-12-13\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-12-20",
+      "observed_date": "2025-12-20",
+      "path": "data\\raw\\rnsw\\2025-12-20\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2025-12-27",
+      "observed_date": "2025-12-27",
+      "path": "data\\raw\\rnsw\\2025-12-27\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-01-03",
+      "observed_date": "2026-01-03",
+      "path": "data\\raw\\rnsw\\2026-01-03\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-01-17",
+      "observed_date": "2026-01-17",
+      "path": "data\\raw\\rnsw\\2026-01-17\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-01-24",
+      "observed_date": "2026-01-24",
+      "path": "data\\raw\\rnsw\\2026-01-24\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-01-31",
+      "observed_date": "2026-01-31",
+      "path": "data\\raw\\rnsw\\2026-01-31\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-02-07",
+      "observed_date": "2026-02-07",
+      "path": "data\\raw\\rnsw\\2026-02-07\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-02-14",
+      "observed_date": "2026-02-14",
+      "path": "data\\raw\\rnsw\\2026-02-14\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-02-21",
+      "observed_date": "2026-02-21",
+      "path": "data\\raw\\rnsw\\2026-02-21\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-02-28",
+      "observed_date": "2026-02-28",
+      "path": "data\\raw\\rnsw\\2026-02-28\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-03-07",
+      "observed_date": "2026-03-07",
+      "path": "data\\raw\\rnsw\\2026-03-07\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-03-14",
+      "observed_date": "2026-03-14",
+      "path": "data\\raw\\rnsw\\2026-03-14\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-03-21",
+      "observed_date": "2026-03-21",
+      "path": "data\\raw\\rnsw\\2026-03-21\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-03-28",
+      "observed_date": "2026-03-28",
+      "path": "data\\raw\\rnsw\\2026-03-28\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-04-04",
+      "observed_date": "2026-04-04",
+      "path": "data\\raw\\rnsw\\2026-04-04\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-04-11",
+      "observed_date": "2026-04-11",
+      "path": "data\\raw\\rnsw\\2026-04-11\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-04-18",
+      "observed_date": "2026-04-18",
+      "path": "data\\raw\\rnsw\\2026-04-18\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-04-25",
+      "observed_date": "2026-04-25",
+      "path": "data\\raw\\rnsw\\2026-04-25\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-05-23",
+      "observed_date": "2026-05-23",
+      "path": "data\\raw\\rnsw\\2026-05-23\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-05-30",
+      "observed_date": "2026-05-30",
+      "path": "data\\raw\\rnsw\\2026-05-30\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-06-06",
+      "observed_date": "2026-06-06",
+      "path": "data\\raw\\rnsw\\2026-06-06\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-06-13",
+      "observed_date": "2026-06-13",
+      "path": "data\\raw\\rnsw\\2026-06-13\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-06-20",
+      "observed_date": "2026-06-20",
+      "path": "data\\raw\\rnsw\\2026-06-20\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-06-27",
+      "observed_date": "2026-06-27",
+      "path": "data\\raw\\rnsw\\2026-06-27\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-07-04",
+      "observed_date": "2026-07-04",
+      "path": "data\\raw\\rnsw\\2026-07-04\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-07-11",
+      "observed_date": "2026-07-11",
+      "path": "data\\raw\\rnsw\\2026-07-11\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-07-18",
+      "observed_date": "2026-07-18",
+      "path": "data\\raw\\rnsw\\2026-07-18\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-07-25",
+      "observed_date": "2026-07-25",
+      "path": "data\\raw\\rnsw\\2026-07-25\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-08-01",
+      "observed_date": "2026-08-01",
+      "path": "data\\raw\\rnsw\\2026-08-01\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-08-08",
+      "observed_date": "2026-08-08",
+      "path": "data\\raw\\rnsw\\2026-08-08\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-08-15",
+      "observed_date": "2026-08-15",
+      "path": "data\\raw\\rnsw\\2026-08-15\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-08-22",
+      "observed_date": "2026-08-22",
+      "path": "data\\raw\\rnsw\\2026-08-22\\randwick\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-08-22",
+      "observed_date": "2020-08-22",
+      "path": "data\\raw\\rnsw\\2026-08-22\\randwick\\sectionals.pdf",
+      "status": "wrong_date",
+      "track": "randwick"
+    },
+    {
+      "expected_date": "2026-08-29",
+      "observed_date": "2026-08-29",
+      "path": "data\\raw\\rnsw\\2026-08-29\\rosehill\\atc-sectionals.pdf",
+      "status": "valid_date",
+      "track": "rosehill"
+    },
+    {
+      "expected_date": "2026-08-29",
+      "observed_date": "2020-08-29",
+      "path": "data\\raw\\rnsw\\2026-08-29\\rosehill\\sectionals.pdf",
+      "status": "wrong_date",
+      "track": "rosehill"
+    }
+  ],
+  "summary": {
+    "finished_runner_runs": 14849,
+    "meetings": 136,
+    "meetings_fully_missing_sectionals": 0,
+    "meetings_with_at_least_one_missing_runner": 75,
+    "pdf_status": {
+      "valid_date": 136,
+      "wrong_date": 2
+    },
+    "races_with_valid_clock": 1322,
+    "runner_finish_clocks_valid": 14366,
+    "runner_runs_invalid_wrong_date_source": 0,
+    "runner_runs_missing": 367,
+    "runner_runs_partial": 13,
+    "runner_runs_with_sectionals": 14469,
+    "tracks": [
+      "randwick",
+      "rosehill"
+    ],
+    "unique_horses_missing_sectionals": 341,
+    "window": {
+      "end_exclusive": "2026-08-31",
+      "start_inclusive": "2023-09-01"
+    }
+  },
+  "worst_affected_horses": [
+    {
+      "horse_name": "Alabama State",
+      "meetings": [
+        "2025-11-08|rosehill|R2",
+        "2025-12-20|randwick|R10"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Amaretto Bo",
+      "meetings": [
+        "2025-10-25|randwick|R3",
+        "2025-11-08|rosehill|R2"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Arctic Glamour",
+      "meetings": [
+        "2025-11-08|rosehill|R7",
+        "2025-11-29|rosehill|R8"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Artful Persuasion",
+      "meetings": [
+        "2025-11-08|rosehill|R2",
+        "2025-12-20|randwick|R2"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Clear Proof",
+      "meetings": [
+        "2025-10-25|randwick|R3",
+        "2025-11-08|rosehill|R2"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Dark Glitter",
+      "meetings": [
+        "2025-11-08|rosehill|R7",
+        "2026-02-14|randwick|R9"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Elson Boy",
+      "meetings": [
+        "2025-08-02|rosehill|R8",
+        "2025-12-20|randwick|R10"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Gold Pattern",
+      "meetings": [
+        "2025-11-29|rosehill|R10",
+        "2025-12-20|randwick|R2"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Imperial Force",
+      "meetings": [
+        "2025-10-18|randwick|R8",
+        "2025-11-29|rosehill|R7"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Jojo Was A Man",
+      "meetings": [
+        "2025-10-25|randwick|R4",
+        "2025-11-29|rosehill|R8"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Lunaite",
+      "meetings": [
+        "2025-11-08|rosehill|R1",
+        "2025-11-29|rosehill|R10"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Mafia",
+      "meetings": [
+        "2025-10-25|randwick|R3",
+        "2025-12-20|randwick|R10"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Manzoice",
+      "meetings": [
+        "2024-08-10|randwick|R9",
+        "2025-11-29|rosehill|R9"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Motoscafo",
+      "meetings": [
+        "2025-10-25|randwick|R3",
+        "2025-11-08|rosehill|R2"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Naval College",
+      "meetings": [
+        "2024-10-26|randwick|R6",
+        "2025-11-29|rosehill|R9"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Oakfield Jupiter",
+      "meetings": [
+        "2025-10-25|randwick|R3",
+        "2025-11-08|rosehill|R2"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Rolling Magic",
+      "meetings": [
+        "2025-08-02|rosehill|R8",
+        "2025-11-08|rosehill|R2"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Shadizi",
+      "meetings": [
+        "2025-11-08|rosehill|R8",
+        "2025-11-29|rosehill|R8"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Shiki",
+      "meetings": [
+        "2025-12-20|randwick|R1",
+        "2026-02-21|rosehill|R6"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Step Aside",
+      "meetings": [
+        "2025-01-25|randwick|R9",
+        "2025-12-20|randwick|R10"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Super Helpful",
+      "meetings": [
+        "2025-10-25|randwick|R4",
+        "2026-01-17|rosehill|R10"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Super Norwest",
+      "meetings": [
+        "2024-02-10|randwick|R4",
+        "2026-02-14|randwick|R9"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "The Face",
+      "meetings": [
+        "2025-08-02|rosehill|R8",
+        "2025-11-29|rosehill|R5"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Tom Vegas",
+      "meetings": [
+        "2025-09-27|rosehill|R2",
+        "2026-01-31|rosehill|R1"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Warwoven",
+      "meetings": [
+        "2025-12-20|randwick|R1",
+        "2026-02-28|randwick|R5"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "Xidaki",
+      "meetings": [
+        "2025-11-29|rosehill|R8",
+        "2025-12-20|randwick|R8"
+      ],
+      "missing_runs": 2
+    },
+    {
+      "horse_name": "A Little Deep",
+      "meetings": [
+        "2025-11-29|rosehill|R7"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Acappella Sun",
+      "meetings": [
+        "2024-06-08|randwick|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Accredited",
+      "meetings": [
+        "2025-11-29|rosehill|R8"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Aerodrome",
+      "meetings": [
+        "2025-08-30|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Afterlight",
+      "meetings": [
+        "2024-02-10|randwick|R5"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Against The Law",
+      "meetings": [
+        "2025-09-13|rosehill|R1"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Age Of Aquarius",
+      "meetings": [
+        "2025-12-20|randwick|R3"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Agita",
+      "meetings": [
+        "2025-11-29|rosehill|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Alalcance",
+      "meetings": [
+        "2025-04-05|randwick|R3"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Altivo",
+      "meetings": [
+        "2025-11-29|rosehill|R8"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Amreekiyah",
+      "meetings": [
+        "2026-03-28|rosehill|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Another Wil",
+      "meetings": [
+        "2024-04-06|randwick|R8"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Antilocapra",
+      "meetings": [
+        "2026-01-31|rosehill|R1"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Apex",
+      "meetings": [
+        "2025-11-29|rosehill|R5"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Athena's Treasure",
+      "meetings": [
+        "2026-01-24|randwick|R3"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Austeja",
+      "meetings": [
+        "2024-06-08|randwick|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bandersnatch",
+      "meetings": [
+        "2024-09-28|rosehill|R9"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bandi's Boy",
+      "meetings": [
+        "2025-11-29|rosehill|R7"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Barber",
+      "meetings": [
+        "2025-11-29|rosehill|R7"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Barbray",
+      "meetings": [
+        "2026-01-17|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Battleton",
+      "meetings": [
+        "2024-10-05|randwick|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bauhinia",
+      "meetings": [
+        "2025-11-08|rosehill|R7"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Behtar",
+      "meetings": [
+        "2025-11-29|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bella Corazon",
+      "meetings": [
+        "2026-02-07|randwick|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bella Montagna",
+      "meetings": [
+        "2025-11-29|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Belle Detelle",
+      "meetings": [
+        "2025-11-29|rosehill|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Big Papa",
+      "meetings": [
+        "2025-12-20|randwick|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Billiondollarbaby",
+      "meetings": [
+        "2024-01-13|rosehill|R5"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bird Whistle",
+      "meetings": [
+        "2026-04-04|randwick|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Blacklist",
+      "meetings": [
+        "2025-11-29|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Blue Willow",
+      "meetings": [
+        "2025-11-29|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bodgie",
+      "meetings": [
+        "2024-06-08|randwick|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Brave One",
+      "meetings": [
+        "2025-11-01|randwick|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bravissima",
+      "meetings": [
+        "2025-11-29|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "British Columbia",
+      "meetings": [
+        "2026-01-17|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Broadway Bouncer",
+      "meetings": [
+        "2025-10-25|randwick|R3"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Brosnan",
+      "meetings": [
+        "2025-11-29|rosehill|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Brynner",
+      "meetings": [
+        "2024-07-13|randwick|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Bullet Point",
+      "meetings": [
+        "2025-11-08|rosehill|R8"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Burgundy Girl",
+      "meetings": [
+        "2025-11-29|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Caesars Palace",
+      "meetings": [
+        "2024-06-08|randwick|R7"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Callistemon",
+      "meetings": [
+        "2025-12-20|randwick|R2"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Cambar",
+      "meetings": [
+        "2025-09-06|randwick|R2"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Captain Furai",
+      "meetings": [
+        "2025-08-02|rosehill|R8"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Casino Bear",
+      "meetings": [
+        "2025-11-29|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Catoggio",
+      "meetings": [
+        "2025-12-20|randwick|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Cavalier Charles",
+      "meetings": [
+        "2024-06-08|randwick|R7"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Celestial Spirit",
+      "meetings": [
+        "2024-02-10|randwick|R5"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Changing Colours",
+      "meetings": [
+        "2026-02-14|randwick|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Chase My Crown",
+      "meetings": [
+        "2023-10-07|rosehill|R1"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Chief Conductor",
+      "meetings": [
+        "2024-06-08|randwick|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Ciaron's Star",
+      "meetings": [
+        "2026-02-28|randwick|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Cleveland",
+      "meetings": [
+        "2025-09-06|randwick|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Climate Control",
+      "meetings": [
+        "2025-11-08|rosehill|R1"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Climb The Ladder",
+      "meetings": [
+        "2025-08-02|rosehill|R8"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Clyde",
+      "meetings": [
+        "2025-12-20|randwick|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Coco Jamboo",
+      "meetings": [
+        "2025-11-08|rosehill|R7"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Colour Sergeant",
+      "meetings": [
+        "2023-10-28|randwick|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Confederation",
+      "meetings": [
+        "2026-02-21|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Conrad",
+      "meetings": [
+        "2024-10-26|randwick|R2"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Contemporary",
+      "meetings": [
+        "2025-07-05|rosehill|R9"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Cool Jakey",
+      "meetings": [
+        "2026-03-28|rosehill|R4"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Cormac T",
+      "meetings": [
+        "2026-01-17|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Covert Thinking",
+      "meetings": [
+        "2025-11-29|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Cross Tasman",
+      "meetings": [
+        "2026-01-17|rosehill|R10"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Crown The King",
+      "meetings": [
+        "2025-08-30|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Dakota Vroom",
+      "meetings": [
+        "2024-02-10|randwick|R5"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "De Forza",
+      "meetings": [
+        "2025-11-08|rosehill|R1"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Deel Me A Queen",
+      "meetings": [
+        "2025-11-29|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Djapana",
+      "meetings": [
+        "2025-12-20|randwick|R2"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Dolly",
+      "meetings": [
+        "2025-11-08|rosehill|R1"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Dr Hook",
+      "meetings": [
+        "2026-02-21|rosehill|R6"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Ducasse",
+      "meetings": [
+        "2025-11-08|rosehill|R8"
+      ],
+      "missing_runs": 1
+    },
+    {
+      "horse_name": "Due Calzini",
+      "meetings": [
+        "2025-11-29|rosehill|R6"
+      ],
+      "missing_runs": 1
+    }
+  ]
+}

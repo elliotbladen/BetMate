@@ -1,0 +1,19 @@
+{
+  "status": "shadow_checkpoint_blocked",
+  "run_at_utc": "2026-08-31T19:45:08.831872+00:00",
+  "games": 16,
+  "blockers": [
+    "no_valid_timestamped_market_quotes",
+    "quarterback_review_incomplete",
+    "post_cut_roster_continuity_missing",
+    "official_2026_injury_report_not_available",
+    "stadium_coordinates_and_weather_capture_incomplete"
+  ],
+  "t1_paper_card": "available",
+  "t2_t3_live_shadow": "unresolved",
+  "t6_weather_shadow": "unresolved",
+  "t8_t9_market_shadow": "unresolved",
+  "betting_decision": "ABSTAIN",
+  "staking_enabled": false,
+  "thresholds_retuned": false
+}

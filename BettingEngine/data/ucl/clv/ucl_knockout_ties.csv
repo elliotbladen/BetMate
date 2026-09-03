@@ -1,0 +1,63 @@
+season,round,club_a,club_b,legs,aggregate_a,aggregate_b,winner_status
+2024-25,Final,fc-internazionale-milano,paris-saint-germain-fc,1,,,single_match
+2024-25,Matchday 1,ac-milan,feyenoord-rotterdam,1,,,single_match
+2024-25,Matchday 1,as-monaco-fc,sport-lisboa-e-benfica,1,,,single_match
+2024-25,Matchday 1,atalanta-bc,club-brugge-kv,1,,,single_match
+2024-25,Matchday 1,borussia-dortmund,sporting-clube-de-portugal,1,,,single_match
+2024-25,Matchday 1,celtic-fc,fc-bayern-m-nchen,1,,,single_match
+2024-25,Matchday 1,juventus-fc,psv,1,,,single_match
+2024-25,Matchday 1,manchester-city-fc,real-madrid-cf,1,,,single_match
+2024-25,Matchday 1,paris-saint-germain-fc,stade-brestois-29,1,,,single_match
+2024-25,Matchday 2,ac-milan,feyenoord-rotterdam,1,,,single_match
+2024-25,Matchday 2,as-monaco-fc,sport-lisboa-e-benfica,1,,,single_match
+2024-25,Matchday 2,atalanta-bc,club-brugge-kv,1,,,single_match
+2024-25,Matchday 2,borussia-dortmund,sporting-clube-de-portugal,1,,,single_match
+2024-25,Matchday 2,celtic-fc,fc-bayern-m-nchen,1,,,single_match
+2024-25,Matchday 2,juventus-fc,psv,1,,,single_match
+2024-25,Matchday 2,manchester-city-fc,real-madrid-cf,1,,,single_match
+2024-25,Matchday 2,paris-saint-germain-fc,stade-brestois-29,1,,,single_match
+2024-25,Quarterfinals,arsenal-fc,real-madrid-cf,2,5.0,1.0,arsenal-fc
+2024-25,Quarterfinals,aston-villa-fc,paris-saint-germain-fc,2,4.0,5.0,paris-saint-germain-fc
+2024-25,Quarterfinals,borussia-dortmund,fc-barcelona,2,3.0,5.0,fc-barcelona
+2024-25,Quarterfinals,fc-bayern-m-nchen,fc-internazionale-milano,2,3.0,4.0,fc-internazionale-milano
+2024-25,Round of 16,arsenal-fc,psv,2,9.0,3.0,arsenal-fc
+2024-25,Round of 16,aston-villa-fc,club-brugge-kv,2,6.0,1.0,aston-villa-fc
+2024-25,Round of 16,bayer-04-leverkusen,fc-bayern-m-nchen,2,0.0,5.0,fc-bayern-m-nchen
+2024-25,Round of 16,borussia-dortmund,lille-osc,2,3.0,2.0,borussia-dortmund
+2024-25,Round of 16,club-atl-tico-de-madrid,real-madrid-cf,2,3.0,6.0,real-madrid-cf
+2024-25,Round of 16,fc-barcelona,sport-lisboa-e-benfica,2,4.0,1.0,fc-barcelona
+2024-25,Round of 16,fc-internazionale-milano,feyenoord-rotterdam,2,4.0,1.0,fc-internazionale-milano
+2024-25,Round of 16,liverpool-fc,paris-saint-germain-fc,2,2.0,4.0,paris-saint-germain-fc
+2024-25,Semifinals,arsenal-fc,paris-saint-germain-fc,2,1.0,3.0,paris-saint-germain-fc
+2024-25,Semifinals,fc-barcelona,fc-internazionale-milano,2,6.0,7.0,fc-internazionale-milano
+2025-26,Final,arsenal-fc,paris-saint-germain-fc,1,,,single_match
+2025-26,Matchday 1,as-monaco-fc,paris-saint-germain-fc,1,,,single_match
+2025-26,Matchday 1,atalanta-bc,borussia-dortmund,1,,,single_match
+2025-26,Matchday 1,bayer-04-leverkusen,pae-olympiakos-sfp,1,,,single_match
+2025-26,Matchday 1,club-atl-tico-de-madrid,club-brugge-kv,1,,,single_match
+2025-26,Matchday 1,fc-internazionale-milano,fk-bod-glimt,1,,,single_match
+2025-26,Matchday 1,galatasaray-sk,juventus-fc,1,,,single_match
+2025-26,Matchday 1,newcastle-united-fc,qaraba-a-dam-fk,1,,,single_match
+2025-26,Matchday 1,real-madrid-cf,sport-lisboa-e-benfica,1,,,single_match
+2025-26,Matchday 2,as-monaco-fc,paris-saint-germain-fc,1,,,single_match
+2025-26,Matchday 2,atalanta-bc,borussia-dortmund,1,,,single_match
+2025-26,Matchday 2,bayer-04-leverkusen,pae-olympiakos-sfp,1,,,single_match
+2025-26,Matchday 2,club-atl-tico-de-madrid,club-brugge-kv,1,,,single_match
+2025-26,Matchday 2,fc-internazionale-milano,fk-bod-glimt,1,,,single_match
+2025-26,Matchday 2,galatasaray-sk,juventus-fc,1,,,single_match
+2025-26,Matchday 2,newcastle-united-fc,qaraba-a-dam-fk,1,,,single_match
+2025-26,Matchday 2,real-madrid-cf,sport-lisboa-e-benfica,1,,,single_match
+2025-26,Quarterfinals,arsenal-fc,sporting-clube-de-portugal,2,1.0,0.0,arsenal-fc
+2025-26,Quarterfinals,club-atl-tico-de-madrid,fc-barcelona,2,3.0,2.0,club-atl-tico-de-madrid
+2025-26,Quarterfinals,fc-bayern-m-nchen,real-madrid-cf,2,6.0,4.0,fc-bayern-m-nchen
+2025-26,Quarterfinals,liverpool-fc,paris-saint-germain-fc,2,0.0,4.0,paris-saint-germain-fc
+2025-26,Round of 16,arsenal-fc,bayer-04-leverkusen,2,3.0,1.0,arsenal-fc
+2025-26,Round of 16,atalanta-bc,fc-bayern-m-nchen,2,2.0,10.0,fc-bayern-m-nchen
+2025-26,Round of 16,chelsea-fc,paris-saint-germain-fc,2,2.0,8.0,paris-saint-germain-fc
+2025-26,Round of 16,club-atl-tico-de-madrid,tottenham-hotspur-fc,2,7.0,5.0,club-atl-tico-de-madrid
+2025-26,Round of 16,fc-barcelona,newcastle-united-fc,2,8.0,3.0,fc-barcelona
+2025-26,Round of 16,fk-bod-glimt,sporting-clube-de-portugal,2,3.0,5.0,sporting-clube-de-portugal
+2025-26,Round of 16,galatasaray-sk,liverpool-fc,2,1.0,4.0,liverpool-fc
+2025-26,Round of 16,manchester-city-fc,real-madrid-cf,2,1.0,5.0,real-madrid-cf
+2025-26,Semifinals,arsenal-fc,club-atl-tico-de-madrid,2,2.0,1.0,arsenal-fc
+2025-26,Semifinals,fc-bayern-m-nchen,paris-saint-germain-fc,2,5.0,6.0,paris-saint-germain-fc

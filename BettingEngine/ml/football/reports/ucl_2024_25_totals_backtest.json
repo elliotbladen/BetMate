@@ -1,0 +1,25 @@
+{
+  "0.1": {
+    "bets": 95,
+    "wins": 35,
+    "profit": -10.82,
+    "roi": -0.1139
+  },
+  "0.2": {
+    "bets": 53,
+    "wins": 17,
+    "profit": -7.02,
+    "roi": -0.1325
+  },
+  "0.3": {
+    "bets": 36,
+    "wins": 12,
+    "profit": -3.11,
+    "roi": -0.0864
+  },
+  "coverage": {
+    "matched": 189,
+    "unmatched": 0,
+    "available_market_rows": 189
+  }
+}

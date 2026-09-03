@@ -1,0 +1,58 @@
+{
+  "status": "ucl_expanding_window_backtest_complete",
+  "games": 1997,
+  "seasons": [
+    "2011-12",
+    "2012-13",
+    "2013-14",
+    "2014-15",
+    "2015-16",
+    "2016-17",
+    "2017-18",
+    "2018-19",
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "market_fields_used": false,
+  "modern_format_seasons": [
+    "2024-25",
+    "2025-26"
+  ],
+  "legacy_format_separate": true,
+  "overall": {
+    "games": 1997,
+    "rps": 0.21111469764236732,
+    "brier": 0.5854183112266298,
+    "log_loss": 0.9840019489350057,
+    "accuracy": 0.5618427641462194
+  },
+  "by_format": {
+    "modern": {
+      "games": 378,
+      "rps": 0.22262534298503672,
+      "brier": 0.5851575788634337,
+      "log_loss": 0.981628867600676,
+      "accuracy": 0.5476190476190477
+    },
+    "legacy": {
+      "games": 1619,
+      "rps": 0.2084272214598293,
+      "brier": 0.5854791863552822,
+      "log_loss": 0.9845560099259734,
+      "accuracy": 0.5651636812847437
+    }
+  },
+  "restrictions": [
+    "results-only expanding window",
+    "date-only source timestamps",
+    "no xG or odds",
+    "qualifying and knockout outcome semantics require separate state evaluation",
+    "paper research only",
+    "staking disabled"
+  ]
+}

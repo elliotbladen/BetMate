@@ -1,0 +1,5 @@
+season,round,run_date,game_date,home_team,away_team,market_home_prob,legacy_primary_home_prob,legacy_edge_home,current_shadow_home_prob,current_shadow_edge_home
+2026,25,2026-09-02,2026-09-03,Fremantle Dockers,Hawthorn Hawks,0.660377358490566,0.7205,0.06012264150943403,0.6316,-0.028777358490565952
+2026,25,2026-09-02,2026-09-04,Geelong Cats,Carlton Blues,0.5695876288659795,0.7882,0.21861237113402054,0.5625,-0.007087628865979467
+2026,25,2026-09-02,2026-09-05,Sydney Swans,Brisbane Lions,0.256,0.8878,0.6318,0.5625,0.3065
+2026,25,2026-09-02,2026-09-05,Adelaide Crows,Western Bulldogs,0.6705336426914155,0.93,0.2594663573085846,0.9333,0.26276635730858455

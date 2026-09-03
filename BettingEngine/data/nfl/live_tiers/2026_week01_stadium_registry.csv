@@ -1,0 +1,17 @@
+game_id,stadium_id,stadium,roof,latitude,longitude,coordinate_source,coordinate_verified_at_utc,coordinate_verified
+2026_01_NE_SEA,SEA00,Lumen Field,outdoors,,,,,False
+2026_01_SF_LA,MEL00,Melbourne Cricket Ground,dome,,,,,False
+2026_01_CHI_CAR,CAR00,Bank of America Stadium,outdoors,,,,,False
+2026_01_TB_CIN,CIN00,Paycor Stadium,outdoors,,,,,False
+2026_01_NO_DET,DET00,Ford Field,dome,,,,,False
+2026_01_BUF_HOU,HOU00,Reliant Stadium,nan,,,,,False
+2026_01_BAL_IND,IND00,Lucas Oil Stadium,nan,,,,,False
+2026_01_CLE_JAX,JAX00,EverBank Stadium,outdoors,,,,,False
+2026_01_ATL_PIT,PIT00,Acrisure Stadium,outdoors,,,,,False
+2026_01_NYJ_TEN,NAS00,Nissan Stadium,outdoors,,,,,False
+2026_01_ARI_LAC,LAX01,SoFi Stadium,dome,,,,,False
+2026_01_MIA_LV,VEG00,Allegiant Stadium,dome,,,,,False
+2026_01_GB_MIN,MIN01,U.S. Bank Stadium,dome,,,,,False
+2026_01_WAS_PHI,PHI00,Lincoln Financial Field,outdoors,,,,,False
+2026_01_DAL_NYG,NYC01,MetLife Stadium,outdoors,,,,,False
+2026_01_DEN_KC,KAN00,GEHA Field at Arrowhead Stadium,outdoors,,,,,False

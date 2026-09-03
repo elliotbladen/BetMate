@@ -1,0 +1,10 @@
+league,week,match_date,home,away,market,selection,normal_probability,saved_price,ev_pct,engine,status,note,score,outcome,flat_stake,return,profit,roi_pct
+EPL,2,2026-08-30,Sunderland,Fulham,1X2,Fulham win,0.453853,3.46,57.03,normal,saved_week2_selection,Saved Round 2 price,1-0,LOSS,1.0,0.0,-1.0,-100.0
+EPL,2,2026-08-30,Leeds,Brentford,1X2,Brentford win,0.507138,2.94,49.1,normal,saved_week2_selection,Saved Round 2 price,1-1,LOSS,1.0,0.0,-1.0,-100.0
+EPL,2,2026-08-29,Bournemouth,Everton,1X2,Everton win,0.36168,3.85,39.25,normal,saved_week2_selection,Saved Round 2 price,1-1,LOSS,1.0,0.0,-1.0,-100.0
+EPL,2,2026-08-29,Tottenham,Newcastle,1X2,Newcastle win,0.408053,3.32,35.47,normal,saved_week2_selection,Saved Round 2 price,0-2,WIN,1.0,3.32,2.32,231.99999999999997
+EPL,2,2026-08-31,Aston Villa,Arsenal,1X2,Aston Villa win,0.280852,6.5,82.55,normal,price_verification_required,Later comparison price; earlier saved price 3.51 gave -1.42% EV,0-1,LOSS,1.0,0.0,-1.0,-100.0
+EPL,2,2026-08-29,Tottenham,Newcastle,O/U 2.5,Over 2.5,0.7044,1.769,24.5,normal,matrix_verification_required,Five aligned edges recorded; final +6 net-matrix calculation not preserved,0-2,LOSS,1.0,0.0,-1.0,-100.0
+EFL Championship,3,2026-08-29,Norwich,Burnley,1X2,Burnley win,0.606288,2.83,71.6,normal,saved_week3_selection,Final matrix qualification requires verification,4-1,LOSS,1.0,0.0,-1.0,-100.0
+EFL Championship,3,2026-08-28,Wrexham,Birmingham,1X2,Wrexham win,0.564073,2.38,34.2,normal,saved_week3_selection,Final matrix qualification requires verification,1-2,LOSS,1.0,0.0,-1.0,-100.0
+EFL Championship,3,2026-08-29,Charlton,Preston,1X2,Preston win,0.34975,3.45,20.7,normal,saved_week3_selection,Final matrix qualification requires verification,1-0,LOSS,1.0,0.0,-1.0,-100.0

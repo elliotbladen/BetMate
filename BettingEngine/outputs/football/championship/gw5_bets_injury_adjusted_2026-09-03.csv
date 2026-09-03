@@ -1,0 +1,6 @@
+week,match_date,home,away,market,selection,normal_probability,saved_price,ev_pct,matrix_aligned,matrix_opposed,matrix_net,stake_units,engine,status,note
+5,2026-09-05,Stoke,Charlton,1X2,Charlton win,0.345160,3.48,20.1,2,0,2,1.0,normal_injury_adjusted,active_saved_selection,Confirmed absences applied; doubtful players excluded
+5,2026-09-05,Millwall,Bolton,1X2,Bolton win,0.250570,6.00,50.3,0,1,-1,1.0,normal_injury_adjusted,active_saved_selection,Confirmed absences applied; doubtful players excluded
+5,2026-09-05,Sheffield United,Norwich,1X2,Sheffield United win,0.522253,2.50,30.6,6,0,6,1.5,normal_injury_adjusted,active_saved_selection,Passed plus-6 matrix staking rule
+5,2026-09-05,Swansea,Wrexham,1X2,Swansea win,0.456340,2.50,14.1,1,0,1,1.0,normal_injury_adjusted,active_saved_selection,Confirmed absences applied; doubtful players excluded
+5,2026-09-06,Birmingham,Wolves,1X2,Birmingham win,0.455240,2.99,36.1,1,0,1,1.0,normal_injury_adjusted,active_saved_selection,Confirmed absences and suspensions applied

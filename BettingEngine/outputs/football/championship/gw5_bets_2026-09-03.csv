@@ -1,0 +1,7 @@
+week,match_date,home,away,market,selection,normal_probability,saved_price,ev_pct,matrix_aligned,matrix_opposed,matrix_net,stake_units,engine,status,note
+5,2026-09-05,Lincoln,Southampton,1X2,Lincoln win,0.292840,3.88,13.6,2,2,0,1.0,normal,superseded_pre_injury,10pct EV qualifier
+5,2026-09-05,Stoke,Charlton,1X2,Charlton win,0.319260,3.48,11.1,2,0,2,1.0,normal,superseded_pre_injury,10pct EV qualifier
+5,2026-09-05,Millwall,Bolton,1X2,Bolton win,0.208220,6.00,24.9,0,1,-1,1.0,normal,superseded_pre_injury,10pct EV qualifier
+5,2026-09-05,Sheffield United,Norwich,1X2,Sheffield United win,0.468390,2.50,17.1,6,0,6,1.5,normal,superseded_pre_injury,Passed plus-6 matrix staking rule
+5,2026-09-05,Swansea,Wrexham,1X2,Swansea win,0.455990,2.50,14.0,1,0,1,1.0,normal,superseded_pre_injury,10pct EV qualifier
+5,2026-09-06,Birmingham,Wolves,1X2,Birmingham win,0.417930,2.99,25.0,1,0,1,1.0,normal,superseded_pre_injury,10pct EV qualifier

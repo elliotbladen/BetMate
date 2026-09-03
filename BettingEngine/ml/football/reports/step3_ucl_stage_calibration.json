@@ -1,0 +1,14 @@
+{
+  "status": "ucl_step3_stage_calibration_complete",
+  "matches": 378,
+  "global_mean_goals": 3.4047619047619047,
+  "global_mean_xg": 3.2940484085013226,
+  "global_over25_rate": 0.6587301587301587,
+  "groups": 14,
+  "output": "data/ucl/context/ucl_stage_calibration.csv",
+  "stage_fields": [
+    "stage",
+    "matchday"
+  ],
+  "activation": "challenger only; chronological validation required before price adjustment"
+}

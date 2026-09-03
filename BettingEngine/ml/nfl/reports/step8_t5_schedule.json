@@ -1,0 +1,158 @@
+{
+  "status": "t5_historical_shadow_audit_only",
+  "games": 1599,
+  "test_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "vault_2025_predictions": 0,
+  "features": {
+    "margin": [
+      "short_rest_diff",
+      "very_short_rest_diff",
+      "long_rest_diff",
+      "rest_mismatch_home_advantage",
+      "rest_mismatch_away_advantage"
+    ],
+    "total": [
+      "both_short_rest",
+      "any_short_rest",
+      "both_long_rest",
+      "thursday_game",
+      "monday_game",
+      "saturday_game",
+      "rest_mismatch_absolute"
+    ]
+  },
+  "metrics": {
+    "margin": {
+      "t1_core": {
+        "games": 1599,
+        "mae": 10.308588926057823,
+        "rmse": 13.259845439396482
+      },
+      "t1_plus_t5": {
+        "games": 1599,
+        "mae": 10.342841335218445,
+        "rmse": 13.313059005092326
+      },
+      "t1_plus_shuffled_t5": {
+        "games": 1599,
+        "mae": 10.313466873234518,
+        "rmse": 13.266414713306048
+      }
+    },
+    "total": {
+      "t1_core": {
+        "games": 1599,
+        "mae": 10.766788277585729,
+        "rmse": 13.625212611482361
+      },
+      "t1_plus_t5": {
+        "games": 1599,
+        "mae": 10.78539997605096,
+        "rmse": 13.668437786690717
+      },
+      "t1_plus_shuffled_t5": {
+        "games": 1599,
+        "mae": 10.770499316920793,
+        "rmse": 13.641154732144456
+      }
+    }
+  },
+  "to_closing_market": {
+    "margin": {
+      "t1_core": {
+        "games": 1595,
+        "mae": 2.8442871873250906,
+        "rmse": 3.6615220684465455
+      },
+      "t1_plus_t5": {
+        "games": 1595,
+        "mae": 2.8758874740233114,
+        "rmse": 3.7105966199668274
+      },
+      "t1_plus_shuffled_t5": {
+        "games": 1595,
+        "mae": 2.8672714919541917,
+        "rmse": 3.689804053167376
+      }
+    },
+    "total": {
+      "t1_core": {
+        "games": 1595,
+        "mae": 2.6864683519827395,
+        "rmse": 3.3779833812843676
+      },
+      "t1_plus_t5": {
+        "games": 1595,
+        "mae": 2.7555980479252042,
+        "rmse": 3.505716915444794
+      },
+      "t1_plus_shuffled_t5": {
+        "games": 1595,
+        "mae": 2.736873476802781,
+        "rmse": 3.437850335356939
+      }
+    }
+  },
+  "stability": {
+    "margin": {
+      "t1_core": {
+        "overall_mae_gain_vs_t1": 0.0,
+        "seasons_better_than_t1": 0,
+        "seasons_tested": 6,
+        "worst_season_gain": 0.0,
+        "best_season_gain": 0.0
+      },
+      "t1_plus_t5": {
+        "overall_mae_gain_vs_t1": -0.03425240916062222,
+        "seasons_better_than_t1": 1,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.10520565296555695,
+        "best_season_gain": 0.012555459799779456
+      },
+      "t1_plus_shuffled_t5": {
+        "overall_mae_gain_vs_t1": -0.0048779471766948745,
+        "seasons_better_than_t1": 2,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.017821823679916804,
+        "best_season_gain": 0.016158542473505122
+      }
+    },
+    "total": {
+      "t1_core": {
+        "overall_mae_gain_vs_t1": 0.0,
+        "seasons_better_than_t1": 0,
+        "seasons_tested": 6,
+        "worst_season_gain": 0.0,
+        "best_season_gain": 0.0
+      },
+      "t1_plus_t5": {
+        "overall_mae_gain_vs_t1": -0.018611698465230475,
+        "seasons_better_than_t1": 2,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.11603165227956325,
+        "best_season_gain": 0.07180480165443548
+      },
+      "t1_plus_shuffled_t5": {
+        "overall_mae_gain_vs_t1": -0.0037110393350641147,
+        "seasons_better_than_t1": 3,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.045587183178209756,
+        "best_season_gain": 0.03992213108038101
+      }
+    }
+  },
+  "restrictions": [
+    "T1 already contains linear rest difference/sum",
+    "T5 tests nonlinear incremental effects",
+    "no manual bye or short-week points",
+    "travel excluded",
+    "shadow only"
+  ]
+}

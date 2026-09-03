@@ -1,0 +1,13 @@
+{
+  "status": "t7_scheme_matchup_archived_rejected",
+  "season_test_range": [2019, 2024],
+  "games": 1599,
+  "vault_2025_predictions": 0,
+  "decision": "reject_separate_tier_keep_diagnostic_only",
+  "sha256": {
+    "step8_t7_matchup.py": "6294e2fbc457a189f2889a3bac8f8c40ef6f23225754a0e4d3682cc170bb1734",
+    "step8_t7_matchup.md": "7748136984d61ba81e81e9f6592ba1746b8d8f567fe1c5c78f4a21fa1e4c03df",
+    "step8_t7_matchup.json": "15460cdde598f64bcf56082639fa9ec91c8ea2ad4316afa39a082d123be8d679",
+    "step8_t7_matchup_ablations.csv": "3b66221be7fa7248f928ecfaed87b3faf266c7b073bc7ebfac93554bfbf8e4fd"
+  }
+}

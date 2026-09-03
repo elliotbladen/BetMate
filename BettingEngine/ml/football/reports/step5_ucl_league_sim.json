@@ -1,0 +1,10 @@
+{
+  "status": "ucl_league_phase_simulator_built_data_pending",
+  "method": "seeded_poisson_scorelines_and_uefa_table_ordering",
+  "outputs": ["top8_probability", "playoff9_24_probability", "eliminated25_36_probability", "expected_position"],
+  "rules_version": "ucl-2026-27-regulations-v1",
+  "simulations_run": 0,
+  "fabricated_probability_rows": 0,
+  "market_fields_used": false,
+  "next_gate": "populate_sourced_36_club_144_fixture_graph_and_strength_states"
+}

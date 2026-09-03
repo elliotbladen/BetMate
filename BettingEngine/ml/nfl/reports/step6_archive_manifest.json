@@ -1,0 +1,17 @@
+{
+  "status": "2026_week01_paper_card_frozen",
+  "season": 2026,
+  "week": 1,
+  "games": 16,
+  "staking_enabled": false,
+  "valid_obtainable_quotes": 0,
+  "sha256": {
+    "2026_week1_preseason_team_state.parquet": "b0b31a59244d98cef183c2ae7d2c39a70abb550fcf105d379c3a13eb80d7b6b5",
+    "2026_week01_paper_frozen.csv": "d263696ed0abef4c6383f24ff246ecbd0213f07d7fe436b3117f53cd0c6fc538",
+    "step6_week01_prediction_manifest.json": "01f70f6f324224293dcefc8f9d5667bea4eb72cd08726bfa0662140762ea91fb",
+    "2026_week01_schedule_reference.csv": "7627b2c9fccaaff922975f3ac87ad1b2be72b289589a0937e27b70d8cfaea83e",
+    "step6_week01_market_manifest.json": "0634d9371a6f415d3ac7ab020bb18a349111739801d3db611e36e951434a496a"
+  },
+  "qualification_rule": "Schedule-embedded lines without bookmaker and original timestamp are reference-only."
+}
+

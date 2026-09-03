@@ -1,0 +1,19 @@
+{
+  "status": "frozen_before_2025_vault_open",
+  "frozen_at_utc": "2026-08-30T21:09:57.661282+00:00",
+  "train_through": 2024,
+  "vault_season": 2025,
+  "vault_prediction_may_be_written_once": true,
+  "vault_result_may_be_scored_once": true,
+  "staking_enabled": false,
+  "files": {
+    "ml/nfl/step5_vault.py": "8c66d4442af796ca8ec2bec62144859e1d89d77d73ea4108b8c98f37f2388ad1",
+    "ml/nfl/baselines.py": "a4602cfe23406459e25656f1d2b74e8205b0698b7bb1a53672f2a2223789b84d",
+    "ml/nfl/challenger.py": "fe5c2eebc989466e7964e241666cb2c29d3d7538a1bc06618d17a762924aafcf",
+    "ml/nfl/personnel.py": "351e2e3dc1c5023b29daeb6b3cccd7aea09a7e0326a3ca6b0ca6bb09443f2e10",
+    "ml/nfl/phase3.py": "83cf1e8e6c4c83250b055a824572d4542107b79dc0134d8a0ac69e38af935dd2",
+    "ml/nfl/config.yaml": "b73bb86ee1e20ce5084d2756e365e4ca0017a8ff34701fdd33cc84b998bfd7c0",
+    "data/nfl/features/weekly_epa.parquet": "0fe015c04f1b9cb3b026c8d0a62b5494df1ac36d915234dbf9728bd6c1cdfc89",
+    "data/nfl/features/personnel_context.parquet": "554b35ecb021f7fac3c9c806e04099ffb75deb8345d3e0fdde2855367d8b3260"
+  }
+}

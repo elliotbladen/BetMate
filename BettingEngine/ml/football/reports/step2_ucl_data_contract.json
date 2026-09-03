@@ -1,0 +1,10 @@
+{
+  "status": "ucl_data_contract_frozen_identity_population_pending",
+  "contract_version": "ucl-identity-v1",
+  "required_club_fields": ["club_id", "canonical_name", "country", "domestic_league", "valid_from", "valid_to"],
+  "required_match_fields": ["match_id", "season", "stage", "kickoff_utc", "home_club_id", "away_club_id", "home_goals", "away_goals", "source", "source_published_at_utc"],
+  "raw_name_matching": "prohibited_without_alias_registry",
+  "empty_templates_fabricated_rows": 0,
+  "identity_collision_policy": "reject_and_review",
+  "market_fields_in_model_features": false
+}

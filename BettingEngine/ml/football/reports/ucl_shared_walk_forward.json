@@ -1,0 +1,39 @@
+{
+  "status": "ucl_shared_stack_walk_forward_complete",
+  "games": 1872,
+  "seasons": [
+    "2012-13",
+    "2013-14",
+    "2014-15",
+    "2015-16",
+    "2016-17",
+    "2017-18",
+    "2018-19",
+    "2019-20",
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "engine": "ucl_shared_dixon_coles_elo_tier_stack",
+  "market_fields_used": false,
+  "metrics": {
+    "games": 1872,
+    "rps": 0.20736320163821806,
+    "brier": 0.5745060743075668,
+    "log_loss": 0.9674929955543644,
+    "accuracy": 0.5641025641025641
+  },
+  "stack": {
+    "dixon_coles": 0.7,
+    "club_elo": 0.3,
+    "tiers": "form/rest active; PPDA/injury/referee/set-piece/manager shadow until historical coverage"
+  },
+  "restrictions": [
+    "season-forward fits",
+    "goals fallback for missing xG",
+    "no future leakage in Elo, form or rest"
+  ]
+}

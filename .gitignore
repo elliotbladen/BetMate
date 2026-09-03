@@ -45,6 +45,9 @@ tsconfig.tsbuildinfo
 .DS_Store
 .claude/
 .pytest_cache/
+/tmp_*
+/=
+/.submit-*/
 
 # BettingEngine is tracked in this monorepo again. Keep local/runtime artifacts out.
 /BettingEngine/.git/

@@ -1,0 +1,9 @@
+{
+  "status": "ucl_knockout_simulator_built_data_pending",
+  "method": "aggregate_score_poisson_then_extra_time_then_penalties",
+  "away_goals_rule": false,
+  "final": "neutral_single_match_then_extra_time_then_penalties",
+  "simulations_run": 0,
+  "fabricated_probability_rows": 0,
+  "next_gate": "populate_sourced_strength_and_knockout_fixture_states"
+}

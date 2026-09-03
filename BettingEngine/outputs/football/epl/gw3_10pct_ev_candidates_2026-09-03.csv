@@ -1,0 +1,8 @@
+league,matchweek,market,home,away,selection,model_probability,fair_odds,market_odds,ev_pct,engine,status
+EPL,3,1X2,Ipswich,Liverpool,Ipswich win,0.224220,4.46,5.50,23.32,normal injury-adjusted,candidate
+EPL,3,1X2,Brentford,Sunderland,Sunderland win,0.246750,4.05,5.50,35.71,normal injury-adjusted,candidate
+EPL,3,1X2,Hull,Aston Villa,Hull win,0.317320,3.15,4.10,30.10,normal injury-adjusted,candidate
+EPL,3,1X2,Everton,Man United,Everton win,0.434900,2.30,3.10,34.82,normal injury-adjusted,candidate
+EPL,3,O/U 2.5,Newcastle,Bournemouth,Over 2.5,0.777778,1.29,1.57,22.11,normal injury-adjusted,candidate
+EPL,3,O/U 2.5,Everton,Man United,Over 2.5,0.673469,1.48,1.70,14.49,normal injury-adjusted,candidate
+EPL,3,O/U 2.5,Arsenal,Chelsea,Over 2.5,0.673469,1.48,2.00,34.69,normal injury-adjusted,candidate

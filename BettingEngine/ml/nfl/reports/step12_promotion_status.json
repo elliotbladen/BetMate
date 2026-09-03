@@ -1,0 +1,20 @@
+{
+  "status": "no_prospective_evidence",
+  "predictions": 0,
+  "seasons": 0,
+  "market_coverage": 0.0,
+  "mean_clv": null,
+  "opening_line_beat_rate": null,
+  "gates": {
+    "minimum_predictions": false,
+    "minimum_seasons": false,
+    "market_coverage": false,
+    "positive_clv": false,
+    "positive_opening_beat_rate": false
+  },
+  "promotion_allowed": false,
+  "threshold_version_required": "nfl-t9-confluence-v1",
+  "staking_enabled": false,
+  "manual_override_allowed": false,
+  "note": "promotion remains disabled until independent review after all gates pass"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "t5_schedule_study_archived",
+  "season_test_range": [2019, 2024],
+  "games": 1599,
+  "vault_2025_predictions": 0,
+  "decision": "rejected_keep_linear_rest_inside_t1",
+  "sha256": {
+    "step8_t5_schedule.py": "b99f552aad3b158370eba0c4fe0a3ff6e5a1b752f0ce04291cdd765bb6ab478c",
+    "step8_t5_schedule.md": "5f97dfb2887b8d13c7a2b35a8b930cbc45b617f060ca149c21266b8852b0617a",
+    "step8_t5_schedule.json": "4743dbcc35364a7d77f4f59a237b33c1866f6e251a75f5033d683101670ebc0b",
+    "step8_t5_schedule_ablations.csv": "b895981042e197c83c73d7bbb8b2000e0af965479d42c0b25950a372f9142cf0"
+  }
+}

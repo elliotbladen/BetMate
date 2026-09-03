@@ -1,0 +1,12 @@
+{
+  "status": "live_weather_framework_archived_unresolved_coordinates",
+  "week": 1,
+  "games": 16,
+  "verified_coordinates": 0,
+  "forecast_captures": 0,
+  "sha256": {
+    "step8_weather_live.py": "7524c7686abcbabfdc70cb85162064c991ed67221fb24efa636ba6a73063888c",
+    "step8_live_weather.md": "a813cb190a2c81ad312fd9fcb6caf16ce5ae9ef07ee1315201ca86f984f0b108",
+    "2026_week01_stadium_registry.csv": "a2f2fd01c921d049b290a5869e1abf820b1953be02a694849da787033ac44281"
+  }
+}

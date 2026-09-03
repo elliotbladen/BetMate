@@ -1,0 +1,15 @@
+{
+  "status": "2025_vault_permanently_opened",
+  "vault_season": 2025,
+  "training_through": 2024,
+  "retuning_authorised": false,
+  "staking_enabled": false,
+  "sha256": {
+    "step5_freeze_manifest.json": "f5ce5cd8173394267ac4f85105e34c43f8abe79fc28e5dbf63f0927bb2b985a4",
+    "step5_prediction_manifest.json": "47f12009503cf2c80ad807da9b8373fb1e297091c9fd22915451f493e1e63b5b",
+    "step5_2025_vault_frozen.csv": "c3d238f94f43223b6f15f6b61237be43ba2d6587ec48c6eeea831dfdab2d8009",
+    "step5_2025_vault_scored.csv": "979c6398a21802e1ffca5eda6f855a58b029bcc7190db7f992b1a3bb4df61b83",
+    "step5_2025_vault.json": "1b43ec661de1bb582fed9130b1c13978c2dfeee30e8160a3b57d2e2206340041"
+  },
+  "permanent_rule": "Record the vault outcome without modifying frozen inputs to improve 2025 results."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "ucl_alias_audit_candidates_created",
+  "odds_clubs": 299,
+  "model_clubs": 136,
+  "candidates": 897,
+  "manual_review_required": true,
+  "output": "data\\ucl\\context\\ucl_club_alias_audit.csv"
+}

@@ -1,0 +1,106 @@
+{
+  "method": "canonical de-vig probability edge; 50% fixed market shrinkage; bookmaker archives are static/unverified",
+  "coverage": {
+    "2024-25": 189,
+    "2025-26": 189,
+    "combined": 378
+  },
+  "results": {
+    "2024-25": {
+      "10": {
+        "bets": 6,
+        "wins": 3,
+        "profit": -0.77,
+        "roi": -12.83
+      },
+      "20": {
+        "bets": 1,
+        "wins": 1,
+        "profit": 0.8,
+        "roi": 80.0
+      },
+      "30": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      },
+      "40": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      },
+      "50": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      }
+    },
+    "2025-26": {
+      "10": {
+        "bets": 62,
+        "wins": 35,
+        "profit": -4.29,
+        "roi": -6.92
+      },
+      "20": {
+        "bets": 2,
+        "wins": 0,
+        "profit": -2.0,
+        "roi": -100.0
+      },
+      "30": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      },
+      "40": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      },
+      "50": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      }
+    },
+    "combined": {
+      "10": {
+        "bets": 68,
+        "wins": 38,
+        "profit": -5.06,
+        "roi": -7.44
+      },
+      "20": {
+        "bets": 3,
+        "wins": 1,
+        "profit": -1.2,
+        "roi": -40.0
+      },
+      "30": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      },
+      "40": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      },
+      "50": {
+        "bets": 0,
+        "wins": 0,
+        "profit": 0,
+        "roi": null
+      }
+    }
+  }
+}

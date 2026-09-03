@@ -1,0 +1,11 @@
+{
+  "canonical_matches": 378,
+  "repaired": 342,
+  "coverage": 0.9047619047619048,
+  "unrepaired": 36,
+  "ambiguous": 0,
+  "by_season": {
+    "2025-26": 186,
+    "2024-25": 156
+  }
+}

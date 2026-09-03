@@ -1,0 +1,33 @@
+game_id,side,team,depth_chart_as_of_utc,qb1_name,qb1_id,qb1_profile_available,qb2_name,qb2_id,qb2_profile_available,starter_probability,review_status
+2026_01_NE_SEA,home,SEA,2026-08-30T12:30:54Z,Sam Darnold,00-0034869,True,Drew Lock,00-0035704,True,,requires_injury_and_starter_review
+2026_01_NE_SEA,away,NE,2026-08-30T12:30:54Z,Drake Maye,00-0039851,True,Tommy DeVito,00-0038476,True,,requires_injury_and_starter_review
+2026_01_SF_LA,home,LA,2026-08-30T12:30:54Z,Matthew Stafford,00-0026498,True,Stetson Bennett IV,00-0039107,False,,requires_injury_and_starter_review
+2026_01_SF_LA,away,SF,2026-08-30T12:30:54Z,Brock Purdy,00-0037834,True,Mac Jones,00-0036972,True,,requires_injury_and_starter_review
+2026_01_CHI_CAR,home,CAR,2026-08-30T12:30:54Z,Bryce Young,00-0039150,True,Kenny Pickett,00-0038102,True,,requires_injury_and_starter_review
+2026_01_CHI_CAR,away,CHI,2026-08-30T12:30:54Z,Caleb Williams,00-0039918,True,Tyson Bagent,00-0038416,True,,requires_injury_and_starter_review
+2026_01_TB_CIN,home,CIN,2026-08-30T12:30:54Z,Joe Burrow,00-0036442,True,Joe Flacco,00-0026158,True,,requires_injury_and_starter_review
+2026_01_TB_CIN,away,TB,2026-08-30T12:30:54Z,Baker Mayfield,00-0034855,True,Jake Browning,00-0035100,True,,requires_injury_and_starter_review
+2026_01_NO_DET,home,DET,2026-08-30T12:30:54Z,Jared Goff,00-0033106,True,Joshua Dobbs,00-0033949,True,,requires_injury_and_starter_review
+2026_01_NO_DET,away,NO,2026-08-30T12:30:54Z,Tyler Shough,00-0040743,True,Spencer Rattler,00-0039376,True,,requires_injury_and_starter_review
+2026_01_BUF_HOU,home,HOU,2026-08-30T12:30:54Z,C.J. Stroud,00-0039163,True,Davis Mills,00-0036898,True,,requires_injury_and_starter_review
+2026_01_BUF_HOU,away,BUF,2026-08-30T12:30:54Z,Josh Allen,00-0034857,True,Kyle Allen,00-0034577,True,,requires_injury_and_starter_review
+2026_01_BAL_IND,home,IND,2026-08-30T12:30:54Z,Daniel Jones,00-0035710,True,Riley Leonard,00-0040206,True,,requires_injury_and_starter_review
+2026_01_BAL_IND,away,BAL,2026-08-30T12:30:54Z,Lamar Jackson,00-0034796,True,Tyler Huntley,00-0035993,True,,requires_injury_and_starter_review
+2026_01_CLE_JAX,home,JAX,2026-08-30T12:30:54Z,Trevor Lawrence,00-0036971,True,Quinn Ewers,00-0040234,True,,requires_injury_and_starter_review
+2026_01_CLE_JAX,away,CLE,2026-08-30T12:30:54Z,Deshaun Watson,00-0033537,True,Shedeur Sanders,00-0040668,True,,requires_injury_and_starter_review
+2026_01_ATL_PIT,home,PIT,2026-08-30T12:30:54Z,Aaron Rodgers,00-0023459,True,Mason Rudolph,00-0034771,True,,requires_injury_and_starter_review
+2026_01_ATL_PIT,away,ATL,2026-08-30T12:30:54Z,Tua Tagovailoa,00-0036212,True,Michael Penix Jr.,00-0039917,True,,requires_injury_and_starter_review
+2026_01_NYJ_TEN,home,TEN,2026-08-30T12:30:54Z,Cam Ward,00-0040676,True,Mitchell Trubisky,00-0033869,True,,requires_injury_and_starter_review
+2026_01_NYJ_TEN,away,NYJ,2026-08-30T12:30:54Z,Geno Smith,00-0030565,True,Cade Klubnik,00-0041056,False,,requires_injury_and_starter_review
+2026_01_ARI_LAC,home,LAC,2026-08-30T12:30:54Z,Justin Herbert,00-0036355,True,Trey Lance,00-0037012,True,,requires_injury_and_starter_review
+2026_01_ARI_LAC,away,ARI,2026-08-30T12:30:54Z,Jacoby Brissett,00-0033119,True,Gardner Minshew II,00-0035289,True,,requires_injury_and_starter_review
+2026_01_MIA_LV,home,LV,2026-08-30T12:30:54Z,Kirk Cousins,00-0029604,True,Fernando Mendoza,00-0041562,False,,requires_injury_and_starter_review
+2026_01_MIA_LV,away,MIA,2026-08-30T12:30:54Z,Malik Willis,00-0038128,True,Cam Miller,00-0040222,False,,requires_injury_and_starter_review
+2026_01_GB_MIN,home,MIN,2026-08-30T12:30:54Z,Kyler Murray,00-0035228,True,J.J. McCarthy,00-0039923,True,,requires_injury_and_starter_review
+2026_01_GB_MIN,away,GB,2026-08-30T12:30:54Z,Jordan Love,00-0036264,True,Tyrod Taylor,00-0028118,True,,requires_injury_and_starter_review
+2026_01_WAS_PHI,home,PHI,2026-08-30T12:30:54Z,Jalen Hurts,00-0036389,True,Andy Dalton,00-0027973,True,,requires_injury_and_starter_review
+2026_01_WAS_PHI,away,WAS,2026-08-30T12:30:54Z,Jayden Daniels,00-0039910,True,Marcus Mariota,00-0032268,True,,requires_injury_and_starter_review
+2026_01_DAL_NYG,home,NYG,2026-08-30T12:30:54Z,Jaxson Dart,00-0040691,True,Jameis Winston,00-0031503,True,,requires_injury_and_starter_review
+2026_01_DAL_NYG,away,DAL,2026-08-30T12:30:54Z,Dak Prescott,00-0033077,True,Joe Milton III,00-0039398,True,,requires_injury_and_starter_review
+2026_01_DEN_KC,home,KC,2026-08-30T12:30:54Z,Patrick Mahomes,00-0033873,True,Justin Fields,00-0036945,True,,requires_injury_and_starter_review
+2026_01_DEN_KC,away,DEN,2026-08-30T12:30:54Z,Bo Nix,00-0039732,True,Jarrett Stidham,00-0035264,True,,requires_injury_and_starter_review

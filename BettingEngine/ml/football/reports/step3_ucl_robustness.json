@@ -1,0 +1,61 @@
+{
+  "status": "ucl_step3_robustness_complete",
+  "matches": 51,
+  "by_season": [
+    {
+      "group": "2011-12",
+      "matches": 9,
+      "model_accuracy": 0.3333333333333333,
+      "market_accuracy": 0.4444444444444444,
+      "mean_edge": 0.18570208230036556,
+      "roi": 0.42161111111111105
+    },
+    {
+      "group": "2012-13",
+      "matches": 14,
+      "model_accuracy": 0.5,
+      "market_accuracy": 0.6428571428571429,
+      "mean_edge": 0.11841854463035172,
+      "roi": -0.7850785714285714
+    },
+    {
+      "group": "2013-14",
+      "matches": 13,
+      "model_accuracy": 1.0,
+      "market_accuracy": 0.9230769230769231,
+      "mean_edge": 0.09968006652524412,
+      "roi": -0.5930692307692307
+    },
+    {
+      "group": "2014-15",
+      "matches": 15,
+      "model_accuracy": 0.4666666666666667,
+      "market_accuracy": 0.4,
+      "mean_edge": 0.12271928881919912,
+      "roi": 0.8865866666666666
+    }
+  ],
+  "by_stage": [
+    {
+      "group": "knockout_phase",
+      "matches": 51,
+      "model_accuracy": 0.5882352941176471,
+      "market_accuracy": 0.6078431372549019,
+      "mean_edge": 0.12678056005185045,
+      "roi": -0.03152352941176473
+    }
+  ],
+  "minimum_group_warning": "groups under 30 matches are descriptive only",
+  "tier_status": {
+    "T0": "active",
+    "T1": "results-only baseline",
+    "T2": "player shadow data pending",
+    "T3_plus": "shadow/diagnostic"
+  },
+  "restrictions": [
+    "51 joined matches",
+    "archived closing odds",
+    "no significance claims",
+    "no staking promotion"
+  ]
+}

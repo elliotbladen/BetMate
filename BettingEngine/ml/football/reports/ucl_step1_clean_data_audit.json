@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "contract": "ucl_recent_sofascore_xg_v1",
+  "seasons": [
+    "2024-25",
+    "2025-26"
+  ],
+  "candidate_matches": 378,
+  "clean_matches": 342,
+  "quarantined_matches": 36,
+  "coverage": 0.9047619047619048,
+  "by_season_clean": {
+    "2024-25": 156,
+    "2025-26": 186
+  },
+  "by_season_quarantine": {
+    "2024-25": 33,
+    "2025-26": 3
+  },
+  "duplicate_clean_match_ids": 0,
+  "duplicate_provider_event_ids": 0,
+  "invalid_dates": 0,
+  "negative_xg": 0,
+  "primary_rule": "No goals fallback in the primary dataset; missing xG is quarantined.",
+  "clean_file": "data/ucl/matches/ucl_recent_consistent_matches.csv",
+  "quarantine_file": "data/ucl/matches/ucl_recent_quarantine.csv",
+  "source_hash": "42458cbd2499272d02d2db97916950646038287b52f25490239639dd83966494"
+}

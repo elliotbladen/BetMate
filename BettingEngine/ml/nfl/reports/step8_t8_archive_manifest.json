@@ -1,0 +1,14 @@
+{
+  "status": "t8_market_disagreement_archived_diagnostic",
+  "season_test_range": [2020, 2024],
+  "games": 1343,
+  "vault_2025_predictions": 0,
+  "decision": "watch_only_pending_true_openers_and_prospective_quotes",
+  "staking_enabled": false,
+  "sha256": {
+    "step8_t8_market.py": "38feab42c480a12237e108f99b724121e7f56d555914d8f3afc6b7ad1e7d717e",
+    "step8_t8_market.md": "f782b1f03816419ac76d1723363a8e338b34679f79b99736c5a7bc5a69008ee9",
+    "step8_t8_market.json": "d55114396f138a2880f0d9bbc10c2257695103b9a7259d4afb1834afc18aaf0e",
+    "step8_t8_market_disagreement.csv": "a065c94555e6dc8749b0ec8164eb86eb1b9c4987fa2fb42f76a406e859aaf80f"
+  }
+}

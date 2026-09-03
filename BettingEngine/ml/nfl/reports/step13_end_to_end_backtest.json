@@ -1,0 +1,144 @@
+{
+  "status": "nfl_end_to_end_backtest_complete",
+  "walk_forward_games": 1599,
+  "sealed_vault_games": 272,
+  "total_games": 1871,
+  "development_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "vault_season": 2025,
+  "markets": {
+    "spread_model_margin": {
+      "games": 1871,
+      "mae": 10.287339377484995,
+      "rmse": 13.219248820289087
+    },
+    "spread_opening_baseline": {
+      "games": 1848,
+      "mae": 9.965909090909092,
+      "rmse": 12.906905262811975
+    },
+    "spread_closing_baseline": {
+      "games": 1785,
+      "mae": 9.827450980392157,
+      "rmse": 12.725699091482038
+    },
+    "total_model": {
+      "games": 1871,
+      "mae": 10.759578658680311,
+      "rmse": 13.58087521832928
+    },
+    "total_opening_baseline": {
+      "games": 1848,
+      "mae": 10.551948051948052,
+      "rmse": 13.344097386670073
+    },
+    "total_closing_baseline": {
+      "games": 1848,
+      "mae": 10.370400432900434,
+      "rmse": 13.143743059027425
+    },
+    "h2h_model_accuracy": 0.6536611437733832,
+    "h2h_model_brier": 0.22473724451562527
+  },
+  "thresholds": {
+    "0.0": {
+      "spread": {
+        "bets": 1848,
+        "wins": 947,
+        "losses": 868,
+        "pushes": 33,
+        "win_rate_ex_pushes": 0.521763085399449,
+        "synthetic_roi_at_minus_110": -0.0038370720188902175
+      },
+      "totals": {
+        "bets": 1848,
+        "wins": 929,
+        "losses": 889,
+        "pushes": 30,
+        "win_rate_ex_pushes": 0.511001100110011,
+        "synthetic_roi_at_minus_110": -0.024055489964580897
+      }
+    },
+    "1.0": {
+      "spread": {
+        "bets": 1432,
+        "wins": 746,
+        "losses": 664,
+        "pushes": 22,
+        "win_rate_ex_pushes": 0.5290780141843971,
+        "synthetic_roi_at_minus_110": 0.009903504316912101
+      },
+      "totals": {
+        "bets": 1433,
+        "wins": 732,
+        "losses": 674,
+        "pushes": 27,
+        "win_rate_ex_pushes": 0.5206258890469416,
+        "synthetic_roi_at_minus_110": -0.005963331853073704
+      }
+    },
+    "2.0": {
+      "spread": {
+        "bets": 1042,
+        "wins": 543,
+        "losses": 485,
+        "pushes": 14,
+        "win_rate_ex_pushes": 0.5282101167315175,
+        "synthetic_roi_at_minus_110": 0.008288256848717491
+      },
+      "totals": {
+        "bets": 1025,
+        "wins": 519,
+        "losses": 487,
+        "pushes": 19,
+        "win_rate_ex_pushes": 0.5159045725646123,
+        "synthetic_roi_at_minus_110": -0.014811529933481157
+      }
+    },
+    "3.0": {
+      "spread": {
+        "bets": 708,
+        "wins": 380,
+        "losses": 315,
+        "pushes": 13,
+        "win_rate_ex_pushes": 0.5467625899280576,
+        "synthetic_roi_at_minus_110": 0.043014894709809945
+      },
+      "totals": {
+        "bets": 678,
+        "wins": 348,
+        "losses": 317,
+        "pushes": 13,
+        "win_rate_ex_pushes": 0.5233082706766917,
+        "synthetic_roi_at_minus_110": -0.0009385894341646402
+      }
+    }
+  },
+  "vault_2025": {
+    "spread_model_mae": {
+      "games": 272,
+      "mae": 10.162420156279284,
+      "rmse": 12.978027095703213
+    },
+    "total_model_mae": {
+      "games": 272,
+      "mae": 10.608570890975553,
+      "rmse": 13.38727658863516
+    },
+    "h2h_accuracy": 0.6580882352941176
+  },
+  "restrictions": [
+    "historical opener coverage is incomplete",
+    "exact historical bookmaker prices unavailable",
+    "ROI is synthetic -110 only",
+    "no live odds were used as model features",
+    "staking disabled"
+  ],
+  "decision": "price_paper_markets_now_collect_prospective_evidence_before_betting"
+}

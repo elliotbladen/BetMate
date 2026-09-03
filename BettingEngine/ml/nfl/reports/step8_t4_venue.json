@@ -1,0 +1,160 @@
+{
+  "status": "t4a_historical_shadow_audit_only",
+  "games": 1599,
+  "test_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "vault_2025_predictions": 0,
+  "coverage": {
+    "stadium": 1.0,
+    "location": 1.0,
+    "roof": 1.0,
+    "surface": 0.9860361789907965
+  },
+  "features": {
+    "margin": [
+      "neutral_site",
+      "stadium_familiarity_diff"
+    ],
+    "total": [
+      "neutral_site",
+      "roof_dome",
+      "roof_closed",
+      "roof_open",
+      "surface_grass",
+      "stadium_familiarity_sum"
+    ]
+  },
+  "metrics": {
+    "margin": {
+      "t1_core": {
+        "games": 1599,
+        "mae": 10.308588926057823,
+        "rmse": 13.259845439396482
+      },
+      "t1_plus_t4a": {
+        "games": 1599,
+        "mae": 10.313706719400878,
+        "rmse": 13.264933737638023
+      },
+      "t1_plus_shuffled_t4a": {
+        "games": 1599,
+        "mae": 10.317060578092814,
+        "rmse": 13.277154534687403
+      }
+    },
+    "total": {
+      "t1_core": {
+        "games": 1599,
+        "mae": 10.766788277585729,
+        "rmse": 13.625212611482361
+      },
+      "t1_plus_t4a": {
+        "games": 1599,
+        "mae": 10.706583032446941,
+        "rmse": 13.54758422387349
+      },
+      "t1_plus_shuffled_t4a": {
+        "games": 1599,
+        "mae": 10.780999577379163,
+        "rmse": 13.643087413271004
+      }
+    }
+  },
+  "to_closing_market": {
+    "margin": {
+      "t1_core": {
+        "games": 1595,
+        "mae": 2.8442871873250906,
+        "rmse": 3.6615220684465455
+      },
+      "t1_plus_t4a": {
+        "games": 1595,
+        "mae": 2.836077571784908,
+        "rmse": 3.65361901427286
+      },
+      "t1_plus_shuffled_t4a": {
+        "games": 1595,
+        "mae": 2.8950936221061663,
+        "rmse": 3.7333539330308607
+      }
+    },
+    "total": {
+      "t1_core": {
+        "games": 1595,
+        "mae": 2.6864683519827395,
+        "rmse": 3.3779833812843676
+      },
+      "t1_plus_t4a": {
+        "games": 1595,
+        "mae": 2.7880705781212316,
+        "rmse": 3.497720330969205
+      },
+      "t1_plus_shuffled_t4a": {
+        "games": 1595,
+        "mae": 2.716630572024765,
+        "rmse": 3.425612223597894
+      }
+    }
+  },
+  "stability": {
+    "margin": {
+      "t1_core": {
+        "overall_mae_gain_vs_t1": 0.0,
+        "seasons_better_than_t1": 0,
+        "seasons_tested": 6,
+        "worst_season_gain": 0.0,
+        "best_season_gain": 0.0
+      },
+      "t1_plus_t4a": {
+        "overall_mae_gain_vs_t1": -0.00511779334305551,
+        "seasons_better_than_t1": 3,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.032413317055981494,
+        "best_season_gain": 0.012562777857620944
+      },
+      "t1_plus_shuffled_t4a": {
+        "overall_mae_gain_vs_t1": -0.00847165203499145,
+        "seasons_better_than_t1": 2,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.09012353460898126,
+        "best_season_gain": 0.07721110161245193
+      }
+    },
+    "total": {
+      "t1_core": {
+        "overall_mae_gain_vs_t1": 0.0,
+        "seasons_better_than_t1": 0,
+        "seasons_tested": 6,
+        "worst_season_gain": 0.0,
+        "best_season_gain": 0.0
+      },
+      "t1_plus_t4a": {
+        "overall_mae_gain_vs_t1": 0.06020524513878733,
+        "seasons_better_than_t1": 5,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.011647890570475994,
+        "best_season_gain": 0.18160363738011398
+      },
+      "t1_plus_shuffled_t4a": {
+        "overall_mae_gain_vs_t1": -0.014211299793434051,
+        "seasons_better_than_t1": 3,
+        "seasons_tested": 6,
+        "worst_season_gain": -0.08206364366914976,
+        "best_season_gain": 0.037622026532734054
+      }
+    }
+  },
+  "travel": "not_tested_no_historical_coordinates_or_distance_in_current_store",
+  "restrictions": [
+    "venue familiarity uses only prior games",
+    "weather observations excluded",
+    "T4A remains shadow",
+    "no manual venue points authorised"
+  ]
+}

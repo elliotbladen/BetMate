@@ -1,0 +1,308 @@
+{
+  "edge_threshold_pp": 7.5,
+  "net_required": 6,
+  "seasons": [
+    "2022/23",
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "results": [
+    {
+      "market": "1X2",
+      "home": "Ipswich",
+      "away": "Liverpool",
+      "selection": "Ipswich",
+      "ev": 23.32,
+      "aligned": [
+        {
+          "team": "Liverpool",
+          "category": "Away games",
+          "edge_pp": -9.4,
+          "n": 76
+        },
+        {
+          "team": "Liverpool",
+          "category": "After a draw",
+          "edge_pp": -13.8,
+          "n": 37
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Ipswich",
+          "category": "All games",
+          "edge_pp": -9.9,
+          "n": 38
+        },
+        {
+          "team": "Ipswich",
+          "category": "Home games",
+          "edge_pp": -20.5,
+          "n": 19
+        },
+        {
+          "team": "Ipswich",
+          "category": "Normal rest (4-8 days)",
+          "edge_pp": -12.9,
+          "n": 26
+        }
+      ],
+      "net": -1,
+      "passes_10pct_ev": true,
+      "passes_matrix": false,
+      "stake_units": 1.0
+    },
+    {
+      "market": "1X2",
+      "home": "Brentford",
+      "away": "Sunderland",
+      "selection": "Sunderland",
+      "ev": 35.71,
+      "aligned": [
+        {
+          "team": "Sunderland",
+          "category": "All games",
+          "edge_pp": 11.9,
+          "n": 38
+        },
+        {
+          "team": "Sunderland",
+          "category": "Saturday",
+          "edge_pp": 11.1,
+          "n": 20
+        },
+        {
+          "team": "Sunderland",
+          "category": "Normal rest (4-8 days)",
+          "edge_pp": 10.4,
+          "n": 24
+        },
+        {
+          "team": "Sunderland",
+          "category": "Underdog (3.50+ fair)",
+          "edge_pp": 12.5,
+          "n": 25
+        },
+        {
+          "team": "Brentford",
+          "category": "September",
+          "edge_pp": -12.2,
+          "n": 11
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Brentford",
+          "category": "Short favourite (<1.80 fair)",
+          "edge_pp": 17.1,
+          "n": 13
+        }
+      ],
+      "net": 4,
+      "passes_10pct_ev": true,
+      "passes_matrix": false,
+      "stake_units": 1.0
+    },
+    {
+      "market": "1X2",
+      "home": "Hull",
+      "away": "Aston Villa",
+      "selection": "Hull",
+      "ev": 30.1,
+      "aligned": [],
+      "opposed": [
+        {
+          "team": "Aston Villa",
+          "category": "All games",
+          "edge_pp": 9.9,
+          "n": 152
+        },
+        {
+          "team": "Aston Villa",
+          "category": "Saturday",
+          "edge_pp": 15.8,
+          "n": 63
+        },
+        {
+          "team": "Aston Villa",
+          "category": "September",
+          "edge_pp": 19.2,
+          "n": 12
+        },
+        {
+          "team": "Aston Villa",
+          "category": "After a loss",
+          "edge_pp": 9.2,
+          "n": 44
+        }
+      ],
+      "net": -4,
+      "passes_10pct_ev": true,
+      "passes_matrix": false,
+      "stake_units": 1.0
+    },
+    {
+      "market": "1X2",
+      "home": "Everton",
+      "away": "Man United",
+      "selection": "Everton",
+      "ev": 34.82,
+      "aligned": [
+        {
+          "team": "Everton",
+          "category": "After a draw",
+          "edge_pp": 7.6,
+          "n": 46
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Everton",
+          "category": "vs Man United",
+          "edge_pp": -13.3,
+          "n": 8
+        },
+        {
+          "team": "Man United",
+          "category": "vs Everton",
+          "edge_pp": 26.9,
+          "n": 8
+        }
+      ],
+      "net": -1,
+      "passes_10pct_ev": true,
+      "passes_matrix": false,
+      "stake_units": 1.0
+    },
+    {
+      "market": "O/U 2.5",
+      "home": "Newcastle",
+      "away": "Bournemouth",
+      "selection": "Over",
+      "ev": 22.11,
+      "aligned": [
+        {
+          "team": "Bournemouth",
+          "category": "Away games",
+          "edge_pp": 9.1,
+          "n": 76
+        },
+        {
+          "team": "Bournemouth",
+          "category": "September",
+          "edge_pp": 9.4,
+          "n": 12
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Newcastle",
+          "category": "September",
+          "edge_pp": -9.3,
+          "n": 13
+        },
+        {
+          "team": "Newcastle",
+          "category": "After a draw",
+          "edge_pp": -8.6,
+          "n": 33
+        },
+        {
+          "team": "Newcastle",
+          "category": "vs Bournemouth",
+          "edge_pp": -19.8,
+          "n": 8
+        },
+        {
+          "team": "Bournemouth",
+          "category": "Competitive (2.50\u20133.49 fair)",
+          "edge_pp": -8.3,
+          "n": 38
+        },
+        {
+          "team": "Bournemouth",
+          "category": "vs Newcastle",
+          "edge_pp": -19.8,
+          "n": 8
+        }
+      ],
+      "net": -3,
+      "passes_10pct_ev": true,
+      "passes_matrix": false,
+      "stake_units": 1.0
+    },
+    {
+      "market": "O/U 2.5",
+      "home": "Everton",
+      "away": "Man United",
+      "selection": "Over",
+      "ev": 14.49,
+      "aligned": [
+        {
+          "team": "Man United",
+          "category": "September",
+          "edge_pp": 8.8,
+          "n": 13
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Everton",
+          "category": "All games",
+          "edge_pp": -8.6,
+          "n": 152
+        },
+        {
+          "team": "Everton",
+          "category": "After a draw",
+          "edge_pp": -15.2,
+          "n": 46
+        }
+      ],
+      "net": -1,
+      "passes_10pct_ev": true,
+      "passes_matrix": false,
+      "stake_units": 1.0
+    },
+    {
+      "market": "O/U 2.5",
+      "home": "Arsenal",
+      "away": "Chelsea",
+      "selection": "Over",
+      "ev": 34.69,
+      "aligned": [
+        {
+          "team": "Arsenal",
+          "category": "Home games",
+          "edge_pp": 9.6,
+          "n": 76
+        },
+        {
+          "team": "Arsenal",
+          "category": "September",
+          "edge_pp": 19.0,
+          "n": 12
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Chelsea",
+          "category": "Sunday",
+          "edge_pp": -10.3,
+          "n": 48
+        },
+        {
+          "team": "Chelsea",
+          "category": "Underdog (3.50+ fair)",
+          "edge_pp": -11.3,
+          "n": 17
+        }
+      ],
+      "net": 0,
+      "passes_10pct_ev": true,
+      "passes_matrix": false,
+      "stake_units": 1.0
+    }
+  ]
+}

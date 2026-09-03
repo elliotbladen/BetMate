@@ -1,0 +1,10 @@
+{
+  "status": "ucl_btb_closing_odds_imported",
+  "rows": 2142,
+  "date_min": "2005-02-22",
+  "date_max": "2015-06-30",
+  "source": "BeatTheBookie",
+  "stable_match_ids": true,
+  "timestamps_present": false,
+  "output": "data\\ucl\\markets\\ucl_btb_closing_1x2.csv"
+}

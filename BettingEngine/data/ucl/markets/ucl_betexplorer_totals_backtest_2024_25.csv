@@ -1,0 +1,190 @@
+match_id,home,away,bet,edge,odds,actual,win,profit,bookmaker,path
+ucl-2024-25-038,AC Milan (ITA),Club Brugge KV (BEL),Under,0.23444444444444468,2.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/ac-milan-club-brugge/pUDKcnzf/
+ucl-2024-25-104,AC Milan (ITA),FK Crvena Zvezda (SRB),Under,0.5014469453376205,3.3,Over,False,-1,betsson,/football/europe/champions-league-2024-2025/ac-milan-crvena-zvezda/K4iJZumB/
+ucl-2024-25-153,AC Milan (ITA),Feyenoord Rotterdam (NED),Under,0.137459807073955,2.5,Under,True,1.5,bwin,/football/europe/champions-league-2024-2025/ac-milan-feyenoord/CIzpxJ25/
+ucl-2024-25-123,AC Milan (ITA),Girona FC (ESP),Under,-0.044533762057877735,2.1,Under,True,1.1,bet365,/football/europe/champions-league-2024-2025/ac-milan-girona/C2WcScuo/
+ucl-2024-25-006,AC Milan (ITA),Liverpool FC (ENG),Under,0.06835555555555572,2.38,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/ac-milan-liverpool/OQ7EPt7D/
+ucl-2024-25-124,Arsenal FC (ENG),GNK Dinamo Zagreb (CRO),Under,0.09948717948717944,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/arsenal-din-zagreb/8WQA83lC/
+ucl-2024-25-106,Arsenal FC (ENG),AS Monaco FC (MCO),Over,-0.01538461538461533,1.5,Over,True,0.5,bet365,/football/europe/champions-league-2024-2025/arsenal-monaco/KAfTQp4t/
+ucl-2024-25-026,Arsenal FC (ENG),Paris Saint-Germain FC (FRA),Over,0.19466666666666677,1.82,Under,False,-1,bwin,/football/europe/champions-league-2024-2025/arsenal-psg/8IilrmEN/
+ucl-2024-25-026,Arsenal FC (ENG),Paris Saint-Germain FC (FRA),Over,0.29312820512820514,1.97,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/arsenal-psg/naa0qybn/
+ucl-2024-25-176,Arsenal FC (ENG),PSV (NED),Over,0.18153846153846165,1.8,Over,True,0.8,bet365,/football/europe/champions-league-2024-2025/arsenal-psv/21dedA3k/
+ucl-2024-25-177,Arsenal FC (ENG),Real Madrid CF (ESP),Over,0.18153846153846165,1.8,Over,True,0.8,bet365,/football/europe/champions-league-2024-2025/arsenal-real-madrid/UZYB9WPh/
+ucl-2024-25-044,Arsenal FC (ENG),FK Shakhtar Donetsk (UKR),Over,-0.003076923076923088,1.44,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/arsenal-shakhtar/YX0qN235/
+ucl-2024-25-030,Aston Villa FC (ENG),FC Bayern München (GER),Under,0.15110932475884242,2.53,Under,True,1.5299999999999998,betsson,/football/europe/champions-league-2024-2025/aston-villa-bayern-munich/IkxSXqbs/
+ucl-2024-25-039,Aston Villa FC (ENG),Bologna FC 1909 (ITA),Over,0.06278135048231515,1.95,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/aston-villa-bologna/bVnkfMno/
+ucl-2024-25-129,Aston Villa FC (ENG),Celtic FC (SCO),Under,0.19660771704180058,2.63,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/aston-villa-celtic/Q1MqMyy2/
+ucl-2024-25-174,Aston Villa FC (ENG),Club Brugge KV (BEL),Over,-0.031199999999999894,1.73,Over,True,0.73,bet365,/football/europe/champions-league-2024-2025/aston-villa-club-brugge/4S7mNw85/
+ucl-2024-25-085,Aston Villa FC (ENG),Juventus FC (ITA),Over,0.25353697749196136,2.3,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/aston-villa-juventus/EqOSkhw9/
+ucl-2024-25-181,Aston Villa FC (ENG),Paris Saint-Germain FC (FRA),Over,-0.02685950413223126,1.57,Over,True,0.5700000000000001,bet365,/football/europe/champions-league-2024-2025/aston-villa-psg/K6Sd07Vs/
+ucl-2024-25-017,Atalanta BC (ITA),Arsenal FC (ENG),Over,0.10638263665594838,2.03,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/atalanta-arsenal/ba245wx3/
+ucl-2024-25-047,Atalanta BC (ITA),Celtic FC (SCO),Under,0.3103536977491961,2.88,Under,True,1.88,betway,/football/europe/champions-league-2024-2025/atalanta-celtic/pdxVjvN9/
+ucl-2024-25-156,Atalanta BC (ITA),Club Brugge KV (BEL),Over,-0.031199999999999894,1.73,Over,True,0.73,bet365,/football/europe/champions-league-2024-2025/atalanta-club-brugge/p4Ass5p2/
+ucl-2024-25-095,Atalanta BC (ITA),Real Madrid CF (ESP),Over,-0.008264462809917217,1.6,Over,True,0.6000000000000001,betway,/football/europe/champions-league-2024-2025/atalanta-real-madrid/IonGGoOr/
+ucl-2024-25-110,Atalanta BC (ITA),SK Sturm Graz (AUT),Under,0.09196141479099684,2.4,Over,False,-1,betway,/football/europe/champions-league-2024-2025/atalanta-sturm-graz/AwM9qdFq/
+ucl-2024-25-114,Club Atlético de Madrid (ESP),Bayer 04 Leverkusen (GER),Over,0.3784615384615386,2.1,Over,True,1.1,bet365,/football/europe/champions-league-2024-2025/atl-madrid-bayer-leverkusen/f79xolZj/
+ucl-2024-25-052,Club Atlético de Madrid (ESP),Lille OSC (FRA),Over,0.13558974358974352,1.73,Over,True,0.73,bet365,/football/europe/champions-league-2024-2025/atl-madrid-lille/KQxsdEsh/
+ucl-2024-25-018,Club Atlético de Madrid (ESP),RB Leipzig (GER),Over,0.1215384615384616,1.62,Over,True,0.6200000000000001,bet365,/football/europe/champions-league-2024-2025/atl-madrid-rb-leipzig/KliVkqKP/
+ucl-2024-25-175,Club Atlético de Madrid (ESP),Real Madrid CF (ESP),Over,0.782,1.8,Over,True,0.8,bet365,/football/europe/champions-league-2024-2025/atl-madrid-real-madrid/CdktT8vR/
+ucl-2024-25-100,Club Atlético de Madrid (ESP),ŠK Slovan Bratislava (SVK),Under,0.4877435897435898,4.33,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/atl-madrid-slovan-bratislava/OIZchWtH/
+ucl-2024-25-136,FC Barcelona (ESP),Atalanta BC (ITA),Under,0.4256198347107436,3.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/barcelona-atalanta/0lvFmmfd/
+ucl-2024-25-049,FC Barcelona (ESP),FC Bayern München (GER),Under,0.43644444444444486,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/barcelona-bayern-munich/EHVzWNSg/
+ucl-2024-25-169,FC Barcelona (ESP),Sport Lisboa e Benfica (POR),Over,0.3167,1.33,Over,True,0.33000000000000007,cloudbet,/football/europe/champions-league-2024-2025/barcelona-benfica/4fUKLQW0/
+ucl-2024-25-078,FC Barcelona (ESP),Stade Brestois 29 (FRA),Under,0.1404958677685948,3.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/barcelona-brest/veRt2n9k/
+ucl-2024-25-180,FC Barcelona (ESP),Borussia Dortmund (GER),Under,0.5262222222222226,3.4,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/barcelona-dortmund/tMQd9geT/
+ucl-2024-25-136,FC Barcelona (ESP),Atalanta BC (ITA),Over,-0.03305785123966931,1.56,Over,True,0.56,duelbits,/football/europe/champions-league-2024-2025/barcelona-inter/vw0XoVEb/
+ucl-2024-25-023,FC Barcelona (ESP),BSC Young Boys (SUI),Under,1.42,5.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/barcelona-young-boys/lAK99UGF/
+ucl-2024-25-025,Bayer 04 Leverkusen (GER),AC Milan (ITA),Under,0.2512057877813505,2.75,Under,True,1.75,bet365,/football/europe/champions-league-2024-2025/bayer-leverkusen-ac-milan/C4X1APJa/
+ucl-2024-25-172,Bayer 04 Leverkusen (GER),FC Bayern München (GER),Under,-0.044533762057877735,2.1,Under,True,1.1,bet365,/football/europe/champions-league-2024-2025/bayer-leverkusen-bayern-munich/zmGWQL8t/
+ucl-2024-25-025,Bayer 04 Leverkusen (GER),AC Milan (ITA),Over,0.14453376205787793,2.1,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/bayer-leverkusen-inter/8UkXtTJc/
+ucl-2024-25-081,Bayer 04 Leverkusen (GER),FC Red Bull Salzburg (AUT),Under,0.5014469453376205,3.3,Over,False,-1,duelbits,/football/europe/champions-league-2024-2025/bayer-leverkusen-salzburg/IsCSeQ46/
+ucl-2024-25-139,Bayer 04 Leverkusen (GER),AC Sparta Praha (CZE),Under,0.592443729903537,3.5,Under,True,2.5,bet365,/football/europe/champions-league-2024-2025/bayer-leverkusen-sparta-prague/tGcNH7RP/
+ucl-2024-25-167,FC Bayern München (GER),Bayer 04 Leverkusen (GER),Over,0.002829581993569086,1.84,Over,True,0.8400000000000001,bet365,/football/europe/champions-league-2024-2025/bayern-munich-bayer-leverkusen/A7aLJ41D/
+ucl-2024-25-155,FC Bayern München (GER),Celtic FC (SCO),Under,0.43644444444444486,3.2,Under,True,2.2,bet365,/football/europe/champions-league-2024-2025/bayern-munich-benfica/2JPfZyIl/
+ucl-2024-25-155,FC Bayern München (GER),Celtic FC (SCO),Under,0.43644444444444486,3.2,Under,True,2.2,bet365,/football/europe/champions-league-2024-2025/bayern-munich-celtic/hzHaWmWq/
+ucl-2024-25-004,FC Bayern München (GER),GNK Dinamo Zagreb (CRO),Under,0.592443729903537,3.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/bayern-munich-din-zagreb/WW2NipYF/
+ucl-2024-25-077,FC Bayern München (GER),Paris Saint-Germain FC (FRA),Over,0.024800000000000155,1.83,Under,False,-1,bwin,/football/europe/champions-league-2024-2025/bayern-munich-inter/YVVGlgae/
+ucl-2024-25-077,FC Bayern München (GER),Paris Saint-Germain FC (FRA),Under,0.09999999999999987,2.5,Under,True,1.5,bet365,/football/europe/champions-league-2024-2025/bayern-munich-psg/n7odw6zK/
+ucl-2024-25-134,FC Bayern München (GER),ŠK Slovan Bratislava (SVK),Under,3.54983922829582,10.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/bayern-munich-slovan-bratislava/4rMBVgHD/
+ucl-2024-25-177,Arsenal FC (ENG),Real Madrid CF (ESP),Over,0.2537435897435898,1.91,Over,True,0.9099999999999999,betway,/football/europe/champions-league-2024-2025/benfica-atl-madrid/CrvNh0hc/
+ucl-2024-25-115,Sport Lisboa e Benfica (POR),FC Barcelona (ESP),Under,-0.00015384615384606004,2.91,Over,False,-1,betinasia,/football/europe/champions-league-2024-2025/benfica-barcelona/GdM1Bjn3/
+ucl-2024-25-115,Sport Lisboa e Benfica (POR),FC Barcelona (ESP),Over,-0.05476923076923079,1.44,Over,True,0.43999999999999995,bet365,/football/europe/champions-league-2024-2025/benfica-barcelona/WtWCNn2l/
+ucl-2024-25-105,Sport Lisboa e Benfica (POR),Bologna FC 1909 (ITA),Over,0.0723140495867769,1.73,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/benfica-bologna/hxY9wOmn/
+ucl-2024-25-053,Sport Lisboa e Benfica (POR),Feyenoord Rotterdam (NED),Under,-0.04958677685950419,2.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/benfica-feyenoord/tb4iLtYH/
+ucl-2024-25-154,Sport Lisboa e Benfica (POR),AS Monaco FC (MCO),Under,0.045454545454545414,2.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/benfica-monaco/QPWKwWwA/
+ucl-2024-25-111,Bologna FC 1909 (ITA),Borussia Dortmund (GER),Over,0.046430868167202544,1.92,Over,True,0.9199999999999999,bet365,/football/europe/champions-league-2024-2025/bologna-dortmund/YZNY7HuB/
+ucl-2024-25-086,Bologna FC 1909 (ITA),Lille OSC (FRA),Over,0.2971382636655948,2.38,Over,True,1.38,bet365,/football/europe/champions-league-2024-2025/bologna-lille/K6Ku6Pp4/
+ucl-2024-25-058,Bologna FC 1909 (ITA),AS Monaco FC (MCO),Over,0.11183279742765273,2.04,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/bologna-monaco/tWcB14fB/
+ucl-2024-25-007,Bologna FC 1909 (ITA),FK Shakhtar Donetsk (UKR),Over,0.2272727272727273,1.98,Under,False,-1,betsson,/football/europe/champions-league-2024-2025/bologna-shakhtar/dSuJ09iR/
+ucl-2024-25-046,Stade Brestois 29 (FRA),Bayer 04 Leverkusen (GER),Under,-0.06728295819935703,2.05,Under,True,1.0499999999999998,bet365,/football/europe/champions-league-2024-2025/brest-bayer-leverkusen/QmZgCokm/
+ucl-2024-25-145,Stade Brestois 29 (FRA),Paris Saint-Germain FC (FRA),Over,-0.02685950413223126,1.57,Over,True,0.5700000000000001,bet365,/football/europe/champions-league-2024-2025/brest-psg/b7xfj9NF/
+ucl-2024-25-093,Stade Brestois 29 (FRA),PSV (NED),Under,0.0009646302250805316,2.2,Under,True,1.2000000000000002,bet365,/football/europe/champions-league-2024-2025/brest-psv/nJBd2spT/
+ucl-2024-25-131,Stade Brestois 29 (FRA),Real Madrid CF (ESP),Under,0.1404958677685948,3.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/brest-real-madrid/z1ZQYppR/
+ucl-2024-25-016,Stade Brestois 29 (FRA),SK Sturm Graz (AUT),Over,0.11183279742765273,2.04,Over,True,1.04,bet365,/football/europe/champions-league-2024-2025/brest-sturm-graz/niTqG394/
+ucl-2024-25-151,Celtic FC (SCO),FC Bayern München (GER),Under,0.18295819935691315,2.6,Over,False,-1,betway,/football/europe/champions-league-2024-2025/celtic-bayern-munich/YkzTyA8M/
+ucl-2024-25-088,Celtic FC (SCO),Club Brugge KV (BEL),Over,0.004132231404958775,1.62,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/celtic-club-brugge/dACqdZbk/
+ucl-2024-25-062,Celtic FC (SCO),RB Leipzig (GER),Over,0.06338461538461537,1.62,Over,True,0.6200000000000001,bet365,/football/europe/champions-league-2024-2025/celtic-rb-leipzig/CnW9r1Ca/
+ucl-2024-25-012,Celtic FC (SCO),ŠK Slovan Bratislava (SVK),Under,0.2512057877813505,2.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/celtic-slovan-bratislava/IyJyOc6k/
+ucl-2024-25-125,Celtic FC (SCO),BSC Young Boys (SUI),Under,0.35585209003215446,2.98,Under,True,1.98,betsson,/football/europe/champions-league-2024-2025/celtic-young-boys/8Szai5ED/
+ucl-2024-25-064,Club Brugge KV (BEL),Aston Villa FC (ENG),Over,0.019180064308681688,1.87,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/club-brugge-aston-villa/4zGifDT1/
+ucl-2024-25-064,Club Brugge KV (BEL),Aston Villa FC (ENG),Over,0.09548231511254013,2.01,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/club-brugge-aston-villa/d24uPawg/
+ucl-2024-25-149,Club Brugge KV (BEL),Atalanta BC (ITA),Over,0.090032154340836,2.0,Over,True,1.0,bet365,/football/europe/champions-league-2024-2025/club-brugge-atalanta/j5HYrRFk/
+ucl-2024-25-011,Club Brugge KV (BEL),Borussia Dortmund (GER),Under,0.05101286173633435,2.31,Over,False,-1,betsafe,/football/europe/champions-league-2024-2025/club-brugge-dortmund/YLr0gIQH/
+ucl-2024-25-116,Club Brugge KV (BEL),Juventus FC (ITA),Over,0.19903536977491965,2.2,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/club-brugge-juventus/jVKBa85s/
+ucl-2024-25-097,Club Brugge KV (BEL),Sporting Clube de Portugal (POR),Over,-0.018971061093247532,1.8,Over,True,0.8,bet365,/football/europe/champions-league-2024-2025/club-brugge-sporting-cp/SvfL1eyS/
+ucl-2024-25-071,FK Crvena Zvezda (SRB),FC Barcelona (ESP),Under,0.4079999999999999,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/crvena-zvezda-barcelona/8CzB78oS/
+ucl-2024-25-014,FK Crvena Zvezda (SRB),Sport Lisboa e Benfica (POR),Over,0.1561538461538461,1.67,Over,True,0.6699999999999999,bet365,/football/europe/champions-league-2024-2025/crvena-zvezda-benfica/xQc0JK2U/
+ucl-2024-25-117,FK Crvena Zvezda (SRB),PSV (NED),Under,0.31999999999999984,3.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/crvena-zvezda-psv/jTN44C9a/
+ucl-2024-25-083,FK Crvena Zvezda (SRB),VfB Stuttgart (GER),Under,0.06835555555555572,2.38,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/crvena-zvezda-vfb-stuttgart/rJ4gBKMq/
+ucl-2024-25-141,GNK Dinamo Zagreb (CRO),AC Milan (ITA),Under,0.19660771704180058,2.63,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/din-zagreb-ac-milan/tKuSXJHN/
+ucl-2024-25-092,GNK Dinamo Zagreb (CRO),Celtic FC (SCO),Under,0.046463022508038465,2.3,Under,True,1.2999999999999998,bet365,/football/europe/champions-league-2024-2025/din-zagreb-celtic/SW7P7Qbf/
+ucl-2024-25-089,GNK Dinamo Zagreb (CRO),Borussia Dortmund (GER),Under,0.046463022508038465,2.3,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/din-zagreb-dortmund/p0CIBatn/
+ucl-2024-25-035,GNK Dinamo Zagreb (CRO),AS Monaco FC (MCO),Under,0.08286173633440508,2.38,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/din-zagreb-monaco/6NrNI2U9/
+ucl-2024-25-103,Borussia Dortmund (GER),FC Barcelona (ESP),Under,0.45594855305466253,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/dortmund-barcelona/IPhyaMdt/
+ucl-2024-25-103,Borussia Dortmund (GER),FC Barcelona (ESP),Under,0.45594855305466253,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/dortmund-barcelona/Qg2T3XIj/
+ucl-2024-25-022,Borussia Dortmund (GER),Celtic FC (SCO),Under,0.3466666666666671,3.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/dortmund-celtic/Umx9ideU/
+ucl-2024-25-164,Borussia Dortmund (GER),Lille OSC (FRA),Over,0.046430868167202544,1.92,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/dortmund-lille/Iw6w9mme/
+ucl-2024-25-135,Borussia Dortmund (GER),FK Shakhtar Donetsk (UKR),Under,0.2165289256198346,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/dortmund-shakhtar/n5phevd5/
+ucl-2024-25-157,Borussia Dortmund (GER),Sporting Clube de Portugal (POR),Under,0.0009646302250805316,2.2,Under,True,1.2000000000000002,bet365,/football/europe/champions-league-2024-2025/dortmund-sporting-cp/UZrTu13t/
+ucl-2024-25-059,Borussia Dortmund (GER),SK Sturm Graz (AUT),Under,0.5469453376205788,3.4,Under,True,2.4,bet365,/football/europe/champions-league-2024-2025/dortmund-sturm-graz/tS5R9wBb/
+ucl-2024-25-152,Feyenoord Rotterdam (NED),AC Milan (ITA),Under,0.0009646302250805316,2.2,Under,True,1.2000000000000002,bet365,/football/europe/champions-league-2024-2025/feyenoord-ac-milan/GjsyvuYh/
+ucl-2024-25-013,Feyenoord Rotterdam (NED),Bayer 04 Leverkusen (GER),Under,0.06835555555555572,2.38,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/feyenoord-bayer-leverkusen/E95yf4ZI/
+ucl-2024-25-126,Feyenoord Rotterdam (NED),FC Bayern München (GER),Under,0.31973333333333365,2.94,Over,False,-1,betsson,/football/europe/champions-league-2024-2025/feyenoord-bayern-munich/boJ3XFn1/
+ucl-2024-25-152,Feyenoord Rotterdam (NED),AC Milan (ITA),Over,0.06278135048231515,1.95,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/feyenoord-inter/QuRbGVfL/
+ucl-2024-25-070,Feyenoord Rotterdam (NED),FC Red Bull Salzburg (AUT),Under,0.04719999999999991,2.38,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/feyenoord-salzburg/CbvBxcLr/
+ucl-2024-25-108,Feyenoord Rotterdam (NED),AC Sparta Praha (CZE),Under,0.18057777777777795,2.63,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/feyenoord-sparta-prague/I12SdL7j/
+ucl-2024-25-130,Girona FC (ESP),Arsenal FC (ENG),Over,0.07913183279742753,1.98,Over,True,0.98,bet365,/football/europe/champions-league-2024-2025/girona-arsenal/CICzPOYh/
+ucl-2024-25-028,Girona FC (ESP),Feyenoord Rotterdam (NED),Under,0.0009646302250805316,2.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/girona-feyenoord/Y9pFKOac/
+ucl-2024-25-091,Girona FC (ESP),Liverpool FC (ENG),Under,0.045454545454545414,2.75,Under,True,1.75,bet365,/football/europe/champions-league-2024-2025/girona-liverpool/xUXmvtM6/
+ucl-2024-25-040,Girona FC (ESP),ŠK Slovan Bratislava (SVK),Under,0.364951768488746,3.0,Under,True,2.0,bet365,/football/europe/champions-league-2024-2025/girona-slovan-bratislava/MRQpoqAU/
+ucl-2024-25-130,Girona FC (ESP),Arsenal FC (ENG),Over,0.14453376205787793,2.1,Over,True,1.1,bet365,/football/europe/champions-league-2024-2025/inter-arsenal/8vgoJPRj/
+ucl-2024-25-187,FC Internazionale Milano (ITA),FC Barcelona (ESP),Under,0.19660771704180058,2.63,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/inter-barcelona/0hltp9qB/
+ucl-2024-25-077,FC Bayern München (GER),Paris Saint-Germain FC (FRA),Under,0.09999999999999987,2.5,Under,True,1.5,bet365,/football/europe/champions-league-2024-2025/inter-bayern-munich/foKPnXT7/
+ucl-2024-25-104,AC Milan (ITA),FK Crvena Zvezda (SRB),Under,0.046463022508038465,2.3,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/inter-crvena-zvezda/trluu7lA/
+ucl-2024-25-153,AC Milan (ITA),Feyenoord Rotterdam (NED),Under,0.0009646302250805316,2.2,Under,True,1.2000000000000002,bet365,/football/europe/champions-league-2024-2025/inter-feyenoord/MBCUA9Ir/
+ucl-2024-25-137,FC Internazionale Milano (ITA),AS Monaco FC (MCO),Under,0.2512057877813505,2.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/inter-monaco/8hYJXOtp/
+ucl-2024-25-062,Celtic FC (SCO),RB Leipzig (GER),Over,0.03056410256410258,1.57,Over,True,0.5700000000000001,bet365,/football/europe/champions-league-2024-2025/inter-rb-leipzig/xd2FOo4T/
+ucl-2024-25-140,Juventus FC (ITA),Sport Lisboa e Benfica (POR),Over,0.3784615384615386,2.1,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/juventus-benfica/beChlu24/
+ucl-2024-25-107,Juventus FC (ITA),Manchester City FC (ENG),Over,0.18153846153846165,1.8,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/juventus-manchester-city/U9NWDUkB/
+ucl-2024-25-002,Juventus FC (ITA),PSV (NED),Under,-0.044533762057877735,2.1,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/juventus-psv/QmF7UR0d/
+ucl-2024-25-002,Juventus FC (ITA),PSV (NED),Over,0.046430868167202544,1.92,Over,True,0.9199999999999999,bet365,/football/europe/champions-league-2024-2025/juventus-psv/fN51nJWG/
+ucl-2024-25-045,Juventus FC (ITA),VfB Stuttgart (GER),Over,0.03008038585208994,1.89,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/juventus-vfb-stuttgart/MyMsSlo2/
+ucl-2024-25-173,Lille OSC (FRA),Borussia Dortmund (GER),Over,0.090032154340836,2.0,Over,True,1.0,bet365,/football/europe/champions-league-2024-2025/lille-dortmund/Oz9o7RH7/
+ucl-2024-25-142,Lille OSC (FRA),Feyenoord Rotterdam (NED),Under,0.046463022508038465,2.3,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/lille-feyenoord/zZSpF86K/
+ucl-2024-25-063,Lille OSC (FRA),Juventus FC (ITA),Over,0.19903536977491965,2.2,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/lille-juventus/0MXYTAGk/
+ucl-2024-25-036,Lille OSC (FRA),Real Madrid CF (ESP),Over,-0.00800000000000023,1.8,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/lille-real-madrid/MwqXC3N7/
+ucl-2024-25-101,Lille OSC (FRA),SK Sturm Graz (AUT),Over,0.03008038585208994,1.89,Over,True,0.8899999999999999,bet365,/football/europe/champions-league-2024-2025/lille-sturm-graz/OvRW7oGi/
+ucl-2024-25-060,Liverpool FC (ENG),Bayer 04 Leverkusen (GER),Under,0.03244444444444472,2.3,Over,False,-1,betway,/football/europe/champions-league-2024-2025/liverpool-bayer-leverkusen/SbE5R2x1/
+ucl-2024-25-032,Liverpool FC (ENG),Bologna FC 1909 (ITA),Under,0.3466666666666671,3.0,Under,True,2.0,bet365,/football/europe/champions-league-2024-2025/liverpool-bologna/t2vut2if/
+ucl-2024-25-113,Liverpool FC (ENG),Lille OSC (FRA),Under,0.12222222222222245,2.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/liverpool-lille/l4a0mpaK/
+ucl-2024-25-170,Liverpool FC (ENG),Paris Saint-Germain FC (FRA),Under,-0.04958677685950419,2.5,Over,False,-1,betway,/football/europe/champions-league-2024-2025/liverpool-psg/UDXkIiQ8/
+ucl-2024-25-087,Liverpool FC (ENG),Real Madrid CF (ESP),Under,-0.00016528925619851975,2.63,Under,True,1.63,bet365,/football/europe/champions-league-2024-2025/liverpool-real-madrid/SG7yOTV8/
+ucl-2024-25-138,Manchester City FC (ENG),Club Brugge KV (BEL),Under,0.09948717948717944,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/manchester-city-club-brugge/8fZNFjLb/
+ucl-2024-25-080,Manchester City FC (ENG),Feyenoord Rotterdam (NED),Under,0.03076923076923066,3.0,Over,False,-1,betway,/football/europe/champions-league-2024-2025/manchester-city-feyenoord/xzRvC8KN/
+ucl-2024-25-121,Paris Saint-Germain FC (FRA),Manchester City FC (ENG),Over,0.06338461538461537,1.62,Over,True,0.6200000000000001,bet365,/football/europe/champions-league-2024-2025/manchester-city-inter/OW05c95U/
+ucl-2024-25-146,Manchester City FC (ENG),Real Madrid CF (ESP),Over,0.004307692307692346,1.53,Over,True,0.53,bet365,/football/europe/champions-league-2024-2025/manchester-city-real-madrid/pWYizcXH/
+ucl-2024-25-050,Manchester City FC (ENG),AC Sparta Praha (CZE),Under,0.2712820512820513,3.7,Over,False,-1,unibet,/football/europe/champions-league-2024-2025/manchester-city-sparta-prague/lEfcUkzh/
+ucl-2024-25-109,AS Monaco FC (MCO),Aston Villa FC (ENG),Under,-0.044533762057877735,2.1,Under,True,1.1,bet365,/football/europe/champions-league-2024-2025/monaco-aston-villa/0fgJU2Oc/
+ucl-2024-25-015,AS Monaco FC (MCO),FC Barcelona (ESP),Under,0.24210610932475896,2.73,Over,False,-1,betsafe,/football/europe/champions-league-2024-2025/monaco-barcelona/0AFk0Qw2/
+ucl-2024-25-084,AS Monaco FC (MCO),Sport Lisboa e Benfica (POR),Over,0.09620512820512817,1.67,Over,True,0.6699999999999999,bet365,/football/europe/champions-league-2024-2025/monaco-benfica/4ArCuh9c/
+ucl-2024-25-084,AS Monaco FC (MCO),Sport Lisboa e Benfica (POR),Over,0.09620512820512817,1.67,Over,True,0.6699999999999999,bet365,/football/europe/champions-league-2024-2025/monaco-benfica/CvlBy2Ib/
+ucl-2024-25-037,AS Monaco FC (MCO),FK Crvena Zvezda (SRB),Under,0.2512057877813505,2.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/monaco-crvena-zvezda/4Yh29bid/
+ucl-2024-25-188,Paris Saint-Germain FC (FRA),Arsenal FC (ENG),Over,-0.024533333333333518,1.77,Over,True,0.77,bwin,/football/europe/champions-league-2024-2025/psg-arsenal/QZXKxRyo/
+ucl-2024-25-179,Paris Saint-Germain FC (FRA),Aston Villa FC (ENG),Over,0.004132231404958775,1.62,Over,True,0.6200000000000001,bet365,/football/europe/champions-league-2024-2025/psg-aston-villa/0IFOIFo9/
+ucl-2024-25-069,Paris Saint-Germain FC (FRA),Club Atlético de Madrid (ESP),Over,0.03056410256410258,1.57,Over,True,0.5700000000000001,bet365,/football/europe/champions-league-2024-2025/psg-atl-madrid/AsWexKjJ/
+ucl-2024-25-158,Paris Saint-Germain FC (FRA),Stade Brestois 29 (FRA),Under,0.330578512396694,3.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/psg-brest/KMQ2lmhS/
+ucl-2024-25-010,Paris Saint-Germain FC (FRA),Girona FC (ESP),Under,0.17851239669421481,3.1,Under,True,2.1,betsson,/football/europe/champions-league-2024-2025/psg-girona/O4fPwXRN/
+ucl-2024-25-166,Paris Saint-Germain FC (FRA),Liverpool FC (ENG),Over,0.13558974358974352,1.73,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/psg-inter/6LTndcTP/
+ucl-2024-25-166,Paris Saint-Germain FC (FRA),Liverpool FC (ENG),Over,0.13558974358974352,1.73,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/psg-liverpool/OGp4flY1/
+ucl-2024-25-121,Paris Saint-Germain FC (FRA),Manchester City FC (ENG),Over,0.06338461538461537,1.62,Over,True,0.6200000000000001,bet365,/football/europe/champions-league-2024-2025/psg-manchester-city/2cWFHCjn/
+ucl-2024-25-042,Paris Saint-Germain FC (FRA),PSV (NED),Under,0.2545454545454544,3.3,Under,True,2.3,betfair,/football/europe/champions-league-2024-2025/psg-psv/fP28sFSb/
+ucl-2024-25-163,PSV (NED),Arsenal FC (ENG),Over,0.14453376205787793,2.1,Over,True,1.1,bet365,/football/europe/champions-league-2024-2025/psv-arsenal/WI5P1WuS/
+ucl-2024-25-056,PSV (NED),Girona FC (ESP),Under,0.0009646302250805316,2.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/psv-girona/Q3Nm43FG/
+ucl-2024-25-160,PSV (NED),Juventus FC (ITA),Under,-0.044533762057877735,2.1,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/psv-juventus/jsZohVh3/
+ucl-2024-25-143,PSV (NED),Liverpool FC (ENG),Under,0.045454545454545414,2.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/psv-liverpool/YyyXsOMs/
+ucl-2024-25-090,PSV (NED),FK Shakhtar Donetsk (UKR),Under,0.03076923076923066,3.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/psv-shakhtar/86aOvSU7/
+ucl-2024-25-027,PSV (NED),Sporting Clube de Portugal (POR),Under,0.08286173633440508,2.38,Under,True,1.38,bet365,/football/europe/champions-league-2024-2025/psv-sporting-cp/UDZe6Yvm/
+ucl-2024-25-094,RB Leipzig (GER),Aston Villa FC (ENG),Over,0.06915555555555519,1.94,Over,True,0.94,betsson,/football/europe/champions-league-2024-2025/rb-leipzig-aston-villa/6oPItusC/
+ucl-2024-25-033,RB Leipzig (GER),Juventus FC (ITA),Over,0.12977777777777755,2.05,Over,True,1.0499999999999998,bet365,/football/europe/champions-league-2024-2025/rb-leipzig-juventus/hraqSuSI/
+ucl-2024-25-051,RB Leipzig (GER),Liverpool FC (ENG),Under,-0.04958677685950419,2.5,Under,True,1.5,bet365,/football/europe/champions-league-2024-2025/rb-leipzig-liverpool/nVTrU1c6/
+ucl-2024-25-118,RB Leipzig (GER),Sporting Clube de Portugal (POR),Under,0.12222222222222245,2.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/rb-leipzig-sporting-cp/4MS1pNsm/
+ucl-2024-25-061,Real Madrid CF (ESP),AC Milan (ITA),Under,0.2512057877813505,2.75,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/real-madrid-ac-milan/MF0pM70L/
+ucl-2024-25-183,Real Madrid CF (ESP),Arsenal FC (ENG),Under,0.08286173633440508,2.38,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/real-madrid-arsenal/x0xK7Af5/
+ucl-2024-25-162,Real Madrid CF (ESP),Club Atlético de Madrid (ESP),Over,0.13558974358974352,1.73,Over,True,0.73,bet365,/football/europe/champions-league-2024-2025/real-madrid-atl-madrid/4WoYUU9E/
+ucl-2024-25-043,Real Madrid CF (ESP),Borussia Dortmund (GER),Under,0.5469453376205788,3.4,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/real-madrid-dortmund/Qkdqc0Rh/
+ucl-2024-25-159,Real Madrid CF (ESP),Manchester City FC (ENG),Over,-0.05476923076923079,1.44,Over,True,0.43999999999999995,bet365,/football/europe/champions-league-2024-2025/real-madrid-manchester-city/vXjQHlHj/
+ucl-2024-25-122,Real Madrid CF (ESP),FC Red Bull Salzburg (AUT),Under,0.7179487179487181,5.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/real-madrid-salzburg/EDuPEPhe/
+ucl-2024-25-005,Real Madrid CF (ESP),VfB Stuttgart (GER),Under,0.2165289256198346,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/real-madrid-vfb-stuttgart/2ZLJz7FE/
+ucl-2024-25-144,FC Red Bull Salzburg (AUT),Club Atlético de Madrid (ESP),Under,-0.044533762057877735,2.1,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/salzburg-atl-madrid/GhWkfhC4/
+ucl-2024-25-099,FC Red Bull Salzburg (AUT),Paris Saint-Germain FC (FRA),Over,0.00800000000000023,1.8,Over,True,0.8,bet365,/football/europe/champions-league-2024-2025/salzburg-brest/QwvcVuEF/
+ucl-2024-25-054,FC Red Bull Salzburg (AUT),GNK Dinamo Zagreb (CRO),Under,0.046463022508038465,2.3,Under,True,1.2999999999999998,bet365,/football/europe/champions-league-2024-2025/salzburg-din-zagreb/tfEu4rbJ/
+ucl-2024-25-099,FC Red Bull Salzburg (AUT),Paris Saint-Germain FC (FRA),Under,0.4299999999999997,3.25,Over,False,-1,bwin,/football/europe/champions-league-2024-2025/salzburg-psg/GviHugcB/
+ucl-2024-25-029,FK Shakhtar Donetsk (UKR),Atalanta BC (ITA),Over,-0.018971061093247532,1.8,Over,True,0.8,bet365,/football/europe/champions-league-2024-2025/shakhtar-atalanta/fReD3H6F/
+ucl-2024-25-098,FK Shakhtar Donetsk (UKR),FC Bayern München (GER),Under,0.5469453376205788,3.4,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/shakhtar-bayern-munich/z59Eg633/
+ucl-2024-25-119,FK Shakhtar Donetsk (UKR),Stade Brestois 29 (FRA),Over,-0.018971061093247532,1.8,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/shakhtar-brest/l2xB2VME/
+ucl-2024-25-065,FK Shakhtar Donetsk (UKR),BSC Young Boys (SUI),Under,0.0009646302250805316,2.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/shakhtar-young-boys/29dGtl0e/
+ucl-2024-25-073,ŠK Slovan Bratislava (SVK),AC Milan (ITA),Under,0.364951768488746,3.0,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/slovan-bratislava-ac-milan/QsEpj1Xi/
+ucl-2024-25-055,ŠK Slovan Bratislava (SVK),GNK Dinamo Zagreb (CRO),Under,0.0009646302250805316,2.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/slovan-bratislava-din-zagreb/CzENGtaM/
+ucl-2024-25-021,ŠK Slovan Bratislava (SVK),Manchester City FC (ENG),Under,0.1888205128205127,3.46,Over,False,-1,betinasia,/football/europe/champions-league-2024-2025/slovan-bratislava-manchester-city/8GAbST44/
+ucl-2024-25-112,ŠK Slovan Bratislava (SVK),VfB Stuttgart (GER),Under,0.45594855305466253,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/slovan-bratislava-vfb-stuttgart/SSXym5uI/
+ucl-2024-25-074,AC Sparta Praha (CZE),Club Atlético de Madrid (ESP),Over,0.16064508723599635,1.91,Over,True,0.9099999999999999,betway,/football/europe/champions-league-2024-2025/sparta-prague-atl-madrid/pYN6jABT/
+ucl-2024-25-066,AC Sparta Praha (CZE),Stade Brestois 29 (FRA),Over,0.362540192926045,2.5,Over,True,1.5,bet365,/football/europe/champions-league-2024-2025/sparta-prague-brest/rJMhEsvH/
+ucl-2024-25-008,AC Sparta Praha (CZE),FC Red Bull Salzburg (AUT),Under,0.137459807073955,2.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/sparta-prague-inter/U7MSV2Bd/
+ucl-2024-25-008,AC Sparta Praha (CZE),FC Red Bull Salzburg (AUT),Under,0.046463022508038465,2.3,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/sparta-prague-salzburg/bix5TJrS/
+ucl-2024-25-075,Sporting Clube de Portugal (POR),Arsenal FC (ENG),Over,0.046430868167202544,1.92,Over,True,0.9199999999999999,bet365,/football/europe/champions-league-2024-2025/sporting-cp-arsenal/tpPI6sJO/
+ucl-2024-25-127,Sporting Clube de Portugal (POR),Bologna FC 1909 (ITA),Over,0.14453376205787793,2.1,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/sporting-cp-bologna/6caWquT8/
+ucl-2024-25-027,PSV (NED),Sporting Clube de Portugal (POR),Over,0.10638263665594838,2.03,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/sporting-cp-dortmund/QLIILcIO/
+ucl-2024-25-003,Sporting Clube de Portugal (POR),Lille OSC (FRA),Under,0.0009646302250805316,2.2,Under,True,1.2000000000000002,bet365,/football/europe/champions-league-2024-2025/sporting-cp-lille/K64H9nUs/
+ucl-2024-25-057,Sporting Clube de Portugal (POR),Manchester City FC (ENG),Over,0.03056410256410258,1.57,Over,True,0.5700000000000001,bet365,/football/europe/champions-league-2024-2025/sporting-cp-manchester-city/dK7B6nro/
+ucl-2024-25-031,SK Sturm Graz (AUT),Club Brugge KV (BEL),Under,0.12222222222222245,2.5,Under,True,1.5,bwin,/football/europe/champions-league-2024-2025/sturm-graz-club-brugge/pWhvIGL8/
+ucl-2024-25-082,SK Sturm Graz (AUT),Girona FC (ESP),Over,0.10638263665594838,2.03,Under,False,-1,bet365,/football/europe/champions-league-2024-2025/sturm-graz-girona/Y5f33QPb/
+ucl-2024-25-132,SK Sturm Graz (AUT),RB Leipzig (GER),Under,-0.04166666666666685,2.3,Under,True,1.2999999999999998,bet365,/football/europe/champions-league-2024-2025/sturm-graz-rb-leipzig/vaNQvJBO/
+ucl-2024-25-041,SK Sturm Graz (AUT),Sporting Clube de Portugal (POR),Under,0.137459807073955,2.5,Under,True,1.5,bet365,/football/europe/champions-league-2024-2025/sturm-graz-sporting-cp/hEcvrJcL/
+ucl-2024-25-067,VfB Stuttgart (GER),Atalanta BC (ITA),Under,0.0009646302250805316,2.2,Under,True,1.2000000000000002,bet365,/football/europe/champions-league-2024-2025/vfb-stuttgart-atalanta/WhAIszpd/
+ucl-2024-25-133,VfB Stuttgart (GER),Paris Saint-Germain FC (FRA),Over,0.17148760330578505,1.89,Over,True,0.8899999999999999,bet365,/football/europe/champions-league-2024-2025/vfb-stuttgart-psg/SWkeYAko/
+ucl-2024-25-019,VfB Stuttgart (GER),AC Sparta Praha (CZE),Under,0.2512057877813505,2.75,Under,True,1.75,bet365,/football/europe/champions-league-2024-2025/vfb-stuttgart-sparta-prague/jNxDh9Bt/
+ucl-2024-25-102,VfB Stuttgart (GER),BSC Young Boys (SUI),Under,0.45594855305466253,3.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/vfb-stuttgart-young-boys/WpvoprOp/
+ucl-2024-25-001,BSC Young Boys (SUI),Aston Villa FC (ENG),Under,0.0009646302250805316,2.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/young-boys-aston-villa/xpMC2jvC/
+ucl-2024-25-076,BSC Young Boys (SUI),Atalanta BC (ITA),Under,0.0009646302250805316,2.2,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/young-boys-atalanta/tOVwkIiM/
+ucl-2024-25-128,BSC Young Boys (SUI),FK Crvena Zvezda (SRB),Under,0.19660771704180058,2.63,Under,True,1.63,bet365,/football/europe/champions-league-2024-2025/young-boys-crvena-zvezda/GCMkemFl/
+ucl-2024-25-076,BSC Young Boys (SUI),Atalanta BC (ITA),Under,0.137459807073955,2.5,Over,False,-1,bet365,/football/europe/champions-league-2024-2025/young-boys-inter/xAslwoJM/

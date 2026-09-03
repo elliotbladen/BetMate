@@ -1,14 +1,15 @@
 {
-  "as_of_date": "2026-08-30",
+  "as_of_date": "2026-08-31",
   "audit_rows": 25,
   "clean_history": {
     "excluded_identity_source": "rnsw-authorised",
     "quarantine_reasons": {
-      "missing_or_nonpositive": 1411,
+      "missing_or_nonpositive": 89,
       "physically_implausible_average_speed_9.85mps": 1,
-      "runner_clock_too_far_from_official": 2
+      "runner_clock_too_far_from_official": 4,
+      "runner_faster_than_official_winner": 14
     },
-    "quarantined": 1414,
+    "quarantined": 108,
     "races": 2759,
     "runners": 37239
   },
@@ -30,8 +31,8 @@
       "top_pick_strike_rate": 0.13556618819776714
     },
     "v2": {
-      "mean_log_loss": 2.459544456966438,
-      "mean_race_brier": 0.9354565422177223,
+      "mean_log_loss": 2.4595232406575844,
+      "mean_race_brier": 0.9354434678102161,
       "races": 627,
       "temperature_fitted_on_2024": 15.0,
       "top_pick_strike_rate": 0.12280701754385964
@@ -69,7 +70,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Pride Of Jenni",
         "peak_rating": 124.532603808,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 14.",
@@ -80,7 +81,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Giga Kick",
         "peak_rating": 122.37305024133336,
         "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
@@ -91,7 +92,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Sir Delius",
         "peak_rating": 122.27036476266667,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
@@ -135,7 +136,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Dubai Honour",
         "peak_rating": 121.562009406,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
@@ -181,7 +182,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Pride Of Jenni",
         "peak_rating": 124.532603808,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 14.",
@@ -192,7 +193,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Giga Kick",
         "peak_rating": 122.37305024133336,
         "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
@@ -203,7 +204,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Sir Delius",
         "peak_rating": 122.27036476266667,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
@@ -247,7 +248,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Dubai Honour",
         "peak_rating": 121.562009406,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
@@ -313,7 +314,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Gringotts",
         "peak_rating": 119.82851869800001,
         "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 20.",
@@ -324,7 +325,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Autumn Glow",
         "peak_rating": 119.68296857066667,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 16.",
@@ -368,7 +369,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Think It Over",
         "peak_rating": 118.888,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 20.",
@@ -379,7 +380,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Ka Ying Rising",
         "peak_rating": 118.81920119333334,
         "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
@@ -412,7 +413,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Lindermann",
         "peak_rating": 118.58703142933334,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
@@ -434,7 +435,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Bella Nipotina",
         "peak_rating": 118.28380500133335,
         "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 12.",
@@ -467,7 +468,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Briasa",
         "peak_rating": 117.82570750200001,
         "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
@@ -489,7 +490,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Tom Kitten",
         "peak_rating": 117.74851571466667,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
@@ -511,7 +512,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "I Wish I Win",
         "peak_rating": 117.43221381066668,
         "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 18.",
@@ -533,7 +534,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Jimmysstar",
         "peak_rating": 117.248009406,
         "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
@@ -566,7 +567,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Fangirl",
         "peak_rating": 116.78062262000002,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, Fillies and Mares. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 20.",
@@ -588,7 +589,7 @@
       },
       {
         "class_family": "group_2",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Joliestar",
         "peak_rating": 116.62933333333334,
         "race_class": "Set Weights plus Penalties. Group 2. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 16.",
@@ -599,7 +600,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Royal Patronage",
         "peak_rating": 116.61369809600001,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Field limit: 14.",
@@ -610,7 +611,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Aeliana",
         "peak_rating": 116.45045285600001,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Main. Track type: Turf. Field limit: 14.",
@@ -632,7 +633,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Vauban",
         "peak_rating": 116.23138036333333,
         "race_class": "Handicap. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 18.",
@@ -654,7 +655,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Amenable",
         "peak_rating": 116.09421381066667,
         "race_class": "Standard Weight for Age. Group 1. No age restriction, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 15.",
@@ -665,7 +666,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Detonator Jack",
         "peak_rating": 116.02457857333334,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Track name: Randwick. Track type: Turf. Field limit: 16.",
@@ -698,7 +699,7 @@
       },
       {
         "class_family": "group_1",
-        "confidence": 0.8,
+        "confidence": 0.88,
         "horse_name": "Here to Shock",
         "peak_rating": 115.68869809600001,
         "race_class": "Standard Weight for Age. Group 1. Three-Years-Old and Upwards, No sex restriction. No class restriction. Apprentices cannot claim. Field limit: 14.",

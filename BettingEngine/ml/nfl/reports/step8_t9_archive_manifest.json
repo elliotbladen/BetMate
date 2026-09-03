@@ -1,0 +1,13 @@
+{
+  "status": "t9_confluence_archived_prospective_shadow",
+  "season_test_range": [2020, 2024],
+  "vault_2025_predictions": 0,
+  "decision": "freeze_discovered_rule_no_bets_no_retuning",
+  "staking_enabled": false,
+  "sha256": {
+    "step8_t9_confluence.py": "c3b239372d7fc23381cd3da3309e681a6a377983ffb14679eb1902634fe8c0ee",
+    "step8_t9_confluence.md": "f0070b397313a8bbbb0fbe4b3abd4131d5fa39f9974e5617d5e32c026e2dd497",
+    "step8_t9_confluence.json": "5e2f416222ae0a21d79afc31a73d3da7a4bc7619233af692ad1769755b758e96",
+    "step8_t9_confluence.csv": "b6118ff31411fa3ed8cbbf20e7999f435ecdb7d58f5a8ed68d633d19a1615dc1"
+  }
+}

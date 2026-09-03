@@ -127,6 +127,12 @@ T7_CFG = {
     },
 }
 TIER2_FAMILY_CFG = {}  # no explicit config sections -> production code defaults
+# Current NRL T2 policy (2026-09-02): at most 3 expected-score points per
+# team, with a further 50% reduction when T2 reinforces the T1 direction.
+T2_HOME_CAP = 3.0
+T2_AWAY_CAP = 3.0
+T2_NET_CAP = 3.0
+T2_DIRECTIONAL_CAP = True
 
 # ---------------------------------------------------------------------------
 # 188-game 2026 results (R1-R25) -> ELO input
@@ -445,11 +451,21 @@ def price_game(home, away, venue, kickoff, style_by_team, norms):
     raw_totals_t2 = (fa.get('totals_delta', 0.0) + fb.get('totals_delta', 0.0)
                      + fc.get('totals_delta', 0.0) + fd.get('totals_delta', 0.0))
     totals_t2 = max(-3.0, min(3.0, raw_totals_t2))
+    home_cap, away_cap, net_cap = T2_HOME_CAP, T2_AWAY_CAP, T2_NET_CAP
+    t2_net_raw = raw_home_t2 - raw_away_t2
+    same_direction = ((t1_home - t1_away > 0 and t2_net_raw > 0) or
+                      (t1_home - t1_away < 0 and t2_net_raw < 0))
+    if T2_DIRECTIONAL_CAP and same_direction:
+        home_cap *= 0.5
+        away_cap *= 0.5
+        net_cap *= 0.5
     scale_t2 = 1.0
-    if abs(raw_home_t2) > 4.0 and raw_home_t2 != 0.0:
-        scale_t2 = min(scale_t2, 4.0 / abs(raw_home_t2))
-    if abs(raw_away_t2) > 4.0 and raw_away_t2 != 0.0:
-        scale_t2 = min(scale_t2, 4.0 / abs(raw_away_t2))
+    if abs(raw_home_t2) > home_cap and raw_home_t2 != 0.0:
+        scale_t2 = min(scale_t2, home_cap / abs(raw_home_t2))
+    if abs(raw_away_t2) > away_cap and raw_away_t2 != 0.0:
+        scale_t2 = min(scale_t2, away_cap / abs(raw_away_t2))
+    if abs(t2_net_raw) > net_cap and t2_net_raw != 0.0:
+        scale_t2 = min(scale_t2, net_cap / abs(t2_net_raw))
     t2_home, t2_away = raw_home_t2 * scale_t2, raw_away_t2 * scale_t2
 
     h_rest = rest_days(home, kickoff)

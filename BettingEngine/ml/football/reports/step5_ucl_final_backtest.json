@@ -1,0 +1,72 @@
+{
+  "status": "complete",
+  "seasons": {
+    "2024-25": {
+      "games": 189,
+      "1x2": {
+        "games": 189,
+        "rps": 0.2279833649913597,
+        "brier": 0.5822807383995627,
+        "log_loss": 0.973762048923815,
+        "accuracy": 0.5555555555555556
+      },
+      "over25": {
+        "brier": 0.2407861391005291,
+        "mean_probability": 0.6998037037037037,
+        "actual_rate": 0.656084656084656,
+        "accuracy": 0.6137566137566137
+      },
+      "closing_1x2": {
+        "priced_matches": 171,
+        "note": "Detailed edge-band results in ucl_recent_two_season_stack_backtest.json",
+        "source_file": "data/ucl/markets/ucl_betexplorer_backtest_2024_25_date_safe.csv"
+      }
+    },
+    "2025-26": {
+      "games": 189,
+      "1x2": {
+        "games": 189,
+        "rps": 0.2154424294663504,
+        "brier": 0.5755984858099195,
+        "log_loss": 0.9664373280936196,
+        "accuracy": 0.5238095238095238
+      },
+      "over25": {
+        "brier": 0.24716592671957666,
+        "mean_probability": 0.709289417989418,
+        "actual_rate": 0.6613756613756614,
+        "accuracy": 0.6243386243386243
+      },
+      "closing_1x2": {
+        "priced_matches": 189,
+        "note": "Detailed edge-band results in ucl_recent_two_season_stack_backtest.json",
+        "source_file": "data/ucl/markets/ucl_footiqo_backtest_2025_26_date_safe.csv"
+      }
+    },
+    "combined": {
+      "games": 378,
+      "1x2": {
+        "games": 378,
+        "rps": 0.22171289722885504,
+        "brier": 0.5789396121047411,
+        "log_loss": 0.9700996885087173,
+        "accuracy": 0.5396825396825397
+      },
+      "over25": {
+        "brier": 0.2439760329100529,
+        "mean_probability": 0.7045465608465609,
+        "actual_rate": 0.6587301587301587,
+        "accuracy": 0.6190476190476191
+      }
+    }
+  },
+  "combined": {},
+  "data_quality": {
+    "xg": "mixed sensitivity track: 342 SofaScore shotmap + 36 FotMob shotmap; no goals fallback in recent set",
+    "xg_primary_matches": 342,
+    "xg_complete_sensitivity_matches": 378,
+    "closing_odds": "public bookmaker archives, coverage varies",
+    "market_features_used": false
+  },
+  "promotion_decision": "paper_only; rebuild after true xG and historical UEFA priors"
+}

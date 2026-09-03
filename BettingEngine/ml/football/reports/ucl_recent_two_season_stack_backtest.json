@@ -1,0 +1,45 @@
+{
+  "games_with_closing_prices": 360,
+  "seasons": {
+    "2024-25": {
+      "edge_10pct": {
+        "bets": 156,
+        "wins": 47,
+        "profit": 2.99,
+        "roi": 1.92
+      },
+      "edge_20pct": {
+        "bets": 137,
+        "wins": 35,
+        "profit": -19.85,
+        "roi": -14.49
+      }
+    },
+    "2025-26": {
+      "edge_10pct": {
+        "bets": 166,
+        "wins": 50,
+        "profit": 16.52,
+        "roi": 9.95
+      },
+      "edge_20pct": {
+        "bets": 137,
+        "wins": 34,
+        "profit": 3.07,
+        "roi": 2.24
+      }
+    }
+  },
+  "combined_edge_10pct": {
+    "bets": 322,
+    "wins": 97,
+    "profit": 19.51,
+    "roi": 6.06
+  },
+  "combined_edge_20pct": {
+    "bets": 274,
+    "wins": 69,
+    "profit": -16.78,
+    "roi": -6.12
+  }
+}

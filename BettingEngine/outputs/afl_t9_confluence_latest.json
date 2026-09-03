@@ -1,89 +1,64 @@
 {
   "season": 2026,
-  "round": 23,
-  "generated_at": "2026-08-12T19:40:45.027502",
+  "round": 25,
+  "generated_at": "2026-09-02T11:13:47.102733",
   "games": [
     {
       "home": "Fremantle Dockers",
-      "away": "Adelaide Crows",
+      "away": "Hawthorn Hawks",
       "confluence": {
         "h2h_AWAY_WIN": {
           "count": 5,
           "edges": [
-            {
-              "edge_pct": 8.8,
-              "row": "Win % \u2014 Home",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 16.0,
-              "row": "Night Games (kick-off \u2265 18:00)",
-              "team": "Fremantle Dockers"
-            },
             {
               "edge_pct": 36.2,
               "row": "Thursday / Friday Games",
               "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 8.9,
-              "row": "August",
+              "edge_pct": 33.4,
+              "row": "Long Rest / Bye (\u2265 10 days)",
               "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 7.6,
-              "row": "Optus Stadium",
+              "edge_pct": 38.7,
+              "row": "September",
               "team": "Fremantle Dockers"
+            },
+            {
+              "edge_pct": 20.7,
+              "row": "Thursday / Friday Games",
+              "team": "Hawthorn Hawks"
+            },
+            {
+              "edge_pct": 25.8,
+              "row": "September",
+              "team": "Hawthorn Hawks"
             }
           ]
         },
         "h2h_HOME_WIN": {
-          "count": 8,
+          "count": 3,
           "edges": [
             {
-              "edge_pct": 45.3,
-              "row": "vs Adelaide",
+              "edge_pct": 26.2,
+              "row": "vs Hawthorn",
               "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 20.2,
-              "row": "Win % \u2014 Away",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 13.0,
-              "row": "Night Games (kick-off \u2265 18:00)",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 31.6,
-              "row": "Thursday / Friday Games",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 14.0,
-              "row": "Short Rest (\u2264 6 days)",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 10.6,
-              "row": "After a Win",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 52.3,
+              "edge_pct": 51.2,
               "row": "vs Fremantle",
-              "team": "Adelaide Crows"
+              "team": "Hawthorn Hawks"
             },
             {
-              "edge_pct": 8.7,
+              "edge_pct": 35.9,
               "row": "Optus Stadium",
-              "team": "Adelaide Crows"
+              "team": "Hawthorn Hawks"
             }
           ]
         },
         "totals_UNDERS": {
-          "count": 6,
+          "count": 4,
           "edges": [
             {
               "edge_pct": 6.9,
@@ -96,1080 +71,94 @@
               "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 10.3,
-              "row": "vs Adelaide",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 5.8,
-              "row": "Thursday / Friday Games",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 10.3,
-              "row": "vs Fremantle",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 7.0,
-              "row": "Optus Stadium",
-              "team": "Adelaide Crows"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
-          "count": 5,
-          "edges": [
-            {
-              "edge_pct": 8.4,
-              "row": "Cover Rate \u2014 Home",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 7.6,
-              "row": "Thursday / Friday Games",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 5.8,
-              "row": "Optus Stadium",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 13.6,
-              "row": "Cover Rate \u2014 Away",
-              "team": "Adelaide Crows"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 8,
-          "edges": [
-            {
-              "edge_pct": 7.2,
-              "row": "Short Rest (\u2264 6 days)",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 18.0,
-              "row": "After a Loss",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 50.0,
-              "row": "vs Adelaide",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 14.2,
-              "row": "Night Games (kick-off \u2265 18:00)",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 25.0,
-              "row": "Thursday / Friday Games",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 50.0,
-              "row": "vs Fremantle",
-              "team": "Adelaide Crows"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "Optus Stadium",
-              "team": "Adelaide Crows"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Richmond Tigers",
-      "away": "St Kilda Saints",
-      "confluence": {
-        "h2h_AWAY_WIN": {
-          "count": 9,
-          "edges": [
-            {
-              "edge_pct": 34.8,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 9.2,
-              "row": "Saturday Games",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 22.1,
-              "row": "After a Loss",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 33.9,
-              "row": "August",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 62.4,
-              "row": "vs St Kilda",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 6.8,
-              "row": "MCG",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "Short Rest (\u2264 6 days)",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 12.2,
-              "row": "August",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 29.8,
-              "row": "vs Richmond",
-              "team": "St Kilda Saints"
-            }
-          ]
-        },
-        "totals_UNDERS": {
-          "count": 6,
-          "edges": [
-            {
-              "edge_pct": 5.3,
-              "row": "vs St Kilda",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 5.2,
-              "row": "Total Points \u2014 Away",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 7.3,
-              "row": "Saturday Games",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 6.1,
-              "row": "After a Loss",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 7.6,
-              "row": "August",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 5.3,
-              "row": "vs Richmond",
-              "team": "St Kilda Saints"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
-          "count": 7,
-          "edges": [
-            {
-              "edge_pct": 34.6,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 18.0,
-              "row": "After a Loss",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "August",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 14.2,
-              "row": "vs St Kilda",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 14.8,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 6.4,
-              "row": "After a Loss",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 14.2,
-              "row": "vs Richmond",
-              "team": "St Kilda Saints"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 9.4,
-              "row": "MCG",
-              "team": "Richmond Tigers"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "St Kilda Saints"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "MCG",
-              "team": "St Kilda Saints"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "North Melbourne Kangaroos",
-      "away": "Geelong Cats",
-      "confluence": {
-        "h2h_AWAY_WIN": {
-          "count": 8,
-          "edges": [
-            {
-              "edge_pct": 24.0,
-              "row": "Win % \u2014 Home",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 28.0,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 21.6,
-              "row": "Saturday Games",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 66.4,
-              "row": "After a Win",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 20.6,
-              "row": "August",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 100.0,
-              "row": "vs Geelong",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 36.0,
-              "row": "Marvel Stadium",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 9.5,
-              "row": "vs North Melbourne",
-              "team": "Geelong Cats"
-            }
-          ]
-        },
-        "totals_OVERS": {
-          "count": 5,
-          "edges": [
-            {
-              "edge_pct": 9.3,
-              "row": "After a Win",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 9.0,
-              "row": "August",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 9.0,
-              "row": "vs Geelong",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 8.5,
-              "row": "August",
-              "team": "Geelong Cats"
-            },
-            {
-              "edge_pct": 9.0,
-              "row": "vs North Melbourne",
-              "team": "Geelong Cats"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
-          "count": 8,
-          "edges": [
-            {
-              "edge_pct": 6.2,
-              "row": "Saturday Games",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 7.6,
-              "row": "After a Win",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 100.0,
-              "row": "vs Geelong",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 6.4,
-              "row": "Cover Rate \u2014 Away",
-              "team": "Geelong Cats"
-            },
-            {
-              "edge_pct": 13.8,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Geelong Cats"
-            },
-            {
-              "edge_pct": 19.2,
-              "row": "Saturday Games",
-              "team": "Geelong Cats"
-            },
-            {
-              "edge_pct": 15.2,
-              "row": "After a Win",
-              "team": "Geelong Cats"
-            },
-            {
-              "edge_pct": 100.0,
-              "row": "vs North Melbourne",
-              "team": "Geelong Cats"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 4,
-          "edges": [
-            {
-              "edge_pct": 33.4,
-              "row": "August",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 17.0,
-              "row": "Marvel Stadium",
-              "team": "North Melbourne Kangaroos"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "Geelong Cats"
-            },
-            {
-              "edge_pct": 14.2,
-              "row": "Marvel Stadium",
-              "team": "Geelong Cats"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Brisbane Lions",
-      "away": "Gold Coast Suns",
-      "confluence": {
-        "h2h_HOME_WIN": {
-          "count": 11,
-          "edges": [
-            {
-              "edge_pct": 5.2,
-              "row": "Win % \u2014 Home",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 12.6,
-              "row": "Saturday Games",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 11.4,
-              "row": "August",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 11.1,
-              "row": "vs Gold Coast",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 38.9,
-              "row": "Win % \u2014 Away",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 5.6,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 9.4,
-              "row": "Saturday Games",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 10.1,
-              "row": "Short Rest (\u2264 6 days)",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 24.5,
-              "row": "After a Win",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 39.6,
-              "row": "August",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 34.7,
-              "row": "vs Brisbane",
-              "team": "Gold Coast Suns"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
-          "count": 4,
-          "edges": [
-            {
-              "edge_pct": 5.8,
-              "row": "Cover Rate \u2014 Home",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 13.8,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 7.2,
-              "row": "Short Rest (\u2264 6 days)",
-              "team": "Gold Coast Suns"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 7,
-          "edges": [
-            {
-              "edge_pct": 18.4,
-              "row": "Saturday Games",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 5.6,
-              "row": "After a Win",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "vs Gold Coast",
-              "team": "Brisbane Lions"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "Cover Rate \u2014 Away",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 21.8,
-              "row": "After a Win",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 25.0,
-              "row": "August",
-              "team": "Gold Coast Suns"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "vs Brisbane",
-              "team": "Gold Coast Suns"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Hawthorn Hawks",
-      "away": "Collingwood Magpies",
-      "confluence": {
-        "h2h_HOME_WIN": {
-          "count": 6,
-          "edges": [
-            {
-              "edge_pct": 25.5,
-              "row": "Win % \u2014 Home",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 7.3,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 12.7,
-              "row": "Saturday Games",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 8.8,
-              "row": "August",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 35.9,
-              "row": "vs Collingwood",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 25.6,
-              "row": "vs Hawthorn",
-              "team": "Collingwood Magpies"
-            }
-          ]
-        },
-        "h2h_AWAY_WIN": {
-          "count": 4,
-          "edges": [
-            {
               "edge_pct": 7.4,
-              "row": "Win % \u2014 Away",
-              "team": "Collingwood Magpies"
+              "row": "September",
+              "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 14.1,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Collingwood Magpies"
-            },
-            {
-              "edge_pct": 14.0,
-              "row": "After a Win",
-              "team": "Collingwood Magpies"
-            },
-            {
-              "edge_pct": 12.6,
-              "row": "MCG",
-              "team": "Collingwood Magpies"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 10,
-          "edges": [
-            {
-              "edge_pct": 22.8,
-              "row": "Cover Rate \u2014 Home",
+              "edge_pct": 5.0,
+              "row": "Optus Stadium",
               "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 22.2,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 25.0,
-              "row": "Saturday Games",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 8.4,
-              "row": "After a Loss",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "August",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 66.6,
-              "row": "vs Collingwood",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 7.6,
-              "row": "MCG",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 13.8,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Collingwood Magpies"
-            },
-            {
-              "edge_pct": 66.6,
-              "row": "vs Hawthorn",
-              "team": "Collingwood Magpies"
-            },
-            {
-              "edge_pct": 8.0,
-              "row": "MCG",
-              "team": "Collingwood Magpies"
             }
           ]
         },
         "handicap_AWAY_COVERS": {
-          "count": 4,
-          "edges": [
-            {
-              "edge_pct": 10.6,
-              "row": "Cover Rate \u2014 Away",
-              "team": "Collingwood Magpies"
-            },
-            {
-              "edge_pct": 5.8,
-              "row": "Saturday Games",
-              "team": "Collingwood Magpies"
-            },
-            {
-              "edge_pct": 5.8,
-              "row": "Short Rest (\u2264 6 days)",
-              "team": "Collingwood Magpies"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "Collingwood Magpies"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Port Adelaide Power",
-      "away": "Melbourne Demons",
-      "confluence": {
-        "h2h_HOME_WIN": {
-          "count": 9,
-          "edges": [
-            {
-              "edge_pct": 5.9,
-              "row": "Win % \u2014 Home",
-              "team": "Port Adelaide Power"
-            },
-            {
-              "edge_pct": 31.0,
-              "row": "August",
-              "team": "Port Adelaide Power"
-            },
-            {
-              "edge_pct": 19.9,
-              "row": "Win % \u2014 Away",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 10.4,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 7.7,
-              "row": "Saturday Games",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 10.4,
-              "row": "After a Win",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 13.2,
-              "row": "August",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 6.5,
-              "row": "vs Port Adelaide",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 22.9,
-              "row": "Adelaide Oval",
-              "team": "Melbourne Demons"
-            }
-          ]
-        },
-        "totals_UNDERS": {
           "count": 3,
           "edges": [
-            {
-              "edge_pct": 11.8,
-              "row": "vs Melbourne",
-              "team": "Port Adelaide Power"
-            },
-            {
-              "edge_pct": 11.8,
-              "row": "vs Port Adelaide",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 5.6,
-              "row": "Adelaide Oval",
-              "team": "Melbourne Demons"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
-          "count": 6,
-          "edges": [
-            {
-              "edge_pct": 8.6,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Port Adelaide Power"
-            },
-            {
-              "edge_pct": 11.6,
-              "row": "Saturday Games",
-              "team": "Port Adelaide Power"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "vs Melbourne",
-              "team": "Port Adelaide Power"
-            },
-            {
-              "edge_pct": 8.4,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "vs Port Adelaide",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 11.2,
-              "row": "Adelaide Oval",
-              "team": "Melbourne Demons"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 4,
-          "edges": [
-            {
-              "edge_pct": 33.4,
-              "row": "August",
-              "team": "Port Adelaide Power"
-            },
-            {
-              "edge_pct": 6.4,
-              "row": "Cover Rate \u2014 Away",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 5.8,
-              "row": "Saturday Games",
-              "team": "Melbourne Demons"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "Melbourne Demons"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Greater Western Sydney Giants",
-      "away": "West Coast Eagles",
-      "confluence": {
-        "h2h_HOME_WIN": {
-          "count": 8,
-          "edges": [
-            {
-              "edge_pct": 6.8,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Greater Western Sydney Giants"
-            },
-            {
-              "edge_pct": 10.8,
-              "row": "Sunday Games",
-              "team": "Greater Western Sydney Giants"
-            },
-            {
-              "edge_pct": 26.3,
-              "row": "August",
-              "team": "Greater Western Sydney Giants"
-            },
-            {
-              "edge_pct": 56.7,
-              "row": "Win % \u2014 Away",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 50.5,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 41.8,
-              "row": "Sunday Games",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 44.9,
-              "row": "After a Loss",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 11.9,
-              "row": "vs GWS Giants",
-              "team": "West Coast Eagles"
-            }
-          ]
-        },
-        "totals_OVERS": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 5.2,
-              "row": "August",
-              "team": "Greater Western Sydney Giants"
-            },
-            {
-              "edge_pct": 5.9,
-              "row": "vs West Coast",
-              "team": "Greater Western Sydney Giants"
-            },
-            {
-              "edge_pct": 5.9,
-              "row": "vs GWS Giants",
-              "team": "West Coast Eagles"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 10,
-          "edges": [
-            {
-              "edge_pct": 17.6,
-              "row": "Sunday Games",
-              "team": "Greater Western Sydney Giants"
-            },
-            {
-              "edge_pct": 9.0,
-              "row": "After a Loss",
-              "team": "Greater Western Sydney Giants"
-            },
-            {
-              "edge_pct": 14.2,
-              "row": "August",
-              "team": "Greater Western Sydney Giants"
-            },
             {
               "edge_pct": 60.0,
-              "row": "vs West Coast",
-              "team": "Greater Western Sydney Giants"
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 8.6,
-              "row": "Cover Rate \u2014 Away",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 19.4,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 10.6,
-              "row": "Sunday Games",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 14.0,
-              "row": "After a Loss",
-              "team": "West Coast Eagles"
+              "edge_pct": 33.4,
+              "row": "September",
+              "team": "Fremantle Dockers"
             },
             {
               "edge_pct": 20.0,
-              "row": "August",
-              "team": "West Coast Eagles"
-            },
-            {
-              "edge_pct": 60.0,
-              "row": "vs GWS Giants",
-              "team": "West Coast Eagles"
+              "row": "September",
+              "team": "Hawthorn Hawks"
             }
           ]
         }
       }
     },
     {
-      "home": "Western Bulldogs",
+      "home": "Geelong Cats",
       "away": "Carlton Blues",
       "confluence": {
         "h2h_AWAY_WIN": {
-          "count": 5,
+          "count": 3,
           "edges": [
             {
-              "edge_pct": 17.2,
-              "row": "Win % \u2014 Home",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 9.2,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 14.0,
-              "row": "Sunday Games",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 17.4,
-              "row": "Long Rest / Bye (\u2265 10 days)",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 16.1,
-              "row": "August",
-              "team": "Western Bulldogs"
-            }
-          ]
-        },
-        "h2h_HOME_WIN": {
-          "count": 5,
-          "edges": [
-            {
-              "edge_pct": 44.5,
+              "edge_pct": 31.3,
               "row": "vs Carlton",
-              "team": "Western Bulldogs"
+              "team": "Geelong Cats"
             },
             {
-              "edge_pct": 8.6,
-              "row": "Win % \u2014 Away",
+              "edge_pct": 21.7,
+              "row": "September",
               "team": "Carlton Blues"
             },
             {
-              "edge_pct": 17.5,
-              "row": "August",
-              "team": "Carlton Blues"
-            },
-            {
-              "edge_pct": 52.2,
-              "row": "vs Western Bulldogs",
-              "team": "Carlton Blues"
-            },
-            {
-              "edge_pct": 11.1,
-              "row": "Marvel Stadium",
+              "edge_pct": 31.0,
+              "row": "vs Geelong",
               "team": "Carlton Blues"
             }
           ]
         },
-        "handicap_HOME_COVERS": {
-          "count": 7,
-          "edges": [
-            {
-              "edge_pct": 6.4,
-              "row": "Cover Rate \u2014 Home",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 5.2,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 5.2,
-              "row": "Sunday Games",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "After a Loss",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 50.0,
-              "row": "vs Carlton",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 16.6,
-              "row": "Marvel Stadium",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 50.0,
-              "row": "vs Western Bulldogs",
-              "team": "Carlton Blues"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
+        "totals_OVERS": {
           "count": 6,
           "edges": [
             {
-              "edge_pct": 45.4,
+              "edge_pct": 8.4,
+              "row": "Thursday / Friday Games",
+              "team": "Geelong Cats"
+            },
+            {
+              "edge_pct": 7.3,
               "row": "Long Rest / Bye (\u2265 10 days)",
-              "team": "Western Bulldogs"
+              "team": "Geelong Cats"
             },
             {
-              "edge_pct": 6.2,
-              "row": "Cover Rate \u2014 Away",
-              "team": "Carlton Blues"
+              "edge_pct": 9.4,
+              "row": "September",
+              "team": "Geelong Cats"
             },
             {
-              "edge_pct": 17.4,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Carlton Blues"
+              "edge_pct": 9.5,
+              "row": "vs Carlton",
+              "team": "Geelong Cats"
             },
             {
-              "edge_pct": 14.2,
-              "row": "Sunday Games",
-              "team": "Carlton Blues"
+              "edge_pct": 10.0,
+              "row": "MCG",
+              "team": "Geelong Cats"
             },
             {
-              "edge_pct": 33.4,
-              "row": "August",
-              "team": "Carlton Blues"
-            },
-            {
-              "edge_pct": 10.4,
-              "row": "Marvel Stadium",
+              "edge_pct": 9.5,
+              "row": "vs Geelong",
               "team": "Carlton Blues"
             }
           ]
@@ -1177,146 +166,97 @@
       }
     },
     {
-      "home": "Essendon Bombers",
-      "away": "Sydney Swans",
+      "home": "Sydney Swans",
+      "away": "Brisbane Lions",
       "confluence": {
-        "h2h_HOME_WIN": {
-          "count": 4,
-          "edges": [
-            {
-              "edge_pct": 5.8,
-              "row": "Sunday Games",
-              "team": "Essendon Bombers"
-            },
-            {
-              "edge_pct": 9.5,
-              "row": "Day Games (kick-off < 18:00)",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 23.0,
-              "row": "Sunday Games",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 29.7,
-              "row": "MCG",
-              "team": "Sydney Swans"
-            }
-          ]
-        },
         "h2h_AWAY_WIN": {
-          "count": 7,
+          "count": 3,
           "edges": [
             {
-              "edge_pct": 9.2,
-              "row": "After a Loss",
-              "team": "Essendon Bombers"
+              "edge_pct": 60.9,
+              "row": "vs Brisbane",
+              "team": "Sydney Swans"
             },
             {
-              "edge_pct": 51.2,
-              "row": "August",
-              "team": "Essendon Bombers"
+              "edge_pct": 57.5,
+              "row": "September",
+              "team": "Brisbane Lions"
             },
             {
-              "edge_pct": 10.3,
+              "edge_pct": 36.1,
               "row": "vs Sydney",
-              "team": "Essendon Bombers"
-            },
-            {
-              "edge_pct": 33.1,
-              "row": "MCG",
-              "team": "Essendon Bombers"
-            },
-            {
-              "edge_pct": 7.3,
-              "row": "Win % \u2014 Away",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 8.2,
-              "row": "After a Win",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 27.2,
-              "row": "August",
-              "team": "Sydney Swans"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
-          "count": 7,
-          "edges": [
-            {
-              "edge_pct": 15.6,
-              "row": "Cover Rate \u2014 Home",
-              "team": "Essendon Bombers"
-            },
-            {
-              "edge_pct": 16.4,
-              "row": "After a Loss",
-              "team": "Essendon Bombers"
-            },
-            {
-              "edge_pct": 37.6,
-              "row": "August",
-              "team": "Essendon Bombers"
-            },
-            {
-              "edge_pct": 25.0,
-              "row": "MCG",
-              "team": "Essendon Bombers"
-            },
-            {
-              "edge_pct": 8.0,
-              "row": "Cover Rate \u2014 Away",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 13.4,
-              "row": "After a Win",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 6.6,
-              "row": "August",
-              "team": "Sydney Swans"
+              "team": "Brisbane Lions"
             }
           ]
         },
         "handicap_HOME_COVERS": {
-          "count": 6,
+          "count": 3,
           "edges": [
             {
-              "edge_pct": 13.0,
-              "row": "Sunday Games",
-              "team": "Essendon Bombers"
+              "edge_pct": 33.4,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Sydney Swans"
             },
             {
-              "edge_pct": 14.2,
+              "edge_pct": 33.4,
+              "row": "vs Brisbane",
+              "team": "Sydney Swans"
+            },
+            {
+              "edge_pct": 33.4,
               "row": "vs Sydney",
-              "team": "Essendon Bombers"
+              "team": "Brisbane Lions"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "home": "Adelaide Crows",
+      "away": "Western Bulldogs",
+      "confluence": {
+        "h2h_HOME_WIN": {
+          "count": 3,
+          "edges": [
+            {
+              "edge_pct": 116.1,
+              "row": "vs Western Bulldogs",
+              "team": "Adelaide Crows"
             },
             {
-              "edge_pct": 10.8,
+              "edge_pct": 64.1,
+              "row": "vs Adelaide",
+              "team": "Western Bulldogs"
+            },
+            {
+              "edge_pct": 100.0,
+              "row": "Adelaide Oval",
+              "team": "Western Bulldogs"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 4,
+          "edges": [
+            {
+              "edge_pct": 20.6,
               "row": "Day Games (kick-off < 18:00)",
-              "team": "Sydney Swans"
+              "team": "Adelaide Crows"
             },
             {
-              "edge_pct": 21.8,
-              "row": "Sunday Games",
-              "team": "Sydney Swans"
+              "edge_pct": 50.0,
+              "row": "vs Western Bulldogs",
+              "team": "Adelaide Crows"
             },
             {
-              "edge_pct": 14.2,
-              "row": "vs Essendon",
-              "team": "Sydney Swans"
+              "edge_pct": 50.0,
+              "row": "vs Adelaide",
+              "team": "Western Bulldogs"
             },
             {
-              "edge_pct": 14.2,
-              "row": "MCG",
-              "team": "Sydney Swans"
+              "edge_pct": 100.0,
+              "row": "Adelaide Oval",
+              "team": "Western Bulldogs"
             }
           ]
         }

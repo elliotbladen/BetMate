@@ -1,0 +1,92 @@
+{
+  "status": "t6_observed_weather_oracle_only",
+  "games": 1599,
+  "test_seasons": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "vault_2025_predictions": 0,
+  "features": [
+    "open_air",
+    "weather_available",
+    "wind_mph_open_air",
+    "wind_squared_scaled",
+    "wind_15_plus",
+    "wind_20_plus",
+    "temperature_deviation_60",
+    "freezing_or_below",
+    "hot_80_plus"
+  ],
+  "metrics": {
+    "t1_core": {
+      "games": 1599,
+      "mae": 10.766788277585729,
+      "rmse": 13.625212611482361
+    },
+    "t1_plus_t6_oracle": {
+      "games": 1599,
+      "mae": 10.72369517608117,
+      "rmse": 13.538330107090397
+    },
+    "t1_plus_shuffled_t6": {
+      "games": 1599,
+      "mae": 10.840712718329554,
+      "rmse": 13.702097950510122
+    }
+  },
+  "to_closing_total": {
+    "t1_core": {
+      "games": 1595,
+      "mae": 2.6864683519827395,
+      "rmse": 3.3779833812843676
+    },
+    "t1_plus_t6_oracle": {
+      "games": 1595,
+      "mae": 2.7358273658333436,
+      "rmse": 3.3791200569704745
+    },
+    "t1_plus_shuffled_t6": {
+      "games": 1595,
+      "mae": 2.806831810037078,
+      "rmse": 3.5233411535314887
+    }
+  },
+  "stability": {
+    "t1_core": {
+      "overall_mae_gain_vs_t1": 0.0,
+      "seasons_better_than_t1": 0,
+      "seasons_tested": 6,
+      "worst_season_gain": 0.0,
+      "best_season_gain": 0.0
+    },
+    "t1_plus_t6_oracle": {
+      "overall_mae_gain_vs_t1": 0.04309310150455836,
+      "seasons_better_than_t1": 4,
+      "seasons_tested": 6,
+      "worst_season_gain": -0.07177711028234413,
+      "best_season_gain": 0.15619577050116717
+    },
+    "t1_plus_shuffled_t6": {
+      "overall_mae_gain_vs_t1": -0.07392444074382531,
+      "seasons_better_than_t1": 1,
+      "seasons_tested": 6,
+      "worst_season_gain": -0.16779458935550196,
+      "best_season_gain": 0.005122756283705954
+    }
+  },
+  "coverage": {
+    "open_air_games": 1111,
+    "open_air_weather": 0.8604860486048604
+  },
+  "restrictions": [
+    "observed weather is not a timestamped forecast",
+    "oracle cannot price live games",
+    "missing weather has a separate availability flag",
+    "totals only",
+    "staking disabled"
+  ]
+}

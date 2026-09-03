@@ -1,0 +1,177 @@
+{
+  "status": "2025_vault_opened_and_permanently_scored",
+  "scored_at_utc": "2026-08-30T21:10:40.057767+00:00",
+  "prediction_sha256": "c3d238f94f43223b6f15f6b61237be43ba2d6587ec48c6eeea831dfdab2d8009",
+  "games": 272,
+  "training_through": 2024,
+  "retuning_after_vault": false,
+  "staking_enabled": false,
+  "margin": {
+    "ridge": {
+      "games": 272,
+      "mae": 10.162420156279284,
+      "rmse": 12.978027095703213
+    },
+    "personnel_oracle_shadow": {
+      "games": 272,
+      "mae": 10.34331088509056,
+      "rmse": 13.062900413618774
+    },
+    "shallow_tree_shadow": {
+      "games": 272,
+      "mae": 10.136753942412255,
+      "rmse": 13.014089818376585
+    },
+    "opening_spread": {
+      "games": 253,
+      "mae": 9.74703557312253,
+      "rmse": 12.350929298860654
+    },
+    "closing_spread": {
+      "games": 190,
+      "mae": 9.76842105263158,
+      "rmse": 12.135528527080266
+    }
+  },
+  "total": {
+    "ridge": {
+      "games": 272,
+      "mae": 10.608570890975553,
+      "rmse": 13.38727658863516
+    },
+    "shallow_tree_shadow": {
+      "games": 272,
+      "mae": 10.687765778991775,
+      "rmse": 13.500093141610725
+    },
+    "opening_total": {
+      "games": 253,
+      "mae": 10.604743083003953,
+      "rmse": 13.72686699397775
+    },
+    "closing_total": {
+      "games": 253,
+      "mae": 10.517786561264822,
+      "rmse": 13.65874316407386
+    }
+  },
+  "h2h": {
+    "margin_derived": {
+      "games": 272,
+      "brier": 0.2229901517574755,
+      "log_loss": 0.6361769302401297,
+      "accuracy": 0.6580882352941176
+    },
+    "direct_calibrated_shadow": {
+      "games": 272,
+      "brier": 0.22817821118765966,
+      "log_loss": 0.6485447803078894,
+      "accuracy": 0.6176470588235294
+    },
+    "closing_market": {
+      "games": 253,
+      "brier": 0.20838145643060724,
+      "log_loss": 0.6014497065446424,
+      "accuracy": 0.6719367588932806
+    }
+  },
+  "tree_vs_open_to_close": {
+    "games": 190,
+    "wins": 49,
+    "pushes": 24,
+    "losses": 117,
+    "win_rate_ex_pushes": 0.29518072289156627,
+    "mean_improvement_points": -0.9928972740444107,
+    "mean_clv_points": 0.48947368421052634,
+    "model_rmse_to_close": 3.753987627221949,
+    "opener_rmse_to_close": 2.862645077914002
+  },
+  "synthetic_opening_spread_bets": {
+    "ridge": [
+      {
+        "threshold_points": 0.0,
+        "bets": 253,
+        "wins": 131,
+        "losses": 122,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5177865612648221,
+        "synthetic_roi_at_minus_110": -0.011498383039885006,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      },
+      {
+        "threshold_points": 1.0,
+        "bets": 202,
+        "wins": 107,
+        "losses": 95,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5297029702970297,
+        "synthetic_roi_at_minus_110": 0.01125112511251122,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      },
+      {
+        "threshold_points": 2.0,
+        "bets": 148,
+        "wins": 79,
+        "losses": 69,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5337837837837838,
+        "synthetic_roi_at_minus_110": 0.01904176904176901,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      },
+      {
+        "threshold_points": 3.0,
+        "bets": 103,
+        "wins": 56,
+        "losses": 47,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5436893203883495,
+        "synthetic_roi_at_minus_110": 0.03795233892321268,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      }
+    ],
+    "tree_shadow": [
+      {
+        "threshold_points": 0.0,
+        "bets": 253,
+        "wins": 125,
+        "losses": 128,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.49407114624505927,
+        "synthetic_roi_at_minus_110": -0.056773266259432305,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      },
+      {
+        "threshold_points": 1.0,
+        "bets": 195,
+        "wins": 99,
+        "losses": 96,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5076923076923077,
+        "synthetic_roi_at_minus_110": -0.03076923076923077,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      },
+      {
+        "threshold_points": 2.0,
+        "bets": 144,
+        "wins": 74,
+        "losses": 70,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5138888888888888,
+        "synthetic_roi_at_minus_110": -0.018939393939393985,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      },
+      {
+        "threshold_points": 3.0,
+        "bets": 103,
+        "wins": 55,
+        "losses": 48,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5339805825242718,
+        "synthetic_roi_at_minus_110": 0.019417475728155338,
+        "warning": "synthetic only; exact bookmaker spread prices were not archived"
+      }
+    ]
+  },
+  "opening_line_warning": "Historical opener audit is incomplete. Betting ROI assumes -110 and is diagnostic only, not evidence of an obtainable historical return.",
+  "permanent_decision": "record_result_without_model_tuning"
+}

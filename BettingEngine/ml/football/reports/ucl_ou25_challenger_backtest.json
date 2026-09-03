@@ -1,0 +1,36 @@
+{
+  "model": "direct logistic on strictly pre-match rolling xG; 35% model/65% market blend",
+  "training": "2024-25",
+  "test": "2025-26",
+  "coverage": 189,
+  "brier_model": 0.22765,
+  "brier_final": 0.21478,
+  "brier_market": 0.21247,
+  "actual_over_rate": 0.66138,
+  "edge_bands": {
+    "0.05": {
+      "bets": 40,
+      "wins": 21,
+      "profit": 1.88,
+      "roi": 4.7
+    },
+    "0.1": {
+      "bets": 3,
+      "wins": 1,
+      "profit": -0.81,
+      "roi": -27.0
+    },
+    "0.15": {
+      "bets": 0,
+      "wins": 0,
+      "profit": 0.0,
+      "roi": null
+    },
+    "0.2": {
+      "bets": 0,
+      "wins": 0,
+      "profit": 0.0,
+      "roi": null
+    }
+  }
+}

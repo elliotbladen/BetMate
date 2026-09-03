@@ -1,0 +1,12 @@
+{
+  "status": "nfl_promotion_ledger_archived_empty",
+  "predictions": 0,
+  "promotion_allowed": false,
+  "staking_enabled": false,
+  "sha256": {
+    "step12_promotion_ledger.py": "a09e28a42fce1dcbd1119d7e84cb498eee3b743c1e667a8eb824c66e05ee7959",
+    "step12_promotion_ledger.md": "cba4b7aba14f229dd81aa3fbbeb004940e43d8d6ec3ea9b03755c67f711e7dda",
+    "step12_promotion_status.json": "37ca53fb684bf47ec2a1338289fae6f25d244f5ff5633f2ed090fc2bcd872c23",
+    "prospective_promotion_ledger.csv": "501749fff62ae99bfb3ebbad3c231d7eee818834865980b2c25e5850f6e04682"
+  }
+}

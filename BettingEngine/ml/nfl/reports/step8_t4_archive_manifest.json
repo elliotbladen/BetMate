@@ -1,0 +1,17 @@
+{
+  "status": "t4a_venue_study_archived",
+  "season_test_range": [2019, 2024],
+  "games": 1599,
+  "vault_2025_predictions": 0,
+  "decision": {
+    "margin": "rejected",
+    "total": "shadow_only",
+    "travel": "not_tested_missing_geography"
+  },
+  "sha256": {
+    "step8_t4_venue.py": "64a84087acf3b44a3706faf66dcf6e0fc5714cf9b4228b5f4ce8e4afd9a2d4da",
+    "step8_t4_venue.md": "1855bf56199e536526456a5ca7ae4e162ec8a9ccded68d6c1a484fca3e07cf84",
+    "step8_t4_venue.json": "15dd8742b6e4faea163b4fe85701039a5a901ecffbd0b9950a3b9c9c19b06cf1",
+    "step8_t4_venue_ablations.csv": "d74097c892b217e6734dc8380d207938a6e3b04b3b2f903e09d87c0e54a996e4"
+  }
+}

@@ -1179,18 +1179,22 @@ def price_match(conn, match_row, tier2_cfg, tiers_cfg, origin_data=None) -> dict
                      + fc.get('totals_delta', 0.0) + fd.get('totals_delta', 0.0))
     totals_T2 = round(max(-3.0, min(3.0, raw_totals_T2)), 3)
 
-    cap_t2 = float(tier2_cfg.get('max_home_points_delta', 1.0))
+    cap_t2 = float(tier2_cfg.get('max_home_points_delta', 3.0))
+    net_cap_t2 = float(tier2_cfg.get('max_net_handicap_delta', 3.0))
     # Directional cap: if T2 net goes same direction as T1 margin,
     # halve the cap to avoid doubling up on the ELO signal.
     t2_net_raw = raw_home_t2 - raw_away_t2
     t2_same_dir_as_t1 = (t1_mrg > 0 and t2_net_raw > 0) or (t1_mrg < 0 and t2_net_raw < 0)
     if t2_same_dir_as_t1:
         cap_t2 = cap_t2 * 0.5  # halve cap when amplifying T1
+        net_cap_t2 = net_cap_t2 * 0.5
     scale_t2 = 1.0
     if abs(raw_home_t2) > cap_t2 and raw_home_t2 != 0.0:
         scale_t2 = min(scale_t2, cap_t2 / abs(raw_home_t2))
     if abs(raw_away_t2) > cap_t2 and raw_away_t2 != 0.0:
         scale_t2 = min(scale_t2, cap_t2 / abs(raw_away_t2))
+    if abs(t2_net_raw) > net_cap_t2 and t2_net_raw != 0.0:
+        scale_t2 = min(scale_t2, net_cap_t2 / abs(t2_net_raw))
     t2_capped_home = round(raw_home_t2 * scale_t2, 3)
     t2_capped_away = round(raw_away_t2 * scale_t2, 3)
 

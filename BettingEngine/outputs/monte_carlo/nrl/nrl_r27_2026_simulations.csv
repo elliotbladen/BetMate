@@ -1,0 +1,9 @@
+season,round,home,away,model_margin,model_total,simulations,seed,calibration_games,margin_error_sd,total_error_sd,error_correlation,rotation_uncertainty,home_win_probability,away_win_probability,mc_fair_home_odds,mc_fair_away_odds,margin_p10,margin_p50,margin_p90,total_p10,total_p50,total_p90,home_score_p20,home_score_p80,away_score_p20,away_score_p80
+2026,27,Canterbury-Bankstown Bulldogs,Brisbane Broncos,9.9,42.61,100000,27092026,24,21.937,15.316,0.155,False,0.6761,0.3239,1.479,3.088,-17.8,10.0,36.6,24.7,43.1,62.3,14.0,38.0,6.0,27.0
+2026,27,Gold Coast Titans,Dolphins,-8.01,45.9,100000,27092026,24,21.937,15.316,0.155,False,0.3592,0.6408,2.784,1.561,-34.2,-7.9,20.0,28.0,46.3,65.6,7.0,31.0,17.0,37.0
+2026,27,South Sydney Rabbitohs,Sydney Roosters,2.8,45.17,100000,27092026,24,25.228,17.614,0.155,True,0.5439,0.4561,1.839,2.193,-28.0,2.8,34.0,24.9,45.8,67.8,10.0,38.0,9.0,33.0
+2026,27,New Zealand Warriors,Manly-Warringah Sea Eagles,10.47,45.19,100000,27092026,24,25.228,17.614,0.155,True,0.6576,0.3424,1.521,2.92,-21.3,10.2,40.3,25.0,45.9,68.1,14.0,42.0,5.0,29.0
+2026,27,North Queensland Cowboys,Canberra Raiders,4.59,48.73,100000,27092026,24,21.937,15.316,0.155,False,0.5818,0.4182,1.719,2.391,-23.4,4.5,32.3,30.0,49.0,68.5,15.0,39.0,12.0,33.0
+2026,27,Cronulla-Sutherland Sharks,Melbourne Storm,8.51,47.9,100000,27092026,24,25.228,17.614,0.155,True,0.6317,0.3683,1.583,2.715,-23.2,8.3,39.2,27.2,48.4,70.7,14.0,42.0,8.0,32.0
+2026,27,St. George Illawarra Dragons,Parramatta Eels,-3.27,49.15,100000,27092026,24,21.937,15.316,0.155,False,0.4416,0.5584,2.265,1.791,-30.5,-3.2,24.8,30.6,49.3,68.7,11.0,35.0,16.0,37.0
+2026,27,Penrith Panthers,Wests Tigers,21.28,40.97,100000,27092026,24,21.937,15.316,0.155,False,0.8339,0.1661,1.199,6.019,-6.8,20.6,44.9,24.1,42.3,61.1,19.0,43.0,0.0,20.0

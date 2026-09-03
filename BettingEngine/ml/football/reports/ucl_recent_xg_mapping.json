@@ -1,0 +1,12 @@
+{
+  "canonical_matches": 378,
+  "mapped": 342,
+  "coverage": 0.9047619047619048,
+  "ambiguous": 6,
+  "unmapped": 36,
+  "by_season": {
+    "2025-26": 186,
+    "2024-25": 156
+  },
+  "decision": "candidate xG only; activate after one-to-one coverage and provider audit"
+}

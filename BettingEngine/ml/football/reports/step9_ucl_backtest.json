@@ -1,0 +1,6 @@
+{
+  "status": "ucl_backtest_input_loaded_metrics_pending",
+  "games": 1997,
+  "promotion_allowed": false,
+  "note": "prediction rows must be produced by walk-forward fits"
+}

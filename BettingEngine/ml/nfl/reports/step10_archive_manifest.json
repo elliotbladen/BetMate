@@ -1,0 +1,14 @@
+{
+  "status": "nfl_final_readiness_archived",
+  "week": 1,
+  "games": 16,
+  "ready_to_bet": false,
+  "staking_enabled": false,
+  "decision": "framework_ready_live_inputs_blocked_fail_closed",
+  "sha256": {
+    "step10_readiness.py": "5413c9c6a2dfaeb47545f19571caacb7993c181879884d7bc47caf30a74f300e",
+    "step10_nfl_readiness.md": "b24bd576e2d7688267b2e841c62858c226b1ddc44f14bef1dd3673ce6f686d45",
+    "step10_nfl_readiness.json": "1410970670dec1f6d6ffdd86751598adcfe5fe5223488c2599904508c30fa607",
+    "2026_week01_shadow_readiness.csv": "f4076caaf1fabea2775ee4760c057a00e6ba42c3dbbef0fc2f5a41286405f0b7"
+  }
+}

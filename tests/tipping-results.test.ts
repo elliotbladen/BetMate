@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { findCurrentGameweek, mapEspnGames, matchCompletedFixtures, type ApiGame } from '../lib/tippingResults';
+import { findCurrentGameweek, gameweeksToSyncOnTransition, mapEspnGames, matchCompletedFixtures, type ApiGame } from '../lib/tippingResults';
 import { EPL_SEASON_FIXTURES, getEplFixtures } from '../lib/tipping';
 
 const EPL_GW1_FIXTURES = getEplFixtures(1);
@@ -83,4 +83,12 @@ test('rolling window advances only after the final match and stops after week 38
   assert.equal(findCurrentGameweek(games), 2);
   games.forEach(game => { game.completed = true; });
   assert.equal(findCurrentGameweek(games), null);
+});
+
+test('round transition resynchronises the round that just finished', () => {
+  assert.deepEqual(gameweeksToSyncOnTransition(1), []);
+  assert.deepEqual(gameweeksToSyncOnTransition(2), [1]);
+  assert.deepEqual(gameweeksToSyncOnTransition(3), [2]);
+  assert.deepEqual(gameweeksToSyncOnTransition(38), [37]);
+  assert.deepEqual(gameweeksToSyncOnTransition(null), [38]);
 });

@@ -1,0 +1,23 @@
+{
+  "status": "depth_available_roster_precut_injuries_not_yet_published",
+  "observed_at_utc": "2026-08-31T02:37:23.637916+00:00",
+  "depth_chart_as_of_utc": "2026-08-30T12:30:54Z",
+  "sources": {
+    "roster": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
+    "depth_chart": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
+    "injuries": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet"
+  },
+  "sha256": {
+    "roster_2026": "a82945765a9d39850dc5a27ec8035373a562e3523d9fd4e8f114386a3fd9319b",
+    "depth_charts_2026": "e9049945c4227007a9e6bc07c0594e152ae64e125584d5801ff8fdcc97e8dfdd",
+    "qb_candidates": "16a08bf2b5ea4f1bb03a0dcd5483462e66d942ecfc6685843d304c14cb76a042",
+    "continuity_snapshot": "5760f048d615a746f558595e121125eff824dccf2e3c64f30d6cc3f321bac4cb"
+  },
+  "games": 16,
+  "teams": 32,
+  "injury_rows": 0,
+  "average_active_roster": 89.125,
+  "continuity_qualifies": false,
+  "continuity_reason": "precut_roster_exceeds_60_active_players_per_team",
+  "staking_enabled": false
+}

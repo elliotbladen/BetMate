@@ -1,0 +1,163 @@
+{
+  "status": "t9_retrospective_discovery_only",
+  "test_seasons": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "vault_2025_predictions": 0,
+  "spread": {
+    "rule": "structural_and_ml_edges_at_least_2_points_plus_same_direction_t2_t3_increment",
+    "overall": {
+      "games": 124,
+      "moving_line_games": 103,
+      "closing_direction_accuracy": 0.7864077669902912,
+      "mean_clv_points": 1.7903225806451613,
+      "wins": 67,
+      "losses": 55,
+      "pushes": 2,
+      "win_rate_ex_pushes": 0.5491803278688525,
+      "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+    },
+    "by_season": {
+      "2020": {
+        "games": 24,
+        "moving_line_games": 18,
+        "closing_direction_accuracy": 0.6111111111111112,
+        "mean_clv_points": 0.2708333333333333,
+        "wins": 14,
+        "losses": 10,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5833333333333334,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2021": {
+        "games": 20,
+        "moving_line_games": 14,
+        "closing_direction_accuracy": 0.7857142857142857,
+        "mean_clv_points": 1.125,
+        "wins": 11,
+        "losses": 9,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.55,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2022": {
+        "games": 26,
+        "moving_line_games": 24,
+        "closing_direction_accuracy": 0.8333333333333334,
+        "mean_clv_points": 3.0,
+        "wins": 12,
+        "losses": 14,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.46153846153846156,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2023": {
+        "games": 29,
+        "moving_line_games": 24,
+        "closing_direction_accuracy": 0.875,
+        "mean_clv_points": 2.4482758620689653,
+        "wins": 17,
+        "losses": 11,
+        "pushes": 1,
+        "win_rate_ex_pushes": 0.6071428571428571,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2024": {
+        "games": 25,
+        "moving_line_games": 23,
+        "closing_direction_accuracy": 0.782608695652174,
+        "mean_clv_points": 1.76,
+        "wins": 13,
+        "losses": 11,
+        "pushes": 1,
+        "win_rate_ex_pushes": 0.5416666666666666,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      }
+    }
+  },
+  "total": {
+    "rule": "ml_edge_at_least_2_points_plus_same_direction_observed_weather_increment",
+    "overall": {
+      "games": 308,
+      "moving_line_games": 277,
+      "closing_direction_accuracy": 0.6859205776173285,
+      "mean_clv_points": 0.8685064935064936,
+      "wins": 176,
+      "losses": 126,
+      "pushes": 6,
+      "win_rate_ex_pushes": 0.5827814569536424,
+      "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+    },
+    "by_season": {
+      "2020": {
+        "games": 52,
+        "moving_line_games": 44,
+        "closing_direction_accuracy": 0.7272727272727273,
+        "mean_clv_points": 1.0961538461538463,
+        "wins": 32,
+        "losses": 20,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.6153846153846154,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2021": {
+        "games": 67,
+        "moving_line_games": 56,
+        "closing_direction_accuracy": 0.625,
+        "mean_clv_points": 0.4925373134328358,
+        "wins": 38,
+        "losses": 26,
+        "pushes": 3,
+        "win_rate_ex_pushes": 0.59375,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2022": {
+        "games": 69,
+        "moving_line_games": 61,
+        "closing_direction_accuracy": 0.6557377049180327,
+        "mean_clv_points": 0.717391304347826,
+        "wins": 36,
+        "losses": 31,
+        "pushes": 2,
+        "win_rate_ex_pushes": 0.5373134328358209,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2023": {
+        "games": 69,
+        "moving_line_games": 67,
+        "closing_direction_accuracy": 0.6716417910447762,
+        "mean_clv_points": 1.1594202898550725,
+        "wins": 40,
+        "losses": 28,
+        "pushes": 1,
+        "win_rate_ex_pushes": 0.5882352941176471,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      },
+      "2024": {
+        "games": 51,
+        "moving_line_games": 49,
+        "closing_direction_accuracy": 0.7755102040816326,
+        "mean_clv_points": 0.9411764705882353,
+        "wins": 30,
+        "losses": 21,
+        "pushes": 0,
+        "win_rate_ex_pushes": 0.5882352941176471,
+        "warning": "synthetic opener grading; exact prices and true-opener provenance unavailable"
+      }
+    },
+    "oracle": true
+  },
+  "decision": "promising_hypothesis_freeze_for_prospective_shadow_no_bets",
+  "restrictions": [
+    "threshold discovered retrospectively",
+    "historical open provenance incomplete",
+    "historical personnel timing is not fully prospective",
+    "weather uses observed oracle",
+    "book prices unavailable",
+    "staking disabled"
+  ]
+}

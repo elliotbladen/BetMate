@@ -3,6 +3,16 @@ Last updated: 2026-05-04
 
 One doc. Everything built. Newest at the top.
 
+## 2026-08-31 — 2027 NRL/AFL rebuild decision
+
+- The user approved carrying the NFL tier-development architecture into the
+  2027 NRL and AFL model rebuilds.
+- Reuse point-in-time snapshots, separate tier ablations, within-season shuffled
+  controls and shadow-to-paper-to-betting promotion gates.
+- Do not copy NFL point values or coefficients across sports; NRL and AFL must
+  learn sport-specific personnel, continuity and contextual effects.
+- Full decision: `docs/2027_nrl_afl_tier_rebuild_plan.md`.
+
 ---
 
 ## 2026-05-04 — AFL Tab Fix + New Machine Setup Protocol
@@ -33,7 +43,7 @@ When I wired the header tabs to use URL params (`/odds?sport=AFL`), clicking the
 1. Copy `.env.local.example` → `.env.local`
 2. Fill in values:
    ```
-   ODDS_API_KEY=29cffda625d3420dc24db352a076a5db
+  ODDS_API_KEY=<set-in-local-environment>
    NEXT_PUBLIC_SUPABASE_URL=<your supabase url>
    NEXT_PUBLIC_SUPABASE_ANON_KEY=<your supabase anon key>
    ```
@@ -292,3 +302,82 @@ Always keep this file up to date. Every new env var added to the app must also b
   pregame prior, capped shots/inside-50/clearance evidence, injury adjustment,
   and empirical O/U distribution. Added nominal 10/20/30/HT raw/stat/odds
   snapshots and automatic Fox match IDs so unattended injury detection fires.
+
+## 2026-08-31 — NFL T7 and context-event decision
+
+- Rejected T7 scheme/matchup as a separate tier: margin MAE improved only 0.005
+  points, RMSE and distance to the closing spread worsened, and totals worsened.
+- Added an NFL-only context-event register for coaching changes, bereavements,
+  milestones, returns and big-game labels. It is diagnostic with zero points.
+- NFL does not inherit the unvalidated global emotional-tier point table.
+- Player returns route to T2 personnel; rivalry/playoff structure routes to T1,
+  preventing emotional double counting. Prospective timestamped evidence is
+  required before any context event can influence a bet.
+
+## 2026-08-31 — NFL T8 market-disagreement diagnostic
+
+- Walk-forward 2020–2024 testing found that ridge disagreement of at least three
+  points matched the closing spread-move direction in 65.8% of 412 moving games;
+  three-point total disagreement reached 62.6% of 390 moving games.
+- Rejected T8 as a spread price adjustment because MAE worsened despite a small
+  RMSE improvement. Totals improved modestly but remain diagnostic.
+- Enhanced the live Step 7 collector with bookmaker dispersion, structural/tree
+  agreement and T8 WATCH statuses. Staking and betting actions remain disabled.
+- True-opener provenance and prospective captures are mandatory promotion gates.
+
+## 2026-08-31 — NFL T9 matrix confluence discovery
+
+- Built family-level confluence that collapses correlated rows, requires three
+  distinct fresh families and abstains on directional conflict.
+- Retrospective spread discovery selected 124 games: +1.79 mean CLV, 78.6%
+  closing direction on 103 moving lines, and synthetic 67–55–2 results.
+- Froze the two-point structural/ML plus personnel-direction rule for the 2026
+  prospective shadow. It cannot bet or be retuned during collection.
+- Totals confluence remains an observed-weather oracle and is not promotable.
+
+## 2026-08-31 — NFL final readiness consolidation
+
+- Consolidated T0–T9 decisions and verified the sealed 16-game Week 1 T1 card.
+- Historical T2+T3 improved margin MAE from 10.309 to 10.104 across 1,599 games
+  and improved all six development seasons; it remains a live shadow.
+- Generated a fail-closed Week 1 readiness card: all games ABSTAIN, staking off.
+- Live blockers are market quotes, QB review, post-cut continuity, official
+  injuries and verified stadium-weather capture—not silent model defaults.
+- Froze promotion requirements at 500 predictions, two seasons, 90% market
+  coverage, audited prices/openers, positive CLV and out-of-sample improvement.
+
+## 2026-08-31 — NFL Step 11 shadow operations
+
+- Added a weekly fail-closed checkpoint runner that rechecks all live gates,
+  writes an immutable timestamped report and keeps all betting actions disabled.
+- Missing live sources produce an explicit blocked checkpoint and ABSTAIN card;
+  thresholds cannot be changed by a weekly result.
+
+## 2026-08-31 — NFL Step 12 promotion ledger
+
+- Added an append-only prospective evidence ledger for frozen T9 predictions.
+- It tracks opener/price verification, coverage, CLV, opening-line beat rate,
+  settlement and threshold version.
+- The empty ledger correctly reports no evidence and cannot promote or enable
+  staking. Manual overrides are disabled.
+
+## 2026-09-01 — NFL Step 13 end-to-end backtest
+
+- Added the EPL-style consolidated NFL backtest: 1,599 walk-forward games plus
+  the sealed 272-game 2025 vault, with spread, totals and H2H row-level output.
+- Across 1,871 games, H2H accuracy was 65.4%; spread synthetic -110 ROI was
+  +4.3% at a three-point edge; totals were approximately breakeven at that edge.
+- Opening coverage and bookmaker prices remain incomplete, so no ROI is treated
+  as real-world evidence. Paper pricing is ready; staking remains disabled.
+
+## 2026-09-03 — UCL separate-market architecture and player shadow
+
+- Confirmed the UCL design: shared football ratings/fixure controls feed separate
+  1X2 and Over/Under 2.5 market layers. The corner-enhanced U/O version remains a
+  challenger and cannot automatically create bets in 1X2.
+- Added the handover `sessions/2026-09-03_ucl-market-architecture-and-player-shadow.md`.
+- SofaScore match statistics provide validated corners for 342 UCL fixtures;
+  36 FotMob-recovered fixtures still lack matched SofaScore event IDs.
+- The UCL player shadow framework exists but is data-pending: 0 timestamped UCL
+  player events, shadow-only, no production price influence. It requires player
+  event/appearance backfill and a walk-forward residual gate.

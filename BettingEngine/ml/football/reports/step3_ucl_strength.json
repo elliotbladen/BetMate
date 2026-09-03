@@ -1,0 +1,8 @@
+{
+  "status": "ucl_strength_engine_built_fit_pending_sourced_data",
+  "contract_version": "ucl-strength-v1",
+  "method": "domestic_attack_defence_plus_league_adjustment_shrunk_to_uefa_prior",
+  "market_fields_used": false,
+  "fabricated_rows": 0,
+  "next_gate": "populate_and_validate_club_strength_template"
+}

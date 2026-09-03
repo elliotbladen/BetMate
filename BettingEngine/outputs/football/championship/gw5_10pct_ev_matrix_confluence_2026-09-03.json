@@ -1,0 +1,170 @@
+{
+  "edge_threshold_pp": 7.5,
+  "net_required": 6,
+  "seasons": [
+    "2020/21",
+    "2021/22",
+    "2022/23",
+    "2023/24",
+    "2024/25"
+  ],
+  "results": [
+    {
+      "home": "Lincoln",
+      "away": "Southampton",
+      "selection": "Lincoln",
+      "ev": 13.6,
+      "aligned": [
+        {
+          "team": "Southampton",
+          "category": "September",
+          "edge_pp": -17.2,
+          "n": 5
+        },
+        {
+          "team": "Southampton",
+          "category": "Favourite (1.80\u20132.49 fair)",
+          "edge_pp": -9.3,
+          "n": 16
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Southampton",
+          "category": "Saturday",
+          "edge_pp": 8.5,
+          "n": 28
+        },
+        {
+          "team": "Southampton",
+          "category": "After a draw",
+          "edge_pp": 25.0,
+          "n": 9
+        }
+      ],
+      "net": 0,
+      "stake_units": 1.0
+    },
+    {
+      "home": "Stoke",
+      "away": "Charlton",
+      "selection": "Charlton",
+      "ev": 11.1,
+      "aligned": [
+        {
+          "team": "Stoke",
+          "category": "September",
+          "edge_pp": -13.5,
+          "n": 19
+        },
+        {
+          "team": "Stoke",
+          "category": "After a win",
+          "edge_pp": -9.3,
+          "n": 73
+        }
+      ],
+      "opposed": [],
+      "net": 2,
+      "stake_units": 1.0
+    },
+    {
+      "home": "Millwall",
+      "away": "Bolton",
+      "selection": "Bolton",
+      "ev": 24.9,
+      "aligned": [],
+      "opposed": [
+        {
+          "team": "Millwall",
+          "category": "After a loss",
+          "edge_pp": 12.7,
+          "n": 77
+        }
+      ],
+      "net": -1,
+      "stake_units": 1.0
+    },
+    {
+      "home": "Sheffield United",
+      "away": "Norwich",
+      "selection": "Sheffield United",
+      "ev": 17.1,
+      "aligned": [
+        {
+          "team": "Sheffield United",
+          "category": "All games",
+          "edge_pp": 8.7,
+          "n": 138
+        },
+        {
+          "team": "Sheffield United",
+          "category": "Home games",
+          "edge_pp": 9.8,
+          "n": 69
+        },
+        {
+          "team": "Sheffield United",
+          "category": "September",
+          "edge_pp": 25.9,
+          "n": 12
+        },
+        {
+          "team": "Sheffield United",
+          "category": "After a win",
+          "edge_pp": 9.3,
+          "n": 77
+        },
+        {
+          "team": "Sheffield United",
+          "category": "Normal rest (4-8 days)",
+          "edge_pp": 13.2,
+          "n": 74
+        },
+        {
+          "team": "Sheffield United",
+          "category": "Competitive (2.50\u20133.49 fair)",
+          "edge_pp": 10.7,
+          "n": 28
+        }
+      ],
+      "opposed": [],
+      "net": 6,
+      "stake_units": 1.5
+    },
+    {
+      "home": "Swansea",
+      "away": "Wrexham",
+      "selection": "Swansea",
+      "ev": 14.0,
+      "aligned": [
+        {
+          "team": "Swansea",
+          "category": "September",
+          "edge_pp": 11.0,
+          "n": 19
+        }
+      ],
+      "opposed": [],
+      "net": 1,
+      "stake_units": 1.0
+    },
+    {
+      "home": "Birmingham",
+      "away": "Wolves",
+      "selection": "Birmingham",
+      "ev": 25.0,
+      "aligned": [
+        {
+          "team": "Birmingham",
+          "category": "Sunday",
+          "edge_pp": 20.4,
+          "n": 6
+        }
+      ],
+      "opposed": [],
+      "net": 1,
+      "stake_units": 1.0
+    }
+  ]
+}

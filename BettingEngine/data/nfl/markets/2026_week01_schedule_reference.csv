@@ -1,0 +1,17 @@
+game_id,total_line,home_spread,captured_at_utc,source,bookmaker,valid_obtainable_quote,qualification_reason
+2026_01_NE_SEA,44.5,-3.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_SF_LA,48.5,-3.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_CHI_CAR,47.5,2.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_TB_CIN,50.5,-3.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_NO_DET,48.5,-7.0,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_BUF_HOU,44.5,1.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_BAL_IND,48.5,3.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_CLE_JAX,40.5,-7.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_ATL_PIT,41.5,-3.0,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_NYJ_TEN,38.5,-3.0,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_ARI_LAC,46.5,-10.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_MIA_LV,40.5,-3.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_GB_MIN,45.5,-1.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_WAS_PHI,46.5,-4.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_DAL_NYG,48.5,2.5,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp
+2026_01_DEN_KC,42.5,-3.0,2026-08-30T21:33:29.419070+00:00,nflverse_schedule_embedded,unknown,False,missing_bookmaker_and_original_quote_timestamp

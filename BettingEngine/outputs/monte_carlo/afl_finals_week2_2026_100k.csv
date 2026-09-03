@@ -1,0 +1,5 @@
+home_team,away_team,margin_mean,total_mean,home_win_prob,home_fair_odds,away_win_prob,away_fair_odds,home_market_odds,away_market_odds,home_h2h_ev,away_h2h_ev,home_line,home_cover_prob,home_line_ev,away_line,away_cover_prob,away_line_ev,total_line,over_prob,over_ev,under_prob,under_ev,margin_model_gap,total_model_gap
+Fremantle Dockers,Hawthorn Hawks,15.15,184.7,0.6751,1.48,0.3249,3.08,1.44,2.8,-0.0278,-0.0904,-13.5,0.5334,0.0081,13.5,0.4666,-0.1088,162.5,0.7731,0.4456,0.2269,-0.5711,10.2,6.1
+Geelong Cats,Carlton Blues,19.25,185.4,0.7,1.43,0.3,3.33,1.67,2.21,0.169,-0.337,-6.5,0.6226,0.1892,6.5,0.3774,-0.2868,168.5,0.7041,0.3378,0.2959,-0.4496,5.8,21.8
+Sydney Swans,Brisbane Lions,10.75,214.4,0.5885,1.7,0.4115,2.43,3.72,1.28,1.1893,-0.4733,24.5,0.8286,0.5744,-24.5,0.1714,-0.6744,187.5,0.7399,0.3985,0.2601,-0.5137,5.4,51.5
+Adelaide Crows,Western Bulldogs,41.85,177.6,0.8686,1.15,0.1314,7.61,1.42,2.89,0.2335,-0.6203,-15.5,0.765,0.4535,15.5,0.235,-0.5535,168.5,0.6219,0.1566,0.3781,-0.2815,17.0,16.2

@@ -1,0 +1,14 @@
+{
+  "status": "ucl_draw_validator_built_population_pending",
+  "rules_version": "ucl-2026-27-regulations-v1",
+  "required_clubs": 36,
+  "coefficient_pots": 4,
+  "clubs_per_pot": 9,
+  "opponents_per_club": 8,
+  "home_per_club": 4,
+  "away_per_club": 4,
+  "opponents_per_pot": 2,
+  "same_association_max_opponents": 2,
+  "fabricated_fixtures": 0,
+  "next_gate": "populate_from_UEFA_and_validate_complete_graph"
+}

@@ -1,0 +1,752 @@
+{
+  "generated_at": "2026-09-03T06:21:55.941769",
+  "competition_matchweek": 3,
+  "normal_status": "production",
+  "shadow_status": "comparison_only_projected_last_xi",
+  "limitations": [
+    "Shadow uses each club's most recent completed starting XI; official GW3 XIs are not yet available.",
+    "Understat xG and PPDA feeds end at 2024/25; later matches use the engine's documented goal fallback.",
+    "Confirmed important absences are injected into normal T5; doubts are excluded pending confirmation.",
+    "No current market odds or referee appointments were injected."
+  ],
+  "games": [
+    {
+      "date": "2026-09-04",
+      "home": "Ipswich",
+      "away": "Liverpool",
+      "confirmed_absences_home": [
+        [
+          "Jaden Philogene",
+          "LW"
+        ],
+        [
+          "Jack Taylor",
+          "CM"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Conor Bradley",
+          "RB"
+        ],
+        [
+          "Hugo Ekitike",
+          "ST"
+        ],
+        [
+          "Joe Gomez",
+          "CB"
+        ],
+        [
+          "Giovanni Leoni",
+          "CB"
+        ]
+      ],
+      "doubts_home": [
+        "Azor Matusiwa (DM, 25%)",
+        "Florentino Luis (DM, 50%)",
+        "Emersonn (ST, 50%)"
+      ],
+      "doubts_away": [
+        "Federico Chiesa (FW, 25%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Ipswich",
+        "away": "Liverpool",
+        "as_of": "2026-09-04",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.224,
+        "lambda_away": 2.33,
+        "p_home": 0.22422,
+        "p_draw": 0.21786,
+        "p_away": 0.55792,
+        "p_over25": 0.673469,
+        "p_under25": 0.326531,
+        "fair_home": 4.46,
+        "fair_draw": 4.59,
+        "fair_away": 1.79,
+        "fair_over25": 1.48,
+        "fair_under25": 3.06,
+        "new_team_resets": [
+          "Ipswich"
+        ],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.24855567105461082,
+        "p_draw": 0.21906436155826856,
+        "p_away": 0.5323799673871205,
+        "p_over25": 0.6967537147702398,
+        "p_under25": 0.30324628522976016,
+        "p_btts_yes": 0.6679215936542876,
+        "p_btts_no": 0.3320784063457124,
+        "lambda_home": 1.3439999999999999,
+        "lambda_away": 2.3389810554305432,
+        "delta_home": 0.12,
+        "delta_away": 0.008981055430543228,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 8,
+        "away_history_matches": 10
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Newcastle",
+      "away": "Bournemouth",
+      "confirmed_absences_home": [
+        [
+          "Dan Burn",
+          "CB"
+        ],
+        [
+          "Joelinton",
+          "CM"
+        ],
+        [
+          "William Osula",
+          "ST"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Amine Adli",
+          "AM"
+        ],
+        [
+          "Julian Araujo",
+          "RB"
+        ]
+      ],
+      "doubts_home": [
+        "Tino Livramento (RB, 25%)"
+      ],
+      "doubts_away": [],
+      "normal": {
+        "league": "epl",
+        "home": "Newcastle",
+        "away": "Bournemouth",
+        "as_of": "2026-09-05",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 2.329,
+        "lambda_away": 1.873,
+        "p_home": 0.458642,
+        "p_draw": 0.228586,
+        "p_away": 0.312772,
+        "p_over25": 0.777778,
+        "p_under25": 0.222222,
+        "fair_home": 2.18,
+        "fair_draw": 4.37,
+        "fair_away": 3.2,
+        "fair_over25": 1.29,
+        "fair_under25": 4.5,
+        "new_team_resets": [],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.4561926760319403,
+        "p_draw": 0.23160566943672517,
+        "p_away": 0.31220165453133447,
+        "p_over25": 0.7635923235987688,
+        "p_under25": 0.23640767640123117,
+        "p_btts_yes": 0.7528575045790747,
+        "p_btts_no": 0.24714249542092526,
+        "lambda_home": 2.273626285300675,
+        "lambda_away": 1.8278944419621883,
+        "delta_home": -0.05537371469932517,
+        "delta_away": -0.045105558037811744,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 8,
+        "away_history_matches": 10
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Brentford",
+      "away": "Sunderland",
+      "confirmed_absences_home": [
+        [
+          "Antoni Milambo",
+          "CM"
+        ],
+        [
+          "Sepp van den Berg",
+          "CB"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Simon Adingra",
+          "LW"
+        ],
+        [
+          "Dayann Methalie",
+          "LB"
+        ]
+      ],
+      "doubts_home": [
+        "Mathias Jensen (CM, 50%)"
+      ],
+      "doubts_away": [
+        "Habib Diarra (CM, 50%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Brentford",
+        "away": "Sunderland",
+        "as_of": "2026-09-05",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.843,
+        "lambda_away": 1.187,
+        "p_home": 0.49502,
+        "p_draw": 0.25823,
+        "p_away": 0.24675,
+        "p_over25": 0.558442,
+        "p_under25": 0.441558,
+        "fair_home": 2.02,
+        "fair_draw": 3.87,
+        "fair_away": 4.05,
+        "fair_over25": 1.79,
+        "fair_under25": 2.26,
+        "new_team_resets": [],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.49445728170816283,
+        "p_draw": 0.2694231460574269,
+        "p_away": 0.2361195722344103,
+        "p_over25": 0.5026124488860835,
+        "p_under25": 0.4973875511139165,
+        "p_btts_yes": 0.5388523668511424,
+        "p_btts_no": 0.46114763314885765,
+        "lambda_home": 1.7229999999999999,
+        "lambda_away": 1.0670000000000002,
+        "delta_home": -0.12,
+        "delta_away": -0.12,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 10,
+        "away_history_matches": 10
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Brighton",
+      "away": "Leeds",
+      "confirmed_absences_home": [
+        [
+          "Yankuba Minteh",
+          "RW"
+        ],
+        [
+          "Jack Hinshelwood",
+          "CM"
+        ],
+        [
+          "Kaoru Mitoma",
+          "LW"
+        ],
+        [
+          "Evan Ferguson",
+          "ST"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Joe Rodon",
+          "CB"
+        ],
+        [
+          "Mateo Joseph",
+          "ST"
+        ]
+      ],
+      "doubts_home": [
+        "Georginio Rutter (AM, 50%)",
+        "Yasin Ayari (CM, 50%)"
+      ],
+      "doubts_away": [
+        "Ilia Gruev (DM, 25%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Brighton",
+        "away": "Leeds",
+        "as_of": "2026-09-05",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.851,
+        "lambda_away": 1.267,
+        "p_home": 0.481586,
+        "p_draw": 0.257942,
+        "p_away": 0.260472,
+        "p_over25": 0.558442,
+        "p_under25": 0.441558,
+        "fair_home": 2.08,
+        "fair_draw": 3.88,
+        "fair_away": 3.84,
+        "fair_over25": 1.79,
+        "fair_under25": 2.26,
+        "new_team_resets": [],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.4509488916882912,
+        "p_draw": 0.26697614303913425,
+        "p_away": 0.2820749652725746,
+        "p_over25": 0.5348630395443027,
+        "p_under25": 0.4651369604556973,
+        "p_btts_yes": 0.5945658611567949,
+        "p_btts_no": 0.4054341388432051,
+        "lambda_home": 1.7309999999999999,
+        "lambda_away": 1.2820474617381405,
+        "delta_home": -0.12,
+        "delta_away": 0.015047461738140644,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 11,
+        "away_history_matches": 10
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Fulham",
+      "away": "Crystal Palace",
+      "confirmed_absences_home": [
+        [
+          "Tom Cairney",
+          "CM"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Chadi Riad",
+          "CB"
+        ],
+        [
+          "Jean-Philippe Mateta",
+          "ST"
+        ]
+      ],
+      "doubts_home": [],
+      "doubts_away": [
+        "Ismaila Sarr (RW, 25%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Fulham",
+        "away": "Crystal Palace",
+        "as_of": "2026-09-05",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.763,
+        "lambda_away": 1.28,
+        "p_home": 0.465474,
+        "p_draw": 0.262988,
+        "p_away": 0.271538,
+        "p_over25": 0.558442,
+        "p_under25": 0.441558,
+        "fair_home": 2.15,
+        "fair_draw": 3.8,
+        "fair_away": 3.68,
+        "fair_over25": 1.79,
+        "fair_under25": 2.26,
+        "new_team_resets": [],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.4851473815935424,
+        "p_draw": 0.2640272806287721,
+        "p_away": 0.25082533777768545,
+        "p_over25": 0.5373555270159045,
+        "p_under25": 0.4626444729840955,
+        "p_btts_yes": 0.5758784469813965,
+        "p_btts_no": 0.42412155301860355,
+        "lambda_home": 1.76204839524272,
+        "lambda_away": 1.1882551052443358,
+        "delta_home": -0.0009516047572798447,
+        "delta_away": -0.09174489475566416,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 9,
+        "away_history_matches": 11
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Man City",
+      "away": "Coventry",
+      "confirmed_absences_home": [
+        [
+          "Jeremy Doku",
+          "LW"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Haji Wright",
+          "ST"
+        ],
+        [
+          "Kaine Kesler-Hayden",
+          "RB"
+        ],
+        [
+          "Luke Woolfenden",
+          "CB"
+        ]
+      ],
+      "doubts_home": [
+        "Matheus Nunes (CM, 25%)"
+      ],
+      "doubts_away": [
+        "Frank Onyeka (DM, 50%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Man City",
+        "away": "Coventry",
+        "as_of": "2026-09-05",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 3.333,
+        "lambda_away": 0.576,
+        "p_home": 0.799334,
+        "p_draw": 0.129234,
+        "p_away": 0.071432,
+        "p_over25": 0.673469,
+        "p_under25": 0.326531,
+        "fair_home": 1.25,
+        "fair_draw": 7.74,
+        "fair_away": 14.0,
+        "fair_over25": 1.48,
+        "fair_under25": 3.06,
+        "new_team_resets": [
+          "Coventry"
+        ],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.8155434375952956,
+        "p_draw": 0.12646938201953906,
+        "p_away": 0.05798718038516533,
+        "p_over25": 0.6286664364180979,
+        "p_under25": 0.37133356358190206,
+        "p_btts_yes": 0.3514519192835868,
+        "p_btts_no": 0.6485480807164132,
+        "lambda_home": 3.213,
+        "lambda_away": 0.45599999999999996,
+        "delta_home": -0.12,
+        "delta_away": -0.12,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 11,
+        "away_history_matches": 9
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Nott'm Forest",
+      "away": "Tottenham",
+      "confirmed_absences_home": [
+        [
+          "Nicolo Savona",
+          "RB"
+        ],
+        [
+          "Ibrahim Sangare",
+          "DM"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Xavi Simons",
+          "AM"
+        ],
+        [
+          "Wilson Odobert",
+          "LW"
+        ],
+        [
+          "Dejan Kulusevski",
+          "AM"
+        ]
+      ],
+      "doubts_home": [],
+      "doubts_away": [
+        "James Maddison (AM, 25%)",
+        "Savio (RW, 50%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Nott'm Forest",
+        "away": "Tottenham",
+        "as_of": "2026-09-05",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.549,
+        "lambda_away": 1.431,
+        "p_home": 0.419929,
+        "p_draw": 0.267019,
+        "p_away": 0.313052,
+        "p_over25": 0.521978,
+        "p_under25": 0.478022,
+        "fair_home": 2.38,
+        "fair_draw": 3.75,
+        "fair_away": 3.19,
+        "fair_over25": 1.92,
+        "fair_under25": 2.09,
+        "new_team_resets": [],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.40206927186982294,
+        "p_draw": 0.27732262906553157,
+        "p_away": 0.3206080990646455,
+        "p_over25": 0.47975763468410826,
+        "p_under25": 0.5202423653158917,
+        "p_btts_yes": 0.5674045329683388,
+        "p_btts_no": 0.4325954670316612,
+        "lambda_home": 1.4289999999999998,
+        "lambda_away": 1.3709782544378366,
+        "delta_home": -0.12,
+        "delta_away": -0.06002174556216355,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 11,
+        "away_history_matches": 11
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Hull",
+      "away": "Aston Villa",
+      "confirmed_absences_home": [
+        [
+          "Jack Butland",
+          "GK"
+        ],
+        [
+          "Eliot Matazo",
+          "CM"
+        ],
+        [
+          "Darko Gyabi",
+          "CM"
+        ],
+        [
+          "Charlie Hughes",
+          "CB"
+        ],
+        [
+          "Oscar Zambrano",
+          "DM"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Amadou Onana",
+          "DM"
+        ],
+        [
+          "Joao Gomes",
+          "CM"
+        ],
+        [
+          "Leon Bailey",
+          "RW"
+        ]
+      ],
+      "doubts_home": [
+        "Matt Crooks (AM, 50%)",
+        "Lewie Coyle (RB, 50%)",
+        "Joe Gelhardt (ST, 25%)"
+      ],
+      "doubts_away": [
+        "Leon Goretzka (CM, 50%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Hull",
+        "away": "Aston Villa",
+        "as_of": "2026-09-05",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.314,
+        "lambda_away": 1.749,
+        "p_home": 0.31732,
+        "p_draw": 0.26249,
+        "p_away": 0.42019,
+        "p_over25": 0.558442,
+        "p_under25": 0.441558,
+        "fair_home": 3.15,
+        "fair_draw": 3.81,
+        "fair_away": 2.38,
+        "fair_over25": 1.79,
+        "fair_under25": 2.26,
+        "new_team_resets": [
+          "Hull"
+        ],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.30962470795780456,
+        "p_draw": 0.25748397279922114,
+        "p_away": 0.4328913192429744,
+        "p_over25": 0.5778405843161303,
+        "p_under25": 0.4221594156838697,
+        "p_btts_yes": 0.6164872812548261,
+        "p_btts_no": 0.3835127187451739,
+        "lambda_home": 1.3303497463019065,
+        "lambda_away": 1.820509210222738,
+        "delta_home": 0.016349746301906498,
+        "delta_away": 0.07150921022273787,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 8,
+        "away_history_matches": 11
+      }
+    },
+    {
+      "date": "2026-09-06",
+      "home": "Everton",
+      "away": "Man United",
+      "confirmed_absences_home": [
+        [
+          "Christian Norgaard",
+          "DM"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Amad Diallo",
+          "RW"
+        ],
+        [
+          "Carlos Baleba",
+          "DM"
+        ],
+        [
+          "Matthijs de Ligt",
+          "CB"
+        ],
+        [
+          "Manuel Ugarte",
+          "DM"
+        ]
+      ],
+      "doubts_home": [],
+      "doubts_away": [],
+      "normal": {
+        "league": "epl",
+        "home": "Everton",
+        "away": "Man United",
+        "as_of": "2026-09-06",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.921,
+        "lambda_away": 1.534,
+        "p_home": 0.4349,
+        "p_draw": 0.24643,
+        "p_away": 0.31867,
+        "p_over25": 0.673469,
+        "p_under25": 0.326531,
+        "fair_home": 2.3,
+        "fair_draw": 4.06,
+        "fair_away": 3.14,
+        "fair_over25": 1.48,
+        "fair_under25": 3.06,
+        "new_team_resets": [],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.43280442531199076,
+        "p_draw": 0.2560554413166424,
+        "p_away": 0.31114013337136687,
+        "p_over25": 0.6261114357094173,
+        "p_under25": 0.3738885642905827,
+        "p_btts_yes": 0.6318529925404706,
+        "p_btts_no": 0.36814700745952944,
+        "lambda_home": 1.8010000000000002,
+        "lambda_away": 1.4140000000000001,
+        "delta_home": -0.12,
+        "delta_away": -0.12,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 11,
+        "away_history_matches": 11
+      }
+    },
+    {
+      "date": "2026-09-06",
+      "home": "Arsenal",
+      "away": "Chelsea",
+      "confirmed_absences_home": [
+        [
+          "William Saliba",
+          "CB"
+        ],
+        [
+          "Jurrien Timber",
+          "RB"
+        ]
+      ],
+      "confirmed_absences_away": [
+        [
+          "Enzo Fernandez",
+          "CM"
+        ]
+      ],
+      "doubts_home": [
+        "Cristhian Mosquera (CB, 50%)"
+      ],
+      "doubts_away": [
+        "Moises Caicedo (DM, 50%)"
+      ],
+      "normal": {
+        "league": "epl",
+        "home": "Arsenal",
+        "away": "Chelsea",
+        "as_of": "2026-09-06",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 2.4,
+        "lambda_away": 1.354,
+        "p_home": 0.58525,
+        "p_draw": 0.21608,
+        "p_away": 0.19867,
+        "p_over25": 0.673469,
+        "p_under25": 0.326531,
+        "fair_home": 1.71,
+        "fair_draw": 4.63,
+        "fair_away": 5.03,
+        "fair_over25": 1.48,
+        "fair_under25": 3.06,
+        "new_team_resets": [],
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      },
+      "shadow": {
+        "p_home": 0.5619601841551042,
+        "p_draw": 0.22522736872528168,
+        "p_away": 0.21281244711961428,
+        "p_over25": 0.6512540420563926,
+        "p_under25": 0.3487459579436074,
+        "p_btts_yes": 0.6659967284512687,
+        "p_btts_no": 0.33400327154873133,
+        "lambda_home": 2.28,
+        "lambda_away": 1.3543281099859659,
+        "delta_home": -0.12,
+        "delta_away": 0.00032810998596588536,
+        "home_xi_count": 11,
+        "away_xi_count": 11,
+        "home_history_matches": 10,
+        "away_history_matches": 11
+      }
+    }
+  ]
+}

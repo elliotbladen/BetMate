@@ -1,0 +1,100 @@
+{
+  "build": {
+    "skipped": true
+  },
+  "evaluation": {
+    "cohorts": {
+      "2yo_only": {
+        "all_races_next_start": {
+          "selected_shrinkage": 0.0,
+          "test_mae_base": 10.000902914041925,
+          "test_mae_raw_candidate": 15.235613558017645,
+          "test_mae_shrunk_candidate": 10.000902914041925,
+          "test_pairs": 122,
+          "training_pairs": 80
+        },
+        "group_listed_next_start": {
+          "selected_shrinkage": 0.0,
+          "test_mae_base": 11.711697660575831,
+          "test_mae_raw_candidate": 19.432122484275126,
+          "test_mae_shrunk_candidate": 11.711697660575831,
+          "test_pairs": 67,
+          "training_pairs": 40
+        },
+        "group_listed_winners": 114,
+        "mean_base_minus_standard": -20.278016285353143,
+        "mean_candidate_minus_standard": -5.369714163070808,
+        "winner_runs": 222
+      },
+      "3yo_only": {
+        "all_races_next_start": {
+          "selected_shrinkage": 0.1,
+          "test_mae_base": 7.587011006240477,
+          "test_mae_raw_candidate": 10.827353787200575,
+          "test_mae_shrunk_candidate": 7.411703780928071,
+          "test_pairs": 245,
+          "training_pairs": 238
+        },
+        "group_listed_next_start": {
+          "selected_shrinkage": 0.15,
+          "test_mae_base": 8.36078303165625,
+          "test_mae_raw_candidate": 10.159921053147377,
+          "test_mae_shrunk_candidate": 7.683999106170972,
+          "test_pairs": 108,
+          "training_pairs": 130
+        },
+        "group_listed_winners": 265,
+        "mean_base_minus_standard": -21.279057056721225,
+        "mean_candidate_minus_standard": -8.423987753982962,
+        "winner_runs": 542
+      },
+      "open_age": {
+        "all_races_next_start": {
+          "selected_shrinkage": 0.0,
+          "test_mae_base": 6.399163705734695,
+          "test_mae_raw_candidate": 7.619229619896884,
+          "test_mae_shrunk_candidate": 6.399163705734695,
+          "test_pairs": 882,
+          "training_pairs": 893
+        },
+        "group_listed_next_start": {
+          "selected_shrinkage": 0.4,
+          "test_mae_base": 6.391658537322082,
+          "test_mae_raw_candidate": 6.7453998228689755,
+          "test_mae_shrunk_candidate": 6.406581621219418,
+          "test_pairs": 237,
+          "training_pairs": 260
+        },
+        "group_listed_winners": 538,
+        "mean_base_minus_standard": -3.4509167569417545,
+        "mean_candidate_minus_standard": -2.3642958013426782,
+        "winner_runs": 1971
+      }
+    },
+    "guest_house": {
+      "achieved_rating": 104.30259638755726,
+      "base_race_strength": 98.46257857333335,
+      "base_rating": 98.46257857333335,
+      "beaten_margin_component": 0.0,
+      "collateral_revision_component": 0.0,
+      "confidence": 0.88,
+      "detail_json": "{\"accepted_model_changed\": false, \"age_cohort\": \"3yo_only\", \"base_model_version\": \"form-first-v2.0\", \"candidate_version\": \"achieved-run-v2.10-young-wfa-shadow\", \"class_standard\": 105.0, \"independent_evidence\": {\"clock_confidence\": 0.895, \"clock_signal\": 0.9583333333333617, \"sectional_compensation\": 0.0, \"sectional_confidence\": 0.95, \"sectional_signal\": 1.7835106503925917}, \"margin_evidence_fraction\": 1.0, \"opposition_anchor\": 95.91508319121965, \"opposition_reliability\": 0.46660529406416307, \"opposition_reliability_cap\": 0.5, \"race_weight_policy\": \"set_weight_allowance_neutral\", \"research_only\": true, \"wfa_interpretation\": \"allowances neutralised; not added as merit\", \"wfa_profile\": {\"available\": false, \"wfa_standard_kg\": null}}",
+      "horse_key": "guesthouse",
+      "horse_name": "Guest House",
+      "model_version": "achieved-run-v2.10-young-wfa-shadow",
+      "race_id": "2026-08-29|rosehill|8",
+      "race_strength": 100.76092972089059,
+      "runner_number": 1,
+      "sectional_component": 0.0,
+      "time_variant_component": 0.0,
+      "weight_component": 0.0,
+      "winner_margin_component": 3.541666666666667
+    },
+    "promotion_blockers": [
+      "time signal failed its existing promotion gate",
+      "sectional signal has not passed all existing cross-cohort gates",
+      "requires untouched prospective validation"
+    ],
+    "promotion_decision": "RESEARCH_SHADOW_ONLY"
+  }
+}

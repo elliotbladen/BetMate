@@ -1,0 +1,21 @@
+{
+  "status": "ucl_step3_stage_backtest_complete",
+  "train_season": "2024-25",
+  "test_season": "2025-26",
+  "test_matches": 189,
+  "feature_timing": "pre-match rolling xG from prior matches only; no same-match xG",
+  "baseline": {
+    "brier": 0.22753205375703633,
+    "log_loss": 0.6485427184591243,
+    "mean_over_probability": 0.6620591793934197
+  },
+  "stage_adjusted": {
+    "brier": 0.2281670284016297,
+    "log_loss": 0.6497965983680202,
+    "mean_over_probability": 0.6615218869469994
+  },
+  "actual_over25_rate": 0.6613756613756614,
+  "brier_change_stage_minus_baseline": 0.0006349746445933613,
+  "log_loss_change_stage_minus_baseline": 0.0012538799088959163,
+  "activation": "paper challenger only"
+}

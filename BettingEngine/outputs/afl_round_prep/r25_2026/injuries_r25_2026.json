@@ -1,0 +1,51 @@
+{
+  "season": 2026,
+  "round": 25,
+  "round_label": "Finals Week 2",
+  "source": "AFL Medical Room, updated 2026-09-01",
+  "notes": "Confirmed/season outs only. Test players are excluded from deterministic T5 and handled as Monte Carlo availability scenarios.",
+  "injuries": {
+    "Adelaide Crows": [
+      {"player":"James Peatling","status":"out","position":"midfielder","quality":"good","injury":"Hip/groin","estimated_return":"1-2 weeks"},
+      {"player":"Luke Pedlar","status":"out","position":"midfielder","quality":"average","injury":"Hamstring","estimated_return":"1-2 weeks"},
+      {"player":"Zac Taylor","status":"out","position":"utility","quality":"average","injury":"Hamstring","estimated_return":"1 week"}
+    ],
+    "Brisbane Lions": [
+      {"player":"Jack Payne","status":"out","position":"key_defender","quality":"good","injury":"Knee","estimated_return":"Season"},
+      {"player":"Henry Smith","status":"out","position":"ruck","quality":"depth","injury":"Foot","estimated_return":"Season"}
+    ],
+    "Carlton Blues": [
+      {"player":"Nic Newman","status":"out","position":"key_defender","quality":"good","injury":"Hamstring","estimated_return":"2-3 weeks"},
+      {"player":"Jesse Motlop","status":"out","position":"small_forward","quality":"good","injury":"Knee","estimated_return":"Season"},
+      {"player":"Harry O'Farrell","status":"out","position":"key_defender","quality":"depth","injury":"Knee","estimated_return":"Season"}
+    ],
+    "Fremantle Dockers": [
+      {"player":"Brennan Cox","status":"out","position":"key_defender","quality":"elite","injury":"Calf","estimated_return":"1-2 weeks"},
+      {"player":"Sam Sturt","status":"out","position":"small_forward","quality":"average","injury":"Hamstring","estimated_return":"TBC"}
+    ],
+    "Geelong Cats": [
+      {"player":"Toby Conway","status":"out","position":"ruck","quality":"good","injury":"Foot/knee","estimated_return":"Season"},
+      {"player":"Rhys Stanley","status":"out","position":"ruck","quality":"good","injury":"Knee","estimated_return":"1-3 weeks"}
+    ],
+    "Hawthorn Hawks": [
+      {"player":"Conor Nash","status":"out","position":"midfielder","quality":"good","injury":"Neck","estimated_return":"Season"}
+    ],
+    "Sydney Swans": [
+      {"player":"Isaac Heeney","status":"out","position":"midfielder","quality":"elite","injury":"Suspended","estimated_return":"Season"},
+      {"player":"Chad Warner","status":"out","position":"midfielder","quality":"elite","injury":"Suspended","estimated_return":"Season"},
+      {"player":"Nick Blakey","status":"out","position":"key_defender","quality":"elite","injury":"Suspended","estimated_return":"Season"},
+      {"player":"James Jordon","status":"out","position":"midfielder","quality":"good","injury":"Suspended","estimated_return":"Season"},
+      {"player":"Justin McInerney","status":"out","position":"winger","quality":"good","injury":"Hamstring","estimated_return":"1 week"},
+      {"player":"Peter Ladhams","status":"out","position":"ruck","quality":"good","injury":"Groin","estimated_return":"Season"},
+      {"player":"Max King","status":"out","position":"key_forward","quality":"elite","injury":"Back","estimated_return":"Season"}
+    ],
+    "Western Bulldogs": [
+      {"player":"Sam Darcy","status":"out","position":"key_forward","quality":"elite","injury":"Knee","estimated_return":"Season"},
+      {"player":"Tom Liberatore","status":"out","position":"midfielder","quality":"elite","injury":"Knee","estimated_return":"TBC"},
+      {"player":"Adam Treloar","status":"out","position":"midfielder","quality":"elite","injury":"Calf","estimated_return":"1-2 weeks"},
+      {"player":"Matt Kennedy","status":"out","position":"midfielder","quality":"good","injury":"Concussion","estimated_return":"Protocols"},
+      {"player":"Riley Garcia","status":"out","position":"midfielder","quality":"average","injury":"Hamstring","estimated_return":"Season"},
+      {"player":"Oscar Baker","status":"out","position":"winger","quality":"average","injury":"Hamstring","estimated_return":"3-4 weeks"}
+    ]
+  }
+}

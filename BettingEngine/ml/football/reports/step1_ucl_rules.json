@@ -1,0 +1,18 @@
+{
+  "status": "ucl_rules_contract_frozen",
+  "rules_version": "ucl-2026-27-regulations-v1",
+  "league_phase_teams": 36,
+  "matches_per_team": 8,
+  "home_matches": 4,
+  "away_matches": 4,
+  "opponents_per_coefficient_pot": 2,
+  "coefficient_pots": 4,
+  "direct_round_of_16_places": [1, 8],
+  "knockout_playoff_places": [9, 24],
+  "eliminated_places": [25, 36],
+  "same_association_max_opponents": 2,
+  "away_goals_rule": false,
+  "two_legged_tie_resolution": "aggregate_then_extra_time_then_penalties",
+  "final_resolution": "single_neutral_match_then_extra_time_then_penalties",
+  "legacy_group_stage_model_allowed_for_modern_seasons": false
+}

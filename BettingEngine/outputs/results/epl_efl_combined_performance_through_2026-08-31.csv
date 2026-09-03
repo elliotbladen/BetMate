@@ -1,0 +1,8 @@
+period,league,bets,wins,profit_units,roi_pct,selection_rule
+Previous weekend,EPL,9,3,3.11,34.6,10%+ EV report
+Previous weekend,EFL Championship,14,6,5.53,39.5,10%+ EV report
+Latest weekend,EPL,6,1,-2.68,-44.67,Frozen 20%+ EV saved list
+Latest weekend,EFL Championship,3,0,-3.00,-100.00,Frozen 20%+ EV saved list
+Cumulative,EPL,15,4,0.43,2.87,Mixed saved-report aggregation
+Cumulative,EFL Championship,17,6,2.53,14.88,Mixed saved-report aggregation
+Cumulative,Combined,32,10,2.96,9.25,Mixed saved-report aggregation

@@ -1,0 +1,97 @@
+# UEFA Champions League configuration — format-aware, not an EPL clone.
+key: ucl
+name: UEFA Champions League
+competition_type: european_club_two_phase
+
+data:
+  matches_csv: matches/ucl_matches_openfootball.csv
+  xg_csv: xg/ucl_xg.csv
+  clv_dir: clv
+  club_coefficients_csv: context/uefa_club_coefficients.csv
+  access_list_csv: context/uefa_access_list.csv
+  draw_constraints: context/ucl_draw_constraints.csv
+  seasons_from: "2014/15"
+  format_change_season: "2024/25"
+
+model:
+  score_engine: ucl_shared_dixon_coles_elo_tier_stack
+  scoreline_correction: rho_low_score_tau
+  time_decay: true
+  decay_rate: 0.001
+  club_strength: cross_league_xg_dixon_coles_plus_clubelo
+  elo_dc_blend: {dixon_coles: 0.70, elo: 0.30}
+  between_season_reversion: 0.35
+  cross_league_shrinkage: 0.25
+  knockout_state_model: aggregate_score_markov
+  extra_time_and_penalties: separate_qualification_layer
+  market_odds_as_features: false
+
+league_phase:
+  teams: 36
+  matches_per_team: 8
+  home_matches: 4
+  away_matches: 4
+  opponents_per_coefficient_pot: 2
+  same_association_max_opponents: 2
+  direct_round_of_16_places: 8
+  knockout_playoff_places: [9, 24]
+  eliminated_places: [25, 36]
+
+knockout:
+  play_off_legs: 2
+  round_of_16_legs: 2
+  quarter_final_legs: 2
+  semi_final_legs: 2
+  final_legs: 1
+  away_goals_rule: false
+  tied_two_legged_tie: extra_time_then_penalties
+  final_tie: extra_time_then_penalties
+
+markets:
+  match: [h2h, asian_handicap, totals]
+  league_phase: [top_8, top_24, eliminated_25_36, final_position]
+  knockout: [qualify, tie_score, outright_winner]
+
+# Shared football tier skeleton, with UCL-specific state layers.
+tiers:
+  t0_data_health:
+    mode: active
+    action: abstain
+    triggers: [unmapped_club, invalid_draw_graph, stale_lineup, missing_market]
+  t1_club_strength:
+    mode: active
+    method: shared_epl_efl_dixon_coles_elo_stack_with_uefa_prior
+  t2_squad_availability:
+    mode: shadow
+    method: shared_epl_efl_player_residual_shadow
+    features: [injury_status, expected_minutes, player_impact, replacement_level, suspension]
+    adjustment_cap_goal_rate: 0.12
+  t3_matchup_schedule:
+    mode: shadow
+    features: [opponent_strength, travel, rest, domestic_rotation, home_away]
+  t4_league_phase_incentive:
+    mode: shadow
+    features: [points, goal_difference, top8_probability, top24_probability, elimination_probability]
+    applies: league_phase_only
+  t5_knockout_aggregate_state:
+    mode: shadow
+    features: [first_leg_score, aggregate_margin, second_leg_home, extra_time, penalty_probability]
+    applies: knockout_only
+  t6_context_weather:
+    mode: diagnostic
+    may_change_price: false
+  t7_market_disagreement:
+    mode: diagnostic
+    may_change_price: false
+  t8_confluence:
+    mode: diagnostic
+    minimum_distinct_families: 3
+    may_change_price: false
+
+backtest:
+  format_aware_seasons: ["2024/25", "2025/26"]
+  legacy_seasons_separate: true
+  walk_forward: true
+  no_market_features: true
+  promotion_minimum_matches: 500
+  staking_enabled: false

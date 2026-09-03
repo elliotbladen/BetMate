@@ -1,0 +1,9 @@
+{
+  "status": "reference_only_not_valid_for_clv_or_roi",
+  "captured_after_prediction": true,
+  "captured_at_utc": "2026-08-30T21:33:29.419070+00:00",
+  "games": 16,
+  "valid_obtainable_quotes": 0,
+  "prediction_sha256": "d263696ed0abef4c6383f24ff246ecbd0213f07d7fe436b3117f53cd0c6fc538",
+  "market_reference_sha256": "7627b2c9fccaaff922975f3ac87ad1b2be72b289589a0937e27b70d8cfaea83e"
+}

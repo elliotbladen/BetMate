@@ -1,0 +1,7 @@
+{
+  "status": "ucl_context_contract_built_data_pending",
+  "features": ["availability", "suspension", "expected_minutes", "rotation", "rest", "travel", "timezone_shift"],
+  "direct_points_allowed": false,
+  "fabricated_rows": 0,
+  "next_gate": "populate_timestamped_player_and_match_context_then_walk_forward_ablation"
+}

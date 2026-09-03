@@ -1,0 +1,28 @@
+{
+  "model": "pre-match rolling xG + rolling corners; 35% model/65% market blend",
+  "train_matches": 156,
+  "test_matches": 186,
+  "brier_model": 0.23366,
+  "brier_final": 0.21538,
+  "brier_market": 0.21258,
+  "edge_bands": {
+    "0.05": {
+      "bets": 64,
+      "wins": 35,
+      "profit": 4.68,
+      "roi": 7.31
+    },
+    "0.1": {
+      "bets": 6,
+      "wins": 3,
+      "profit": -0.02,
+      "roi": -0.33
+    },
+    "0.15": {
+      "bets": 0,
+      "wins": 0,
+      "profit": 0.0,
+      "roi": null
+    }
+  }
+}

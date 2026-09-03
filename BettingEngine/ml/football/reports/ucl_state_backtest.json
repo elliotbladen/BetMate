@@ -1,0 +1,36 @@
+{
+  "status": "ucl_modern_state_replay_complete",
+  "seasons": [
+    "2024-25",
+    "2025-26"
+  ],
+  "clubs_labelled": 72,
+  "matches_replayed": 288,
+  "bucket_counts": {
+    "eliminated25_36": {
+      "2024-25": 12,
+      "2025-26": 12
+    },
+    "playoff9_24": {
+      "2024-25": 16,
+      "2025-26": 16
+    },
+    "top8": {
+      "2024-25": 8,
+      "2025-26": 8
+    }
+  },
+  "checks": {
+    "clubs_per_season_36": true,
+    "top8_per_season_8": true,
+    "playoff_per_season_16": true,
+    "eliminated_per_season_12": true
+  },
+  "forecast_metrics": "pending probabilistic qualification simulation",
+  "restrictions": [
+    "historical labels only",
+    "no odds",
+    "no player data",
+    "tie-break approximation follows stored rank_table contract"
+  ]
+}

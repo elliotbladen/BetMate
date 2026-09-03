@@ -1,0 +1,13 @@
+{
+  "status": "ucl_knockout_tie_pairing_complete",
+  "seasons": [
+    "2024-25",
+    "2025-26"
+  ],
+  "ties": 62,
+  "two_leg_ties": 28,
+  "single_matches": 34,
+  "aggregate_ties_requiring_resolution": 0,
+  "source_scores_used": true,
+  "output": "data\\ucl\\clv\\ucl_knockout_ties.csv"
+}

@@ -312,8 +312,11 @@ tier2_matchup:
   # proportional scaling pass in compute_matchup_adjustments().
   # When multiple families fire in the same game and the sum exceeds this cap,
   # all family deltas are scaled down by the same factor to land exactly on the cap.
-  max_home_points_delta: 1.0
-  max_away_points_delta: 1.0
+  # NRL outer cap aligned with config/sports/nrl.yaml (changed 2026-09-02).
+  # The pricing pipeline halves this to 1.5 per team when T2 reinforces T1.
+  max_home_points_delta: 3.0
+  max_away_points_delta: 3.0
+  max_net_handicap_delta: 3.0
 
   # -----------------------------------------------------------------------
   # Bucket 1: Yardage / territory / ruck-momentum

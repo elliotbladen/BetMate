@@ -1,0 +1,10 @@
+{
+  "status": "provisional_complete_external_prior_pending",
+  "clubs": 136,
+  "matches": 1997,
+  "output": "data/ucl/context/ucl_provisional_strength_priors.csv",
+  "external_uefa_prior_available": false,
+  "external_domestic_strength_available": false,
+  "fabricated_external_rows": 0,
+  "activation": "diagnostic only; do not replace ClubElo/UEFA prior until dated external snapshots are imported"
+}

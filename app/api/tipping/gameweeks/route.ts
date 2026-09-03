@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAuthenticatedUser } from '@/lib/authServer';
-import { getCurrentEplGameweek } from '@/lib/tippingResults';
+import { gameweeksToSyncOnTransition, getCurrentEplGameweek, syncTippingResults } from '@/lib/tippingResults';
 
 export async function GET() {
   if (!await getAuthenticatedUser()) {
@@ -8,6 +8,12 @@ export async function GET() {
   }
   try {
     const currentGameweek = await getCurrentEplGameweek();
+    // Grade the round that has just completed before allowing the UI to move
+    // its rolling window forward. Tips are already durable in Supabase; this
+    // closes the gap where the final result could otherwise remain ungraded.
+    for (const gameweek of gameweeksToSyncOnTransition(currentGameweek)) {
+      await syncTippingResults(gameweek);
+    }
     return NextResponse.json({
       current_gameweek: currentGameweek,
       next_gameweek: currentGameweek && currentGameweek < 38 ? currentGameweek + 1 : null,

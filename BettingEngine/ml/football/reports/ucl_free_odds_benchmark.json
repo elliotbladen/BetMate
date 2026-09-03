@@ -1,0 +1,35 @@
+{
+  "status": "ucl_free_odds_standalone_benchmark_complete",
+  "matches": 1540,
+  "seasons": [
+    "2003-2004",
+    "2004-2005",
+    "2005-2006",
+    "2006-2007",
+    "2007-2008",
+    "2008-2009",
+    "2010-2011",
+    "2011-2012",
+    "2012-2013",
+    "2014-2015",
+    "2016-2017",
+    "2017-2018",
+    "2018-2019",
+    "2019-2020",
+    "2020-2021",
+    "2021-2022",
+    "2022-2023",
+    "2024-2025"
+  ],
+  "market_accuracy": 0.6090909090909091,
+  "market_brier": 0.5251594147114184,
+  "mean_overround": 0.06049537817906192,
+  "closing_status": "unverified_static_close",
+  "timestamps_present": false,
+  "model_join_excluded": true,
+  "restrictions": [
+    "benchmark only",
+    "no confirmed close timestamp",
+    "no ROI or CLV claim"
+  ]
+}

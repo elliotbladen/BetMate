@@ -1,9 +1,9 @@
 {
   "accepted_rating_changed": false,
-  "races": 2201,
-  "runners": 22235,
+  "races": 2627,
+  "runners": 28072,
   "skipped": {
-    "incomplete_curve": 6232
+    "incomplete_curve": 794
   },
   "version": "energy-sectionals-v2.5-hierarchical-shadow"
 }

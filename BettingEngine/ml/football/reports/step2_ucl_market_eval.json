@@ -1,0 +1,41 @@
+{
+  "status": "ucl_step2_market_evaluation_complete",
+  "matches": 42,
+  "closing_status": "archived_closing",
+  "model_accuracy": 0.5952380952380952,
+  "market_accuracy": 0.6428571428571429,
+  "mean_max_edge": 0.18588570809241073,
+  "edge_buckets": [
+    {
+      "edge_band": "0.00-0.02",
+      "bets": 0,
+      "win_rate": null,
+      "roi": null
+    },
+    {
+      "edge_band": "0.02-0.05",
+      "bets": 10,
+      "win_rate": 0.2,
+      "roi": -0.67757
+    },
+    {
+      "edge_band": "0.05-0.10",
+      "bets": 5,
+      "win_rate": 0.4,
+      "roi": 0.02868000000000004
+    },
+    {
+      "edge_band": "0.10-1.00",
+      "bets": 27,
+      "win_rate": 0.48148148148148145,
+      "roi": 0.5207592592592591
+    }
+  ],
+  "provisional_flat_stake_roi_all": 0.17686190476190472,
+  "restrictions": [
+    "51 joined matches",
+    "archived closing odds without quote timestamps",
+    "not statistically conclusive",
+    "no staking promotion"
+  ]
+}

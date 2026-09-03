@@ -1,0 +1,427 @@
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-04)...
+
+====================================================================
+  IPSWICH  vs  LIVERPOOL     Fri 04 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Ipswich λ=1.28   Liverpool μ=2.54
+  Elo diff:      -113 (home advantage in Elo pts)
+  Pressing:      Ipswich 18.5 (low press)   Liverpool 8.9 (high press)
+  Form (last 5): Ipswich 3pts   Liverpool 4pts
+  Rest days:     Ipswich 5d    Liverpool 6d 
+  Injuries home: LW, CM
+  Injuries away: RB, ST, CB, CB
+
+  TIER ADJUSTMENTS  (base: λ=1.28 μ=2.54  →  adjusted: λ=1.22 μ=2.33)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.030 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.008   μ +0.008
+  T5 Inj home:   attack −9%   defence −5%  (→ μ rises)
+  T5 Inj away:   attack −13%   defence −15%  (→ λ rises)
+  T7 Set-piece:  λ -0.080   μ +0.026  (home corners 3.0 won/5.0 conceded | away 6.2 won/2.8 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.224        4.46         —  
+  Draw              0.218        4.59         —  
+  Away win          0.558        1.79         —  
+  Over 2.5          0.673        1.48         —  
+  Under 2.5         0.327        3.06         —  
+  AH -0.5 H         0.178        5.61         —  
+  AH +0.5 A         0.822        1.22         —  
+
+  D-C ratings:   Ipswich att=1.00 def=1.00 hfa=1.00   |   Liverpool att=2.00 def=1.22
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-04
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-05)...
+
+====================================================================
+  NEWCASTLE  vs  BOURNEMOUTH     Sat 05 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Newcastle λ=2.50   Bournemouth μ=1.88
+  Elo diff:      -23 (home advantage in Elo pts)
+  Pressing:      Newcastle 10.3 (medium)   Bournemouth 9.0 (high press)
+  Form (last 5): Newcastle 8pts   Bournemouth 6pts
+  Rest days:     Newcastle 7d    Bournemouth 7d 
+  Injuries home: CB, CM, ST
+  Injuries away: AM, RB
+
+  TIER ADJUSTMENTS  (base: λ=2.50 μ=1.88  →  adjusted: λ=2.33 μ=1.87)
+  ────────────────────────────────────────
+  T2 PPDA:       +0.026 xG each team  (passive teams, more open)
+  T3 Form:       λ +0.016   μ -0.016
+  T5 Inj home:   attack −13%   defence −10%  (→ μ rises)
+  T5 Inj away:   attack −9%   defence −5%  (→ λ rises)
+  T7 Set-piece:  λ +0.004   μ -0.016  (home corners 4.8 won/5.0 conceded | away 3.3 won/7.0 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.459        2.18         —  
+  Draw              0.229        4.37         —  
+  Away win          0.313        3.20         —  
+  Over 2.5          0.778        1.29         —  
+  Under 2.5         0.222        4.50         —  
+  AH -0.5 H         0.478        2.09         —  
+  AH +0.5 A         0.522        1.92         —  
+
+  D-C ratings:   Newcastle att=1.34 def=1.07 hfa=1.24   |   Bournemouth att=1.58 def=1.04
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-05
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-05)...
+
+====================================================================
+  BRENTFORD  vs  SUNDERLAND     Sat 05 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Brentford λ=1.90   Sunderland μ=1.16
+  Elo diff:      +16 (home advantage in Elo pts)
+  Pressing:      Brentford 10.6 (medium)   Sunderland 11.8 (medium)
+  Form (last 5): Brentford 6pts   Sunderland 10pts
+  Rest days:     Brentford 6d    Sunderland 6d 
+  Injuries home: CM, CB
+  Injuries away: LW, LB
+
+  TIER ADJUSTMENTS  (base: λ=1.90 μ=1.16  →  adjusted: λ=1.84 μ=1.19)
+  ────────────────────────────────────────
+  T2 PPDA:       +0.004 xG each team  (passive teams, more open)
+  T3 Form:       λ -0.032   μ +0.032
+  T5 Inj home:   attack −4%   defence −10%  (→ μ rises)
+  T5 Inj away:   attack −8%   defence −4%  (→ λ rises)
+  T7 Set-piece:  λ -0.022   μ -0.021  (home corners 5.0 won/4.0 conceded | away 4.0 won/5.0 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.495        2.02         —  
+  Draw              0.258        3.87         —  
+  Away win          0.247        4.05         —  
+  Over 2.5          0.558        1.79         —  
+  Under 2.5         0.442        2.26         —  
+  AH -0.5 H         0.513        1.95         —  
+  AH +0.5 A         0.486        2.06         —  
+
+  D-C ratings:   Brentford att=1.41 def=1.09 hfa=1.09   |   Sunderland att=0.99 def=1.27
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-05
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-05)...
+
+====================================================================
+  BRIGHTON  vs  LEEDS     Sat 05 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Brighton λ=2.28   Leeds μ=1.35
+  Elo diff:      +10 (home advantage in Elo pts)
+  Pressing:      Brighton 11.4 (medium)   Leeds 11.3 (medium)
+  Form (last 5): Brighton 6pts   Leeds 8pts
+  Rest days:     Brighton 6d    Leeds 6d 
+  Injuries home: RW, CM, LW, ST
+  Injuries away: CB, ST
+
+  TIER ADJUSTMENTS  (base: λ=2.28 μ=1.35  →  adjusted: λ=1.85 μ=1.27)
+  ────────────────────────────────────────
+  T2 PPDA:       +0.003 xG each team  (passive teams, more open)
+  T3 Form:       λ -0.016   μ +0.016
+  T5 Inj home:   attack −24%   defence −6%  (→ μ rises)
+  T5 Inj away:   attack −10%   defence −6%  (→ λ rises)
+  T7 Set-piece:  λ +0.028   μ -0.043  (home corners 4.4 won/3.8 conceded | away 2.7 won/9.0 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.482        2.08         —  
+  Draw              0.258        3.88         —  
+  Away win          0.260        3.84         —  
+  Over 2.5          0.558        1.79         —  
+  Under 2.5         0.442        2.26         —  
+  AH -0.5 H         0.497        2.01         —  
+  AH +0.5 A         0.502        1.99         —  
+
+  D-C ratings:   Brighton att=1.44 def=1.14 hfa=1.04   |   Leeds att=1.21 def=1.03
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-05
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-05)...
+
+====================================================================
+  FULHAM  vs  CRYSTAL PALACE     Sat 05 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Fulham λ=1.75   Crystal Palace μ=1.49
+  Elo diff:      +11 (home advantage in Elo pts)
+  Pressing:      Fulham 14.0 (low press)   Crystal Palace 20.5 (low press)
+  Form (last 5): Fulham 4pts   Crystal Palace 1pts
+  Rest days:     Fulham 6d    Crystal Palace 8d 
+  Injuries home: CM
+  Injuries away: CB, ST
+
+  TIER ADJUSTMENTS  (base: λ=1.75 μ=1.49  →  adjusted: λ=1.76 μ=1.28)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.081 xG each team  (pressing suppresses goals)
+  T3 Form:       λ +0.024   μ -0.024
+  T5 Inj home:   attack −3%   defence −4%  (→ μ rises)
+  T5 Inj away:   attack −10%   defence −6%  (→ λ rises)
+  T7 Set-piece:  λ +0.022   μ -0.021  (home corners 6.2 won/4.6 conceded | away 3.4 won/6.8 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.465        2.15         —  
+  Draw              0.263        3.80         —  
+  Away win          0.272        3.68         —  
+  Over 2.5          0.558        1.79         —  
+  Under 2.5         0.442        2.26         —  
+  AH -0.5 H         0.474        2.11         —  
+  AH +0.5 A         0.526        1.90         —  
+
+  D-C ratings:   Fulham att=1.21 def=1.09 hfa=1.02   |   Crystal Palace att=1.28 def=1.10
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-05
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-05)...
+
+====================================================================
+  MAN CITY  vs  COVENTRY     Sat 05 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Man City λ=3.10   Coventry μ=0.79
+  Elo diff:      +158 (home advantage in Elo pts)
+  Form (last 5): Man City 10pts   Coventry 0pts
+  Rest days:     Man City 8d    Coventry 7d 
+  Injuries home: LW
+  Injuries away: ST, RB, CB
+
+  TIER ADJUSTMENTS  (base: λ=3.10 μ=0.79  →  adjusted: λ=3.33 μ=0.58)
+  ────────────────────────────────────────
+  T3 Form:       λ +0.080   μ -0.080
+  T5 Inj home:   attack −6%   defence −1%  (→ μ rises)
+  T5 Inj away:   attack −12%   defence −9%  (→ λ rises)
+  T7 Set-piece:  λ +0.078   μ -0.056  (home corners 8.8 won/3.6 conceded | away 2.0 won/8.0 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.799        1.25         —  
+  Draw              0.129        7.74         —  
+  Away win          0.071       14.00         —  
+  Over 2.5          0.673        1.48         —  
+  Under 2.5         0.327        3.06         —  
+  AH -0.5 H         0.879        1.14         —  
+  AH +0.5 A         0.121        8.28         —  
+
+  D-C ratings:   Man City att=2.01 def=1.61 hfa=0.98   |   Coventry att=1.00 def=1.00
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-05
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-05)...
+
+====================================================================
+  NOTT'M FOREST  vs  TOTTENHAM     Sat 05 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Nott'm Forest λ=1.63   Tottenham μ=1.71
+  Elo diff:      +48 (home advantage in Elo pts)
+  Pressing:      Nott'm Forest 13.0 (low press)   Tottenham 13.1 (low press)
+  Form (last 5): Nott'm Forest 3pts   Tottenham 4pts
+  Rest days:     Nott'm Forest 7d    Tottenham 7d 
+  Injuries home: RB, DM
+  Injuries away: AM, LW, AM
+
+  TIER ADJUSTMENTS  (base: λ=1.63 μ=1.71  →  adjusted: λ=1.55 μ=1.43)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.022 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.008   μ +0.008
+  T5 Inj home:   attack −5%   defence −8%  (→ μ rises)
+  T5 Inj away:   attack −20%   defence −5%  (→ λ rises)
+  T7 Set-piece:  λ -0.042   μ -0.031  (home corners 4.5 won/2.8 conceded | away 4.5 won/4.2 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.420        2.38         —  
+  Draw              0.267        3.75         —  
+  Away win          0.313        3.19         —  
+  Over 2.5          0.522        1.92         —  
+  Under 2.5         0.478        2.09         —  
+  AH -0.5 H         0.390        2.57         —  
+  AH +0.5 A         0.610        1.64         —  
+
+  D-C ratings:   Nott'm Forest att=1.42 def=1.11 hfa=0.74   |   Tottenham att=1.48 def=1.02
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-05
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-05)...
+
+====================================================================
+  HULL  vs  ASTON VILLA     Sat 05 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Hull λ=1.45   Aston Villa μ=1.60
+  Elo diff:      -19 (home advantage in Elo pts)
+  Pressing:      Hull 12.6 (medium)   Aston Villa 15.1 (low press)
+  Form (last 5): Hull 6pts   Aston Villa 7pts
+  Rest days:     Hull 7d    Aston Villa 5d 
+  Injuries home: GK, CM, CM, CB, DM
+  Injuries away: DM, CM, RW
+
+  TIER ADJUSTMENTS  (base: λ=1.45 μ=1.60  →  adjusted: λ=1.31 μ=1.75)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.033 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.008   μ +0.008
+  T5 Inj home:   attack −10%   defence −25%  (→ μ rises)
+  T5 Inj away:   attack −12%   defence −10%  (→ λ rises)
+  T7 Set-piece:  λ -0.078   μ +0.018  (home corners 1.0 won/6.0 conceded | away 4.7 won/5.2 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.317        3.15         —  
+  Draw              0.262        3.81         —  
+  Away win          0.420        2.38         —  
+  Over 2.5          0.558        1.79         —  
+  Under 2.5         0.442        2.26         —  
+  AH -0.5 H         0.275        3.64         —  
+  AH +0.5 A         0.725        1.38         —  
+
+  D-C ratings:   Hull att=1.00 def=1.00 hfa=1.00   |   Aston Villa att=1.25 def=1.08
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-05
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-06)...
+
+====================================================================
+  EVERTON  vs  MAN UNITED     Sun 06 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Everton λ=1.79   Man United μ=1.63
+  Elo diff:      -57 (home advantage in Elo pts)
+  Pressing:      Everton 14.3 (low press)   Man United 9.8 (high press)
+  Form (last 5): Everton 5pts   Man United 10pts
+  Rest days:     Everton 8d    Man United 7d 
+  Injuries home: DM
+  Injuries away: RW, DM, CB, DM
+
+  TIER ADJUSTMENTS  (base: λ=1.79 μ=1.63  →  adjusted: λ=1.92 μ=1.53)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.008 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.040   μ +0.040
+  T5 Inj home:   attack −3%   defence −5%  (→ μ rises)
+  T5 Inj away:   attack −13%   defence −17%  (→ λ rises)
+  T7 Set-piece:  λ -0.060   μ +0.014  (home corners 3.2 won/5.2 conceded | away 5.2 won/4.2 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.435        2.30         —  
+  Draw              0.246        4.06         —  
+  Away win          0.319        3.14         —  
+  Over 2.5          0.673        1.48         —  
+  Under 2.5         0.327        3.06         —  
+  AH -0.5 H         0.457        2.19         —  
+  AH +0.5 A         0.543        1.84         —  
+
+  D-C ratings:   Everton att=1.21 def=1.12 hfa=1.01   |   Man United att=1.43 def=1.07
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-06
+====================================================================
+
+
+
+Loading data (English Premier League)...
+Fitting D-C model (as of 2026-09-06)...
+
+====================================================================
+  ARSENAL  vs  CHELSEA     Sun 06 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Arsenal λ=2.33   Chelsea μ=1.34
+  Elo diff:      +109 (home advantage in Elo pts)
+  Pressing:      Arsenal 10.8 (medium)   Chelsea 11.7 (medium)
+  Form (last 5): Arsenal 15pts   Chelsea 10pts
+  Rest days:     Arsenal 6d    Chelsea 7d 
+  Injuries home: CB, RB
+  Injuries away: CM
+
+  TIER ADJUSTMENTS  (base: λ=2.33 μ=1.34  →  adjusted: λ=2.40 μ=1.35)
+  ────────────────────────────────────────
+  T2 PPDA:       +0.003 xG each team  (passive teams, more open)
+  T3 Form:       λ +0.040   μ -0.040
+  T5 Inj home:   attack −3%   defence −9%  (→ μ rises)
+  T5 Inj away:   attack −3%   defence −4%  (→ λ rises)
+  T7 Set-piece:  λ +0.006   μ -0.022  (home corners 6.5 won/2.5 conceded | away 5.4 won/5.4 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.585        1.71         —  
+  Draw              0.216        4.63         —  
+  Away win          0.199        5.03         —  
+  Over 2.5          0.673        1.48         —  
+  Under 2.5         0.327        3.06         —  
+  AH -0.5 H         0.596        1.68         —  
+  AH +0.5 A         0.404        2.47         —  
+
+  D-C ratings:   Arsenal att=1.63 def=1.60 hfa=1.06   |   Chelsea att=1.68 def=1.15
+  Model data:    4580 matches fitted  |  1139 calibration rows  |  as of 2026-09-06
+====================================================================
+
