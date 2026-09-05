@@ -21,6 +21,15 @@ matches and remains paper-only. The UCL player shadow framework exists but has
 0 timestamped player events and cannot influence production prices yet. See
 `handover/sessions/2026-09-03_ucl-market-architecture-and-player-shadow.md`.
 
+**Championship 1X2 calibration + T5 (2026-09-06):** Football 1X2 is uncalibrated
+by design — tested isotonic 1X2 calibration, it hurt the backtest, rejected and
+reverted (the raw D-C+Elo blend is already well calibrated incl. tail).
+Market-blending also rejected. KEPT: T5 injury guardrails — `MAX_DISRUPTION`
+0.25 → 0.15/axis (`models/tiers.py`), new ±3pp 1X2 swing cap vs an injury-free
+re-price (`price_match.py`), and `price_match` now returns `p_*_base`/`fair_*_base`.
+T5 still has zero walk-forward validation. Real live issue is bet timing / CLV,
+not calibration. See `handover/sessions/2026-09-06_championship-1x2-calibration-t5-cap.md`.
+
 ### Season Phase Tagging — LIVE 2026-07-10
 `scripts/season_phases.py` — event-anchored NRL phases (early/origin/late/finals + `origin_window` bool; Origin window = camp_start → game + 7d so backup-fatigue rounds like R19 are captured) from `{BETMATE_ROOT}/data/nrl/origin/{season}.json` + `model.db` round dates. AFL = descriptive round split only. `update_clv_running.py` and `generate_model_accuracy.py` now emit `phase`/`origin_window` columns in the running CSVs (full-regenerate scripts → backfill automatic). Purpose: measure per-phase model bias/CLV through end of 2026 BEFORE fitting any phase weights for the planned 2027 four-phase NRL split. CLI check: `python scripts/season_phases.py --season 2026`.
 

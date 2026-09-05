@@ -54,8 +54,12 @@ POSITION_WEIGHTS: dict[str, tuple[float, float]] = {
     "FW":  (0.08, 0.00),   # forward (generic)
 }
 
-# Cap total disruption per team — can't lose more than 25% attack/defence
-MAX_DISRUPTION = 0.25
+# Cap total disruption per team — an xG swing this large from confirmed absences
+# is not credible, and the live GW1–5 2026/27 slate showed injury bumps were the
+# sole driver of the largest (and worst-performing) displayed EVs. Tightened
+# 0.25 → 0.15 on 2026-09-06 pending a proper T5 backtest (T5 is not yet in the
+# walk-forward). See handover 2026-09-06_championship-1x2-calibration-t5-cap.md.
+MAX_DISRUPTION = 0.15
 
 # T2 PPDA coefficient — each 1 unit of ppda_sum above league avg removes this much xG per team
 # Research: Carroll (2014) finds PPDA explains ~12% of xG variance

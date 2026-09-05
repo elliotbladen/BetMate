@@ -95,6 +95,17 @@ def fit_totals_calibrator(prior: pd.DataFrame):
     return iso
 
 
+def _strip_injuries(state: "TeamState") -> "TeamState":
+    """Copy of a TeamState with the T5 injury list cleared."""
+    import dataclasses
+    return dataclasses.replace(state, injuries=[])
+
+
+def _clamp_swing(p: float, p_base: float, cap: float) -> float:
+    """Limit how far p may move from p_base."""
+    return min(p_base + cap, max(p_base - cap, p))
+
+
 def get_ppda(ppda_df: pd.DataFrame, team: str, before: datetime) -> float | None:
     if ppda_df.empty:
         return None
@@ -361,16 +372,42 @@ def price_match(
     lam = adj.lam_final
     mu  = adj.mu_final
 
+    elo_mkts = elo.win_probabilities(home, away)
+
+    def _blend_1x2(lam_x: float, mu_x: float) -> tuple[float, float, float]:
+        mkts = derive_markets(build_scoreline_matrix(lam_x, mu_x, rho=rho))
+        ph = dc_weight * mkts["p_home"] + elo_weight * elo_mkts["p_home"]
+        pd_ = dc_weight * mkts["p_draw"] + elo_weight * elo_mkts["p_draw"]
+        pa = dc_weight * mkts["p_away"] + elo_weight * elo_mkts["p_away"]
+        s = ph + pd_ + pa
+        return ph / s, pd_ / s, pa / s
+
     # ── Scoreline matrix → market probabilities ───────────────────────────────
     matrix   = build_scoreline_matrix(lam, mu, rho=rho)
     dc_mkts  = derive_markets(matrix)
-    elo_mkts = elo.win_probabilities(home, away)
+    p_home, p_draw, p_away = _blend_1x2(lam, mu)
 
-    p_home = dc_weight * dc_mkts["p_home"] + elo_weight * elo_mkts["p_home"]
-    p_draw = dc_weight * dc_mkts["p_draw"] + elo_weight * elo_mkts["p_draw"]
-    p_away = dc_weight * dc_mkts["p_away"] + elo_weight * elo_mkts["p_away"]
-    total  = p_home + p_draw + p_away
-    p_home, p_draw, p_away = p_home/total, p_draw/total, p_away/total
+    # ── T5 swing cap on 1X2 ──────────────────────────────────────────────────
+    # Price the same match with injuries removed, then cap how far the injury
+    # layer is allowed to move each 1X2 outcome (T5_H2H_SWING_CAP). Stops an
+    # unvalidated injury adjustment from being the sole reason a bet clears the
+    # EV floor. p_*_base is returned so the EV screen can also check the
+    # pre-injury price. Added 2026-09-06.
+    T5_H2H_SWING_CAP = 0.03
+    p_home_base, p_draw_base, p_away_base = p_home, p_draw, p_away
+    if injuries_home or injuries_away:
+        base_ctx = MatchContext(
+            home=_strip_injuries(context.home),
+            away=_strip_injuries(context.away),
+            ref_goals_pg=ref_goals_pg,
+        )
+        base_adj = apply_all_tiers(lam_base, mu_base, base_ctx, cfg.tier_params)
+        p_home_base, p_draw_base, p_away_base = _blend_1x2(base_adj.lam_final, base_adj.mu_final)
+        p_home = _clamp_swing(p_home, p_home_base, T5_H2H_SWING_CAP)
+        p_draw = _clamp_swing(p_draw, p_draw_base, T5_H2H_SWING_CAP)
+        p_away = _clamp_swing(p_away, p_away_base, T5_H2H_SWING_CAP)
+        s = p_home + p_draw + p_away
+        p_home, p_draw, p_away = p_home / s, p_draw / s, p_away / s
 
     # Over 2.5 — apply isotonic calibration
     p_o_raw = dc_mkts["p_over25"]
@@ -495,8 +532,13 @@ def price_match(
         "model_version": "dc_elo_rules_v1.1_season_reset",
         "lambda_home": round(lam, 4), "lambda_away": round(mu, 4),
         "p_home": round(p_home, 6), "p_draw": round(p_draw, 6), "p_away": round(p_away, 6),
+        "p_home_base": round(p_home_base, 6), "p_draw_base": round(p_draw_base, 6),
+        "p_away_base": round(p_away_base, 6),
+        "t5_h2h_swing_capped": bool(injuries_home or injuries_away),
         "p_over25": round(p_o, 6), "p_under25": round(p_u, 6),
         "fair_home": to_odds(p_home), "fair_draw": to_odds(p_draw), "fair_away": to_odds(p_away),
+        "fair_home_base": to_odds(p_home_base), "fair_draw_base": to_odds(p_draw_base),
+        "fair_away_base": to_odds(p_away_base),
         "fair_over25": to_odds(p_o), "fair_under25": to_odds(p_u),
         "new_team_resets": ratings.get("new_team_resets", []),
         "t8_home_elo_diff": t8_elo_diff_h, "t8_away_elo_diff": t8_elo_diff_a,

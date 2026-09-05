@@ -51,6 +51,7 @@ Championship — that's the regression gate.
 | HFA | per-team, EPL-fit | **per-team, E1-fit (expect higher)** | Home wins near 50% in 24/25 |
 | Decay half-life | 693d | **Longer (goals noisier) — grid-search in backtest** | |
 | Calibration | isotonic O2.5 | **Own isotonic instance** (O2.5 base rate sub-50% — EPL calibrator would poison it) | |
+| 1X2 calibration | none | **none — tested and rejected 2026-09-06.** Raw D-C+Elo 1X2 blend backtests as already well calibrated (pooled reliability gap ≤0.02 incl. tail); isotonic maps fit on 1–3 prior seasons injected noise and hurt Brier + EV-screen ROI. Revisit end-of-season with 2026/27 added. Market-blending also rejected — destroys real edge. | See handover 2026-09-06 |
 
 ### Tier stack
 
@@ -64,7 +65,7 @@ Championship — that's the regression gate.
 |---|---|---|
 | T2 pressing | **DEFERRED** | No PPDA (T2 inactive, returns 0). Shots-based proxy waits for the Phase 5 `--apply-tiers` backtest mode so it can be ablation-tested honestly before shipping. |
 | T3 form + rest | KEPT, retuned | **short_rest_days: 3** — E1 data (2026-07-10): median rest is 4d and 50.3% of games are ≤4d, so the EPL threshold would penalise half the league; ≤3d = 27.9% (genuine midweek turnarounds). |
-| T5 injuries | KEPT | Manual position flags (`--injuries-home "ST,CM"`), same weights initially — Championship squads are thinner, so if anything the weights are conservative. |
+| T5 injuries | KEPT, **guardrailed 2026-09-06** | Manual position flags (`--injuries-home "ST,CM"`). `MAX_DISRUPTION` cut 0.25 → **0.15**/axis; injury layer may move each 1X2 outcome ≤ **±3pp** vs the injury-free price (`T5_H2H_SWING_CAP`). `price_match` returns `p_*_base` / `fair_*_base` so the EV screen can require a bet to clear the floor on the pre-injury price too. **T5 has zero walk-forward validation** — guards are interim until injury data is in the backtest. Live GW1–5 2026/27: injury bumps drove the largest and worst-performing displayed EVs. |
 | T6 referee | ✅ REFIT | league_ref_goals **1.415** from E1 (124 refs, n=6071). |
 | T7 set-piece | ✅ REFIT | corners home **5.634** / away **4.624** from E1 (n=5831). Coefficient revisit in Phase 5. |
 | **T8 season-reset prior** | **NEW — the centrepiece** | Every August, 6 new teams have no in-league history. Seed strength from **ClubElo** (free API, covers English tiers 1–5) + a **parachute flag**: relegated Y1/Y2/Y3 get a graded attack/defence prior boost (research: parachute clubs 3× promotion rate, £90m vs £27m revenue); promoted-from-L1 get a discount prior. Prior weight decays linearly to zero by ~matchweek 15 as real E1 data takes over. |

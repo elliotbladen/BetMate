@@ -416,3 +416,29 @@ Always keep this file up to date. Every new env var added to the app must also b
   dependency plus a local prospective capture runner.
 - Full handover:
   `../RacingEngine/handover/sessions/2026-09-05_randwick-sandown-prospective-tempo-test.md`.
+
+## 2026-09-06 — Championship 1X2 calibration investigation + T5 injury guardrails
+
+- Triggered by the very-high-EV Championship shortlist going 0/3 with −3.25% CLV
+  in Week 2 while the actual saved ledger sat marginally positive (17 bets,
+  +2.53u, +14.88% through 31 Aug).
+- Confirmed 1X2 is uncalibrated everywhere (`H2HCalibrator` is dead code; only
+  over-2.5 gets isotonic). BUT the backtest reliability curve shows the raw
+  D-C+Elo 1X2 blend is already well calibrated, tail included (pooled gap
+  ≤0.02), and the EV≥20% bucket is the *best* backtest bucket (+6.2% ROI at
+  close over 937 bets). "Monster EV = fake" not supported historically.
+- Tested isotonic 1X2 calibration wired into `price_match` + `walk_forward` →
+  **rejected**, it mildly hurt every metric (Brier 0.2104→0.2112, EV≥20% ROI
+  +6.2%→+2.2%). Fully reverted, backtest CSVs restored from git. Market-blending
+  also modelled and rejected (destroys real edge).
+- **Kept — T5 injury guardrails** (T5 has zero walk-forward validation and drove
+  every large live EV this season): `MAX_DISRUPTION` 0.25 → **0.15**/axis in
+  `models/tiers.py`; new **±3pp 1X2 swing cap** in `price_match.py` vs an
+  injury-free re-price; `price_match` now returns `p_*_base` / `fair_*_base` +
+  `t5_h2h_swing_capped`. 76 football tests pass; no backtest regression (T5 not
+  in walk-forward).
+- Real live issue is bet timing / CLV, not calibration. Next data task: add
+  opening odds to `backtest_results.csv` to measure save→close drift; get T5
+  into a backtest.
+- Full handover:
+  `sessions/2026-09-06_championship-1x2-calibration-t5-cap.md`.

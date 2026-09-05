@@ -31,7 +31,7 @@ DIXON-COLES MODEL (70%)         ELO MODEL (30%)
   │  T2  PPDA           pressing matchup    ±0.15 xG     │
   │  T3  Form           last 5 pts          ±0.15 xG     │
   │  T3  Rest           ≤4d fatigue         ×0.94        │
-  │  T5  Injuries       position weights    −25% max      │
+  │  T5  Injuries       position weights    −15% max      │
   │  T6  Referee        goals/game history  ±0.15 xG     │
   │  T7  Set-piece      corners won/conceded ±0.08 xG    │
   └──────────────────────────────────────────────────────┘
@@ -76,7 +76,7 @@ mu  = base_away × att_away / def_home
 | T2 PPDA | −0.007 xG per ppda_sum unit above avg | Carroll (2014) |
 | T3 Form | +0.008 xG per form point advantage | EPL analytics literature |
 | T3 Rest | ×0.94 if ≤4 days since last match | Standard sports science |
-| T5 Injuries | ST=−9% att, GK=−6% def, AM=−7% att, etc | Caley (2015) |
+| T5 Injuries | ST=−9% att, GK=−6% def, AM=−7% att, etc; **−15% max/axis** (was −25%, cut 2026-09-06); **1X2 swing capped ±3pp vs injury-free price** | Caley (2015) + 2026-09-06 guardrails |
 | T6 Referee | ×0.5 of goals/game deviation | Internal calibration |
 | T7 Set-piece | 0.042 xG/corner × 0.35 weight | Caley (2014) + calibration overlap |
 
