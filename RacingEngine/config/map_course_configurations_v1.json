@@ -1,0 +1,14 @@
+{
+  "version": "map-course-config-v1",
+  "status": "PARTIAL_REQUIRES_DISTANCE_VERIFICATION",
+  "policy": "Unknown geometry remains null and uses the learned track-distance fallback; it is never guessed.",
+  "tracks": [
+    {"track_slug":"randwick","course_variant":"course_proper","turn_direction":"clockwise","source_url":"https://www.australianturfclub.com.au/randwick/","verification_status":"track_verified_distance_geometry_pending"},
+    {"track_slug":"rosehill","course_variant":"course_proper","turn_direction":"clockwise","source_url":"https://www.australianturfclub.com.au/rosehill-gardens/","verification_status":"track_verified_distance_geometry_pending"},
+    {"track_slug":"caulfield","course_variant":"course_proper","turn_direction":"anticlockwise","source_url":"https://mrc.racing.com/","verification_status":"track_verified_distance_geometry_pending"},
+    {"track_slug":"flemington","course_variant":"course_proper","turn_direction":"anticlockwise","source_url":"https://www.vrc.com.au/","verification_status":"track_verified_distance_geometry_pending"},
+    {"track_slug":"the-valley","course_variant":"course_proper","turn_direction":"anticlockwise","source_url":"https://www.thevalley.com.au/","verification_status":"track_verified_distance_geometry_pending"},
+    {"track_slug":"sportsbet-sandown-hillside","course_variant":"hillside","turn_direction":"anticlockwise","source_url":"https://mrc.racing.com/","verification_status":"track_verified_distance_geometry_pending"},
+    {"track_slug":"sportsbet-sandown-lakeside","course_variant":"lakeside","turn_direction":"anticlockwise","source_url":"https://mrc.racing.com/","verification_status":"track_verified_distance_geometry_pending"}
+  ]
+}

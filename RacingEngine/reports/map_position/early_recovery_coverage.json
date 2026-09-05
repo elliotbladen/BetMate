@@ -1,0 +1,40 @@
+{
+  "coverage_by_source": {
+    "racing-com-nsw-authorised-v2": {
+      "early_to_800_seconds": 14426,
+      "final_200_seconds": 14698,
+      "final_400_seconds": 14698,
+      "final_600_seconds": 14698,
+      "runners": 15409
+    },
+    "racing-com-nsw-results-fallback": {
+      "early_to_800_seconds": 0,
+      "final_200_seconds": 0,
+      "final_400_seconds": 0,
+      "final_600_seconds": 0,
+      "runners": 3523
+    },
+    "racing-com-rv-authorised": {
+      "early_to_800_seconds": 14149,
+      "final_200_seconds": 0,
+      "final_400_seconds": 14149,
+      "final_600_seconds": 0,
+      "runners": 14191
+    },
+    "rnsw-authorised": {
+      "early_to_800_seconds": 8662,
+      "final_200_seconds": 8712,
+      "final_400_seconds": 8711,
+      "final_600_seconds": 8711,
+      "runners": 10598
+    }
+  },
+  "feature_version": "canonical-sectionals-v1.1-early-recovery",
+  "quality": {
+    "incomplete": 2639,
+    "ok": 37524,
+    "outlier": 35,
+    "unsupported_source": 3523
+  },
+  "runners": 43721
+}

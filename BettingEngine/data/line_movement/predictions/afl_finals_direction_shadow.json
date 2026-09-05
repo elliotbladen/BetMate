@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-09-03T22:22:24.615023+00:00",
+  "source": "F:\\dev\\BetMate\\data\\odds_snapshots\\2026\\2026-09-02_afl_finals_week2_sportsbet.csv",
+  "model_version": "afl-direction-pilot-v1",
+  "predictions": [
+    {
+      "market": "handicap",
+      "home_team": "Fremantle Dockers",
+      "away_team": "Hawthorn Hawks",
+      "current_line": -13.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.6176941639188193,
+      "probabilities": {
+        "DOWN": 0.23387859072953343,
+        "NO_MOVE": 0.6176941639188193,
+        "UP": 0.14842724535164734
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "handicap",
+      "home_team": "Geelong Cats",
+      "away_team": "Carlton Blues",
+      "current_line": -6.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.5835205039223144,
+      "probabilities": {
+        "DOWN": 0.2614828376897269,
+        "NO_MOVE": 0.5835205039223144,
+        "UP": 0.1549966583879587
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "handicap",
+      "home_team": "Sydney Swans",
+      "away_team": "Brisbane Lions",
+      "current_line": 24.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.45279003923721095,
+      "probabilities": {
+        "DOWN": 0.301330720606396,
+        "NO_MOVE": 0.45279003923721095,
+        "UP": 0.24587924015639318
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "handicap",
+      "home_team": "Adelaide Crows",
+      "away_team": "Western Bulldogs",
+      "current_line": -15.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.6232598130796001,
+      "probabilities": {
+        "DOWN": 0.20849019797864604,
+        "NO_MOVE": 0.6232598130796001,
+        "UP": 0.1682499889417539
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "total",
+      "home_team": "Fremantle Dockers",
+      "away_team": "Hawthorn Hawks",
+      "current_line": 162.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.584156302452615,
+      "probabilities": {
+        "DOWN": 0.15281371287260695,
+        "NO_MOVE": 0.584156302452615,
+        "UP": 0.2630299846747781
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "total",
+      "home_team": "Geelong Cats",
+      "away_team": "Carlton Blues",
+      "current_line": 168.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.5830893630625281,
+      "probabilities": {
+        "DOWN": 0.17080027482038745,
+        "NO_MOVE": 0.5830893630625281,
+        "UP": 0.24611036211708445
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "total",
+      "home_team": "Sydney Swans",
+      "away_team": "Brisbane Lions",
+      "current_line": 187.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.45429839133825156,
+      "probabilities": {
+        "DOWN": 0.1678156938743653,
+        "NO_MOVE": 0.45429839133825156,
+        "UP": 0.3778859147873832
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "total",
+      "home_team": "Adelaide Crows",
+      "away_team": "Western Bulldogs",
+      "current_line": 168.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.5288911326961571,
+      "probabilities": {
+        "DOWN": 0.13679922731332508,
+        "NO_MOVE": 0.5288911326961571,
+        "UP": 0.33430963999051777
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    }
+  ]
+}

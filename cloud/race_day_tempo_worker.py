@@ -12,6 +12,7 @@ import re
 import statistics
 import sys
 import time
+from urllib.error import HTTPError
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -171,7 +172,14 @@ def victoria_observations(card: list[dict], state: str, slug: str, bundle: dict)
 
 
 def sydney_observations(day: str, slug: str, bundle: dict) -> list[dict]:
-    payload, url = download_atc_sectional_pdf(day, slug)
+    try:
+        payload, url = download_atc_sectional_pdf(day, slug)
+    except HTTPError as exc:
+        # ATC normally publishes the meeting PDF only after racing has begun.
+        # A pre-race 404 means "not published yet", not a failed meeting.
+        if exc.code == 404:
+            return []
+        raise
     parsed_races = parse_sectional_pdf(payload, day, slug, url); output = []
     source = SOURCE["NSW"]
     for race in parsed_races:
@@ -257,8 +265,13 @@ def process_meeting(db: Supabase | None, meeting: dict, card: list[dict], bundle
             "model_version":bundle["bundle_version"],"policy_version":"expected-tempo-shadow-policy-v1",
             "horse_price_integration":False,"detail":detail})
     if db: db.insert("tempo_shadow_snapshots", snapshots, ignore_duplicates=True)
-    return {"meeting":key,"races":len(race_rows),"observations":len(observation_rows),"snapshots":len(snapshots),
-            "poll_sectionals":poll_sectionals,"dry_run":dry_run}
+    result = {"meeting":key,"races":len(race_rows),"observations":len(observation_rows),"snapshots":len(snapshots),
+              "poll_sectionals":poll_sectionals,"dry_run":dry_run}
+    if dry_run:
+        result["race_rows"] = race_rows
+        result["observation_rows"] = observation_rows
+        result["snapshot_rows"] = snapshots
+    return result
 
 
 def main() -> int:

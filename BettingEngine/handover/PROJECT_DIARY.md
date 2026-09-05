@@ -381,3 +381,38 @@ Always keep this file up to date. Every new env var added to the app must also b
 - The UCL player shadow framework exists but is data-pending: 0 timestamped UCL
   player events, shadow-only, no production price influence. It requires player
   event/appearance backfill and a walk-forward residual gate.
+
+## 2026-09-04 — Racing Map Position Indicator V1 and Chelmsford GUI
+
+- Implemented a separate shadow-only horse map-position engine.
+- Recovered early-to-800m time only from official finish time and a complete,
+  non-overlapping final-800m sectional chain. Coverage reached 37,237 of 43,721
+  canonical runner rows; unsupported rows were not imputed.
+- Materialised 43,721 historical map rows and 37,713 settling labels, then
+  added probabilistic positions and a deterministic 10,000-start simulation.
+- V1 failed its baseline: 1.30154 versus 1.26434 log loss and 0.17713 versus
+  0.17262 Brier. It remains blocked from ratings, prices, bets and staking.
+- Built a local Chelmsford Stakes visual map using nine active runners after
+  Attica's scratching, Soft 5 and rail +3m. The Euphrates is marked low-data.
+- The visual/card information is about 70–75% complete two days out; this is
+  not a claim that the predictive model is 75% validated.
+- V2 priority: Racing NSW steward/Raceday Rundown backfill, verified geometry,
+  distance/track/going regimes, trainer/jockey pooling, official NSW speed-map
+  comparison and live T-24h/T-6h/T-30m/T-5m snapshots.
+- Full handover:
+  `../RacingEngine/handover/sessions/2026-09-04_map-position-gui-and-v2-plan.md`.
+
+## 2026-09-05 — Randwick/Sandown prospective Expected Tempo test
+
+- Captured frozen V0 forecasts for all 20 races at 11:42 AEST, before both
+  meetings began. Randwick R1 was slow-most-likely at 43.45%; Sandown R1 was
+  almost tied slow/even at 36.38%/35.61%.
+- Started a bounded local monitor polling the official sources every 75 seconds
+  and preserving append-only snapshots for off-season scoring.
+- Collection remains shadow-only: no horse-rating, pricing, betting or staking
+  integration. Different-going evidence is excluded and live adjustments are
+  capped to middle/late phase scores.
+- Fixed pre-publication ATC PDF 404 handling and added the missing timezone
+  dependency plus a local prospective capture runner.
+- Full handover:
+  `../RacingEngine/handover/sessions/2026-09-05_randwick-sandown-prospective-tempo-test.md`.

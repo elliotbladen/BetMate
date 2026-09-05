@@ -14,7 +14,7 @@ import re
 from .ratings import horse_key
 
 
-PARSER_VERSION = "stewards-rule-v1.0"
+PARSER_VERSION = "stewards-rule-v1.1-map-position"
 REPORT_SOURCE = "racing-com-stewards-authorised"
 
 
@@ -33,6 +33,16 @@ class EventRule:
 # passages are retained as evidence but receive no automatic adjustment until
 # distance travelled and sectional confirmation are available.
 RULES = (
+    EventRule("change_tactics_forward", "material", 0.0, requires_review=False,
+              patterns=(r"(?:change of tactics|intention).*ridden (?:more |further )?forward", r"try (?:and |to )?lead", r"take up a position on (?:the )?speed")),
+    EventRule("change_tactics_back", "material", 0.0, requires_review=False,
+              patterns=(r"(?:change of tactics|intention).*ridden (?:more |further )?(?:back|quieter)", r"restrain(?:ed)? .*cover")),
+    EventRule("failed_to_muster", "moderate", 0.0,
+              patterns=(r"failed to muster", r"did not show .*early speed", r"unable to muster")),
+    EventRule("barrier_fractious", "moderate", 0.0,
+              patterns=(r"fractious (?:in|after being placed in) (?:the )?barrier", r"restless in (?:the )?barrier", r"reared (?:in|as) .*barrier")),
+    EventRule("restrained_for_cover", "mild", 0.0,
+              patterns=(r"restrain(?:ed)? .*obtain cover", r"taken back .*cover", r"elected to restrain")),
     EventRule("severe_interference", "severe", 1.50, requires_review=True,
               patterns=(r"badly checked", r"checked .*avoid", r"lost .*rightful running", r"badly hampered", r"heavily (?:bumped|crowded)")),
     EventRule("held_up", "severe", 0.75, requires_review=True,

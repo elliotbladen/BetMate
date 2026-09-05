@@ -12,6 +12,28 @@ def rows(values):
 
 
 class SectionalFeatureTests(unittest.TestCase):
+    def test_nsw_recovers_early_time_from_finish_minus_complete_late_chain(self):
+        rows = [
+            {"marker_metres": marker, "section_seconds": seconds, "position_at_marker": position}
+            for marker, seconds, position in (
+                (800, 12.0, 3), (600, 11.5, 3), (400, 11.2, 3),
+                (200, 11.0, 2), (0, 10.8, 1)
+            )
+        ]
+        result = derive("rnsw-authorised", rows, finish_time_seconds=68.5, distance_metres=1200)
+        self.assertAlmostEqual(result["early_to_800_seconds"], 24.0)
+        detail = result["derivation"]["features"]["early_to_800_seconds"]
+        self.assertEqual(detail["method"], "official_finish_minus_complete_final_800_chain")
+        self.assertEqual(detail["opening_distance_metres"], 400)
+
+    def test_nsw_does_not_recover_early_time_with_incomplete_chain(self):
+        rows = [
+            {"marker_metres": marker, "section_seconds": 11.0, "position_at_marker": 2}
+            for marker in (800, 600, 400, 0)
+        ]
+        result = derive("rnsw-authorised", rows, finish_time_seconds=68.0, distance_metres=1200)
+        self.assertIsNone(result["early_to_800_seconds"])
+
     def test_nsw_final_intervals_are_summed_from_adjacent_200s(self) -> None:
         result = derive("rnsw-authorised", rows([
             (600, 12.0, 4), (400, 11.8, 3), (200, 11.5, 2), (0, 11.2, 1),

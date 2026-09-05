@@ -12,14 +12,15 @@ from .storage import RacingStore, utc_now
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FEATURE_VERSION = "canonical-sectionals-v1.0"
+FEATURE_VERSION = "canonical-sectionals-v1.1-early-recovery"
 NSW_SOURCES = {"rnsw-authorised", "racing-com-nsw-authorised-v2"}
 SUPPORTED = NSW_SOURCES | {"racing-com-rv-authorised"}
 PLAUSIBLE = {"final_200_seconds": (8.0, 20.0), "final_400_seconds": (18.0, 36.0),
              "final_600_seconds": (27.0, 54.0)}
 
 
-def derive(source: str, rows: list[dict[str, Any]]) -> dict[str, Any]:
+def derive(source: str, rows: list[dict[str, Any]], *, finish_time_seconds: float | None = None,
+           distance_metres: int | None = None) -> dict[str, Any]:
     """Derive only intervals proven by the registered source semantics."""
     by_marker = {int(row["marker_metres"]): row for row in rows}
     values = {name: None for name in ("final_200_seconds", "final_400_seconds", "final_600_seconds",
@@ -45,6 +46,33 @@ def derive(source: str, rows: list[dict[str, Any]]) -> dict[str, Any]:
             derivation["features"]["final_600_seconds"] = {"sum_markers": [400, 200, 0], "required_markers": [600, 400, 200, 0]}
         else:
             missing.append("final_600_requires_markers_600_400_200_0")
+        # NSW rows are consecutive 200m intervals whose marker is metres
+        # remaining.  With the 800m boundary and every later interval present,
+        # official finish time minus the final-800 chain is the observed time
+        # from the start to 800m remaining.  Keep this explicitly derived.
+        late_markers = (600, 400, 200, 0)
+        if (distance_metres is not None and distance_metres > 800 and
+                finish_time_seconds is not None and
+                all(marker in by_marker for marker in (800, *late_markers))):
+            late_chain = sum(float(by_marker[m]["section_seconds"]) for m in late_markers)
+            recovered = float(finish_time_seconds) - late_chain
+            opening_distance = int(distance_metres) - 800
+            plausible_low = opening_distance / 22.0
+            plausible_high = opening_distance / 10.0
+            if 0 < recovered < float(finish_time_seconds) and plausible_low <= recovered <= plausible_high:
+                values["early_to_800_seconds"] = recovered
+                derivation["features"]["early_to_800_seconds"] = {
+                    "method": "official_finish_minus_complete_final_800_chain",
+                    "finish_time_seconds": float(finish_time_seconds),
+                    "sum_markers": list(late_markers),
+                    "required_boundary_markers": [800, 0],
+                    "late_chain_seconds": late_chain,
+                    "opening_distance_metres": opening_distance,
+                }
+            else:
+                missing.append("derived_early_to_800_failed_sanity_check")
+        elif distance_metres is not None and distance_metres > 800:
+            missing.append("early_to_800_requires_finish_and_complete_final_800_chain")
     elif source == "racing-com-rv-authorised":
         derivation["source_semantics"] = "to-800, 800-to-400, and 400-to-finish durations"
         if 0 in by_marker:
@@ -92,8 +120,14 @@ def build_features(store: RacingStore, *, feature_version: str = FEATURE_VERSION
     if to_date:
         clauses.append("rr.race_date<=?"); parameters.append(to_date)
     runners = store.connection.execute(
-        """SELECT rr.source,rr.race_date,rr.track_slug,rr.race_number,rr.runner_number
-             FROM runner_results rr WHERE """ + " AND ".join(clauses) +
+        """SELECT rr.source,rr.race_date,rr.track_slug,rr.race_number,rr.runner_number,
+                  COALESCE(rr.finish_time_seconds,race.official_time_seconds) finish_time_seconds,
+                  race.distance_metres
+             FROM runner_results rr
+             LEFT JOIN race_results race
+               ON race.source=rr.source AND race.race_date=rr.race_date
+              AND race.track_slug=rr.track_slug AND race.race_number=rr.race_number
+             WHERE """ + " AND ".join(clauses) +
         " ORDER BY rr.race_date,rr.track_slug,rr.race_number,rr.runner_number", parameters).fetchall()
     now = utc_now()
     status_counts: Counter[str] = Counter()
@@ -104,10 +138,11 @@ def build_features(store: RacingStore, *, feature_version: str = FEATURE_VERSION
             """SELECT marker_metres,section_seconds,position_at_marker FROM runner_sectionals
                WHERE source=? AND race_date=? AND track_slug=? AND race_number=? AND runner_number=?
                ORDER BY marker_metres DESC""", key)]
-        result = derive(runner["source"], raw)
+        result = derive(runner["source"], raw, finish_time_seconds=runner["finish_time_seconds"],
+                        distance_metres=runner["distance_metres"])
         status_counts[result["quality_status"]] += 1
         coverage[runner["source"]]["runners"] += 1
-        for field in PLAUSIBLE:
+        for field in (*PLAUSIBLE, "early_to_800_seconds"):
             coverage[runner["source"]][field] += int(result[field] is not None)
         store.connection.execute(
             """INSERT INTO canonical_sectionals
