@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-09-06T01:15:25.138742+00:00",
+  "source": "..\\data\\odds_snapshots\\2026\\2026-09-06_afl_semis_ESTIMATED.csv",
+  "model_version": "afl-direction-pilot-v1",
+  "predictions": [
+    {
+      "market": "handicap",
+      "home_team": "Fremantle Dockers",
+      "away_team": "Geelong Cats",
+      "current_line": -7.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.5835205039223144,
+      "probabilities": {
+        "DOWN": 0.2614828376897269,
+        "NO_MOVE": 0.5835205039223144,
+        "UP": 0.1549966583879587
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "handicap",
+      "home_team": "Brisbane Lions",
+      "away_team": "Adelaide Crows",
+      "current_line": -14.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.5835205039223144,
+      "probabilities": {
+        "DOWN": 0.2614828376897269,
+        "NO_MOVE": 0.5835205039223144,
+        "UP": 0.1549966583879587
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "total",
+      "home_team": "Fremantle Dockers",
+      "away_team": "Geelong Cats",
+      "current_line": 163.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.608609443426346,
+      "probabilities": {
+        "DOWN": 0.16737902661079668,
+        "NO_MOVE": 0.608609443426346,
+        "UP": 0.22401152996285734
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    },
+    {
+      "market": "total",
+      "home_team": "Brisbane Lions",
+      "away_team": "Adelaide Crows",
+      "current_line": 172.5,
+      "direction": "NO_MOVE",
+      "confidence": 0.5716302363083193,
+      "probabilities": {
+        "DOWN": 0.16251124772033482,
+        "NO_MOVE": 0.5716302363083193,
+        "UP": 0.2658585159713459
+      },
+      "interpretation": "no move of at least 1.5 points",
+      "status": "SHADOW_ONLY_SMALL_SAMPLE"
+    }
+  ]
+}
