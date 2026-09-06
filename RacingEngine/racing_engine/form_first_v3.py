@@ -62,8 +62,15 @@ PACE_ANCHOR_CAP = 3.0       # max pace adjustment folded into a collateral ancho
 PACE_RUNNER_CAP = 2.5       # max pace adjustment on an individual run
 GOING_PPL_MULT = {"firm": 1.05, "good": 1.00, "soft": 0.92, "heavy": 0.85,
                   "synthetic": 1.00}
-FALSE_TEMPO_LABELS = {"sprint_home", "very_slow_early", "slow_early", "pace_collapse"}
-FALSE_TEMPO_PPL_CUT = 0.30  # up to a 30% ppl cut in a clearly false-tempo race
+# A SLOW / false tempo bunches the field and flatters sit-sprinters, so its
+# beaten margins are unreliable → discount them, and don't let the compression
+# fix trust a possible front-running steal.
+SLOW_TEMPO_LABELS = {"sprint_home", "very_slow_early", "slow_early"}
+# A FAST / pressured tempo (incl. a pace collapse — the early speed was GENUINE,
+# that is why it collapsed) makes beaten margins MORE reliable, and the on-pace
+# horses that hung on ran a genuine race. Full trust, no discount.
+FAST_TEMPO_LABELS = {"pace_collapse", "very_fast_early", "fast_early", "sustained_high_pressure"}
+FALSE_TEMPO_PPL_CUT = 0.30  # up to a 30% ppl cut in a clearly SLOW/false-tempo race
 MARGIN_KNEE = 4.0           # beaten-length credit is linear to here, then
 MARGIN_TAPER = 0.45         # taxed — a 9L rout is not 9/4 as informative about
                             # the winner as a 4L win (F2 in the audit).
@@ -248,9 +255,11 @@ def build(store: RacingStore) -> dict[str, Any]:
         wpk = _weight_pts_per_kg(race["race_class"])
         ppl = pounds_per_length(distance) * GOING_PPL_MULT.get(g, 1.0)
         tempo_note = "neutral"
-        if shape and shape["label"] in FALSE_TEMPO_LABELS:
+        if shape and shape["label"] in SLOW_TEMPO_LABELS:
             ppl *= 1.0 - FALSE_TEMPO_PPL_CUT * shape["conf"]
-            tempo_note = f"false_tempo:{shape['label']}"
+            tempo_note = f"slow_tempo:{shape['label']}"
+        elif shape and shape["label"] in FAST_TEMPO_LABELS:
+            tempo_note = f"fast_tempo:{shape['label']}"      # margins reliable — no cut
         elif shape is None:
             # No sectionals — the tempo is unverifiable, so a big winning margin
             # cannot be confirmed as earned. Haircut all margin effects 10%.
@@ -276,7 +285,7 @@ def build(store: RacingStore) -> dict[str, Any]:
             candidates.append(prior + _effective_margin(margin) * ppl + wdelta + pace_adj)
 
         coverage = len(candidates) / len(anchors) if anchors else 0.0
-        pace_verified = shape is not None and shape["label"] not in FALSE_TEMPO_LABELS
+        pace_verified = shape is not None and shape["label"] not in SLOW_TEMPO_LABELS
         if candidates:
             collateral = statistics.median(candidates)
             # COMPRESSION FIX: the class standard is a LOW-COVERAGE STABILISER

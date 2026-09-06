@@ -1,0 +1,27 @@
+{
+  "built_races": 2135,
+  "built_runners": 22839,
+  "eligible_phase_complete_races": 2525,
+  "environment": {
+    "missing_weather_and_lane": 59,
+    "weather_only": 2720
+  },
+  "pace_labels": {
+    "even": 733,
+    "fast_early": 217,
+    "pace_collapse": 191,
+    "slow_early": 317,
+    "sprint_home": 303,
+    "sustained_high_pressure": 110,
+    "very_fast_early": 72,
+    "very_slow_early": 192
+  },
+  "quarantine": {
+    "missing_early": 2394,
+    "missing_expected_markers": 2397,
+    "missing_late": 2423,
+    "missing_middle": 2378
+  },
+  "rating_integration": "shadow only",
+  "version": "pace-shape-v2.1-pit-shadow"
+}
