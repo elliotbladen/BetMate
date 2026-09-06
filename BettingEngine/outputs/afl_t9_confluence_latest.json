@@ -1,15 +1,20 @@
 {
   "season": 2026,
-  "round": 25,
-  "generated_at": "2026-09-02T11:13:47.102733",
+  "round": 26,
+  "generated_at": "2026-09-06T10:34:06.848811",
   "games": [
     {
       "home": "Fremantle Dockers",
-      "away": "Hawthorn Hawks",
+      "away": "Geelong Cats",
       "confluence": {
         "h2h_AWAY_WIN": {
           "count": 5,
           "edges": [
+            {
+              "edge_pct": 16.0,
+              "row": "Night Games (kick-off \u2265 18:00)",
+              "team": "Fremantle Dockers"
+            },
             {
               "edge_pct": 36.2,
               "row": "Thursday / Friday Games",
@@ -26,39 +31,29 @@
               "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 20.7,
-              "row": "Thursday / Friday Games",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 25.8,
+              "edge_pct": 22.0,
               "row": "September",
-              "team": "Hawthorn Hawks"
+              "team": "Geelong Cats"
             }
           ]
         },
         "h2h_HOME_WIN": {
-          "count": 3,
+          "count": 2,
           "edges": [
             {
-              "edge_pct": 26.2,
-              "row": "vs Hawthorn",
+              "edge_pct": 70.0,
+              "row": "vs Geelong",
               "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 51.2,
+              "edge_pct": 41.7,
               "row": "vs Fremantle",
-              "team": "Hawthorn Hawks"
-            },
-            {
-              "edge_pct": 35.9,
-              "row": "Optus Stadium",
-              "team": "Hawthorn Hawks"
+              "team": "Geelong Cats"
             }
           ]
         },
         "totals_UNDERS": {
-          "count": 4,
+          "count": 3,
           "edges": [
             {
               "edge_pct": 6.9,
@@ -74,62 +69,11 @@
               "edge_pct": 7.4,
               "row": "September",
               "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 5.0,
-              "row": "Optus Stadium",
-              "team": "Hawthorn Hawks"
-            }
-          ]
-        },
-        "handicap_AWAY_COVERS": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 60.0,
-              "row": "Long Rest / Bye (\u2265 10 days)",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "September",
-              "team": "Fremantle Dockers"
-            },
-            {
-              "edge_pct": 20.0,
-              "row": "September",
-              "team": "Hawthorn Hawks"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Geelong Cats",
-      "away": "Carlton Blues",
-      "confluence": {
-        "h2h_AWAY_WIN": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 31.3,
-              "row": "vs Carlton",
-              "team": "Geelong Cats"
-            },
-            {
-              "edge_pct": 21.7,
-              "row": "September",
-              "team": "Carlton Blues"
-            },
-            {
-              "edge_pct": 31.0,
-              "row": "vs Geelong",
-              "team": "Carlton Blues"
             }
           ]
         },
         "totals_OVERS": {
-          "count": 6,
+          "count": 3,
           "edges": [
             {
               "edge_pct": 8.4,
@@ -145,37 +89,82 @@
               "edge_pct": 9.4,
               "row": "September",
               "team": "Geelong Cats"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 60.0,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Fremantle Dockers"
             },
             {
-              "edge_pct": 9.5,
-              "row": "vs Carlton",
+              "edge_pct": 33.4,
+              "row": "September",
+              "team": "Fremantle Dockers"
+            },
+            {
+              "edge_pct": 12.4,
+              "row": "Night Games (kick-off \u2265 18:00)",
               "team": "Geelong Cats"
             },
             {
-              "edge_pct": 10.0,
-              "row": "MCG",
+              "edge_pct": 15.2,
+              "row": "After a Win",
               "team": "Geelong Cats"
             },
             {
-              "edge_pct": 9.5,
+              "edge_pct": 25.0,
+              "row": "September",
+              "team": "Geelong Cats"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 5,
+          "edges": [
+            {
+              "edge_pct": 18.0,
+              "row": "After a Loss",
+              "team": "Fremantle Dockers"
+            },
+            {
+              "edge_pct": 20.0,
               "row": "vs Geelong",
-              "team": "Carlton Blues"
+              "team": "Fremantle Dockers"
+            },
+            {
+              "edge_pct": 11.2,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Geelong Cats"
+            },
+            {
+              "edge_pct": 20.0,
+              "row": "vs Fremantle",
+              "team": "Geelong Cats"
+            },
+            {
+              "edge_pct": 50.0,
+              "row": "Optus Stadium",
+              "team": "Geelong Cats"
             }
           ]
         }
       }
     },
     {
-      "home": "Sydney Swans",
-      "away": "Brisbane Lions",
+      "home": "Brisbane Lions",
+      "away": "Adelaide Crows",
       "confluence": {
-        "h2h_AWAY_WIN": {
-          "count": 3,
+        "h2h_HOME_WIN": {
+          "count": 6,
           "edges": [
             {
-              "edge_pct": 60.9,
-              "row": "vs Brisbane",
-              "team": "Sydney Swans"
+              "edge_pct": 12.6,
+              "row": "Saturday Games",
+              "team": "Brisbane Lions"
             },
             {
               "edge_pct": 57.5,
@@ -183,80 +172,79 @@
               "team": "Brisbane Lions"
             },
             {
-              "edge_pct": 36.1,
-              "row": "vs Sydney",
-              "team": "Brisbane Lions"
-            }
-          ]
-        },
-        "handicap_HOME_COVERS": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 33.4,
-              "row": "Long Rest / Bye (\u2265 10 days)",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "vs Brisbane",
-              "team": "Sydney Swans"
-            },
-            {
-              "edge_pct": 33.4,
-              "row": "vs Sydney",
-              "team": "Brisbane Lions"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "home": "Adelaide Crows",
-      "away": "Western Bulldogs",
-      "confluence": {
-        "h2h_HOME_WIN": {
-          "count": 3,
-          "edges": [
-            {
-              "edge_pct": 116.1,
-              "row": "vs Western Bulldogs",
+              "edge_pct": 20.2,
+              "row": "Win % \u2014 Away",
               "team": "Adelaide Crows"
             },
             {
-              "edge_pct": 64.1,
-              "row": "vs Adelaide",
-              "team": "Western Bulldogs"
+              "edge_pct": 28.1,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Adelaide Crows"
             },
             {
-              "edge_pct": 100.0,
-              "row": "Adelaide Oval",
-              "team": "Western Bulldogs"
+              "edge_pct": 10.6,
+              "row": "After a Win",
+              "team": "Adelaide Crows"
+            },
+            {
+              "edge_pct": 17.4,
+              "row": "vs Brisbane",
+              "team": "Adelaide Crows"
             }
           ]
         },
-        "handicap_HOME_COVERS": {
+        "h2h_AWAY_WIN": {
+          "count": 2,
+          "edges": [
+            {
+              "edge_pct": 14.1,
+              "row": "Long Rest / Bye (\u2265 10 days)",
+              "team": "Brisbane Lions"
+            },
+            {
+              "edge_pct": 21.5,
+              "row": "vs Adelaide",
+              "team": "Brisbane Lions"
+            }
+          ]
+        },
+        "handicap_AWAY_COVERS": {
           "count": 4,
           "edges": [
+            {
+              "edge_pct": 13.8,
+              "row": "Day Games (kick-off < 18:00)",
+              "team": "Brisbane Lions"
+            },
+            {
+              "edge_pct": 13.6,
+              "row": "Cover Rate \u2014 Away",
+              "team": "Adelaide Crows"
+            },
             {
               "edge_pct": 20.6,
               "row": "Day Games (kick-off < 18:00)",
               "team": "Adelaide Crows"
             },
             {
-              "edge_pct": 50.0,
-              "row": "vs Western Bulldogs",
+              "edge_pct": 16.0,
+              "row": "Saturday Games",
               "team": "Adelaide Crows"
+            }
+          ]
+        },
+        "handicap_HOME_COVERS": {
+          "count": 2,
+          "edges": [
+            {
+              "edge_pct": 18.4,
+              "row": "Saturday Games",
+              "team": "Brisbane Lions"
             },
             {
-              "edge_pct": 50.0,
-              "row": "vs Adelaide",
-              "team": "Western Bulldogs"
-            },
-            {
-              "edge_pct": 100.0,
-              "row": "Adelaide Oval",
-              "team": "Western Bulldogs"
+              "edge_pct": 71.4,
+              "row": "September",
+              "team": "Brisbane Lions"
             }
           ]
         }

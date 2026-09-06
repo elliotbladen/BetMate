@@ -141,6 +141,27 @@ FIXTURE = {
         ('Sydney Swans',                  'North Melbourne Kangaroos',     'SCG',                    '2026-08-23'),
         ('West Coast Eagles',             'Hawthorn Hawks',                'Optus Stadium',          '2026-08-23'),
     ],
+    # ── 2026 Finals Week 2 — Semi Finals (round label 26; wildcard=25 done on the Mac) ──
+    26: [
+        ('Fremantle Dockers',             'Geelong Cats',                  'Optus Stadium',          '2026-09-11'),
+        ('Brisbane Lions',                'Adelaide Crows',                'The Gabba',              '2026-09-12'),
+    ],
+}
+
+# ── Finals ELO override ──────────────────────────────────────────────────────
+# get_current_elo() reads each team's PRE-match ELO from their most recent row,
+# so it lags one game. That is tolerable in the H&A season (the season
+# calibration constant absorbs it) but not across finals week 1, which had
+# three ~40-53pt upsets. These are the post-Finals-Week-1 ratings computed with
+# ml/afl/game_log.update_elo (K=72 finals, HOME_ADV_ELO=65) off the
+# latest_with_finals_wk1.xlsx pre-match ratings.
+FINALS_ELO_OVERRIDE = {
+    26: {
+        'Fremantle Dockers': 1680.8,   # lost QF1 to Hawthorn 40-72 at Optus
+        'Geelong Cats':      1748.3,   # won EF 107-74 vs Carlton
+        'Brisbane Lions':    1706.3,   # lost QF2 to Sydney 88-141
+        'Adelaide Crows':    1659.0,   # won EF 90-68 vs Western Bulldogs
+    },
 }
 
 # ── T5 Injuries — update manually before each round ──────────────────────────
@@ -924,6 +945,19 @@ INJURIES = {
         'Richmond Tigers': [
             {'player': 'Noah Balta',            'position': 'key_defender', 'quality': 'good'},     # knee — season
             {'player': 'Jacob Hopper',          'position': 'midfielder',  'quality': 'good'},     # knee
+        ],
+    },
+    26: {
+        # Finals Week 2 — AFL medical room FW2 + club team news, 2026-09-06.
+        # Season-enders already baked into ELO are NOT listed (would double-count).
+        # Fremantle net ~neutral: Cox out but Amiss/Chapman/Switkowski/Reid all
+        # returning from management — the returns roughly offset Cox, so he is
+        # left out rather than applied one-sided.
+        'Geelong Cats': [
+            {'player': 'Rhys Stanley',  'position': 'ruck',       'quality': 'average'},  # knee — backup ruck, Conway (season) already in ELO
+        ],
+        'Adelaide Crows': [
+            {'player': 'James Peatling', 'position': 'midfielder', 'quality': 'good'},    # hip/groin 1-2w — new
         ],
     },
 }
@@ -1975,6 +2009,11 @@ def main():
     features_df = pd.read_csv(FEATURES, encoding='latin-1')
     features_df = features_df[features_df['season'] <= args.season].copy()
     elo = get_current_elo(features_df[features_df['season'] == args.season])
+    _elo_override = FINALS_ELO_OVERRIDE.get(args.round)
+    if _elo_override:
+        for _team, _rating in _elo_override.items():
+            print(f'  ELO OVERRIDE (finals): {_team} {elo.get(_team, float("nan")):.0f} -> {_rating:.0f}')
+            elo[_team] = _rating
 
     # T1/ELO freshness — features must contain results right up to the previous round
     played = features_df[features_df['home_margin'].notna()]
