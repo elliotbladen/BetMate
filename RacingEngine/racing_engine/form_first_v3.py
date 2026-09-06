@@ -67,7 +67,21 @@ FALSE_TEMPO_PPL_CUT = 0.30  # up to a 30% ppl cut in a clearly false-tempo race
 MARGIN_KNEE = 4.0           # beaten-length credit is linear to here, then
 MARGIN_TAPER = 0.45         # taxed — a 9L rout is not 9/4 as informative about
                             # the winner as a 4L win (F2 in the audit).
-KG_TO_LB = 2.2046226218
+# Weight → MERIT, not the handicapper's policy scale. 2.2 pts/kg is what the
+# handicapper uses to SET weights (assumes weight converts 1:1 to performance);
+# the measured performance effect is far smaller — high-class horses carry big
+# weights and still win. And in WFA / set-weights races the weight difference is
+# an age/sex allowance, not merit, so it must be near-zero. Without this a mare's
+# conqueror out-rates her for carrying the 2 kg sex allowance.
+WEIGHT_MERIT_PTS_PER_KG_HCP = 0.9
+WEIGHT_MERIT_PTS_PER_KG_WFA = 0.2
+
+
+def _weight_pts_per_kg(race_class: str | None) -> float:
+    t = (race_class or "").lower()
+    if "weight for age" in t or "wfa" in t or "set weight" in t or "standard weight" in t:
+        return WEIGHT_MERIT_PTS_PER_KG_WFA
+    return WEIGHT_MERIT_PTS_PER_KG_HCP
 
 
 def _effective_margin(margin: float) -> float:
@@ -231,6 +245,7 @@ def build(store: RacingStore) -> dict[str, Any]:
         distance = int(race["distance_metres"] or 1600)
         g = going.get(race["race_id"], "good")
         shape = shapes.get(race["race_id"])
+        wpk = _weight_pts_per_kg(race["race_class"])
         ppl = pounds_per_length(distance) * GOING_PPL_MULT.get(g, 1.0)
         tempo_note = "neutral"
         if shape and shape["label"] in FALSE_TEMPO_LABELS:
@@ -253,7 +268,7 @@ def build(store: RacingStore) -> dict[str, Any]:
             if prior is None:
                 continue
             margin = 0.0 if int(r["finish_position"]) == 1 else float(r["beaten_lengths"] or 0.0)
-            wdelta = (winner_weight - float(r["weight_carried_kg"] or winner_weight)) * KG_TO_LB
+            wdelta = (winner_weight - float(r["weight_carried_kg"] or winner_weight)) * wpk
             pace_adj = 0.0
             rp = runner_pace.get((race["race_id"], int(r["runner_number"])))
             if rp is not None:
@@ -281,7 +296,7 @@ def build(store: RacingStore) -> dict[str, Any]:
         rows_out = []
         for r in runners:
             margin = 0.0 if int(r["finish_position"]) == 1 else float(r["beaten_lengths"] or 0.0)
-            weight_component = (float(r["weight_carried_kg"] or winner_weight) - winner_weight) * KG_TO_LB
+            weight_component = (float(r["weight_carried_kg"] or winner_weight) - winner_weight) * wpk
             margin_component = -_effective_margin(margin) * ppl
             pace_component = 0.0
             rp = runner_pace.get((race["race_id"], int(r["runner_number"])))

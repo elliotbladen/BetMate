@@ -6,8 +6,12 @@
   "model_version": "form-first-v3.0",
   "runs_rated": 29498,
   "speed_alignment": {
-    "a": -55.037,
+    "a": -55.599,
     "b": 1.35,
     "pairs": 27411
   }
 }
+
+TOP 1 form-first-v3.0 RUNS since 2023-09-06
+horse                    v3     v2   form  speed  race                           fin
+Via Sistina           127.6  127.4  127.6  121.1  the-valley R9 2040m              1
