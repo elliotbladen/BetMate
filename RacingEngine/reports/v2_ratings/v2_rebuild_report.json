@@ -1,48 +1,48 @@
 {
-  "as_of_date": "2026-08-31",
+  "as_of_date": "2026-09-06",
   "audit_rows": 25,
   "clean_history": {
     "excluded_identity_source": "rnsw-authorised",
     "quarantine_reasons": {
-      "missing_or_nonpositive": 89,
+      "missing_or_nonpositive": 91,
       "physically_implausible_average_speed_9.85mps": 1,
       "runner_clock_too_far_from_official": 4,
       "runner_faster_than_official_winner": 14
     },
-    "quarantined": 108,
-    "races": 2759,
-    "runners": 37239
+    "quarantined": 110,
+    "races": 2779,
+    "runners": 37498
   },
   "prediction_test": {
     "common_race_policy": "both V1 and V2 >=60% prior-form coverage",
     "market_comparison": "not run; timestamped opening/closing prices remain a later pricing-engine test",
-    "test_window": "2025-01-01 to 2026-08-29",
+    "test_window": "2025-01-01 to 2026-09-05",
     "training_window": "2024 calendar year",
     "uniform": {
-      "mean_log_loss": 2.322796171285746,
-      "mean_race_brier": 0.8984399484847586,
-      "races": 627
+      "mean_log_loss": 2.3219347016432037,
+      "mean_race_brier": 0.898376470345076,
+      "races": 634
     },
     "v1": {
-      "mean_log_loss": 2.3077299750657048,
-      "mean_race_brier": 0.8960004450639975,
-      "races": 627,
+      "mean_log_loss": 2.3071712005462475,
+      "mean_race_brier": 0.8960124859414343,
+      "races": 634,
       "temperature_fitted_on_2024": 15.0,
-      "top_pick_strike_rate": 0.13556618819776714
+      "top_pick_strike_rate": 0.138801261829653
     },
     "v2": {
-      "mean_log_loss": 2.4595232406575844,
-      "mean_race_brier": 0.9354434678102161,
-      "races": 627,
+      "mean_log_loss": 2.4550991936299105,
+      "mean_race_brier": 0.934797562277518,
+      "races": 634,
       "temperature_fitted_on_2024": 15.0,
-      "top_pick_strike_rate": 0.12280701754385964
+      "top_pick_strike_rate": 0.12618296529968454
     }
   },
   "prediction_test_reason": "Run only after the V2 sanity gate passed.",
   "prediction_tests_rerun": true,
   "ratings": {
-    "performances": 29355,
-    "too_few_finishers": 27
+    "performances": 29541,
+    "too_few_finishers": 29
   },
   "sanity": {
     "audit_matches": 24,

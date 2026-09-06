@@ -1,0 +1,2052 @@
+{
+  "captured_at": "2026-09-05T23:25:21.796754+00:00",
+  "date": "2026-09-05",
+  "errors": [],
+  "meetings": [
+    {
+      "dry_run": true,
+      "meeting": "2026-09-05|NSW|randwick",
+      "observation_rows": [
+        {
+          "early_score": -0.667078773108722,
+          "early_seconds": 22.91,
+          "evidence": {
+            "par_level": "track_distance_going_rail",
+            "par_sample": 5
+          },
+          "finished_runners": 9,
+          "late_score": -4.0,
+          "late_seconds": 23.78,
+          "middle_score": 1.1990946835139569,
+          "middle_seconds": 22.5,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "65bb286a2f08b98883405d30725ec62976f6dc8fe72cf478a3493b3cebb41b83",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R1",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 9,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": -0.5314169620118616,
+          "early_seconds": 24.84,
+          "evidence": {
+            "par_level": "track_distance_going_rail",
+            "par_sample": 9
+          },
+          "finished_runners": 16,
+          "late_score": -2.33573651892821,
+          "late_seconds": 23.505,
+          "middle_score": -0.4323658714593553,
+          "middle_seconds": 22.33,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "b61c078e96bc74ea11e7f7392ed28fe52331c0d2e43a967d9489042c0b9192f3",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R2",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 16,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": 0.5022023589581126,
+          "early_seconds": 23.575000000000003,
+          "evidence": {
+            "par_level": "track_phase_going",
+            "par_sample": 109
+          },
+          "finished_runners": 8,
+          "late_score": -2.0002139763788773,
+          "late_seconds": 24.84,
+          "middle_score": -0.97252156017555,
+          "middle_seconds": 23.39,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "8cf96f45be5881380281b48035668859ee033322f06bd04e15970fed1845fc34",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R4",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 8,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": -1.5533726581885263,
+          "early_seconds": 25.09,
+          "evidence": {
+            "par_level": "track_distance_going_rail",
+            "par_sample": 9
+          },
+          "finished_runners": 15,
+          "late_score": -1.19909468351395,
+          "late_seconds": 23.05,
+          "middle_score": 0.5015444108928506,
+          "middle_seconds": 22.06,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "d55335da9400c75ebd72e92081ed336498389a3470e3b90d3a9be16af283a96a",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R5",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 15,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": -0.5314169620118616,
+          "early_seconds": 24.84,
+          "evidence": {
+            "par_level": "track_distance_going_rail",
+            "par_sample": 9
+          },
+          "finished_runners": 10,
+          "late_score": -0.09992455695949362,
+          "late_seconds": 22.61,
+          "middle_score": -0.22483025315886918,
+          "middle_seconds": 22.27,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "be3d8a207f30555d7f8bc4d7afadcbc15b6ca69d094798307151b30b7b66ea16",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R6",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 10,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": 0.01482397273575172,
+          "early_seconds": 22.45,
+          "evidence": {
+            "par_level": "track_distance_going_rail",
+            "par_sample": 5
+          },
+          "finished_runners": 8,
+          "late_score": 1.3008036075620149,
+          "late_seconds": 22.369999999999997,
+          "middle_score": -0.24981139239874622,
+          "middle_seconds": 23.08,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "451d1af8955de44bb1138f511172a59ee7107d795fe38c99082b2da3f5281d18",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R7",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 8,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": 0.6744907594765952,
+          "early_seconds": 13.32,
+          "evidence": {
+            "par_level": "track_distance_going",
+            "par_sample": 13
+          },
+          "finished_runners": 12,
+          "late_score": 1.4591024592759076,
+          "late_seconds": 21.93,
+          "middle_score": 2.4220349999386643,
+          "middle_seconds": 20.869999999999997,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "0b643a8e8538ffd30385e0a2db84d17b05d70823fac1ce944d9f0cff707b011f",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R8",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 12,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": -0.0466955141176104,
+          "early_seconds": 24.46,
+          "evidence": {
+            "par_level": "track_distance_going",
+            "par_sample": 14
+          },
+          "finished_runners": 9,
+          "late_score": 1.2486726367746228,
+          "late_seconds": 22.229999999999997,
+          "middle_score": -0.2194771518931751,
+          "middle_seconds": 22.939999999999998,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "007b83d1c90a4ef1b747577bdc74e284554ada9e690690ece89318b5b55c9f00",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R9",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 9,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        },
+        {
+          "early_score": 0.534404217123765,
+          "early_seconds": 23.34,
+          "evidence": {
+            "par_level": "track_distance_going",
+            "par_sample": 14
+          },
+          "finished_runners": 11,
+          "late_score": -0.6606550515898937,
+          "late_seconds": 23.61,
+          "middle_score": -1.1830353797168847,
+          "middle_seconds": 23.39,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "81e176477ef28f301d0181311d0266a21719861f1fb342b60aaa15225d510ee1",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|NSW|randwick|R10",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 11,
+          "source_name": "racing-com-nsw-authorised-v2",
+          "source_url": "https://feed.australianturfclub.com.au/sectionals/swiss-timing/2026/0509RAND.pdf"
+        }
+      ],
+      "observations": 9,
+      "poll_sectionals": true,
+      "race_rows": [
+        {
+          "distance_metres": 1000,
+          "field_size": 13,
+          "going_bucket": "good",
+          "group_grade": 2,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R8",
+          "race_number": 8,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T05:55:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "distance_metres": 1600,
+          "field_size": 10,
+          "going_bucket": "good",
+          "group_grade": 2,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R9",
+          "race_number": 9,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T06:35:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "distance_metres": 1400,
+          "field_size": 9,
+          "going_bucket": "good",
+          "group_grade": 2,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R7",
+          "race_number": 7,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T05:20:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "distance_metres": 1200,
+          "field_size": 10,
+          "going_bucket": "good",
+          "group_grade": 2,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R6",
+          "race_number": 6,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T04:45:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "distance_metres": 2400,
+          "field_size": 9,
+          "going_bucket": "good",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R4",
+          "race_number": 4,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T03:35:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.31866154953226195,
+            "fast": 0.09976350743583592,
+            "slow": 0.4447072139601823,
+            "very_fast_or_collapse": 0.13686772907171985
+          },
+          "v0_scores": {
+            "early": -0.4406206173538614,
+            "late": -0.2953596169339643,
+            "middle": -0.23755357237120991
+          }
+        },
+        {
+          "distance_metres": 1600,
+          "field_size": 13,
+          "going_bucket": "good",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R10",
+          "race_number": 10,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T07:10:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.2759699012997166,
+            "fast": 0.0854832404964331,
+            "slow": 0.4428470483879454,
+            "very_fast_or_collapse": 0.1956998098159048
+          },
+          "v0_scores": {
+            "early": -0.17211430244161194,
+            "late": -0.2224217433707872,
+            "middle": -0.1672010271478786
+          }
+        },
+        {
+          "distance_metres": 1200,
+          "field_size": 21,
+          "going_bucket": "good",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R5",
+          "race_number": 5,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T04:10:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.4317004409043056,
+            "fast": 0.048014458574994846,
+            "slow": 0.3178617511707872,
+            "very_fast_or_collapse": 0.20242334934991232
+          },
+          "v0_scores": {
+            "early": 0.10936440069114149,
+            "late": -0.16251090716222696,
+            "middle": -0.31439594412385774
+          }
+        },
+        {
+          "distance_metres": 1100,
+          "field_size": 17,
+          "going_bucket": "good",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R3",
+          "race_number": 3,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T03:00:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.3242488722444463,
+            "fast": 0.1018086645671972,
+            "slow": 0.4144778279002468,
+            "very_fast_or_collapse": 0.1594646352881096
+          },
+          "v0_scores": {
+            "early": -0.21685446571852884,
+            "late": -0.0755497450221076,
+            "middle": -0.09652757207114938
+          }
+        },
+        {
+          "distance_metres": 1400,
+          "field_size": 16,
+          "going_bucket": "good",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R1",
+          "race_number": 1,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T01:50:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.2618506050404877,
+            "fast": 0.09128153184020528,
+            "slow": 0.4344895535933312,
+            "very_fast_or_collapse": 0.2123783095259758
+          },
+          "v0_scores": {
+            "early": -0.086195284485023,
+            "late": -0.24955314384742597,
+            "middle": -0.41980304945626573
+          }
+        },
+        {
+          "distance_metres": 1200,
+          "field_size": 22,
+          "going_bucket": "good",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "race_key": "2026-09-05|NSW|randwick|R2",
+          "race_number": 2,
+          "rail_position": "+3m Entire Course.",
+          "scheduled_start_at": "2026-09-05T02:25:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.4317004409043056,
+            "fast": 0.048014458574994846,
+            "slow": 0.3178617511707872,
+            "very_fast_or_collapse": 0.20242334934991232
+          },
+          "v0_scores": {
+            "early": 0.10936440069114149,
+            "late": -0.16251090716222696,
+            "middle": -0.31439594412385774
+          }
+        }
+      ],
+      "races": 10,
+      "snapshot_rows": [
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 6,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 6,
+            "race_key": "2026-09-05|NSW|randwick|R8",
+            "same_regime": 6,
+            "shadow": {
+              "early": -0.3843338930634425,
+              "late": -0.4536428529787081,
+              "middle": -0.17552542201679242
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.3843338930634425,
+              "late": -0.09508475328180618,
+              "middle": -0.17941044919110827
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R8",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 6,
+          "shadow_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "shadow_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.4536428529787081,
+            "middle": -0.17552542201679242
+          },
+          "snapshot_hash": "1f54fb99e30544673d528211b490e7139eef2c44057fdd4c581e31dc4c5a9718",
+          "snapshot_version": "V6",
+          "state_reliability": 0.5162077190737587,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 7,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 7,
+            "race_key": "2026-09-05|NSW|randwick|R9",
+            "same_regime": 7,
+            "shadow": {
+              "early": -0.3843338930634425,
+              "late": -0.2297505460904797,
+              "middle": 0.027525091123645512
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.3843338930634425,
+              "late": -0.09508475328180618,
+              "middle": -0.17941044919110827
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R9",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 7,
+          "shadow_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "shadow_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.2297505460904797,
+            "middle": 0.027525091123645512
+          },
+          "snapshot_hash": "4ffb276a577abfb0133b5a9dd47cde6b9dba0e27e2ef7aa1c65334f70f08e382",
+          "snapshot_version": "V7",
+          "state_reliability": 0.5157005344081032,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 5,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 5,
+            "race_key": "2026-09-05|NSW|randwick|R7",
+            "same_regime": 5,
+            "shadow": {
+              "early": -0.3843338930634425,
+              "late": -0.5950847532818062,
+              "middle": -0.0966813235785153
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.3843338930634425,
+              "late": -0.09508475328180618,
+              "middle": -0.17941044919110827
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R7",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 5,
+          "shadow_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "shadow_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.5950847532818062,
+            "middle": -0.0966813235785153
+          },
+          "snapshot_hash": "32838a5b5acf017d9e538cde31ceba933463202ad47490e3f63dd624bbce8d32",
+          "snapshot_version": "V5",
+          "state_reliability": 0.5240526533683251,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 4,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 4,
+            "race_key": "2026-09-05|NSW|randwick|R6",
+            "same_regime": 4,
+            "shadow": {
+              "early": -0.3843338930634425,
+              "late": -0.5950847532818062,
+              "middle": -0.04148188800320923
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.3843338930634425,
+              "late": -0.09508475328180618,
+              "middle": -0.17941044919110827
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R6",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 4,
+          "shadow_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "shadow_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.5950847532818062,
+            "middle": -0.04148188800320923
+          },
+          "snapshot_hash": "b2ceb69b5e6fa10de7636518b40a186b739ca1e29211a7ba58299f8cc0c19ab6",
+          "snapshot_version": "V4",
+          "state_reliability": 0.5055090024234997,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 2,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 2,
+            "race_key": "2026-09-05|NSW|randwick|R4",
+            "same_regime": 2,
+            "shadow": {
+              "early": -0.4406206173538614,
+              "late": -0.2953596169339643,
+              "middle": -0.23755357237120991
+            },
+            "status": "condition_reset",
+            "v0": {
+              "early": -0.4406206173538614,
+              "late": -0.2953596169339643,
+              "middle": -0.23755357237120991
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R4",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "condition_reset"
+          ],
+          "same_regime_races": 2,
+          "shadow_probabilities": {
+            "even": 0.31866154953226195,
+            "fast": 0.09976350743583592,
+            "slow": 0.4447072139601823,
+            "very_fast_or_collapse": 0.13686772907171985
+          },
+          "shadow_scores": {
+            "early": -0.4406206173538614,
+            "late": -0.2953596169339643,
+            "middle": -0.23755357237120991
+          },
+          "snapshot_hash": "2af7302dfa0b83896d7e6cf707977ff0d262db21e8ccdbd363f4b712d258742e",
+          "snapshot_version": "V2",
+          "state_reliability": 0.1090582098936943,
+          "update_status": "condition_reset",
+          "v0_probabilities": {
+            "even": 0.31866154953226195,
+            "fast": 0.09976350743583592,
+            "slow": 0.4447072139601823,
+            "very_fast_or_collapse": 0.13686772907171985
+          },
+          "v0_scores": {
+            "early": -0.4406206173538614,
+            "late": -0.2953596169339643,
+            "middle": -0.23755357237120991
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 8,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 8,
+            "race_key": "2026-09-05|NSW|randwick|R10",
+            "same_regime": 8,
+            "shadow": {
+              "early": -0.17211430244161194,
+              "late": -0.05833284997967003,
+              "middle": -0.06376090035243931
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.17211430244161194,
+              "late": -0.2224217433707872,
+              "middle": -0.1672010271478786
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R10",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 8,
+          "shadow_probabilities": {
+            "even": 0.2759699012997166,
+            "fast": 0.0854832404964331,
+            "slow": 0.4428470483879454,
+            "very_fast_or_collapse": 0.1956998098159048
+          },
+          "shadow_scores": {
+            "early": -0.17211430244161194,
+            "late": -0.05833284997967003,
+            "middle": -0.06376090035243931
+          },
+          "snapshot_hash": "30e8dc373cc28e64cd2b8bc9d94bb22fe806f97276e5544fd200e580f88f37d5",
+          "snapshot_version": "V8",
+          "state_reliability": 0.5814897196891686,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.2759699012997166,
+            "fast": 0.0854832404964331,
+            "slow": 0.4428470483879454,
+            "very_fast_or_collapse": 0.1956998098159048
+          },
+          "v0_scores": {
+            "early": -0.17211430244161194,
+            "late": -0.2224217433707872,
+            "middle": -0.1672010271478786
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 3,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 3,
+            "race_key": "2026-09-05|NSW|randwick|R5",
+            "same_regime": 3,
+            "shadow": {
+              "early": 0.10936440069114149,
+              "late": -0.6625109071622269,
+              "middle": -0.29365406534166577
+            },
+            "status": "updated",
+            "v0": {
+              "early": 0.10936440069114149,
+              "late": -0.16251090716222696,
+              "middle": -0.31439594412385774
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R5",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 3,
+          "shadow_probabilities": {
+            "even": 0.4317004409043056,
+            "fast": 0.048014458574994846,
+            "slow": 0.3178617511707872,
+            "very_fast_or_collapse": 0.20242334934991232
+          },
+          "shadow_scores": {
+            "early": 0.10936440069114149,
+            "late": -0.6625109071622269,
+            "middle": -0.29365406534166577
+          },
+          "snapshot_hash": "70a1d32ca4278158266d2cc4dff5fcc0804b3c592b2861cba48ca07f1b950016",
+          "snapshot_version": "V3",
+          "state_reliability": 0.38472310129647774,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.4317004409043056,
+            "fast": 0.048014458574994846,
+            "slow": 0.3178617511707872,
+            "very_fast_or_collapse": 0.20242334934991232
+          },
+          "v0_scores": {
+            "early": 0.10936440069114149,
+            "late": -0.16251090716222696,
+            "middle": -0.31439594412385774
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 2,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 2,
+            "race_key": "2026-09-05|NSW|randwick|R3",
+            "same_regime": 2,
+            "shadow": {
+              "early": -0.21685446571852884,
+              "late": -0.5755497450221077,
+              "middle": -0.0245070460353784
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.21685446571852884,
+              "late": -0.0755497450221076,
+              "middle": -0.09652757207114938
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R3",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 2,
+          "shadow_probabilities": {
+            "even": 0.3242488722444463,
+            "fast": 0.1018086645671972,
+            "slow": 0.4144778279002468,
+            "very_fast_or_collapse": 0.1594646352881096
+          },
+          "shadow_scores": {
+            "early": -0.21685446571852884,
+            "late": -0.5755497450221077,
+            "middle": -0.0245070460353784
+          },
+          "snapshot_hash": "7b6bda6a1ba8d5f39960ce091aa391f2cccf65db23f7dc64ae02d35a8df89cac",
+          "snapshot_version": "V2",
+          "state_reliability": 0.4035367972594098,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.3242488722444463,
+            "fast": 0.1018086645671972,
+            "slow": 0.4144778279002468,
+            "very_fast_or_collapse": 0.1594646352881096
+          },
+          "v0_scores": {
+            "early": -0.21685446571852884,
+            "late": -0.0755497450221076,
+            "middle": -0.09652757207114938
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 0,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 0,
+            "race_key": "2026-09-05|NSW|randwick|R1",
+            "same_regime": 0,
+            "shadow": {
+              "early": -0.086195284485023,
+              "late": -0.24955314384742597,
+              "middle": -0.41980304945626573
+            },
+            "status": "v0",
+            "v0": {
+              "early": -0.086195284485023,
+              "late": -0.24955314384742597,
+              "middle": -0.41980304945626573
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R1",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "v0"
+          ],
+          "same_regime_races": 0,
+          "shadow_probabilities": {
+            "even": 0.2618506050404877,
+            "fast": 0.09128153184020528,
+            "slow": 0.4344895535933312,
+            "very_fast_or_collapse": 0.2123783095259758
+          },
+          "shadow_scores": {
+            "early": -0.086195284485023,
+            "late": -0.24955314384742597,
+            "middle": -0.41980304945626573
+          },
+          "snapshot_hash": "314d4a2e26ddfdf02ac8c07414c0b5970ba2844a5291a84d1d720c7c82e8b4a6",
+          "snapshot_version": "V0",
+          "state_reliability": 0,
+          "update_status": "v0",
+          "v0_probabilities": {
+            "even": 0.2618506050404877,
+            "fast": 0.09128153184020528,
+            "slow": 0.4344895535933312,
+            "very_fast_or_collapse": 0.2123783095259758
+          },
+          "v0_scores": {
+            "early": -0.086195284485023,
+            "late": -0.24955314384742597,
+            "middle": -0.41980304945626573
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 1,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 1,
+            "race_key": "2026-09-05|NSW|randwick|R2",
+            "same_regime": 1,
+            "shadow": {
+              "early": 0.10936440069114149,
+              "late": -0.6625109071622269,
+              "middle": 0.0018856616636491186
+            },
+            "status": "updated",
+            "v0": {
+              "early": 0.10936440069114149,
+              "late": -0.16251090716222696,
+              "middle": -0.31439594412385774
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|NSW|randwick",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|NSW|randwick|R2",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 1,
+          "shadow_probabilities": {
+            "even": 0.4317004409043056,
+            "fast": 0.048014458574994846,
+            "slow": 0.3178617511707872,
+            "very_fast_or_collapse": 0.20242334934991232
+          },
+          "shadow_scores": {
+            "early": 0.10936440069114149,
+            "late": -0.6625109071622269,
+            "middle": 0.0018856616636491186
+          },
+          "snapshot_hash": "41bdfa71780d3d06a299737d7f8c1ad23ba2983d2b90f170cbcd7324cecaa4b4",
+          "snapshot_version": "V1",
+          "state_reliability": 0.2637669986665615,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.4317004409043056,
+            "fast": 0.048014458574994846,
+            "slow": 0.3178617511707872,
+            "very_fast_or_collapse": 0.20242334934991232
+          },
+          "v0_scores": {
+            "early": 0.10936440069114149,
+            "late": -0.16251090716222696,
+            "middle": -0.31439594412385774
+          }
+        }
+      ],
+      "snapshots": 10
+    },
+    {
+      "dry_run": true,
+      "meeting": "2026-09-05|VIC|sportsbet-sandown-hillside",
+      "observation_rows": [
+        {
+          "early_score": 1.074421154036138,
+          "early_seconds": 32.8,
+          "evidence": {
+            "par_level": "track_phase_going",
+            "par_sample": 27
+          },
+          "finished_runners": 9,
+          "late_score": -0.05802071049260912,
+          "late_seconds": 23.97,
+          "middle_score": -0.9263006430145186,
+          "middle_seconds": 23.99,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "d3043abf48abe10b3534742568d4249a22860a7752aa266b568ff5ba383ead45",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R6",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 9,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        },
+        {
+          "early_score": 1.0637647015165261,
+          "early_seconds": 32.97,
+          "evidence": {
+            "par_level": "track_phase_going",
+            "par_sample": 27
+          },
+          "finished_runners": 11,
+          "late_score": 0.826795124519698,
+          "late_seconds": 23.36,
+          "middle_score": -0.35073519492783,
+          "middle_seconds": 23.67,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "19555087e7eb3b099af3857ce8c26bd2a2b526dd43a9de95c3cb2ef710f6f522",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R5",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 11,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        },
+        {
+          "early_score": 0.0877590207497428,
+          "early_seconds": 48.54,
+          "evidence": {
+            "par_level": "track_phase_going",
+            "par_sample": 27
+          },
+          "finished_runners": 6,
+          "late_score": -0.6019648713608312,
+          "late_seconds": 24.345,
+          "middle_score": -1.0342191645307717,
+          "middle_seconds": 24.049999999999997,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "b463d234984a919916b2533fd54c526983213cc0d14265e68b4b33019009d7bf",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R1",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 6,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        },
+        {
+          "early_score": 1.0311684938094787,
+          "early_seconds": 33.49,
+          "evidence": {
+            "par_level": "track_phase_going",
+            "par_sample": 27
+          },
+          "finished_runners": 9,
+          "late_score": 1.4070022294457996,
+          "late_seconds": 22.96,
+          "middle_score": -1.2500562075632902,
+          "middle_seconds": 24.17,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "abbdfb865b695f9fde346fa62abc8879828bcb25f7c6c38ccf1384770bbf76e5",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R4",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 9,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        },
+        {
+          "early_score": -0.5865137038927077,
+          "early_seconds": 13.8,
+          "evidence": {
+            "par_level": "track_distance_going",
+            "par_sample": 9
+          },
+          "finished_runners": 8,
+          "late_score": -0.8321639240295645,
+          "late_seconds": 23.310000000000002,
+          "middle_score": 0.0843113449345875,
+          "middle_seconds": 21.369999999999997,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "e0b75ca971fa0dedc07a326881cb1f127f0521891fbce0b6ca5fdc5565902eef",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R3",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 8,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        },
+        {
+          "early_score": -2.8739171490742286,
+          "early_seconds": 14.19,
+          "evidence": {
+            "par_level": "track_distance_going",
+            "par_sample": 9
+          },
+          "finished_runners": 13,
+          "late_score": 1.4978950632532124,
+          "late_seconds": 21.98,
+          "middle_score": -1.1382031566167516,
+          "middle_seconds": 21.66,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "b37f095d0a2053d70adaf70d6d9f823628aedea3e72ac3de7a72710e4ce993fe",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R8",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 13,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        },
+        {
+          "early_score": 0.1366533323103139,
+          "early_seconds": 47.76,
+          "evidence": {
+            "par_level": "track_phase_going",
+            "par_sample": 27
+          },
+          "finished_runners": 9,
+          "late_score": 1.102393499359594,
+          "late_seconds": 23.17,
+          "middle_score": -0.06295247088448247,
+          "middle_seconds": 23.51,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "25d9408c7e611a70e29d7954930a231da579ec670d8343fad73451726c0f007d",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R7",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 9,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        },
+        {
+          "early_score": -2.5775182594284134,
+          "early_seconds": 53.980000000000004,
+          "evidence": {
+            "par_level": "track_distance_going",
+            "par_sample": 10
+          },
+          "finished_runners": 10,
+          "late_score": 0.39813690663548823,
+          "late_seconds": 23.795,
+          "middle_score": -0.9510601922326868,
+          "middle_seconds": 24.505000000000003,
+          "observed_at": "2026-09-05T23:25:21.796754Z",
+          "payload_sha256": "03df79874dd66c31ae4222d4202048e9dc6c9841f7c4c8036c6dd11e918539b5",
+          "quality_status": "accepted",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R2",
+          "sectional_coverage": 1.0,
+          "sectional_runners": 10,
+          "source_name": "racing-com-rv-authorised",
+          "source_url": "https://www.racing.com/form/2026-09-05/sportsbet-sandown-hillside"
+        }
+      ],
+      "observations": 8,
+      "poll_sectionals": true,
+      "race_rows": [
+        {
+          "distance_metres": 1300,
+          "field_size": 9,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R6",
+          "race_number": 6,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T05:00:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "v0_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.1514513226923337,
+            "middle": -0.16001581872027235
+          }
+        },
+        {
+          "distance_metres": 1300,
+          "field_size": 13,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R5",
+          "race_number": 5,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T04:25:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "v0_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.1514513226923337,
+            "middle": -0.16001581872027235
+          }
+        },
+        {
+          "distance_metres": 1500,
+          "field_size": 7,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R1",
+          "race_number": 1,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T02:10:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.3561325779780695,
+            "fast": 0.11485202507460074,
+            "slow": 0.3637780738901448,
+            "very_fast_or_collapse": 0.1652373230571849
+          },
+          "v0_scores": {
+            "early": -0.2010700994449937,
+            "late": 0.0355270650158204,
+            "middle": 0.024669972304281487
+          }
+        },
+        {
+          "distance_metres": 1300,
+          "field_size": 15,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R4",
+          "race_number": 4,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T03:50:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "v0_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.1514513226923337,
+            "middle": -0.16001581872027235
+          }
+        },
+        {
+          "distance_metres": 1000,
+          "field_size": 9,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R3",
+          "race_number": 3,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T03:15:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.41819282694228543,
+            "fast": 0.09315749598135492,
+            "slow": 0.34994410592754627,
+            "very_fast_or_collapse": 0.13870557114881338
+          },
+          "v0_scores": {
+            "early": -0.2715963310949848,
+            "late": -0.12627044392705045,
+            "middle": -0.26796864174393353
+          }
+        },
+        {
+          "distance_metres": 1600,
+          "field_size": 19,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R10",
+          "race_number": 10,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T07:25:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.20867033415535666,
+            "fast": 0.06110008134007047,
+            "slow": 0.6398391737228459,
+            "very_fast_or_collapse": 0.09039041078172694
+          },
+          "v0_scores": {
+            "early": -0.648117887707467,
+            "late": -0.07879281667091073,
+            "middle": -0.3734844280828865
+          }
+        },
+        {
+          "distance_metres": 1000,
+          "field_size": 13,
+          "going_bucket": "soft",
+          "group_grade": 1,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R8",
+          "race_number": 8,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T06:15:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "distance_metres": 1300,
+          "field_size": 11,
+          "going_bucket": "soft",
+          "group_grade": 3,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R9",
+          "race_number": 9,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T06:50:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "distance_metres": 1500,
+          "field_size": 12,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R7",
+          "race_number": 7,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T05:35:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.3561325779780695,
+            "fast": 0.11485202507460074,
+            "slow": 0.3637780738901448,
+            "very_fast_or_collapse": 0.1652373230571849
+          },
+          "v0_scores": {
+            "early": -0.2010700994449937,
+            "late": 0.0355270650158204,
+            "middle": 0.024669972304281487
+          }
+        },
+        {
+          "distance_metres": 1600,
+          "field_size": 11,
+          "going_bucket": "soft",
+          "group_grade": null,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R2",
+          "race_number": 2,
+          "rail_position": "True Entire Circuit",
+          "scheduled_start_at": "2026-09-05T02:40:00.000Z",
+          "status": "scheduled",
+          "updated_at": "2026-09-05T23:25:21.796754Z",
+          "v0_model_version": "expected-tempo-cloud-bundle-v1",
+          "v0_probabilities": {
+            "even": 0.20867033415535666,
+            "fast": 0.06110008134007047,
+            "slow": 0.6398391737228459,
+            "very_fast_or_collapse": 0.09039041078172694
+          },
+          "v0_scores": {
+            "early": -0.648117887707467,
+            "late": -0.07879281667091073,
+            "middle": -0.3734844280828865
+          }
+        }
+      ],
+      "races": 10,
+      "snapshot_rows": [
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 5,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 5,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R6",
+            "same_regime": 5,
+            "shadow": {
+              "early": -0.04673567619549884,
+              "late": 0.4700895702531308,
+              "middle": -0.5744883073887583
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.04673567619549884,
+              "late": 0.1514513226923337,
+              "middle": -0.16001581872027235
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R6",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 5,
+          "shadow_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "shadow_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.4700895702531308,
+            "middle": -0.5744883073887583
+          },
+          "snapshot_hash": "adcfbd29e01848674be9eb44d6ef8ed281ae7f8730028b4d653d50b483e80fcf",
+          "snapshot_version": "V5",
+          "state_reliability": 0.5968278583270529,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "v0_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.1514513226923337,
+            "middle": -0.16001581872027235
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 4,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 4,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R5",
+            "same_regime": 4,
+            "shadow": {
+              "early": -0.04673567619549884,
+              "late": 0.35905784943060104,
+              "middle": -0.6296461587430376
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.04673567619549884,
+              "late": 0.1514513226923337,
+              "middle": -0.16001581872027235
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R5",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 4,
+          "shadow_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "shadow_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.35905784943060104,
+            "middle": -0.6296461587430376
+          },
+          "snapshot_hash": "58d3951df986e8b82938d7b24de325a7ba377cd4b3766b6725cb4d125269c14f",
+          "snapshot_version": "V4",
+          "state_reliability": 0.5399481899078098,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "v0_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.1514513226923337,
+            "middle": -0.16001581872027235
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 0,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 0,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R1",
+            "same_regime": 0,
+            "shadow": {
+              "early": -0.2010700994449937,
+              "late": 0.0355270650158204,
+              "middle": 0.024669972304281487
+            },
+            "status": "v0",
+            "v0": {
+              "early": -0.2010700994449937,
+              "late": 0.0355270650158204,
+              "middle": 0.024669972304281487
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R1",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "v0"
+          ],
+          "same_regime_races": 0,
+          "shadow_probabilities": {
+            "even": 0.3561325779780695,
+            "fast": 0.11485202507460074,
+            "slow": 0.3637780738901448,
+            "very_fast_or_collapse": 0.1652373230571849
+          },
+          "shadow_scores": {
+            "early": -0.2010700994449937,
+            "late": 0.0355270650158204,
+            "middle": 0.024669972304281487
+          },
+          "snapshot_hash": "f5afd92bc3fcba787541ced9c9bef6dbcef13de741924d28d3097171f96627a4",
+          "snapshot_version": "V0",
+          "state_reliability": 0,
+          "update_status": "v0",
+          "v0_probabilities": {
+            "even": 0.3561325779780695,
+            "fast": 0.11485202507460074,
+            "slow": 0.3637780738901448,
+            "very_fast_or_collapse": 0.1652373230571849
+          },
+          "v0_scores": {
+            "early": -0.2010700994449937,
+            "late": 0.0355270650158204,
+            "middle": 0.024669972304281487
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 3,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 3,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R4",
+            "same_regime": 3,
+            "shadow": {
+              "early": -0.04673567619549884,
+              "late": -0.015708184511498136,
+              "middle": -0.42231442124584895
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.04673567619549884,
+              "late": 0.1514513226923337,
+              "middle": -0.16001581872027235
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R4",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 3,
+          "shadow_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "shadow_scores": {
+            "early": -0.04673567619549884,
+            "late": -0.015708184511498136,
+            "middle": -0.42231442124584895
+          },
+          "snapshot_hash": "1b4079973236f4127250126eaeb6c8afb593ab43cf64eb3457a00a65c50de8da",
+          "snapshot_version": "V3",
+          "state_reliability": 0.446451761714118,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.2802634606253151,
+            "fast": 0.2502643417645302,
+            "slow": 0.3002628731991718,
+            "very_fast_or_collapse": 0.1692093244109829
+          },
+          "v0_scores": {
+            "early": -0.04673567619549884,
+            "late": 0.1514513226923337,
+            "middle": -0.16001581872027235
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 2,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 2,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R3",
+            "same_regime": 2,
+            "shadow": {
+              "early": -0.2715963310949848,
+              "late": -0.1526542005983082,
+              "middle": -0.5335616116026505
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.2715963310949848,
+              "late": -0.12627044392705045,
+              "middle": -0.26796864174393353
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R3",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 2,
+          "shadow_probabilities": {
+            "even": 0.41819282694228543,
+            "fast": 0.09315749598135492,
+            "slow": 0.34994410592754627,
+            "very_fast_or_collapse": 0.13870557114881338
+          },
+          "shadow_scores": {
+            "early": -0.2715963310949848,
+            "late": -0.1526542005983082,
+            "middle": -0.5335616116026505
+          },
+          "snapshot_hash": "15292e91c2d47e6b6e1859a07631050e7bbab1f3e4ea066df5af518d9fa08d43",
+          "snapshot_version": "V2",
+          "state_reliability": 0.2676370516103411,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.41819282694228543,
+            "fast": 0.09315749598135492,
+            "slow": 0.34994410592754627,
+            "very_fast_or_collapse": 0.13870557114881338
+          },
+          "v0_scores": {
+            "early": -0.2715963310949848,
+            "late": -0.12627044392705045,
+            "middle": -0.26796864174393353
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 8,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 8,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R10",
+            "same_regime": 8,
+            "shadow": {
+              "early": -0.648117887707467,
+              "late": 0.2778653145313892,
+              "middle": -0.7352962432113965
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.648117887707467,
+              "late": -0.07879281667091073,
+              "middle": -0.3734844280828865
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R10",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 8,
+          "shadow_probabilities": {
+            "even": 0.20867033415535666,
+            "fast": 0.06110008134007047,
+            "slow": 0.6398391737228459,
+            "very_fast_or_collapse": 0.09039041078172694
+          },
+          "shadow_scores": {
+            "early": -0.648117887707467,
+            "late": 0.2778653145313892,
+            "middle": -0.7352962432113965
+          },
+          "snapshot_hash": "e8811a489a372a061d15bfd2f0bd46c43f329146c8018ccb95da9aada7c923b4",
+          "snapshot_version": "V8",
+          "state_reliability": 0.5456889356710543,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.20867033415535666,
+            "fast": 0.06110008134007047,
+            "slow": 0.6398391737228459,
+            "very_fast_or_collapse": 0.09039041078172694
+          },
+          "v0_scores": {
+            "early": -0.648117887707467,
+            "late": -0.07879281667091073,
+            "middle": -0.3734844280828865
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 7,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 7,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R8",
+            "same_regime": 7,
+            "shadow": {
+              "early": -0.3843338930634425,
+              "late": 0.09651500892783982,
+              "middle": -0.47723807859333
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.3843338930634425,
+              "late": -0.09508475328180618,
+              "middle": -0.17941044919110827
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R8",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 7,
+          "shadow_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "shadow_scores": {
+            "early": -0.3843338930634425,
+            "late": 0.09651500892783982,
+            "middle": -0.47723807859333
+          },
+          "snapshot_hash": "4abcd28956e88998ef41906dda4048b70e882574cc717cbf27b8b506db5bed65",
+          "snapshot_version": "V7",
+          "state_reliability": 0.5557273851366256,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 8,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 8,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R9",
+            "same_regime": 8,
+            "shadow": {
+              "early": -0.3843338930634425,
+              "late": 0.3400490951646914,
+              "middle": -0.6364898503951992
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.3843338930634425,
+              "late": -0.09508475328180618,
+              "middle": -0.17941044919110827
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R9",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 8,
+          "shadow_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "shadow_scores": {
+            "early": -0.3843338930634425,
+            "late": 0.3400490951646914,
+            "middle": -0.6364898503951992
+          },
+          "snapshot_hash": "1ee8ed0fe576ec082f65e4c554bbca6844c7e56ae430fa0b73e86a21ec85c017",
+          "snapshot_version": "V8",
+          "state_reliability": 0.6446354762123606,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.30606860158311344,
+            "fast": 0.10224274406332454,
+            "slow": 0.4419525065963061,
+            "very_fast_or_collapse": 0.14973614775725594
+          },
+          "v0_scores": {
+            "early": -0.3843338930634425,
+            "late": -0.09508475328180618,
+            "middle": -0.17941044919110827
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 6,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 6,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R7",
+            "same_regime": 6,
+            "shadow": {
+              "early": -0.2010700994449937,
+              "late": 0.2125713065884923,
+              "middle": -0.4438460351855541
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.2010700994449937,
+              "late": 0.0355270650158204,
+              "middle": 0.024669972304281487
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R7",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 6,
+          "shadow_probabilities": {
+            "even": 0.3561325779780695,
+            "fast": 0.11485202507460074,
+            "slow": 0.3637780738901448,
+            "very_fast_or_collapse": 0.1652373230571849
+          },
+          "shadow_scores": {
+            "early": -0.2010700994449937,
+            "late": 0.2125713065884923,
+            "middle": -0.4438460351855541
+          },
+          "snapshot_hash": "f324dfab8c6f1a0876def8f4d6c3952d63233843494bf9ea3adc67c80eb9833e",
+          "snapshot_version": "V6",
+          "state_reliability": 0.5907336698548832,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.3561325779780695,
+            "fast": 0.11485202507460074,
+            "slow": 0.3637780738901448,
+            "very_fast_or_collapse": 0.1652373230571849
+          },
+          "v0_scores": {
+            "early": -0.2010700994449937,
+            "late": 0.0355270650158204,
+            "middle": 0.024669972304281487
+          }
+        },
+        {
+          "calculated_at": "2026-09-05T23:25:21.796754Z",
+          "completed_races": 1,
+          "detail": {
+            "bundle": "expected-tempo-cloud-bundle-v1",
+            "completed": 1,
+            "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R2",
+            "same_regime": 1,
+            "shadow": {
+              "early": -0.648117887707467,
+              "late": -0.25780407052066256,
+              "middle": -0.6810387027693259
+            },
+            "status": "updated",
+            "v0": {
+              "early": -0.648117887707467,
+              "late": -0.07879281667091073,
+              "middle": -0.3734844280828865
+            }
+          },
+          "horse_price_integration": false,
+          "meeting_key": "2026-09-05|VIC|sportsbet-sandown-hillside",
+          "model_version": "expected-tempo-cloud-bundle-v1",
+          "policy_version": "expected-tempo-shadow-policy-v1",
+          "race_key": "2026-09-05|VIC|sportsbet-sandown-hillside|R2",
+          "reason_codes": [
+            "early_held_v0",
+            "probabilities_held_amber",
+            "updated"
+          ],
+          "same_regime_races": 1,
+          "shadow_probabilities": {
+            "even": 0.20867033415535666,
+            "fast": 0.06110008134007047,
+            "slow": 0.6398391737228459,
+            "very_fast_or_collapse": 0.09039041078172694
+          },
+          "shadow_scores": {
+            "early": -0.648117887707467,
+            "late": -0.25780407052066256,
+            "middle": -0.6810387027693259
+          },
+          "snapshot_hash": "9cbbcf3ca6d3cf640cf2cd7c83cd73bc87f518b6d7e742157a1a12fd9d9b0637",
+          "snapshot_version": "V1",
+          "state_reliability": 0.29737823977181627,
+          "update_status": "updated",
+          "v0_probabilities": {
+            "even": 0.20867033415535666,
+            "fast": 0.06110008134007047,
+            "slow": 0.6398391737228459,
+            "very_fast_or_collapse": 0.09039041078172694
+          },
+          "v0_scores": {
+            "early": -0.648117887707467,
+            "late": -0.07879281667091073,
+            "middle": -0.3734844280828865
+          }
+        }
+      ],
+      "snapshots": 10
+    }
+  ]
+}
