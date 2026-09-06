@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "performances": 29498,
+    "too_few_finishers": 58
+  },
+  "model_version": "form-first-v3.0",
+  "runs_rated": 29498,
+  "speed_alignment": {
+    "a": -55.037,
+    "b": 1.35,
+    "pairs": 27411
+  }
+}
