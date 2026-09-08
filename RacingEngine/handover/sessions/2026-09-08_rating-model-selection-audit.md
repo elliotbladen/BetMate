@@ -133,6 +133,12 @@ Gate history: 2.2988 (inc1) → 2.2931 (inc3) → 2.2938 (+ceiling) → 2.2935 (
 101.4 (peak 111.0, last 99.3), Ceolwulf 101.3 (H2H-capped to 101.26 — below
 Lindermann, who beat him). form-first-v2.0 had Lindermann 117.5.
 
+**Full ratings rebuilt** and snapshotted: `docs/current_ratings_2026-09-08.md`
+(top 40 + the three horses). Chain: `performance` → `performance_par_v2` →
+`franked_form`, all `--as-of 2026-09-08`. DB backups `.bak-pre-refresh-0908`,
+`.bak-ratings-rebuild-0908`. `CURRENT_RATINGS_STATE.md` updated to make
+`par-v2-ability-v1.0` the headline research rating.
+
 ## Resume — increment 9 (promotion blocker) then cleanup
 
 1. **Walk-forward franking test.** The 18.2% strike is optimistic — the franked

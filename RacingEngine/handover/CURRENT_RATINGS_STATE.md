@@ -2,31 +2,35 @@
 
 Last updated: 8 September 2026.
 
-## Production and shadow models
+## Models — state as at 8 September 2026
 
-Model selection settled 8 Sep — see `docs/rating_model_selection_2026-09.md`.
+Full story: `docs/rating_model_selection_2026-09.md`. Current ratings snapshot:
+`docs/current_ratings_2026-09-08.md`.
 
-- **Production form rating: `form-first-v3.0`** (supersedes v2 — real bug fixes,
-  saner scale, pace corrections). Gates still to be re-run; nothing consumes it
-  for pricing yet.
-- **Shadow: `performance-par-v1.0`** (the speed figure; the only model that beats
-  a uniform guess on the naive ranking test). Form-vs-speed cross-check.
-- **Retire:** `horse-ability-v2.1…2.6`, `achieved-run-v2.x`, `base-lengths-v0.1`
-  — stale, unused, and the cause of "one horse, four ratings". Decision recorded,
-  not yet executed.
-- All models rebuilt `--as-of 2026-09-08` (refresh). DB backup:
-  `data/racing_engine.sqlite.bak-pre-refresh-0908`.
+**The new rating chain (research state, not yet promoted for betting):**
 
-## Rebuild in progress — `performance-par-v2.0` (the new Step-1 spine)
+| Layer | Model | What it is |
+|---|---|---|
+| Step 1 run figure | **`performance-par-v2.0`** | adjusted speed figure: time vs par − daily track variant + pace add-back + weight merit + thin-par class anchor + winner ceiling. Strictly as-of. Beats par-v1 and uniform on the naive gate (2.293 / 2.306 / 2.348). |
+| Step 3 franked form | **`form-first-v3.1`** | par-v2 + bounded franked collateral — a race's level is revised once its beaten field runs again, anchored on their *proven* later ability (not stale official marks). Gate strike 18.2% but the number is optimistic (see below). |
+| Current ability | **`par-v2-ability-v1.0`** | per-horse: 90-day recency blend of v3.1 runs + reliability shrinkage + uncertainty + head-to-head cap (can't out-rate a horse that beat you last start). **This is the "what do we rate X" table** (`par_v2_horse_rating_states`). |
 
-`form-first` rates a winner off the *official marks of the horses they beat*; the
-architecture requires Step 1 to be the horse's own adjusted performance. Building
-`performance-par-v2.0` as a composed adjusted speed figure (variant + weight +
-pace + thin-field anchor). **Increments 1 + 3 done** (daily variant, clock
-quarantine, pace add-back). Naive predictive gate passes and improves each step
-(2.2931 vs par-v1 2.3061 vs uniform 2.3484). Lindermann/Tempted now match the
-expert anchor (Lindermann ~101, Tempted ~110). Increments 2 (weight), 4 (class
-anchor), 5 (scale) pending — not yet the promoted rating.
+**Promotion blocker (increment 9):** `form-first-v3.1`'s predictive score used
+future franking (the franked prior for a 2025 race saw the beaten field's
+post-2025 runs). Needs effective-dated revisions + a walk-forward gate before it
+replaces the old production model.
+
+**Previous production (`form-first-v3.0`) / shadow (`performance-par-v1.0`)** stay
+in place until v3.1 clears increment 9. **Retire** `horse-ability-v2.1…2.6`,
+`achieved-run-v2.x`, `base-lengths-v0.1` — decision recorded, not executed.
+
+All models rebuilt `--as-of 2026-09-08`. DB backups:
+`racing_engine.sqlite.bak-pre-refresh-0908`, `.bak-ratings-rebuild-0908`.
+
+**Sample ratings (`par-v2-ability-v1.0`):** Autumn Glow 107.5 (13 runs, ±2.0),
+Tempted 106.9 (peak/last 110.4), Lindermann 101.4 (peak 111.0, last 99.3),
+Ceolwulf 101.3 (head-to-head capped below Lindermann). `form-first-v2.0` had
+Lindermann at 117.5.
 
 ## Prior note (still valid)
 

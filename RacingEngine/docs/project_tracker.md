@@ -13,10 +13,16 @@ RacingEngine has a strong, source-audited historical data spine and two
 transparent research baselines. It does **not** yet have a validated V2 ability
 rating, a race-strength model, or a production fair-pricing model.
 
-The active historical model is `performance-par-v1.0`. The older
-`base-lengths-v0.1` model can create shadow card prices, but those prices omit
-class, weight, track variant, map, pace and trip. Neither model should be
-presented as a betting edge.
+**Update 2026-09-08 — rating rebuild.** `form-first-v2.0` was found to collapse
+Step 1 of the architecture into a collateral figure (it rated Lindermann's
+Chelmsford off Ceolwulf's stale official 119). New chain built: adjusted speed
+figure `performance-par-v2.0` → franked collateral `form-first-v3.1` → per-horse
+`par-v2-ability-v1.0` with a head-to-head cap. par-v2 beats par-v1 and uniform on
+the naive as-of gate; `form-first-v3.1` needs a walk-forward franking test before
+promotion. See `docs/rating_model_selection_2026-09.md` and
+`docs/current_ratings_2026-09-08.md`. Until v3.1 clears that gate,
+`form-first-v3.0` (form) + `performance-par-v1.0` (speed shadow) remain the
+nominal production pair; `base-lengths-v0.1` is retired.
 
 ## Operating rules
 
