@@ -1,0 +1,13 @@
+league,match,market,selection,saved_price,closing_odds,clv_pct,score,total_goals,result,stake_u,pnl_u
+EPL,Ipswich v Liverpool,1X2,Ipswich win,5.5,4.86,13.17,0-2,2,loss,1.0,-1.0
+EPL,Brentford v Sunderland,1X2,Sunderland win,5.5,4.89,12.47,1-1,2,loss,1.0,-1.0
+EPL,Hull v Aston Villa,1X2,Hull win,4.1,3.92,4.59,0-0,0,loss,1.0,-1.0
+EPL,Everton v Man United,1X2,Everton win,3.1,3.65,-15.07,2-2,4,loss,1.0,-1.0
+EPL,Newcastle v Bournemouth,O/U 2.5,Over 2.5,1.57,1.58,-0.63,2-2,4,win,1.0,0.57
+EPL,Everton v Man United,O/U 2.5,Over 2.5,1.7,1.57,8.28,2-2,4,win,1.0,0.7
+EPL,Arsenal v Chelsea,O/U 2.5,Over 2.5,2.0,1.71,16.96,2-1,3,win,1.0,1.0
+EFL,Stoke v Charlton,1X2,Charlton win,3.48,3.86,-9.84,4-0,4,loss,1.0,-1.0
+EFL,Millwall v Bolton,1X2,Bolton win,6.0,3.78,58.73,4-0,4,loss,1.0,-1.0
+EFL,Sheffield United v Norwich,1X2,Sheffield United win (+6 matrix),2.5,2.56,-2.34,1-3,4,loss,1.5,-1.5
+EFL,Swansea v Wrexham,1X2,Swansea win,2.5,2.24,11.61,0-0,0,loss,1.0,-1.0
+EFL,Birmingham v Wolves,1X2,Birmingham win,2.99,2.85,4.91,2-2,4,loss,1.0,-1.0
