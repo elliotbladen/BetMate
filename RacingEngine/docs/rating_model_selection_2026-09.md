@@ -259,10 +259,20 @@ three models at `--as-of 2026-09-08`, DB backed up to
 | 2 | **Weight merit** — `(carried − field median) × pts/kg`, capped ±6. Handicap/Quality 0.9 pts/kg; WFA/set-weights 0.2 (the weight there is an age/sex/penalty allowance, not merit). Relaxes the winner ceiling for a beaten topweight. | v3 commit `35bbedf`: 0.9 / 0.2 pts/kg | **DONE 8 Sep** |
 | 3 | **Pace adjustment** — slow-run race adds a bounded amount back to the whole field; fast/pressure/collapse race trusts the time (no add-back); per-runner shape/trip term from `v2_runner_pace_ratings` nets the flattered winner down. | `v2_race_pace_shapes` v2.1, physical reasoning for K | **DONE 8 Sep** |
 | 4 | **Thin-par class anchor** — one-sided upward pull toward the class holding standard, only when the *track par* is thin (<12 races) or the meeting has no daily variant. Never caps a figure at/above the standard. Margin-only rows are NOT treated as thin. | v3 §3 method | **DONE 8 Sep** |
-| 5 | Scale calibration — the raw par-v1 spread is compressed (p5–p95 ≈ 85–106); open it so a field's ability range matches reality | speed-figure practice | pending |
-| 6 | Run the frozen naive predictive protocol; require beat vs uniform AND par-v1 | audit rec 7 | **passes at every increment so far** |
-| 7 | If it clears: make par-v2 the base of `form-first-v3.1`; demote collateral to a Step-3 franked revision | — | pending |
-| 8 | `v3_horse_rating_states` consolidated per-horse rollup (§7) | — | pending |
+| 5 | Scale calibration | — | **deferred — see note** |
+| 6 | Run the frozen naive predictive protocol; require beat vs uniform AND par-v1 | audit rec 7 | **passes at every increment** (2.2933 vs par-v1 2.3061 vs uniform 2.3484) |
+| 7 | Make par-v2 the base of `form-first-v3.1`; collateral becomes a bounded **franked** revision on top (the race's strength is confirmed/downgraded as its beaten field runs again) | — | **next** |
+| 8 | `par_v2_horse_rating_states` consolidated per-horse rollup (§7) | — | pending |
+
+**Why increment 5 is deferred.** par-v2's class spread is tight — G1 winners
+median 104.4, benchmark winners 101.1, only ~3 points apart. That is *inherent to
+a time figure* (Topspeed vs RPR disagree by 10–20 lb for exactly this reason: a
+slow-run good race posts a modest clock). Forcing a linear stretch to widen it
+blows the top out (Via Sistina's Cox Plate 128.6 → ~170+). The class spread
+belongs in the **franked form layer (increment 7)**, where collateral brings it
+back in a bounded way. Calibrate the *composite* figure's scale there, against a
+reference, rather than distorting the time figure now and risking the Lindermann
+/ Tempted calibration that increments 1–4 got right.
 
 ### Results by increment (`--as-of 2026-09-08`, `--test`)
 
