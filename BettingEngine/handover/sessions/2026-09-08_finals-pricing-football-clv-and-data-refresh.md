@@ -45,7 +45,8 @@ Date: 2026-09-08 (Mac, home machine)
   the market's mean draw probability (0.243) matched the model's (0.235); in the
   Championship the model carried a *higher* draw probability than the market
   (0.284 vs 0.261). Variance, not calibration.
-- **Season ledger (21 placed bets, through 9-06):** EPL 13 bets −4.41u ROI −33.92%
+- **Season ledger (21 PAPER selections, through 9-06 — user confirmed none were
+  staked; model performance only, not a betting record):** EPL 13 bets −4.41u ROI −33.92%
   CLV +7.78%; **EFL 8 bets, 0 wins, −8.50u ROI −100%**, CLV +6.67% but almost
   entirely one price. EPL and EFL should be treated as two different-quality
   models, not one engine having a bad run.
@@ -105,6 +106,8 @@ Re-runnable: `scripts/football_season_bet_ledger.py` and
   had to use a reconstruction. Make it write JSON like the EPL pricer does.
 - The 23-bet "previous weekend" in the 2026-08-31 combined report has no
   underlying graded file; excluded from the season ledger.
+- Site **Football Model tab starts from zero** (real placed bets only); the 21 paper
+  selections stay in the engine outputs as research.
 - **EFL engine review due 2026-09-22** (see the decision section above).
 - AFL/NRL gameweek labelling is inconsistent for one Championship round
   (`gw4_10pct_ev_candidates` and `gw5_bets` are the same fixtures).

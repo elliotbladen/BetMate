@@ -1,10 +1,15 @@
-# Football season-to-date — actually saved/placed bets
+# Football season-to-date — PAPER selections (not staked)
 
 **Through 2026-09-06** · flat 1u unless a stake is recorded · losing bet returns zero  
 **Odds:** football-data consensus averages (open `AvgH/AvgD/AvgA`,`Avg>2.5`; close `AvgC*`)  
 **Driver:** `scripts/football_season_bet_ledger.py`
 
-## Scope — what counts as a placed bet
+> **These were paper bets.** User confirmed 2026-09-08 that none of these 21
+> selections were staked. They are model/paper performance only and must not be
+> presented as a betting record. Real-money football tracking starts from zero on
+> the site's Football Model tab.
+
+## Scope — what is included
 
 Only the two graded records that carry **both a taken price and a result**:
 

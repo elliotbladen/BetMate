@@ -239,9 +239,13 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
 
       {filtered.length === 0 ? (
         <div className="border border-[#E2E8F0] rounded-lg bg-white px-6 py-10 text-center mb-5">
-          <p className="text-[13px] text-[#6B7280]">No {comp} bets recorded yet.</p>
+          <p className="text-[13px] text-[#6B7280]">
+            {bets.length === 0
+              ? 'No bets placed yet this season.'
+              : `No ${comp} bets placed yet this season.`}
+          </p>
           <p className="text-[11px] text-[#9CA3AF] mt-1 font-mono">
-            UCL pricing has not passed its model fit — no selections created.
+            Tracking starts from zero — real placed bets only.
           </p>
         </div>
       ) : (

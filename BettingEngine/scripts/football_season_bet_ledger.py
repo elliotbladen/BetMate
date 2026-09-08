@@ -2,8 +2,10 @@
 """
 scripts/football_season_bet_ledger.py
 
-Season-to-date CLV and ROI for football bets that were ACTUALLY SAVED/PLACED,
-split EPL vs EFL Championship.
+Season-to-date CLV and ROI for saved football selections, split EPL vs EFL.
+
+NOTE: these are PAPER selections. User confirmed 2026-09-08 that none were
+staked. Model/paper performance only — not a betting record.
 
 Sources (the only two graded saved-bet records that carry both a taken price and
 a result):
@@ -105,7 +107,7 @@ def block(rs, label):
 
 
 print("=" * 78)
-print("FOOTBALL — SEASON-TO-DATE, ACTUALLY SAVED/PLACED BETS (through 2026-09-06)")
+print("FOOTBALL — SEASON-TO-DATE PAPER SELECTIONS, NOT STAKED (through 2026-09-06)")
 print("=" * 78)
 for lg in ("EPL", "EFL"):
     rs = [r for r in rows if r["league"] == lg]
