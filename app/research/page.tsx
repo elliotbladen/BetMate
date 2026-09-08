@@ -1,8 +1,8 @@
 ﻿'use client';
 
 import { useState, useMemo } from 'react';
-import { LEGACY_BETS, MODEL_BETS, AFL_MODEL_BETS } from '@/lib/researchData';
-import type { Sport, BetResult, LegacyBet, ModelBet } from '@/lib/researchData';
+import { LEGACY_BETS, MODEL_BETS, AFL_MODEL_BETS, FOOTBALL_MODEL_BETS } from '@/lib/researchData';
+import type { Sport, BetResult, LegacyBet, ModelBet, Competition } from '@/lib/researchData';
 
 function resultBadge(r: BetResult) {
   if (r === 'win')  return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-[#00DEB8]/15 text-[#00DEB8]">W</span>;
@@ -20,6 +20,19 @@ function sportPill(s: Sport) {
   return (
     <span className={`px-1.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider ${colors[s]}`}>
       {s}
+    </span>
+  );
+}
+
+function compPill(c: Competition) {
+  const colors: Record<Competition, string> = {
+    EPL: 'bg-purple-500/10 text-purple-500',
+    EFL: 'bg-amber-500/10 text-amber-600',
+    UCL: 'bg-blue-500/10 text-blue-500',
+  };
+  return (
+    <span className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider ${colors[c]}`}>
+      {c}
     </span>
   );
 }
@@ -174,10 +187,12 @@ function AllBetsTab() {
 }
 
 // -- Model tab (shared by NRL + AFL) ------------------------------------------
-function ModelTab({ bets }: { bets: ModelBet[] }) {
-  const stats = modelStatsFor(bets);
+function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompetition?: boolean }) {
+  const [comp, setComp] = useState<'ALL' | Competition>('ALL');
+  const filtered = byCompetition && comp !== 'ALL' ? bets.filter(b => b.competition === comp) : bets;
+  const stats = modelStatsFor(filtered);
 
-  const clvBets   = bets.filter(b => { const s = clvScore(b); return s !== null && s !== 0; });
+  const clvBets   = filtered.filter(b => { const s = clvScore(b); return s !== null && s !== 0; });
   const clvBeaten = clvBets.filter(b => (clvScore(b) ?? 0) > 0).length;
   const clvPct    = clvBets.length > 0 ? (clvBeaten / clvBets.length) * 100 : 0;
 
@@ -201,22 +216,57 @@ function ModelTab({ bets }: { bets: ModelBet[] }) {
         ))}
       </div>
 
-      <PLChart points={bets.map(b => b.runningTotal)} />
+      {byCompetition && (
+        <div className="flex flex-wrap gap-2 mb-4">
+          {(['ALL', 'EPL', 'EFL', 'UCL'] as const).map(c => {
+            const n = c === 'ALL' ? bets.length : bets.filter(b => b.competition === c).length;
+            return (
+              <button
+                key={c}
+                onClick={() => setComp(c)}
+                className={`px-3 py-1.5 rounded-lg border text-[11px] font-mono uppercase tracking-widest transition-colors ${
+                  comp === c
+                    ? 'border-[#00DEB8] bg-[#00DEB8]/10 text-[#00DEB8]'
+                    : 'border-[#E2E8F0] bg-white text-[#9CA3AF] hover:text-[#111827]'
+                }`}
+              >
+                {c} <span className="opacity-60">{n}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {filtered.length === 0 ? (
+        <div className="border border-[#E2E8F0] rounded-lg bg-white px-6 py-10 text-center mb-5">
+          <p className="text-[13px] text-[#6B7280]">No {comp} bets recorded yet.</p>
+          <p className="text-[11px] text-[#9CA3AF] mt-1 font-mono">
+            UCL pricing has not passed its model fit — no selections created.
+          </p>
+        </div>
+      ) : (
+      <>
+      <PLChart points={filtered.map(b => b.runningTotal)} />
 
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-[#E2E8F0]">
-              {['#', 'Date', 'Match', 'Market', 'Predicted', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running'].map(h => (
+              {(byCompetition
+                ? ['#', 'Date', 'Comp', 'Match', 'Market', 'Predicted', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']
+                : ['#', 'Date', 'Match', 'Market', 'Predicted', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']).map(h => (
                 <th key={h} className="pb-2 pr-4 text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {bets.map((bet: ModelBet) => (
+            {filtered.map((bet: ModelBet) => (
               <tr key={bet.id} className="border-b border-[#E2E8F0] hover:bg-[#F8FAFC] transition-colors">
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#9CA3AF]">{bet.id}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#9CA3AF] whitespace-nowrap">{bet.date || '—'}</td>
+                {byCompetition && (
+                  <td className="py-2 pr-4">{bet.competition ? compPill(bet.competition) : '—'}</td>
+                )}
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827] whitespace-nowrap max-w-[180px] truncate" title={bet.match}>{bet.match || '—'}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280] whitespace-nowrap">{bet.market || '—'}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280]">{bet.predictedLine ?? '—'}</td>
@@ -235,12 +285,14 @@ function ModelTab({ bets }: { bets: ModelBet[] }) {
           </tbody>
         </table>
       </div>
+      </>
+      )}
     </>
   );
 }
 
 // -- Page ----------------------------------------------------------------------
-const TABS = ['Sports Betting', 'NRL Model', 'AFL Model'] as const;
+const TABS = ['Sports Betting', 'NRL Model', 'AFL Model', 'Football Model'] as const;
 type Tab = typeof TABS[number];
 
 export default function ResearchPage() {
@@ -288,6 +340,7 @@ export default function ResearchPage() {
         {activeTab === 'Sports Betting' && <AllBetsTab />}
         {activeTab === 'NRL Model'      && <ModelTab bets={MODEL_BETS} />}
         {activeTab === 'AFL Model'      && <ModelTab bets={AFL_MODEL_BETS} />}
+        {activeTab === 'Football Model' && <ModelTab bets={FOOTBALL_MODEL_BETS} byCompetition />}
 
       </div>
     </div>

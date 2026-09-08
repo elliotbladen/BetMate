@@ -1,5 +1,6 @@
 ﻿export type BetResult = 'win' | 'loss' | 'push';
 export type Sport = 'NRL' | 'AFL' | 'FOOTBALL' | 'OTHER';
+export type Competition = 'EPL' | 'EFL' | 'UCL';
 
 export interface LegacyBet {
   id: number;
@@ -20,6 +21,7 @@ export interface LegacyBet {
 export interface ModelBet {
   id: number;
   date: string;
+  competition?: Competition;   // Football Model tab only — NRL/AFL leave this unset
   match: string;
   market: string;
   predictedLine: number | null;  // model's predicted line or fair-odds estimate
@@ -1018,4 +1020,42 @@ export const MODEL_BETS: ModelBet[] = [
   { id:98,  date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                   market:'Sharks +8.5',            predictedLine:null,  takenPrice:1.89, closingPrice:1.90, clv:-3.0, clvLabel:'-3.0 pts', result:'win',  plUnits:0.45,  runningTotal:1.20  },
   { id:99,  date:'2026-09-04', match:'Gold Coast Titans vs Dolphins',                        market:'Titans +12.5',           predictedLine:null,  takenPrice:1.90, closingPrice:1.95, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.45,  runningTotal:1.65  },
   { id:100, date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                   market:'Under 51.5',             predictedLine:null,  takenPrice:1.97, closingPrice:2.20, clv:0.0, clvLabel:'0.0 pts', result:'win',  plUnits:0.49,  runningTotal:2.14  },
+];
+
+
+// ─── Football Betting Model (EPL / EFL Championship / UCL) ───────────────────
+// 2026/27 season. Flat 1 unit per saved selection unless a stake is recorded
+// (Sheffield United carried 1.5u on a +6 matrix confluence). A losing bet
+// returns zero. takenPrice = the saved/placed price; closingPrice = the
+// football-data.co.uk consensus average close; clv = takenPrice/closingPrice-1.
+//
+// Source of truth: BettingEngine/outputs/results/football_season_bet_ledger_2026-09-08.csv
+// (regenerate with BettingEngine/scripts/football_season_bet_ledger.py).
+//
+// UCL: no rows yet. The MD1 pricing attempt on 2026-09-08 failed its model fit
+// (converged=False, three fixtures blocked for missing team history) so no EV
+// was calculated and no bet was created. The tab supports UCL and will populate
+// once the engine is fixed.
+export const FOOTBALL_MODEL_BETS: ModelBet[] = [
+  { id:1, date:'2026-08-28', competition:'EFL', match:'Wrexham v Birmingham',                    market:'Wrexham win',           predictedLine:null, takenPrice:2.38, closingPrice:2.18, clv:9.17, clvLabel:'+9.2%', result:'loss', plUnits:-1.00, runningTotal:-1.00 },
+  { id:2, date:'2026-08-29', competition:'EPL', match:'Bournemouth v Everton',                   market:'Everton win',           predictedLine:null, takenPrice:3.85, closingPrice:3.24, clv:18.83, clvLabel:'+18.8%', result:'loss', plUnits:-1.00, runningTotal:-2.00 },
+  { id:3, date:'2026-08-29', competition:'EFL', match:'Charlton v Preston',                      market:'Preston win',           predictedLine:null, takenPrice:3.45, closingPrice:3.50, clv:-1.43, clvLabel:'-1.4%', result:'loss', plUnits:-1.00, runningTotal:-3.00 },
+  { id:4, date:'2026-08-29', competition:'EFL', match:'Norwich v Burnley',                       market:'Burnley win',           predictedLine:null, takenPrice:2.83, closingPrice:3.43, clv:-17.49, clvLabel:'-17.5%', result:'loss', plUnits:-1.00, runningTotal:-4.00 },
+  { id:5, date:'2026-08-29', competition:'EPL', match:'Tottenham v Newcastle',                   market:'Newcastle win',         predictedLine:null, takenPrice:3.32, closingPrice:3.06, clv:8.50, clvLabel:'+8.5%', result:'win', plUnits:2.32, runningTotal:-1.68 },
+  { id:6, date:'2026-08-29', competition:'EPL', match:'Tottenham v Newcastle',                   market:'Over 2.5',              predictedLine:null, takenPrice:1.77, closingPrice:1.60, clv:10.56, clvLabel:'+10.6%', result:'loss', plUnits:-1.00, runningTotal:-2.68 },
+  { id:7, date:'2026-08-30', competition:'EPL', match:'Leeds v Brentford',                       market:'Brentford win',         predictedLine:null, takenPrice:2.94, closingPrice:2.48, clv:18.55, clvLabel:'+18.6%', result:'loss', plUnits:-1.00, runningTotal:-3.68 },
+  { id:8, date:'2026-08-30', competition:'EPL', match:'Sunderland v Fulham',                     market:'Fulham win',            predictedLine:null, takenPrice:3.46, closingPrice:3.28, clv:5.49, clvLabel:'+5.5%', result:'loss', plUnits:-1.00, runningTotal:-4.68 },
+  { id:9, date:'2026-08-31', competition:'EPL', match:'Aston Villa v Arsenal',                   market:'Aston Villa win',       predictedLine:null, takenPrice:6.50, closingPrice:6.54, clv:-0.61, clvLabel:'-0.6%', result:'loss', plUnits:-1.00, runningTotal:-5.68 },
+  { id:10, date:'2026-09-04', competition:'EPL', match:'Ipswich v Liverpool',                     market:'Ipswich win',           predictedLine:null, takenPrice:5.50, closingPrice:4.86, clv:13.17, clvLabel:'+13.2%', result:'loss', plUnits:-1.00, runningTotal:-6.68 },
+  { id:11, date:'2026-09-05', competition:'EPL', match:'Brentford v Sunderland',                  market:'Sunderland win',        predictedLine:null, takenPrice:5.50, closingPrice:4.89, clv:12.47, clvLabel:'+12.5%', result:'loss', plUnits:-1.00, runningTotal:-7.68 },
+  { id:12, date:'2026-09-05', competition:'EPL', match:'Hull v Aston Villa',                      market:'Hull win',              predictedLine:null, takenPrice:4.10, closingPrice:3.92, clv:4.59, clvLabel:'+4.6%', result:'loss', plUnits:-1.00, runningTotal:-8.68 },
+  { id:13, date:'2026-09-05', competition:'EFL', match:'Millwall v Bolton',                       market:'Bolton win',            predictedLine:null, takenPrice:6.00, closingPrice:3.78, clv:58.73, clvLabel:'+58.7%', result:'loss', plUnits:-1.00, runningTotal:-9.68 },
+  { id:14, date:'2026-09-05', competition:'EPL', match:'Newcastle v Bournemouth',                 market:'Over 2.5',              predictedLine:null, takenPrice:1.57, closingPrice:1.58, clv:-0.63, clvLabel:'-0.6%', result:'win', plUnits:0.57, runningTotal:-9.11 },
+  { id:15, date:'2026-09-05', competition:'EFL', match:'Sheffield United v Norwich',              market:'Sheff Utd win (1.5u)', predictedLine:null, takenPrice:2.50, closingPrice:2.56, clv:-2.34, clvLabel:'-2.3%', result:'loss', plUnits:-1.50, runningTotal:-10.61 },
+  { id:16, date:'2026-09-05', competition:'EFL', match:'Stoke v Charlton',                        market:'Charlton win',          predictedLine:null, takenPrice:3.48, closingPrice:3.86, clv:-9.84, clvLabel:'-9.8%', result:'loss', plUnits:-1.00, runningTotal:-11.61 },
+  { id:17, date:'2026-09-05', competition:'EFL', match:'Swansea v Wrexham',                       market:'Swansea win',           predictedLine:null, takenPrice:2.50, closingPrice:2.24, clv:11.61, clvLabel:'+11.6%', result:'loss', plUnits:-1.00, runningTotal:-12.61 },
+  { id:18, date:'2026-09-06', competition:'EPL', match:'Arsenal v Chelsea',                       market:'Over 2.5',              predictedLine:null, takenPrice:2.00, closingPrice:1.71, clv:16.96, clvLabel:'+17.0%', result:'win', plUnits:1.00, runningTotal:-11.61 },
+  { id:19, date:'2026-09-06', competition:'EFL', match:'Birmingham v Wolves',                     market:'Birmingham win',        predictedLine:null, takenPrice:2.99, closingPrice:2.85, clv:4.91, clvLabel:'+4.9%', result:'loss', plUnits:-1.00, runningTotal:-12.61 },
+  { id:20, date:'2026-09-06', competition:'EPL', match:'Everton v Man United',                    market:'Everton win',           predictedLine:null, takenPrice:3.10, closingPrice:3.65, clv:-15.07, clvLabel:'-15.1%', result:'loss', plUnits:-1.00, runningTotal:-13.61 },
+  { id:21, date:'2026-09-06', competition:'EPL', match:'Everton v Man United',                    market:'Over 2.5',              predictedLine:null, takenPrice:1.70, closingPrice:1.57, clv:8.28, clvLabel:'+8.3%', result:'win', plUnits:0.70, runningTotal:-12.91 },
 ];
