@@ -1,5 +1,28 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import Link from 'next/link';
-import card from '@/data/racing/chelmsford-map-2026.json';
+
+// The card JSON lives under /data, which is gitignored, so it is absent on any
+// checkout other than the one that generated it (and on Vercel). Read it at
+// runtime and fall back to an empty state rather than failing the build.
+type MapCard = {
+  raceName: string; meeting: string; raceNumber: number; distance: number;
+  class: string; startTime: string; trackCondition: string; rail: string; weather: string;
+  runners: Array<{
+    runner_number: number; horse_name: string; barrier: number; jockey: string;
+    weight: number; trainer: string; expected_rank: number; wide_risk: number;
+    confidence: number; probabilities: Record<string, number>;
+  }>;
+};
+
+function loadCard(): MapCard | null {
+  try {
+    const file = path.join(process.cwd(), 'data/racing/chelmsford-map-2026.json');
+    return JSON.parse(fs.readFileSync(file, 'utf8')) as MapCard;
+  } catch {
+    return null;
+  }
+}
 
 type State = 'leader' | 'on_pace' | 'midfield' | 'backmarker';
 const lanes: Array<{ key: State; label: string; subtitle: string }> = [
@@ -12,6 +35,26 @@ const lanes: Array<{ key: State; label: string; subtitle: string }> = [
 function pct(value: number) { return `${Math.round(value * 100)}%`; }
 
 export default function RacingMapPage() {
+  const card = loadCard();
+
+  if (!card) {
+    return (
+      <main className="min-h-screen bg-[#eef1f5] text-[#142033]">
+        <div className="mx-auto max-w-[1500px] px-4 py-16 sm:px-7">
+          <div className="rounded-xl border border-[#cbd4df] bg-white px-6 py-10 text-center shadow-sm">
+            <p className="text-[10px] font-mono font-bold uppercase tracking-[.18em] text-[#7a8899]">Map Position · Shadow V1</p>
+            <h1 className="mt-3 text-2xl font-black tracking-tight">No card loaded</h1>
+            <p className="mx-auto mt-2 max-w-lg text-sm text-[#647386]">
+              The settling-map card file is not present in this deployment. It is generated
+              locally and excluded from git, so it must be published before this page can render.
+            </p>
+            <Link href="/racing" className="mt-6 inline-block font-mono text-[10px] font-bold uppercase tracking-widest text-[#008d77]">← Back to racing</Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   const runners = card.runners.map((runner) => {
     const entries = Object.entries(runner.probabilities) as Array<[State, number]>;
     const likely = entries.sort((a, b) => b[1] - a[1])[0];
