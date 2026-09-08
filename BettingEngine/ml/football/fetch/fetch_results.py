@@ -28,8 +28,13 @@ sys.path.insert(0, str(_ROOT))
 
 from ml.football.league_config import load_league
 
-# football-data.co.uk URL pattern
-BASE_URL = "https://www.football-data.co.uk/mmz4281/{code}/{league_code}.csv"
+# football-data.co.uk URL pattern.
+# Two hosts: the www vhost intermittently returns nginx 503 ("temporarily
+# unavailable") while the bare domain serves fine — observed 2026-09-08, www was
+# down for hours while football-data.co.uk answered 200. Try both before the
+# archive fallback.
+BASE_HOSTS = ["https://www.football-data.co.uk", "https://football-data.co.uk"]
+BASE_URL = "{host}/mmz4281/{code}/{league_code}.csv"
 
 # Fallback: Internet Archive snapshot of the same file ("2026id_" = latest snapshot
 # at/before 2026, raw bytes). Needed on networks that category-block betting sites
@@ -104,14 +109,23 @@ def _get(url: str, timeout: int = 45) -> str:
 
 
 def fetch_season(code: str, label: str, league_code: str) -> pd.DataFrame | None:
-    url = BASE_URL.format(code=code, league_code=league_code)
     text = None
-    try:
-        text = _get(url)
-    except Exception as e:
-        print(f"  direct fetch failed ({e.__class__.__name__}) — trying Internet Archive ...")
+    last_err = None
+    for host in BASE_HOSTS:
+        url = BASE_URL.format(host=host, code=code, league_code=league_code)
         try:
-            text = _get(WAYBACK_URL.format(url=url), timeout=90)
+            text = _get(url)
+            break
+        except Exception as e:
+            last_err = e
+            print(f"  {host} failed ({e.__class__.__name__})")
+    if text is None:
+        print(f"  all live hosts failed ({last_err}) — trying Internet Archive ...")
+        archive_url = BASE_URL.format(host=BASE_HOSTS[0], code=code, league_code=league_code)
+        try:
+            text = _get(WAYBACK_URL.format(url=archive_url), timeout=90)
+            print("  WARNING: using an Internet Archive snapshot — it may be stale. "
+                  "Verify row counts before trusting a live-season merge.")
         except Exception as e2:
             print(f"  ERROR {label}: {e2}")
             return None
@@ -171,6 +185,12 @@ def main():
         before = len(combined)
         combined = combined.drop_duplicates(["Date", "HomeTeam", "AwayTeam"], keep="last")
         print(f"  live merge: {len(fresh)} source rows; {before-len(combined)} existing rows refreshed")
+        held = int((existing["Season"] == fresh["Season"].iloc[0]).sum())
+        if len(fresh) < held:
+            print(f"  WARNING: source returned {len(fresh)} rows for "
+                  f"{fresh['Season'].iloc[0]} but {held} are already held. "
+                  f"Likely a stale snapshot — existing rows were kept, but re-run "
+                  f"against the live site before relying on this season.")
     else:
         combined = fresh
     combined = combined.sort_values(["Date", "HomeTeam", "AwayTeam"])
