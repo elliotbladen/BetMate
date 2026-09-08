@@ -57,6 +57,7 @@ from .performance import (
 from .ratings import horse_key
 from .step11_models import estimate_daily_variants
 from .storage import RacingStore
+from .v2_ratings import CLASS_STANDARDS, class_family
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_VERSION = "performance-par-v2.0"
@@ -126,6 +127,36 @@ def weight_merit(carried_kg: float | None, field_median_kg: float | None,
         return 0.0
     raw = (float(carried_kg) - float(field_median_kg)) * weight_race_factor(race_class)
     return max(-WEIGHT_MERIT_CAP, min(WEIGHT_MERIT_CAP, raw))
+
+
+# ── Increment 4: thin-field class anchor ────────────────────────────────────
+# ONE-SIDED. Where the *track par itself* is thin (few historical races to build
+# it from) or the meeting has no computable daily variant, the raw time figure
+# can float absurdly low. A bounded pull toward the class holding standard
+# stabilises it. It NEVER caps a figure already at or above the standard —
+# dragging a genuinely fast run down toward a fixed par is form-first's F1
+# compression bug. Margin-only rows are NOT treated as thin: official time +
+# official margins are a first-class rating input (that is how RPR / BHA work).
+CLASS_ANCHOR_MIN_PAR_SAMPLE = 12
+CLASS_ANCHOR_MAX_PULL = 4.0
+CLASS_ANCHOR_GAP_FRACTION = 0.35
+
+
+def class_anchor(figure: float, class_std: float, par_sample_size: int,
+                 has_variant: bool) -> float:
+    """Bounded upward pull toward `class_std` when the track par / variant
+    evidence is thin. Returns 0.0 for any figure at or above the standard."""
+    if figure >= class_std:
+        return 0.0
+    thinness = 0.0
+    if par_sample_size < CLASS_ANCHOR_MIN_PAR_SAMPLE:
+        thinness += (CLASS_ANCHOR_MIN_PAR_SAMPLE - par_sample_size) / CLASS_ANCHOR_MIN_PAR_SAMPLE
+    if not has_variant:
+        thinness += 0.4
+    thinness = min(1.0, thinness)
+    if thinness <= 0.0:
+        return 0.0
+    return min(CLASS_ANCHOR_MAX_PULL, (class_std - figure) * CLASS_ANCHOR_GAP_FRACTION * thinness)
 
 
 def pace_adjustment(pace_label: str | None, early_score: float | None, confidence: float | None,
@@ -263,7 +294,7 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
 
     races = store.connection.execute(
         """SELECT source, race_date, track_slug, race_number, distance_metres,
-                  track_condition, official_time_seconds, race_class
+                  track_condition, official_time_seconds, race_class, race_class_code
              FROM race_results
             WHERE race_date < ? AND distance_metres IS NOT NULL
               AND official_time_seconds IS NOT NULL
@@ -304,6 +335,8 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
 
         carried = [float(x["weight_carried_kg"]) for x in runners if x["weight_carried_kg"] is not None]
         field_median_weight = statistics.median(carried) if carried else None
+        class_std = CLASS_STANDARDS[class_family(race["race_class"], race["race_class_code"])]
+        has_variant = abs(variant) > 1e-9
 
         computed: list[dict] = []
         for r in runners:
@@ -328,7 +361,6 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
             wm = weight_merit(r["weight_carried_kg"], field_median_weight, race["race_class"])
             if abs(wm) > 1e-9:
                 counts["nonzero_weight"] += 1
-            class_anchor = 0.0      # increment 4
             pace_adj, pace_note = pace_adjustment(
                 shape["label"] if shape else None,
                 shape["early"] if shape else None,
@@ -337,8 +369,12 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
             if abs(pace_adj) > 1e-9:
                 counts["nonzero_pace"] += 1
 
-            rating = compose_figure(raw_time_vs_par, variant, margin_component,
-                                    wm, pace_adj, class_anchor, sect)
+            pre_anchor = compose_figure(raw_time_vs_par, variant, margin_component,
+                                        wm, pace_adj, 0.0, sect)
+            anchor = class_anchor(pre_anchor, class_std, par.sample_size, has_variant)
+            if anchor > 1e-9:
+                counts["nonzero_class_anchor"] += 1
+            rating = pre_anchor + anchor
             confidence = min(0.82, 0.30 + 0.04 * min(par.sample_size, 8)
                              + (0.10 if finish_time_used else 0.0)
                              + (0.06 if sectional else 0.0)
@@ -350,7 +386,7 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                 "beaten_lengths": r["beaten_lengths"],
                 "performance_rating": rating, "raw_time_vs_par": raw_time_vs_par,
                 "margin_component": margin_component, "weight_merit": wm,
-                "pace_adj": pace_adj, "pace_note": pace_note,
+                "pace_adj": pace_adj, "pace_note": pace_note, "class_anchor": anchor,
                 "sect": sect, "finish_time_used": finish_time_used, "confidence": confidence,
             })
 
@@ -364,9 +400,10 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                 "pace": row["pace_note"],
                 "weight_race_factor": weight_race_factor(race["race_class"]),
                 "field_median_weight_kg": field_median_weight,
+                "class_standard": class_std,
                 "components_live": ["time_vs_par", "daily_variant", "pace", "weight_merit",
-                                    "sectional", "winner_ceiling"],
-                "components_pending": ["class_anchor", "scale_calibration"],
+                                    "sectional", "class_anchor", "winner_ceiling"],
+                "components_pending": ["scale_calibration"],
             }
             if "winner_ceiling_applied" in row:
                 detail["winner_ceiling_applied"] = row["winner_ceiling_applied"]
@@ -377,7 +414,7 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                 (MODEL_VERSION, as_of_date, race["source"], race["race_date"], race["track_slug"],
                  race["race_number"], row["runner_number"], horse_key(row["runner_name"]), row["runner_name"],
                  row["performance_rating"], row["raw_time_vs_par"], variant, row["weight_merit"],
-                 row["pace_adj"], 0.0,
+                 row["pace_adj"], row["class_anchor"],
                  row["sect"], row["margin_component"], row["finish_time_used"], par.sample_size,
                  row["confidence"], json.dumps(detail, sort_keys=True), now))
             written += 1

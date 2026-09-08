@@ -8,6 +8,7 @@ from racing_engine.performance_par_v2 import (
     WEIGHT_MERIT_CAP,
     WEIGHT_MERIT_PTS_PER_KG_HCP,
     WEIGHT_MERIT_PTS_PER_KG_WFA,
+    class_anchor,
     clock_is_sane,
     compose_figure,
     enforce_winner_ceiling,
@@ -109,6 +110,27 @@ class WeightMeritTests(unittest.TestCase):
     def test_missing_data_is_zero(self):
         self.assertEqual(weight_merit(None, 57.0, "Handicap."), 0.0)
         self.assertEqual(weight_merit(58.0, None, "Handicap."), 0.0)
+
+
+class ClassAnchorTests(unittest.TestCase):
+    def test_figure_at_or_above_standard_is_never_pulled(self):
+        self.assertEqual(class_anchor(112.0, 110.0, 3, has_variant=False), 0.0)
+        self.assertEqual(class_anchor(110.0, 110.0, 3, has_variant=False), 0.0)
+
+    def test_thick_par_with_variant_is_a_noop(self):
+        self.assertEqual(class_anchor(95.0, 110.0, par_sample_size=136, has_variant=True), 0.0)
+
+    def test_thin_par_pulls_a_low_figure_up(self):
+        adj = class_anchor(90.0, 110.0, par_sample_size=4, has_variant=False)
+        self.assertGreater(adj, 0.0)
+        self.assertLessEqual(adj, 4.0)
+
+    def test_pull_is_capped(self):
+        self.assertEqual(class_anchor(40.0, 115.0, par_sample_size=1, has_variant=False), 4.0)
+
+    def test_pull_is_upward_only(self):
+        # a figure below standard never gets a negative adjustment
+        self.assertGreaterEqual(class_anchor(80.0, 110.0, 6, has_variant=False), 0.0)
 
 
 class WinnerCeilingTests(unittest.TestCase):
