@@ -212,6 +212,24 @@ enter `performance-par-v1.0` until a chronological validation study shows an
 improvement. Any severe incident or material veterinary outcome is queued for
 human review.
 
+The racing.com form feed above only carries the **Victorian** reports. For NSW
+meetings the official stewards' report is the Racing Australia post-race
+"Post Stewards" PDF (`racingaustralia.horse/PostStewardsReports/`):
+
+```bash
+python3 -m racing_engine.post_stewards --date 2026-09-05
+```
+
+It discovers NSW meetings from `race_results`, downloads and archives the
+unmodified PDF under `data/raw/post_stewards/`, splits the per-race comment
+blocks (the meeting header and the `GENERAL`/`SUMMARY` trailer are intentionally
+not stored), and runs the **same** `racing_engine.stewards` rule classifier as
+the Victorian path, so identical wording yields identical categories, severities
+and provisional trip figures across states. Stored under source
+`racing-australia-post-stewards`, separate from the Victorian rows. A meeting
+whose PDF has not published yet records an `error` check and is retried on the
+next run.
+
 ## V0 shadow ratings and prices
 
 After importing results, the first transparent rating pass is available:
