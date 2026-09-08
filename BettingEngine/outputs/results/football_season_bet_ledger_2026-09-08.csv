@@ -1,0 +1,22 @@
+league,week,date,match,market,selection,opening_odds,saved_price,closing_odds,stake_u,result,pnl_u,flag,vs_open_pct,clv_pct
+EPL,EPL W2,2026-08-30,Sunderland v Fulham,1X2,Fulham win,2.96,3.46,3.28,1.0,loss,-1.0,,16.89,5.49
+EPL,EPL W2,2026-08-30,Leeds v Brentford,1X2,Brentford win,2.67,2.94,2.48,1.0,loss,-1.0,,10.11,18.55
+EPL,EPL W2,2026-08-29,Bournemouth v Everton,1X2,Everton win,3.41,3.85,3.24,1.0,loss,-1.0,,12.9,18.83
+EPL,EPL W2,2026-08-29,Tottenham v Newcastle,1X2,Newcastle win,2.88,3.32,3.06,1.0,win,2.32,,15.28,8.5
+EPL,EPL W2,2026-08-31,Aston Villa v Arsenal,1X2,Aston Villa win,5.99,6.5,6.54,1.0,loss,-1.0,price_verification_required,8.51,-0.61
+EPL,EPL W2,2026-08-29,Tottenham v Newcastle,O/U 2.5,Over 2.5,1.64,1.769,1.6,1.0,loss,-1.0,matrix_verification_required,7.87,10.56
+EFL,EFL W3,2026-08-29,Norwich v Burnley,1X2,Burnley win,3.0,2.83,3.43,1.0,loss,-1.0,,-5.67,-17.49
+EFL,EFL W3,2026-08-28,Wrexham v Birmingham,1X2,Wrexham win,2.2,2.38,2.18,1.0,loss,-1.0,,8.18,9.17
+EFL,EFL W3,2026-08-29,Charlton v Preston,1X2,Preston win,3.55,3.45,3.5,1.0,loss,-1.0,,-2.82,-1.43
+EPL,EPL GW3,2026-09-05,Ipswich v Liverpool,1X2,Ipswich win,5.48,5.5,4.86,1.0,loss,-1.0,,0.36,13.17
+EPL,EPL GW3,2026-09-05,Brentford v Sunderland,1X2,Sunderland win,5.29,5.5,4.89,1.0,loss,-1.0,,3.97,12.47
+EPL,EPL GW3,2026-09-05,Hull v Aston Villa,1X2,Hull win,4.04,4.1,3.92,1.0,loss,-1.0,,1.49,4.59
+EPL,EPL GW3,2026-09-05,Everton v Man United,1X2,Everton win,3.21,3.1,3.65,1.0,loss,-1.0,,-3.43,-15.07
+EPL,EPL GW3,2026-09-05,Newcastle v Bournemouth,O/U 2.5,Over 2.5,1.55,1.57,1.58,1.0,win,0.57,,1.29,-0.63
+EPL,EPL GW3,2026-09-05,Everton v Man United,O/U 2.5,Over 2.5,1.67,1.7,1.57,1.0,win,0.7,,1.8,8.28
+EPL,EPL GW3,2026-09-05,Arsenal v Chelsea,O/U 2.5,Over 2.5,1.73,2.0,1.71,1.0,win,1.0,,15.61,16.96
+EFL,EFL GW5,2026-09-05,Stoke v Charlton,1X2,Charlton win,3.49,3.48,3.86,1.0,loss,-1.0,,-0.29,-9.84
+EFL,EFL GW5,2026-09-05,Millwall v Bolton,1X2,Bolton win,4.19,6.0,3.78,1.0,loss,-1.0,,43.2,58.73
+EFL,EFL GW5,2026-09-05,Sheffield United v Norwich,1X2,Sheffield United win (+6 matrix),2.53,2.5,2.56,1.5,loss,-1.5,,-1.19,-2.34
+EFL,EFL GW5,2026-09-05,Swansea v Wrexham,1X2,Swansea win,2.17,2.5,2.24,1.0,loss,-1.0,,15.21,11.61
+EFL,EFL GW5,2026-09-05,Birmingham v Wolves,1X2,Birmingham win,2.87,2.99,2.85,1.0,loss,-1.0,,4.18,4.91

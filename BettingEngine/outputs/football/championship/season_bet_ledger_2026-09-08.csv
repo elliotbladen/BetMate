@@ -1,0 +1,9 @@
+league,week,date,match,market,selection,opening_odds,saved_price,closing_odds,stake_u,result,pnl_u,flag,vs_open_pct,clv_pct
+EFL,EFL W3,2026-08-29,Norwich v Burnley,1X2,Burnley win,3.0,2.83,3.43,1.0,loss,-1.0,,-5.67,-17.49
+EFL,EFL W3,2026-08-28,Wrexham v Birmingham,1X2,Wrexham win,2.2,2.38,2.18,1.0,loss,-1.0,,8.18,9.17
+EFL,EFL W3,2026-08-29,Charlton v Preston,1X2,Preston win,3.55,3.45,3.5,1.0,loss,-1.0,,-2.82,-1.43
+EFL,EFL GW5,2026-09-05,Stoke v Charlton,1X2,Charlton win,3.49,3.48,3.86,1.0,loss,-1.0,,-0.29,-9.84
+EFL,EFL GW5,2026-09-05,Millwall v Bolton,1X2,Bolton win,4.19,6.0,3.78,1.0,loss,-1.0,,43.2,58.73
+EFL,EFL GW5,2026-09-05,Sheffield United v Norwich,1X2,Sheffield United win (+6 matrix),2.53,2.5,2.56,1.5,loss,-1.5,,-1.19,-2.34
+EFL,EFL GW5,2026-09-05,Swansea v Wrexham,1X2,Swansea win,2.17,2.5,2.24,1.0,loss,-1.0,,15.21,11.61
+EFL,EFL GW5,2026-09-05,Birmingham v Wolves,1X2,Birmingham win,2.87,2.99,2.85,1.0,loss,-1.0,,4.18,4.91
