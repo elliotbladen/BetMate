@@ -92,6 +92,14 @@ PACE_SLOW_ADDBACK_K = 2.2
 PACE_SLOW_ADDBACK_CAP = 7.0
 PACE_RUNNER_CAP = 2.0
 
+# Rate on the merits of the day: the winner franks the form. A beaten runner can
+# be pulled level by a pace/trip read but not past the winner — its figure is
+# capped at the winner's minus a small fraction of its (effective) beaten margin.
+# When the weight term lands (increment 2) this relaxes to allow a beaten
+# topweight through on weight-for-weight merit.
+WINNER_CEILING_PER_LENGTH = 0.15
+WINNER_CEILING_MIN_GAP = 0.10
+
 
 def pace_adjustment(pace_label: str | None, early_score: float | None, confidence: float | None,
                     runner_shadow_adj: float | None) -> tuple[float, str]:
@@ -110,6 +118,26 @@ def pace_adjustment(pace_label: str | None, early_score: float | None, confidenc
     if runner_shadow_adj is not None:
         runner_term = max(-PACE_RUNNER_CAP, min(PACE_RUNNER_CAP, float(runner_shadow_adj)))
     return race_term + runner_term, note
+
+
+def enforce_winner_ceiling(rows: list[dict]) -> list[dict]:
+    """Cap every beaten runner's figure at the winner's minus a small fraction of
+    its beaten margin, so a pace/trip read can draw a beaten horse level with the
+    winner but not push it past. Mutates and returns `rows`. `rows` items need
+    `finish_position`, `beaten_lengths` and `performance_rating`."""
+    winners = [r for r in rows if r["finish_position"] == 1]
+    if not winners:
+        return rows
+    ceiling = max(r["performance_rating"] for r in winners)
+    for r in rows:
+        if r["finish_position"] == 1:
+            continue
+        margin = abs(r["beaten_lengths"]) if r["beaten_lengths"] is not None else 0.5
+        cap = ceiling - max(WINNER_CEILING_MIN_GAP, WINNER_CEILING_PER_LENGTH * margin)
+        if r["performance_rating"] > cap:
+            r["winner_ceiling_applied"] = round(r["performance_rating"] - cap, 2)
+            r["performance_rating"] = cap
+    return rows
 
 
 def _load_pace(store: RacingStore):
@@ -242,6 +270,7 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
             (race["source"], race["race_date"], race["track_slug"], race["race_number"]),
         ).fetchall()
 
+        computed: list[dict] = []
         for r in runners:
             finish_time = r["finish_time_seconds"]
             ft = float(finish_time) if finish_time is not None else None
@@ -273,29 +302,42 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
 
             rating = compose_figure(raw_time_vs_par, variant, margin_component,
                                     weight_merit, pace_adj, class_anchor, sect)
-
             confidence = min(0.82, 0.30 + 0.04 * min(par.sample_size, 8)
                              + (0.10 if finish_time_used else 0.0)
                              + (0.06 if sectional else 0.0)
                              + (0.05 if abs(variant) > 1e-9 else 0.0)
                              + (0.04 if shape is not None else 0.0))
+            computed.append({
+                "runner_number": int(r["runner_number"]), "runner_name": r["runner_name"],
+                "finish_position": int(r["finish_position"]),
+                "beaten_lengths": r["beaten_lengths"],
+                "performance_rating": rating, "raw_time_vs_par": raw_time_vs_par,
+                "margin_component": margin_component, "pace_adj": pace_adj, "pace_note": pace_note,
+                "sect": sect, "finish_time_used": finish_time_used, "confidence": confidence,
+            })
 
+        enforce_winner_ceiling(computed)
+
+        for row in computed:
             detail = {
                 "par_seconds": par.time_seconds, "par_sample_size": par.sample_size,
                 "going_bucket": par.going, "seconds_per_length": SECONDS_PER_LENGTH,
                 "daily_variant_version": "daily-track-variant-v1.0",
-                "pace": pace_note,
+                "pace": row["pace_note"],
                 "components_pending": ["weight_merit", "class_anchor"],
                 "increment": 3,
             }
+            if "winner_ceiling_applied" in row:
+                detail["winner_ceiling_applied"] = row["winner_ceiling_applied"]
+                counts["winner_ceiling_applied"] += 1
             store.connection.execute(
                 """INSERT INTO par_run_performances VALUES
                    (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (MODEL_VERSION, as_of_date, race["source"], race["race_date"], race["track_slug"],
-                 race["race_number"], r["runner_number"], horse_key(r["runner_name"]), r["runner_name"],
-                 rating, raw_time_vs_par, variant, weight_merit, pace_adj, class_anchor,
-                 sect, margin_component, finish_time_used, par.sample_size, confidence,
-                 json.dumps(detail, sort_keys=True), now))
+                 race["race_number"], row["runner_number"], horse_key(row["runner_name"]), row["runner_name"],
+                 row["performance_rating"], row["raw_time_vs_par"], variant, 0.0, row["pace_adj"], 0.0,
+                 row["sect"], row["margin_component"], row["finish_time_used"], par.sample_size,
+                 row["confidence"], json.dumps(detail, sort_keys=True), now))
             written += 1
             counts["performances"] += 1
     store.connection.commit()

@@ -7,6 +7,7 @@ from racing_engine.performance_par_v2 import (
     SECONDS_PER_LENGTH,
     clock_is_sane,
     compose_figure,
+    enforce_winner_ceiling,
     pace_adjustment,
 )
 
@@ -76,6 +77,42 @@ class PaceAdjustmentTests(unittest.TestCase):
         adj, note = pace_adjustment("even", 0.0, 0.9, 0.5)
         self.assertAlmostEqual(adj, 0.5)
         self.assertIn("even", note)
+
+
+class WinnerCeilingTests(unittest.TestCase):
+    def _rows(self):
+        return [
+            {"finish_position": 1, "beaten_lengths": 0.0, "performance_rating": 99.3},
+            {"finish_position": 2, "beaten_lengths": 1.8, "performance_rating": 100.3},
+            {"finish_position": 3, "beaten_lengths": 4.0, "performance_rating": 95.0},
+        ]
+
+    def test_beaten_horse_cannot_out_rate_the_winner(self):
+        rows = enforce_winner_ceiling(self._rows())
+        self.assertLess(rows[1]["performance_rating"], rows[0]["performance_rating"])
+        # capped at 99.3 - 0.15*1.8
+        self.assertAlmostEqual(rows[1]["performance_rating"], 99.3 - 0.15 * 1.8)
+        self.assertEqual(rows[1]["winner_ceiling_applied"], round(100.3 - (99.3 - 0.15 * 1.8), 2))
+
+    def test_beaten_horse_below_the_ceiling_is_untouched(self):
+        rows = enforce_winner_ceiling(self._rows())
+        self.assertEqual(rows[2]["performance_rating"], 95.0)
+        self.assertNotIn("winner_ceiling_applied", rows[2])
+
+    def test_no_winner_row_is_a_noop(self):
+        rows = [{"finish_position": 2, "beaten_lengths": 1.0, "performance_rating": 110.0}]
+        self.assertEqual(enforce_winner_ceiling(rows)[0]["performance_rating"], 110.0)
+
+    def test_dead_heat_uses_the_higher_winner_figure(self):
+        rows = [
+            {"finish_position": 1, "beaten_lengths": 0.0, "performance_rating": 105.0},
+            {"finish_position": 1, "beaten_lengths": 0.0, "performance_rating": 103.0},
+            {"finish_position": 3, "beaten_lengths": 2.0, "performance_rating": 108.0},
+        ]
+        out = enforce_winner_ceiling(rows)
+        self.assertEqual(out[0]["performance_rating"], 105.0)
+        self.assertEqual(out[1]["performance_rating"], 103.0)
+        self.assertAlmostEqual(out[2]["performance_rating"], 105.0 - 0.15 * 2.0)
 
 
 if __name__ == "__main__":

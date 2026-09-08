@@ -272,21 +272,33 @@ uniform = 2.3484 throughout.
 | | par-v2 log loss | Brier | top-pick strike | verdict |
 |---|---:|---:|---:|---|
 | Increment 1 (variant + clock quarantine) | 2.2988 | 0.8919 | 15.0% | passes |
-| **Increment 3 (+ pace)** | **2.2931** | **0.8905** | **15.9%** | passes, better on every metric |
+| Increment 3 (+ pace) | 2.2931 | 0.8905 | 15.9% | passes, better on every metric |
+| **Increment 3 + winner ceiling** | **2.2938** | 0.8906 | **15.6%** | passes; 0.0007 worse than uncapped — a correctness cost, not a regression |
 
 `form-first-v2.0` = 2.520 and `form-first-v3.0` fail this gate.
 
-### Increment 3 — the Lindermann / Tempted case now lands on the expert anchor
+### Winner ceiling — "rate on the merits of the day"
+
+The winner franks the form: a beaten runner can be pulled **level** with the
+winner by a strong pace/trip read but not **past** it. Each beaten figure is
+capped at `winner − max(0.10, 0.15 × beaten_lengths)`. Relaxes to allow a beaten
+topweight through once the weight term (increment 2) lands. Applied to ~3% of
+historical runs.
+
+### The Lindermann / Tempted case now lands on the expert anchor
 
 | horse | par-v2 last start | par-v2 median-last-3 | expert view |
 |---|---:|---:|---|
-| **Lindermann** (Chelmsford, `sprint_home`) | 99.3 (+4.4 field add-back, −1.2 for the soft lead) | **101.0** | low 100s ✓ |
-| **Ceolwulf** (Chelmsford 2nd, did the early work) | 100.3 (+5.5) | 102.9 | ran ≥ Lindermann ✓ |
-| **Tempted** (Concorde, `sustained_high_pressure`) | 110.3 (time trusted, no add-back) | 106.8 → ~110 recency-weighted | ~110–11 ✓ |
+| **Lindermann** (Chelmsford, `sprint_home`, won) | **99.3** | 101.0 | low 100s ✓ |
+| **Ceolwulf** (Chelmsford 2nd, beaten 1.8 L, did the early work) | **99.0** (pace read wanted 100.3; winner ceiling holds it just behind) | 102.9* | just behind on the day ✓ |
+| **Tempted** (Concorde, `sustained_high_pressure`, won) | 110.3 (time trusted, no add-back) | 106.8 → ~110 recency-weighted | ~110–11 ✓ |
 
-The whole Chelmsford field now rates 96.7–100.3 — a tight bunch for a slow-run G2
-where nobody was fully tested. `form-first` had Lindermann at 117.5 and clearly
-ahead of Ceolwulf; the pace read says Ceolwulf did more.
+The whole Chelmsford field now rates 96.7–99.3, winner on top — a tight bunch for
+a slow-run G2 where nobody was fully tested. `form-first` had Lindermann at 117.5.
+
+\* Ceolwulf's higher *median-last-3* is his other recent runs, not the Chelmsford
+— a legitimate current-ability read once the per-horse rollup (increment 8) exists.
+On the day, Lindermann now correctly rates above him.
 
 ### Known gaps remaining (increments 4 + 5)
 

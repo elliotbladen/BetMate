@@ -92,11 +92,16 @@ demote collateral to a franked Step-3 layer on top.
   `early_score`, cap 7, × confidence); fast/pressure/collapse race trusts the
   time (no add-back); per-runner term from `v2_runner_pace_ratings.shadow_rating_adjustment`
   (±2) nets the flattered winner down. K set from physical reasoning, NOT tuned to the gate.
-- **Gate PASSED and improved:** par-v2 log loss 2.2988 (inc.1) → **2.2931** (inc.3),
-  strike 15.0% → 15.9%. par-v1 = 2.3061, uniform = 2.3484. form-first-v2.0 = 2.520 (fails).
-- **Lindermann/Tempted now match the expert anchor:** Lindermann median-last-3
-  **101.0** (Chelmsford run 99.3), Ceolwulf 102.9, Tempted ~110. Whole Chelmsford
-  field 96.7–100.3.
+- **Winner ceiling** (user: "rate on the merits of the day — Ceolwulf just behind,
+  not ahead"): a beaten runner is capped at `winner − max(0.1, 0.15×beaten_lengths)`
+  so a pace read can draw it level but not past the winner. ~3% of runs. Relaxes
+  when the weight term lands.
+- **Gate PASSED and improved:** par-v2 log loss 2.2988 (inc.1) → 2.2931 (inc.3) →
+  **2.2938** (+ ceiling; 0.0007 correctness cost). strike 15.6%. par-v1 = 2.3061,
+  uniform = 2.3484. form-first-v2.0 = 2.520 (fails).
+- **Lindermann/Tempted match the expert anchor:** Chelmsford — Lindermann **99.3**
+  (won), Ceolwulf **99.0** (2nd, just behind), field 96.7–99.3. Tempted Concorde
+  **110.3** (unchanged, genuine pace). form-first had Lindermann 117.5.
 
 ## Resume — par-v2 increments (doc §9)
 
