@@ -6788,3 +6788,229 @@ Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au',
 Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
 Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
 Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-08-30 11:05:28] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-08-31 11:44:10] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-09-01 11:28:23] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-09-02 11:05:25] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-09-03 17:47:17] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Round 26: 1 game(s) today, first KO 20:10, last KO 20:10, poller stops 22:40
+Using caffeinate -dimsu to prevent system, idle and display sleep
+
+AFL Halftime Scraper — R26 2026
+Polling every 30s. Ctrl+C to stop.
+
+[17:47:50] No halftime games yet. States: [('Fremantle vs Hawthorn', None, 0), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[17:48:20] No halftime games yet. States: [('Fremantle vs Hawthorn', None, 0), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[17:48:51] No halftime games yet. States: [('Fremantle vs Hawthorn', None, 0), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[17:49:22] No halftime games yet. States: [('Fremantle vs Hawthorn', None, 0), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[17:49:53] No halftime games yet. States: [('Fremantle vs Hawthorn', None, 0), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[17:50:24] No halftime games yet. States: [('Fremantle vs Hawthorn', None, 0), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[17:50:54] No halftime games yet. States: [('Fremantle vs Hawthorn', None, 0), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[2026-09-04 12:56:20] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Round 26: 1 game(s) today, first KO 19:40, last KO 19:40, poller stops 22:10
+Using caffeinate -dimsu to prevent system, idle and display sleep
+
+AFL Halftime Scraper — R26 2026
+Polling every 30s. Ctrl+C to stop.
+
+[18:00:33] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:01:04] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:01:35] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:02:06] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:02:37] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:03:07] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:03:38] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:04:08] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:04:39] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:05:09] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:05:40] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:06:11] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:06:42] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:07:12] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:07:43] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:08:13] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:08:44] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:09:15] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:09:45] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:10:16] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:10:46] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:11:17] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:11:48] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:12:18] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:12:49] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+[18:13:20] No halftime games yet. States: [('Fremantle vs Hawthorn', 'Full Time', 100), ('Geelong vs Carlton', None, 0), ('Sydney vs Brisbane Lions', None, 0), ('Adelaide vs Western Bulldogs', None, 0)]
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NewConnectionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable"))
+[18:14:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:14:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:15:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:15:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:16:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:16:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:17:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:17:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:18:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:18:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:19:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:19:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:20:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:20:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:21:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:21:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:22:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:22:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:23:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:23:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:24:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:24:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:25:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:25:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:26:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:26:35] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:27:05] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:27:36] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:28:06] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:28:36] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:29:06] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:29:36] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:30:06] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:30:36] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:31:06] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:31:37] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:32:07] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:32:37] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:33:07] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:33:37] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:34:07] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:34:37] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:35:07] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:35:37] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:36:08] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:36:38] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:37:08] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:37:38] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:38:08] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:38:38] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:39:08] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:39:38] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:40:09] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:40:39] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:41:09] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:41:39] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:42:09] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:42:39] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:43:09] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:43:39] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[18:44:10] No halftime games yet. States: []
+Poller heartbeat stale for 7223s — terminating and restarting.
+
+AFL Halftime Scraper — R26 2026
+Polling every 30s. Ctrl+C to stop.
+
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[20:44:33] No halftime games yet. States: []
+  Squiggle API error: HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026;round=26 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[20:45:03] No halftime games yet. States: []
+[2026-09-05 01:46:11] Done — poller stopped.
+[2026-09-05 11:12:49] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-09-06 17:48:13] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-09-07 11:11:31] ht_gameday_runner --sport afl --season 2026
+Fixture API error (attempt 1/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 2/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 3/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 4/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+Fixture API error (attempt 5/5): HTTPSConnectionPool(host='api.squiggle.com.au', port=443): Max retries exceeded with url: /?q=games;year=2026 (Caused by NameResolutionError("HTTPSConnection(host='api.squiggle.com.au', port=443): Failed to resolve 'api.squiggle.com.au' ([Errno 8] nodename nor servname provided, or not known)"))

@@ -169,3 +169,181 @@ Archive-> data/nrl/match-review/2026/round-1.json
 
 [AFL] ERROR: Could not fetch the footywire injury page. Skipping AFL diff.
 2026-08-24 07:15:46 [INFO] Done.
+2026-08-31 08:02:08 [INFO] AFL match report scraper  round=23
+2026-08-31 08:02:08 [WARNING] Fetch failed https://www.foxsports.com.au/afl -- HTTPSConnectionPool(host='www.foxsports.com.au', port=443): Max retries exceeded with url: /afl (Caused by NameResolutionError("HTTPSConnection(host='www.foxsports.com.au', port=443): Failed to resolve 'www.foxsports.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 08:02:08 [WARNING] No Report Card found for round 23 — falling back to individual game pages
+2026-08-31 08:02:08 [WARNING] Fetch failed https://www.foxsports.com.au/afl -- HTTPSConnectionPool(host='www.foxsports.com.au', port=443): Max retries exceeded with url: /afl (Caused by NameResolutionError("HTTPSConnection(host='www.foxsports.com.au', port=443): Failed to resolve 'www.foxsports.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 08:02:08 [INFO] Found 0 individual game pages
+2026-08-31 08:02:08 [INFO] Total injury mentions extracted: 0
+
+====================================================
+  AFL MATCH REPORT INJURIES -- Round 23
+====================================================
+  No injury mentions found.
+2026-08-31 08:02:08 [INFO] Wrote new-this-week.json -- 0 new injuries
+2026-08-31 08:02:08 [INFO] Done.
+2026-08-31 08:02:08 [WARNING] Fetch failed attempt 1/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026&round=1 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:08 [WARNING] Fetch failed attempt 2/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026&round=1 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:28 [WARNING] Fetch failed attempt 3/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026&round=1 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:28 [INFO] No eligible games for Scout scan. season=2026 round=1 game_filter=None delay=3.0 source=https://www.nrl.com/draw/data/?competition=111&season=2026&round=1
+2026-08-31 09:03:29 [INFO] Season=2026 Round=1
+2026-08-31 09:03:29 [INFO] Fetching judiciary: https://www.nrl.com/news/2026/01/01/nrl-judiciary-report-2026/
+2026-08-31 09:03:29 [WARNING] Fetch failed https://www.nrl.com/news/2026/01/01/nrl-judiciary-report-2026/ -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /news/2026/01/01/nrl-judiciary-report-2026/ (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:29 [WARNING] Judiciary page unavailable
+2026-08-31 09:03:29 [INFO] Loaded 72 prior injury records from latest-injuries.json
+2026-08-31 09:03:29 [INFO] Fetching casualty ward: https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/
+2026-08-31 09:03:29 [WARNING] Fetch failed https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/ -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/ (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:29 [WARNING] Casualty ward unavailable
+2026-08-31 09:03:29 [INFO] Fresh injuries (not in prior state): 0
+2026-08-31 09:03:29 [INFO] Saved /Users/elliotbladen/BetMate/data/nrl/match-review/latest.json
+2026-08-31 09:03:29 [INFO] Saved /Users/elliotbladen/BetMate/data/nrl/match-review/2026/round-1.json
+
+============================================================
+  NRL Match Review — Round 1 (2026)
+============================================================
+
+--- Judiciary Charges (0) ---
+  None found (check judiciary page manually if expected)
+
+--- Fresh Injuries — new since R0 (0) ---
+  None detected (or no prior state to diff against)
+
+Saved  -> data/nrl/match-review/latest.json
+Archive-> data/nrl/match-review/2026/round-1.json
+2026-08-31 09:03:30 [INFO] weekend_injury_diff  sport=both  nrl_round=27  afl_round=24
+2026-08-31 09:03:30 [INFO] --- NRL injury diff  season=2026  round=27 ---
+2026-08-31 09:03:30 [INFO] Loaded 72 known injuries from /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/brisbane-broncos/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/brisbane-broncos/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Brisbane Broncos
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/canberra-raiders/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/canberra-raiders/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Canberra Raiders
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/canterbury-bankstown-bulldogs/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/canterbury-bankstown-bulldogs/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Canterbury-Bankstown Bulldogs
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/cronulla-sharks/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/cronulla-sharks/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Cronulla-Sutherland Sharks
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/dolphins/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/dolphins/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Dolphins
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/gold-coast-titans/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/gold-coast-titans/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Gold Coast Titans
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/manly-sea-eagles/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/manly-sea-eagles/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Manly-Warringah Sea Eagles
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/melbourne-storm/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/melbourne-storm/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Melbourne Storm
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/newcastle-knights/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/newcastle-knights/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Newcastle Knights
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/new-zealand-warriors/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/new-zealand-warriors/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for New Zealand Warriors
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/north-queensland-cowboys/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/north-queensland-cowboys/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for North Queensland Cowboys
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/parramatta-eels/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/parramatta-eels/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Parramatta Eels
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/penrith-panthers/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/penrith-panthers/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Penrith Panthers
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/south-sydney-rabbitohs/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/south-sydney-rabbitohs/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for South Sydney Rabbitohs
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/st-george-illawarra-dragons/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/st-george-illawarra-dragons/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for St. George Illawarra Dragons
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/sydney-roosters/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/sydney-roosters/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Sydney Roosters
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/wests-tigers/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/wests-tigers/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [WARNING] Failed to fetch Zero Tackle page for Wests Tigers
+2026-08-31 09:03:30 [INFO] Zero Tackle total: 0 records across 17 teams
+2026-08-31 09:03:30 [ERROR] NRL: Zero Tackle returned 0 records -- check connectivity or site structure
+
+[NRL] ERROR: Could not fetch injury data from Zero Tackle. Skipping NRL diff.
+2026-08-31 09:03:30 [INFO] --- AFL injury diff  season=2026  round=24 ---
+2026-08-31 09:03:30 [INFO] Loaded 68 known injuries from /Users/elliotbladen/BetMate/data/afl/injuries/processed/latest-injuries.json
+2026-08-31 09:03:30 [WARNING] Fetch failed https://www.footywire.com/afl/footy/injury_list -- HTTPSConnectionPool(host='www.footywire.com', port=443): Max retries exceeded with url: /afl/footy/injury_list (Caused by NameResolutionError("HTTPSConnection(host='www.footywire.com', port=443): Failed to resolve 'www.footywire.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-31 09:03:30 [ERROR] AFL: fetch failed -- https://www.footywire.com/afl/footy/injury_list
+
+[AFL] ERROR: Could not fetch the footywire injury page. Skipping AFL diff.
+2026-08-31 09:03:30 [INFO] Done.
+2026-09-07 07:15:00 [INFO] AFL match report scraper  round=25
+2026-09-07 07:15:00 [WARNING] Fetch failed https://www.foxsports.com.au/afl -- HTTPSConnectionPool(host='www.foxsports.com.au', port=443): Max retries exceeded with url: /afl (Caused by NameResolutionError("HTTPSConnection(host='www.foxsports.com.au', port=443): Failed to resolve 'www.foxsports.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:15:00 [WARNING] No Report Card found for round 25 — falling back to individual game pages
+2026-09-07 07:15:00 [WARNING] Fetch failed https://www.foxsports.com.au/afl -- HTTPSConnectionPool(host='www.foxsports.com.au', port=443): Max retries exceeded with url: /afl (Caused by NameResolutionError("HTTPSConnection(host='www.foxsports.com.au', port=443): Failed to resolve 'www.foxsports.com.au' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:15:00 [INFO] Found 0 individual game pages
+2026-09-07 07:15:00 [INFO] Total injury mentions extracted: 0
+
+====================================================
+  AFL MATCH REPORT INJURIES -- Round 25
+====================================================
+  No injury mentions found.
+2026-09-07 07:15:00 [INFO] Wrote new-this-week.json -- 0 new injuries
+2026-09-07 07:15:00 [INFO] Done.
+2026-09-07 07:15:00 [WARNING] Fetch failed attempt 1/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026&round=1 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:15:37 [WARNING] Fetch failed attempt 2/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026&round=1 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:07 [WARNING] Fetch failed attempt 3/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026&round=1 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:07 [INFO] No eligible games for Scout scan. season=2026 round=1 game_filter=None delay=3.0 source=https://www.nrl.com/draw/data/?competition=111&season=2026&round=1
+2026-09-07 07:18:23 [INFO] Season=2026 Round=1
+2026-09-07 07:18:23 [INFO] Fetching judiciary: https://www.nrl.com/news/2026/01/01/nrl-judiciary-report-2026/
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.nrl.com/news/2026/01/01/nrl-judiciary-report-2026/ -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /news/2026/01/01/nrl-judiciary-report-2026/ (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Judiciary page unavailable
+2026-09-07 07:18:23 [INFO] Loaded 79 prior injury records from latest-injuries.json
+2026-09-07 07:18:23 [INFO] Fetching casualty ward: https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/ -- HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/ (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Casualty ward unavailable
+2026-09-07 07:18:23 [INFO] Fresh injuries (not in prior state): 0
+2026-09-07 07:18:23 [INFO] Saved /Users/elliotbladen/BetMate/data/nrl/match-review/latest.json
+2026-09-07 07:18:23 [INFO] Saved /Users/elliotbladen/BetMate/data/nrl/match-review/2026/round-1.json
+
+============================================================
+  NRL Match Review — Round 1 (2026)
+============================================================
+
+--- Judiciary Charges (0) ---
+  None found (check judiciary page manually if expected)
+
+--- Fresh Injuries — new since R0 (0) ---
+  None detected (or no prior state to diff against)
+
+Saved  -> data/nrl/match-review/latest.json
+Archive-> data/nrl/match-review/2026/round-1.json
+2026-09-07 07:18:23 [INFO] weekend_injury_diff  sport=both  nrl_round=28  afl_round=26
+2026-09-07 07:18:23 [INFO] --- NRL injury diff  season=2026  round=28 ---
+2026-09-07 07:18:23 [INFO] Loaded 79 known injuries from /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/brisbane-broncos/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/brisbane-broncos/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Brisbane Broncos
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/canberra-raiders/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/canberra-raiders/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Canberra Raiders
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/canterbury-bankstown-bulldogs/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/canterbury-bankstown-bulldogs/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Canterbury-Bankstown Bulldogs
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/cronulla-sharks/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/cronulla-sharks/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Cronulla-Sutherland Sharks
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/dolphins/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/dolphins/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Dolphins
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/gold-coast-titans/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/gold-coast-titans/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Gold Coast Titans
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/manly-sea-eagles/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/manly-sea-eagles/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Manly-Warringah Sea Eagles
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/melbourne-storm/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/melbourne-storm/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Melbourne Storm
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/newcastle-knights/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/newcastle-knights/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Newcastle Knights
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/new-zealand-warriors/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/new-zealand-warriors/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for New Zealand Warriors
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/north-queensland-cowboys/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/north-queensland-cowboys/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for North Queensland Cowboys
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/parramatta-eels/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/parramatta-eels/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Parramatta Eels
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/penrith-panthers/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/penrith-panthers/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Penrith Panthers
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/south-sydney-rabbitohs/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/south-sydney-rabbitohs/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for South Sydney Rabbitohs
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/st-george-illawarra-dragons/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/st-george-illawarra-dragons/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for St. George Illawarra Dragons
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/sydney-roosters/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/sydney-roosters/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Sydney Roosters
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.zerotackle.com/nrl/teams/wests-tigers/ -- HTTPSConnectionPool(host='www.zerotackle.com', port=443): Max retries exceeded with url: /nrl/teams/wests-tigers/ (Caused by NameResolutionError("HTTPSConnection(host='www.zerotackle.com', port=443): Failed to resolve 'www.zerotackle.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [WARNING] Failed to fetch Zero Tackle page for Wests Tigers
+2026-09-07 07:18:23 [INFO] Zero Tackle total: 0 records across 17 teams
+2026-09-07 07:18:23 [ERROR] NRL: Zero Tackle returned 0 records -- check connectivity or site structure
+
+[NRL] ERROR: Could not fetch injury data from Zero Tackle. Skipping NRL diff.
+2026-09-07 07:18:23 [INFO] --- AFL injury diff  season=2026  round=26 ---
+2026-09-07 07:18:23 [INFO] Loaded 47 known injuries from /Users/elliotbladen/BetMate/data/afl/injuries/processed/latest-injuries.json
+2026-09-07 07:18:23 [WARNING] Fetch failed https://www.footywire.com/afl/footy/injury_list -- HTTPSConnectionPool(host='www.footywire.com', port=443): Max retries exceeded with url: /afl/footy/injury_list (Caused by NameResolutionError("HTTPSConnection(host='www.footywire.com', port=443): Failed to resolve 'www.footywire.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-09-07 07:18:23 [ERROR] AFL: fetch failed -- https://www.footywire.com/afl/footy/injury_list
+
+[AFL] ERROR: Could not fetch the footywire injury page. Skipping AFL diff.
+2026-09-07 07:18:23 [INFO] Done.

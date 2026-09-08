@@ -1,0 +1,845 @@
+{
+  "cutoff_utc": "2026-09-07T23:49:26Z",
+  "scope": "European 8–9 September / Sydney mornings 9–10 September 2026",
+  "sources": {
+    "fixtures": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+    "team_news": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+    "referees": "https://www.uefa.com/uefachampionsleague/news/02a9-218880e7a2aa-96adf63aa534-1000--who-is-the-referee-which-officials-are-in-charge-of-the-uefa/"
+  },
+  "source_pages_reviewed_at_utc": "2026-09-07T23:49:26Z",
+  "generic_cli_failure": "price_match.py --league ucl: KeyError: 'rho'",
+  "history_rows": 1997,
+  "history_latest": "2026-05-30 18:00:00+00:00",
+  "xg_sources": {
+    "goals_fallback": 1619,
+    "sofascore_shotmap": 342,
+    "fotmob_shotmap": 36
+  },
+  "fit_converged": false,
+  "player_shadow": {
+    "status": "ucl_player_shadow_data_pending",
+    "events": 0,
+    "mode": "shadow",
+    "production_price_influence": false,
+    "next_gate": "populate timestamped UCL player events and observed appearances"
+  },
+  "configured_tiers": {
+    "tiers": {
+      "T0": {
+        "name": "data_health",
+        "mode": "active"
+      },
+      "T1": {
+        "name": "club_strength",
+        "mode": "active_paper"
+      },
+      "T2": {
+        "name": "injury_availability_player_shadow",
+        "mode": "shadow",
+        "features": [
+          "injury_status",
+          "expected_minutes",
+          "player_impact",
+          "replacement_level",
+          "suspension"
+        ]
+      },
+      "T3": {
+        "name": "matchup_schedule_shadow",
+        "mode": "shadow"
+      },
+      "T4": {
+        "name": "league_phase_incentive_shadow",
+        "mode": "shadow",
+        "phase": "league_phase"
+      },
+      "T6": {
+        "name": "context_weather",
+        "mode": "diagnostic"
+      },
+      "T7": {
+        "name": "market_disagreement",
+        "mode": "diagnostic"
+      },
+      "T8": {
+        "name": "confluence",
+        "mode": "diagnostic"
+      }
+    },
+    "player_shadow": "T2",
+    "production_price_influence": [
+      "T0",
+      "T1"
+    ],
+    "phase": "league_phase"
+  },
+  "matches_requested": 12,
+  "diagnostic_baselines": 9,
+  "proper_full_tier_prices": 0,
+  "staking_enabled": false,
+  "rows": [
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "AEK Athens",
+      "away": "LASK",
+      "home_id": "aek-athen",
+      "away_id": null,
+      "referee": "Luis Godinho",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 6,
+          "last_archive_match": "2018-09-18 00:00:00+00:00",
+          "archive_age_days": 2911
+        },
+        "away": {
+          "matches": 0,
+          "last_archive_match": null,
+          "archive_age_days": null
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "BLOCKED_MISSING_TEAM_HISTORY",
+      "diagnostic_prices": null
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Club Brugge",
+      "away": "Aston Villa",
+      "home_id": "club-brugge-kv",
+      "away_id": "aston-villa-fc",
+      "referee": "Sandro Schärer",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 60,
+          "last_archive_match": "2026-02-24 18:45:00+00:00",
+          "archive_age_days": 195
+        },
+        "away": {
+          "matches": 12,
+          "last_archive_match": "2025-01-21 00:00:00+00:00",
+          "archive_age_days": 594
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 2.8255,
+        "p_draw": 3.6351,
+        "p_away": 2.6955,
+        "p_over25": 1.9106,
+        "p_under25": 2.0982
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.3539215710426874,
+        "p_draw": 0.27509440338346425,
+        "p_away": 0.37098402557384835,
+        "p_over25": 0.5234,
+        "p_under25": 0.4766
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 1.3885698671864306,
+        "mu_base": 1.3626477987443772,
+        "lam_final": 1.349,
+        "mu_final": 1.403,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": -0.04,
+        "t3_form_adj_a": 0.04,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Borussia Dortmund",
+      "away": "Villarreal",
+      "home_id": "borussia-dortmund",
+      "away_id": "villarreal-cf",
+      "referee": "Simone Sozza",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 130,
+          "last_archive_match": "2026-02-25 18:45:00+00:00",
+          "archive_age_days": 194
+        },
+        "away": {
+          "matches": 26,
+          "last_archive_match": "2026-01-28 21:00:00+00:00",
+          "archive_age_days": 222
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 1.5041,
+        "p_draw": 5.0807,
+        "p_away": 7.229,
+        "p_over25": 1.5129,
+        "p_under25": 2.9499
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.6648454246568879,
+        "p_draw": 0.19682314729946235,
+        "p_away": 0.1383314280436498,
+        "p_over25": 0.661,
+        "p_under25": 0.339
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 2.5152409425986617,
+        "mu_base": 0.9450781168567328,
+        "lam_final": 2.547,
+        "mu_final": 0.913,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": 0.032,
+        "t3_form_adj_a": -0.032,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Porto",
+      "away": "Manchester City",
+      "home_id": "fc-porto",
+      "away_id": "manchester-city-fc",
+      "referee": "Szymon Marciniak",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 94,
+          "last_archive_match": "2024-02-13 00:00:00+00:00",
+          "archive_age_days": 937
+        },
+        "away": {
+          "matches": 30,
+          "last_archive_match": "2026-03-17 21:00:00+00:00",
+          "archive_age_days": 174
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 2.7666,
+        "p_draw": 4.1025,
+        "p_away": 2.533,
+        "p_over25": 1.3955,
+        "p_under25": 3.5286
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.3614525332262994,
+        "p_draw": 0.24375427922884743,
+        "p_away": 0.3947931875448532,
+        "p_over25": 0.7166,
+        "p_under25": 0.2834
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 1.7312541934242085,
+        "mu_base": 1.9994901458378973,
+        "lam_final": 1.755,
+        "mu_final": 1.975,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": 0.024,
+        "t3_form_adj_a": -0.024,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Lille",
+      "away": "Real Betis",
+      "home_id": "lille-osc",
+      "away_id": null,
+      "referee": "Georgi Kabakov",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 36,
+          "last_archive_match": "2025-01-21 00:00:00+00:00",
+          "archive_age_days": 594
+        },
+        "away": {
+          "matches": 0,
+          "last_archive_match": null,
+          "archive_age_days": null
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "BLOCKED_MISSING_TEAM_HISTORY",
+      "diagnostic_prices": null
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Real Madrid",
+      "away": "Inter",
+      "home_id": "real-madrid-cf",
+      "away_id": "fc-internazionale-milano",
+      "referee": "Michael Oliver",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 41,
+          "last_archive_match": "2026-04-15 21:00:00+00:00",
+          "archive_age_days": 145
+        },
+        "away": {
+          "matches": 33,
+          "last_archive_match": "2026-02-24 21:00:00+00:00",
+          "archive_age_days": 195
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 2.0868,
+        "p_draw": 4.3662,
+        "p_away": 3.4273,
+        "p_over25": 1.289,
+        "p_under25": 4.4603
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.4791959471242921,
+        "p_draw": 0.2290310894703602,
+        "p_away": 0.2917729634053477,
+        "p_over25": 0.7758,
+        "p_under25": 0.2242
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 2.252581991747707,
+        "mu_base": 1.8731091313779002,
+        "lam_final": 2.301,
+        "mu_final": 1.825,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": 0.048,
+        "t3_form_adj_a": -0.048,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Barcelona",
+      "away": "Feyenoord",
+      "home_id": "fc-barcelona",
+      "away_id": "feyenoord-rotterdam",
+      "referee": "Sven Jablonski",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 154,
+          "last_archive_match": "2026-04-14 21:00:00+00:00",
+          "archive_age_days": 146
+        },
+        "away": {
+          "matches": 18,
+          "last_archive_match": "2025-01-21 00:00:00+00:00",
+          "archive_age_days": 594
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 1.4026,
+        "p_draw": 6.5244,
+        "p_away": 7.4748,
+        "p_over25": 1.1294,
+        "p_under25": 8.726
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.712945623253708,
+        "p_draw": 0.15327103335773243,
+        "p_away": 0.1337833433885596,
+        "p_over25": 0.8854,
+        "p_under25": 0.1146
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 3.8012035826634056,
+        "mu_base": 1.4984993337150805,
+        "lam_final": 3.849,
+        "mu_final": 1.45,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": 0.048,
+        "t3_form_adj_a": -0.048,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Stuttgart",
+      "away": "Viking",
+      "home_id": "vfb-stuttgart",
+      "away_id": null,
+      "referee": "Nenad Minaković",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 8,
+          "last_archive_match": "2025-01-21 00:00:00+00:00",
+          "archive_age_days": 594
+        },
+        "away": {
+          "matches": 0,
+          "last_archive_match": null,
+          "archive_age_days": null
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "BLOCKED_MISSING_TEAM_HISTORY",
+      "diagnostic_prices": null
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Liverpool",
+      "away": "Atlético de Madrid",
+      "home_id": "liverpool-fc",
+      "away_id": "club-atl-tico-de-madrid",
+      "referee": "Davide Massa",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 93,
+          "last_archive_match": "2026-04-14 21:00:00+00:00",
+          "archive_age_days": 146
+        },
+        "away": {
+          "matches": 36,
+          "last_archive_match": "2026-05-05 21:00:00+00:00",
+          "archive_age_days": 125
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 1.4395,
+        "p_draw": 5.9557,
+        "p_away": 7.2784,
+        "p_over25": 1.2755,
+        "p_under25": 4.6296
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.6947014016745181,
+        "p_draw": 0.16790520684000865,
+        "p_away": 0.1373933914854732,
+        "p_over25": 0.784,
+        "p_under25": 0.216
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 3.2744345676766073,
+        "mu_base": 1.049439626435967,
+        "lam_final": 3.29,
+        "mu_final": 1.033,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": 0.016,
+        "t3_form_adj_a": -0.016,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Paris Saint-Germain",
+      "away": "Slovan Bratislava",
+      "home_id": "paris-saint-germain-fc",
+      "away_id": "k-slovan-bratislava",
+      "referee": "Mykola Balakin",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 46,
+          "last_archive_match": "2026-05-30 18:00:00+00:00",
+          "archive_age_days": 100
+        },
+        "away": {
+          "matches": 8,
+          "last_archive_match": "2025-01-21 00:00:00+00:00",
+          "archive_age_days": 594
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 1.1324,
+        "p_draw": 13.9989,
+        "p_away": 21.9922,
+        "p_over25": 1.043,
+        "p_under25": 24.2718
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.8830952706364712,
+        "p_draw": 0.07143404252485185,
+        "p_away": 0.045470686838676985,
+        "p_over25": 0.9588,
+        "p_under25": 0.0412
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 6.494833395264219,
+        "mu_base": 1.0143753590884828,
+        "lam_final": 6.599,
+        "mu_final": 0.91,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": 0.104,
+        "t3_form_adj_a": -0.104,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Sporting CP",
+      "away": "Galatasaray",
+      "home_id": "sporting-clube-de-portugal",
+      "away_id": "galatasaray-sk",
+      "referee": "Espen Eskås",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 22,
+          "last_archive_match": "2026-04-15 21:00:00+00:00",
+          "archive_age_days": 145
+        },
+        "away": {
+          "matches": 18,
+          "last_archive_match": "2026-03-18 21:00:00+00:00",
+          "archive_age_days": 173
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 1.4736,
+        "p_draw": 5.6893,
+        "p_away": 6.8666,
+        "p_over25": 1.2682,
+        "p_under25": 4.7281
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.6785977399980659,
+        "p_draw": 0.1757695010694387,
+        "p_away": 0.14563275893249542,
+        "p_over25": 0.7885,
+        "p_under25": 0.2115
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 3.1615095736480807,
+        "mu_base": 1.1556269993623316,
+        "lam_final": 3.17,
+        "mu_final": 1.148,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": 0.008,
+        "t3_form_adj_a": -0.008,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Napoli",
+      "away": "Arsenal",
+      "home_id": "ssc-napoli",
+      "away_id": "arsenal-fc",
+      "referee": "Glenn Nyberg",
+      "live_status": "ABSTAIN",
+      "all_tiers_priced": false,
+      "history_coverage": {
+        "home": {
+          "matches": 68,
+          "last_archive_match": "2026-01-28 21:00:00+00:00",
+          "archive_age_days": 222
+        },
+        "away": {
+          "matches": 87,
+          "last_archive_match": "2026-05-30 18:00:00+00:00",
+          "archive_age_days": 100
+        }
+      },
+      "tiers": {
+        "T0": "FAIL: stale current inputs; incomplete full-tier integration; no verified live market captured",
+        "T1": "historical paper baseline only; no current domestic strength input; archive aliases split",
+        "T2": "UEFA team news reviewed; player-event file missing; no fitted active player adjustment",
+        "T3": "adapter uses old UCL form/rest; domestic schedule, rotation, pressing and travel not loaded",
+        "T4": "league-phase diagnostic only; no live incentive adjustment",
+        "T5": "not applicable: league phase, not knockout",
+        "T6": "referee appointment sourced; no referee-rate/weather pricing input consumed by adapter",
+        "T7": "market diagnostic unavailable: no current timestamped two-sided quote captured",
+        "T8": "confluence diagnostic; no validated current family signals"
+      },
+      "baseline_status": "UNVALIDATED_DIAGNOSTIC_ONLY",
+      "diagnostic_prices": {
+        "p_home": 4.4437,
+        "p_draw": 4.7906,
+        "p_away": 1.7661,
+        "p_over25": 1.3585,
+        "p_under25": 3.7893
+      },
+      "diagnostic_probabilities": {
+        "p_home": 0.22503653388022096,
+        "p_draw": 0.20874174916415406,
+        "p_away": 0.566221716955625,
+        "p_over25": 0.7361,
+        "p_under25": 0.2639
+      },
+      "shared_engine_adjustments": {
+        "lam_base": 1.384481907352858,
+        "mu_base": 2.473630285953176,
+        "lam_final": 1.36,
+        "mu_final": 2.498,
+        "t2_ppda_adj": 0.0,
+        "t3_form_adj_h": -0.024,
+        "t3_form_adj_a": 0.024,
+        "t3_rest_adj_h": 1.0,
+        "t3_rest_adj_a": 1.0,
+        "t5_att_disruption_h": 0.0,
+        "t5_def_disruption_h": 0.0,
+        "t5_att_disruption_a": 0.0,
+        "t5_def_disruption_a": 0.0,
+        "t6_ref_adj": 0.0,
+        "t7_sp_adj_lam": 0.0,
+        "t7_sp_adj_mu": 0.0,
+        "t8_adj_lam": 0.0,
+        "t8_adj_mu": 0.0,
+        "t9_adj_lam": 0.0,
+        "t9_adj_mu": 0.0
+      },
+      "totals_status": "raw shared-matrix diagnostic; separate live O/U model not run"
+    }
+  ],
+  "input_sha256": {
+    "ml/football/ucl_shared_engine.py": "38141e040a41a44070542af14a57fb57675ca8eb350d47f6b7c05dbc4d24d6a4",
+    "ml/football/models/dixon_coles.py": "0d54b8fc2c56ca0027b151e48e341022e52a5c5fb695cf915bfe2afc464cebc4",
+    "ml/football/models/tiers.py": "080cb898bcd3c8113a0f7b74394f13d9de474402731877ee07d672a1acdd05d3",
+    "data/ucl/matches/ucl_matches_openfootball_repaired.csv": "543c10f3d11409222e8c6565cfc8093be01f823cf6639c145d3b54d2043a7a1b",
+    "data/ucl/matches/ucl_recent_complete_xg_v2.csv": "01864e3eff5a7742f3203ff3abf9bca7f58d21e1b84c17dd3277e45fa6443d21"
+  }
+}

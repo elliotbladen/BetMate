@@ -15,3 +15,7 @@ week_ending,sport,round,game,market,clv_pct,result
 2026-04-28,NRL,9,Storm vs Rabbitohs,h2h,1.94,loss
 2026-04-28,NRL,9,Knights vs Panthers,h2h,10.34,win
 2026-04-28,NRL,9,Manly vs Eels,h2h,8.47,loss
+2026-09-06,NRL,27,South Sydney Rabbitohs v Sydney Roosters,handicap,-0.0,loss
+2026-09-06,NRL,27,Cronulla Sharks v Melbourne Storm,handicap,-14.22,win
+2026-09-06,NRL,27,Gold Coast Titans v Dolphins,handicap,4.61,win
+2026-09-06,NRL,27,Cronulla Sharks v Melbourne Storm,total,3.68,win

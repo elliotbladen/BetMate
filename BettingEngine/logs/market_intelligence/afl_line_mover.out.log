@@ -296,3 +296,75 @@ Auto-detected round: 24
   WARNING: Scrape AFL team lists exited with code 1
 
   Refusing to publish a movement prediction without valid team-list changes
+Scraping AFL ladder...
+Scraping AFL team lists...
+Auto-detected round: 25
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R25 2026
+  Started: 2026-09-03 18:25:00
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+  WARNING: Scrape AFL ladder exited with code 1
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  WARNING: Scrape AFL team lists exited with code 1
+
+  Refusing to publish a movement prediction without valid team-list changes
+Scraping AFL ladder...
+Scraping AFL team lists...
+Auto-detected round: 25
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R25 2026
+  Started: 2026-09-03 19:05:00
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+  WARNING: Scrape AFL ladder exited with code 1
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  WARNING: Scrape AFL team lists exited with code 1
+
+  Refusing to publish a movement prediction without valid team-list changes
+Scraping AFL ladder...
+Scraping AFL team lists...
+Auto-detected round: 25
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R25 2026
+  Started: 2026-09-04 10:03:20
+############################################################
+
+============================================================
+  STEP: Scrape AFL ladder
+============================================================
+
+
+  WARNING: Scrape AFL ladder exited with code 1
+
+============================================================
+  STEP: Scrape AFL team lists
+============================================================
+
+
+  WARNING: Scrape AFL team lists exited with code 1
+
+  Refusing to publish a movement prediction without valid team-list changes

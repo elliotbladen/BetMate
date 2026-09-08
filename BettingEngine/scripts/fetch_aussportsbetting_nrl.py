@@ -285,8 +285,11 @@ def download_workbook(
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     stem = "nrl"
-    if "historical-afl" in page_url.lower() or "afl.xlsx" in page_url.lower():
-        stem = "afl"
+    page_lower = page_url.lower()
+    for code in ("afl", "nfl"):
+        if f"historical-{code}" in page_lower or f"{code}.xlsx" in page_lower:
+            stem = code
+            break
     dated_path = output_dir / f"{stem}_{timestamp}.xlsx"
     latest_path = output_dir / "latest.xlsx"
     metadata_path = output_dir / "latest.json"

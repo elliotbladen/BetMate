@@ -129,6 +129,8 @@ def fit(
     prev_ratings: Optional[dict] = None,
     decay_rate: float = DECAY_RATE,
     min_matches: int = MIN_MATCHES,
+    optimizer_options: Optional[dict] = None,
+    preserve_fitted_rates: bool = False,
 ) -> dict:
     """
     Fit Dixon-Coles on time-weighted xG data (or goals for goals-fed leagues —
@@ -192,7 +194,7 @@ def fit(
         x0,
         args=(home_idx, away_idx, home_xg, away_xg, w, n, rho, log_base_h, log_base_a),
         method="L-BFGS-B",
-        options={"maxiter": 500, "ftol": 1e-9},
+        options={"maxiter": 500, "ftol": 1e-9, **(optimizer_options or {})},
     )
 
     params = result.x
@@ -219,17 +221,27 @@ def fit(
     away_w = data.groupby("away_team").apply(lambda g: w[g.index.map(
         lambda idx: data.index.get_loc(idx))].sum() if len(g) > 0 else 0.0)
 
+    # Normalizing attack and defence separately multiplies att/def by
+    # def_mean/att_mean. Compensate the base rate to preserve the fitted means.
+    # Opt-in for the UCL research path; legacy deployed callers keep their
+    # existing version until their own forecast archives have been evaluated.
+    rate_scale = float(att_mean / def_mean) if preserve_fitted_rates else 1.0
     return {
         "attack":       attack,
         "defence":      defence,
         "home_adv":     home_adv,
         "rho":          rho,
-        "base_home_xg": float(np.exp(log_base_h)),
-        "base_away_xg": float(np.exp(log_base_a)),
+        "base_home_xg": float(np.exp(log_base_h) * rate_scale),
+        "base_away_xg": float(np.exp(log_base_a) * rate_scale),
+        "preserve_fitted_rates": preserve_fitted_rates,
+        "normalization_rate_scale": rate_scale,
         "teams":        teams,
         "as_of":        as_of,
         "n_matches":    len(data),
         "converged":    result.success,
+        "optimizer_message": str(result.message),
+        "optimizer_iterations": int(result.nit),
+        "optimizer_evaluations": int(result.nfev),
     }
 
 

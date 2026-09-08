@@ -1,0 +1,1981 @@
+{
+  "cutoff_utc": "2026-09-08T00:02:10.341253+00:00",
+  "status": "researched_scenario_not_production_promotion",
+  "fixture_source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+  "notes": [
+    "Only current-season competitive domestic league matches enter form; friendlies excluded.",
+    "For fewer than five league games, unplayed slots contribute neutral 1.5 points, an explicit shrinkage assumption, not invented match results.",
+    "Rest is calendar-date difference to latest verified competitive club match; no claim of precise recovery hours.",
+    "Research availability uses broad-position legacy football weights; it is not the trained UCL player shadow.",
+    "Confirmed absences enter the central scenario. Doubtful and disputed players enter separate sensitivity scenarios.",
+    "Current domestic corners are archived but not added to 1X2; the separate corner challenger is not promoted."
+  ],
+  "fixtures": [
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "AEK Athens",
+      "away": "LASK",
+      "home_id": "aek-athen",
+      "away_id": null,
+      "referee": "Luis Godinho",
+      "kickoff_utc": "2026-09-08T16:45:00Z",
+      "home_context": {
+        "club_id": "aek-athen",
+        "league": "G1",
+        "domestic_name": "AEK",
+        "league_results": [
+          {
+            "date": "2026-08-22",
+            "home": "AEK",
+            "away": "Iraklis",
+            "home_goals": 4,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/G1.csv"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Kifisia",
+            "away": "AEK",
+            "home_goals": 1,
+            "away_goals": 1,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/G1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "AEK",
+            "away": "Aris",
+            "home_goals": 5,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/G1.csv"
+          }
+        ],
+        "league_form_points": 7,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/G1.csv",
+        "availability": [],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      },
+      "away_context": {
+        "club_id": null,
+        "league": "AUT",
+        "domestic_name": "LASK",
+        "league_results": [
+          {
+            "date": "2026-07-31",
+            "home": "LASK",
+            "away": "Grazer AK",
+            "home_goals": 3,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/AUT.csv"
+          },
+          {
+            "date": "2026-08-09",
+            "home": "Austria Vienna",
+            "away": "LASK",
+            "home_goals": 0,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/AUT.csv"
+          },
+          {
+            "date": "2026-08-14",
+            "home": "LASK",
+            "away": "Ried",
+            "home_goals": 4,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/AUT.csv"
+          },
+          {
+            "date": "2026-08-29",
+            "home": "LASK",
+            "away": "Altach",
+            "home_goals": 3,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/AUT.csv"
+          },
+          {
+            "date": "2026-09-01",
+            "home": "Wolfsberger AC",
+            "away": "LASK",
+            "home_goals": 1,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/AUT.csv"
+          }
+        ],
+        "league_form_points": 15,
+        "form_matches": 5,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://www.lask.at/en/m/matches/pros/fixtures/2026-2027",
+        "availability": [
+          {
+            "player": "Adeniran",
+            "status": "out",
+            "position": "ST",
+            "source_detail": "Adeniran (face)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Kalajdžić",
+            "status": "doubtful",
+            "position": "ST",
+            "source_detail": "Kalajdžić (fitness)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      }
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Club Brugge",
+      "away": "Aston Villa",
+      "home_id": "club-brugge-kv",
+      "away_id": "aston-villa-fc",
+      "referee": "Sandro Schärer",
+      "kickoff_utc": "2026-09-08T16:45:00Z",
+      "home_context": {
+        "club_id": "club-brugge-kv",
+        "league": "B1",
+        "domestic_name": "Club Brugge",
+        "league_results": [
+          {
+            "date": "2026-08-07",
+            "home": "Club Brugge",
+            "away": "Kortrijk",
+            "home_goals": 3,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+          },
+          {
+            "date": "2026-08-15",
+            "home": "Oud-Heverlee Leuven",
+            "away": "Club Brugge",
+            "home_goals": 0,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+          },
+          {
+            "date": "2026-08-23",
+            "home": "Club Brugge",
+            "away": "Cercle Brugge",
+            "home_goals": 1,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Gent",
+            "away": "Club Brugge",
+            "home_goals": 2,
+            "away_goals": 1,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Lommel SK",
+            "away": "Club Brugge",
+            "home_goals": 0,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+          }
+        ],
+        "league_form_points": 12,
+        "form_matches": 5,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/B1.csv",
+        "availability": [
+          {
+            "player": "Ordóñez",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Ordóñez (foot)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      },
+      "away_context": {
+        "club_id": "aston-villa-fc",
+        "league": "E0",
+        "domestic_name": "Aston Villa",
+        "league_results": [
+          {
+            "date": "2026-08-23",
+            "home": "Brighton",
+            "away": "Aston Villa",
+            "home_goals": 4,
+            "away_goals": 0,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-08-31",
+            "home": "Aston Villa",
+            "away": "Arsenal",
+            "home_goals": 0,
+            "away_goals": 1,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Hull",
+            "away": "Aston Villa",
+            "home_goals": 0,
+            "away_goals": 0,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          }
+        ],
+        "league_form_points": 1,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+        "availability": [
+          {
+            "player": "Goretzka",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "Goretzka (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Manzambi",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "Manzambi (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      }
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Borussia Dortmund",
+      "away": "Villarreal",
+      "home_id": "borussia-dortmund",
+      "away_id": "villarreal-cf",
+      "referee": "Simone Sozza",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "home_context": {
+        "club_id": "borussia-dortmund",
+        "league": "D1",
+        "domestic_name": "Dortmund",
+        "league_results": [
+          {
+            "date": "2026-08-29",
+            "home": "Dortmund",
+            "away": "Hamburg",
+            "home_goals": 2,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Hoffenheim",
+            "away": "Dortmund",
+            "home_goals": 2,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+          }
+        ],
+        "league_form_points": 6,
+        "form_matches": 2,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/D1.csv",
+        "availability": [
+          {
+            "player": "Bensebaini",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Bensebaini (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Schlotterbeck",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Schlotterbeck (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Mane",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Mane (thigh)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      },
+      "away_context": {
+        "club_id": "villarreal-cf",
+        "league": "SP1",
+        "domestic_name": "Villarreal",
+        "league_results": [
+          {
+            "date": "2026-08-16",
+            "home": "Santander",
+            "away": "Villarreal",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-23",
+            "home": "Ath Madrid",
+            "away": "Villarreal",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-28",
+            "home": "Alaves",
+            "away": "Villarreal",
+            "home_goals": 1,
+            "away_goals": 0,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Villarreal",
+            "away": "La Coruna",
+            "home_goals": 2,
+            "away_goals": 3,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          }
+        ],
+        "league_form_points": 2,
+        "form_matches": 4,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+        "availability": [
+          {
+            "player": "Foyth",
+            "status": "doubtful",
+            "position": "CB",
+            "source_detail": "Foyth (Achilles)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      }
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Porto",
+      "away": "Manchester City",
+      "home_id": "fc-porto",
+      "away_id": "manchester-city-fc",
+      "referee": "Szymon Marciniak",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "home_context": {
+        "club_id": "fc-porto",
+        "league": "P1",
+        "domestic_name": "Porto",
+        "league_results": [
+          {
+            "date": "2026-08-09",
+            "home": "Porto",
+            "away": "Alverca",
+            "home_goals": 2,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-08-15",
+            "home": "Rio Ave",
+            "away": "Porto",
+            "home_goals": 0,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-08-23",
+            "home": "Porto",
+            "away": "Arouca",
+            "home_goals": 2,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-08-29",
+            "home": "Academico Viseu",
+            "away": "Porto",
+            "home_goals": 0,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Porto",
+            "away": "Moreirense",
+            "home_goals": 2,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          }
+        ],
+        "league_form_points": 15,
+        "form_matches": 5,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/P1.csv",
+        "availability": [
+          {
+            "player": "Bednarek",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Bednarek (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Froholdt",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "Froholdt (concussion)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Pietuszewski",
+            "status": "out",
+            "position": "LW",
+            "source_detail": "Pietuszewski (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Samu",
+            "status": "out",
+            "position": "ST",
+            "source_detail": "Samu (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Sanusi",
+            "status": "out",
+            "position": "LB",
+            "source_detail": "Sanusi (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      },
+      "away_context": {
+        "club_id": "manchester-city-fc",
+        "league": "E0",
+        "domestic_name": "Man City",
+        "league_results": [
+          {
+            "date": "2026-08-23",
+            "home": "Man City",
+            "away": "Bournemouth",
+            "home_goals": 2,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-08-28",
+            "home": "Crystal Palace",
+            "away": "Man City",
+            "home_goals": 1,
+            "away_goals": 4,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Man City",
+            "away": "Coventry",
+            "home_goals": 1,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          }
+        ],
+        "league_form_points": 9,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+        "availability": [
+          {
+            "player": "Doku",
+            "status": "out",
+            "position": "LW",
+            "source_detail": "Doku (calf)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "O'Reilly",
+            "status": "out",
+            "position": "LB",
+            "source_detail": "O'Reilly (back)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      }
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Lille",
+      "away": "Real Betis",
+      "home_id": "lille-osc",
+      "away_id": null,
+      "referee": "Georgi Kabakov",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "home_context": {
+        "club_id": "lille-osc",
+        "league": "F1",
+        "domestic_name": "Lille",
+        "league_results": [
+          {
+            "date": "2026-08-23",
+            "home": "Angers",
+            "away": "Lille",
+            "home_goals": 0,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+          },
+          {
+            "date": "2026-08-28",
+            "home": "Lille",
+            "away": "Paris SG",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+          },
+          {
+            "date": "2026-09-03",
+            "home": "Toulouse",
+            "away": "Lille",
+            "home_goals": 0,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+          }
+        ],
+        "league_form_points": 7,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-03",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/F1.csv",
+        "availability": [
+          {
+            "player": "Nianzou",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Nianzou (muscle)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 5
+      },
+      "away_context": {
+        "club_id": null,
+        "league": "SP1",
+        "domestic_name": "Betis",
+        "league_results": [
+          {
+            "date": "2026-08-21",
+            "home": "Betis",
+            "away": "Sociedad",
+            "home_goals": 1,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-25",
+            "home": "Valencia",
+            "away": "Betis",
+            "home_goals": 0,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-29",
+            "home": "Levante",
+            "away": "Betis",
+            "home_goals": 5,
+            "away_goals": 2,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Betis",
+            "away": "Real Madrid",
+            "home_goals": 1,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          }
+        ],
+        "league_form_points": 9,
+        "form_matches": 4,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+        "availability": [
+          {
+            "player": "Diego Conde",
+            "status": "doubtful",
+            "position": "GK",
+            "source_detail": "Diego Conde (shoulder)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Abde Ezzalzouli",
+            "status": "doubtful",
+            "position": "LW",
+            "source_detail": "Abde Ezzalzouli (illness)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Diego Llorente",
+            "status": "doubtful",
+            "position": "CB",
+            "source_detail": "Diego Llorente (face)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Lo Celso",
+            "status": "doubtful",
+            "position": "AM",
+            "source_detail": "Lo Celso (knock)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Aitor Ruibal",
+            "status": "doubtful",
+            "position": "RB",
+            "source_detail": "Aitor Ruibal (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      }
+    },
+    {
+      "european_match_date": "2026-09-08",
+      "sydney_match_date": "2026-09-09",
+      "home": "Real Madrid",
+      "away": "Inter",
+      "home_id": "real-madrid-cf",
+      "away_id": "fc-internazionale-milano",
+      "referee": "Michael Oliver",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "home_context": {
+        "club_id": "real-madrid-cf",
+        "league": "SP1",
+        "domestic_name": "Real Madrid",
+        "league_results": [
+          {
+            "date": "2026-08-22",
+            "home": "Espanol",
+            "away": "Real Madrid",
+            "home_goals": 1,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-26",
+            "home": "Real Madrid",
+            "away": "Sociedad",
+            "home_goals": 4,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Real Madrid",
+            "away": "Malaga",
+            "home_goals": 4,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Betis",
+            "away": "Real Madrid",
+            "home_goals": 1,
+            "away_goals": 0,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          }
+        ],
+        "league_form_points": 9,
+        "form_matches": 4,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+        "availability": [
+          {
+            "player": "Raúl Asencio",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Raúl Asencio (tibia)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Camavinga",
+            "status": "out",
+            "position": "DM",
+            "source_detail": "Camavinga (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Endrick",
+            "status": "doubtful",
+            "position": "ST",
+            "source_detail": "Conflicting earlier injury report; training return / limited availability, scenario only",
+            "source": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/ruedas-de-prensa/mourinho-07-09-2026",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Arda Güler",
+            "status": "out",
+            "position": "AM",
+            "source_detail": "Arda Güler (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Éder Militão",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Éder Militão (thigh)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Thiago Pitarch",
+            "status": "doubtful",
+            "position": "CM",
+            "source_detail": "Conflicting earlier injury report; training return / limited availability, scenario only",
+            "source": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/entrenamientos/el-equipo-se-esta-entrenando-07-09-2026",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Rodrygo",
+            "status": "out",
+            "position": "RW",
+            "source_detail": "Rodrygo (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Bernardo Silva",
+            "status": "out",
+            "position": "AM",
+            "source_detail": "Bernardo Silva (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Tchouaméni",
+            "status": "doubtful",
+            "position": "DM",
+            "source_detail": "Tchouaméni (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Mendy",
+            "status": "out",
+            "position": "LB",
+            "source": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/entrenamientos/el-equipo-se-esta-entrenando-07-09-2026",
+            "source_detail": "Club says rehabilitation continues",
+            "role_mapping": "manual broad-position research assumption",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      },
+      "away_context": {
+        "club_id": "fc-internazionale-milano",
+        "league": "I1",
+        "domestic_name": "Inter",
+        "league_results": [
+          {
+            "date": "2026-08-22",
+            "home": "Inter",
+            "away": "Monza",
+            "home_goals": 4,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Cagliari",
+            "away": "Inter",
+            "home_goals": 0,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Inter",
+            "away": "Napoli",
+            "home_goals": 3,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+          }
+        ],
+        "league_form_points": 9,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/I1.csv",
+        "availability": [
+          {
+            "player": "Dimarco",
+            "status": "out",
+            "position": "WB",
+            "source_detail": "Reported not travelling; supersedes earlier UEFA doubtful status",
+            "source": "https://www.gazzetta.it/en/football/teams/inter/news/07-09-2026/dimarco-injury-wing-back-misses-real-madrid-clash.shtml",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      }
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Barcelona",
+      "away": "Feyenoord",
+      "home_id": "fc-barcelona",
+      "away_id": "feyenoord-rotterdam",
+      "referee": "Sven Jablonski",
+      "kickoff_utc": "2026-09-09T16:45:00Z",
+      "home_context": {
+        "club_id": "fc-barcelona",
+        "league": "SP1",
+        "domestic_name": "Barcelona",
+        "league_results": [
+          {
+            "date": "2026-08-23",
+            "home": "Elche",
+            "away": "Barcelona",
+            "home_goals": 0,
+            "away_goals": 5,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-27",
+            "home": "Barcelona",
+            "away": "Ath Bilbao",
+            "home_goals": 2,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-31",
+            "home": "Barcelona",
+            "away": "Vallecano",
+            "home_goals": 5,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-09-06",
+            "home": "Valencia",
+            "away": "Barcelona",
+            "home_goals": 0,
+            "away_goals": 5,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          }
+        ],
+        "league_form_points": 12,
+        "form_matches": 4,
+        "latest_competitive_date": "2026-09-06",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+        "availability": [
+          {
+            "player": "De Jong",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "De Jong (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Eric García",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Eric García (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      },
+      "away_context": {
+        "club_id": "feyenoord-rotterdam",
+        "league": "N1",
+        "domestic_name": "Feyenoord",
+        "league_results": [
+          {
+            "date": "2026-08-09",
+            "home": "Sparta Rotterdam",
+            "away": "Feyenoord",
+            "home_goals": 0,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+          },
+          {
+            "date": "2026-08-16",
+            "home": "Feyenoord",
+            "away": "Go Ahead Eagles",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+          },
+          {
+            "date": "2026-08-23",
+            "home": "Cambuur",
+            "away": "Feyenoord",
+            "home_goals": 2,
+            "away_goals": 5,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Feyenoord",
+            "away": "Den Haag",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Nijmegen",
+            "away": "Feyenoord",
+            "home_goals": 1,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+          }
+        ],
+        "league_form_points": 11,
+        "form_matches": 5,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/N1.csv",
+        "availability": [
+          {
+            "player": "Bos",
+            "status": "out",
+            "position": "LB",
+            "source_detail": "Bos (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Moder",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "Moder (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Nieuwkoop",
+            "status": "out",
+            "position": "RB",
+            "source_detail": "Nieuwkoop (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Smal",
+            "status": "out",
+            "position": "LB",
+            "source_detail": "Smal (ankle)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Hadj Moussa",
+            "status": "doubtful",
+            "position": "RW",
+            "source_detail": "Hadj Moussa (unspecified)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      }
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Stuttgart",
+      "away": "Viking",
+      "home_id": "vfb-stuttgart",
+      "away_id": null,
+      "referee": "Nenad Minaković",
+      "kickoff_utc": "2026-09-09T16:45:00Z",
+      "home_context": {
+        "club_id": "vfb-stuttgart",
+        "league": "D1",
+        "domestic_name": "Stuttgart",
+        "league_results": [
+          {
+            "date": "2026-08-28",
+            "home": "Bayern Munich",
+            "away": "Stuttgart",
+            "home_goals": 5,
+            "away_goals": 1,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Stuttgart",
+            "away": "FC Koln",
+            "home_goals": 4,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+          }
+        ],
+        "league_form_points": 3,
+        "form_matches": 2,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/D1.csv",
+        "availability": [
+          {
+            "player": "Jaquez",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Jaquez (fitness)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Nartey",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "Nartey (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Seimen",
+            "status": "out",
+            "position": "GK",
+            "source_detail": "Seimen (thigh)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Tiago Tomás",
+            "status": "out",
+            "position": "FW",
+            "source_detail": "Tiago Tomás (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Assignon",
+            "status": "doubtful",
+            "position": "RB",
+            "source_detail": "Assignon (fitness)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 5
+      },
+      "away_context": {
+        "club_id": null,
+        "league": "NOR",
+        "domestic_name": "Viking",
+        "league_results": [
+          {
+            "date": "2026-08-01",
+            "home": "Start",
+            "away": "Viking",
+            "home_goals": 0,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/NOR.csv"
+          },
+          {
+            "date": "2026-08-08",
+            "home": "Viking",
+            "away": "Sarpsborg 08",
+            "home_goals": 2,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/NOR.csv"
+          },
+          {
+            "date": "2026-08-14",
+            "home": "Rosenborg",
+            "away": "Viking",
+            "home_goals": 2,
+            "away_goals": 1,
+            "points": 0,
+            "source": "https://football-data.co.uk/new/NOR.csv"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Viking",
+            "away": "Aalesund",
+            "home_goals": 2,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/new/NOR.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Sandefjord",
+            "away": "Viking",
+            "home_goals": 1,
+            "away_goals": 1,
+            "points": 1,
+            "source": "https://vikingstadion.no/nyheter"
+          }
+        ],
+        "league_form_points": 10,
+        "form_matches": 5,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://vikingstadion.no/nyheter",
+        "availability": [
+          {
+            "player": "Berisha",
+            "status": "out",
+            "position": "ST",
+            "source_detail": "Berisha (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Baertelsen",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Baertelsen (foot)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Bjørshol",
+            "status": "out",
+            "position": "RB",
+            "source_detail": "Bjørshol (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Falchener",
+            "status": "doubtful",
+            "position": "CB",
+            "source_detail": "Falchener (thigh)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Haugen",
+            "status": "doubtful",
+            "position": "LB",
+            "source_detail": "Haugen (unspecified)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Roseth",
+            "status": "doubtful",
+            "position": "CB",
+            "source_detail": "Roseth (ankle)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 5
+      }
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Liverpool",
+      "away": "Atlético de Madrid",
+      "home_id": "liverpool-fc",
+      "away_id": "club-atl-tico-de-madrid",
+      "referee": "Davide Massa",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "home_context": {
+        "club_id": "liverpool-fc",
+        "league": "E0",
+        "domestic_name": "Liverpool",
+        "league_results": [
+          {
+            "date": "2026-08-23",
+            "home": "Newcastle",
+            "away": "Liverpool",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-08-29",
+            "home": "Liverpool",
+            "away": "Nott'm Forest",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Ipswich",
+            "away": "Liverpool",
+            "home_goals": 0,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          }
+        ],
+        "league_form_points": 5,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+        "availability": [
+          {
+            "player": "Bradley",
+            "status": "out",
+            "position": "RB",
+            "source_detail": "Bradley (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Ekitiké",
+            "status": "out",
+            "position": "ST",
+            "source_detail": "Ekitiké (Achilles)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "J.Gomez",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "J.Gomez (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Leoni",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Leoni (knee)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 5
+      },
+      "away_context": {
+        "club_id": "club-atl-tico-de-madrid",
+        "league": "SP1",
+        "domestic_name": "Ath Madrid",
+        "league_results": [
+          {
+            "date": "2026-08-19",
+            "home": "Ath Madrid",
+            "away": "Malaga",
+            "home_goals": 2,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-23",
+            "home": "Ath Madrid",
+            "away": "Villarreal",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-08-29",
+            "home": "Sevilla",
+            "away": "Ath Madrid",
+            "home_goals": 1,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Ath Bilbao",
+            "away": "Ath Madrid",
+            "home_goals": 3,
+            "away_goals": 0,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+          }
+        ],
+        "league_form_points": 7,
+        "form_matches": 4,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+        "availability": [
+          {
+            "player": "Arnau Ortiz",
+            "status": "out",
+            "position": "LW",
+            "source_detail": "Arnau Ortiz (suspended)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Sørloth",
+            "status": "doubtful",
+            "position": "ST",
+            "source_detail": "Sørloth (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      }
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Paris Saint-Germain",
+      "away": "Slovan Bratislava",
+      "home_id": "paris-saint-germain-fc",
+      "away_id": "k-slovan-bratislava",
+      "referee": "Mykola Balakin",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "home_context": {
+        "club_id": "paris-saint-germain-fc",
+        "league": "F1",
+        "domestic_name": "Paris SG",
+        "league_results": [
+          {
+            "date": "2026-08-23",
+            "home": "Rennes",
+            "away": "Paris SG",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+          },
+          {
+            "date": "2026-08-28",
+            "home": "Lille",
+            "away": "Paris SG",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Paris SG",
+            "away": "Monaco",
+            "home_goals": 1,
+            "away_goals": 2,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+          }
+        ],
+        "league_form_points": 2,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/F1.csv",
+        "availability": [],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 5
+      },
+      "away_context": {
+        "club_id": "k-slovan-bratislava",
+        "league": "manual",
+        "domestic_name": "Slovan",
+        "league_results": [
+          {
+            "date": "2026-08-01",
+            "home": "Slovan",
+            "away": "Podbrezova",
+            "home_goals": 3,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+          },
+          {
+            "date": "2026-08-15",
+            "home": "Slovan",
+            "away": "Ruzomberok",
+            "home_goals": 5,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+          },
+          {
+            "date": "2026-08-22",
+            "home": "Kosice",
+            "away": "Slovan",
+            "home_goals": 1,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Slovan",
+            "away": "Michalovce",
+            "home_goals": 1,
+            "away_goals": 2,
+            "points": 0,
+            "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "DAC",
+            "away": "Slovan",
+            "home_goals": 2,
+            "away_goals": 0,
+            "points": 0,
+            "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+          }
+        ],
+        "league_form_points": 9,
+        "form_matches": 5,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://www.skslovan.com/zapasy/index.php?season=202627",
+        "availability": [],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      }
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Sporting CP",
+      "away": "Galatasaray",
+      "home_id": "sporting-clube-de-portugal",
+      "away_id": "galatasaray-sk",
+      "referee": "Espen Eskås",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "home_context": {
+        "club_id": "sporting-clube-de-portugal",
+        "league": "P1",
+        "domestic_name": "Sp Lisbon",
+        "league_results": [
+          {
+            "date": "2026-08-08",
+            "home": "Estrela",
+            "away": "Sp Lisbon",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-08-14",
+            "home": "Sp Lisbon",
+            "away": "Guimaraes",
+            "home_goals": 3,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-08-22",
+            "home": "Sp Lisbon",
+            "away": "Alverca",
+            "home_goals": 3,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-08-28",
+            "home": "Rio Ave",
+            "away": "Sp Lisbon",
+            "home_goals": 0,
+            "away_goals": 4,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Sp Lisbon",
+            "away": "Nacional",
+            "home_goals": 2,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+          }
+        ],
+        "league_form_points": 13,
+        "form_matches": 5,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/P1.csv",
+        "availability": [
+          {
+            "player": "Nuno Santos",
+            "status": "out",
+            "position": "WB",
+            "source_detail": "Nuno Santos (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "João Simões",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "João Simões (foot)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Ba",
+            "status": "doubtful",
+            "position": "LW",
+            "source_detail": "Ba (knock)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      },
+      "away_context": {
+        "club_id": "galatasaray-sk",
+        "league": "T1",
+        "domestic_name": "Galatasaray",
+        "league_results": [
+          {
+            "date": "2026-08-14",
+            "home": "Galatasaray",
+            "away": "Corum",
+            "home_goals": 2,
+            "away_goals": 2,
+            "points": 1,
+            "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+          },
+          {
+            "date": "2026-08-21",
+            "home": "Erzurumspor",
+            "away": "Galatasaray",
+            "home_goals": 0,
+            "away_goals": 4,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+          },
+          {
+            "date": "2026-08-29",
+            "home": "Galatasaray",
+            "away": "Goztep",
+            "home_goals": 3,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+          },
+          {
+            "date": "2026-09-04",
+            "home": "Buyuksehyr",
+            "away": "Galatasaray",
+            "home_goals": 2,
+            "away_goals": 3,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+          }
+        ],
+        "league_form_points": 10,
+        "form_matches": 4,
+        "latest_competitive_date": "2026-09-04",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/T1.csv",
+        "availability": [
+          {
+            "player": "Günay Güvenç",
+            "status": "out",
+            "position": "GK",
+            "source_detail": "Günay Güvenç (muscular)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Lemina",
+            "status": "out",
+            "position": "DM",
+            "source_detail": "Lemina (adductor)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Osimhen",
+            "status": "out",
+            "position": "ST",
+            "source_detail": "Osimhen (adductor)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Singo",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Singo (thigh)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 5
+      }
+    },
+    {
+      "european_match_date": "2026-09-09",
+      "sydney_match_date": "2026-09-10",
+      "home": "Napoli",
+      "away": "Arsenal",
+      "home_id": "ssc-napoli",
+      "away_id": "arsenal-fc",
+      "referee": "Glenn Nyberg",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "home_context": {
+        "club_id": "ssc-napoli",
+        "league": "I1",
+        "domestic_name": "Napoli",
+        "league_results": [
+          {
+            "date": "2026-08-22",
+            "home": "Genoa",
+            "away": "Napoli",
+            "home_goals": 0,
+            "away_goals": 2,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+          },
+          {
+            "date": "2026-08-30",
+            "home": "Napoli",
+            "away": "Como",
+            "home_goals": 1,
+            "away_goals": 2,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+          },
+          {
+            "date": "2026-09-05",
+            "home": "Inter",
+            "away": "Napoli",
+            "home_goals": 3,
+            "away_goals": 2,
+            "points": 0,
+            "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+          }
+        ],
+        "league_form_points": 3,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-05",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/I1.csv",
+        "availability": [
+          {
+            "player": "McTominay",
+            "status": "out",
+            "position": "CM",
+            "source_detail": "McTominay (heart)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 4
+      },
+      "away_context": {
+        "club_id": "arsenal-fc",
+        "league": "E0",
+        "domestic_name": "Arsenal",
+        "league_results": [
+          {
+            "date": "2026-08-21",
+            "home": "Arsenal",
+            "away": "Coventry",
+            "home_goals": 3,
+            "away_goals": 0,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-08-31",
+            "home": "Aston Villa",
+            "away": "Arsenal",
+            "home_goals": 0,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          },
+          {
+            "date": "2026-09-06",
+            "home": "Arsenal",
+            "away": "Chelsea",
+            "home_goals": 2,
+            "away_goals": 1,
+            "points": 3,
+            "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+          }
+        ],
+        "league_form_points": 9,
+        "form_matches": 3,
+        "latest_competitive_date": "2026-09-06",
+        "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+        "availability": [
+          {
+            "player": "Saliba",
+            "status": "out",
+            "position": "CB",
+            "source_detail": "Saliba (back)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Mosquera",
+            "status": "doubtful",
+            "position": "CB",
+            "source_detail": "Mosquera (unspecified)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          },
+          {
+            "player": "Timber",
+            "status": "doubtful",
+            "position": "RB",
+            "source_detail": "Timber (groin)",
+            "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+            "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+            "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+          }
+        ],
+        "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+        "predicted_not_confirmed": true,
+        "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+        "rest_days": 3
+      }
+    }
+  ],
+  "raw_sha256": {
+    "NOR.csv": "75dc04a11c304c69ab551426e9b347cc4a65ffcca77696041876dd1fdb5eb344",
+    "B1.csv": "2c28800c0e72f4b41e0a9ced979e15bb07079edd9530bfe19f4da4347bcdd14c",
+    "N1.csv": "3ba370072bff65d4dd61a4a889693b7908699c6119524d923f1f496cbe0a8890",
+    "slovan_results.html": "e2cacb0719cfaf0405afeee709e26616dfa1c33a771f1ccf65f747451ec077ec",
+    "E0.csv": "763928b1d12abeae4dfdb9d092ff93c53a3153c646ae630bce503b6fd0413b2c",
+    "P1.csv": "a68b35103e0595fc45b04abac55f5eb87366601ee1f9fa63f4cf90c214fddc26",
+    "I1.csv": "69dcfbac0737da868ecf16149f6ee04df86d6c244c1a723b8b722a3fbc3b2634",
+    "AUT.csv": "ebb18fed2cc937a38227faf6e2819e3cda558cf84eb485772d969f0d7dacc6f3",
+    "SP1.csv": "deeed48a605c521dad8a6a50ff76e316f9904badb5493f3e6ac847c3468c59dc",
+    "madrid_press.html": "3bb07791a3bafb456490fa5eb94bd6971e509e69f3bfa47684cf2671049e8177",
+    "D1.csv": "24cfdc9cd7fba0c73ca5205002f5d212aedd178f7d47274432a793c858dd4747",
+    "G1.csv": "2d23d7cfa8c97da853a5e70779123da9eee6cc83889ac47bb302ddce6941edbe",
+    "madrid_training.html": "298a3d4c7ed1cbda778a3abbb906c9c56f57e3a9488f4a6b6b4107a2046cd6ae",
+    "uefa_team_news.html": "6b11ceedc10a256772989ecbdc790b12062c291487f6b44b89de8064ab595d61",
+    "F1.csv": "f72eeb1823885d80fce09a170695b979df1002e92731c50c15fbf8580c97b35e",
+    "dimarco.html": "98163800b886a73cd3c498dc6095c86c92a74440e2b6718f2ba66fa7b4072e5a",
+    "T1.csv": "d208797586a0def53b07a21ea6fcd00d3c272d45e45184931d0811392058668d"
+  }
+}

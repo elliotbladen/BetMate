@@ -59,13 +59,18 @@ def _blend_matrix(matrix, target):
         if s > 0: out[mask] *= p / s
     return out / out.sum()
 
-def price(home, away, ratings, elo=None, matches=None, as_of=None, elo_weight=0.30, tier_params=None):
+def price(home, away, ratings, elo=None, matches=None, as_of=None, elo_weight=0.30, tier_params=None, context=None):
     if not ratings: raise ValueError("insufficient pre-match UCL history")
     lam,mu=dixon_coles.expected_goals(home,away,ratings)
     tier_audit = None
-    if matches is not None and as_of is not None:
-        fh, rh = _form_rest(matches, home, pd.Timestamp(as_of)); fa, ra = _form_rest(matches, away, pd.Timestamp(as_of))
-        ctx = MatchContext(TeamState(home, form5_pts=fh, rest_days=rh), TeamState(away, form5_pts=fa, rest_days=ra))
+    if context is not None or (matches is not None and as_of is not None):
+        if context is not None:
+            if context.home.name != home or context.away.name != away:
+                raise ValueError("UCL context teams do not match the priced fixture")
+            ctx = context
+        else:
+            fh, rh = _form_rest(matches, home, pd.Timestamp(as_of)); fa, ra = _form_rest(matches, away, pd.Timestamp(as_of))
+            ctx = MatchContext(TeamState(home, form5_pts=fh, rest_days=rh), TeamState(away, form5_pts=fa, rest_days=ra))
         adj = apply_all_tiers(lam, mu, ctx, tier_params or TierParams())
         lam, mu, tier_audit = adj.lam_final, adj.mu_final, adj
     matrix=dixon_coles.build_scoreline_matrix(lam,mu,rho=ratings.get("rho",dixon_coles.RHO))

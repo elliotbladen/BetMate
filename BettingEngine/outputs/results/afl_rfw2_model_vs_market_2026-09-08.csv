@@ -1,0 +1,4 @@
+placed,sport,round,game,market,selection,odds_taken,close_odds,line,close_line,clv_basis,clv_pct,clv_line,score,total,result,stake_u,pnl_u
+yes,AFL,FW2,Adelaide v Western Bulldogs,handicap,Adelaide Crows (-15.5),1.9,1.771,-15.5,-18.5,line-adj,7.31,3.0,90-68,158,win,0.5,0.45
+yes,AFL,FW2,Sydney v Brisbane,handicap,Sydney Swans (+24.5),1.9,1.855,24.5,23.5,line-adj,2.44,1.0,141-88,229,win,0.5,0.45
+yes,AFL,FW2,Fremantle v Hawthorn,total,Over (+162.5),1.87,1.66,162.5,167.5,line-adj,12.63,5.0,40-72,112,loss,0.5,-0.5

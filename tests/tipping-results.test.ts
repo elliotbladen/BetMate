@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { findCurrentGameweek, gameweeksToSyncOnTransition, mapEspnGames, matchCompletedFixtures, type ApiGame } from '../lib/tippingResults';
-import { EPL_SEASON_FIXTURES, getEplFixtures } from '../lib/tipping';
+import { EPL_SEASON_FIXTURES, getEplFixtures, getValidTipSelections } from '../lib/tipping';
 
 const EPL_GW1_FIXTURES = getEplFixtures(1);
 
@@ -69,6 +69,26 @@ test('the active round and its next round both have complete fixture cards', () 
   assert.equal(getEplFixtures(39).length, 0);
   assert.equal(getEplFixtures(1).find(fixture => fixture.id === 'epl-2627-gw1-3')?.home_team, 'Everton');
   assert.equal(getEplFixtures(1).find(fixture => fixture.id === 'epl-2627-gw1-5')?.home_team, 'Nottingham Forest');
+});
+
+test('tip submissions accept only unique fixtures from the stated gameweek', () => {
+  const gw3 = getEplFixtures(3);
+  const valid = getValidTipSelections(3, [
+    { game_id: gw3[0].id, selection: 'home' },
+    { game_id: gw3[1].id, selection: 'draw' },
+  ]);
+  assert.deepEqual(valid.map(tip => tip.fixture.id), [gw3[0].id, gw3[1].id]);
+
+  assert.equal(getValidTipSelections(3, [
+    { game_id: getEplFixtures(2)[0].id, selection: 'away' },
+  ]).length, 0);
+  assert.equal(getValidTipSelections(3, [
+    { game_id: gw3[0].id, selection: 'home' },
+    { game_id: gw3[0].id, selection: 'away' },
+  ]).length, 1);
+  assert.equal(getValidTipSelections(3, [
+    { game_id: gw3[0].id, selection: 'invalid' },
+  ]).length, 0);
 });
 
 test('rolling window advances only after the final match and stops after week 38', () => {

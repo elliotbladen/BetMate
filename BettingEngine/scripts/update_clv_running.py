@@ -30,7 +30,7 @@ SEASON = 2026
 
 CLV_FILE        = ROOT / "data/clv/running/actual_bets_clv_2026.csv"
 BETS_FILE       = ROOT / "data/bets/actual_bets_2026.csv"
-SUPPLEMENT_FILE = ROOT / "data/clv/running/model_clv_supplement_nrl_2026.csv"
+SUPPLEMENT_GLOB = "model_clv_supplement_*_2026.csv"
 OUT_DIR         = ROOT / "data/clv/running"
 
 
@@ -60,22 +60,22 @@ def load_clv_bets() -> list[dict]:
 def load_supplement() -> dict[str, list[dict]]:
     """
     Return {sport_upper: [{week_ending, round, clv, result}, ...]}
-    from model_clv_supplement_nrl_2026.csv.
-    Used for rounds where no actual bets were tracked.
+    from every data/clv/running/model_clv_supplement_*_2026.csv file.
+    Used for rounds where no actual bets were tracked — model-vs-market
+    (paper) selections carry CLV but no P&L.
     """
     result: dict[str, list[dict]] = defaultdict(list)
-    if not SUPPLEMENT_FILE.exists():
-        return result
-    with open(SUPPLEMENT_FILE, newline="", encoding="utf-8-sig") as f:
-        for row in csv.DictReader(f):
-            if row.get("clv_pct", "").strip() not in ("", "None"):
-                result[row["sport"].upper()].append({
-                    "week_ending": row["week_ending"],
-                    "round":       row["round"],
-                    "clv":         float(row["clv_pct"]),
-                    "pnl":         0.0,
-                    "result":      row.get("result", ""),
-                })
+    for path in sorted(OUT_DIR.glob(SUPPLEMENT_GLOB)):
+        with open(path, newline="", encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                if row.get("clv_pct", "").strip() not in ("", "None"):
+                    result[row["sport"].upper()].append({
+                        "week_ending": row["week_ending"],
+                        "round":       row["round"],
+                        "clv":         float(row["clv_pct"]),
+                        "pnl":         0.0,
+                        "result":      row.get("result", ""),
+                    })
     return result
 
 

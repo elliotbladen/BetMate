@@ -1,0 +1,10 @@
+{
+  "downloaded_at": "2026-09-08T09:49:31",
+  "source_page_url": "https://www.aussportsbetting.com/data/historical-nfl-results-and-odds-data/",
+  "workbook_url": "https://www.aussportsbetting.com/historical_data/nfl.xlsx",
+  "method": "http",
+  "latest_path": "data/nfl/historical_odds/raw/latest.xlsx",
+  "archived_path": "data/nfl/historical_odds/raw/nfl_20260908_094929.xlsx",
+  "file_size_bytes": 847349,
+  "worksheet_count": 2
+}

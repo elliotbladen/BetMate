@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
 import { getAuthenticatedUser } from '@/lib/authServer';
+import { EPL_SEASON_FIXTURES } from '@/lib/tipping';
 
 export async function GET(request: Request) {
   if (!await getAuthenticatedUser()) {
@@ -17,11 +18,19 @@ export async function GET(request: Request) {
   if (entriesErr) {
     return NextResponse.json({ leaderboard: [], error: entriesErr.message }, { status: 500 });
   }
-  let tipsQuery = supabase.from('tipping_tips').select('user_id, points').eq('comp_id', compId);
-  if (gw) tipsQuery = tipsQuery.eq('gameweek', parseInt(gw, 10));
+  const gameweek = gw == null ? null : Number(gw);
+  if (gameweek != null && (!Number.isInteger(gameweek) || gameweek < 1 || gameweek > 38)) {
+    return NextResponse.json({ leaderboard: [], error: 'Invalid gameweek' }, { status: 400 });
+  }
+  let tipsQuery = supabase.from('tipping_tips').select('user_id, gameweek, game_id, points').eq('comp_id', compId);
+  if (gameweek != null) tipsQuery = tipsQuery.eq('gameweek', gameweek);
   const { data: tips } = await tipsQuery;
+  const fixtureGameweeks = new Map(EPL_SEASON_FIXTURES.map(fixture => [fixture.id, fixture.gameweek]));
   const tipStats: Record<string, { correct: number; total: number }> = {};
   for (const tip of tips ?? []) {
+    // Ignore malformed legacy rows so one member's bad submission can never
+    // inflate a round or affect the statistics shown for other entrants.
+    if (fixtureGameweeks.get(tip.game_id) !== tip.gameweek) continue;
     if (!tipStats[tip.user_id]) tipStats[tip.user_id] = { correct: 0, total: 0 };
     tipStats[tip.user_id].total++;
     if (tip.points > 0) tipStats[tip.user_id].correct++;

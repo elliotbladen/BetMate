@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase';
 import type { Fixture, TipSelection, LeaderboardRow, TippingComp } from '@/lib/tipping';
 import { getEplFixtures, isGameweekLocked } from '@/lib/tipping';
 import { EPL_TEAMS } from '@/lib/soccerTeams';
+import StreakCelebration from '@/components/tipping/StreakCelebration';
 
 // ─── Team badge helper ───────────────────────────────────────────────────────
 function TeamBadge({ name, selected, onClick, label }: {
@@ -326,6 +327,25 @@ function NextRoundPreview({ gameweek }: { gameweek: number }) {
   );
 }
 
+// ─── Streak detection ────────────────────────────────────────────────────────
+// Counts consecutive correct tips from the most recent scored game backwards
+// (kickoff order). Only looks within the current gameweek for now.
+function getCurrentStreak(
+  fixtures: Fixture[],
+  grades: Record<string, { result: TipSelection | null; points: number | null }>,
+): number {
+  const sorted = [...fixtures].sort(
+    (a, b) => new Date(a.kickoff).getTime() - new Date(b.kickoff).getTime(),
+  );
+  const scored = sorted.filter(f => grades[f.id]?.result != null);
+  let streak = 0;
+  for (let i = scored.length - 1; i >= 0; i--) {
+    if ((grades[scored[i].id]?.points ?? 0) > 0) streak++;
+    else break;
+  }
+  return streak;
+}
+
 // ─── Main Page ───────────────────────────────────────────────────────────────
 export default function TippingPage() {
   const [tab, setTab] = useState<'tips' | 'leaderboard'>('tips');
@@ -345,6 +365,7 @@ export default function TippingPage() {
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
+  const [celebrationStreak, setCelebrationStreak] = useState(0);
 
   // Get auth state + check comp membership from database
   useEffect(() => {
@@ -435,6 +456,8 @@ export default function TippingPage() {
   // Load existing tips if joined
   const loadTips = useCallback(() => {
     if (!comp || !userId) return;
+    setTips({});
+    setTipGrades({});
     fetch(`/api/tipping/tips?comp_id=${comp.id}&user_id=${userId}&gameweek=${gameweek}`)
       .then(r => r.json())
       .then(d => {
@@ -471,6 +494,29 @@ export default function TippingPage() {
     const timer = window.setInterval(loadLeaderboard, 5 * 60 * 1000);
     return () => window.clearInterval(timer);
   }, [comp, tab, gameweek]);
+
+  // Streak celebration — fires when the running streak of correct tips hits 5, 7, or 10
+  const handleCelebrationDismiss = useCallback(() => setCelebrationStreak(0), []);
+
+  useEffect(() => {
+    // ?test-streak=5 (or 7 or 10) lets you preview the celebration over the real UI
+    const params = new URLSearchParams(window.location.search);
+    const testStreak = parseInt(params.get('test-streak') ?? '', 10);
+    if ([5, 7, 10].includes(testStreak)) {
+      setCelebrationStreak(testStreak);
+      return;
+    }
+
+    if (fixtures.length === 0) return;
+    const streak = getCurrentStreak(fixtures, tipGrades);
+    const tier = [10, 7, 5].find(t => streak >= t);
+    if (!tier) return;
+    const key = `streak_gw${gameweek}_t${tier}`;
+    if (!localStorage.getItem(key)) {
+      setCelebrationStreak(streak);
+      localStorage.setItem(key, '1');
+    }
+  }, [fixtures, tipGrades, gameweek]);
 
   // Join comp
   const handleJoin = async () => {
@@ -516,12 +562,13 @@ export default function TippingPage() {
     setSaving(true);
     setSaved(false);
 
-    const tipArray = Object.entries(tips).map(([game_id, selection]) => {
-      const fix = fixtures.find(f => f.id === game_id);
+    const fixtureIds = new Set(fixtures.map(fixture => fixture.id));
+    const tipArray = Object.entries(tips).filter(([game_id]) => fixtureIds.has(game_id)).map(([game_id, selection]) => {
+      const fix = fixtures.find(f => f.id === game_id)!;
       return {
         game_id,
-        home_team: fix?.home_team ?? '',
-        away_team: fix?.away_team ?? '',
+        home_team: fix.home_team,
+        away_team: fix.away_team,
         selection,
       };
     });
@@ -663,6 +710,9 @@ export default function TippingPage() {
   // ─── Joined — main tipping view ──────────────────────────────────────────
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
+      {celebrationStreak >= 5 && (
+        <StreakCelebration streak={celebrationStreak} onDismiss={handleCelebrationDismiss} />
+      )}
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div>

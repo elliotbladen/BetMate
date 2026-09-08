@@ -103,6 +103,23 @@ export function getEplFixtures(gameweek: number): Fixture[] {
   return EPL_SEASON_FIXTURES.filter(fixture => fixture.gameweek === gameweek);
 }
 
+export function getValidTipSelections(
+  gameweek: number,
+  tips: Array<{ game_id?: unknown; selection?: unknown }>,
+): Array<{ fixture: Fixture; selection: TipSelection }> {
+  const fixturesById = new Map(getEplFixtures(gameweek).map(fixture => [fixture.id, fixture]));
+  const validSelections = new Set<TipSelection>(['home', 'draw', 'away']);
+  const seenGameIds = new Set<string>();
+
+  return tips.flatMap(tip => {
+    if (typeof tip.game_id !== 'string' || !validSelections.has(tip.selection as TipSelection)) return [];
+    const fixture = fixturesById.get(tip.game_id);
+    if (!fixture || seenGameIds.has(fixture.id)) return [];
+    seenGameIds.add(fixture.id);
+    return [{ fixture, selection: tip.selection as TipSelection }];
+  });
+}
+
 // Supabase SQL for table creation (run once in Supabase SQL editor):
 //
 // CREATE TABLE tipping_comps (

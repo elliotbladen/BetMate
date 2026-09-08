@@ -1,0 +1,10 @@
+placed,sport,round,game,market,selection,odds_taken,close_odds,line,close_line,clv_basis,clv_pct,clv_line,score,total,result,stake_u,pnl_u
+yes,NRL,27,South Sydney Rabbitohs v Sydney Roosters,handicap,Sydney Roosters (+21.5),1.9,1.9,21.5,21.5,line-adj,-0.0,0.0,50-20,70,loss,0.5,-0.5
+yes,NRL,27,Cronulla Sharks v Melbourne Storm,handicap,Cronulla Sharks (+8.5),1.89,2.203,8.5,11.5,line-adj,-14.22,-3.0,20-24,44,win,0.5,0.445
+yes,NRL,27,Gold Coast Titans v Dolphins,handicap,Gold Coast Titans (+12.5),1.9,1.816,12.5,11.5,line-adj,4.61,1.0,20-24,44,win,0.5,0.45
+yes,NRL,27,Cronulla Sharks v Melbourne Storm,total,Under (+51.5),1.97,1.9,51.5,51.5,line-adj,3.68,0.0,20-24,44,win,0.5,0.485
+no,NRL,27,Gold Coast Titans v Dolphins,h2h,Gold Coast Titans,4.1,3.7,,,price,10.81,,20-24,44,loss,1.0,-1.0
+no,NRL,27,New Zealand Warriors v Manly Sea Eagles,h2h,Manly Sea Eagles,3.5,3.55,,,price,-1.41,,31-30,61,loss,1.0,-1.0
+no,NRL,27,North QLD Cowboys v Canberra Raiders,h2h,Canberra Raiders,2.8,2.6,,,price,7.69,,30-50,80,win,1.0,1.8
+no,NRL,27,Penrith Panthers v Wests Tigers,h2h,Penrith Panthers,1.39,1.1,,,price,26.36,,38-10,48,win,1.0,0.39
+no,NRL,27,Canterbury Bulldogs v Brisbane Broncos,h2h,Brisbane Broncos,3.5,2.85,,,price,22.81,,20-34,54,win,1.0,2.5

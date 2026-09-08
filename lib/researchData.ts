@@ -876,6 +876,10 @@ export const AFL_MODEL_BETS: ModelBet[] = [
   { id:103, date:'2026-08-22', match:'Carlton Blues vs Fremantle Dockers',                   market:'Fremantle -10.5',        predictedLine:null,  takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:1.86   },
   { id:104, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 177.5',            predictedLine:null,  takenPrice:1.89, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:0.86   },
   { id:105, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 176.5',            predictedLine:null,  takenPrice:1.88, closingPrice:null, result:'loss', plUnits:-1.00,  runningTotal:-0.14  },
+  // Finals Week 2 (Sep 3-5) — Monte Carlo card, 0.5u flat. 2W 1L.
+  { id:106, date:'2026-09-05', match:'Adelaide Crows vs Western Bulldogs',                    market:'Adelaide -15.5',         predictedLine:null,  takenPrice:1.90, closingPrice:1.87, clv:3.0, clvLabel:'+3.0 pts', result:'win',  plUnits:0.45,  runningTotal:0.31   },
+  { id:107, date:'2026-09-05', match:'Sydney Swans vs Brisbane Lions',                        market:'Sydney +24.5',           predictedLine:null,  takenPrice:1.90, closingPrice:1.95, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.45,  runningTotal:0.76   },
+  { id:108, date:'2026-09-03', match:'Fremantle Dockers vs Hawthorn Hawks',                   market:'Over 162.5',             predictedLine:184.7, takenPrice:1.87, closingPrice:1.85, clv:5.0, clvLabel:'+5.0 pts', result:'loss', plUnits:-0.50, runningTotal:0.26   },
 ];
 
 // ─── NRL Betting Model (separate tab) ────────────────────────────────────────
@@ -993,4 +997,9 @@ export const MODEL_BETS: ModelBet[] = [
   { id:94, date:'2026-08-21', match:'NRL Multi (3 Legs)',                                    market:'Multi @ 2.02',           predictedLine:null,  takenPrice:2.02, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:1.83  },
   { id:95, date:'2026-08-22', match:'South Sydney Rabbitohs vs New Zealand Warriors',       market:'Warriors -3.5',          predictedLine:null,  takenPrice:1.83, closingPrice:null, result:'win',  plUnits:0.42,  runningTotal:2.25  },
   { id:96, date:'2026-08-22', match:'St George Illawarra Dragons vs Canterbury Bulldogs',    market:'Under 43.5',             predictedLine:null,  takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:1.25  },
+  // R27 (Sep 3-6) — finals-eve round, 0.5u flat. 3W 1L.
+  { id:97,  date:'2026-09-04', match:'South Sydney Rabbitohs vs Sydney Roosters',            market:'Roosters +21.5',         predictedLine:null,  takenPrice:1.90, closingPrice:1.95, clv:0.0, clvLabel:'0.0 pts', result:'loss', plUnits:-0.50, runningTotal:0.75  },
+  { id:98,  date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                   market:'Sharks +8.5',            predictedLine:null,  takenPrice:1.89, closingPrice:1.90, clv:-3.0, clvLabel:'-3.0 pts', result:'win',  plUnits:0.45,  runningTotal:1.20  },
+  { id:99,  date:'2026-09-04', match:'Gold Coast Titans vs Dolphins',                        market:'Titans +12.5',           predictedLine:null,  takenPrice:1.90, closingPrice:1.95, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.45,  runningTotal:1.65  },
+  { id:100, date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                   market:'Under 51.5',             predictedLine:null,  takenPrice:1.97, closingPrice:2.20, clv:0.0, clvLabel:'0.0 pts', result:'win',  plUnits:0.49,  runningTotal:2.14  },
 ];

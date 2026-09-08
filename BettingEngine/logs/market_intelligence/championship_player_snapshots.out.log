@@ -4879,3 +4879,370 @@
     "snapshot_id": null
   }
 ]
+[
+  {
+    "event_id": "401880311",
+    "home": "Derby",
+    "away": "Swansea",
+    "kickoff": "2026-08-29T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880310",
+    "home": "Middlesbrough",
+    "away": "West Brom",
+    "kickoff": "2026-08-29T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880306",
+    "home": "Wolves",
+    "away": "Stoke",
+    "kickoff": "2026-08-29T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880316",
+    "home": "Blackburn",
+    "away": "QPR",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880315",
+    "home": "Bolton",
+    "away": "Lincoln",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880314",
+    "home": "Bristol City",
+    "away": "Portsmouth",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880313",
+    "home": "Cardiff",
+    "away": "Sheffield United",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880312",
+    "home": "Charlton",
+    "away": "Preston",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880309",
+    "home": "Norwich",
+    "away": "Burnley",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880308",
+    "home": "Southampton",
+    "away": "Millwall",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880307",
+    "home": "Watford",
+    "away": "West Ham",
+    "kickoff": "2026-08-29T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  }
+]
+[]
+[]
+[
+  {
+    "event_id": "401880295",
+    "home": "Millwall",
+    "away": "Wrexham",
+    "kickoff": "2026-09-02T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880294",
+    "home": "QPR",
+    "away": "Cardiff",
+    "kickoff": "2026-09-02T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880293",
+    "home": "West Brom",
+    "away": "Charlton",
+    "kickoff": "2026-09-02T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880296",
+    "home": "Burnley",
+    "away": "Middlesbrough",
+    "kickoff": "2026-09-02T19:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  }
+]
+[
+  {
+    "event_id": "401880290",
+    "home": "Lincoln",
+    "away": "Southampton",
+    "kickoff": "2026-09-05T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880287",
+    "home": "Preston",
+    "away": "Blackburn",
+    "kickoff": "2026-09-05T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880284",
+    "home": "Stoke",
+    "away": "Charlton",
+    "kickoff": "2026-09-05T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880291",
+    "home": "Burnley",
+    "away": "Bristol City",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880289",
+    "home": "Millwall",
+    "away": "Bolton",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880288",
+    "home": "Portsmouth",
+    "away": "Cardiff",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880286",
+    "home": "QPR",
+    "away": "Middlesbrough",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880285",
+    "home": "Sheffield United",
+    "away": "Norwich",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880282",
+    "home": "West Brom",
+    "away": "Watford",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880281",
+    "home": "West Ham",
+    "away": "Derby",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880283",
+    "home": "Swansea",
+    "away": "Wrexham",
+    "kickoff": "2026-09-05T19:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  }
+]
+[
+  {
+    "event_id": "401880290",
+    "home": "Lincoln",
+    "away": "Southampton",
+    "kickoff": "2026-09-05T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880287",
+    "home": "Preston",
+    "away": "Blackburn",
+    "kickoff": "2026-09-05T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880284",
+    "home": "Stoke",
+    "away": "Charlton",
+    "kickoff": "2026-09-05T11:30Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880291",
+    "home": "Burnley",
+    "away": "Bristol City",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880289",
+    "home": "Millwall",
+    "away": "Bolton",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880288",
+    "home": "Portsmouth",
+    "away": "Cardiff",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880286",
+    "home": "QPR",
+    "away": "Middlesbrough",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880285",
+    "home": "Sheffield United",
+    "away": "Norwich",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880282",
+    "home": "West Brom",
+    "away": "Watford",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880281",
+    "home": "West Ham",
+    "away": "Derby",
+    "kickoff": "2026-09-05T14:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880283",
+    "home": "Swansea",
+    "away": "Wrexham",
+    "kickoff": "2026-09-05T19:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  }
+]
+[
+  {
+    "event_id": "401880292",
+    "home": "Birmingham",
+    "away": "Wolves",
+    "kickoff": "2026-09-06T11:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  }
+]
+[]
+[
+  {
+    "event_id": "401880276",
+    "home": "Blackburn",
+    "away": "Sheffield United",
+    "kickoff": "2026-09-08T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880273",
+    "home": "Cardiff",
+    "away": "Stoke",
+    "kickoff": "2026-09-08T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880279",
+    "home": "Southampton",
+    "away": "Swansea",
+    "kickoff": "2026-09-08T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880278",
+    "home": "Watford",
+    "away": "Preston",
+    "kickoff": "2026-09-08T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880269",
+    "home": "Wrexham",
+    "away": "Burnley",
+    "kickoff": "2026-09-08T18:45Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  },
+  {
+    "event_id": "401880275",
+    "home": "Bolton",
+    "away": "West Ham",
+    "kickoff": "2026-09-08T19:00Z",
+    "status": "WAITING_FOR_OFFICIAL_XI",
+    "snapshot_id": null
+  }
+]

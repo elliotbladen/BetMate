@@ -1,0 +1,13 @@
+week_ending,sport,round,home_team,away_team,market,selection,side,line,odds_taken,model_prob,source,placed,stake_u
+2026-09-06,NRL,27,Gold Coast Titans,Dolphins,h2h,Gold Coast Titans,H,,4.10,0.359,nrl_round27_2026_h2h_10pct_ev.md,no,0
+2026-09-06,NRL,27,New Zealand Warriors,Manly Sea Eagles,h2h,Manly Sea Eagles,A,,3.50,0.342,nrl_round27_2026_h2h_10pct_ev.md,no,0
+2026-09-06,NRL,27,North QLD Cowboys,Canberra Raiders,h2h,Canberra Raiders,A,,2.80,0.418,nrl_round27_2026_h2h_10pct_ev.md,no,0
+2026-09-06,NRL,27,Penrith Panthers,Wests Tigers,h2h,Penrith Panthers,H,,1.39,0.834,nrl_round27_2026_h2h_10pct_ev.md,no,0
+2026-09-06,NRL,27,Canterbury Bulldogs,Brisbane Broncos,h2h,Brisbane Broncos,A,,3.50,0.324,nrl_round27_2026_h2h_10pct_ev.md,no,0
+2026-09-06,NRL,27,South Sydney Rabbitohs,Sydney Roosters,handicap,Sydney Roosters,A,21.5,1.90,0.775,nrl_round27_2026_handicap_10pct_ev.md,yes,0.5
+2026-09-06,NRL,27,Cronulla Sharks,Melbourne Storm,handicap,Cronulla Sharks,H,8.5,1.89,0.750,nrl_round27_2026_handicap_10pct_ev.md,yes,0.5
+2026-09-06,NRL,27,Gold Coast Titans,Dolphins,handicap,Gold Coast Titans,H,12.5,1.90,0.584,nrl_round27_2026_handicap_10pct_ev.md,yes,0.5
+2026-09-06,NRL,27,Cronulla Sharks,Melbourne Storm,total,Under,under,51.5,1.97,0.572,nrl_round27_2026_totals_saved.md,yes,0.5
+2026-09-06,AFL,FW2,Adelaide,Western Bulldogs,handicap,Adelaide Crows,H,-15.5,1.90,0.765,afl_finals_week2_2026_saved_bets.md,yes,0.5
+2026-09-06,AFL,FW2,Sydney,Brisbane,handicap,Sydney Swans,H,24.5,1.90,0.829,afl_finals_week2_2026_saved_bets.md,yes,0.5
+2026-09-06,AFL,FW2,Fremantle,Hawthorn,total,Over,over,162.5,1.87,0.773,afl_finals_week2_2026_saved_bets.md,yes,0.5

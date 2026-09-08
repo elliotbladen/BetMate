@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabaseServer';
-import type { TipSelection } from '@/lib/tipping';
-import { getEplFixtures, isGameweekLocked } from '@/lib/tipping';
+import { getEplFixtures, getValidTipSelections, isGameweekLocked } from '@/lib/tipping';
 import { getAuthenticatedUser } from '@/lib/authServer';
 import { syncTippingResults } from '@/lib/tippingResults';
 
@@ -51,30 +50,34 @@ export async function POST(request: Request) {
     const user = await getAuthenticatedUser();
     if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
     const { comp_id, gameweek, tips } = await request.json();
-    if (!comp_id || !gameweek || !Array.isArray(tips)) {
+    if (!comp_id || !Number.isInteger(gameweek) || !Array.isArray(tips)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
     const supabase = createServerClient();
     const fixtures = getFixtures(gameweek);
+    if (fixtures.length === 0) {
+      return NextResponse.json({ error: `No fixtures found for GW${gameweek}` }, { status: 404 });
+    }
     if (isGameweekLocked(fixtures)) {
       return NextResponse.json(
         { error: 'This gameweek is locked because the first game has kicked off' },
         { status: 423 }
       );
     }
+    const validTips = getValidTipSelections(gameweek, tips);
+    if (validTips.length !== tips.length) {
+      return NextResponse.json({ error: 'One or more tips do not belong to this gameweek' }, { status: 400 });
+    }
     const results = [];
-    for (const tip of tips) {
-      const { game_id, home_team, away_team, selection } = tip;
-      if (!game_id || !selection) continue;
-      const validSelections: TipSelection[] = ['home', 'draw', 'away'];
-      if (!validSelections.includes(selection)) continue;
+    for (const { fixture, selection } of validTips) {
+      const game_id = fixture.id;
       const { data, error } = await supabase.from('tipping_tips').upsert({
         comp_id,
         user_id: user.id,
         gameweek,
         game_id,
-        home_team,
-        away_team,
+        home_team: fixture.home_team,
+        away_team: fixture.away_team,
         selection,
         submitted_at: new Date().toISOString(),
       }, { onConflict: 'comp_id,user_id,game_id' }).select();
