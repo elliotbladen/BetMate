@@ -315,14 +315,6 @@ export const LEGACY_BETS: LegacyBet[] = [
   { id:265, date:'2026-03-01', match:'Arsenal vs Chelsea',            market:'Draw',              odds:1.9, closingOdds:null, result:'loss', cumPL:10.25, sport:'FOOTBALL', notes:'' },
   { id:266, date:'2026-03-01', match:'Arsenal vs Chelsea',            market:'Over 3.5 Cards',    odds:1.5, closingOdds:null, result:'win',  cumPL:10.75, sport:'FOOTBALL', notes:'' },
   { id:267, date:'2026-03-05', match:'Tottenham vs Crystal Palace',   market:'Draw',              odds:1.9, closingOdds:null, result:'loss', cumPL:9.75, sport:'FOOTBALL', notes:'' },
-  // ─── Finals weekend, Sep 3-6 2026 — NRL R27 + AFL Finals Week 2, 0.5u flat ──
-  { id:268, date:'2026-09-03', match:'Fremantle vs Hawthorn',              market:'Over 162.5',       odds:1.87, closingOdds:1.85, clv:5.0,  clvLabel:'+5.0 pts', result:'loss', cumPL:9.25,  sport:'AFL', notes:'Model total 184.7 vs line 162.5. Actual 112 — worst totals miss of the weekend.' },
-  { id:269, date:'2026-09-04', match:'Rabbitohs vs Roosters',              market:'Roosters +21.5',   odds:1.90, closingOdds:1.95, clv:0.0,  clvLabel:'0.0 pts',  result:'loss', cumPL:8.75,  sport:'NRL', notes:'Lost by 30. Model had it near a coin flip — late-season rotation not priced.' },
-  { id:270, date:'2026-09-04', match:'Titans vs Dolphins',                 market:'Titans +12.5',     odds:1.90, closingOdds:1.95, clv:1.0,  clvLabel:'+1.0 pts', result:'win',  cumPL:9.20,  sport:'NRL', notes:'Lost by 4. Line closed 11.5, took 12.5.' },
-  { id:271, date:'2026-09-05', match:'Sharks vs Storm',                    market:'Sharks +8.5',      odds:1.89, closingOdds:1.90, clv:-3.0, clvLabel:'-3.0 pts', result:'win',  cumPL:9.65,  sport:'NRL', notes:'Won by 4-point margin sitting inside the 3pt line we gave up. Worst CLV of the week.' },
-  { id:272, date:'2026-09-05', match:'Sharks vs Storm',                    market:'Under 51.5',       odds:1.97, closingOdds:2.20, clv:0.0,  clvLabel:'0.0 pts',  result:'win',  cumPL:10.14, sport:'NRL', notes:'Actual 44. Line never moved; price drifted against us.' },
-  { id:273, date:'2026-09-05', match:'Adelaide vs Western Bulldogs',       market:'Adelaide -15.5',   odds:1.90, closingOdds:1.87, clv:3.0,  clvLabel:'+3.0 pts', result:'win',  cumPL:10.59, sport:'AFL', notes:'Won by 22. Took -15.5, closed -18.5.' },
-  { id:274, date:'2026-09-05', match:'Sydney vs Brisbane',                 market:'Sydney +24.5',     odds:1.90, closingOdds:1.95, clv:1.0,  clvLabel:'+1.0 pts', result:'win',  cumPL:11.04, sport:'AFL', notes:'Sydney won by 53 as a 24.5 dog. Flagged pre-game as high model-risk.' },
 ];
 
 // ─── Section 2: Sports Betting diary — structured bets Mar-Apr 2026 ──────────
@@ -749,6 +741,22 @@ LEGACY_BETS.push(
   // AFL R24 — Sat 23 Aug (Essendon vs Port Adelaide)
   { id:532, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 177.5',          odds:1.89, closingOdds:null, result:'loss', cumPL:26.06, sport:'AFL',      notes:'Stake $50. No return. Total 199.' },
   { id:533, date:'2026-08-23', match:'Essendon Bombers vs Port Adelaide Power',              market:'Under 176.5',          odds:1.88, closingOdds:null, result:'loss', cumPL:25.06, sport:'AFL',      notes:'Stake $50. No return. Total 199. Port won 104-95.' },
+);
+
+// ─── Finals weekend, Sep 3-6 2026 — NRL R27 + AFL Finals Week 2 ───────────────
+// 0.5u flat ($25) on all seven. cumPL continues from id:533 (25.06).
+LEGACY_BETS.push(
+  // AFL Finals Week 2 — Thu 3 Sep
+  { id:534, date:'2026-09-03', match:'Fremantle Dockers vs Hawthorn Hawks',                 market:'Over 162.5',           odds:1.87, closingOdds:1.85, clv:5.0,  clvLabel:'+5.0 pts', result:'loss', cumPL:24.56, sport:'AFL',   notes:'Stake $25. No return. Model total 184.7, line closed 167.5, actual 112.' },
+  // NRL R27 — Fri 4 Sep
+  { id:535, date:'2026-09-04', match:'South Sydney Rabbitohs vs Sydney Roosters',           market:'Roosters +21.5',       odds:1.90, closingOdds:1.95, clv:0.0,  clvLabel:'0.0 pts',  result:'loss', cumPL:24.06, sport:'NRL',   notes:'Stake $25. No return. Roosters lost by 30. Rotation not priced.' },
+  { id:536, date:'2026-09-04', match:'Gold Coast Titans vs Dolphins',                       market:'Titans +12.5',         odds:1.90, closingOdds:1.95, clv:1.0,  clvLabel:'+1.0 pts', result:'win',  cumPL:24.51, sport:'NRL',   notes:'Stake $25. Return $47.50. Titans lost by 4, line closed 11.5.' },
+  // NRL R27 — Sat 5 Sep
+  { id:537, date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                  market:'Sharks +8.5',          odds:1.89, closingOdds:1.90, clv:-3.0, clvLabel:'-3.0 pts', result:'win',  cumPL:24.96, sport:'NRL',   notes:'Stake $25. Return $47.25. Lost by 4 — inside the 3pt line given up vs close.' },
+  { id:538, date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                  market:'Under 51.5',           odds:1.97, closingOdds:2.20, clv:0.0,  clvLabel:'0.0 pts',  result:'win',  cumPL:25.45, sport:'NRL',   notes:'Stake $25. Return $49.25. Total 44. Line static, price drifted out.' },
+  // AFL Finals Week 2 — Sat 5 Sep
+  { id:539, date:'2026-09-05', match:'Adelaide Crows vs Western Bulldogs',                  market:'Adelaide -15.5',       odds:1.90, closingOdds:1.87, clv:3.0,  clvLabel:'+3.0 pts', result:'win',  cumPL:25.90, sport:'AFL',   notes:'Stake $25. Return $47.50. Won by 22, line closed -18.5.' },
+  { id:540, date:'2026-09-05', match:'Sydney Swans vs Brisbane Lions',                      market:'Sydney +24.5',         odds:1.90, closingOdds:1.95, clv:1.0,  clvLabel:'+1.0 pts', result:'win',  cumPL:26.35, sport:'AFL',   notes:'Stake $25. Return $47.50. Sydney won by 53 as a 24.5 dog. Flagged high model-risk pre-game.' },
 );
 
 // ─── AFL Betting Model (mid-April 2026 onwards) ──────────────────────────────
