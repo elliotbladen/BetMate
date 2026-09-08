@@ -402,6 +402,55 @@ Every time a round is priced (NRL or AFL), the output must state which tiers act
 
 ---
 
+### Football Records Structure — MANDATORY (established 2026-09-08)
+
+Every football competition produces **four artefacts per round**, and nothing is
+considered delivered until all four exist. This exists because the NRL/AFL
+records lost most of a season to silent gaps; football must not repeat it.
+
+```
+outputs/football/{competition}/{season}/{gwNN|mdNN}/
+    1_model.*         full-round model prices: 1X2 + O/U 2.5      PRE-round
+    2_bets.*          +EV vs market, with matrix confluence       PRE-round
+    3_review_model.*  model vs market — CLV and ROI               POST-round
+    4_review_bets.*   bets — CLV and ROI                          POST-round
+    2_bets_matrix.*   matrix working (optional)
+    _supporting/      injury audits, raw working, superseded drafts
+```
+
+Plus `_season/` (ledgers, rollups), `_reference/` (season-long confluence
+matrices), and per-competition `{season}/` folders. Competitions: `epl`,
+`championship`, `ucl` (UCL uses `mdNN` matchdays).
+
+**Rules**
+
+1. Zero-padded round numbers (`gw03`, never `gw3`) so folders sort.
+2. **The numeric prefix is the contract** — `1_model`, `2_bets`, `3_review_model`,
+   `4_review_bets`. Suffixes are free (`3_review_model_ou25.csv`); the prefix is not.
+3. **A round with no qualifying bets is not a gap** — write `2_bets_none.md` saying
+   why. Silence never counts as satisfied.
+4. **Never delete a superseded draft** — move it to `_supporting/`.
+5. **Round numbers come from the results feed, not memory.**
+
+**Enforcement.** `scripts/football_records_coverage.py` derives the round calendar
+by chunking played results into full rounds, so a round appears the moment
+football-data publishes it and any absent artefact shows as a gap. It writes
+`outputs/football/COVERAGE.md` and **exits non-zero on any gap**, so wire it into
+the weekly job rather than relying on someone noticing.
+
+```bash
+python3 scripts/football_records_coverage.py   # exits 1 if anything is missing
+```
+
+Full convention: `outputs/football/README.md`.
+
+**Status 2026-09-08: 15/32 artefacts (46.9%), 17 gaps.** All pre-existing. Worst:
+EFL GW04 (1-2 Sep) has nothing at all despite the round being played, and EFL GW05
+has no `1_model` because `scripts/price_efl_week4_2026.py` prints prices to stdout
+instead of writing a file — **fix that before GW06 or the gap repeats weekly.**
+
+---
+
 ## CODING STANDARDS
 - Python first, small functions, explicit names, no magic numbers
 - Config files for thresholds/toggles (EV threshold, Kelly fraction, stake caps, moon factor toggle)

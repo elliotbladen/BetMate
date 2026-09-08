@@ -58,6 +58,29 @@ R27 + AFL Finals Week 2 results posted to all three tabs at betmate.au/research
 Also fixed `app/racing/map/page.tsx`, which had a hard import on a gitignored
 JSON and had been **failing every Vercel deploy since `d4bd586`**.
 
+## 5. Football records restructured — STANDING CONVENTION
+
+115 flat, inconsistently-named files replaced with a per-round four-artefact
+layout. **This is the structure going forward** — see the mandatory section in
+`CLAUDE.md` and `outputs/football/README.md`.
+
+```
+outputs/football/{competition}/{season}/{gwNN|mdNN}/
+    1_model.*  2_bets.*  3_review_model.*  4_review_bets.*  _supporting/
+```
+
+- 52 files moved with `git mv` (history preserved); 11 script references rewritten,
+  zero broken paths verified.
+- `scripts/football_records_coverage.py` derives the round calendar from **played
+  results**, writes `outputs/football/COVERAGE.md`, and **exits non-zero on any gap**.
+  Wire it into the weekly job.
+- A round with no qualifying bets needs a `2_bets_none.md`; silence is a gap.
+- **First run: 15/32 (46.9%), 17 gaps.** All pre-existing, now visible. EFL GW04
+  (1-2 Sep) has nothing at all; EFL GW05 has no `1_model`.
+- **Highest-value fix: `scripts/price_efl_week4_2026.py` prints prices to stdout
+  instead of writing a file.** Until that changes, EFL loses its `1_model` artefact
+  every single week. Do it before GW06.
+
 ## DECISION PENDING — EFL Championship engine, review due 2026-09-22
 
 **User's call (2026-09-08): revisit in two weeks, keep betting both leagues until then.**
@@ -106,6 +129,7 @@ Re-runnable: `scripts/football_season_bet_ledger.py` and
   had to use a reconstruction. Make it write JSON like the EPL pricer does.
 - The 23-bet "previous weekend" in the 2026-08-31 combined report has no
   underlying graded file; excluded from the season ledger.
+- **Football records convention is now mandatory** (CLAUDE.md + `outputs/football/README.md`); coverage sits at 46.9% with 17 known gaps.
 - Site **Football Model tab starts from zero** (real placed bets only); the 21 paper
   selections stay in the engine outputs as research.
 - **EFL engine review due 2026-09-22** (see the decision section above).
