@@ -103,16 +103,35 @@ demote collateral to a franked Step-3 layer on top.
   (won), Ceolwulf **99.0** (2nd, just behind), field 96.7–99.3. Tempted Concorde
   **110.3** (unchanged, genuine pace). form-first had Lindermann 117.5.
 
-## Resume — par-v2 increments (doc §9)
+## par-v2 increments — status
 
-1. Increment 2: weight merit (0.9 hcp / 0.2 WFA pts/kg from v3 commit `35bbedf`).
-   `runner_weight_contexts` already has `carried_minus_wfa_kg` / `carried_minus_field_median_kg`.
-2. Increment 4: one-sided class anchor for thin fields (`v2_clean_races.class_family`
-   → CLASS_STANDARDS, pull only when par sample thin / no variant).
-3. Increment 5: scale calibration (open the compressed p5-p95 ≈ 85-105 spread).
-4. Re-run the gate at each increment; must keep beating uniform AND par-v1.
-5. Then par-v2 becomes the base of `form-first-v3.1`; collateral → Step-3 franked revision.
-6. `v3_horse_rating_states` consolidated per-horse rollup.
+| # | Increment | State |
+|---|---|---|
+| 1 | time-vs-par + daily variant + clock quarantine + last400 + margin | DONE |
+| 3 | pace adjustment + winner ceiling | DONE |
+| 2 | weight merit (0.9 hcp / 0.2 WFA, cap ±6) | DONE |
+| 4 | thin-par class anchor (one-sided up, par_n<12 or no variant) | DONE |
+| 5 | scale calibration | **DEFERRED** — class spread belongs in the franked form layer, not the time figure |
+| 6 | naive predictive gate | passes at every increment (2.2933 vs par-v1 2.3061 vs uniform 2.3484) |
+
+Gate history: 2.2988 (inc1) → 2.2931 (inc3) → 2.2938 (+ceiling) → 2.2935 (inc2) → 2.2933 (inc4).
+31 tests pass. Ratings: Lindermann 101.4, Ceolwulf 102.9, Tempted 106.4 (median-last-3).
+
+## Resume — increment 7 (the payoff)
+
+Make par-v2 the **base** per-run figure; rebuild form-first as a **bounded franked
+collateral revision** on top (`form-first-v3.1`):
+- `v3.1_run = par_v2_run + clip(collateral_revision, ±BOUND)`
+- collateral_revision = the race's strength confirmed/downgraded as its beaten
+  field runs again (generalises `collateral_revision_v2.py`, which is a one-pair hack)
+- This is also where the class spread comes back (a G1 franked by its beaten field
+  running well elsewhere lifts; a weak race that flatters gets cut)
+- Store in `v3_run_performances` as `form-first-v3.1`, keep `form-first-v3.0` for comparison
+- Re-run the gate; the composite must still beat uniform + par-v1
+
+Then increment 8: `par_v2_horse_rating_states` — recency-weighted per-horse
+current ability + uncertainty (the one consolidated table; retire the legacy
+`horse_rating_states` reads).
 
 ## Not done
 
