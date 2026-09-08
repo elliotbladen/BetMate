@@ -1,0 +1,4223 @@
+{
+  "cutoff_utc": "2026-09-08T00:02:10.341253+00:00",
+  "version": "ucl_researched_context_v1",
+  "production_promoted": false,
+  "rows": [
+    {
+      "home": "AEK Athens",
+      "away": "LASK",
+      "sydney_match_date": "2026-09-09",
+      "kickoff_utc": "2026-09-08T16:45:00Z",
+      "referee": "Luis Godinho",
+      "status": "BLOCKED_MISSING_CROSS_LEAGUE_STRENGTH",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Missing established UCL baseline; recent domestic results alone do not establish comparable cross-league strength.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "aek-athen",
+          "league": "G1",
+          "domestic_name": "AEK",
+          "league_results": [
+            {
+              "date": "2026-08-22",
+              "home": "AEK",
+              "away": "Iraklis",
+              "home_goals": 4,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/G1.csv"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Kifisia",
+              "away": "AEK",
+              "home_goals": 1,
+              "away_goals": 1,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/G1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "AEK",
+              "away": "Aris",
+              "home_goals": 5,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/G1.csv"
+            }
+          ],
+          "league_form_points": 7,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/G1.csv",
+          "availability": [],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        },
+        "away": {
+          "club_id": null,
+          "league": "AUT",
+          "domestic_name": "LASK",
+          "league_results": [
+            {
+              "date": "2026-07-31",
+              "home": "LASK",
+              "away": "Grazer AK",
+              "home_goals": 3,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/AUT.csv"
+            },
+            {
+              "date": "2026-08-09",
+              "home": "Austria Vienna",
+              "away": "LASK",
+              "home_goals": 0,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/AUT.csv"
+            },
+            {
+              "date": "2026-08-14",
+              "home": "LASK",
+              "away": "Ried",
+              "home_goals": 4,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/AUT.csv"
+            },
+            {
+              "date": "2026-08-29",
+              "home": "LASK",
+              "away": "Altach",
+              "home_goals": 3,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/AUT.csv"
+            },
+            {
+              "date": "2026-09-01",
+              "home": "Wolfsberger AC",
+              "away": "LASK",
+              "home_goals": 1,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/AUT.csv"
+            }
+          ],
+          "league_form_points": 15,
+          "form_matches": 5,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://www.lask.at/en/m/matches/pros/fixtures/2026-2027",
+          "availability": [
+            {
+              "player": "Adeniran",
+              "status": "out",
+              "position": "ST",
+              "source_detail": "Adeniran (face)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Kalajdžić",
+              "status": "doubtful",
+              "position": "ST",
+              "source_detail": "Kalajdžić (fitness)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion."
+    },
+    {
+      "home": "Club Brugge",
+      "away": "Aston Villa",
+      "sydney_match_date": "2026-09-09",
+      "kickoff_utc": "2026-09-08T16:45:00Z",
+      "referee": "Sandro Schärer",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "club-brugge-kv",
+          "league": "B1",
+          "domestic_name": "Club Brugge",
+          "league_results": [
+            {
+              "date": "2026-08-07",
+              "home": "Club Brugge",
+              "away": "Kortrijk",
+              "home_goals": 3,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+            },
+            {
+              "date": "2026-08-15",
+              "home": "Oud-Heverlee Leuven",
+              "away": "Club Brugge",
+              "home_goals": 0,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+            },
+            {
+              "date": "2026-08-23",
+              "home": "Club Brugge",
+              "away": "Cercle Brugge",
+              "home_goals": 1,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Gent",
+              "away": "Club Brugge",
+              "home_goals": 2,
+              "away_goals": 1,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Lommel SK",
+              "away": "Club Brugge",
+              "home_goals": 0,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/B1.csv"
+            }
+          ],
+          "league_form_points": 12,
+          "form_matches": 5,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/B1.csv",
+          "availability": [
+            {
+              "player": "Ordóñez",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Ordóñez (foot)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        },
+        "away": {
+          "club_id": "aston-villa-fc",
+          "league": "E0",
+          "domestic_name": "Aston Villa",
+          "league_results": [
+            {
+              "date": "2026-08-23",
+              "home": "Brighton",
+              "away": "Aston Villa",
+              "home_goals": 4,
+              "away_goals": 0,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-08-31",
+              "home": "Aston Villa",
+              "away": "Arsenal",
+              "home_goals": 0,
+              "away_goals": 1,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Hull",
+              "away": "Aston Villa",
+              "home_goals": 0,
+              "away_goals": 0,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            }
+          ],
+          "league_form_points": 1,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+          "availability": [
+            {
+              "player": "Goretzka",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "Goretzka (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Manzambi",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "Manzambi (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.3540400805005102,
+          "draw": 0.3016253258013341,
+          "away": 0.3443345936981557
+        },
+        "fair_odds": {
+          "home": 2.82453895781034,
+          "draw": 3.315371470692256,
+          "away": 2.904152003027037
+        },
+        "expected_goals": {
+          "home": 1.123376714558769,
+          "away": 1.0914006813271357
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.37193714914844156,
+          "draw": 0.3086280271495473,
+          "away": 0.3194348237020111
+        },
+        "fair_odds": {
+          "home": 2.6886262969147405,
+          "draw": 3.2401464288123285,
+          "away": 3.1305290650867263
+        },
+        "expected_goals": {
+          "home": 1.116,
+          "away": 0.966
+        },
+        "adjustments": {
+          "lam_base": 1.123376714558769,
+          "mu_base": 1.0914006813271357,
+          "lam_final": 1.116,
+          "mu_final": 0.966,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": 0.064,
+          "t3_form_adj_a": -0.064,
+          "t3_rest_adj_h": 0.94,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.38867550418284985,
+            "draw": 0.3030226311943602,
+            "away": 0.30830186462279
+          },
+          "fair_odds": {
+            "home": 2.5728402979817235,
+            "draw": 3.3000835484086175,
+            "away": 3.243574284649587
+          },
+          "expected_goals": {
+            "home": 1.193,
+            "away": 0.962
+          },
+          "adjustments": {
+            "lam_base": 1.123376714558769,
+            "mu_base": 1.0914006813271357,
+            "lam_final": 1.193,
+            "mu_final": 0.962,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.064,
+            "t3_form_adj_a": -0.064,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.01,
+            "t5_def_disruption_h": 0.06,
+            "t5_att_disruption_a": 0.06,
+            "t5_def_disruption_a": 0.08,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.38867550418284985,
+            "draw": 0.3030226311943602,
+            "away": 0.30830186462279
+          },
+          "fair_odds": {
+            "home": 2.5728402979817235,
+            "draw": 3.3000835484086175,
+            "away": 3.243574284649587
+          },
+          "expected_goals": {
+            "home": 1.193,
+            "away": 0.962
+          },
+          "adjustments": {
+            "lam_base": 1.123376714558769,
+            "mu_base": 1.0914006813271357,
+            "lam_final": 1.193,
+            "mu_final": 0.962,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.064,
+            "t3_form_adj_a": -0.064,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.01,
+            "t5_def_disruption_h": 0.06,
+            "t5_att_disruption_a": 0.06,
+            "t5_def_disruption_a": 0.08,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.38867550418284985,
+            "draw": 0.3030226311943602,
+            "away": 0.30830186462279
+          },
+          "fair_odds": {
+            "home": 2.5728402979817235,
+            "draw": 3.3000835484086175,
+            "away": 3.243574284649587
+          },
+          "expected_goals": {
+            "home": 1.193,
+            "away": 0.962
+          },
+          "adjustments": {
+            "lam_base": 1.123376714558769,
+            "mu_base": 1.0914006813271357,
+            "lam_final": 1.193,
+            "mu_final": 0.962,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.064,
+            "t3_form_adj_a": -0.064,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.01,
+            "t5_def_disruption_h": 0.06,
+            "t5_att_disruption_a": 0.06,
+            "t5_def_disruption_a": 0.08,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.38867550418284985,
+            "draw": 0.3030226311943602,
+            "away": 0.30830186462279
+          },
+          "fair_odds": {
+            "home": 2.5728402979817235,
+            "draw": 3.3000835484086175,
+            "away": 3.243574284649587
+          },
+          "expected_goals": {
+            "home": 1.193,
+            "away": 0.962
+          },
+          "adjustments": {
+            "lam_base": 1.123376714558769,
+            "mu_base": 1.0914006813271357,
+            "lam_final": 1.193,
+            "mu_final": 0.962,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.064,
+            "t3_form_adj_a": -0.064,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.01,
+            "t5_def_disruption_h": 0.06,
+            "t5_att_disruption_a": 0.06,
+            "t5_def_disruption_a": 0.08,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 2.5728402979817235,
+        "draw": 3.3000835484086175,
+        "away": 3.243574284649587
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          2.5728402979817235,
+          2.5728402979817235
+        ],
+        "draw": [
+          3.3000835484086175,
+          3.3000835484086175
+        ],
+        "away": [
+          3.243574284649587,
+          3.243574284649587
+        ]
+      },
+      "home_probability_change_pp": 3.4635423682339628
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "Villarreal",
+      "sydney_match_date": "2026-09-09",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "referee": "Simone Sozza",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "borussia-dortmund",
+          "league": "D1",
+          "domestic_name": "Dortmund",
+          "league_results": [
+            {
+              "date": "2026-08-29",
+              "home": "Dortmund",
+              "away": "Hamburg",
+              "home_goals": 2,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Hoffenheim",
+              "away": "Dortmund",
+              "home_goals": 2,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+            }
+          ],
+          "league_form_points": 6,
+          "form_matches": 2,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/D1.csv",
+          "availability": [
+            {
+              "player": "Bensebaini",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Bensebaini (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Schlotterbeck",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Schlotterbeck (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Mane",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Mane (thigh)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        },
+        "away": {
+          "club_id": "villarreal-cf",
+          "league": "SP1",
+          "domestic_name": "Villarreal",
+          "league_results": [
+            {
+              "date": "2026-08-16",
+              "home": "Santander",
+              "away": "Villarreal",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-23",
+              "home": "Ath Madrid",
+              "away": "Villarreal",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-28",
+              "home": "Alaves",
+              "away": "Villarreal",
+              "home_goals": 1,
+              "away_goals": 0,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Villarreal",
+              "away": "La Coruna",
+              "home_goals": 2,
+              "away_goals": 3,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            }
+          ],
+          "league_form_points": 2,
+          "form_matches": 4,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+          "availability": [
+            {
+              "player": "Foyth",
+              "status": "doubtful",
+              "position": "CB",
+              "source_detail": "Foyth (Achilles)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.6204774698518652,
+          "draw": 0.23090312468281188,
+          "away": 0.1486194054653229
+        },
+        "fair_odds": {
+          "home": 1.6116620644400563,
+          "draw": 4.3308205611062425,
+          "away": 6.728596422984132
+        },
+        "expected_goals": {
+          "home": 1.999208150373497,
+          "away": 0.7474441994619639
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.6283815480007612,
+          "draw": 0.2325451914808881,
+          "away": 0.1390732605183508
+        },
+        "fair_odds": {
+          "home": 1.5913898222848337,
+          "draw": 4.300239422848637,
+          "away": 7.190454845689401
+        },
+        "expected_goals": {
+          "home": 1.932,
+          "away": 0.65
+        },
+        "adjustments": {
+          "lam_base": 1.999208150373497,
+          "mu_base": 0.7474441994619639,
+          "lam_final": 1.932,
+          "mu_final": 0.65,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": 0.056,
+          "t3_form_adj_a": -0.056,
+          "t3_rest_adj_h": 0.94,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.5980341609508951,
+            "draw": 0.2423885999129971,
+            "away": 0.15957723913610788
+          },
+          "fair_odds": {
+            "home": 1.67214528081467,
+            "draw": 4.125606568786402,
+            "away": 6.266557846304585
+          },
+          "expected_goals": {
+            "home": 1.874,
+            "away": 0.767
+          },
+          "adjustments": {
+            "lam_base": 1.999208150373497,
+            "mu_base": 0.7474441994619639,
+            "lam_final": 1.874,
+            "mu_final": 0.767,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.056,
+            "t3_form_adj_a": -0.056,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.18,
+            "t5_att_disruption_a": 0.0,
+            "t5_def_disruption_a": 0.0,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.5980341609508951,
+            "draw": 0.2423885999129971,
+            "away": 0.15957723913610788
+          },
+          "fair_odds": {
+            "home": 1.67214528081467,
+            "draw": 4.125606568786402,
+            "away": 6.266557846304585
+          },
+          "expected_goals": {
+            "home": 1.874,
+            "away": 0.767
+          },
+          "adjustments": {
+            "lam_base": 1.999208150373497,
+            "mu_base": 0.7474441994619639,
+            "lam_final": 1.874,
+            "mu_final": 0.767,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.056,
+            "t3_form_adj_a": -0.056,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.18,
+            "t5_att_disruption_a": 0.0,
+            "t5_def_disruption_a": 0.0,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.6164754842332624,
+            "draw": 0.23247358107413738,
+            "away": 0.15105093469260028
+          },
+          "fair_odds": {
+            "home": 1.6221245216973128,
+            "draw": 4.3015640546316245,
+            "away": 6.6202834297918995
+          },
+          "expected_goals": {
+            "home": 1.986,
+            "away": 0.759
+          },
+          "adjustments": {
+            "lam_base": 1.999208150373497,
+            "mu_base": 0.7474441994619639,
+            "lam_final": 1.986,
+            "mu_final": 0.759,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.056,
+            "t3_form_adj_a": -0.056,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.18,
+            "t5_att_disruption_a": 0.01,
+            "t5_def_disruption_a": 0.06,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.6164754842332624,
+            "draw": 0.23247358107413738,
+            "away": 0.15105093469260028
+          },
+          "fair_odds": {
+            "home": 1.6221245216973128,
+            "draw": 4.3015640546316245,
+            "away": 6.6202834297918995
+          },
+          "expected_goals": {
+            "home": 1.986,
+            "away": 0.759
+          },
+          "adjustments": {
+            "lam_base": 1.999208150373497,
+            "mu_base": 0.7474441994619639,
+            "lam_final": 1.986,
+            "mu_final": 0.759,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.056,
+            "t3_form_adj_a": -0.056,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.18,
+            "t5_att_disruption_a": 0.01,
+            "t5_def_disruption_a": 0.06,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 1.67214528081467,
+        "draw": 4.125606568786402,
+        "away": 6.266557846304585
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          1.6221245216973128,
+          1.67214528081467
+        ],
+        "draw": [
+          4.125606568786402,
+          4.3015640546316245
+        ],
+        "away": [
+          6.266557846304585,
+          6.6202834297918995
+        ]
+      },
+      "home_probability_change_pp": -2.2443308900970127
+    },
+    {
+      "home": "Porto",
+      "away": "Manchester City",
+      "sydney_match_date": "2026-09-09",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "referee": "Szymon Marciniak",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "fc-porto",
+          "league": "P1",
+          "domestic_name": "Porto",
+          "league_results": [
+            {
+              "date": "2026-08-09",
+              "home": "Porto",
+              "away": "Alverca",
+              "home_goals": 2,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-08-15",
+              "home": "Rio Ave",
+              "away": "Porto",
+              "home_goals": 0,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-08-23",
+              "home": "Porto",
+              "away": "Arouca",
+              "home_goals": 2,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-08-29",
+              "home": "Academico Viseu",
+              "away": "Porto",
+              "home_goals": 0,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Porto",
+              "away": "Moreirense",
+              "home_goals": 2,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            }
+          ],
+          "league_form_points": 15,
+          "form_matches": 5,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/P1.csv",
+          "availability": [
+            {
+              "player": "Bednarek",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Bednarek (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Froholdt",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "Froholdt (concussion)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Pietuszewski",
+              "status": "out",
+              "position": "LW",
+              "source_detail": "Pietuszewski (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Samu",
+              "status": "out",
+              "position": "ST",
+              "source_detail": "Samu (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Sanusi",
+              "status": "out",
+              "position": "LB",
+              "source_detail": "Sanusi (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        },
+        "away": {
+          "club_id": "manchester-city-fc",
+          "league": "E0",
+          "domestic_name": "Man City",
+          "league_results": [
+            {
+              "date": "2026-08-23",
+              "home": "Man City",
+              "away": "Bournemouth",
+              "home_goals": 2,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-08-28",
+              "home": "Crystal Palace",
+              "away": "Man City",
+              "home_goals": 1,
+              "away_goals": 4,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Man City",
+              "away": "Coventry",
+              "home_goals": 1,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            }
+          ],
+          "league_form_points": 9,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+          "availability": [
+            {
+              "player": "Doku",
+              "status": "out",
+              "position": "LW",
+              "source_detail": "Doku (calf)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "O'Reilly",
+              "status": "out",
+              "position": "LB",
+              "source_detail": "O'Reilly (back)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.3131852887778876,
+          "draw": 0.27578973629432596,
+          "away": 0.4110249749277865
+        },
+        "fair_odds": {
+          "home": 3.192997997773786,
+          "draw": 3.625950745798562,
+          "away": 2.432942183563642
+        },
+        "expected_goals": {
+          "home": 1.1752595239963946,
+          "away": 1.5472934484179746
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.31818802660861617,
+          "draw": 0.2843521699159937,
+          "away": 0.3974598034753901
+        },
+        "fair_odds": {
+          "home": 3.142795820001233,
+          "draw": 3.5167658481221733,
+          "away": 2.5159776944888415
+        },
+        "expected_goals": {
+          "home": 1.127,
+          "away": 1.432
+        },
+        "adjustments": {
+          "lam_base": 1.1752595239963946,
+          "mu_base": 1.5472934484179746,
+          "lam_final": 1.127,
+          "mu_final": 1.432,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": 0.024,
+          "t3_form_adj_a": -0.024,
+          "t3_rest_adj_h": 0.94,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.2733245123268117,
+            "draw": 0.2826261195683483,
+            "away": 0.44404936810484
+          },
+          "fair_odds": {
+            "home": 3.6586546573777796,
+            "draw": 3.5382433921085874,
+            "away": 2.252001853460357
+          },
+          "expected_goals": {
+            "home": 0.926,
+            "away": 1.502
+          },
+          "adjustments": {
+            "lam_base": 1.1752595239963946,
+            "mu_base": 1.5472934484179746,
+            "lam_final": 0.926,
+            "mu_final": 1.502,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.024,
+            "t3_form_adj_a": -0.024,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.21,
+            "t5_def_disruption_h": 0.14,
+            "t5_att_disruption_a": 0.08,
+            "t5_def_disruption_a": 0.04,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.2733245123268117,
+            "draw": 0.2826261195683483,
+            "away": 0.44404936810484
+          },
+          "fair_odds": {
+            "home": 3.6586546573777796,
+            "draw": 3.5382433921085874,
+            "away": 2.252001853460357
+          },
+          "expected_goals": {
+            "home": 0.926,
+            "away": 1.502
+          },
+          "adjustments": {
+            "lam_base": 1.1752595239963946,
+            "mu_base": 1.5472934484179746,
+            "lam_final": 0.926,
+            "mu_final": 1.502,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.024,
+            "t3_form_adj_a": -0.024,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.21,
+            "t5_def_disruption_h": 0.14,
+            "t5_att_disruption_a": 0.08,
+            "t5_def_disruption_a": 0.04,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.2733245123268117,
+            "draw": 0.2826261195683483,
+            "away": 0.44404936810484
+          },
+          "fair_odds": {
+            "home": 3.6586546573777796,
+            "draw": 3.5382433921085874,
+            "away": 2.252001853460357
+          },
+          "expected_goals": {
+            "home": 0.926,
+            "away": 1.502
+          },
+          "adjustments": {
+            "lam_base": 1.1752595239963946,
+            "mu_base": 1.5472934484179746,
+            "lam_final": 0.926,
+            "mu_final": 1.502,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.024,
+            "t3_form_adj_a": -0.024,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.21,
+            "t5_def_disruption_h": 0.14,
+            "t5_att_disruption_a": 0.08,
+            "t5_def_disruption_a": 0.04,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.2733245123268117,
+            "draw": 0.2826261195683483,
+            "away": 0.44404936810484
+          },
+          "fair_odds": {
+            "home": 3.6586546573777796,
+            "draw": 3.5382433921085874,
+            "away": 2.252001853460357
+          },
+          "expected_goals": {
+            "home": 0.926,
+            "away": 1.502
+          },
+          "adjustments": {
+            "lam_base": 1.1752595239963946,
+            "mu_base": 1.5472934484179746,
+            "lam_final": 0.926,
+            "mu_final": 1.502,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.024,
+            "t3_form_adj_a": -0.024,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.21,
+            "t5_def_disruption_h": 0.14,
+            "t5_att_disruption_a": 0.08,
+            "t5_def_disruption_a": 0.04,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 3.6586546573777796,
+        "draw": 3.5382433921085874,
+        "away": 2.252001853460357
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          3.6586546573777796,
+          3.6586546573777796
+        ],
+        "draw": [
+          3.5382433921085874,
+          3.5382433921085874
+        ],
+        "away": [
+          2.252001853460357,
+          2.252001853460357
+        ]
+      },
+      "home_probability_change_pp": -3.9860776451075886
+    },
+    {
+      "home": "Lille",
+      "away": "Real Betis",
+      "sydney_match_date": "2026-09-09",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "referee": "Georgi Kabakov",
+      "status": "BLOCKED_MISSING_CROSS_LEAGUE_STRENGTH",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Missing established UCL baseline; recent domestic results alone do not establish comparable cross-league strength.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "lille-osc",
+          "league": "F1",
+          "domestic_name": "Lille",
+          "league_results": [
+            {
+              "date": "2026-08-23",
+              "home": "Angers",
+              "away": "Lille",
+              "home_goals": 0,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+            },
+            {
+              "date": "2026-08-28",
+              "home": "Lille",
+              "away": "Paris SG",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+            },
+            {
+              "date": "2026-09-03",
+              "home": "Toulouse",
+              "away": "Lille",
+              "home_goals": 0,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+            }
+          ],
+          "league_form_points": 7,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-03",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/F1.csv",
+          "availability": [
+            {
+              "player": "Nianzou",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Nianzou (muscle)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 5
+        },
+        "away": {
+          "club_id": null,
+          "league": "SP1",
+          "domestic_name": "Betis",
+          "league_results": [
+            {
+              "date": "2026-08-21",
+              "home": "Betis",
+              "away": "Sociedad",
+              "home_goals": 1,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-25",
+              "home": "Valencia",
+              "away": "Betis",
+              "home_goals": 0,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-29",
+              "home": "Levante",
+              "away": "Betis",
+              "home_goals": 5,
+              "away_goals": 2,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Betis",
+              "away": "Real Madrid",
+              "home_goals": 1,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            }
+          ],
+          "league_form_points": 9,
+          "form_matches": 4,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+          "availability": [
+            {
+              "player": "Diego Conde",
+              "status": "doubtful",
+              "position": "GK",
+              "source_detail": "Diego Conde (shoulder)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Abde Ezzalzouli",
+              "status": "doubtful",
+              "position": "LW",
+              "source_detail": "Abde Ezzalzouli (illness)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Diego Llorente",
+              "status": "doubtful",
+              "position": "CB",
+              "source_detail": "Diego Llorente (face)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Lo Celso",
+              "status": "doubtful",
+              "position": "AM",
+              "source_detail": "Lo Celso (knock)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Aitor Ruibal",
+              "status": "doubtful",
+              "position": "RB",
+              "source_detail": "Aitor Ruibal (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion."
+    },
+    {
+      "home": "Real Madrid",
+      "away": "Inter",
+      "sydney_match_date": "2026-09-09",
+      "kickoff_utc": "2026-09-08T19:00:00Z",
+      "referee": "Michael Oliver",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "real-madrid-cf",
+          "league": "SP1",
+          "domestic_name": "Real Madrid",
+          "league_results": [
+            {
+              "date": "2026-08-22",
+              "home": "Espanol",
+              "away": "Real Madrid",
+              "home_goals": 1,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-26",
+              "home": "Real Madrid",
+              "away": "Sociedad",
+              "home_goals": 4,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Real Madrid",
+              "away": "Malaga",
+              "home_goals": 4,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Betis",
+              "away": "Real Madrid",
+              "home_goals": 1,
+              "away_goals": 0,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            }
+          ],
+          "league_form_points": 9,
+          "form_matches": 4,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+          "availability": [
+            {
+              "player": "Raúl Asencio",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Raúl Asencio (tibia)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Camavinga",
+              "status": "out",
+              "position": "DM",
+              "source_detail": "Camavinga (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Endrick",
+              "status": "doubtful",
+              "position": "ST",
+              "source_detail": "Conflicting earlier injury report; training return / limited availability, scenario only",
+              "source": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/ruedas-de-prensa/mourinho-07-09-2026",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Arda Güler",
+              "status": "out",
+              "position": "AM",
+              "source_detail": "Arda Güler (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Éder Militão",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Éder Militão (thigh)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Thiago Pitarch",
+              "status": "doubtful",
+              "position": "CM",
+              "source_detail": "Conflicting earlier injury report; training return / limited availability, scenario only",
+              "source": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/entrenamientos/el-equipo-se-esta-entrenando-07-09-2026",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Rodrygo",
+              "status": "out",
+              "position": "RW",
+              "source_detail": "Rodrygo (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Bernardo Silva",
+              "status": "out",
+              "position": "AM",
+              "source_detail": "Bernardo Silva (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Tchouaméni",
+              "status": "doubtful",
+              "position": "DM",
+              "source_detail": "Tchouaméni (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Mendy",
+              "status": "out",
+              "position": "LB",
+              "source": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/entrenamientos/el-equipo-se-esta-entrenando-07-09-2026",
+              "source_detail": "Club says rehabilitation continues",
+              "role_mapping": "manual broad-position research assumption",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        },
+        "away": {
+          "club_id": "fc-internazionale-milano",
+          "league": "I1",
+          "domestic_name": "Inter",
+          "league_results": [
+            {
+              "date": "2026-08-22",
+              "home": "Inter",
+              "away": "Monza",
+              "home_goals": 4,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Cagliari",
+              "away": "Inter",
+              "home_goals": 0,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Inter",
+              "away": "Napoli",
+              "home_goals": 3,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+            }
+          ],
+          "league_form_points": 9,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/I1.csv",
+          "availability": [
+            {
+              "player": "Dimarco",
+              "status": "out",
+              "position": "WB",
+              "source_detail": "Reported not travelling; supersedes earlier UEFA doubtful status",
+              "source": "https://www.gazzetta.it/en/football/teams/inter/news/07-09-2026/dimarco-injury-wing-back-misses-real-madrid-clash.shtml",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.43657731491675433,
+          "draw": 0.27114722766542826,
+          "away": 0.29227545741781735
+        },
+        "fair_odds": {
+          "home": 2.2905450325349084,
+          "draw": 3.688033282176544,
+          "away": 3.421429937480064
+        },
+        "expected_goals": {
+          "home": 1.554674492038327,
+          "away": 1.3071228587466768
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.42774296331262973,
+          "draw": 0.2789079144947724,
+          "away": 0.2933491221925978
+        },
+        "fair_odds": {
+          "home": 2.3378526025432658,
+          "draw": 3.5854127761539125,
+          "away": 3.408907422410666
+        },
+        "expected_goals": {
+          "home": 1.45,
+          "away": 1.24
+        },
+        "adjustments": {
+          "lam_base": 1.554674492038327,
+          "mu_base": 1.3071228587466768,
+          "lam_final": 1.45,
+          "mu_final": 1.24,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": -0.012,
+          "t3_form_adj_a": 0.012,
+          "t3_rest_adj_h": 0.94,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.3317462403138283,
+            "draw": 0.27880396435700705,
+            "away": 0.38944979532916457
+          },
+          "fair_odds": {
+            "home": 3.0143521718709185,
+            "draw": 3.5867495726119056,
+            "away": 2.567725062365987
+          },
+          "expected_goals": {
+            "home": 1.12,
+            "away": 1.503
+          },
+          "adjustments": {
+            "lam_base": 1.554674492038327,
+            "mu_base": 1.3071228587466768,
+            "lam_final": 1.12,
+            "mu_final": 1.503,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.012,
+            "t3_form_adj_a": 0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.25,
+            "t5_def_disruption_h": 0.25,
+            "t5_att_disruption_a": 0.03,
+            "t5_def_disruption_a": 0.03,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.3317462403138283,
+            "draw": 0.27880396435700705,
+            "away": 0.38944979532916457
+          },
+          "fair_odds": {
+            "home": 3.0143521718709185,
+            "draw": 3.5867495726119056,
+            "away": 2.567725062365987
+          },
+          "expected_goals": {
+            "home": 1.12,
+            "away": 1.503
+          },
+          "adjustments": {
+            "lam_base": 1.554674492038327,
+            "mu_base": 1.3071228587466768,
+            "lam_final": 1.12,
+            "mu_final": 1.503,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.012,
+            "t3_form_adj_a": 0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.25,
+            "t5_def_disruption_h": 0.25,
+            "t5_att_disruption_a": 0.03,
+            "t5_def_disruption_a": 0.03,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.3317462403138283,
+            "draw": 0.27880396435700705,
+            "away": 0.38944979532916457
+          },
+          "fair_odds": {
+            "home": 3.0143521718709185,
+            "draw": 3.5867495726119056,
+            "away": 2.567725062365987
+          },
+          "expected_goals": {
+            "home": 1.12,
+            "away": 1.503
+          },
+          "adjustments": {
+            "lam_base": 1.554674492038327,
+            "mu_base": 1.3071228587466768,
+            "lam_final": 1.12,
+            "mu_final": 1.503,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.012,
+            "t3_form_adj_a": 0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.25,
+            "t5_def_disruption_h": 0.25,
+            "t5_att_disruption_a": 0.03,
+            "t5_def_disruption_a": 0.03,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.3317462403138283,
+            "draw": 0.27880396435700705,
+            "away": 0.38944979532916457
+          },
+          "fair_odds": {
+            "home": 3.0143521718709185,
+            "draw": 3.5867495726119056,
+            "away": 2.567725062365987
+          },
+          "expected_goals": {
+            "home": 1.12,
+            "away": 1.503
+          },
+          "adjustments": {
+            "lam_base": 1.554674492038327,
+            "mu_base": 1.3071228587466768,
+            "lam_final": 1.12,
+            "mu_final": 1.503,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.012,
+            "t3_form_adj_a": 0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.25,
+            "t5_def_disruption_h": 0.25,
+            "t5_att_disruption_a": 0.03,
+            "t5_def_disruption_a": 0.03,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 3.0143521718709185,
+        "draw": 3.5867495726119056,
+        "away": 2.567725062365987
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          3.0143521718709185,
+          3.0143521718709185
+        ],
+        "draw": [
+          3.5867495726119056,
+          3.5867495726119056
+        ],
+        "away": [
+          2.567725062365987,
+          2.567725062365987
+        ]
+      },
+      "home_probability_change_pp": -10.4831074602926
+    },
+    {
+      "home": "Barcelona",
+      "away": "Feyenoord",
+      "sydney_match_date": "2026-09-10",
+      "kickoff_utc": "2026-09-09T16:45:00Z",
+      "referee": "Sven Jablonski",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "fc-barcelona",
+          "league": "SP1",
+          "domestic_name": "Barcelona",
+          "league_results": [
+            {
+              "date": "2026-08-23",
+              "home": "Elche",
+              "away": "Barcelona",
+              "home_goals": 0,
+              "away_goals": 5,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-27",
+              "home": "Barcelona",
+              "away": "Ath Bilbao",
+              "home_goals": 2,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-31",
+              "home": "Barcelona",
+              "away": "Vallecano",
+              "home_goals": 5,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-09-06",
+              "home": "Valencia",
+              "away": "Barcelona",
+              "home_goals": 0,
+              "away_goals": 5,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            }
+          ],
+          "league_form_points": 12,
+          "form_matches": 4,
+          "latest_competitive_date": "2026-09-06",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+          "availability": [
+            {
+              "player": "De Jong",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "De Jong (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Eric García",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Eric García (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        },
+        "away": {
+          "club_id": "feyenoord-rotterdam",
+          "league": "N1",
+          "domestic_name": "Feyenoord",
+          "league_results": [
+            {
+              "date": "2026-08-09",
+              "home": "Sparta Rotterdam",
+              "away": "Feyenoord",
+              "home_goals": 0,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+            },
+            {
+              "date": "2026-08-16",
+              "home": "Feyenoord",
+              "away": "Go Ahead Eagles",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+            },
+            {
+              "date": "2026-08-23",
+              "home": "Cambuur",
+              "away": "Feyenoord",
+              "home_goals": 2,
+              "away_goals": 5,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Feyenoord",
+              "away": "Den Haag",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Nijmegen",
+              "away": "Feyenoord",
+              "home_goals": 1,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/N1.csv"
+            }
+          ],
+          "league_form_points": 11,
+          "form_matches": 5,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/N1.csv",
+          "availability": [
+            {
+              "player": "Bos",
+              "status": "out",
+              "position": "LB",
+              "source_detail": "Bos (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Moder",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "Moder (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Nieuwkoop",
+              "status": "out",
+              "position": "RB",
+              "source_detail": "Nieuwkoop (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Smal",
+              "status": "out",
+              "position": "LB",
+              "source_detail": "Smal (ankle)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Hadj Moussa",
+              "status": "doubtful",
+              "position": "RW",
+              "source_detail": "Hadj Moussa (unspecified)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.6627738171998478,
+          "draw": 0.18517074146718765,
+          "away": 0.15205544133296456
+        },
+        "fair_odds": {
+          "home": 1.5088103573929619,
+          "draw": 5.400421211669666,
+          "away": 6.57654860117924
+        },
+        "expected_goals": {
+          "home": 2.947059458511742,
+          "away": 1.2141786705005317
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.6583657001908636,
+          "draw": 0.19080945649311165,
+          "away": 0.15082484331602483
+        },
+        "fair_odds": {
+          "home": 1.5189126646635676,
+          "draw": 5.2408303989697735,
+          "away": 6.630207451332734
+        },
+        "expected_goals": {
+          "home": 2.789,
+          "away": 1.123
+        },
+        "adjustments": {
+          "lam_base": 2.947059458511742,
+          "mu_base": 1.2141786705005317,
+          "lam_final": 2.789,
+          "mu_final": 1.123,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": 0.02,
+          "t3_form_adj_a": -0.02,
+          "t3_rest_adj_h": 0.94,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.6829241899831195,
+            "draw": 0.17791354771797616,
+            "away": 0.13916226229890424
+          },
+          "fair_odds": {
+            "home": 1.4642913732851048,
+            "draw": 5.620707432495099,
+            "away": 7.185856161580049
+          },
+          "expected_goals": {
+            "home": 3.026,
+            "away": 1.124
+          },
+          "adjustments": {
+            "lam_base": 2.947059458511742,
+            "mu_base": 1.2141786705005317,
+            "lam_final": 3.026,
+            "mu_final": 1.124,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.02,
+            "t3_form_adj_a": -0.02,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.04,
+            "t5_def_disruption_h": 0.1,
+            "t5_att_disruption_a": 0.09,
+            "t5_def_disruption_a": 0.13,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.6829241899831195,
+            "draw": 0.17791354771797616,
+            "away": 0.13916226229890424
+          },
+          "fair_odds": {
+            "home": 1.4642913732851048,
+            "draw": 5.620707432495099,
+            "away": 7.185856161580049
+          },
+          "expected_goals": {
+            "home": 3.026,
+            "away": 1.124
+          },
+          "adjustments": {
+            "lam_base": 2.947059458511742,
+            "mu_base": 1.2141786705005317,
+            "lam_final": 3.026,
+            "mu_final": 1.124,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.02,
+            "t3_form_adj_a": -0.02,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.04,
+            "t5_def_disruption_h": 0.1,
+            "t5_att_disruption_a": 0.09,
+            "t5_def_disruption_a": 0.13,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.6952171255390909,
+            "draw": 0.17371792621450077,
+            "away": 0.13106494824640835
+          },
+          "fair_odds": {
+            "home": 1.4383995492409252,
+            "draw": 5.756458310268079,
+            "away": 7.6298050194164215
+          },
+          "expected_goals": {
+            "home": 3.052,
+            "away": 1.05
+          },
+          "adjustments": {
+            "lam_base": 2.947059458511742,
+            "mu_base": 1.2141786705005317,
+            "lam_final": 3.052,
+            "mu_final": 1.05,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.02,
+            "t3_form_adj_a": -0.02,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.04,
+            "t5_def_disruption_h": 0.1,
+            "t5_att_disruption_a": 0.15,
+            "t5_def_disruption_a": 0.14,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.6952171255390909,
+            "draw": 0.17371792621450077,
+            "away": 0.13106494824640835
+          },
+          "fair_odds": {
+            "home": 1.4383995492409252,
+            "draw": 5.756458310268079,
+            "away": 7.6298050194164215
+          },
+          "expected_goals": {
+            "home": 3.052,
+            "away": 1.05
+          },
+          "adjustments": {
+            "lam_base": 2.947059458511742,
+            "mu_base": 1.2141786705005317,
+            "lam_final": 3.052,
+            "mu_final": 1.05,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.02,
+            "t3_form_adj_a": -0.02,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.04,
+            "t5_def_disruption_h": 0.1,
+            "t5_att_disruption_a": 0.15,
+            "t5_def_disruption_a": 0.14,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 1.4642913732851048,
+        "draw": 5.620707432495099,
+        "away": 7.185856161580049
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          1.4383995492409252,
+          1.4642913732851048
+        ],
+        "draw": [
+          5.620707432495099,
+          5.756458310268079
+        ],
+        "away": [
+          7.185856161580049,
+          7.6298050194164215
+        ]
+      },
+      "home_probability_change_pp": 2.0150372783271697
+    },
+    {
+      "home": "Stuttgart",
+      "away": "Viking",
+      "sydney_match_date": "2026-09-10",
+      "kickoff_utc": "2026-09-09T16:45:00Z",
+      "referee": "Nenad Minaković",
+      "status": "BLOCKED_MISSING_CROSS_LEAGUE_STRENGTH",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Missing established UCL baseline; recent domestic results alone do not establish comparable cross-league strength.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "vfb-stuttgart",
+          "league": "D1",
+          "domestic_name": "Stuttgart",
+          "league_results": [
+            {
+              "date": "2026-08-28",
+              "home": "Bayern Munich",
+              "away": "Stuttgart",
+              "home_goals": 5,
+              "away_goals": 1,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Stuttgart",
+              "away": "FC Koln",
+              "home_goals": 4,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/D1.csv"
+            }
+          ],
+          "league_form_points": 3,
+          "form_matches": 2,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/D1.csv",
+          "availability": [
+            {
+              "player": "Jaquez",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Jaquez (fitness)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Nartey",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "Nartey (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Seimen",
+              "status": "out",
+              "position": "GK",
+              "source_detail": "Seimen (thigh)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Tiago Tomás",
+              "status": "out",
+              "position": "FW",
+              "source_detail": "Tiago Tomás (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Assignon",
+              "status": "doubtful",
+              "position": "RB",
+              "source_detail": "Assignon (fitness)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 5
+        },
+        "away": {
+          "club_id": null,
+          "league": "NOR",
+          "domestic_name": "Viking",
+          "league_results": [
+            {
+              "date": "2026-08-01",
+              "home": "Start",
+              "away": "Viking",
+              "home_goals": 0,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/NOR.csv"
+            },
+            {
+              "date": "2026-08-08",
+              "home": "Viking",
+              "away": "Sarpsborg 08",
+              "home_goals": 2,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/NOR.csv"
+            },
+            {
+              "date": "2026-08-14",
+              "home": "Rosenborg",
+              "away": "Viking",
+              "home_goals": 2,
+              "away_goals": 1,
+              "points": 0,
+              "source": "https://football-data.co.uk/new/NOR.csv"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Viking",
+              "away": "Aalesund",
+              "home_goals": 2,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/new/NOR.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Sandefjord",
+              "away": "Viking",
+              "home_goals": 1,
+              "away_goals": 1,
+              "points": 1,
+              "source": "https://vikingstadion.no/nyheter"
+            }
+          ],
+          "league_form_points": 10,
+          "form_matches": 5,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://vikingstadion.no/nyheter",
+          "availability": [
+            {
+              "player": "Berisha",
+              "status": "out",
+              "position": "ST",
+              "source_detail": "Berisha (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Baertelsen",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Baertelsen (foot)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Bjørshol",
+              "status": "out",
+              "position": "RB",
+              "source_detail": "Bjørshol (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Falchener",
+              "status": "doubtful",
+              "position": "CB",
+              "source_detail": "Falchener (thigh)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Haugen",
+              "status": "doubtful",
+              "position": "LB",
+              "source_detail": "Haugen (unspecified)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Roseth",
+              "status": "doubtful",
+              "position": "CB",
+              "source_detail": "Roseth (ankle)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 5
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion."
+    },
+    {
+      "home": "Liverpool",
+      "away": "Atlético de Madrid",
+      "sydney_match_date": "2026-09-10",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "referee": "Davide Massa",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "liverpool-fc",
+          "league": "E0",
+          "domestic_name": "Liverpool",
+          "league_results": [
+            {
+              "date": "2026-08-23",
+              "home": "Newcastle",
+              "away": "Liverpool",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-08-29",
+              "home": "Liverpool",
+              "away": "Nott'm Forest",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Ipswich",
+              "away": "Liverpool",
+              "home_goals": 0,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            }
+          ],
+          "league_form_points": 5,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+          "availability": [
+            {
+              "player": "Bradley",
+              "status": "out",
+              "position": "RB",
+              "source_detail": "Bradley (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Ekitiké",
+              "status": "out",
+              "position": "ST",
+              "source_detail": "Ekitiké (Achilles)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "J.Gomez",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "J.Gomez (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Leoni",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Leoni (knee)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 5
+        },
+        "away": {
+          "club_id": "club-atl-tico-de-madrid",
+          "league": "SP1",
+          "domestic_name": "Ath Madrid",
+          "league_results": [
+            {
+              "date": "2026-08-19",
+              "home": "Ath Madrid",
+              "away": "Malaga",
+              "home_goals": 2,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-23",
+              "home": "Ath Madrid",
+              "away": "Villarreal",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-08-29",
+              "home": "Sevilla",
+              "away": "Ath Madrid",
+              "home_goals": 1,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Ath Bilbao",
+              "away": "Ath Madrid",
+              "home_goals": 3,
+              "away_goals": 0,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/SP1.csv"
+            }
+          ],
+          "league_form_points": 7,
+          "form_matches": 4,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/SP1.csv",
+          "availability": [
+            {
+              "player": "Arnau Ortiz",
+              "status": "out",
+              "position": "LW",
+              "source_detail": "Arnau Ortiz (suspended)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Sørloth",
+              "status": "doubtful",
+              "position": "ST",
+              "source_detail": "Sørloth (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.6529210768664405,
+          "draw": 0.20142781465128634,
+          "away": 0.1456511084822732
+        },
+        "fair_odds": {
+          "home": 1.5315786783898797,
+          "draw": 4.964557659185297,
+          "away": 6.865721863844979
+        },
+        "expected_goals": {
+          "home": 2.5114166498818213,
+          "away": 0.8151471233146109
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.659464893834595,
+          "draw": 0.19952549690316476,
+          "away": 0.14100960926224032
+        },
+        "fair_odds": {
+          "home": 1.516380946657059,
+          "draw": 5.011890788500718,
+          "away": 7.091715275519034
+        },
+        "expected_goals": {
+          "home": 2.507,
+          "away": 0.77
+        },
+        "adjustments": {
+          "lam_base": 2.5114166498818213,
+          "mu_base": 0.8151471233146109,
+          "lam_final": 2.507,
+          "mu_final": 0.77,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": -0.004,
+          "t3_form_adj_a": 0.004,
+          "t3_rest_adj_h": 1.0,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.6119926876138508,
+            "draw": 0.22434873711526993,
+            "away": 0.16365857527087935
+          },
+          "fair_odds": {
+            "home": 1.6340064517747477,
+            "draw": 4.457346240759992,
+            "away": 6.110281715118507
+          },
+          "expected_goals": {
+            "home": 2.203,
+            "away": 0.832
+          },
+          "adjustments": {
+            "lam_base": 2.5114166498818213,
+            "mu_base": 0.8151471233146109,
+            "lam_final": 2.203,
+            "mu_final": 0.832,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.004,
+            "t3_form_adj_a": 0.004,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.13,
+            "t5_def_disruption_h": 0.15,
+            "t5_att_disruption_a": 0.06,
+            "t5_def_disruption_a": 0.01,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.6119926876138508,
+            "draw": 0.22434873711526993,
+            "away": 0.16365857527087935
+          },
+          "fair_odds": {
+            "home": 1.6340064517747477,
+            "draw": 4.457346240759992,
+            "away": 6.110281715118507
+          },
+          "expected_goals": {
+            "home": 2.203,
+            "away": 0.832
+          },
+          "adjustments": {
+            "lam_base": 2.5114166498818213,
+            "mu_base": 0.8151471233146109,
+            "lam_final": 2.203,
+            "mu_final": 0.832,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.004,
+            "t3_form_adj_a": 0.004,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.13,
+            "t5_def_disruption_h": 0.15,
+            "t5_att_disruption_a": 0.06,
+            "t5_def_disruption_a": 0.01,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.6253626848477815,
+            "draw": 0.22097172988925004,
+            "away": 0.15366558526296856
+          },
+          "fair_odds": {
+            "home": 1.5990720652662678,
+            "draw": 4.5254657711246375,
+            "away": 6.507637987313137
+          },
+          "expected_goals": {
+            "home": 2.203,
+            "away": 0.753
+          },
+          "adjustments": {
+            "lam_base": 2.5114166498818213,
+            "mu_base": 0.8151471233146109,
+            "lam_final": 2.203,
+            "mu_final": 0.753,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.004,
+            "t3_form_adj_a": 0.004,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.13,
+            "t5_def_disruption_h": 0.15,
+            "t5_att_disruption_a": 0.15,
+            "t5_def_disruption_a": 0.01,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.6253626848477815,
+            "draw": 0.22097172988925004,
+            "away": 0.15366558526296856
+          },
+          "fair_odds": {
+            "home": 1.5990720652662678,
+            "draw": 4.5254657711246375,
+            "away": 6.507637987313137
+          },
+          "expected_goals": {
+            "home": 2.203,
+            "away": 0.753
+          },
+          "adjustments": {
+            "lam_base": 2.5114166498818213,
+            "mu_base": 0.8151471233146109,
+            "lam_final": 2.203,
+            "mu_final": 0.753,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.004,
+            "t3_form_adj_a": 0.004,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.13,
+            "t5_def_disruption_h": 0.15,
+            "t5_att_disruption_a": 0.15,
+            "t5_def_disruption_a": 0.01,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 1.6340064517747477,
+        "draw": 4.457346240759992,
+        "away": 6.110281715118507
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          1.5990720652662678,
+          1.6340064517747477
+        ],
+        "draw": [
+          4.457346240759992,
+          4.5254657711246375
+        ],
+        "away": [
+          6.110281715118507,
+          6.507637987313137
+        ]
+      },
+      "home_probability_change_pp": -4.0928389252589685
+    },
+    {
+      "home": "Paris Saint-Germain",
+      "away": "Slovan Bratislava",
+      "sydney_match_date": "2026-09-10",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "referee": "Mykola Balakin",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "paris-saint-germain-fc",
+          "league": "F1",
+          "domestic_name": "Paris SG",
+          "league_results": [
+            {
+              "date": "2026-08-23",
+              "home": "Rennes",
+              "away": "Paris SG",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+            },
+            {
+              "date": "2026-08-28",
+              "home": "Lille",
+              "away": "Paris SG",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Paris SG",
+              "away": "Monaco",
+              "home_goals": 1,
+              "away_goals": 2,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/F1.csv"
+            }
+          ],
+          "league_form_points": 2,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/F1.csv",
+          "availability": [],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 5
+        },
+        "away": {
+          "club_id": "k-slovan-bratislava",
+          "league": "manual",
+          "domestic_name": "Slovan",
+          "league_results": [
+            {
+              "date": "2026-08-01",
+              "home": "Slovan",
+              "away": "Podbrezova",
+              "home_goals": 3,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+            },
+            {
+              "date": "2026-08-15",
+              "home": "Slovan",
+              "away": "Ruzomberok",
+              "home_goals": 5,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+            },
+            {
+              "date": "2026-08-22",
+              "home": "Kosice",
+              "away": "Slovan",
+              "home_goals": 1,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Slovan",
+              "away": "Michalovce",
+              "home_goals": 1,
+              "away_goals": 2,
+              "points": 0,
+              "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "DAC",
+              "away": "Slovan",
+              "home_goals": 2,
+              "away_goals": 0,
+              "points": 0,
+              "source": "https://www.skslovan.com/zapasy/index.php?season=202627"
+            }
+          ],
+          "league_form_points": 9,
+          "form_matches": 5,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://www.skslovan.com/zapasy/index.php?season=202627",
+          "availability": [],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.8563389644724274,
+          "draw": 0.09109379979390012,
+          "away": 0.05256723573367253
+        },
+        "fair_odds": {
+          "home": 1.167761881086515,
+          "draw": 10.977695543083083,
+          "away": 19.023256331499258
+        },
+        "expected_goals": {
+          "home": 4.747596163046362,
+          "away": 0.8016916841131435
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.8565112460883042,
+          "draw": 0.09115199822305228,
+          "away": 0.05233675568864357
+        },
+        "fair_odds": {
+          "home": 1.1675269934481427,
+          "draw": 10.970686540002813,
+          "away": 19.107030744303238
+        },
+        "expected_goals": {
+          "home": 4.716,
+          "away": 0.784
+        },
+        "adjustments": {
+          "lam_base": 4.747596163046362,
+          "mu_base": 0.8016916841131435,
+          "lam_final": 4.716,
+          "mu_final": 0.784,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": -0.032,
+          "t3_form_adj_a": 0.032,
+          "t3_rest_adj_h": 1.0,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.8565112460883042,
+            "draw": 0.09115199822305228,
+            "away": 0.05233675568864357
+          },
+          "fair_odds": {
+            "home": 1.1675269934481427,
+            "draw": 10.970686540002813,
+            "away": 19.107030744303238
+          },
+          "expected_goals": {
+            "home": 4.716,
+            "away": 0.784
+          },
+          "adjustments": {
+            "lam_base": 4.747596163046362,
+            "mu_base": 0.8016916841131435,
+            "lam_final": 4.716,
+            "mu_final": 0.784,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.032,
+            "t3_form_adj_a": 0.032,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.0,
+            "t5_def_disruption_h": 0.0,
+            "t5_att_disruption_a": 0.0,
+            "t5_def_disruption_a": 0.0,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.8565112460883042,
+            "draw": 0.09115199822305228,
+            "away": 0.05233675568864357
+          },
+          "fair_odds": {
+            "home": 1.1675269934481427,
+            "draw": 10.970686540002813,
+            "away": 19.107030744303238
+          },
+          "expected_goals": {
+            "home": 4.716,
+            "away": 0.784
+          },
+          "adjustments": {
+            "lam_base": 4.747596163046362,
+            "mu_base": 0.8016916841131435,
+            "lam_final": 4.716,
+            "mu_final": 0.784,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.032,
+            "t3_form_adj_a": 0.032,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.0,
+            "t5_def_disruption_h": 0.0,
+            "t5_att_disruption_a": 0.0,
+            "t5_def_disruption_a": 0.0,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.8565112460883042,
+            "draw": 0.09115199822305228,
+            "away": 0.05233675568864357
+          },
+          "fair_odds": {
+            "home": 1.1675269934481427,
+            "draw": 10.970686540002813,
+            "away": 19.107030744303238
+          },
+          "expected_goals": {
+            "home": 4.716,
+            "away": 0.784
+          },
+          "adjustments": {
+            "lam_base": 4.747596163046362,
+            "mu_base": 0.8016916841131435,
+            "lam_final": 4.716,
+            "mu_final": 0.784,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.032,
+            "t3_form_adj_a": 0.032,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.0,
+            "t5_def_disruption_h": 0.0,
+            "t5_att_disruption_a": 0.0,
+            "t5_def_disruption_a": 0.0,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.8565112460883042,
+            "draw": 0.09115199822305228,
+            "away": 0.05233675568864357
+          },
+          "fair_odds": {
+            "home": 1.1675269934481427,
+            "draw": 10.970686540002813,
+            "away": 19.107030744303238
+          },
+          "expected_goals": {
+            "home": 4.716,
+            "away": 0.784
+          },
+          "adjustments": {
+            "lam_base": 4.747596163046362,
+            "mu_base": 0.8016916841131435,
+            "lam_final": 4.716,
+            "mu_final": 0.784,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.032,
+            "t3_form_adj_a": 0.032,
+            "t3_rest_adj_h": 1.0,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.0,
+            "t5_def_disruption_h": 0.0,
+            "t5_att_disruption_a": 0.0,
+            "t5_def_disruption_a": 0.0,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 1.1675269934481427,
+        "draw": 10.970686540002813,
+        "away": 19.107030744303238
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          1.1675269934481427,
+          1.1675269934481427
+        ],
+        "draw": [
+          10.970686540002813,
+          10.970686540002813
+        ],
+        "away": [
+          19.107030744303238,
+          19.107030744303238
+        ]
+      },
+      "home_probability_change_pp": 0.017228161587679036
+    },
+    {
+      "home": "Sporting CP",
+      "away": "Galatasaray",
+      "sydney_match_date": "2026-09-10",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "referee": "Espen Eskås",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "sporting-clube-de-portugal",
+          "league": "P1",
+          "domestic_name": "Sp Lisbon",
+          "league_results": [
+            {
+              "date": "2026-08-08",
+              "home": "Estrela",
+              "away": "Sp Lisbon",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-08-14",
+              "home": "Sp Lisbon",
+              "away": "Guimaraes",
+              "home_goals": 3,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-08-22",
+              "home": "Sp Lisbon",
+              "away": "Alverca",
+              "home_goals": 3,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-08-28",
+              "home": "Rio Ave",
+              "away": "Sp Lisbon",
+              "home_goals": 0,
+              "away_goals": 4,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Sp Lisbon",
+              "away": "Nacional",
+              "home_goals": 2,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/P1.csv"
+            }
+          ],
+          "league_form_points": 13,
+          "form_matches": 5,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/P1.csv",
+          "availability": [
+            {
+              "player": "Nuno Santos",
+              "status": "out",
+              "position": "WB",
+              "source_detail": "Nuno Santos (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "João Simões",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "João Simões (foot)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Ba",
+              "status": "doubtful",
+              "position": "LW",
+              "source_detail": "Ba (knock)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        },
+        "away": {
+          "club_id": "galatasaray-sk",
+          "league": "T1",
+          "domestic_name": "Galatasaray",
+          "league_results": [
+            {
+              "date": "2026-08-14",
+              "home": "Galatasaray",
+              "away": "Corum",
+              "home_goals": 2,
+              "away_goals": 2,
+              "points": 1,
+              "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+            },
+            {
+              "date": "2026-08-21",
+              "home": "Erzurumspor",
+              "away": "Galatasaray",
+              "home_goals": 0,
+              "away_goals": 4,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+            },
+            {
+              "date": "2026-08-29",
+              "home": "Galatasaray",
+              "away": "Goztep",
+              "home_goals": 3,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+            },
+            {
+              "date": "2026-09-04",
+              "home": "Buyuksehyr",
+              "away": "Galatasaray",
+              "home_goals": 2,
+              "away_goals": 3,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/T1.csv"
+            }
+          ],
+          "league_form_points": 10,
+          "form_matches": 4,
+          "latest_competitive_date": "2026-09-04",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/T1.csv",
+          "availability": [
+            {
+              "player": "Günay Güvenç",
+              "status": "out",
+              "position": "GK",
+              "source_detail": "Günay Güvenç (muscular)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Lemina",
+              "status": "out",
+              "position": "DM",
+              "source_detail": "Lemina (adductor)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Osimhen",
+              "status": "out",
+              "position": "ST",
+              "source_detail": "Osimhen (adductor)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Singo",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Singo (thigh)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 5
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.6035665433984649,
+          "draw": 0.2199854626679401,
+          "away": 0.17644799393359498
+        },
+        "fair_odds": {
+          "home": 1.65681814364554,
+          "draw": 4.545754923403566,
+          "away": 5.667392287703443
+        },
+        "expected_goals": {
+          "home": 2.3424184745570598,
+          "away": 1.0101343231995574
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.5880098968555681,
+          "draw": 0.22857025489531807,
+          "away": 0.1834198482491138
+        },
+        "fair_odds": {
+          "home": 1.7006516477827724,
+          "draw": 4.375022465009657,
+          "away": 5.451972671146463
+        },
+        "expected_goals": {
+          "home": 2.213,
+          "away": 0.998
+        },
+        "adjustments": {
+          "lam_base": 2.3424184745570598,
+          "mu_base": 1.0101343231995574,
+          "lam_final": 2.213,
+          "mu_final": 0.998,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": 0.012,
+          "t3_form_adj_a": -0.012,
+          "t3_rest_adj_h": 0.94,
+          "t3_rest_adj_a": 1.0,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.6279997740662501,
+            "draw": 0.21098129668522497,
+            "away": 0.161018929248525
+          },
+          "fair_odds": {
+            "home": 1.5923572607758714,
+            "draw": 4.739756631091129,
+            "away": 6.210449943165054
+          },
+          "expected_goals": {
+            "home": 2.434,
+            "away": 0.929
+          },
+          "adjustments": {
+            "lam_base": 2.3424184745570598,
+            "mu_base": 1.0101343231995574,
+            "lam_final": 2.434,
+            "mu_final": 0.929,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.012,
+            "t3_form_adj_a": -0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 1.0,
+            "t5_att_disruption_h": 0.06,
+            "t5_def_disruption_h": 0.07,
+            "t5_att_disruption_a": 0.13,
+            "t5_def_disruption_a": 0.17,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.6067161329994225,
+            "draw": 0.222065052204443,
+            "away": 0.1712188147961345
+          },
+          "fair_odds": {
+            "home": 1.6482172561594828,
+            "draw": 4.5031849454607356,
+            "away": 5.840479629476891
+          },
+          "expected_goals": {
+            "home": 2.279,
+            "away": 0.938
+          },
+          "adjustments": {
+            "lam_base": 2.3424184745570598,
+            "mu_base": 1.0101343231995574,
+            "lam_final": 2.279,
+            "mu_final": 0.938,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.012,
+            "t3_form_adj_a": -0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 1.0,
+            "t5_att_disruption_h": 0.12,
+            "t5_def_disruption_h": 0.08,
+            "t5_att_disruption_a": 0.13,
+            "t5_def_disruption_a": 0.17,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.6279997740662501,
+            "draw": 0.21098129668522497,
+            "away": 0.161018929248525
+          },
+          "fair_odds": {
+            "home": 1.5923572607758714,
+            "draw": 4.739756631091129,
+            "away": 6.210449943165054
+          },
+          "expected_goals": {
+            "home": 2.434,
+            "away": 0.929
+          },
+          "adjustments": {
+            "lam_base": 2.3424184745570598,
+            "mu_base": 1.0101343231995574,
+            "lam_final": 2.434,
+            "mu_final": 0.929,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.012,
+            "t3_form_adj_a": -0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 1.0,
+            "t5_att_disruption_h": 0.06,
+            "t5_def_disruption_h": 0.07,
+            "t5_att_disruption_a": 0.13,
+            "t5_def_disruption_a": 0.17,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.6067161329994225,
+            "draw": 0.222065052204443,
+            "away": 0.1712188147961345
+          },
+          "fair_odds": {
+            "home": 1.6482172561594828,
+            "draw": 4.5031849454607356,
+            "away": 5.840479629476891
+          },
+          "expected_goals": {
+            "home": 2.279,
+            "away": 0.938
+          },
+          "adjustments": {
+            "lam_base": 2.3424184745570598,
+            "mu_base": 1.0101343231995574,
+            "lam_final": 2.279,
+            "mu_final": 0.938,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": 0.012,
+            "t3_form_adj_a": -0.012,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 1.0,
+            "t5_att_disruption_h": 0.12,
+            "t5_def_disruption_h": 0.08,
+            "t5_att_disruption_a": 0.13,
+            "t5_def_disruption_a": 0.17,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 1.5923572607758714,
+        "draw": 4.739756631091129,
+        "away": 6.210449943165054
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          1.5923572607758714,
+          1.6482172561594828
+        ],
+        "draw": [
+          4.5031849454607356,
+          4.739756631091129
+        ],
+        "away": [
+          5.840479629476891,
+          6.210449943165054
+        ]
+      },
+      "home_probability_change_pp": 2.4433230667785133
+    },
+    {
+      "home": "Napoli",
+      "away": "Arsenal",
+      "sydney_match_date": "2026-09-10",
+      "kickoff_utc": "2026-09-09T19:00:00Z",
+      "referee": "Glenn Nyberg",
+      "status": "PROVISIONAL_RESEARCH_PRICE",
+      "betting_enabled": false,
+      "tier_audit": {
+        "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+        "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+        "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+        "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+        "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+        "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+        "T5_knockout": "Not applicable in league phase.",
+        "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+        "T7_market": "No captured current two-sided market; EV unavailable.",
+        "T8_confluence": "Not populated; no manufactured confluence.",
+        "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+      },
+      "inputs": {
+        "home": {
+          "club_id": "ssc-napoli",
+          "league": "I1",
+          "domestic_name": "Napoli",
+          "league_results": [
+            {
+              "date": "2026-08-22",
+              "home": "Genoa",
+              "away": "Napoli",
+              "home_goals": 0,
+              "away_goals": 2,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+            },
+            {
+              "date": "2026-08-30",
+              "home": "Napoli",
+              "away": "Como",
+              "home_goals": 1,
+              "away_goals": 2,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+            },
+            {
+              "date": "2026-09-05",
+              "home": "Inter",
+              "away": "Napoli",
+              "home_goals": 3,
+              "away_goals": 2,
+              "points": 0,
+              "source": "https://football-data.co.uk/mmz4281/2627/I1.csv"
+            }
+          ],
+          "league_form_points": 3,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-05",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/I1.csv",
+          "availability": [
+            {
+              "player": "McTominay",
+              "status": "out",
+              "position": "CM",
+              "source_detail": "McTominay (heart)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 4
+        },
+        "away": {
+          "club_id": "arsenal-fc",
+          "league": "E0",
+          "domestic_name": "Arsenal",
+          "league_results": [
+            {
+              "date": "2026-08-21",
+              "home": "Arsenal",
+              "away": "Coventry",
+              "home_goals": 3,
+              "away_goals": 0,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-08-31",
+              "home": "Aston Villa",
+              "away": "Arsenal",
+              "home_goals": 0,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            },
+            {
+              "date": "2026-09-06",
+              "home": "Arsenal",
+              "away": "Chelsea",
+              "home_goals": 2,
+              "away_goals": 1,
+              "points": 3,
+              "source": "https://football-data.co.uk/mmz4281/2627/E0.csv"
+            }
+          ],
+          "league_form_points": 9,
+          "form_matches": 3,
+          "latest_competitive_date": "2026-09-06",
+          "rest_source": "https://football-data.co.uk/mmz4281/2627/E0.csv",
+          "availability": [
+            {
+              "player": "Saliba",
+              "status": "out",
+              "position": "CB",
+              "source_detail": "Saliba (back)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Mosquera",
+              "status": "doubtful",
+              "position": "CB",
+              "source_detail": "Mosquera (unspecified)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            },
+            {
+              "player": "Timber",
+              "status": "doubtful",
+              "position": "RB",
+              "source_detail": "Timber (groin)",
+              "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+              "role_mapping": "manual broad-position research assumption; no player-specific valuation",
+              "retrieved_at_utc": "2026-09-08T00:02:10.341253+00:00"
+            }
+          ],
+          "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+          "predicted_not_confirmed": true,
+          "data_as_of_utc": "2026-09-08T00:02:10.341253+00:00",
+          "rest_days": 3
+        }
+      },
+      "totals_status": "Separate live O/U model not ready; no score-matrix totals relabelled as the O/U champion.",
+      "baseline": {
+        "probabilities": {
+          "home": 0.24926116288580094,
+          "draw": 0.24497600168428915,
+          "away": 0.50576283542991
+        },
+        "fair_odds": {
+          "home": 4.0118564337202836,
+          "draw": 4.082032497569872,
+          "away": 1.9772113131839297
+        },
+        "expected_goals": {
+          "home": 1.1535642062173403,
+          "away": 1.877445531805631
+        },
+        "adjustments": null
+      },
+      "form_rest_only": {
+        "probabilities": {
+          "home": 0.23722334401865625,
+          "draw": 0.24927319469540013,
+          "away": 0.5135034612859436
+        },
+        "fair_odds": {
+          "home": 4.215436740160596,
+          "draw": 4.011662791187605,
+          "away": 1.9474065422962195
+        },
+        "expected_goals": {
+          "home": 1.039,
+          "away": 1.81
+        },
+        "adjustments": {
+          "lam_base": 1.1535642062173403,
+          "mu_base": 1.877445531805631,
+          "lam_final": 1.039,
+          "mu_final": 1.81,
+          "t2_ppda_adj": 0.0,
+          "t3_form_adj_h": -0.048,
+          "t3_form_adj_a": 0.048,
+          "t3_rest_adj_h": 0.94,
+          "t3_rest_adj_a": 0.94,
+          "t5_att_disruption_h": 0.0,
+          "t5_def_disruption_h": 0.0,
+          "t5_att_disruption_a": 0.0,
+          "t5_def_disruption_a": 0.0,
+          "t6_ref_adj": 0.0,
+          "t7_sp_adj_lam": 0.0,
+          "t7_sp_adj_mu": 0.0,
+          "t8_adj_lam": 0.0,
+          "t8_adj_mu": 0.0,
+          "t9_adj_lam": 0.0,
+          "t9_adj_mu": 0.0
+        }
+      },
+      "scenarios": {
+        "confirmed_outs": {
+          "probabilities": {
+            "home": 0.23718507333576436,
+            "draw": 0.24561552808118706,
+            "away": 0.5171993985830486
+          },
+          "fair_odds": {
+            "home": 4.216116916364203,
+            "draw": 4.071403822927086,
+            "away": 1.933490260699571
+          },
+          "expected_goals": {
+            "home": 1.069,
+            "away": 1.863
+          },
+          "adjustments": {
+            "lam_base": 1.1535642062173403,
+            "mu_base": 1.877445531805631,
+            "lam_final": 1.069,
+            "mu_final": 1.863,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.048,
+            "t3_form_adj_a": 0.048,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.04,
+            "t5_att_disruption_a": 0.01,
+            "t5_def_disruption_a": 0.06,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "home_doubts_out": {
+          "probabilities": {
+            "home": 0.23718507333576436,
+            "draw": 0.24561552808118706,
+            "away": 0.5171993985830486
+          },
+          "fair_odds": {
+            "home": 4.216116916364203,
+            "draw": 4.071403822927086,
+            "away": 1.933490260699571
+          },
+          "expected_goals": {
+            "home": 1.069,
+            "away": 1.863
+          },
+          "adjustments": {
+            "lam_base": 1.1535642062173403,
+            "mu_base": 1.877445531805631,
+            "lam_final": 1.069,
+            "mu_final": 1.863,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.048,
+            "t3_form_adj_a": 0.048,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.04,
+            "t5_att_disruption_a": 0.01,
+            "t5_def_disruption_a": 0.06,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "away_doubts_out": {
+          "probabilities": {
+            "home": 0.25698234486474036,
+            "draw": 0.24967756480650236,
+            "away": 0.49334009032875736
+          },
+          "fair_odds": {
+            "home": 3.891317905618529,
+            "draw": 4.005165625413682,
+            "away": 2.0269992640038823
+          },
+          "expected_goals": {
+            "home": 1.159,
+            "away": 1.807
+          },
+          "adjustments": {
+            "lam_base": 1.1535642062173403,
+            "mu_base": 1.877445531805631,
+            "lam_final": 1.159,
+            "mu_final": 1.807,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.048,
+            "t3_form_adj_a": 0.048,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.04,
+            "t5_att_disruption_a": 0.04,
+            "t5_def_disruption_a": 0.15,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        },
+        "both_doubts_out": {
+          "probabilities": {
+            "home": 0.25698234486474036,
+            "draw": 0.24967756480650236,
+            "away": 0.49334009032875736
+          },
+          "fair_odds": {
+            "home": 3.891317905618529,
+            "draw": 4.005165625413682,
+            "away": 2.0269992640038823
+          },
+          "expected_goals": {
+            "home": 1.159,
+            "away": 1.807
+          },
+          "adjustments": {
+            "lam_base": 1.1535642062173403,
+            "mu_base": 1.877445531805631,
+            "lam_final": 1.159,
+            "mu_final": 1.807,
+            "t2_ppda_adj": 0.0,
+            "t3_form_adj_h": -0.048,
+            "t3_form_adj_a": 0.048,
+            "t3_rest_adj_h": 0.94,
+            "t3_rest_adj_a": 0.94,
+            "t5_att_disruption_h": 0.03,
+            "t5_def_disruption_h": 0.04,
+            "t5_att_disruption_a": 0.04,
+            "t5_def_disruption_a": 0.15,
+            "t6_ref_adj": 0.0,
+            "t7_sp_adj_lam": 0.0,
+            "t7_sp_adj_mu": 0.0,
+            "t8_adj_lam": 0.0,
+            "t8_adj_mu": 0.0,
+            "t9_adj_lam": 0.0,
+            "t9_adj_mu": 0.0
+          }
+        }
+      },
+      "fair_odds": {
+        "home": 4.216116916364203,
+        "draw": 4.071403822927086,
+        "away": 1.933490260699571
+      },
+      "availability_scenario_odds_range": {
+        "home": [
+          3.891317905618529,
+          4.216116916364203
+        ],
+        "draw": [
+          4.005165625413682,
+          4.071403822927086
+        ],
+        "away": [
+          1.933490260699571,
+          2.0269992640038823
+        ]
+      },
+      "home_probability_change_pp": -1.2076089550036584
+    }
+  ],
+  "convergence": {
+    "converged": true,
+    "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "optimizer_iterations": 680,
+    "optimizer_evaluations": 224575
+  },
+  "fit_matches": 1997,
+  "fit_latest_result": "2026-05-30 18:00:00+00:00",
+  "normalization_rate_scale": 0.56700728609596,
+  "input_manifest": "outputs/football/ucl/2026-09-08_researched/context.json",
+  "method_notes": [
+    "Only current-season competitive domestic league matches enter form; friendlies excluded.",
+    "For fewer than five league games, unplayed slots contribute neutral 1.5 points, an explicit shrinkage assumption, not invented match results.",
+    "Rest is calendar-date difference to latest verified competitive club match; no claim of precise recovery hours.",
+    "Research availability uses broad-position legacy football weights; it is not the trained UCL player shadow.",
+    "Confirmed absences enter the central scenario. Doubtful and disputed players enter separate sensitivity scenarios.",
+    "Current domestic corners are archived but not added to 1X2; the separate corner challenger is not promoted."
+  ],
+  "priced": 9,
+  "sha256": {
+    "outputs/football/ucl/2026-09-08_researched/context.json": "fad3d292fa8644919a56ecebb0d7b18580831ccda0279540de19614c457a440b",
+    "outputs/football/ucl/2026-09-08_researched/aliases.json": "f8f3786d95e2ebdc9ab79ff349ec366149ce86824e7517225f74519316e51820",
+    "outputs/football/ucl/2026-09-08_researched/ratings_corrected.json": "878bfd645342100a0752901a6d517f8afd4226f558fc8a5e4b88154790eee4c5",
+    "/Users/elliotbladen/BetMate/BettingEngine/ml/football/ucl_researched_pricing.py": "cfc2bff625ee824bf9448c35c61ffb9c6bcb21c951eef858e41dcc9c6c9d30ee",
+    "/Users/elliotbladen/BetMate/BettingEngine/ml/football/ucl_shared_engine.py": "c2b513677ab25c305e141543e76acf2e6a86264e73a66ae1c6ee9e59ea1ba0fc",
+    "/Users/elliotbladen/BetMate/BettingEngine/ml/football/models/dixon_coles.py": "450f4f695e8282616094294018521dee3abe81760405a8e418c8fed01d521ef2",
+    "/Users/elliotbladen/BetMate/BettingEngine/ml/football/models/tiers.py": "080cb898bcd3c8113a0f7b74394f13d9de474402731877ee07d672a1acdd05d3"
+  }
+}

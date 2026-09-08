@@ -1,0 +1,943 @@
+{
+  "generated_at_utc": "2026-09-08T04:52:26.676395Z",
+  "source": "data/ucl/markets/ucl_combined_1x2_ou25_matrix.csv",
+  "seasons": [
+    "2024-25",
+    "2025-26"
+  ],
+  "edge_threshold_pp": 7.5,
+  "required_net": 5,
+  "minimum_sample": 5,
+  "rule": "aligned signals minus opposed signals; categories are overlapping, not independent.",
+  "results": [
+    {
+      "home": "AEK Athens",
+      "away": "LASK",
+      "status": "BLOCKED",
+      "net": null,
+      "aligned": [],
+      "opposed": []
+    },
+    {
+      "home": "Club Brugge",
+      "away": "Aston Villa",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "club-brugge-kv",
+          "category": "All games",
+          "edge_pp": 10.28,
+          "n": 22
+        },
+        {
+          "team": "club-brugge-kv",
+          "category": "Home games",
+          "edge_pp": 16.83,
+          "n": 11
+        },
+        {
+          "team": "club-brugge-kv",
+          "category": "Tuesday",
+          "edge_pp": 11.92,
+          "n": 15
+        },
+        {
+          "team": "club-brugge-kv",
+          "category": "September",
+          "edge_pp": 17.92,
+          "n": 8
+        },
+        {
+          "team": "club-brugge-kv",
+          "category": "After a loss",
+          "edge_pp": 24.49,
+          "n": 9
+        },
+        {
+          "team": "club-brugge-kv",
+          "category": "Short rest",
+          "edge_pp": 23.76,
+          "n": 10
+        }
+      ],
+      "opposed": [
+        {
+          "team": "aston-villa-fc",
+          "category": "All games",
+          "edge_pp": 24.64,
+          "n": 12
+        },
+        {
+          "team": "aston-villa-fc",
+          "category": "Home games",
+          "edge_pp": 38.68,
+          "n": 6
+        },
+        {
+          "team": "aston-villa-fc",
+          "category": "Away games",
+          "edge_pp": 10.6,
+          "n": 6
+        },
+        {
+          "team": "aston-villa-fc",
+          "category": "Tuesday",
+          "edge_pp": 24.64,
+          "n": 12
+        },
+        {
+          "team": "aston-villa-fc",
+          "category": "September",
+          "edge_pp": 23.19,
+          "n": 6
+        },
+        {
+          "team": "aston-villa-fc",
+          "category": "After a win",
+          "edge_pp": 18.34,
+          "n": 7
+        },
+        {
+          "team": "aston-villa-fc",
+          "category": "Short rest",
+          "edge_pp": 29.07,
+          "n": 10
+        }
+      ],
+      "net": -1,
+      "passes_net5": false
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "Villarreal",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "borussia-dortmund",
+          "category": "Away games",
+          "edge_pp": 8.1,
+          "n": 12
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "Tuesday",
+          "edge_pp": 13.61,
+          "n": 19
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "September",
+          "edge_pp": 11.19,
+          "n": 7
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "After a loss",
+          "edge_pp": 22.3,
+          "n": 7
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "Short rest",
+          "edge_pp": 12.59,
+          "n": 12
+        },
+        {
+          "team": "villarreal-cf",
+          "category": "All games",
+          "edge_pp": -42.07,
+          "n": 8
+        },
+        {
+          "team": "villarreal-cf",
+          "category": "After a loss",
+          "edge_pp": -49.16,
+          "n": 6
+        }
+      ],
+      "opposed": [],
+      "net": 7,
+      "passes_net5": true
+    },
+    {
+      "home": "Porto",
+      "away": "Manchester City",
+      "normal_pick": "away",
+      "status": "ASSESSED",
+      "aligned": [],
+      "opposed": [
+        {
+          "team": "manchester-city-fc",
+          "category": "All games",
+          "edge_pp": -22.27,
+          "n": 20
+        },
+        {
+          "team": "manchester-city-fc",
+          "category": "Home games",
+          "edge_pp": -20.59,
+          "n": 10
+        },
+        {
+          "team": "manchester-city-fc",
+          "category": "Away games",
+          "edge_pp": -23.94,
+          "n": 10
+        },
+        {
+          "team": "manchester-city-fc",
+          "category": "Tuesday",
+          "edge_pp": -33.81,
+          "n": 14
+        },
+        {
+          "team": "manchester-city-fc",
+          "category": "September",
+          "edge_pp": -26.67,
+          "n": 7
+        },
+        {
+          "team": "manchester-city-fc",
+          "category": "After a win",
+          "edge_pp": -38.43,
+          "n": 8
+        },
+        {
+          "team": "manchester-city-fc",
+          "category": "After a loss",
+          "edge_pp": -8.75,
+          "n": 8
+        },
+        {
+          "team": "manchester-city-fc",
+          "category": "Short rest",
+          "edge_pp": -25.97,
+          "n": 8
+        }
+      ],
+      "net": -8,
+      "passes_net5": false
+    },
+    {
+      "home": "Lille",
+      "away": "Real Betis",
+      "status": "BLOCKED",
+      "net": null,
+      "aligned": [],
+      "opposed": []
+    },
+    {
+      "home": "Real Madrid",
+      "away": "Inter",
+      "normal_pick": "away",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "fc-internazionale-milano",
+          "category": "All games",
+          "edge_pp": 8.66,
+          "n": 24
+        },
+        {
+          "team": "fc-internazionale-milano",
+          "category": "Away games",
+          "edge_pp": 10.89,
+          "n": 13
+        },
+        {
+          "team": "fc-internazionale-milano",
+          "category": "Tuesday",
+          "edge_pp": 10.0,
+          "n": 19
+        },
+        {
+          "team": "fc-internazionale-milano",
+          "category": "September",
+          "edge_pp": 21.79,
+          "n": 7
+        },
+        {
+          "team": "fc-internazionale-milano",
+          "category": "After a win",
+          "edge_pp": 13.71,
+          "n": 15
+        },
+        {
+          "team": "fc-internazionale-milano",
+          "category": "Short rest",
+          "edge_pp": 22.06,
+          "n": 12
+        }
+      ],
+      "opposed": [
+        {
+          "team": "real-madrid-cf",
+          "category": "All games",
+          "edge_pp": 13.13,
+          "n": 27
+        },
+        {
+          "team": "real-madrid-cf",
+          "category": "Home games",
+          "edge_pp": 13.49,
+          "n": 14
+        },
+        {
+          "team": "real-madrid-cf",
+          "category": "Away games",
+          "edge_pp": 12.74,
+          "n": 13
+        },
+        {
+          "team": "real-madrid-cf",
+          "category": "Tuesday",
+          "edge_pp": 13.5,
+          "n": 20
+        },
+        {
+          "team": "real-madrid-cf",
+          "category": "After a win",
+          "edge_pp": 10.61,
+          "n": 17
+        },
+        {
+          "team": "real-madrid-cf",
+          "category": "After a loss",
+          "edge_pp": 16.37,
+          "n": 9
+        },
+        {
+          "team": "real-madrid-cf",
+          "category": "Short rest",
+          "edge_pp": 9.4,
+          "n": 11
+        }
+      ],
+      "net": -1,
+      "passes_net5": false
+    },
+    {
+      "home": "Barcelona",
+      "away": "Feyenoord",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "fc-barcelona",
+          "category": "September",
+          "edge_pp": 26.89,
+          "n": 5
+        },
+        {
+          "team": "fc-barcelona",
+          "category": "After a loss",
+          "edge_pp": 16.99,
+          "n": 6
+        }
+      ],
+      "opposed": [
+        {
+          "team": "fc-barcelona",
+          "category": "Wednesday",
+          "edge_pp": -17.43,
+          "n": 6
+        },
+        {
+          "team": "feyenoord-rotterdam",
+          "category": "All games",
+          "edge_pp": 16.4,
+          "n": 12
+        },
+        {
+          "team": "feyenoord-rotterdam",
+          "category": "Home games",
+          "edge_pp": 15.79,
+          "n": 6
+        },
+        {
+          "team": "feyenoord-rotterdam",
+          "category": "Away games",
+          "edge_pp": 17.01,
+          "n": 6
+        },
+        {
+          "team": "feyenoord-rotterdam",
+          "category": "September",
+          "edge_pp": 16.67,
+          "n": 6
+        },
+        {
+          "team": "feyenoord-rotterdam",
+          "category": "After a win",
+          "edge_pp": 13.54,
+          "n": 5
+        },
+        {
+          "team": "feyenoord-rotterdam",
+          "category": "Short rest",
+          "edge_pp": 12.79,
+          "n": 10
+        }
+      ],
+      "net": -5,
+      "passes_net5": false
+    },
+    {
+      "home": "Stuttgart",
+      "away": "Viking",
+      "status": "BLOCKED",
+      "net": null,
+      "aligned": [],
+      "opposed": []
+    },
+    {
+      "home": "Liverpool",
+      "away": "Atl\u00e9tico de Madrid",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "liverpool-fc",
+          "category": "All games",
+          "edge_pp": 13.8,
+          "n": 22
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Home games",
+          "edge_pp": 10.36,
+          "n": 11
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Away games",
+          "edge_pp": 17.25,
+          "n": 11
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Wednesday",
+          "edge_pp": 8.67,
+          "n": 7
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "September",
+          "edge_pp": 27.2,
+          "n": 8
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "After a loss",
+          "edge_pp": 33.12,
+          "n": 6
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Short rest",
+          "edge_pp": 23.08,
+          "n": 8
+        },
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "Wednesday",
+          "edge_pp": -13.78,
+          "n": 8
+        },
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "Normal rest",
+          "edge_pp": -24.9,
+          "n": 5
+        }
+      ],
+      "opposed": [
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "September",
+          "edge_pp": 12.31,
+          "n": 8
+        },
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "After a win",
+          "edge_pp": 9.68,
+          "n": 13
+        }
+      ],
+      "net": 7,
+      "passes_net5": true
+    },
+    {
+      "home": "Paris Saint-Germain",
+      "away": "Slovan Bratislava",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "All games",
+          "edge_pp": 13.94,
+          "n": 32
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "Home games",
+          "edge_pp": 9.55,
+          "n": 17
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "Away games",
+          "edge_pp": 18.93,
+          "n": 15
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "After a win",
+          "edge_pp": 18.33,
+          "n": 19
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "Short rest",
+          "edge_pp": 8.63,
+          "n": 13
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "All games",
+          "edge_pp": -7.9,
+          "n": 8
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "September",
+          "edge_pp": -8.81,
+          "n": 6
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "After a loss",
+          "edge_pp": -8.0,
+          "n": 7
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "Short rest",
+          "edge_pp": -7.9,
+          "n": 6
+        }
+      ],
+      "opposed": [
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "September",
+          "edge_pp": -14.8,
+          "n": 7
+        }
+      ],
+      "net": 8,
+      "passes_net5": true
+    },
+    {
+      "home": "Sporting CP",
+      "away": "Galatasaray",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "sporting-clube-de-portugal",
+          "category": "Home games",
+          "edge_pp": 17.66,
+          "n": 11
+        },
+        {
+          "team": "sporting-clube-de-portugal",
+          "category": "Wednesday",
+          "edge_pp": 14.02,
+          "n": 6
+        },
+        {
+          "team": "galatasaray-sk",
+          "category": "Away games",
+          "edge_pp": -8.02,
+          "n": 6
+        }
+      ],
+      "opposed": [
+        {
+          "team": "sporting-clube-de-portugal",
+          "category": "Away games",
+          "edge_pp": -13.41,
+          "n": 11
+        },
+        {
+          "team": "sporting-clube-de-portugal",
+          "category": "Short rest",
+          "edge_pp": -13.63,
+          "n": 8
+        },
+        {
+          "team": "galatasaray-sk",
+          "category": "All games",
+          "edge_pp": 11.32,
+          "n": 12
+        },
+        {
+          "team": "galatasaray-sk",
+          "category": "Home games",
+          "edge_pp": 30.65,
+          "n": 6
+        },
+        {
+          "team": "galatasaray-sk",
+          "category": "After a loss",
+          "edge_pp": 34.63,
+          "n": 5
+        }
+      ],
+      "net": -2,
+      "passes_net5": false
+    },
+    {
+      "home": "Napoli",
+      "away": "Arsenal",
+      "normal_pick": "away",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "arsenal-fc",
+          "category": "All games",
+          "edge_pp": 12.03,
+          "n": 29
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "Home games",
+          "edge_pp": 12.19,
+          "n": 14
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "Away games",
+          "edge_pp": 11.88,
+          "n": 15
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "September",
+          "edge_pp": 15.94,
+          "n": 7
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "After a win",
+          "edge_pp": 9.68,
+          "n": 20
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "After a draw",
+          "edge_pp": 27.98,
+          "n": 5
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "Short rest",
+          "edge_pp": 15.83,
+          "n": 12
+        },
+        {
+          "team": "ssc-napoli",
+          "category": "All games",
+          "edge_pp": -20.25,
+          "n": 8
+        }
+      ],
+      "opposed": [
+        {
+          "team": "arsenal-fc",
+          "category": "Wednesday",
+          "edge_pp": -7.82,
+          "n": 7
+        }
+      ],
+      "net": 7,
+      "passes_net5": true
+    }
+  ],
+  "teams_with_net5": [
+    {
+      "home": "Borussia Dortmund",
+      "away": "Villarreal",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "borussia-dortmund",
+          "category": "Away games",
+          "edge_pp": 8.1,
+          "n": 12
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "Tuesday",
+          "edge_pp": 13.61,
+          "n": 19
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "September",
+          "edge_pp": 11.19,
+          "n": 7
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "After a loss",
+          "edge_pp": 22.3,
+          "n": 7
+        },
+        {
+          "team": "borussia-dortmund",
+          "category": "Short rest",
+          "edge_pp": 12.59,
+          "n": 12
+        },
+        {
+          "team": "villarreal-cf",
+          "category": "All games",
+          "edge_pp": -42.07,
+          "n": 8
+        },
+        {
+          "team": "villarreal-cf",
+          "category": "After a loss",
+          "edge_pp": -49.16,
+          "n": 6
+        }
+      ],
+      "opposed": [],
+      "net": 7,
+      "passes_net5": true
+    },
+    {
+      "home": "Liverpool",
+      "away": "Atl\u00e9tico de Madrid",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "liverpool-fc",
+          "category": "All games",
+          "edge_pp": 13.8,
+          "n": 22
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Home games",
+          "edge_pp": 10.36,
+          "n": 11
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Away games",
+          "edge_pp": 17.25,
+          "n": 11
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Wednesday",
+          "edge_pp": 8.67,
+          "n": 7
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "September",
+          "edge_pp": 27.2,
+          "n": 8
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "After a loss",
+          "edge_pp": 33.12,
+          "n": 6
+        },
+        {
+          "team": "liverpool-fc",
+          "category": "Short rest",
+          "edge_pp": 23.08,
+          "n": 8
+        },
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "Wednesday",
+          "edge_pp": -13.78,
+          "n": 8
+        },
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "Normal rest",
+          "edge_pp": -24.9,
+          "n": 5
+        }
+      ],
+      "opposed": [
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "September",
+          "edge_pp": 12.31,
+          "n": 8
+        },
+        {
+          "team": "club-atl-tico-de-madrid",
+          "category": "After a win",
+          "edge_pp": 9.68,
+          "n": 13
+        }
+      ],
+      "net": 7,
+      "passes_net5": true
+    },
+    {
+      "home": "Paris Saint-Germain",
+      "away": "Slovan Bratislava",
+      "normal_pick": "home",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "All games",
+          "edge_pp": 13.94,
+          "n": 32
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "Home games",
+          "edge_pp": 9.55,
+          "n": 17
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "Away games",
+          "edge_pp": 18.93,
+          "n": 15
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "After a win",
+          "edge_pp": 18.33,
+          "n": 19
+        },
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "Short rest",
+          "edge_pp": 8.63,
+          "n": 13
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "All games",
+          "edge_pp": -7.9,
+          "n": 8
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "September",
+          "edge_pp": -8.81,
+          "n": 6
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "After a loss",
+          "edge_pp": -8.0,
+          "n": 7
+        },
+        {
+          "team": "k-slovan-bratislava",
+          "category": "Short rest",
+          "edge_pp": -7.9,
+          "n": 6
+        }
+      ],
+      "opposed": [
+        {
+          "team": "paris-saint-germain-fc",
+          "category": "September",
+          "edge_pp": -14.8,
+          "n": 7
+        }
+      ],
+      "net": 8,
+      "passes_net5": true
+    },
+    {
+      "home": "Napoli",
+      "away": "Arsenal",
+      "normal_pick": "away",
+      "status": "ASSESSED",
+      "aligned": [
+        {
+          "team": "arsenal-fc",
+          "category": "All games",
+          "edge_pp": 12.03,
+          "n": 29
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "Home games",
+          "edge_pp": 12.19,
+          "n": 14
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "Away games",
+          "edge_pp": 11.88,
+          "n": 15
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "September",
+          "edge_pp": 15.94,
+          "n": 7
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "After a win",
+          "edge_pp": 9.68,
+          "n": 20
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "After a draw",
+          "edge_pp": 27.98,
+          "n": 5
+        },
+        {
+          "team": "arsenal-fc",
+          "category": "Short rest",
+          "edge_pp": 15.83,
+          "n": 12
+        },
+        {
+          "team": "ssc-napoli",
+          "category": "All games",
+          "edge_pp": -20.25,
+          "n": 8
+        }
+      ],
+      "opposed": [
+        {
+          "team": "arsenal-fc",
+          "category": "Wednesday",
+          "edge_pp": -7.82,
+          "n": 7
+        }
+      ],
+      "net": 7,
+      "passes_net5": true
+    }
+  ]
+}

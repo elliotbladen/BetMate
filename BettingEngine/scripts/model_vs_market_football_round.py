@@ -6,7 +6,7 @@ Model vs market over a FULL round — EPL GW3 and EFL Championship GW5 —
 for both 1X2 and Over/Under 2.5.
 
 Model side
-  EPL : outputs/football/epl/gw3_normal_shadow_prices_2026-09-03.json
+  EPL : outputs/football/epl/2026-27/gw03/1_model.json
         (genuine pre-round prices, saved 2026-09-03)
   EFL : regenerated with scripts/price_efl_week4_2026.py at as_of=2026-09-05.
         price_match filters `Date < as_of`, so there is no lookahead, but it now
@@ -66,7 +66,7 @@ def brier_multi(probs, outcome):
 
 
 def load_epl_model():
-    d = json.loads((ROOT / "outputs/football/epl/gw3_normal_shadow_prices_2026-09-03.json").read_text())
+    d = json.loads((ROOT / "outputs/football/epl/2026-27/gw03/1_model.json").read_text())
     return {(g["home"], g["away"]): g["normal"] for g in d["games"]}
 
 

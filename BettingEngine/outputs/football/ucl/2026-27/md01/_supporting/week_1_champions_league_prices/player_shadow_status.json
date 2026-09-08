@@ -1,0 +1,12 @@
+{
+  "status": "ucl_player_shadow_data_pending",
+  "events": 0,
+  "mode": "shadow",
+  "production_price_influence": false,
+  "next_gate": "populate timestamped UCL player events and observed appearances",
+  "executed_at_utc": "2026-09-08T03:59:16.057035+00:00",
+  "command": ".venv/bin/python -m ml.football.ucl_player_shadow",
+  "script_sha256": "861e2b7bd6a84419ff3ab55f8a18c142ea15470b1f84083b8dd228a542e3032b",
+  "shadow_prices_generated": 0,
+  "reason": "The UCL script checks event readiness only and contains no model inference. Required data/ucl/context/player_events.csv is absent."
+}

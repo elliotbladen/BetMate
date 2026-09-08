@@ -37,8 +37,8 @@ def week1_rows(league: str) -> list[dict]:
 
 def week2_rows() -> list[dict]:
     jobs = [
-        ("EPL", ROOT / "outputs/football/epl/gw2_bets_2026-08-31.csv"),
-        ("EFL Championship", ROOT / "outputs/football/championship/gw3_bets_2026-08-31.csv"),
+        ("EPL", ROOT / "outputs/football/epl/2026-27/gw02/2_bets.csv"),
+        ("EFL Championship", ROOT / "outputs/football/championship/2026-27/gw03/2_bets.csv"),
     ]
     rows = []
     for league, path in jobs:

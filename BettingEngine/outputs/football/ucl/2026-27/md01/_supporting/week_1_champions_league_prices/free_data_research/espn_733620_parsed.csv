@@ -1,0 +1,46 @@
+event_id,kickoff,home_team,away_team,home_goals,away_goals,team,side,player_id,player_name,position_raw,position_group,starter,subbed_in,subbed_out,minutes,goals,assists,shots,shots_on_target,saves,fouls_committed,fouls_suffered,yellow_cards,red_cards,own_goals
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,217092,Gianluigi Donnarumma,G,GK,1,0,0,90.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,287005,Willian Pacho,CD-L,DEF,1,0,0,90.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,159047,Marquinhos,CD-R,DEF,1,0,0,90.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,290591,Nuno Mendes,LB,DEF,1,0,1,78.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,240233,Achraf Hakimi,RB,DEF,1,0,0,90.0,1.0,0.0,2.0,1.0,0.0,4.0,1.0,1.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,288897,Vitinha,CM,MID,1,0,0,90.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,214596,Fabián Ruiz,LM,MID,1,0,1,84.0,0.0,0.0,1.0,1.0,0.0,0.0,2.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,355061,João Neves,RM,MID,1,0,1,84.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,229744,Ousmane Dembélé,F,ATT,1,0,0,90.0,0.0,2.0,4.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,274745,Khvicha Kvaratskhelia,LF,MID,1,0,1,84.0,1.0,0.0,6.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,336388,Désiré Doué,RF,MID,1,0,1,67.0,2.0,1.0,4.0,3.0,0.0,2.0,1.0,1.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,388522,Ibrahim Mbaye,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,328238,Bradley Barcola,SUB,SUB,0,1,0,25.0,0.0,1.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,290043,Arnau Tenas,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,379088,Senny Mayulu,SUB,SUB,0,1,0,25.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,196200,Lucas Hernández,SUB,SUB,0,1,0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,288896,Gonçalo Ramos,SUB,SUB,0,1,0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,248699,Matvei Safonov,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,316128,Lucas Beraldo,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,345581,Warren Zaïre-Emery,SUB,SUB,0,1,0,25.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,207015,Presnel Kimpembe,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Paris Saint-Germain,home,274197,Lee Kang-In,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,93197,Yann Sommer,G,GK,1,0,0,90.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,148842,Francesco Acerbi,CD,DEF,1,0,0,90.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,249280,Alessandro Bastoni,CD-L,DEF,1,0,0,90.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,215378,Benjamin Pavard,CD-R,DEF,1,0,1,54.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,147625,Henrikh Mkhitaryan,CM-L,MID,1,0,1,62.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,204441,Nicolò Barella,CM-R,MID,1,0,0,90.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,170785,Hakan Çalhanoglu,AM,ATT,1,0,1,70.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,194748,Federico Dimarco,LM,MID,1,0,1,54.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,213248,Denzel Dumfries,RM,MID,1,0,0,90.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,219713,Lautaro Martínez,CF-L,ATT,1,0,0,90.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,217331,Marcus Thuram,CF-R,ATT,1,0,0,90.0,0.0,0.0,2.0,1.0,0.0,1.0,3.0,1.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,141443,Stefan de Vrij,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,271769,Carlos Augusto,SUB,SUB,0,1,0,25.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,308881,Kristjan Asllani,SUB,SUB,0,1,0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,250850,Davide Frattesi,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,266660,Yann Bisseck,SUB,SUB,0,1,1,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,288488,Nicola Zalewski,SUB,SUB,0,1,0,25.0,0.0,0.0,2.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,177782,Piotr Zielinski,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,91873,Matteo Darmian,SUB,SUB,0,1,0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,240533,Josep Martínez,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,98193,Marko Arnautovic,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,219611,Mehdi Taremi,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+733620,2025-05-31T19:00Z,Paris Saint-Germain,Internazionale,5,0,Internazionale,away,181322,Raffaele Di Gennaro,SUB,SUB,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

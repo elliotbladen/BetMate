@@ -31,7 +31,7 @@ OUT = ROOT / "outputs/results"
 
 # (league, home, away, market, side, saved_price, stake_u, source)
 BETS = [
-    # EPL GW3 — outputs/football/epl/gw3_10pct_ev_candidates_2026-09-03.csv
+    # EPL GW3 — outputs/football/epl/2026-27/gw03/2_bets.csv
     ("EPL", "Ipswich",   "Liverpool",   "1X2",     "H",    5.50, 1.0, "Ipswich win"),
     ("EPL", "Brentford", "Sunderland",  "1X2",     "A",    5.50, 1.0, "Sunderland win"),
     ("EPL", "Hull",      "Aston Villa", "1X2",     "H",    4.10, 1.0, "Hull win"),
@@ -39,7 +39,7 @@ BETS = [
     ("EPL", "Newcastle", "Bournemouth", "O/U 2.5", "OVER", 1.57, 1.0, "Over 2.5"),
     ("EPL", "Everton",   "Man United",  "O/U 2.5", "OVER", 1.70, 1.0, "Over 2.5"),
     ("EPL", "Arsenal",   "Chelsea",     "O/U 2.5", "OVER", 2.00, 1.0, "Over 2.5"),
-    # EFL GW5 — outputs/football/championship/gw5_bets_injury_adjusted_2026-09-03.csv
+    # EFL GW5 — outputs/football/championship/2026-27/gw05/2_bets.csv
     ("EFL", "Stoke",            "Charlton", "1X2", "A", 3.48, 1.0, "Charlton win"),
     ("EFL", "Millwall",         "Bolton",   "1X2", "A", 6.00, 1.0, "Bolton win"),
     ("EFL", "Sheffield United", "Norwich",  "1X2", "H", 2.50, 1.5, "Sheffield United win (+6 matrix)"),

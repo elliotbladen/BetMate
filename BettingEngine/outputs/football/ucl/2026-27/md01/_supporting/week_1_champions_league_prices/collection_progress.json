@@ -1,0 +1,194 @@
+{
+  "generated_at_utc": "2026-09-08T04:14:22.525405+00:00",
+  "status": "collection_started_shadow_not_ready",
+  "datasets": [
+    {
+      "path": "data/ucl/player_layer/domestic_eng1_2026_pre_md1",
+      "matches": 11,
+      "player_rows": 440
+    },
+    {
+      "path": "data/ucl/player_layer/espn_2024_25",
+      "matches": 189,
+      "player_rows": 8223
+    },
+    {
+      "path": "data/ucl/player_layer/espn_2025_26",
+      "matches": 189,
+      "player_rows": 8245
+    }
+  ],
+  "week1_team_history": [
+    {
+      "team": "AEK Athens",
+      "espn_name": "AEK Athens",
+      "matches_collected": 0,
+      "latest_collected_match": null,
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "LASK",
+      "espn_name": "LASK",
+      "matches_collected": 0,
+      "latest_collected_match": null,
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Club Brugge",
+      "espn_name": "Club Brugge",
+      "matches_collected": 22,
+      "latest_collected_match": "2026-02-24T17:45Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Aston Villa",
+      "espn_name": "Aston Villa",
+      "matches_collected": 15,
+      "latest_collected_match": "2026-09-05T16:30Z",
+      "recent_domestic_collected": true
+    },
+    {
+      "team": "Borussia Dortmund",
+      "espn_name": "Borussia Dortmund",
+      "matches_collected": 24,
+      "latest_collected_match": "2026-02-25T17:45Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Villarreal",
+      "espn_name": "Villarreal",
+      "matches_collected": 8,
+      "latest_collected_match": "2026-01-28T20:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Porto",
+      "espn_name": "Porto",
+      "matches_collected": 0,
+      "latest_collected_match": null,
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Manchester City",
+      "espn_name": "Manchester City",
+      "matches_collected": 23,
+      "latest_collected_match": "2026-09-05T14:00Z",
+      "recent_domestic_collected": true
+    },
+    {
+      "team": "Lille",
+      "espn_name": "Lille",
+      "matches_collected": 10,
+      "latest_collected_match": "2025-03-12T17:45Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Real Betis",
+      "espn_name": "Real Betis",
+      "matches_collected": 0,
+      "latest_collected_match": null,
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Real Madrid",
+      "espn_name": "Real Madrid",
+      "matches_collected": 28,
+      "latest_collected_match": "2026-04-15T19:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Inter",
+      "espn_name": "Internazionale",
+      "matches_collected": 25,
+      "latest_collected_match": "2026-02-24T20:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Barcelona",
+      "espn_name": "Barcelona",
+      "matches_collected": 26,
+      "latest_collected_match": "2026-04-14T19:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Feyenoord",
+      "espn_name": "Feyenoord Rotterdam",
+      "matches_collected": 12,
+      "latest_collected_match": "2025-03-11T20:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Stuttgart",
+      "espn_name": "VfB Stuttgart",
+      "matches_collected": 8,
+      "latest_collected_match": "2025-01-29T20:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Viking",
+      "espn_name": "Viking",
+      "matches_collected": 0,
+      "latest_collected_match": null,
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Liverpool",
+      "espn_name": "Liverpool",
+      "matches_collected": 25,
+      "latest_collected_match": "2026-09-04T19:00Z",
+      "recent_domestic_collected": true
+    },
+    {
+      "team": "Atl\u00e9tico de Madrid",
+      "espn_name": "Atl\u00e9tico Madrid",
+      "matches_collected": 26,
+      "latest_collected_match": "2026-05-05T19:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Paris Saint-Germain",
+      "espn_name": "Paris Saint-Germain",
+      "matches_collected": 34,
+      "latest_collected_match": "2026-05-30T16:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Slovan Bratislava",
+      "espn_name": "Slovan Bratislava",
+      "matches_collected": 8,
+      "latest_collected_match": "2025-01-29T20:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Sporting CP",
+      "espn_name": "Sporting CP",
+      "matches_collected": 22,
+      "latest_collected_match": "2026-04-15T19:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Galatasaray",
+      "espn_name": "Galatasaray",
+      "matches_collected": 12,
+      "latest_collected_match": "2026-03-18T20:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Napoli",
+      "espn_name": "Napoli",
+      "matches_collected": 8,
+      "latest_collected_match": "2026-01-28T20:00Z",
+      "recent_domestic_collected": false
+    },
+    {
+      "team": "Arsenal",
+      "espn_name": "Arsenal",
+      "matches_collected": 32,
+      "latest_collected_match": "2026-09-06T15:30Z",
+      "recent_domestic_collected": true
+    }
+  ],
+  "player_rows_total": 16908,
+  "availability_records_staged": 68,
+  "shadow_prices_generated": 0
+}

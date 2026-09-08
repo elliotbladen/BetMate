@@ -1,0 +1,686 @@
+Saved 9 player-shadow prices to outputs/football/ucl/week_1_champions_league_prices/player_shadow_final
+{
+  "status": "ucl_player_shadow_research_run_complete",
+  "events": 198,
+  "matches": 9,
+  "mode": "shadow",
+  "production_price_influence": false,
+  "leakage_rule": "cutoff_utc must be no later than kickoff and source publication must precede cutoff",
+  "shared_architecture": "ml/football/player_layer/PLAYER_LAYER_BUILD_SPEC.md",
+  "next_gate": "Broader chronological validation, projected-XI evaluation and remaining baseline/tier data.",
+  "inference_entry_point": "python -m ml.football.ucl_player_shadow --price-output NEW_DIRECTORY",
+  "evaluation": {
+    "model": "ridge_position_rolling_ucl_v1",
+    "train_season": "2024-25",
+    "test_season": "2025-26",
+    "train_matches": 93,
+    "test_matches": 126,
+    "features": 56,
+    "base_goal_mae": 1.1681071428571428,
+    "adjusted_goal_mae": 1.1623417199289143,
+    "improvement": 0.005765422928228459,
+    "base_1x2": {
+      "rps": 0.19877329889294923,
+      "log_loss": 0.9453769738320515,
+      "brier": 0.5590427284236897
+    },
+    "shadow_1x2": {
+      "rps": 0.19499467794326225,
+      "log_loss": 0.9352869340492465,
+      "brier": 0.5531746168587376
+    },
+    "cap_goals": 0.12,
+    "efl_mae_gate_passed": true,
+    "production_approved": false,
+    "mode": "research_shadow_only",
+    "limitations": [
+      "One UCL holdout season; no live betting promotion.",
+      "Training uses final historical XIs; live use of projected XIs is a different information regime.",
+      "Domestic history currently starts January 2026, so feature coverage differs between seasons.",
+      "Historical baseline form/rest is UCL-only; live researched baseline has domestic form/rest and positional injuries.",
+      "ID-based nominal minutes replace inherited 65/25 fallbacks; same 56 features, Ridge alpha/solver and additive cap."
+    ],
+    "excluded": [
+      {
+        "event_id": "401858734",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "401858735",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "401858758",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "401858765",
+        "reason": "extra_time_or_penalties_excluded_from_90min_target"
+      },
+      {
+        "event_id": "401858766",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "401862583",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "401862584",
+        "reason": "extra_time_or_penalties_excluded_from_90min_target"
+      },
+      {
+        "event_id": "401862667",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "401862897",
+        "reason": "extra_time_or_penalties_excluded_from_90min_target"
+      },
+      {
+        "event_id": "720321",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720323",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720324",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720327",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720329",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720330",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720333",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720337",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720338",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720340",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720346",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720352",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720353",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720354",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720355",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720357",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720361",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720363",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720364",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720365",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720366",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720369",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720370",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720372",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720373",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720374",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720375",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720376",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720379",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720381",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720382",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720383",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720386",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720388",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720390",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720391",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720392",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720393",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720394",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720401",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720402",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720403",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720405",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720406",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720411",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720416",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720417",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720418",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720419",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720420",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720421",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720422",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720423",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720424",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720425",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720426",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720427",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720428",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720429",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720430",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720431",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720432",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720433",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720434",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720435",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720436",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720439",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720440",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720441",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720443",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720445",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720446",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720448",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "720450",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720451",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720454",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720456",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720457",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720458",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720462",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "720464",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "732185",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "732188",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "732189",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "732190",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "732191",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "732195",
+        "reason": "extra_time_or_penalties_excluded_from_90min_target"
+      },
+      {
+        "event_id": "732196",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "733145",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "733146",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "733147",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "733605",
+        "reason": "extra_time_or_penalties_excluded_from_90min_target"
+      },
+      {
+        "event_id": "733606",
+        "reason": "extra_time_or_penalties_excluded_from_90min_target"
+      },
+      {
+        "event_id": "733609",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "733613",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "733619",
+        "reason": "extra_time_or_penalties_excluded_from_90min_target"
+      },
+      {
+        "event_id": "757653",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757654",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757655",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757657",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757658",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757659",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757660",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757661",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757662",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757663",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757664",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757665",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757666",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757667",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757668",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757669",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757670",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757671",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757674",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757675",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757676",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757677",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757679",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757681",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757688",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757689",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757692",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757698",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757699",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757702",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757708",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757711",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757712",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757717",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757722",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757726",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757731",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757734",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757735",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757743",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757748",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757752",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757755",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757756",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757761",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757762",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757769",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757773",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757774",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757776",
+        "reason": "incomplete_prior_player_coverage"
+      },
+      {
+        "event_id": "757780",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757782",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757794",
+        "reason": "no_validated_baseline"
+      },
+      {
+        "event_id": "757796",
+        "reason": "no_validated_baseline"
+      }
+    ],
+    "fit_latest_match": "2026-05-06",
+    "training_features_sha256": "1d6a31ad8f88119c54b255535819d36eff6bf7c0cc09d437c1ad1e50d88d2c04"
+  },
+  "priced_matches": 9,
+  "price_report": "outputs/football/ucl/week_1_champions_league_prices/player_shadow_final/report.md"
+}

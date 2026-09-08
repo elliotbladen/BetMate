@@ -16,8 +16,8 @@ from ml.football.tipping import PoolRules, tip_round
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pricing", type=Path, required=True)
-    parser.add_argument("--matrix", type=Path, default=ROOT / "outputs/football/epl/epl_1x2_confluence_matrix.xlsx")
-    parser.add_argument("--output", type=Path, default=ROOT / "outputs/football/epl/latest_tipping_card.json")
+    parser.add_argument("--matrix", type=Path, default=ROOT / "outputs/football/_reference/epl_1x2_confluence_matrix.xlsx")
+    parser.add_argument("--output", type=Path, default=ROOT / "outputs/football/epl/2026-27/_season/latest_tipping_card.json")
     parser.add_argument("--correct-points", type=float, default=1.0)
     parser.add_argument("--draw-points", type=float)
     parser.add_argument("--leverage", type=float, default=0.0,

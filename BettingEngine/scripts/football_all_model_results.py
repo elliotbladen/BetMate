@@ -26,7 +26,7 @@ def normalise(values: list[float]) -> list[float]:
 def predictions() -> list[dict]:
     rows = []
     # EPL Week 1: frozen JSON list.
-    for game in json.loads((ROOT / "outputs/football/epl/gw1_prices_2026-08-19.json").read_text()):
+    for game in json.loads((ROOT / "outputs/football/epl/2026-27/gw01/1_model.json").read_text()):
         rows.append({"league": "EPL", "week": 1, "home": game["home"], "away": game["away"],
                      "p_home": game["p_home"], "p_draw": game["p_draw"], "p_away": game["p_away"],
                      "p_over": game["p_over25"], "p_under": game["p_under25"], "source": "gw1_prices_2026-08-19.json"})
@@ -37,8 +37,8 @@ def predictions() -> list[dict]:
                      "p_over": game["normal_p_over25"], "p_under": 1-float(game["normal_p_over25"]),
                      "source": "round2_2026_27.csv"})
     # EFL Week 1: the frozen all-side CLV inputs are the complete forecast archive.
-    one = pd.read_csv(ROOT / "outputs/football/championship/gw1_clv_backtest_2026-08-26.csv")
-    goals = pd.read_csv(ROOT / "outputs/football/championship/gw1_ou25_clv_backtest_2026-08-26.csv")
+    one = pd.read_csv(ROOT / "outputs/football/championship/2026-27/gw01/3_review_model_1x2.csv")
+    goals = pd.read_csv(ROOT / "outputs/football/championship/2026-27/gw01/3_review_model_ou25.csv")
     by_game = defaultdict(dict)
     for item in one.to_dict("records"):
         by_game[item["game"]][f"p_{str(item['side']).lower()}"] = float(item["model_prob"])
@@ -51,7 +51,7 @@ def predictions() -> list[dict]:
                      "p_over": game["p_over"], "p_under": game["p_under"],
                      "source": "gw1_clv_backtest frozen probabilities"})
     # EFL Week 2: normal model only; player shadow is deliberately excluded.
-    payload = json.loads((ROOT / "outputs/football/championship/gw2_prices_2026-08-19.json").read_text())
+    payload = json.loads((ROOT / "outputs/football/championship/2026-27/gw02/1_model.json").read_text())
     for game in payload["games"]:
         rows.append({"league": "EFL Championship", "week": 2, "home": game["home"], "away": game["away"],
                      "p_home": game["p_home"], "p_draw": game["p_draw"], "p_away": game["p_away"],

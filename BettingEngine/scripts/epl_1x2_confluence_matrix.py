@@ -11,7 +11,7 @@ from efl_championship_confluence_matrix import build_workbook, load_rows
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "ml/football/data/epl/matches/epl_matches.csv"
-OUTPUT = ROOT / "outputs/football/epl/epl_1x2_confluence_matrix.xlsx"
+OUTPUT = ROOT / "outputs/football/_reference/epl_1x2_confluence_matrix.xlsx"
 SEASONS = ("2022/23", "2023/24", "2024/25", "2025/26")
 CURRENT_TEAMS = (
     "Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton",

@@ -7,11 +7,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 JOBS = {
     "EPL": (
-        ROOT / "outputs/football/epl/gw2_bets_2026-08-31.csv",
+        ROOT / "outputs/football/epl/2026-27/gw02/2_bets.csv",
         ROOT / "ml/football/data/epl/matches/epl_matches.csv",
     ),
     "EFL Championship": (
-        ROOT / "outputs/football/championship/gw3_bets_2026-08-31.csv",
+        ROOT / "outputs/football/championship/2026-27/gw03/2_bets.csv",
         ROOT / "ml/football/data/championship/matches/championship_matches.csv",
     ),
 }

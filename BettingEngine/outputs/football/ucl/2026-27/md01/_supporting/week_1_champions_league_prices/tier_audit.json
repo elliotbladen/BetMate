@@ -1,0 +1,230 @@
+[
+  {
+    "home": "AEK Athens",
+    "away": "LASK",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Missing established UCL baseline; recent domestic results alone do not establish comparable cross-league strength.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Club Brugge",
+    "away": "Aston Villa",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Borussia Dortmund",
+    "away": "Villarreal",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Porto",
+    "away": "Manchester City",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Lille",
+    "away": "Real Betis",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Missing established UCL baseline; recent domestic results alone do not establish comparable cross-league strength.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Real Madrid",
+    "away": "Inter",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Barcelona",
+    "away": "Feyenoord",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Stuttgart",
+    "away": "Viking",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Missing established UCL baseline; recent domestic results alone do not establish comparable cross-league strength.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Liverpool",
+    "away": "Atl\u00e9tico de Madrid",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Paris Saint-Germain",
+    "away": "Slovan Bratislava",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Sporting CP",
+    "away": "Galatasaray",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  },
+  {
+    "home": "Napoli",
+    "away": "Arsenal",
+    "tiers": {
+      "T0_data_health": "Research inputs validated; production gate remains closed pending model/tier validation and current quotes.",
+      "T1_strength": "Converged shared DC + internal UCL Elo, harmonized IDs; no external ClubElo/domestic-strength anchor.",
+      "T2_availability": "Current sourced absences applied using legacy football position weights in this research scenario; trained player shadow untouched.",
+      "T3_form_rest": "Current domestic league results and latest club-match date replace old UCL-only context; calendar-day rest.",
+      "T3_pressing_rotation_travel": "Not quantified: no verified PPDA, expected-minute or calibrated travel inputs.",
+      "T4_league_phase": "MD1 neutral context; no invented must-win adjustment.",
+      "T5_knockout": "Not applicable in league phase.",
+      "T6_referee_weather": "Referee identity sourced; goal-rate/weather coefficients not populated or applied.",
+      "T7_market": "No captured current two-sided market; EV unavailable.",
+      "T8_confluence": "Not populated; no manufactured confluence.",
+      "corners": "Not injected into 1X2; separate corner/O-U challenger remains unpromoted."
+    },
+    "player_shadow_status": "ucl_player_shadow_data_pending",
+    "shadow_fair_odds": null
+  }
+]
