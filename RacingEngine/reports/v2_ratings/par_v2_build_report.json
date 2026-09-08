@@ -1,0 +1,13 @@
+{
+  "as_of_date": "2026-09-08",
+  "counts": {
+    "clock_quarantined": 288,
+    "no_clock_no_margin": 2571,
+    "no_par": 152,
+    "performances": 34493,
+    "race_clock_quarantined": 1
+  },
+  "meetings_with_variant": 364,
+  "model_version": "performance-par-v2.0",
+  "runs_rated": 34493
+}

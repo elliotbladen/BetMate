@@ -1,14 +1,37 @@
 # Current horse-ratings state
 
-Last updated: 1 September 2026.
+Last updated: 8 September 2026.
 
 ## Production and shadow models
 
-- Production remains `form-first-v2.0`.
-- `achieved-run-v2.10-young-wfa-shadow` has been calculated historically over
-  2,732 races and 29,355 performances.
-- V2.10 must not feed betting or pricing until its promotion policy passes.
-- Current promotion status is **amber / shadow only**.
+Model selection settled 8 Sep — see `docs/rating_model_selection_2026-09.md`.
+
+- **Production form rating: `form-first-v3.0`** (supersedes v2 — real bug fixes,
+  saner scale, pace corrections). Gates still to be re-run; nothing consumes it
+  for pricing yet.
+- **Shadow: `performance-par-v1.0`** (the speed figure; the only model that beats
+  a uniform guess on the naive ranking test). Form-vs-speed cross-check.
+- **Retire:** `horse-ability-v2.1…2.6`, `achieved-run-v2.x`, `base-lengths-v0.1`
+  — stale, unused, and the cause of "one horse, four ratings". Decision recorded,
+  not yet executed.
+- All models rebuilt `--as-of 2026-09-08` (refresh). DB backup:
+  `data/racing_engine.sqlite.bak-pre-refresh-0908`.
+
+## Rebuild in progress — `performance-par-v2.0` (the new Step-1 spine)
+
+`form-first` rates a winner off the *official marks of the horses they beat*; the
+architecture requires Step 1 to be the horse's own adjusted performance. Building
+`performance-par-v2.0` as a composed adjusted speed figure (variant + weight +
+pace + thin-field anchor). **Increment 1 done** (variant + clock quarantine),
+passes the naive predictive gate (2.2988 vs par-v1 2.3061 vs uniform 2.3484).
+NOT yet a usable rating — slow-run features under-rated until the pace increment.
+
+## Prior note (still valid)
+
+- `achieved-run-v2.10-young-wfa-shadow`: calculated over 2,732 races / 29,355
+  performances, **amber / shadow only**, must not feed betting or pricing.
+  Folds into the "retire the stale shadows" decision above unless it earns a
+  promotion.
 
 ## Headline audit ratings
 

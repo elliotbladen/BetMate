@@ -1,5 +1,5 @@
 {
-  "as_of_date": "2026-09-06",
+  "as_of_date": "2026-09-08",
   "audit_rows": 25,
   "clean_history": {
     "excluded_identity_source": "rnsw-authorised",
@@ -19,23 +19,23 @@
     "test_window": "2025-01-01 to 2026-09-05",
     "training_window": "2024 calendar year",
     "uniform": {
-      "mean_log_loss": 2.3219347016432037,
-      "mean_race_brier": 0.898376470345076,
-      "races": 634
+      "mean_log_loss": 2.3447302641647627,
+      "mean_race_brier": 0.9007762214043755,
+      "races": 1238
     },
     "v1": {
-      "mean_log_loss": 2.3071712005462475,
-      "mean_race_brier": 0.8960124859414343,
-      "races": 634,
+      "mean_log_loss": 2.324804841260268,
+      "mean_race_brier": 0.8964791346640103,
+      "races": 1238,
       "temperature_fitted_on_2024": 15.0,
-      "top_pick_strike_rate": 0.138801261829653
+      "top_pick_strike_rate": 0.1494345718901454
     },
     "v2": {
-      "mean_log_loss": 2.4550991936299105,
-      "mean_race_brier": 0.934797562277518,
-      "races": 634,
+      "mean_log_loss": 2.5202161994556485,
+      "mean_race_brier": 0.951063934808087,
+      "races": 1238,
       "temperature_fitted_on_2024": 15.0,
-      "top_pick_strike_rate": 0.12618296529968454
+      "top_pick_strike_rate": 0.12439418416801293
     }
   },
   "prediction_test_reason": "Run only after the V2 sanity gate passed.",
