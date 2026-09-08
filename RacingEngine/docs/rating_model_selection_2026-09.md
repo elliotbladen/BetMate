@@ -291,14 +291,26 @@ three models at `--as-of 2026-09-08`, DB backed up to
 
 ---
 
-## 8. Worked example — the horse that started this
+## 8. Worked example — the horses that started this
 
-| model | Lindermann | Tempted | note |
+**Expert calibration anchor (user, 8 Sep):** *Tempted ~110–111. Lindermann in
+the low 100s.* Respected form analysts have the Concorde (Tempted) as the
+stronger race — it was run at a genuine sustained pace; the Chelmsford
+(Lindermann) was a slow-tempo sprint-home.
+
+| model | Lindermann | Tempted | verdict vs the anchor |
 |---|---:|---:|---|
-| `performance-par-v1.0` (`horse_rating_states`) | 102.3 | 106.7 | legacy — do not quote |
-| `form-first-v2.0` last start | 117.5 | 110.7 | current production |
-| **`form-first-v3.0` last start** | 115.6 | 110.2 | proposed production |
-| `form-first-v3.0` recent peak | 116.6 | 115.3 | |
+| `form-first-v2.0` last start | 117.5 | 110.7 | Lindermann **~15 too high** (rated off Ceolwulf's stale official 119) |
+| `form-first-v3.0` last start | 115.6 | 110.2 | same problem |
+| `performance-par-v1.0` last start | ~102 | ~107 | closer |
+| **`par-v2` increment 1 — last start** | **96.2** | **110.3** | Tempted **nailed**; Lindermann a touch low |
+| **`par-v2` increment 1 — last 3 runs** | 96 / 100 / 108 → **~100 agg** | 110 / 107 / 104 → **~108 agg** | **both land on the expert anchor** |
 
-The ~117 figure is right. 102 is the deprecated model surfacing because it owns
-the obviously-named table.
+**The time spine is already landing where the domain expert expects — at
+increment 1, before pace, weight or scale calibration.** It is `form-first`
+(collateral) that is wrong at 117.
+
+This also calibrates increment 3: Lindermann's slow Chelmsford warrants only a
+**modest** pace add-back (his single-run figure ~96 → ~100–102), not a large one.
+A slow-tempo race is *less* reliable, not proof the horse is 15 lengths better
+than the clock says.
