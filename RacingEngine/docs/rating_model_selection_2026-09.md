@@ -261,8 +261,9 @@ three models at `--as-of 2026-09-08`, DB backed up to
 | 4 | **Thin-par class anchor** — one-sided upward pull toward the class holding standard, only when the *track par* is thin (<12 races) or the meeting has no daily variant. Never caps a figure at/above the standard. Margin-only rows are NOT treated as thin. | v3 §3 method | **DONE 8 Sep** |
 | 5 | Scale calibration | — | **deferred — see note** |
 | 6 | Run the frozen naive predictive protocol; require beat vs uniform AND par-v1 | audit rec 7 | **passes at every increment** (2.2933 vs par-v1 2.3061 vs uniform 2.3484) |
-| 7 | Make par-v2 the base of `form-first-v3.1`; collateral becomes a bounded **franked** revision on top (the race's strength is confirmed/downgraded as its beaten field runs again) | — | **next** |
-| 8 | `par_v2_horse_rating_states` consolidated per-horse rollup (§7) | — | pending |
+| 7 | **`form-first-v3.1`** — par-v2 base + bounded **franked** collateral: once a race's beaten top-4 have run again, re-anchor the race level on their *later demonstrated par-v2 ability* + adjusted beaten margin. Partial credit (0.55), bounded ±6, strictly as-of. `racing_engine/franked_form.py` → `franked_run_performances`. | generalises `collateral_revision_v2.py` | **DONE 8 Sep** |
+| 8 | **`par-v2-ability-v1.0`** — consolidated per-horse current rating: 90-day-half-life recency blend of v3.1 run figures + reliability shrinkage + uncertainty, then a **head-to-head cap** (a horse cannot out-rate one that beat it at its most recent start, ± weight-for-weight). `par_v2_horse_rating_states`. | — | **DONE 8 Sep** |
+| 9 | **Walk-forward franking test** — the increment-7 predictive number is optimistic: the franked prior for a 2025 race used the beaten field's post-2025 runs. Needs effective-dated revisions (only apply a revision after its date) for a clean gate before `form-first-v3.1` is promoted. | `collateral_revision_v2` effective-date pattern | **pending — promotion blocker** |
 
 **Why increment 5 is deferred.** par-v2's class spread is tight — G1 winners
 median 104.4, benchmark winners 101.1, only ~3 points apart. That is *inherent to
@@ -291,9 +292,26 @@ uniform = 2.3484 throughout.
 
 Weight-merit distribution: median |adj| 1.1 L, p90 3.2 L, ±6 cap binds on 0.2%
 of runs. Class anchor: 1,360 runs, mean +1.6 L — only genuinely thin-par or
-no-variant races. **Lindermann/Tempted unchanged through increments 2 and 4**
-(Chelmsford par sample is 136, Concorde is WFA) — median-last-3: Lindermann
-101.4, Ceolwulf 102.9, Tempted 106.4 (→ ~110 recency-weighted).
+no-variant races.
+
+### Increment 7 + 8 — franked form and the consolidated per-horse rating
+
+`form-first-v3.1` (franked runs): 2,296 races franked. Naive predictive test —
+**v3.1 log loss 2.283, top-pick strike 18.2%** vs par-v2 2.291 / 15.3% vs uniform
+2.342. The franking adds real ranking signal — **but this number is optimistic**
+(see increment 9): the franked prior for a 2025 race used the beaten field's
+post-2025 runs. A clean walk-forward test is a promotion blocker.
+
+`par-v2-ability-v1.0` (per-horse current rating), `--as-of 2026-09-08`:
+
+| horse | current | peak | last run | note |
+|---|---:|---:|---:|---|
+| **Tempted** | **106.9** | 110.4 | 110.4 | just ran a career-best G2; the blend is conservative because his prior form was mid-100s |
+| **Lindermann** | **101.4** | 111.0 | 99.3 | low 100s — ran below his best in the slow Chelmsford |
+| **Ceolwulf** | **101.3** | 108.4 | 99.0 | **head-to-head capped to 101.26** — cannot out-rate Lindermann, who beat him at Chelmsford |
+
+732 head-to-head caps applied across the field. `form-first-v2.0` had Lindermann
+at 117.5.
 
 ### Winner ceiling — "rate on the merits of the day"
 

@@ -1,0 +1,17 @@
+{
+  "franked_runs": {
+    "as_of_date": "2026-09-08",
+    "counts": {
+      "franked": 2296,
+      "no_winner": 33
+    },
+    "model_version": "form-first-v3.1",
+    "runs_rated": 28040
+  },
+  "horse_ratings": {
+    "as_of_date": "2026-09-08",
+    "h2h_caps_applied": 732,
+    "horses_rated": 8951,
+    "model_version": "par-v2-ability-v1.0"
+  }
+}

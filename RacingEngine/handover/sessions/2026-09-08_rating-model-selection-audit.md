@@ -117,21 +117,34 @@ demote collateral to a franked Step-3 layer on top.
 Gate history: 2.2988 (inc1) → 2.2931 (inc3) → 2.2938 (+ceiling) → 2.2935 (inc2) → 2.2933 (inc4).
 31 tests pass. Ratings: Lindermann 101.4, Ceolwulf 102.9, Tempted 106.4 (median-last-3).
 
-## Resume — increment 7 (the payoff)
+## Increments 7 + 8 DONE — `racing_engine/franked_form.py` (+ tests, 39 pass total)
 
-Make par-v2 the **base** per-run figure; rebuild form-first as a **bounded franked
-collateral revision** on top (`form-first-v3.1`):
-- `v3.1_run = par_v2_run + clip(collateral_revision, ±BOUND)`
-- collateral_revision = the race's strength confirmed/downgraded as its beaten
-  field runs again (generalises `collateral_revision_v2.py`, which is a one-pair hack)
-- This is also where the class spread comes back (a G1 franked by its beaten field
-  running well elsewhere lifts; a weak race that flatters gets cut)
-- Store in `v3_run_performances` as `form-first-v3.1`, keep `form-first-v3.0` for comparison
-- Re-run the gate; the composite must still beat uniform + par-v1
+- **7 `form-first-v3.1`** (`franked_run_performances`): par-v2 base + bounded
+  franked collateral. Once a race's beaten top-4 run again, re-anchor the race
+  level on their later par-v2 ability + adj beaten margin. Partial credit 0.55,
+  bound ±6, strictly as-of. 2,296 races franked. Naive gate: **v3.1 2.283 /
+  strike 18.2%** vs par-v2 2.291 / 15.3% — franking adds signal.
+- **8 `par-v2-ability-v1.0`** (`par_v2_horse_rating_states`): 90d-half-life
+  recency blend + reliability shrinkage + uncertainty, then a **head-to-head
+  cap** (can't out-rate a horse that beat you last start, ± weight-for-weight).
+  732 caps applied.
 
-Then increment 8: `par_v2_horse_rating_states` — recency-weighted per-horse
-current ability + uncertainty (the one consolidated table; retire the legacy
-`horse_rating_states` reads).
+**Ratings, `--as-of 2026-09-08`:** Tempted 106.9 (peak/last 110.4), Lindermann
+101.4 (peak 111.0, last 99.3), Ceolwulf 101.3 (H2H-capped to 101.26 — below
+Lindermann, who beat him). form-first-v2.0 had Lindermann 117.5.
+
+## Resume — increment 9 (promotion blocker) then cleanup
+
+1. **Walk-forward franking test.** The 18.2% strike is optimistic — the franked
+   prior for a 2025 race used the beaten field's post-2025 runs. Add effective
+   dates to `franked_run_performances` (a revision applies only after its date),
+   re-run the gate as-of each prediction date. `collateral_revision_v2` has the
+   pattern. `form-first-v3.1` cannot be promoted until this passes clean.
+2. Point Baz / any "what do we rate X" path at `par_v2_horse_rating_states`;
+   deprecate the legacy `horse_rating_states` reads.
+3. Retire `horse-ability-v2.x` / `achieved-run-v2.x` / `base-lengths-v0.1`.
+4. Rebuild + push the LFS seed (still 30 Aug).
+5. Revisit scale calibration on the composite (increment 5, deferred).
 
 ## Not done
 
