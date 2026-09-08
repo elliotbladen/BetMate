@@ -53,3 +53,32 @@ normalising 1/odds. Opening = `AvgH/AvgD/AvgA`, `Avg>2.5`; closing =
 Model beat the close: **3/12** on 1X2, **4/12** on O/U 2.5.
 
 Combined cross-league write-up: `outputs/results/epl_efl_model_vs_market_round_2026-09-08.md`
+
+---
+
+## Model CLV — full round
+
+Model's best-EV side at the opening price, measured to the close.
+`CLV% = opening_odds / closing_odds − 1`.
+
+### EFL
+
+| Match | 1X2 pick | Open | Close | CLV | Won | O/U pick | Open | Close | CLV | Won |
+|---|:--|---:|---:|---:|:--:|:--|---:|---:|---:|:--:|
+| Lincoln v Southampton | HOME | 4.06 | 4.11 | -1.22% | — | OVER | 1.68 | 1.64 | +2.44% | — |
+| Preston v Blackburn | AWAY | 2.93 | 3.00 | -2.33% | — | UNDER | 1.79 | 1.86 | -3.76% | — |
+| Stoke v Charlton | AWAY | 3.49 | 3.86 | -9.59% | — | UNDER | 1.70 | 1.64 | +3.66% | — |
+| Burnley v Bristol City | AWAY | 3.93 | 3.67 | +7.08% | ✅ | UNDER | 1.95 | 1.94 | +0.52% | — |
+| Millwall v Bolton | AWAY | 4.19 | 3.78 | +10.85% | — | UNDER | 1.75 | 1.89 | -7.41% | — |
+| Portsmouth v Cardiff | DRAW | 3.50 | 3.53 | -0.85% | — | UNDER | 2.07 | 2.17 | -4.61% | ✅ |
+| QPR v Middlesbrough | HOME | 3.14 | 2.89 | +8.65% | — | UNDER | 2.03 | 2.16 | -6.02% | ✅ |
+| Sheffield United v Norwich | HOME | 2.53 | 2.56 | -1.17% | — | UNDER | 1.97 | 2.11 | -6.64% | — |
+| West Brom v Watford | DRAW | 3.56 | 3.75 | -5.07% | — | UNDER | 1.88 | 1.96 | -4.08% | ✅ |
+| West Ham v Derby | AWAY | 8.01 | 7.97 | +0.50% | — | UNDER | 2.12 | 2.40 | -11.67% | — |
+| Swansea v Wrexham | HOME | 2.17 | 2.24 | -3.13% | — | UNDER | 1.81 | 1.78 | +1.69% | ✅ |
+| Birmingham v Wolves | HOME | 2.87 | 2.85 | +0.70% | — | OVER | 2.06 | 1.85 | +11.35% | ✅ |
+
+| Market | Avg CLV | Beat the close | Picks that won |
+|---|---:|---:|---:|
+| 1X2 | **+0.37%** | 5/12 | 1/12 |
+| O/U 2.5 | **-2.04%** | 5/12 | 5/12 |

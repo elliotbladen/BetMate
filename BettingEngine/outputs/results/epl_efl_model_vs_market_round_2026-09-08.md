@@ -95,3 +95,78 @@ Model beat the close: **3/12** on 1X2, **4/12** on O/U 2.5.
 | O/U Brier | 0.2730 | — | 0.2662 | market |
 
 Model beat the close: **9/22** on 1X2, **9/22** on O/U 2.5.
+
+---
+
+## Model CLV — full round
+
+For every match the model's **best-EV side at the opening price** is taken as the
+notional bet, then measured against the closing price.
+`CLV% = opening_odds / closing_odds − 1`; positive means the price shortened after
+we would have taken it. Odds are de-vigged-basis consensus averages (`AvgH/D/A`,
+`Avg>2.5`) against their closing counterparts. This is a **notional round-wide**
+CLV over all 22 matches — not the 12 bets that were actually saved.
+
+### EPL GW3
+
+| Match | 1X2 pick | Open | Close | CLV | Won | O/U pick | Open | Close | CLV | Won |
+|---|:--|---:|---:|---:|:--:|:--|---:|---:|---:|:--:|
+| Ipswich v Liverpool | HOME | 5.48 | 4.86 | +12.76% | — | UNDER | 2.99 | 2.66 | +12.41% | ✅ |
+| Newcastle v Bournemouth | AWAY | 3.19 | 3.22 | -0.93% | — | OVER | 1.55 | 1.58 | -1.90% | ✅ |
+| Brentford v Sunderland | AWAY | 5.29 | 4.89 | +8.18% | — | OVER | 1.82 | 1.79 | +1.68% | — |
+| Brighton v Leeds | AWAY | 3.68 | 3.73 | -1.34% | — | OVER | 1.85 | 1.76 | +5.11% | — |
+| Fulham v Crystal Palace | HOME | 2.32 | 2.16 | +7.41% | — | OVER | 1.89 | 1.84 | +2.72% | ✅ |
+| Man City v Coventry | AWAY | 13.85 | 12.96 | +6.87% | — | UNDER | 3.17 | 2.95 | +7.46% | ✅ |
+| Nott'm Forest v Tottenham | HOME | 2.40 | 2.64 | -9.09% | — | OVER | 1.91 | 1.84 | +3.80% | — |
+| Hull v Aston Villa | HOME | 4.04 | 3.92 | +3.06% | — | OVER | 1.83 | 1.80 | +1.67% | — |
+| Everton v Man United | HOME | 3.21 | 3.65 | -12.05% | — | OVER | 1.67 | 1.57 | +6.37% | ✅ |
+| Arsenal v Chelsea | HOME | 1.69 | 1.70 | -0.59% | ✅ | OVER | 1.73 | 1.71 | +1.17% | ✅ |
+
+| Market | Avg CLV | Beat the close | Picks that won |
+|---|---:|---:|---:|
+| 1X2 | **+1.43%** | 5/10 | 1/10 |
+| O/U 2.5 | **+4.05%** | 9/10 | 6/10 |
+
+### EFL Championship GW5
+
+| Match | 1X2 pick | Open | Close | CLV | Won | O/U pick | Open | Close | CLV | Won |
+|---|:--|---:|---:|---:|:--:|:--|---:|---:|---:|:--:|
+| Lincoln v Southampton | HOME | 4.06 | 4.11 | -1.22% | — | OVER | 1.68 | 1.64 | +2.44% | — |
+| Preston v Blackburn | AWAY | 2.93 | 3.00 | -2.33% | — | UNDER | 1.79 | 1.86 | -3.76% | — |
+| Stoke v Charlton | AWAY | 3.49 | 3.86 | -9.59% | — | UNDER | 1.70 | 1.64 | +3.66% | — |
+| Burnley v Bristol City | AWAY | 3.93 | 3.67 | +7.08% | ✅ | UNDER | 1.95 | 1.94 | +0.52% | — |
+| Millwall v Bolton | AWAY | 4.19 | 3.78 | +10.85% | — | UNDER | 1.75 | 1.89 | -7.41% | — |
+| Portsmouth v Cardiff | DRAW | 3.50 | 3.53 | -0.85% | — | UNDER | 2.07 | 2.17 | -4.61% | ✅ |
+| QPR v Middlesbrough | HOME | 3.14 | 2.89 | +8.65% | — | UNDER | 2.03 | 2.16 | -6.02% | ✅ |
+| Sheffield United v Norwich | HOME | 2.53 | 2.56 | -1.17% | — | UNDER | 1.97 | 2.11 | -6.64% | — |
+| West Brom v Watford | DRAW | 3.56 | 3.75 | -5.07% | — | UNDER | 1.88 | 1.96 | -4.08% | ✅ |
+| West Ham v Derby | AWAY | 8.01 | 7.97 | +0.50% | — | UNDER | 2.12 | 2.40 | -11.67% | — |
+| Swansea v Wrexham | HOME | 2.17 | 2.24 | -3.13% | — | UNDER | 1.81 | 1.78 | +1.69% | ✅ |
+| Birmingham v Wolves | HOME | 2.87 | 2.85 | +0.70% | — | OVER | 2.06 | 1.85 | +11.35% | ✅ |
+
+| Market | Avg CLV | Beat the close | Picks that won |
+|---|---:|---:|---:|
+| 1X2 | **+0.37%** | 5/12 | 1/12 |
+| O/U 2.5 | **-2.04%** | 5/12 | 5/12 |
+
+### Combined
+
+| Market | Avg CLV | Beat the close | Picks that won |
+|---|---:|---:|---:|
+| 1X2 | **+0.85%** | 10/22 | 2/22 |
+| O/U 2.5 | **+0.73%** | 14/22 | 11/22 |
+| **Both markets** | **+0.79%** | 24/44 | — |
+
+**Read.** Round-wide CLV is mildly positive (+0.79% over 44 notional picks) — the
+model leans the same way the market later moves slightly more often than not, but
+the edge is small and well inside noise at this sample size. The strong cell is
+**EPL O/U 2.5 at +4.05%, beating the close 9 times in 10**, which is the same market
+the round-level scoring showed the model winning outright. The weak cell is **EFL
+O/U at −2.04%** — the model sat on UNDER in 10 of 12 Championship games and the
+market drifted the other way.
+
+**The 1X2 picks won 2 of 22.** That is not a like-for-like failure rate: the
+best-EV side at the open is usually a draw or a longshot, so a low strike rate is
+expected by construction. It does mean round-wide 1X2 CLV of +0.85% is being earned
+on selections that almost never land, which is worth remembering before reading it
+as an edge.

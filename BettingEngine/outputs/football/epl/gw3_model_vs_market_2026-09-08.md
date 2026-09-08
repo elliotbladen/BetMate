@@ -51,3 +51,30 @@ normalising 1/odds. Opening = `AvgH/AvgD/AvgA`, `Avg>2.5`; closing =
 Model beat the close: **6/10** on 1X2, **5/10** on O/U 2.5.
 
 Combined cross-league write-up: `outputs/results/epl_efl_model_vs_market_round_2026-09-08.md`
+
+---
+
+## Model CLV — full round
+
+Model's best-EV side at the opening price, measured to the close.
+`CLV% = opening_odds / closing_odds − 1`.
+
+### EPL
+
+| Match | 1X2 pick | Open | Close | CLV | Won | O/U pick | Open | Close | CLV | Won |
+|---|:--|---:|---:|---:|:--:|:--|---:|---:|---:|:--:|
+| Ipswich v Liverpool | HOME | 5.48 | 4.86 | +12.76% | — | UNDER | 2.99 | 2.66 | +12.41% | ✅ |
+| Newcastle v Bournemouth | AWAY | 3.19 | 3.22 | -0.93% | — | OVER | 1.55 | 1.58 | -1.90% | ✅ |
+| Brentford v Sunderland | AWAY | 5.29 | 4.89 | +8.18% | — | OVER | 1.82 | 1.79 | +1.68% | — |
+| Brighton v Leeds | AWAY | 3.68 | 3.73 | -1.34% | — | OVER | 1.85 | 1.76 | +5.11% | — |
+| Fulham v Crystal Palace | HOME | 2.32 | 2.16 | +7.41% | — | OVER | 1.89 | 1.84 | +2.72% | ✅ |
+| Man City v Coventry | AWAY | 13.85 | 12.96 | +6.87% | — | UNDER | 3.17 | 2.95 | +7.46% | ✅ |
+| Nott'm Forest v Tottenham | HOME | 2.40 | 2.64 | -9.09% | — | OVER | 1.91 | 1.84 | +3.80% | — |
+| Hull v Aston Villa | HOME | 4.04 | 3.92 | +3.06% | — | OVER | 1.83 | 1.80 | +1.67% | — |
+| Everton v Man United | HOME | 3.21 | 3.65 | -12.05% | — | OVER | 1.67 | 1.57 | +6.37% | ✅ |
+| Arsenal v Chelsea | HOME | 1.69 | 1.70 | -0.59% | ✅ | OVER | 1.73 | 1.71 | +1.17% | ✅ |
+
+| Market | Avg CLV | Beat the close | Picks that won |
+|---|---:|---:|---:|
+| 1X2 | **+1.43%** | 5/10 | 1/10 |
+| O/U 2.5 | **+4.05%** | 9/10 | 6/10 |
