@@ -57,6 +57,42 @@ R27 + AFL Finals Week 2 results posted to all three tabs at betmate.au/research
 Also fixed `app/racing/map/page.tsx`, which had a hard import on a gitignored
 JSON and had been **failing every Vercel deploy since `d4bd586`**.
 
+## DECISION PENDING — EFL Championship engine, review due 2026-09-22
+
+**User's call (2026-09-08): revisit in two weeks, keep betting both leagues until then.**
+
+The user's position — correct in principle — is that CLV is the meaningful early
+signal and 8 bets says nothing about ROI. The reason this is a scheduled review
+rather than a settled question is that **EPL and EFL are not in the same
+position**, on three counts:
+
+| | All bets | Drop the single best price | Positive CLV |
+|---|---:|---:|---:|
+| EPL (13) | +7.78% | **+6.86%** | 10/13 |
+| EFL (8) | +6.67% | **−0.77%** | 4/8 |
+
+1. **EFL's CLV does not survive losing one bet.** Per-bet CLV is
+   `−17.5, −9.8, −2.3, −1.4, 4.9, 9.2, 11.6, 58.7` — a coin flip plus Millwall/Bolton
+   (6.00 into a 3.78 close, which looks like an outlier book price rather than model
+   edge). EPL's distribution is broadly positive and survives dropping its best row.
+2. **Week 3 EFL CLV was negative** (−3.25%) on its own.
+3. **The full-round model-vs-market is independent of bet selection and says the same
+   thing.** Over all 12 Championship matches the model lost to the closing market on
+   RPS (0.2286 vs 0.1915), log loss, Brier and totals, beating the close 3/12. EPL over
+   the same test was at parity on 1X2 and won on O/U.
+
+**What to check on 2026-09-22:**
+
+- Per-bet CLV **distribution**, not just the mean — the mean is what hid this.
+- Whether EFL CLV stays outlier-dependent (re-run the drop-the-best-price test).
+- Whether the Championship round-level RPS/log loss closes the gap to the market.
+- Rough guide, not a hard rule: if EFL CLV is still one-bet-deep **and** the round-level
+  accuracy is still losing to the market, that is a model problem rather than variance.
+  If either has turned, keep running it.
+
+Re-runnable: `scripts/football_season_bet_ledger.py` and
+`scripts/model_vs_market_football_round.py`.
+
 ## Open items
 
 - **Odds API still `DEACTIVATED_KEY`** — no market data for NRL/AFL, so finals
@@ -69,5 +105,6 @@ JSON and had been **failing every Vercel deploy since `d4bd586`**.
   had to use a reconstruction. Make it write JSON like the EPL pricer does.
 - The 23-bet "previous weekend" in the 2026-08-31 combined report has no
   underlying graded file; excluded from the season ledger.
+- **EFL engine review due 2026-09-22** (see the decision section above).
 - AFL/NRL gameweek labelling is inconsistent for one Championship round
   (`gw4_10pct_ev_candidates` and `gw5_bets` are the same fixtures).
