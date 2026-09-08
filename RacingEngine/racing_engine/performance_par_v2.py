@@ -27,13 +27,13 @@ Coefficients are taken from already-completed research (see the doc), not fitted
 here. Validation is the frozen naive chronological protocol in `prediction_test`:
 par-v2 must beat BOTH uniform AND performance-par-v1.0 or it is not the spine.
 
-INCREMENT 1: scaffold + raw_time_vs_par + daily_track_variant + clock quarantine
-+ last400 sectional + margin.
-INCREMENT 3 (this commit): pace adjustment. A slowly-run race adds a bounded
-amount back to the whole field (its time was tactically depressed); a fast /
-pressured / collapsing race gets no race-level add-back. Each runner also gets a
-bounded per-runner shape/trip term from v2_runner_pace_ratings.
-weight_merit / class_anchor remain explicit zeros (increments 2, 4).
+Increments landed:
+  1  raw_time_vs_par + daily_track_variant + clock quarantine + last400 + margin
+  3  pace adjustment (slow-run race field add-back; fast race trusts the time;
+     per-runner shape/trip term) + winner ceiling (winner franks the form)
+  2  weight merit — carrying more than the field median and still running the
+     time is credited; WFA/set-weights races get a near-zero factor
+Pending: 4 class anchor for thin fields, 5 scale calibration.
 """
 from __future__ import annotations
 
@@ -94,11 +94,38 @@ PACE_RUNNER_CAP = 2.0
 
 # Rate on the merits of the day: the winner franks the form. A beaten runner can
 # be pulled level by a pace/trip read but not past the winner — its figure is
-# capped at the winner's minus a small fraction of its (effective) beaten margin.
-# When the weight term lands (increment 2) this relaxes to allow a beaten
-# topweight through on weight-for-weight merit.
+# capped at the winner's minus a small fraction of its beaten margin, PLUS any
+# weight-for-weight merit it carried over the winner (a beaten topweight can
+# legitimately rate above the winner).
 WINNER_CEILING_PER_LENGTH = 0.15
 WINNER_CEILING_MIN_GAP = 0.10
+
+# ── Increment 2: weight merit ───────────────────────────────────────────────
+# Weight is a MERIT term, not the handicapper's policy scale (v3 commit 35bbedf).
+# 2.2 pts/kg is what the handicapper uses to SET weights; the measured
+# performance effect is far smaller. In WFA / set-weights races the weight
+# difference is an age/sex/penalty allowance, not merit, so it is near-zero.
+# Reference is the field's median carried weight for that race.
+WEIGHT_MERIT_PTS_PER_KG_HCP = 0.9
+WEIGHT_MERIT_PTS_PER_KG_WFA = 0.2
+WEIGHT_MERIT_CAP = 6.0
+_WFA_CLASS_MARKERS = ("weight for age", "weight-for-age", "wfa", "set weight", "standard weight")
+
+
+def weight_race_factor(race_class: str | None) -> float:
+    """pts/kg for this race type. WFA / set-weights -> small; handicap/quality -> full."""
+    t = (race_class or "").lower()
+    return WEIGHT_MERIT_PTS_PER_KG_WFA if any(m in t for m in _WFA_CLASS_MARKERS) else WEIGHT_MERIT_PTS_PER_KG_HCP
+
+
+def weight_merit(carried_kg: float | None, field_median_kg: float | None,
+                 race_class: str | None) -> float:
+    """Merit (lengths) for carrying more/less than the field median. Positive =
+    carried extra weight and still ran the time -> credit."""
+    if carried_kg is None or field_median_kg is None:
+        return 0.0
+    raw = (float(carried_kg) - float(field_median_kg)) * weight_race_factor(race_class)
+    return max(-WEIGHT_MERIT_CAP, min(WEIGHT_MERIT_CAP, raw))
 
 
 def pace_adjustment(pace_label: str | None, early_score: float | None, confidence: float | None,
@@ -128,12 +155,16 @@ def enforce_winner_ceiling(rows: list[dict]) -> list[dict]:
     winners = [r for r in rows if r["finish_position"] == 1]
     if not winners:
         return rows
-    ceiling = max(r["performance_rating"] for r in winners)
+    top_winner = max(winners, key=lambda r: r["performance_rating"])
+    ceiling = top_winner["performance_rating"]
+    winner_wm = top_winner.get("weight_merit", 0.0)
     for r in rows:
         if r["finish_position"] == 1:
             continue
         margin = abs(r["beaten_lengths"]) if r["beaten_lengths"] is not None else 0.5
-        cap = ceiling - max(WINNER_CEILING_MIN_GAP, WINNER_CEILING_PER_LENGTH * margin)
+        # a beaten topweight is allowed through on the weight it gave the winner
+        wfw = max(0.0, r.get("weight_merit", 0.0) - winner_wm)
+        cap = ceiling + wfw - max(WINNER_CEILING_MIN_GAP, WINNER_CEILING_PER_LENGTH * margin)
         if r["performance_rating"] > cap:
             r["winner_ceiling_applied"] = round(r["performance_rating"] - cap, 2)
             r["performance_rating"] = cap
@@ -262,13 +293,17 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
         if shape is not None:
             counts["with_pace_shape"] += 1
         runners = store.connection.execute(
-            """SELECT runner_number, runner_name, finish_position, beaten_lengths, finish_time_seconds
+            """SELECT runner_number, runner_name, finish_position, beaten_lengths,
+                      finish_time_seconds, weight_carried_kg
                  FROM runner_results
                 WHERE source = ? AND race_date = ? AND track_slug = ? AND race_number = ?
                   AND result_status = 'finished' AND finish_position IS NOT NULL
                 ORDER BY runner_number""",
             (race["source"], race["race_date"], race["track_slug"], race["race_number"]),
         ).fetchall()
+
+        carried = [float(x["weight_carried_kg"]) for x in runners if x["weight_carried_kg"] is not None]
+        field_median_weight = statistics.median(carried) if carried else None
 
         computed: list[dict] = []
         for r in runners:
@@ -290,7 +325,9 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                 continue
 
             sect = sectional.get(int(r["runner_number"]), 0.0)
-            weight_merit = 0.0      # increment 2
+            wm = weight_merit(r["weight_carried_kg"], field_median_weight, race["race_class"])
+            if abs(wm) > 1e-9:
+                counts["nonzero_weight"] += 1
             class_anchor = 0.0      # increment 4
             pace_adj, pace_note = pace_adjustment(
                 shape["label"] if shape else None,
@@ -301,7 +338,7 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                 counts["nonzero_pace"] += 1
 
             rating = compose_figure(raw_time_vs_par, variant, margin_component,
-                                    weight_merit, pace_adj, class_anchor, sect)
+                                    wm, pace_adj, class_anchor, sect)
             confidence = min(0.82, 0.30 + 0.04 * min(par.sample_size, 8)
                              + (0.10 if finish_time_used else 0.0)
                              + (0.06 if sectional else 0.0)
@@ -312,7 +349,8 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                 "finish_position": int(r["finish_position"]),
                 "beaten_lengths": r["beaten_lengths"],
                 "performance_rating": rating, "raw_time_vs_par": raw_time_vs_par,
-                "margin_component": margin_component, "pace_adj": pace_adj, "pace_note": pace_note,
+                "margin_component": margin_component, "weight_merit": wm,
+                "pace_adj": pace_adj, "pace_note": pace_note,
                 "sect": sect, "finish_time_used": finish_time_used, "confidence": confidence,
             })
 
@@ -324,8 +362,11 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                 "going_bucket": par.going, "seconds_per_length": SECONDS_PER_LENGTH,
                 "daily_variant_version": "daily-track-variant-v1.0",
                 "pace": row["pace_note"],
-                "components_pending": ["weight_merit", "class_anchor"],
-                "increment": 3,
+                "weight_race_factor": weight_race_factor(race["race_class"]),
+                "field_median_weight_kg": field_median_weight,
+                "components_live": ["time_vs_par", "daily_variant", "pace", "weight_merit",
+                                    "sectional", "winner_ceiling"],
+                "components_pending": ["class_anchor", "scale_calibration"],
             }
             if "winner_ceiling_applied" in row:
                 detail["winner_ceiling_applied"] = row["winner_ceiling_applied"]
@@ -335,7 +376,8 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
                    (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (MODEL_VERSION, as_of_date, race["source"], race["race_date"], race["track_slug"],
                  race["race_number"], row["runner_number"], horse_key(row["runner_name"]), row["runner_name"],
-                 row["performance_rating"], row["raw_time_vs_par"], variant, 0.0, row["pace_adj"], 0.0,
+                 row["performance_rating"], row["raw_time_vs_par"], variant, row["weight_merit"],
+                 row["pace_adj"], 0.0,
                  row["sect"], row["margin_component"], row["finish_time_used"], par.sample_size,
                  row["confidence"], json.dumps(detail, sort_keys=True), now))
             written += 1

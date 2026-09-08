@@ -256,7 +256,7 @@ three models at `--as-of 2026-09-08`, DB backed up to
 | # | Increment | Coefficient source | Status |
 |---|---|---|---|
 | 1 | **Scaffold + daily track variant + clock quarantine.** `racing_engine/performance_par_v2.py`, `par_run_performances` table with explicit attributable components (`raw_time_vs_par`, `daily_variant`, `weight_merit`, `pace_adjustment`, `class_anchor`, `sectional_component`, `margin_component`). | `step11_models` k=6 shrinkage, ≥3 races/meeting | **DONE 8 Sep** |
-| 2 | Weight merit term | v3 commit `35bbedf`: 0.9 pts/kg hcp, 0.2 WFA | pending |
+| 2 | **Weight merit** — `(carried − field median) × pts/kg`, capped ±6. Handicap/Quality 0.9 pts/kg; WFA/set-weights 0.2 (the weight there is an age/sex/penalty allowance, not merit). Relaxes the winner ceiling for a beaten topweight. | v3 commit `35bbedf`: 0.9 / 0.2 pts/kg | **DONE 8 Sep** |
 | 3 | **Pace adjustment** — slow-run race adds a bounded amount back to the whole field; fast/pressure/collapse race trusts the time (no add-back); per-runner shape/trip term from `v2_runner_pace_ratings` nets the flattered winner down. | `v2_race_pace_shapes` v2.1, physical reasoning for K | **DONE 8 Sep** |
 | 4 | Bounded one-sided class anchor for thin fields | v3 §3 method | pending |
 | 5 | Scale calibration — the raw par-v1 spread is compressed (p5–p95 ≈ 85–105); open it so a field's ability range matches reality | speed-figure practice | pending |
@@ -272,10 +272,15 @@ uniform = 2.3484 throughout.
 | | par-v2 log loss | Brier | top-pick strike | verdict |
 |---|---:|---:|---:|---|
 | Increment 1 (variant + clock quarantine) | 2.2988 | 0.8919 | 15.0% | passes |
-| Increment 3 (+ pace) | 2.2931 | 0.8905 | 15.9% | passes, better on every metric |
-| **Increment 3 + winner ceiling** | **2.2938** | 0.8906 | **15.6%** | passes; 0.0007 worse than uncapped — a correctness cost, not a regression |
+| Increment 3 (+ pace) | 2.2931 | 0.8905 | 15.9% | passes |
+| Increment 3 + winner ceiling | 2.2938 | 0.8906 | 15.6% | passes; 0.0007 correctness cost |
+| **Increment 2 (+ weight merit)** | **2.2935** | 0.8905 | 15.4% | passes; winner-ceiling clamps drop 1096→740 as beaten topweights are let through |
 
 `form-first-v2.0` = 2.520 and `form-first-v3.0` fail this gate.
+
+Weight-merit distribution: median |adj| 1.1 L, p90 3.2 L, ±6 cap binds on 0.2%
+of runs (wide low-grade handicaps). Lindermann/Tempted unchanged — both WFA, so
+the 0.2 factor makes weight almost inert, which is correct.
 
 ### Winner ceiling — "rate on the merits of the day"
 

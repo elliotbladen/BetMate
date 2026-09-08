@@ -5,10 +5,15 @@ from racing_engine.performance_par_v2 import (
     NEUTRAL,
     PACE_SLOW_ADDBACK_CAP,
     SECONDS_PER_LENGTH,
+    WEIGHT_MERIT_CAP,
+    WEIGHT_MERIT_PTS_PER_KG_HCP,
+    WEIGHT_MERIT_PTS_PER_KG_WFA,
     clock_is_sane,
     compose_figure,
     enforce_winner_ceiling,
     pace_adjustment,
+    weight_merit,
+    weight_race_factor,
 )
 
 
@@ -79,6 +84,33 @@ class PaceAdjustmentTests(unittest.TestCase):
         self.assertIn("even", note)
 
 
+class WeightMeritTests(unittest.TestCase):
+    def test_handicap_gets_the_full_factor(self):
+        self.assertEqual(weight_race_factor("Handicap. BenchMark 78."), WEIGHT_MERIT_PTS_PER_KG_HCP)
+        self.assertEqual(weight_race_factor("Quality. Listed."), WEIGHT_MERIT_PTS_PER_KG_HCP)
+
+    def test_wfa_and_set_weights_get_the_small_factor(self):
+        self.assertEqual(weight_race_factor("Standard Weight for Age. Group 2."), WEIGHT_MERIT_PTS_PER_KG_WFA)
+        self.assertEqual(weight_race_factor("Set Weights plus Penalties. Group 2."), WEIGHT_MERIT_PTS_PER_KG_WFA)
+
+    def test_carrying_over_the_median_is_credited(self):
+        # +3 kg over the field median in a handicap
+        self.assertAlmostEqual(weight_merit(60.0, 57.0, "Handicap."), 3.0 * WEIGHT_MERIT_PTS_PER_KG_HCP)
+
+    def test_carrying_under_the_median_is_docked(self):
+        self.assertAlmostEqual(weight_merit(54.0, 57.0, "Handicap."), -3.0 * WEIGHT_MERIT_PTS_PER_KG_HCP)
+
+    def test_wfa_weight_difference_barely_matters(self):
+        self.assertAlmostEqual(weight_merit(59.0, 57.0, "Weight for Age."), 2.0 * WEIGHT_MERIT_PTS_PER_KG_WFA)
+
+    def test_capped(self):
+        self.assertEqual(weight_merit(72.0, 54.0, "Handicap."), WEIGHT_MERIT_CAP)
+
+    def test_missing_data_is_zero(self):
+        self.assertEqual(weight_merit(None, 57.0, "Handicap."), 0.0)
+        self.assertEqual(weight_merit(58.0, None, "Handicap."), 0.0)
+
+
 class WinnerCeilingTests(unittest.TestCase):
     def _rows(self):
         return [
@@ -113,6 +145,15 @@ class WinnerCeilingTests(unittest.TestCase):
         self.assertEqual(out[0]["performance_rating"], 105.0)
         self.assertEqual(out[1]["performance_rating"], 103.0)
         self.assertAlmostEqual(out[2]["performance_rating"], 105.0 - 0.15 * 2.0)
+
+    def test_beaten_topweight_allowed_through_on_weight(self):
+        rows = [
+            {"finish_position": 1, "beaten_lengths": 0.0, "performance_rating": 100.0, "weight_merit": -1.0},
+            {"finish_position": 2, "beaten_lengths": 0.5, "performance_rating": 102.0, "weight_merit": 2.6},
+        ]
+        out = enforce_winner_ceiling(rows)
+        # weight-for-weight it gave the winner 3.6 L; ceiling = 100 + 3.6 - 0.1 = 103.5
+        self.assertEqual(out[1]["performance_rating"], 102.0)  # under the relaxed ceiling, untouched
 
 
 if __name__ == "__main__":
