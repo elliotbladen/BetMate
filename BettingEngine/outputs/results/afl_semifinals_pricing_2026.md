@@ -1,5 +1,7 @@
 # AFL 2026 Semi Finals — Pricing Report
 
+> ⚠️ **Emotional layer superseded 2026-09-08** — see `finals_2026_emotional_tier_2026-09-08.md`. All other tiers in this report stand.
+
 **Run date:** 2026-09-06
 **Model:** Rules T1–T8 + ML (XGBoost) primary margin/H2H, rules primary totals.
 Monte Carlo finals spec = 25% rules / 75% ML margin, bootstrapped 2025 residuals,

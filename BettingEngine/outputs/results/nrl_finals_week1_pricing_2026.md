@@ -1,5 +1,7 @@
 # NRL 2026 Finals Week 1 — Proper T1–T9 Pricing (T2 added)
 
+> ⚠️ **Emotional layer superseded 2026-09-08** — see `finals_2026_emotional_tier_2026-09-08.md`. All other tiers in this report stand.
+
 **Run date:** 2026-09-06. **Supersedes** the earlier hand-built QF/EF notes.
 **Method:** real engine tier functions, DB reconstructed from the AusSportsBetting
 xlsx (2009 → R27, R27 appended manually) + fresh Fox Sports team style stats.
