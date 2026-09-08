@@ -102,3 +102,75 @@ matrix upweighting cost an extra half unit.
 - The EFL card is the **injury-adjusted** file (5 selections). The earlier
   pre-injury file held 6 — Lincoln v Southampton dropped out of the active set,
   and it finished 1–1, which would have been a sixth losing draw.
+
+---
+
+## Price capture — vs OPEN as well as vs CLOSE
+
+`vs OPEN = saved_price / opening_odds − 1` — did the price we took beat the
+opening consensus? `Market drift = closing / opening − 1` — which way the market
+then moved. Opening odds are football-data `AvgH/AvgD/AvgA` and `Avg>2.5`.
+
+### EPL GW3
+
+| Match | Selection | Open | Took | Close | vs OPEN | vs CLOSE | Market drift | Result | P&L |
+|---|---|---:|---:|---:|---:|---:|---:|:--:|---:|
+| Ipswich v Liverpool | Ipswich win | 5.48 | 5.50 | 4.86 | +0.36% | +13.17% | -11.31% | ❌ | -1.00 |
+| Brentford v Sunderland | Sunderland win | 5.29 | 5.50 | 4.89 | +3.97% | +12.47% | -7.56% | ❌ | -1.00 |
+| Hull v Aston Villa | Hull win | 4.04 | 4.10 | 3.92 | +1.49% | +4.59% | -2.97% | ❌ | -1.00 |
+| Everton v Man United | Everton win | 3.21 | 3.10 | 3.65 | -3.43% | -15.07% | +13.71% | ❌ | -1.00 |
+| Newcastle v Bournemouth | Over 2.5 | 1.55 | 1.57 | 1.58 | +1.29% | -0.63% | +1.94% | ✅ | +0.57 |
+| Everton v Man United | Over 2.5 | 1.67 | 1.70 | 1.57 | +1.80% | +8.28% | -5.99% | ✅ | +0.70 |
+| Arsenal v Chelsea | Over 2.5 | 1.73 | 2.00 | 1.71 | +15.61% | +16.96% | -1.16% | ✅ | +1.00 |
+
+| Measure | Value |
+|---|---:|
+| Bets | 7 (3W / 4L, 42.9%) |
+| Staked / P&L | 7.00u / **-1.73u** |
+| ROI | **-24.71%** |
+| **vs OPEN** | **+3.01%** — beat the open 6/7 |
+| **vs CLOSE (CLV)** | **+5.68%** — beat the close 5/7 |
+
+### EFL Championship GW5
+
+| Match | Selection | Open | Took | Close | vs OPEN | vs CLOSE | Market drift | Result | P&L |
+|---|---|---:|---:|---:|---:|---:|---:|:--:|---:|
+| Stoke v Charlton | Charlton win | 3.49 | 3.48 | 3.86 | -0.29% | -9.84% | +10.60% | ❌ | -1.00 |
+| Millwall v Bolton | Bolton win | 4.19 | 6.00 | 3.78 | +43.20% | +58.73% | -9.79% | ❌ | -1.00 |
+| Sheffield United v Norwich | Sheffield United win (+6 matrix) | 2.53 | 2.50 | 2.56 | -1.19% | -2.34% | +1.19% | ❌ | -1.50 |
+| Swansea v Wrexham | Swansea win | 2.17 | 2.50 | 2.24 | +15.21% | +11.61% | +3.23% | ❌ | -1.00 |
+| Birmingham v Wolves | Birmingham win | 2.87 | 2.99 | 2.85 | +4.18% | +4.91% | -0.70% | ❌ | -1.00 |
+
+| Measure | Value |
+|---|---:|
+| Bets | 5 (0W / 5L, 0.0%) |
+| Staked / P&L | 5.50u / **-5.50u** |
+| ROI | **-100.00%** |
+| **vs OPEN** | **+12.22%** — beat the open 3/5 |
+| **vs CLOSE (CLV)** | **+12.61%** — beat the close 3/5 |
+
+### Combined
+
+
+| Measure | Value |
+|---|---:|
+| Bets | 12 (3W / 9L, 25.0%) |
+| Staked / P&L | 12.50u / **-7.23u** |
+| ROI | **-57.84%** |
+| **vs OPEN** | **+6.85%** — beat the open 9/12 |
+| **vs CLOSE (CLV)** | **+8.57%** — beat the close 8/12 |
+
+**Read.** We beat the open on **9 of 12** and the close on **8 of 12**, averaging
+**+6.85% vs open** and **+8.57% vs close**. Both are positive, and the close figure
+being the larger of the two means the market on balance moved *toward* our
+selections after we took them — the definition of good timing.
+
+Two bets carried the average: **Millwall/Bolton** (took 6.00 against a 4.19 open,
++43.2%) and **Arsenal/Chelsea Over 2.5** (2.00 against 1.73, +15.6%). Both look like
+a genuinely better book price rather than an early-market edge. Strip those two out
+and the remaining ten average roughly **+0.4% vs open** — i.e. we were taking
+consensus prices, not beating the market.
+
+**Everton win is the one clear timing loss:** taken at 3.10 against a 3.21 open, and
+it drifted out to 3.65. Worse than the open *and* worse than the close, on a bet
+that then drew. Stoke/Charlton is the same shape, smaller.

@@ -6,10 +6,13 @@ Grade the saved EPL / EFL Championship selections against football-data.co.uk
 results and CLOSING odds.
 
 Conventions (match the 2026-09-02 football CLV work):
+  - opening odds  = average opening (AvgH/AvgD/AvgA, Avg>2.5)
   - closing odds  = average closing (AvgCH/AvgCD/AvgCA, AvgC>2.5)
   - stake         = the stake_units on the saved row (1.0u, or 1.5u on a +6 matrix)
   - losing bet returns zero
-  - CLV %         = saved_price / closing_odds - 1
+  - CLV %         = saved_price / closing_odds - 1   (did we beat the CLOSE)
+  - vs open %     = saved_price / opening_odds - 1   (did we beat the OPEN)
+  - drift %       = closing_odds / opening_odds - 1  (which way the market moved)
 
 Run: python3 scripts/score_football_saved_bets.py
 """
@@ -64,15 +67,21 @@ def grade(bet, books):
     if market == "1X2":
         won = (side == "H" and hg > ag) or (side == "A" and ag > hg)
         close = float(r["AvgCH"] if side == "H" else r["AvgCA"])
+        open_ = float(r["AvgH"] if side == "H" else r["AvgA"])
     else:
         won = total > 2.5
         close = float(r["AvgC>2.5"])
+        open_ = float(r["Avg>2.5"])
 
     pnl = stake * (price - 1) if won else -stake
     return {
         "league": league, "match": f"{home} v {away}", "market": market,
-        "selection": label, "saved_price": price, "closing_odds": round(close, 2),
+        "selection": label, "saved_price": price,
+        "opening_odds": round(open_, 2), "closing_odds": round(close, 2),
+        "vs_open_pct": round((price / open_ - 1) * 100, 2),
         "clv_pct": round((price / close - 1) * 100, 2),
+        "market_drift_pct": round((close / open_ - 1) * 100, 2),
+        "beat_open": price > open_, "beat_close": price > close,
         "score": f"{hg}-{ag}", "total_goals": total,
         "result": "win" if won else "loss",
         "stake_u": stake, "pnl_u": round(pnl, 3),
@@ -85,12 +94,16 @@ def summarise(rows):
     staked = sum(r["stake_u"] for r in rows)
     pnl = sum(r["pnl_u"] for r in rows)
     clvs = [r["clv_pct"] for r in rows]
+    opens = [r["vs_open_pct"] for r in rows]
     return {"bets": n, "wins": w, "losses": n - w,
             "strike": round(w / n * 100, 1), "staked": round(staked, 2),
             "pnl": round(pnl, 3), "roi": round(pnl / staked * 100, 2),
             "avg_clv": round(sum(clvs) / n, 2),
             "pos_clv": sum(1 for c in clvs if c > 0),
-            "beat_close_pct": round(sum(1 for c in clvs if c > 0) / n * 100, 1)}
+            "beat_close_pct": round(sum(1 for c in clvs if c > 0) / n * 100, 1),
+            "avg_vs_open": round(sum(opens) / n, 2),
+            "pos_open": sum(1 for c in opens if c > 0),
+            "beat_open_pct": round(sum(1 for c in opens if c > 0) / n * 100, 1)}
 
 
 def main():
@@ -109,20 +122,24 @@ def main():
         print(f"\n{'='*100}")
         print(f"{lg} — saved selections vs closing line")
         print(f"{'='*100}")
-        print(f"{'Match':<32}{'Selection':<26}{'Took':>7}{'Close':>7}{'CLV':>9}{'Score':>8}{'Res':>6}{'P&L':>8}")
+        print(f"{'Match':<30}{'Selection':<24}{'Open':>7}{'Took':>7}{'Close':>7}"
+              f"{'vs open':>9}{'vs close':>10}{'drift':>9}{'Res':>5}")
         for r in sub:
-            print(f"{r['match']:<32}{r['selection']:<26}{r['saved_price']:>7.2f}{r['closing_odds']:>7.2f}"
-                  f"{r['clv_pct']:>+8.2f}%{r['score']:>8}{r['result'][:1].upper():>6}{r['pnl_u']:>+8.2f}")
+            print(f"{r['match']:<30}{r['selection'][:23]:<24}{r['opening_odds']:>7.2f}{r['saved_price']:>7.2f}"
+                  f"{r['closing_odds']:>7.2f}{r['vs_open_pct']:>+8.2f}%{r['clv_pct']:>+9.2f}%"
+                  f"{r['market_drift_pct']:>+8.2f}%{r['result'][:1].upper():>5}")
         print("-" * 100)
         print(f"  {s['bets']} bets | {s['wins']}W-{s['losses']}L ({s['strike']}%) | staked {s['staked']}u | "
-              f"P&L {s['pnl']:+.2f}u | ROI {s['roi']:+.2f}% | avg CLV {s['avg_clv']:+.2f}% | "
-              f"beat close {s['pos_clv']}/{s['bets']} ({s['beat_close_pct']}%)")
+              f"P&L {s['pnl']:+.2f}u | ROI {s['roi']:+.2f}%")
+        print(f"  vs OPEN  {s['avg_vs_open']:+.2f}%  beat open {s['pos_open']}/{s['bets']} ({s['beat_open_pct']}%)   "
+              f"|   vs CLOSE {s['avg_clv']:+.2f}%  beat close {s['pos_clv']}/{s['bets']} ({s['beat_close_pct']}%)")
 
     s = summarise(rows)
     print(f"\n{'='*100}")
     print(f"COMBINED: {s['bets']} bets | {s['wins']}W-{s['losses']}L ({s['strike']}%) | staked {s['staked']}u | "
-          f"P&L {s['pnl']:+.2f}u | ROI {s['roi']:+.2f}% | avg CLV {s['avg_clv']:+.2f}% | "
-          f"beat close {s['pos_clv']}/{s['bets']} ({s['beat_close_pct']}%)")
+          f"P&L {s['pnl']:+.2f}u | ROI {s['roi']:+.2f}%")
+    print(f"  vs OPEN  {s['avg_vs_open']:+.2f}%  beat open {s['pos_open']}/{s['bets']} ({s['beat_open_pct']}%)")
+    print(f"  vs CLOSE {s['avg_clv']:+.2f}%  beat close {s['pos_clv']}/{s['bets']} ({s['beat_close_pct']}%)")
     print(f"\nwritten: {csv_path.relative_to(ROOT)}")
 
 
