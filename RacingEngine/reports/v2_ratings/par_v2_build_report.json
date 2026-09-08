@@ -4,8 +4,10 @@
     "clock_quarantined": 288,
     "no_clock_no_margin": 2571,
     "no_par": 152,
+    "nonzero_pace": 21377,
     "performances": 34493,
-    "race_clock_quarantined": 1
+    "race_clock_quarantined": 1,
+    "with_pace_shape": 3009
   },
   "meetings_with_variant": 364,
   "model_version": "performance-par-v2.0",

@@ -27,9 +27,13 @@ Coefficients are taken from already-completed research (see the doc), not fitted
 here. Validation is the frozen naive chronological protocol in `prediction_test`:
 par-v2 must beat BOTH uniform AND performance-par-v1.0 or it is not the spine.
 
-INCREMENT 1 (this commit): scaffold + raw_time_vs_par + daily_track_variant +
-last400 sectional + margin. weight_merit / pace_adjustment / class_anchor are
-wired as explicit zeros with a `pending` marker.
+INCREMENT 1: scaffold + raw_time_vs_par + daily_track_variant + clock quarantine
++ last400 sectional + margin.
+INCREMENT 3 (this commit): pace adjustment. A slowly-run race adds a bounded
+amount back to the whole field (its time was tactically depressed); a fast /
+pressured / collapsing race gets no race-level add-back. Each runner also gets a
+bounded per-runner shape/trip term from v2_runner_pace_ratings.
+weight_merit / class_anchor remain explicit zeros (increments 2, 4).
 """
 from __future__ import annotations
 
@@ -59,8 +63,7 @@ MODEL_VERSION = "performance-par-v2.0"
 PAR_BASE_MODEL = "performance-par-v1.0"
 OUTPUT = ROOT / "reports" / "v2_ratings"
 
-SECTIONAL_CAP_LENGTHS = 2.0        # last-400 evidence stays small until the pace
-                                  # layer (increment 3) is in
+SECTIONAL_CAP_LENGTHS = 2.0
 SECTIONAL_WEIGHT = 0.20
 RECENCY_HALF_LIFE_DAYS = 180.0
 
@@ -69,6 +72,60 @@ RECENCY_HALF_LIFE_DAYS = 180.0
 # faster than the official winner's time, is a timing error, not a performance.
 MAX_ABS_TIME_LENGTHS = 35.0
 FASTER_THAN_WINNER_TOLERANCE_S = 0.20
+
+# ── Increment 3: pace adjustment ────────────────────────────────────────────
+# A slowly-run race depresses everyone's final time for tactical reasons, not
+# because the track or the horses were slow — so a bounded amount is added back
+# to the whole field. A genuinely fast / pressured / collapsing race ran an
+# honest (if not generous) time: NO race-level add-back (per v3 commit ead102a).
+# On top of the race term, each runner gets a bounded pace/trip adjustment from
+# v2_runner_pace_ratings (negative = the shape helped them, e.g. a soft lead in a
+# sprint-home race), which nets the flattered winner back down.
+_PACE_VERSIONS = ("pace-shape-v2.0-shadow", "pace-shape-v2.1-pit-shadow")  # later wins
+PACE_SLOW_LABELS = {"slow_early", "very_slow_early", "sprint_home"}
+PACE_FAST_LABELS = {"fast_early", "very_fast_early", "pace_collapse", "sustained_high_pressure"}
+# early_score is in ~SD units, roughly [-4, +4]; a "very_slow_early" mile runs its
+# first ~1000 m ~1.5-2 s slow (~9-12 L), of which about half is clawed back over
+# the last 400 -> ~4-6 L slower final time. K 2.2 maps early_score -2.2 -> ~4.8 L,
+# capped at 7. Set from that physical reasoning, NOT tuned to the predictive gate.
+PACE_SLOW_ADDBACK_K = 2.2
+PACE_SLOW_ADDBACK_CAP = 7.0
+PACE_RUNNER_CAP = 2.0
+
+
+def pace_adjustment(pace_label: str | None, early_score: float | None, confidence: float | None,
+                    runner_shadow_adj: float | None) -> tuple[float, str]:
+    """Race-level slow-tempo add-back + bounded per-runner shape adjustment."""
+    race_term = 0.0
+    note = "no pace shape"
+    if pace_label in PACE_SLOW_LABELS and early_score is not None:
+        conf = confidence if confidence is not None else 0.8
+        race_term = min(PACE_SLOW_ADDBACK_CAP, max(0.0, -float(early_score)) * PACE_SLOW_ADDBACK_K) * conf
+        note = f"slow_tempo:{pace_label} +{race_term:.1f}"
+    elif pace_label in PACE_FAST_LABELS:
+        note = f"fast_tempo:{pace_label} (time trusted)"
+    elif pace_label is not None:
+        note = f"even:{pace_label}"
+    runner_term = 0.0
+    if runner_shadow_adj is not None:
+        runner_term = max(-PACE_RUNNER_CAP, min(PACE_RUNNER_CAP, float(runner_shadow_adj)))
+    return race_term + runner_term, note
+
+
+def _load_pace(store: RacingStore):
+    shapes: dict[str, dict] = {}
+    for ver in _PACE_VERSIONS:
+        for row in store.connection.execute(
+            "SELECT race_id, pace_label, early_score, confidence FROM v2_race_pace_shapes WHERE version=?", (ver,)):
+            shapes[row["race_id"]] = {"label": row["pace_label"], "early": row["early_score"],
+                                      "conf": row["confidence"]}
+    runners: dict[tuple[str, int], float] = {}
+    for ver in _PACE_VERSIONS:
+        for row in store.connection.execute(
+            "SELECT race_id, runner_number, shadow_rating_adjustment FROM v2_runner_pace_ratings WHERE version=?", (ver,)):
+            if row["shadow_rating_adjustment"] is not None:
+                runners[(row["race_id"], int(row["runner_number"]))] = float(row["shadow_rating_adjustment"])
+    return shapes, runners
 
 
 def clock_is_sane(finish_time: float | None, official_time: float, par_seconds: float) -> bool:
@@ -143,6 +200,7 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
 
     pars = build_pars(store, as_of_date, min_sample=min_par_sample, model_version=PAR_BASE_MODEL)
     variants = estimate_daily_variants(store, as_of_date, base_model=PAR_BASE_MODEL)
+    pace_shapes, pace_runners = _load_pace(store)
 
     races = store.connection.execute(
         """SELECT source, race_date, track_slug, race_number, distance_metres,
@@ -171,6 +229,10 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
         variant = float(variants.get((race["source"], race["race_date"], race["track_slug"]), 0.0))
         sectional = _last400_components(store, race["source"], race["race_date"],
                                        race["track_slug"], race["race_number"])
+        pace_race_id = f'{race["race_date"]}|{race["track_slug"]}|{race["race_number"]}'
+        shape = pace_shapes.get(pace_race_id)
+        if shape is not None:
+            counts["with_pace_shape"] += 1
         runners = store.connection.execute(
             """SELECT runner_number, runner_name, finish_position, beaten_lengths, finish_time_seconds
                  FROM runner_results
@@ -200,30 +262,38 @@ def build_performances(store: RacingStore, as_of_date: str, *, min_par_sample: i
 
             sect = sectional.get(int(r["runner_number"]), 0.0)
             weight_merit = 0.0      # increment 2
-            pace_adjustment = 0.0   # increment 3
             class_anchor = 0.0      # increment 4
+            pace_adj, pace_note = pace_adjustment(
+                shape["label"] if shape else None,
+                shape["early"] if shape else None,
+                shape["conf"] if shape else None,
+                pace_runners.get((pace_race_id, int(r["runner_number"]))))
+            if abs(pace_adj) > 1e-9:
+                counts["nonzero_pace"] += 1
 
             rating = compose_figure(raw_time_vs_par, variant, margin_component,
-                                    weight_merit, pace_adjustment, class_anchor, sect)
+                                    weight_merit, pace_adj, class_anchor, sect)
 
-            confidence = min(0.80, 0.30 + 0.04 * min(par.sample_size, 8)
+            confidence = min(0.82, 0.30 + 0.04 * min(par.sample_size, 8)
                              + (0.10 if finish_time_used else 0.0)
                              + (0.06 if sectional else 0.0)
-                             + (0.05 if abs(variant) > 1e-9 else 0.0))
+                             + (0.05 if abs(variant) > 1e-9 else 0.0)
+                             + (0.04 if shape is not None else 0.0))
 
             detail = {
                 "par_seconds": par.time_seconds, "par_sample_size": par.sample_size,
                 "going_bucket": par.going, "seconds_per_length": SECONDS_PER_LENGTH,
                 "daily_variant_version": "daily-track-variant-v1.0",
-                "components_pending": ["weight_merit", "pace_adjustment", "class_anchor"],
-                "increment": 1,
+                "pace": pace_note,
+                "components_pending": ["weight_merit", "class_anchor"],
+                "increment": 3,
             }
             store.connection.execute(
                 """INSERT INTO par_run_performances VALUES
                    (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (MODEL_VERSION, as_of_date, race["source"], race["race_date"], race["track_slug"],
                  race["race_number"], r["runner_number"], horse_key(r["runner_name"]), r["runner_name"],
-                 rating, raw_time_vs_par, variant, weight_merit, pace_adjustment, class_anchor,
+                 rating, raw_time_vs_par, variant, weight_merit, pace_adj, class_anchor,
                  sect, margin_component, finish_time_used, par.sample_size, confidence,
                  json.dumps(detail, sort_keys=True), now))
             written += 1

@@ -22,9 +22,11 @@ Model selection settled 8 Sep — see `docs/rating_model_selection_2026-09.md`.
 `form-first` rates a winner off the *official marks of the horses they beat*; the
 architecture requires Step 1 to be the horse's own adjusted performance. Building
 `performance-par-v2.0` as a composed adjusted speed figure (variant + weight +
-pace + thin-field anchor). **Increment 1 done** (variant + clock quarantine),
-passes the naive predictive gate (2.2988 vs par-v1 2.3061 vs uniform 2.3484).
-NOT yet a usable rating — slow-run features under-rated until the pace increment.
+pace + thin-field anchor). **Increments 1 + 3 done** (daily variant, clock
+quarantine, pace add-back). Naive predictive gate passes and improves each step
+(2.2931 vs par-v1 2.3061 vs uniform 2.3484). Lindermann/Tempted now match the
+expert anchor (Lindermann ~101, Tempted ~110). Increments 2 (weight), 4 (class
+anchor), 5 (scale) pending — not yet the promoted rating.
 
 ## Prior note (still valid)
 

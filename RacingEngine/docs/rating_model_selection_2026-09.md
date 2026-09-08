@@ -257,37 +257,45 @@ three models at `--as-of 2026-09-08`, DB backed up to
 |---|---|---|---|
 | 1 | **Scaffold + daily track variant + clock quarantine.** `racing_engine/performance_par_v2.py`, `par_run_performances` table with explicit attributable components (`raw_time_vs_par`, `daily_variant`, `weight_merit`, `pace_adjustment`, `class_anchor`, `sectional_component`, `margin_component`). | `step11_models` k=6 shrinkage, ≥3 races/meeting | **DONE 8 Sep** |
 | 2 | Weight merit term | v3 commit `35bbedf`: 0.9 pts/kg hcp, 0.2 WFA | pending |
-| 3 | Pace adjustment from `v2_race_pace_shapes` / `v2_runner_pace_ratings` — slow-run race add-back, collapse dock | existing pace-shape shadow | **pending — highest priority** |
+| 3 | **Pace adjustment** — slow-run race adds a bounded amount back to the whole field; fast/pressure/collapse race trusts the time (no add-back); per-runner shape/trip term from `v2_runner_pace_ratings` nets the flattered winner down. | `v2_race_pace_shapes` v2.1, physical reasoning for K | **DONE 8 Sep** |
 | 4 | Bounded one-sided class anchor for thin fields | v3 §3 method | pending |
-| 5 | Scale calibration — the raw par-v1 spread is compressed (p5–p95 ≈ 83–105); open it so a field's ability range matches reality | speed-figure practice | pending |
-| 6 | Run the frozen naive predictive protocol; require beat vs uniform AND par-v1 | audit rec 7 | **increment 1 already passes** |
+| 5 | Scale calibration — the raw par-v1 spread is compressed (p5–p95 ≈ 85–105); open it so a field's ability range matches reality | speed-figure practice | pending |
+| 6 | Run the frozen naive predictive protocol; require beat vs uniform AND par-v1 | audit rec 7 | **passes at every increment so far** |
 | 7 | If it clears: make par-v2 the base of `form-first-v3.1`; demote collateral to a Step-3 franked revision | — | pending |
 | 8 | `v3_horse_rating_states` consolidated per-horse rollup (§7) | — | pending |
 
-### Increment 1 result (`--as-of 2026-09-08`, `--test`)
+### Results by increment (`--as-of 2026-09-08`, `--test`)
 
-- **34,493 runs rated** (288 runner clocks + 1 whole race quarantined for the
-  F10-class blowup — par-v2 max is now 129.4, not 378).
-- **Naive predictive gate PASSED:** par-v2 log loss **2.2988** vs par-v1 **2.3061**
-  vs uniform **2.3484**. par-v2 beats both. This is the gate `form-first-v2.0`
-  (2.520) and `form-first-v3.0` fail.
-- The margin over par-v1 is small (0.007) because the daily variant is a modest
-  correction on most days — but it is the right sign and it clears the bar.
+Naive predictive gate (1,376 test races, 2025-01-01 →). par-v1 = 2.3061,
+uniform = 2.3484 throughout.
 
-### Known gaps at increment 1 (what increments 3 + 5 must fix)
+| | par-v2 log loss | Brier | top-pick strike | verdict |
+|---|---:|---:|---:|---|
+| Increment 1 (variant + clock quarantine) | 2.2988 | 0.8919 | 15.0% | passes |
+| **Increment 3 (+ pace)** | **2.2931** | **0.8905** | **15.9%** | passes, better on every metric |
 
-- **Slow-run features are badly under-rated.** Lindermann's 2026 Chelmsford
-  (slow-tempo 1600m WFA) rates **96** on par-v2 — the field dawdled then
-  sprinted, so the raw clock is slow. Truth is ~110–113. The pace add-back
-  (increment 3) is what corrects this *without* the stale-collateral inflation
-  that put `form-first` at 117. Tempted's genuinely-run Concorde already sits at
-  a fair **110** on par-v2.
-- **Scale is compressed** (p5–p95 ≈ 83–105): par-v1's median-time anchor bunches
-  the field. Increment 5.
-- **Compression vs official is still par-v1-like** (+29 low / −14 top) — but this
-  is partly *correct*: a sub-80-rated horse that runs a fast winning time has
-  outrun its mark, and a time figure should say so where a collateral figure
-  drags it back to the mark. Revisit after increment 4.
+`form-first-v2.0` = 2.520 and `form-first-v3.0` fail this gate.
+
+### Increment 3 — the Lindermann / Tempted case now lands on the expert anchor
+
+| horse | par-v2 last start | par-v2 median-last-3 | expert view |
+|---|---:|---:|---|
+| **Lindermann** (Chelmsford, `sprint_home`) | 99.3 (+4.4 field add-back, −1.2 for the soft lead) | **101.0** | low 100s ✓ |
+| **Ceolwulf** (Chelmsford 2nd, did the early work) | 100.3 (+5.5) | 102.9 | ran ≥ Lindermann ✓ |
+| **Tempted** (Concorde, `sustained_high_pressure`) | 110.3 (time trusted, no add-back) | 106.8 → ~110 recency-weighted | ~110–11 ✓ |
+
+The whole Chelmsford field now rates 96.7–100.3 — a tight bunch for a slow-run G2
+where nobody was fully tested. `form-first` had Lindermann at 117.5 and clearly
+ahead of Ceolwulf; the pace read says Ceolwulf did more.
+
+### Known gaps remaining (increments 4 + 5)
+
+- **Scale is still compressed** (p5–p95 ≈ 85–105): par-v1's median-time anchor
+  bunches the field. Increment 5.
+- **Compression vs official is still par-v1-like** (+30 low / −13 top) — partly
+  *correct* (a sub-80 horse that runs a fast winning time has outrun its mark and
+  a time figure should say so), partly the thin-field problem increment 4's
+  one-sided class anchor addresses.
 
 ---
 

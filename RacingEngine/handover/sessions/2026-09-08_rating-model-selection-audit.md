@@ -82,27 +82,32 @@ already-researched pieces (daily variant, carried weight, pace shapes) into one
 adjusted speed figure, coefficients from prior research not fitted fresh. Then
 demote collateral to a franked Step-3 layer on top.
 
-## Rebuild started — increment 1 DONE
+## Rebuild — increments 1 + 3 DONE
 
-- `racing_engine/performance_par_v2.py` + `tests/test_performance_par_v2.py` (8 tests pass)
+- `racing_engine/performance_par_v2.py` + `tests/test_performance_par_v2.py` (14 tests pass)
 - `par_run_performances` table, explicit attributable components
-- Increment 1 = raw_time_vs_par + daily_track_variant + clock quarantine + last-400 + margin
-- **Naive predictive gate PASSED:** par-v2 **2.2988** < par-v1 2.3061 < uniform 2.3484.
-  (form-first-v2.0 = 2.520, fails.)
-- Report: `reports/v2_ratings/par_v2_build_report.json`
+- **Increment 1:** raw_time_vs_par + daily_track_variant + clock quarantine + last-400 + margin
+- **Increment 3:** pace adjustment — slow-run race (`slow_early`/`very_slow_early`/
+  `sprint_home`) adds a bounded amount back to the whole field (K=2.2 on
+  `early_score`, cap 7, × confidence); fast/pressure/collapse race trusts the
+  time (no add-back); per-runner term from `v2_runner_pace_ratings.shadow_rating_adjustment`
+  (±2) nets the flattered winner down. K set from physical reasoning, NOT tuned to the gate.
+- **Gate PASSED and improved:** par-v2 log loss 2.2988 (inc.1) → **2.2931** (inc.3),
+  strike 15.0% → 15.9%. par-v1 = 2.3061, uniform = 2.3484. form-first-v2.0 = 2.520 (fails).
+- **Lindermann/Tempted now match the expert anchor:** Lindermann median-last-3
+  **101.0** (Chelmsford run 99.3), Ceolwulf 102.9, Tempted ~110. Whole Chelmsford
+  field 96.7–100.3.
 
 ## Resume — par-v2 increments (doc §9)
 
-1. **Increment 3 first (highest value): pace adjustment** from `v2_race_pace_shapes` /
-   `v2_runner_pace_ratings` — slow-run race add-back, collapse dock. This is what
-   fixes Lindermann's Chelmsford (currently 96 on par-v2, truth ~110-113) without
-   the stale-collateral inflation.
-2. Increment 2: weight merit (0.9 hcp / 0.2 WFA pts/kg).
-3. Increment 4: one-sided class anchor for thin fields.
-4. Increment 5: scale calibration (open the compressed p5-p95 ≈ 83-105 spread).
-5. Re-run the gate at each increment; must keep beating uniform AND par-v1.
-6. Then par-v2 becomes the base of `form-first-v3.1`; collateral → Step-3 franked revision.
-7. `v3_horse_rating_states` consolidated per-horse rollup.
+1. Increment 2: weight merit (0.9 hcp / 0.2 WFA pts/kg from v3 commit `35bbedf`).
+   `runner_weight_contexts` already has `carried_minus_wfa_kg` / `carried_minus_field_median_kg`.
+2. Increment 4: one-sided class anchor for thin fields (`v2_clean_races.class_family`
+   → CLASS_STANDARDS, pull only when par sample thin / no variant).
+3. Increment 5: scale calibration (open the compressed p5-p95 ≈ 85-105 spread).
+4. Re-run the gate at each increment; must keep beating uniform AND par-v1.
+5. Then par-v2 becomes the base of `form-first-v3.1`; collateral → Step-3 franked revision.
+6. `v3_horse_rating_states` consolidated per-horse rollup.
 
 ## Not done
 
