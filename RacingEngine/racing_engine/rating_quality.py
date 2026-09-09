@@ -303,6 +303,95 @@ def baselines(store: RacingStore, rows: list[dict]) -> dict[str, Any]:
     return out
 
 
+# ── how should a horse's prior runs be aggregated into "what we knew"? ──────
+# Last-start-only beat median-of-3 on the ordering gate using identical figures,
+# so the aggregation is doing real damage and is worth testing directly rather
+# than assumed. Each of these is scored on exactly the same races and pairs.
+AGGREGATORS = {
+    "last_start_only":      lambda v: v[-1],
+    "median_last_2":        lambda v: statistics.median(v[-2:]),
+    "median_last_3":        lambda v: statistics.median(v[-3:]),
+    "median_last_5":        lambda v: statistics.median(v[-5:]),
+    "mean_last_3":          lambda v: statistics.mean(v[-3:]),
+    "max_last_3":           lambda v: max(v[-3:]),
+    "peak_career":          lambda v: max(v),
+    "weighted_recent_3":    lambda v: (sum(w * x for w, x in zip((3, 2, 1), reversed(v[-3:])))
+                                       / sum((3, 2, 1)[:len(v[-3:])])),
+    "best_of_last_2":       lambda v: max(v[-2:]),
+}
+
+
+def aggregation_test(rows: list[dict]) -> dict[str, Any]:
+    """Which way of turning past runs into 'what we knew' orders a field best?"""
+    hist = _prior_index(rows)
+    finished = [r for r in rows if r["finish_position"] is not None]
+    out = {}
+    for name, fn in AGGREGATORS.items():
+        races: dict[str, list[dict]] = defaultdict(list)
+        for r in finished:
+            vals = [v for d, v in hist.get(r["horse_key"], []) if d < r["race_date"]]
+            if vals:
+                races[r["race_id"]].append({**r, "rating": fn(vals)})
+        a = d = 0
+        for runners in races.values():
+            if len(runners) < 3:
+                continue
+            for i in range(len(runners)):
+                for j in range(i + 1, len(runners)):
+                    x, y = runners[i], runners[j]
+                    if x["finish_position"] == y["finish_position"] or x["rating"] == y["rating"]:
+                        continue
+                    if (x["rating"] > y["rating"]) == (x["finish_position"] < y["finish_position"]):
+                        a += 1
+                    else:
+                        d += 1
+        out[name] = {"concordance": round(a / (a + d), 4) if a + d else None, "pairs": a + d}
+    return out
+
+
+def segmented_concordance(store: RacingStore, rows: list[dict]) -> dict[str, Any]:
+    """Where does the ordering fail? Concordance split by class, distance,
+    field size and state — a single number hides which races it cannot read."""
+    meta = {r["race_id"]: dict(r) for r in store.connection.execute(
+        "SELECT race_id, class_family, distance_metres, state FROM v2_clean_races")}
+    hist = _prior_index(rows)
+    races: dict[str, list[dict]] = defaultdict(list)
+    for r in rows:
+        if r["finish_position"] is None:
+            continue
+        pr = _prior(hist, r["horse_key"], r["race_date"])
+        if pr is not None:
+            races[r["race_id"]].append({**r, "rating": pr})
+
+    def bucket_distance(d):
+        if not d: return "unknown"
+        return "1000-1200" if d <= 1200 else "1300-1600" if d <= 1600 else "1700-2000" if d <= 2000 else "2000+"
+
+    tallies: dict[str, dict[str, list[int]]] = {k: defaultdict(lambda: [0, 0])
+                                                for k in ("class", "distance", "field_size", "state")}
+    for rid, runners in races.items():
+        if len(runners) < 3:
+            continue
+        m = meta.get(rid, {})
+        keys = {"class": m.get("class_family") or "unknown",
+                "distance": bucket_distance(m.get("distance_metres")),
+                "field_size": "small (<8)" if len(runners) < 8 else "medium (8-11)" if len(runners) < 12 else "large (12+)",
+                "state": m.get("state") or "unknown"}
+        a = d = 0
+        for i in range(len(runners)):
+            for j in range(i + 1, len(runners)):
+                x, y = runners[i], runners[j]
+                if x["finish_position"] == y["finish_position"] or x["rating"] == y["rating"]:
+                    continue
+                if (x["rating"] > y["rating"]) == (x["finish_position"] < y["finish_position"]): a += 1
+                else: d += 1
+        for dim, key in keys.items():
+            tallies[dim][key][0] += a; tallies[dim][key][1] += d
+    return {dim: {k: {"concordance": round(v[0] / (v[0] + v[1]), 4) if v[0] + v[1] else None,
+                      "pairs": v[0] + v[1]}
+                  for k, v in sorted(t.items())} for dim, t in tallies.items()}
+
+
 def evaluate(store: RacingStore, model: str, as_of_date: str | None = None,
              with_baselines: bool = False) -> dict[str, Any]:
     rows = _load(store, model, as_of_date)
@@ -322,6 +411,10 @@ def main() -> None:
     ap.add_argument("--as-of", dest="as_of", default=None)
     ap.add_argument("--compare", nargs="*", default=None,
                     help="evaluate several models side by side")
+    ap.add_argument("--segments", action="store_true",
+                    help="split concordance by class, distance, field size and state")
+    ap.add_argument("--aggregation", action="store_true",
+                    help="compare ways of turning past runs into a prior")
     ap.add_argument("--baselines", action="store_true",
                     help="also score the coin flip, the official mark and last-start-only")
     args = ap.parse_args()
@@ -343,6 +436,26 @@ def main() -> None:
             print(f"{m:<26}{r['runs']:>8}{(c['concordance'] or 0):>9.4f}"
                   f"{(rp['correlation'] or 0):>8.3f}{(mc['points_per_length'] or 0):>9.3f}"
                   f"{sc.get('p5',0):>7.1f}{sc.get('p95',0):>7.1f}{sc.get('max',0):>7.1f}")
+        if args.segments:
+            for m in models:
+                rows = _load(store, m, args.as_of)
+                seg = segmented_concordance(store, rows)
+                for dim, vals in seg.items():
+                    print(f"\n  concordance by {dim}:")
+                    for k, v in sorted(vals.items(), key=lambda kv: -(kv[1]["concordance"] or 0)):
+                        if v["pairs"] < 500: continue
+                        print(f"    {k:<16} {v['concordance']:.4f}   ({v['pairs']:,} pairs)")
+                results.setdefault(m, {})["segments"] = seg
+
+        if args.aggregation:
+            for m in models:
+                rows = _load(store, m, args.as_of)
+                agg = aggregation_test(rows)
+                print(f"\n  prior aggregation — {m} (same races, same pairs):")
+                for name, v in sorted(agg.items(), key=lambda kv: -(kv[1]["concordance"] or 0)):
+                    print(f"    {name:<20} {v['concordance']:.4f}   ({v['pairs']:,} pairs)")
+                results.setdefault(m, {})["aggregation"] = agg
+
         for m, r in results.items():
             if "baselines" in r:
                 b = r["baselines"]
