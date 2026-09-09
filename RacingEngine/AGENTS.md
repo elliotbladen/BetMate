@@ -1,5 +1,10 @@
 # RacingEngine persistent operating instructions
 
+Before trusting any metric or source comparison, read
+`../handover/DATA_INTEGRITY_LESSONS.md` — ten real cases from this repo where a
+confident, well-evidenced number was wrong, including three where the checking
+tool itself was the fault.
+
 ## THIS IS A HORSE RATING ENGINE
 
 It answers "how good was that run" and "how good is that horse", on a scale where

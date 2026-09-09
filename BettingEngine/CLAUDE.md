@@ -2,6 +2,16 @@
 
 ---
 
+## READ FIRST — data-integrity lessons
+
+`handover/DATA_INTEGRITY_LESSONS.md` records ten ways the numbers in this repo
+have been confidently wrong, with the real cases and figures. Most were not code
+bugs — they were plausible conclusions built on quietly bad data, and in three
+cases the *checking tool* was the thing that was wrong. Read it before trusting a
+metric, a source comparison, or a validation result you did not build yourself.
+
+---
+
 ## HOW TO START A SESSION
 
 1. Read **Current State** below — this tells you what's happening right now
