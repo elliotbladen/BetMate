@@ -1,6 +1,12 @@
 {
   "form-first-v2.0": {
     "as_of_date": null,
+    "baselines": {
+      "coin_flip_concordance": 0.5,
+      "last_start_figure_concordance": 0.5706,
+      "official_rating_concordance": 0.5478,
+      "official_rating_pairs": 136309
+    },
     "concordance": {
       "concordance": 0.5527,
       "mean_race_concordance": 0.5605,

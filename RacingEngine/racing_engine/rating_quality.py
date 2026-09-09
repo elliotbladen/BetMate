@@ -45,6 +45,17 @@ THE FOUR RATING GATES
 4. SCALE           Can the scale express an elite run? Audit F1 found it
                    structurally could not reach 125+.
 
+BASELINES
+─────────
+A concordance number means nothing on its own. 0.500 is a coin flip, and the
+official handicapper's mark is free — if a model cannot beat the mark at ordering
+a field, it is not yet earning its keep. `--baselines` scores, on exactly the same
+races and pairs:
+
+  coin_flip           0.500 by construction
+  official_rating     the horse's official mark carried on the day
+  last_start_figure   the horse's single most recent figure, no blending
+
 Reference points, not pass marks: on PRIOR form a sound rating concords around
 0.60-0.70, and repeats around 0.45-0.60 run to run. Ordering is the gate that
 matters; the others describe the scale. Beware any concordance near 0.85+ — that
@@ -223,13 +234,86 @@ def scale(rows: list[dict]) -> dict[str, Any]:
             "runs_over_125": sum(1 for v in vals if v > 125)}
 
 
-def evaluate(store: RacingStore, model: str, as_of_date: str | None = None) -> dict[str, Any]:
+def _baseline_rows(store: RacingStore) -> list[dict]:
+    """Official mark + finishing detail for every finished runner."""
+    return [dict(r) for r in store.connection.execute(
+        """SELECT p.race_id AS race_id, r.race_date AS race_date, u.horse_key AS horse_key,
+                  u.finish_position AS finish_position, u.beaten_lengths AS beaten_lengths,
+                  u.official_handicap_rating AS official_rating
+             FROM v2_run_performances p
+             JOIN v2_clean_races r USING(race_id)
+             JOIN v2_clean_runner_results u
+               ON u.race_id=p.race_id AND u.runner_number=p.runner_number
+            WHERE p.model_version='form-first-v2.0' AND u.result_status='finished'""")]
+
+
+def baselines(store: RacingStore, rows: list[dict]) -> dict[str, Any]:
+    """What does doing nothing score on the same gate?"""
+    out: dict[str, Any] = {"coin_flip_concordance": 0.5}
+
+    # official mark — carried on the day, no prior lookup needed
+    off = [{**r, "rating": r["official_rating"]}
+           for r in _baseline_rows(store) if r["official_rating"] is not None]
+    races: dict[str, list[dict]] = defaultdict(list)
+    for r in off:
+        if r["finish_position"] is not None:
+            races[r["race_id"]].append(r)
+    agree = disagree = 0
+    for runners in races.values():
+        if len(runners) < 3:
+            continue
+        for i in range(len(runners)):
+            for j in range(i + 1, len(runners)):
+                x, y = runners[i], runners[j]
+                if x["finish_position"] == y["finish_position"] or x["rating"] == y["rating"]:
+                    continue
+                if (x["rating"] > y["rating"]) == (x["finish_position"] < y["finish_position"]):
+                    agree += 1
+                else:
+                    disagree += 1
+    out["official_rating_concordance"] = round(agree / (agree + disagree), 4) if agree + disagree else None
+    out["official_rating_pairs"] = agree + disagree
+
+    # last-start figure only — no median-of-3 blending
+    hist = _prior_index(rows)
+    def last_only(k, day):
+        vals = [v for d, v in hist.get(k, []) if d < day]
+        return vals[-1] if vals else None
+    races2: dict[str, list[dict]] = defaultdict(list)
+    for r in rows:
+        if r["finish_position"] is None:
+            continue
+        v = last_only(r["horse_key"], r["race_date"])
+        if v is not None:
+            races2[r["race_id"]].append({**r, "rating": v})
+    a2 = d2 = 0
+    for runners in races2.values():
+        if len(runners) < 3:
+            continue
+        for i in range(len(runners)):
+            for j in range(i + 1, len(runners)):
+                x, y = runners[i], runners[j]
+                if x["finish_position"] == y["finish_position"] or x["rating"] == y["rating"]:
+                    continue
+                if (x["rating"] > y["rating"]) == (x["finish_position"] < y["finish_position"]):
+                    a2 += 1
+                else:
+                    d2 += 1
+    out["last_start_figure_concordance"] = round(a2 / (a2 + d2), 4) if a2 + d2 else None
+    return out
+
+
+def evaluate(store: RacingStore, model: str, as_of_date: str | None = None,
+             with_baselines: bool = False) -> dict[str, Any]:
     rows = _load(store, model, as_of_date)
-    return {"model_version": model, "as_of_date": as_of_date, "runs": len(rows),
+    result = {"model_version": model, "as_of_date": as_of_date, "runs": len(rows),
             "concordance": concordance(rows), "repeatability": repeatability(rows),
             "margin_calibration": margin_calibration(rows), "scale": scale(rows),
             "note": "Rating-layer metrics only. Win probability, strike rate and ROI "
                     "belong to the Pricing Engine (build plan stage 6)."}
+    if with_baselines:
+        result["baselines"] = baselines(store, rows)
+    return result
 
 
 def main() -> None:
@@ -238,6 +322,8 @@ def main() -> None:
     ap.add_argument("--as-of", dest="as_of", default=None)
     ap.add_argument("--compare", nargs="*", default=None,
                     help="evaluate several models side by side")
+    ap.add_argument("--baselines", action="store_true",
+                    help="also score the coin flip, the official mark and last-start-only")
     args = ap.parse_args()
 
     store = RacingStore(ROOT / "data" / "racing_engine.sqlite")
@@ -246,7 +332,7 @@ def main() -> None:
         results = {}
         for m in models:
             try:
-                results[m] = evaluate(store, m, args.as_of)
+                results[m] = evaluate(store, m, args.as_of, with_baselines=args.baselines)
             except Exception as exc:
                 results[m] = {"error": str(exc)}
         print(f"{'model':<26}{'runs':>8}{'concord':>9}{'repeat':>8}{'pts/len':>9}{'p5':>7}{'p95':>7}{'max':>7}")
@@ -257,6 +343,14 @@ def main() -> None:
             print(f"{m:<26}{r['runs']:>8}{(c['concordance'] or 0):>9.4f}"
                   f"{(rp['correlation'] or 0):>8.3f}{(mc['points_per_length'] or 0):>9.3f}"
                   f"{sc.get('p5',0):>7.1f}{sc.get('p95',0):>7.1f}{sc.get('max',0):>7.1f}")
+        for m, r in results.items():
+            if "baselines" in r:
+                b = r["baselines"]
+                print(f"\n  baselines on the same races:")
+                print(f"    coin flip          {b['coin_flip_concordance']:.4f}")
+                print(f"    official mark      {b['official_rating_concordance']}")
+                print(f"    last start only    {b['last_start_figure_concordance']}")
+                break
         OUTPUT.mkdir(parents=True, exist_ok=True)
         out = OUTPUT / "rating_quality.json"
         out.write_text(json.dumps(results, indent=2, sort_keys=True) + "\n", encoding="utf-8")
