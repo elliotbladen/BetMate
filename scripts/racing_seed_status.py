@@ -78,8 +78,15 @@ def main() -> int:
         print("  IN STEP.")
         return 0
 
-    seed_newer = (str(m.get("race_results_max_date")) > str(l["race_results_max_date"])
-                  or m.get("race_results_rows", 0) > l["race_results_rows"])
+    # Recency decides, not row count. A cleanup legitimately REMOVES rows — the
+    # 2026-09-09 wrong-meeting purge dropped 978 of them — and treating a smaller
+    # database as "behind" would send you to restore over your own fix. Row count
+    # only breaks a tie when both sides hold the same latest race date.
+    seed_date, local_date = str(m.get("race_results_max_date")), str(l["race_results_max_date"])
+    if seed_date != local_date:
+        seed_newer = seed_date > local_date
+    else:
+        seed_newer = m.get("race_results_rows", 0) > l["race_results_rows"]
     if seed_newer:
         print("\n  LOCAL DB IS BEHIND THE SEED — the other machine has newer racing data.")
         print("  Restore before doing racing work:")

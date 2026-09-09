@@ -74,3 +74,98 @@ runner facts.
 they are correct. The distance and clock agreed 362/362 because they came from
 the same wrong race. Identity — *who actually ran* — was the only check that
 could catch it.
+
+
+---
+
+## RESOLVED, same day — root cause found and fixed
+
+The wrong meetings were not an archive quirk. An older importer cached the ATC
+report as `sectionals.pdf` from a URL with **no year in it**, so 2024-04-13
+Randwick fetched *"13 April 2019 - Royal Randwick"*. 108 dates carried that file.
+`download_atc_sectional_pdf` already builds a year-qualified URL
+(`/{year}/{DDMM}{RAND|RHIL}.pdf`) and caches under `atc-sectionals.pdf`, so the
+code was correct — the stale data had simply never been re-imported.
+
+`scripts/reimport_nsw_clocks.py` deletes the legacy rows for a date and
+re-imports it. **111/111 meetings, no failures.**
+
+| | before | after |
+|---|---:|---:|
+| NSW clock coverage (source) | 23.3% | **96.0%** |
+| NSW in the clean layer | — | **94.6%** |
+| state gap vs VIC | 42.8pp | **5.1pp** |
+| wrong-meeting races | 437 | **0** |
+| clocks needing donation | 926 | **0** |
+| coverage gate | FAIL | **PASS** |
+
+Clocks are now native on the result row, so the donation path is no longer used
+at all. Pride Of Jenni's 2024 Queen Elizabeth is back at 2000m and returns to 2nd
+all-time (124.5).
+
+**Remaining 76 races, documented not hidden:**
+- **19 unrecoverable.** Four Feb–Mar 2025 meetings time a 1500m race only from
+  the 1400m marker; there is no "Official" line and the largest clock in the
+  document is the 1400m cumulative. Estimating the opening section would be
+  inventing data.
+- **57 with no clock at source** — genuine ATC 404s (2025-08-09 and 2024-06-22
+  Randwick both return HTTP 404) plus partial-meeting parse gaps. A second pass
+  re-imported 19 meetings and recovered none.
+
+**96.0% is the ceiling with the current parser; ~98.7% is the theoretical
+maximum.** Passing that needs parser work on the partial-meeting layout, not more
+importing.
+
+### Bug found in the seed tooling while closing out
+
+`racing_seed_status.py` reported LOCAL IS BEHIND after the cleanup, because it
+treated a smaller row count as staleness — but the purge legitimately removed 978
+wrong-meeting rows while the local data was a week newer. Recency now decides;
+row count only breaks a tie when both sides hold the same latest race date.
+Left unfixed, it would have told the next session to restore over its own fix.
+
+---
+
+## racing.racingnsw.com.au investigated as a gap-filler — it cannot help
+
+Checked at the user's request whether Racing NSW's own site could supply the 76
+races the ATC feed cannot.
+
+**Two endpoints exist and both work — but only for recent meetings.**
+
+| Endpoint | Carries a race clock? | Retention |
+|---|---|---|
+| `/FreeFields/CSV.aspx?Key=…&stage=Results` | **No** — 33 columns, none is a race time. `seconds(row[16])` in `rnsw.py` refers to an older CSV layout that no longer exists. | recent only |
+| `/FreeFields/Results.aspx?Key=…` | **Yes** — 20 clocks per meeting | **~3 months** |
+
+Retention boundary probed directly (`Results.aspx`, Royal Randwick):
+
+| date | page | clocks |
+|---|---:|---:|
+| 2026-09-05 | 239 KB | 20 |
+| 2026-08-22 | 244 KB | 20 |
+| 2026-06-20 | 277 KB | 20 |
+| 2026-03-14 | 32 KB | **0** |
+| 2025-11-29 | 32 KB | **0** |
+| 2024-06-22 | 32 KB | **0** |
+
+A 32 KB response is the "not found" page. Anything older than roughly three
+months is simply not served.
+
+**Every one of our 76 missing races is older than the retention window** — the
+newest is 2026-03-28. Query confirming it returns nothing:
+
+```sql
+SELECT race_date, track_slug, COUNT(*) FROM race_results
+WHERE source='racing-com-nsw-authorised-v2' AND official_time_seconds IS NULL
+  AND race_date >= '2026-06-01' GROUP BY 1,2;   -- empty
+```
+
+So Racing NSW cannot close the gap. **96.0% stands as the ceiling** from
+available sources.
+
+**Worth wiring up anyway, for the future:** `Results.aspx` is a live second
+source for the current window. Fetching it weekly alongside the ATC PDF would
+mean a meeting whose PDF 404s or parses short is caught while it is still
+retained, instead of becoming a permanent hole three months later. That is how
+the 76 became permanent — nothing was watching at the time.
