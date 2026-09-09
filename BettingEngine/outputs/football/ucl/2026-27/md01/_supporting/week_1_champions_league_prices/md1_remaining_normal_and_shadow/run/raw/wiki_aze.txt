@@ -1,0 +1,427 @@
+{{Use dmy dates|date=May 2026}}
+{{Infobox football league season
+| competition = [[Azerbaijan Premier League]]
+| season = 2026–27
+| dates = 14 August 2026 – 24 May 2027
+| winners = 
+| relegated = 
+| continentalcup1 = [[2027–28 UEFA Champions League|Champions League]]
+| continentalcup1 qualifiers = 
+| continentalcup2 = [[2027–28 UEFA Europa League|Europa League]]
+| continentalcup2 qualifiers = 
+| continentalcup3 = [[2027–28 UEFA Conference League|Conference League]]
+| continentalcup3 qualifiers = 
+| matches = 16
+| total goals = 28
+| league topscorer = 
+| best goalkeeper = 
+| biggest home win = 
+| biggest away win = 
+| highest scoring = 
+| longest wins = 
+| longest unbeaten = 
+| longest winless = 
+| longest losses = 
+| highest attendance = 
+| lowest attendance = 
+| attendance = 
+| average attendance = 
+| prevseason = [[2025–26 Azerbaijan Premier League|2025–26]]
+| nextseason = ''2027–28''
+| updated = 31 August 2026
+| league topscorer section = Top scorers
+}}
+The '''2026–27 Azerbaijan Premier League''' will be the 35th season of the [[Azerbaijan Premier League]], the highest tier football league of Azerbaijan. The season will start on 14 August 2026 and end on 24 May 2027.<ref>{{cite web |title=Premyer Liqada növbəti mövsüm bu tarixdə başlayacaq |url=https://sportfm.az/78119-premyer-liqada-novbeti-movsum-bu-tarixde-bashlayacaq.html |website=sportfm.az |publisher=sportfm.az |access-date=23 May 2026 |language=Azerbaijani}}</ref>
+
+[[Sabah FK (Azerbaijan)|Sabah]] will enter the season as the defending champions.
+
+== Teams ==
+Twelve teams will compete in the league – the top eleven teams from the previous season and one team promoted from the [[2025–26 Azerbaijan First League|Azerbaijan First League]].
+
+{{Location map+|Azerbaijan|float=right|width=330|caption=Locations of the '''2026–27 Azerbaijan Premier League''' teams |places=
+<!--BAKU CLUBS-->
+{{Location map~|Azerbaijan|lat=40.4 |long=49.9 |label=[[Neftçi PFK|Neftçi]]<br/>[[Sabah FC (Azerbaijan)|Sabah]]<br/>[[Shafa Baku FK|Shafa]]|position=left}}
+<!--OTHER CLUBS-->
+{{Location map~|Azerbaijan||lat_deg=39|lat_min=12|lon_deg=45|lon_min=24|label={{nowrap|[[Araz-Naxçıvan PFK|Araz-Nakhchivan]]}}}}
+{{Location map~|Azerbaijan|lat=40.706111 |long=46.361944 |label=[[Kapaz PFK|Kapaz]] |position=left}}
+{{Location map~|Azerbaijan|lat=39.993 |long=46.9305 |label=[[Qarabağ FK|Qarabağ]]}}
+{{Location map~|Azerbaijan|lat=40.6 |long=48.6 |label=[[Shamakhi FK|Shamakhi]] |position=left}}
+{{Location map~|Azerbaijan|lat=40.59 |long=49.67 |label=[[Sumgayit FK|Sumgayit]]<br>│|position=top}}
+{{Location map~|Azerbaijan|lat=40.992222 |long=45.625556 |label=[[Turan Tovuz]]}}
+{{Location map~|Azerbaijan|lat=40.4 |long=50.3 |label=│<br>[[Zira FK|Zira]] |position=bottom}}
+{{Location map~|Azerbaijan|lat=40.98 |long=47.84 |label=[[Qabala İK|Qabala]]<br>│|position=top}}
+{{Location map~|Azerbaijan|lat=39.8 |long=48.06 |label=[[Imishli FK|Imishli]]|position=right}}
+}}
+
+===Stadia and locations===
+:''Note: Table lists in alphabetical order.''
+{| class="wikitable sortable"
+!Team
+!Year Established
+!Location
+!Venue
+!Capacity<ref>[http://pfl.az Azərbaycan Peşəkar Liqası] {{in lang|az}}</ref>
+|-
+|[[Araz-Naxçıvan PFK|Araz Naxçıvan]]
+|1967
+|[[Nakhchivan (city)|Nakhchivan]], [[Baku]]
+|[[Dalga Arena]]
+|align="center" |6,502
+|-
+|[[Imishli FK|Imishli]]
+|2022
+|[[Imishli (city)|Imishli]]
+|[[Heydar Aliyev Stadium]]
+|align="center" |8,500
+|-
+|[[Kapaz PFK|Kapaz]]
+|1959
+|[[Ganja, Azerbaijan|Ganja]]
+|[[Ganja City Stadium]]
+|align="center" |15,343
+|-
+|[[Neftçi PFK|Neftchi]]
+|1937
+|[[Baku]]
+|[[Bakcell Arena|Neftchi Arena]]
+|align="center" |10,289
+|-
+|[[Qabala İK|Qabala]]
+|2005
+|[[Qabala]]
+|[[Gabala City Stadium]]
+|align="center" |3,748
+|-
+|[[Qarabağ FK|Qarabağ]]
+|1987
+|[[Aghdam]], [[Baku]]
+|[[Tofiq Bahramov Republican Stadium|Tofiq Bahramov Stadium]] 
+|align="center" |31,200
+|-
+|[[Sabah FC (Azerbaijan)|Sabah]]
+|2017
+|[[Absheron District|Absheron]]
+|[[Bank Respublika Arena]]
+|align="center" |8,969
+|-
+|[[Shafa Baku FK|Shafa]]
+|1998
+|[[Baku]]
+|TBD
+|align="center" |TBD
+|-
+|[[Shamakhi FK|Shamakhi]]
+|1997
+|[[Shamakhi]]
+|[[Shamakhi City Stadium]]
+|align="center" |2,176
+|-
+|[[Sumgayit FK|Sumgayit]]
+|2010
+|[[Sumgait]]
+|[[New Sumgayit Stadium|Mehdi Huseynzade Stadium]]
+|align="center" |9,502
+|-
+|[[Turan Tovuz]]
+|2014
+|[[Tovuz, Azerbaijan|Tovuz]]
+|[[Tovuz City Stadium]]
+|align="center" |6,500
+|-
+|[[Zira FK|Zira]]
+|2014
+|[[Zirə|Zira, Baku]]
+|[[Zira Olympic Sport Complex Stadium|Zira Sport Complex]]
+|align="center" |1,256
+|-
+|}
+
+=== Managerial changes ===
+{| class="wikitable sortable"
+!Team
+!Outgoing manager
+!Manner of departure
+!Announced On
+!Departed On
+!Position In Table
+!Incoming Manager
+!Announced on
+!Arrived on
+!Ref.
+|-
+|[[Shamakhi FK|Shamakhi]]
+|{{flagicon|AZE}} [[Aykhan Abbasov]]
+|Resigned 
+|23 May 2026
+|23 May 2026
+|rowspan="5"|''Pre-season''
+| {{#invoke:flag|fbicon|AZE}} [[Azer Baghirov]]
+|2 June 2026
+|2 June 2026
+| <ref>{{cite web |title=Ayxan Abbasov "Şamaxı" ilə vidalaşdı |url=https://news.milli.az/sport/1330287.html |website=milli.az |publisher=milli.az |access-date=23 May 2026 |language=Azerbaijani}}</ref>
+|-
+|[[Sumgayit FK|Sumgayit]]
+|{{flagicon|SER}} [[Saša Ilić (footballer, born 1977)|Saša Ilić]]
+|End of contract
+|26 May 2026
+|26 May 2026
+|{{flagicon|POR}} [[Filipe Cândido]]
+|9 July 2026
+|9 July 2026
+| <ref>{{cite web |title=Сумгайыт расстался с Иличем |url=https://azerisport.com/ru/football/20260526112349911-Sumgaiyt-rasstalsya-s-Ilichem.html |website=azerisport.com |access-date=26 May 2026 |language=Russian}}</ref><ref>{{cite web |title=Bem-vindo, Filipe Cândido! |url=https://www.instagram.com/p/Dak1qBeNpGn/ |website=instagram.com/sumqayitfc/ |publisher=Sumgayit FK Instagram |access-date=10 July 2026 |date=9 July 2026}}</ref>
+|-
+|[[Shafa Baku FK|Shafa]]
+|{{flagicon|AZE}} [[Elgiz Karamli]]
+|Mutual consent
+|26 May 2026
+|26 May 2026
+|{{flagicon|AZE}} [[Zaur Hashimov]]
+|27 June 2026
+|27 June 2026
+| <ref>{{cite web |title=Шафа определилась с новым главным тренером, но должна старому |url=https://azerisport.com/ru/football/20260526130841359-SHafa-opredelilas-s-novym-glavnym-trenerom-no-dolzhna-staromu.html |website=azerisport.com |publisher=Azerisport |access-date=26 May 2026 |language=Russian}}</ref><ref>{{cite web |title=MƏLUMAT |url=https://www.instagram.com/p/DaGBKk1sbdQ/ |website=instagram.com/fcshafa/ |publisher=Shafa Baku FK Instagram |access-date=28 June 2026 |language=Azerbaijani |date=27 June 2026 |trans-title=INFORMATION}}</ref>
+|-
+| [[Araz-Naxçıvan PFK|Araz-Naxçıvan]]
+| {{#invoke:flag|fbicon|UKR}} [[Andriy Demchenko]]
+| End of contract
+| 26 May 2026
+| 26 May 2026
+| {{#invoke:flag|fbicon|AZE}} [[Javid Huseynov]]
+| 16 June 2026
+| 16 June 2026
+| <ref>{{cite web |title=“Araz-Naxçıvan”ın baş məşqçisi Andrey Demçenkonun komanda ilə müqaviləsi başa çatıb. Klub rəhbərliyi ukraynalı mütəxəssisə təşəkkür edib, karyerasında uğurlar arzulayıb. |url=https://www.instagram.com/araznaxcivanpfc/p/DYzHzbKlosj/?hl=en |website=instagram.com/araznaxcivanpfc/?hl=en |publisher=Araz-Naxçıvan PFK Instagram |access-date=26 May 2026 |language=Azerbaijani |date=26 May 2026}}</ref><ref>{{cite web |title=Baş məşqçi təyinatı |url=https://www.instagram.com/p/DZpMgkNFls0/?hl=en |website=instagram.com/araznaxcivanpfc/?hl=en |publisher=Araz-Naxçıvan PFK Instagram |access-date=16 June 2026 |language=Azerbaijani |date=16 June 2026}}</ref>
+|-
+| [[Kapaz PFK|Kapaz]]
+| {{#invoke:flag|fbicon|AZE}} [[Azer Baghirov]]
+| Mutual Termination
+| 29 May 2026
+| 29 May 2026
+| {{flagicon|AZE}} [[Azer Mammadov]]
+| 23 June 2026
+| 
+| <ref>{{cite web |title=“Kəpəz” baş məşqçi postuna SÜRPRİZ İSİMi gətirməyə çalışır - SON DƏQİQƏ |url=https://www.sportinfo.az/idman_xeberleri/kepez/251163.html |access-date=29 May 2026 |language=Azerbaijani}}</ref><ref>{{cite web |title=Kəpəz” PFK-nın məlumatı |url=https://www.instagram.com/p/DZ7Qu5Dskte/?hl=en |website=instagram.com/kapazpfc1959/?hl=en |publisher=Kapaz PFK Instagram |access-date=28 June 2026 |language=Azerbaijani |date=23 June 2026 |trans-title=Information from Kapaz PFK}}</ref>
+|-
+| [[Qabala İK|Qabala]]
+| {{#invoke:flag|fbicon|GEO}} [[Kakhaber Tskhadadze]]
+| Mutual Termination
+| 31 August 2026
+| 31 August 2026
+| 10th
+| 
+| 
+| 
+| <ref>{{cite web |title=Kaxaber Tsxadadze ilə yollar ayrıldı |url=https://gabalafc.az/az/xeber/kaxaber-tsxadadze-ile-yollar-ayrildi-7484 |website=gabalafc.az |publisher=Gabala SC |access-date=31 August 2026 |language=Azerbaijani |date=31 August 2026}}</ref>
+|}
+
+== League table ==
+<onlyinclude>{{#invoke:Sports table|main|style=WDL
+|source=[https://www.soccerway.com/azerbaijan/premier-league/#/xUUBfNMH/ Soccerway]
+
+<!--Update team positions here-->
+|team_order= NEF, SAB, QAR, ZIR, TUR, SHA, GAB, IMI, KAP, SHF, ARA, SUM
+ 
+<!--Update team qualifications here (defined below)-->
+|result1=CL1Q |result2=ECL2Q |result3=ECL2Q |result11=RPO |result12=REL
+
+<!--Head-to-head-->
+
+<!--Update team results here and then (if needed) positions above. Don't forget to update the date (update parameter)-->
+|update= 6 September 2026
+|win_ARA=0 |draw_ARA=1 |loss_ARA=3 |gf_ARA=2 |ga_ARA=9 <!-- Araz-Naxçıvan -->
+|win_GAB=1 |draw_GAB=1 |loss_GAB=2 |gf_GAB=2 |ga_GAB=3 <!-- Qabala -->
+|win_IMI=1 |draw_IMI=1 |loss_IMI=2 |gf_IMI=3 |ga_IMI=5 <!-- Imishli -->
+|win_KAP=1 |draw_KAP=0 |loss_KAP=2 |gf_KAP=2 |ga_KAP=6 <!-- Kapaz -->
+|win_NEF=3 |draw_NEF=0 |loss_NEF=1 |gf_NEF=12|ga_NEF=3 <!-- Neftçi -->
+|win_QAR=3 |draw_QAR=0 |loss_QAR=0 |gf_QAR=7 |ga_QAR=3 <!-- Qarabağ -->
+|win_SAB=3 |draw_SAB=0 |loss_SAB=0 |gf_SAB=8 |ga_SAB=0 <!-- Sabah -->
+|win_SHF=1 |draw_SHF=0 |loss_SHF=3 |gf_SHF=2 |ga_SHF=7 <!-- Shafa-->
+|win_SHA=1 |draw_SHA=2 |loss_SHA=1 |gf_SHA=5 |ga_SHA=4 <!-- Shamakhi -->
+|win_SUM=0 |draw_SUM=0 |loss_SUM=3 |gf_SUM=2 |ga_SUM=6 <!-- Sumgayit -->
+|win_TUR=2 |draw_TUR=1 |loss_TUR=1 |gf_TUR=3 |ga_TUR=2 <!-- Turan-Tovuz -->
+|win_ZIR=3 |draw_ZIR=0 |loss_ZIR=1 |gf_ZIR=6 |ga_ZIR=6 <!-- Zira -->
+
+<!--Status-->
+
+<!--Team definitions (wikilinks in table)-->
+|name_ARA=[[Araz-Naxçıvan PFK|Araz-Naxçıvan]]
+|name_GAB=[[Qabala İK|Qabala]]
+|name_IMI=[[Imishli FK|Imishli]]
+|name_KAP=[[Kapaz PFK|Kapaz]]
+|name_NEF=[[Neftçi PFK|Neftçi]]
+|name_QAR=[[Qarabağ FK|Qarabağ]]
+|name_SAB=[[Sabah FC (Azerbaijan)|Sabah]]
+|name_SHF=[[Shafa Baku FK|Shafa]]
+|name_SHA=[[Shamakhi FK|Shamakhi]]
+|name_SUM=[[Sumgayit FK|Sumgayit]]
+|name_TUR=[[Turan Tovuz]]
+|name_ZIR=[[Zira FK|Zira]]
+
+<!--Table settings and rules-->
+|show_limit=5
+|class_rules=1) Points; 2) Matches won; 3) Goal difference; 4) Goals scored; 5) Head-to-head points; 6) Head-to-head goal difference; 7) Lower number of points based on yellow and red cards; 8) Draw.<ref>{{#invoke:cite|web|url= https://www.pfl.az/%C9%99sasnam%C9%99|title=Regulation|publisher=pfl.az|access-date=21 April 2025}}</ref>
+<!--Qualification and relegation column definitions-->
+|res_col_header=QR
+|note_res_ECL2Q=The [[2026–27 Azerbaijan Cup]] winner will qualify for the [[2027–28 UEFA Europa League#First qualifying round|Europa League first qualifying round]]. If the cup winner finishes in the top three, the second Conference League berth will be passed to the fourth place team.
+|col_CL1Q=green1 |text_CL1Q={{nowrap|Qualification for the [[2026–27 UEFA Champions League#First qualifying round|Champions League first qualifying round]]}}
+<!--col_EL1Q=blue1 |text_EL1Q=Qualification for the [[2026–27 UEFA Europa League#First qualifying round|Europa League first qualifying round]]-->
+|col_ECL2Q=yellow1 |text_ECL2Q={{nowrap|Qualification for the [[2026–27 UEFA Conference League#Second qualifying round|Conference League second qualifying round]]}}
+|col_RPO=red2 |text_RPO=Qualification to Relegation Play-off
+|col_REL=red1 |text_REL=Relegation to [[2026–27 Azerbaijan First Division|Azerbaijan First Division]]
+
+<!--Qualification notes-->
+}}</onlyinclude>
+
+== Results ==
+{{Empty section|date=May 2026}}
+
+==Season statistics==
+
+===Top scorers===
+{{updated|match played 31 August 2026}}
+{| class="wikitable" style="text-align:center"
+|-
+! Rank
+! Player
+! Club
+! Goals<ref>{{#invoke:cite|web|title=Misli Premier League – Top Scorers |url=https://www.soccerway.com/azerbaijan/premier-league/standings/f32XVk0k/top-scorers/ |website=soccerway.com |publisher=Soccerway}}</ref>
+|-
+|rowspan="1"|1
+|align="left"|{{#invoke:flag|fbaicon|BRA}} [[Breno Almeida]]
+|align="left"|[[Neftçi PFK|Neftçi]]
+|rowspan="1"|4
+|-
+|rowspan="1"|2
+|align="left"|{{#invoke:flag|fbaicon|TUR}} [[Eren Aydın (footballer, born 2003)|Eren Aydın]]
+|align="left"|[[Zira FK|Zira]]
+|rowspan="1"|2
+|-
+|rowspan="21"|3
+|align="left"|{{#invoke:flag|fbaicon|AZE}} Edqar Adilkhanov
+|align="left"|[[Şamaxı FK|Şamaxı]]
+|rowspan="21"|1
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} [[Qismət Alıyev]]
+|align="left"|[[Zira FK|Zira]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|JAM}} [[Renaldo Cephas]]
+|align="left"|[[Qarabağ FK|Qarabağ]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|NIG}} [[Issa Djibrilla]]
+|align="left"|[[Zira FK|Zira]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|POR}} [[Diogo Almeida]]
+|align="left"|[[İmişli FK|İmişli]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} Diogo Almeida
+|align="left"|[[İmişli FK|İmişli]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|GLP}} [[Andreaw Gravillon]]
+|align="left"|[[Neftçi PFK|Neftçi]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|CIV}} [[Moussa Guel]]
+|align="left"|[[Shafa Baku FK|Shafa Baku]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|BRA}} [[Henrique (footballer, born 1994)|Henrique]]
+|align="left"|[[Turan Tovuz]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|BRA}} Igor Ribeiro
+|align="left"|[[Neftçi PFK|Neftçi]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|UKR}} [[Oleksiy Kashchuk]]
+|align="left"|[[Qarabağ FK|Qarabağ]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|GAB}} [[Orphé Mbina]]
+|align="left"|[[Sabah FK (Azerbaijan)|Sabah]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|RWA}} [[Joy-Lance Mickels]]
+|align="left"|[[Sabah FK (Azerbaijan)|Sabah]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|FRA}} [[Jaly Mouaddib]]
+|align="left"|[[Qarabağ FK|Qarabağ]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} Nadir Orujov
+|align="left"|[[Sumgayit FK|Sumgayit]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|BRA}} [[Ruan Renato]]
+|align="left"|[[Zira FK|Zira]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|MLI}} [[Falaye Sacko]]
+|align="left"|[[Neftçi PFK|Neftçi]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|SVK}} [[Ľubomír Tupta]]
+|align="left"|[[Neftçi PFK|Neftçi]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|CUW}} [[Xander Severina]]
+|align="left"|[[Sabah FK (Azerbaijan)|Sabah]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|MDA}} [[Victor Stînă]]
+|align="left"|[[Kapaz PFK|Kapaz]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|GEO}} [[Davit Volkovi]]
+|align="left"|[[Zira FK|Zira]]
+|}
+
+===Clean sheets===
+{{updated|match played 31 August 2026}}
+{| class="wikitable" style="text-align:center"
+|-
+!Rank
+!Player
+!Club
+!Clean sheets
+|-
+|rowspan="3"|1
+|align="left"|{{#invoke:flag|fbaicon|RUS}} [[Aleksei Kenyaykin]]
+|align="left"|[[Turan Tovuz]]
+|rowspan="3"|2
+|-
+|align="left"|{{#invoke:flag|fbaicon|POR}} [[Ricardo Fernandes (footballer, born 1994)|Ricardo Fernandes]]
+|align="left"|[[Şamaxı FK|Şamaxı]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} [[Aydın Bayramov]]
+|align="left"|[[Zira FK|Zira]]
+|-
+|rowspan="10"|3
+|align="left"|{{#invoke:flag|fbaicon|BRA}} [[Arthur (footballer, born August 1999)|Arthur]]
+|align="left"|[[Araz-Naxçıvan PFK|Araz-Naxçıvan]]
+|rowspan="10"|1
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} [[Yusif İmanov]]
+|align="left"|[[İmişli FK|İmişli]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} Ravan Mirzammadov
+|align="left"|[[Sabah FK (Azerbaijan)|Sabah]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} [[Nicat Mehbalıyev]]
+|align="left"|[[Shafa Baku FK|Shafa Baku]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} [[Emil Balayev]]
+|align="left"|[[Neftçi PFK|Neftçi]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} [[Səlahət Ağayev]]
+|align="left"|[[Qabala İK|Qabala]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|AZE}} [[Yusif İmanov]]
+|align="left"|[[İmişli FK|İmişli]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|POR}} {{abbr|Rogerio|Rogerio Paulo Veiga dos Santos}}
+|align="left"|[[Kapaz PFK|Kapaz]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|KAZ}} [[Stas Pokatilov]]
+|align="left"|[[Sabah FK (Azerbaijan)|Sabah]]
+|-
+|align="left"|{{#invoke:flag|fbaicon|POL}} [[Mateusz Kochalski]]
+|align="left"|[[Qarabağ FK|Qarabağ]]
+|}
+
+==References==
+{{reflist|30em}}
+
+==External links==
+*{{Official website|https://www.pfl.az}}
+
+{{Azerbaijan Premier League}}
+{{2026–27 in European football (UEFA)}}
+
+{{DEFAULTSORT:Azerbaijan Premier League}}
+[[Category:Azerbaijan Premier League seasons|2026–27]]
+[[Category:2026–27 in European men's top-tier association football leagues|Azerbaijan]]

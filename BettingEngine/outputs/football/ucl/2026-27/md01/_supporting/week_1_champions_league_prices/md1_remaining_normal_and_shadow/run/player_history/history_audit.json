@@ -1,0 +1,16 @@
+{
+  "rows": 42432,
+  "matches": 997,
+  "quality_rows": 41844,
+  "minutes_changed": 11235,
+  "minute_issues": {
+    "": 42432
+  },
+  "missing_stats": {
+    "": 41844,
+    "goals,assists,shots,shots_on_target": 562,
+    "goals,assists,shots,shots_on_target,saves": 26
+  },
+  "minutes_convention": "Nominal 90/120-minute intervals from athlete-ID substitution/dismissal events; stoppage time excluded.",
+  "non_goalkeeper_missing_saves": "Structural zero, matching existing EPL/EFL features."
+}

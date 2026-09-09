@@ -1,0 +1,1717 @@
+{{Short description|36th season of top-tier football league in Ukrainian football}}
+{{Use dmy dates|date=August 2022}}
+{{Infobox football league season
+| competition = Ukrainian Premier League
+| logo = Upl logo 2026-2027.png
+| pixels = 150px
+| caption = Betking-themed logo
+| season = 2026–27
+| dates = {{nowrap|31 July 2026 – 4 June 2027}}<br>{{small|{{small|{{nowrap|Winter break: December 2026 – February 2027}}}}}}
+| winners = 
+| relegated = 
+| continentalcup1 = [[2027–28 UEFA Champions League|Champions League]]
+| continentalcup1 qualifiers = 
+| continentalcup2 = [[2027–28 UEFA Europa League|Europa League]]
+| continentalcup2 qualifiers = 
+| continentalcup3 = [[2027–28 UEFA Conference League|Conference League]]
+| continentalcup3 qualifiers = 
+| league topscorer = 
+| longest wins = 
+| longest unbeaten = 
+| longest winless = 
+| longest losses = 
+| biggest home win = Shakhtar 5–1 Kudrivka <br> (3 August 2026) <br> Polissya 5–1 Kudrivka <br> (4 September 2026) <br/>
+| biggest away win = Kryvbas 1–4 Karpaty <br> (1 August 2026)
+| highest scoring = Shakhtar 5–1 Kudrivka <br> (3 August 2026) <br> Polissya 5–1 Kudrivka <br> (4 September 2026) <br/>
+| matches = 38
+| total goals = 85
+| highest attendance = 11,200 <br> Karpaty 1–2 Shakhtar <br> (5 September 2026)
+| lowest attendance = 0 <br> ''(3 matches)''<br/> 
+| attendance = {{formatnum: {{#expr: (+12246<!--R1-->+19997<!--R2-->+19026<!--R3-->+10069<!--R4-->+22589<!--R5-->+0<!--R6-->+0<!--R7-->+0<!--R8-->+0<!--R9-->+0<!--R10-->+0<!--R11-->+0<!--R12-->+0<!--R13-->+0<!--R14-->+0<!--R15-->+0<!--R16-->+0<!--R17-->+0<!--R18-->+0<!--R19-->+0<!--R20-->+0<!--R21-->+0<!--R22-->+0<!--R23-->+0<!--R24-->+0<!--R25-->+0<!--R26-->+0<!--R27-->+0<!--R28-->+0<!--R29-->+0<!--R30-->)}}}}<!--information about each league's match could be verified at the league's official website-->
+| average attendance = {{formatnum: {{#expr: ((83927<!--total attendance-->/38<!--total games-->) round 0)}}}}
+| prevseason = [[2025–26 Ukrainian Premier League|2025–26]]
+| nextseason = [[2027–28 Ukrainian Premier League|2027–28]]
+| updated = 6 September 2026
+}}
+The '''2026–27 Ukrainian Premier League''' season will be the 36th top-level football club competition in [[Ukraine]] since the [[fall of the Soviet Union]] and the 19th since the establishment of the [[Ukrainian Premier League]] (UPL).
+
+[[FC Shakhtar Donetsk|Shakhtar Donetsk]] is the defending champions.
+
+Before the start of the season at the end of May 2026, [[Puma (brand)|Puma]] presented its new 2026–27 match ball, the Stellar Nitro Ultimate, designed specifically for the [[Ukrainian Premier League]].<ref>{{cite web |title=Puma представляє новий м’яч Stellar Nitro Ultimate для Української Премʼєр-Ліги |url=https://upl.ua/ua/news/view/11538 |website=upl.ua |access-date=4 June 2026 |archive-url=https://web.archive.org/web/20260604025311/https://upl.ua/ua/news/view/11538 |archive-date=4 June 2026 |language=Ukrainian |date=28 May 2026 |trans-title=Puma is presenting a new ball Stellar Nitro Ultimate for the Ukrainian Premier League}}</ref> Similar presentations of this product were made for other competitions, including the English [[Premier League]].<ref>{{cite web |title=Puma unveils Premier League's new 2026-27 match ball: the Stellar Nitro Ultimate |url=https://www.espn.com/soccer/story/_/id/48880223/puma-unveils-premier-league-new-2026-27-match-ball-stellar-nitro-ultimate |website=www.espn.com |access-date=4 June 2026 |archive-url=https://web.archive.org/web/20260527044232/https://www.espn.com/soccer/story/_/id/48880223/puma-unveils-premier-league-new-2026-27-match-ball-stellar-nitro-ultimate |archive-date=27 May 2026 |date=26 May 2026}}</ref><ref>{{cite web |title=PUMA unveils the new official Serie A, Premier League and La Liga balls for 2026/27 |url=https://www.nss-sports.com/en/lifestyle/45550/puma-new-serie-a-premier-league-la-liga-balls-2026-27 |website=www.nss-sports.com |access-date=4 June 2026 |archive-url=https://web.archive.org/web/20260602210542/https://www.nss-sports.com/en/lifestyle/45550/puma-new-serie-a-premier-league-la-liga-balls-2026-27 |archive-date=2 June 2026}}</ref> The Stellar Nitro Ultimate will be replacing the Puma Orbita that was used in the previous two seasons.<ref>{{cite web |title=ORBITA |url=https://ua.puma.com/uk/sport/komandy/orbita.html |website=ua.puma.com |access-date=4 June 2026 |archive-url=https://web.archive.org/web/20260604030901/https://ua.puma.com/uk/sport/komandy/orbita.html |archive-date=4 June 2026 |language=Ukrainian}}</ref> The Ukrainian Premier League announced signing a two-year agreement for a strategic partnership with Betking.<ref>{{cite web |title=УПЛ та BETKING оголосили про стратегічне партнерство |url=https://upl.ua/ua/news/view/11720 |website=upl.ua |access-date=5 August 2026 |archive-url=https://web.archive.org/web/20260805135108/https://upl.ua/ua/news/view/11720 |archive-date=5 August 2026 |language=Ukrainian |date=21 July 2026 |trans-title=UPL and BETKING announced about their strategic partnership}}</ref> Previously, the company was promoting the LaLiga fixtures broadcast in the Ukrainian market through Megogo.<ref>{{cite web |title=LaLiga bolsters global partnership portfolio with Iberia, King Group |url=https://www.sportcal.com/sponsorship/laliga-bolsters-global-partnership-portfolio-with-iberia-king-group/ |website=www.sportcal.com |access-date=5 August 2026 |archive-url=https://web.archive.org/web/20260805135818/https://www.sportcal.com/sponsorship/laliga-bolsters-global-partnership-portfolio-with-iberia-king-group/ |archive-date=5 August 2026 |date=19 August 2025}}</ref>
+
+==Regulation changes==
+For the new season, changes have been made to the foreign player quota: no more than seven players holding foreign passports may be on the pitch simultaneously; however, if the squad includes at least one player with a European Union passport, the limit increases to eight players. 
+The club fee for every foreign footballer is rising from 150,000 to 400,000 hryvnias.<ref name=upldoc/>
+
+Following the dismissal of a head coach, a club is required to appoint their replacement within 30 days or less. During this interim period, an acting coach holding a license of at least Category A must be appointed.<ref name=upldoc/>
+
+Clubs are required to play matches at their primary and/or reserve stadiums. Matches may be played at other stadiums: 1) in the event of "force majeure"; or 2) for clubs participating in international competitions, subject to prior written approval from the Committee on Stadiums and Competition Security and the UPL Directorate.
+
+Clubs have the right to reschedule matches, but requests to move a match to a different date must be submitted at least seven calendar days before the scheduled kickoff.<ref name=upldoc>{{cite web|title=Про Чемпіонат України з футболу серед команд клубів УПЛ сезону 2026/2027|url=https://uaf.ua/storage/documents/01KY1WZ10GKTM45PGSDYXTE9NJ.pdf|website=uaf.ua|access-date=21 July 2026}}</ref>
+
+==Teams==
+This season, the Ukrainian Premier League will remain at 16 teams, including last season's UPL top 12 teams, last season's First League top 2 teams, and the 2 winners of the inter-tier (promotion/relegation) play-offs.  
+
+===Promoted teams===
+* [[FSC Bukovyna Chernivtsi|Bukovyna Chernivtsi]] – first-placed team of the [[:2025–26 Ukrainian First League]] ''(returning after 32 years of absence)''<ref name="winners_firstleague">{{cite web |title=Зроблять УПЛ сильнішою? Визначилися два новачки елітного дивізіону, які вийшли напряму |url=https://www.ua-football.com/ua/ukrainian/high/1780328207-zroblyat-upl-silnishoyu-viznachilisya-dva-novachki-elitnogo-divizionu-yaki-viyshli-napryamu.html |website=www.ua-football.com |access-date=4 June 2026}}</ref>
+* [[FC Chornomorets Odesa|Chornomorets Odesa]] – second-placed team of the [[:2025–26 Ukrainian First League]]  ''(returning after a year of absence)''<ref name="winners_firstleague"/>
+* [[FC Livyi Bereh Kyiv|Livyi Bereh Kyiv]] – third-placed team of the [[:2025–26 Ukrainian First League]]  ''(returning after a year of absence, relegation play-offs winner)''<ref>{{Cite web|url=https://sportarena.ua/uk/footboll/upl/livij-bereg-na-domashnij-areni-peremig-oleksandriyu-ta/|title=Лівий Берег на домашній арені переміг Олександрію та вийшов в УПЛ|website=SportArena|date=9 June 2026|access-date=10 June 2026}}</ref>
+
+===Relegated and withdrawn teams===
+* [[SC Poltava]] – relegated after a season in the top flight
+* [[FC Rukh Lviv|Rukh Lviv]] – withdrew after six seasons in the top flight
+* [[FC Oleksandriya|Oleksandriya]] – relegated after eleven seasons in the top flight, lose in relegation play-offs
+
+=== Renamed teams ===
+On 15 June 2026, FC Metalist 1925 Kharkiv officially changed their name to [[FC Kharkiv]].<ref>{{Cite web|url=https://football.ua/ukraine/582288-metalist-1925-oficijjno-stav-fk-kharkiv-i-predstaviv-novu-emblemu.html|title=Металіст 1925 офіційно став ФК Харків і представив нову емблему|publisher=Football.ua|date=2026-06-15|access-date=2026-06-15|lang=uk}}</ref>
+
+=== Location map ===
+{{Location map+|Ukraine
+|width=590|float=left
+|caption=Home venues of teams in the '''2026–27 Ukrainian Premier League'''.<br />Several teams (Kharkiv, Shakhtar and Zorya) are playing their home games away from their cities due to ongoing hostilities.
+|places=
+{{Location map~|Ukraine|marksize=9|lat=50.433439|long=30.523333|label='''Kyiv''' |large|position=top}}
+{{Location map~ |Ukraine|mark=TransparentPlaceholder.png |lat=52.27 |long=34.55 |label='''Kyiv&nbsp;teams :'''<br />[[FC Dynamo Kyiv|Dynamo]]<br />[[FC Obolon Kyiv|Obolon]]<br />[[FC Zorya Luhansk|Zorya]]<br />[[FC Livyi Bereh Kyiv|Livyi Bereh]]<br />[[FC Kharkiv|Kharkiv]]|position=right }}
+{{Location map~|Ukraine|marksize=9|lat=49.819234|long=24.048193|label='''Lviv''' |position=top}}
+{{Location map~ |Ukraine|mark=TransparentPlaceholder.png |lat=52.27 |long=21.55 |label='''Lviv&nbsp;teams :'''<br />[[FSC Bukovyna Chernivtsi|Bukovyna]]<br />[[FC Karpaty Lviv|Karpaty]]<br />[[FC Shakhtar Donetsk|Shakhtar]]|position=right }}
+{{Location map~|Ukraine|marksize=6|lat=48.678    |long=26.585    | label      = [[FC Epitsentr Kamianets-Podilskyi|Epitsentr]]|position=left }}
+{{Location map~|Ukraine|marksize=6|lat=49.985947 |long=30.008745 |label=[[FC Kolos Kovalivka|Kolos]] |position=bottom}}
+{{Location map~|Ukraine|marksize=6|lat=47.9      |long=33.35     |label=[[FC Kryvbas Kryvyi Rih|Kryvbas]] }}
+{{Location map~|Ukraine|marksize=6|lat=49.4361   |long=32.0547   |label=[[FC LNZ Cherkasy|LNZ]] |position=bottom}}
+{{Location map~|Ukraine|marksize=6|lat=50.246111 |long=28.668889 |label=[[FC Polissya Zhytomyr|Polissya]]|large|position=left }}
+{{Location map~|Ukraine|marksize=9|lat=50.616111 |long=26.240833 |label=[[NK Veres Rivne|Veres]]<br />[[FC Kudrivka|Kudrivka]] |position=left}}
+{{Location map~|Ukraine|marksize=6|lat=46.480333 |long=30.755417 |label=[[FC Chornomorets Odesa|Chornomorets]] |position=right}}
+<!--{{Location map~|Ukraine|marksize=6|lat=48.275    |long=25.942    |label=[[FSC Bukovyna Chernivtsi|Bukovyna]] |position=top}}-->
+}}
+{{OSM Location map
+| coord            = {{coord|50.5|30.5}}
+| zoom             = 9
+| float            = left
+| nolabels         = 1
+| width            = 400
+| height           = 400
+| caption          = Home venues of teams in the '''2026–27 Ukrainian Premier League''' in Kyiv and Kyiv Oblast
+| scalemark        = 1
+
+|      label1 =       Obolon<!-- text alongside the mark. (Can include wikilink and other markup)-->
+| mark-coord1 = {{coord|50.527056|30.5075 }} <!-- lat and lon location for the marker -->
+|  label-pos1 =       top<!-- default position is left. It can also be right, top, bottom. -->
+| mark-title1 =       <!-- tooltip and/or clickable link on the map and in fullscreen -->
+| mark-image1 =       <!-- image for fullscreen map content. Use a filename from Commons, without File: -->
+| mark-description1 = <!-- text shown on fullscreen map when clicking on mark -->
+| mark-size1 = 4
+| mark-color1 = red
+
+|      label2 =       Dynamo / Zorya<!-- text alongside the mark. (Can include wikilink and other markup)-->
+| mark-coord2 = {{coord|50.450278|30.535278 }} <!-- lat and lon location for the marker -->
+|  label-pos2 =       bottom<!-- default position is left. It can also be right, top, bottom. -->
+| mark-title2 =       <!-- tooltip and/or clickable link on the map and in fullscreen -->
+| mark-image2 =       <!-- image for fullscreen map content. Use a filename from Commons, without File: -->
+| mark-description2 = <!-- text shown on fullscreen map when clicking on mark -->
+| mark-size2 = 4
+| mark-color2 = red
+
+|      label3 =       Kharkiv / Livyi Bereh<!-- text alongside the mark. (Can include wikilink and other markup)-->
+| mark-coord3 = {{coord|50.324499|30.649855 }} <!-- lat and lon location for the marker -->
+|  label-pos3 =       right<!-- default position is left. It can also be right, top, bottom. -->
+| mark-title3 =       <!-- tooltip and/or clickable link on the map and in fullscreen -->
+| mark-image3 =       <!-- image for fullscreen map content. Use a filename from Commons, without File: -->
+| mark-description3 = <!-- text shown on fullscreen map when clicking on mark -->
+| mark-size3 = 4
+| mark-color3 = red
+}}
+{{OSM Location map
+| coord            = {{coord|49.8025|24.032222}}
+| zoom             = 12
+| float            = left
+| nolabels         = 1
+| width            = 400
+| height           = 400
+| caption          = Home venues of teams in the '''2026–27 Ukrainian Premier League''' in Lviv
+| scalemark        = 1
+
+|      label1 =       Shakhtar<!-- text alongside the mark. (Can include wikilink and other markup)-->
+| mark-coord1 = {{coord|49.775278|24.027778}} <!-- lat and lon location for the marker -->
+|  label-pos1 =       top<!-- default position is left. It can also be right, top, bottom. -->
+| mark-title1 =       <!-- tooltip and/or clickable link on the map and in fullscreen -->
+| mark-image1 =       <!-- image for fullscreen map content. Use a filename from Commons, without File: -->
+| mark-description1 = <!-- text shown on fullscreen map when clicking on mark -->
+| mark-size1 = 4
+| mark-color1 = red
+
+|      label2 =       Karpaty / Bukovyna<!-- text alongside the mark. (Can include wikilink and other markup)-->
+| mark-coord2 = {{coord|49.819234|24.048193}} <!-- lat and lon location for the marker -->
+|  label-pos2 =       bottom<!-- default position is left. It can also be right, top, bottom. -->
+| mark-title2 =       <!-- tooltip and/or clickable link on the map and in fullscreen -->
+| mark-image2 =       <!-- image for fullscreen map content. Use a filename from Commons, without File: -->
+| mark-description2 = <!-- text shown on fullscreen map when clicking on mark -->
+| mark-size2 = 4
+| mark-color2 = red
+
+}}
+{{Clear}}
+
+=== Stadiums ===
+{{further|List of football stadiums in Ukraine}}
+The minimum threshold for the stadium's capacity in the UPL is 4,500 (Article 10, paragraph 8.3).<ref>[https://upl.ua/uploads/2210/FaigcPbpJxfLKxommY_aKRN1lAaERzNf.pdf Places of holding competitions (Місця проведення змагань)]. 2022–23 Ukrainian Premier League regulations.</ref>
+
+The following stadiums in 2026–27 Ukrainian Premier League are regarded as home grounds:
+
+{|class="wikitable sortable" style="text-align:left;"
+|-
+!width=18|Rank
+!width=150|Stadium
+!width=100|Place
+!width=130|Club
+!width=70|Capacity
+!class="unsortable"|Notes
+|-
+| align=center rowspan=1|1
+| align=left rowspan=1|[[Arena Lviv]][[File:Lviv_Arena_Lviv_15.jpg|150px]]
+| rowspan=1|[[Lviv]]
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+| align=center rowspan=1| 34,725
+|used as home ground during the season
+|-
+| align=center rowspan=1|2
+| align=left rowspan=1|[[Chornomorets Stadium|Stadion Chornomorets]] [[File:Odesa Chornomorets Stadium 4.jpg|150px]]
+| rowspan=1|[[Odesa]]
+| [[FC Chornomorets Odesa|Chornomorets Odesa]]
+| align=center rowspan=1| 34,164
+|
+|-
+| align=center rowspan=2|3
+| align=left rowspan=2|[[Ukraina Stadium|Stadion Ukraina]] [[File:Lviv_Ukraina_Stadium12.jpg|150px]]
+| rowspan=2|[[Lviv]]
+| [[FC Karpaty Lviv|Karpaty Lviv]]
+| align=center rowspan=2| 28,051
+|
+|-
+| [[FSC Bukovyna Chernivtsi|Bukovyna Chernivtsi]]
+|used as home ground during the season<ref>{{cite web |title=Новачок УПЛ зіграє перші домашні матчі на нейтральному полі. Журналіст розкрив деталі реконструкції стадіону |url=https://www.ua-football.com/ua/ukrainian/high/1780434974-novachok-upl-zigraye-pershi-domashni-matchi-na-neytralnomu-poli-zhurnalist-rozkriv-detali-rekonstrukciyi-stadionu.html |website=www.ua-football.com |access-date=4 June 2026}}</ref>
+|- 
+|align=center rowspan=2|4
+| rowspan=2|[[Valeriy Lobanovskyi Dynamo Stadium|Stadion Dynamo imeni Lobanovskoho]] [[File:Panoramio_-_V&A_Dudush_-_Стадион_Динамо_(2).jpg|150px]]
+| rowspan=2|[[Kyiv]]
+|[[FC Dynamo Kyiv|Dynamo Kyiv]]
+|align=center rowspan=2| 16,873
+|
+|-
+|[[FC Zorya Luhansk|Zorya Luhansk]]
+|used as home ground during the season
+|-
+| align=center| 5
+| align=left |[[Cherkasy Arena]] [[File:Cherkasy_Central_Stadium2.jpg|150px]]
+| [[Cherkasy]]
+| [[FC LNZ Cherkasy|LNZ Cherkasy]]
+| align=center| 10,321
+|
+|-
+| align=center rowspan=2| 6
+| align=left rowspan=2|[[Avanhard Stadium (Rivne)|Stadion Avanhard]] [[File:Стадіон_«Авангард»_у_Рівному.jpg|150px]]
+| rowspan=2|[[Rivne]]
+| [[NK Veres Rivne|Veres Rivne]]
+| align=center rowspan=2| 7,122
+|
+|-
+|[[FC Kudrivka]]
+|used as home ground during the season
+|-
+| align=center rowspan=1| 7
+| rowspan=1|[[Tsentralnyi Stadium (Zhytomyr)|Tsentralnyi Stadion]] [[File:210328_вул._Фещенка-Чопівського,_18_Центральний_міський_стадіон_«Полісся»_(Житомир).jpg|150px]]
+| rowspan=1| [[Zhytomyr]]
+|[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+| align=center rowspan=1| 5,928
+|
+|-
+| align=center| 8
+| align=left |[[Obolon Arena]] [[File:Kyiv_Obolon_Arena_1.jpg|150px]]
+|[[Kyiv]]
+| [[FC Obolon Kyiv|Obolon Kyiv]]
+| align=center | 5,103
+|-
+|align=center rowspan=1| 9
+| rowspan=1|[[Kolos Stadium (Kovalivka)|Stadion Kolos]] [[File:Kolos_Kovalivka_Stadium.png|150px]]
+| rowspan=1|[[Kovalivka, Bila Tserkva Raion, Kyiv Oblast|Kovalivka]]
+|[[FC Kolos Kovalivka|Kolos Kovalivka]]
+|align=center rowspan=1| 5,050
+| 
+|-
+|align=center rowspan=2|10
+| rowspan=2|[[Arena Livyi Bereh]] [[File:Arena_Livyi_Bereh.jpg|150px]]
+| rowspan=2|[[Zolochivska rural hromada|Zolocha community]]
+|[[FC Livyi Bereh Kyiv|Livyi Bereh Kyiv]]
+| align=center rowspan=2| 4,700
+|-
+|[[FC Kharkiv]]
+|used as home ground during the season<ref>{{#invoke:cite|web|url=https://sportarena.ua/uk/footboll/upl/fk-harkiv-provoditime-domashni-matchi-sezonu-2026-27-na/|title=ФК Харків проводитиме домашні матчі сезону 2026/27 на арені «Лівий Берег»|publisher=SportArena|date=26 June 2026|lang=uk}}</ref>
+|-
+|align=center rowspan=1|11
+| rowspan=1|[[Hirnyk Stadium (Kryvyi Rih)|Stadion Hirnyk]] [[File:Kryvyi_Rih_ShU_Zhovtneve_Stadium.jpg|150px]]
+| rowspan=1|[[Kryvyi Rih]]
+|[[FC Kryvbas Kryvyi Rih|Kryvbas Kryvyi Rih]]
+|align=center rowspan=1| 3,219
+|
+|-
+|align=center rowspan=2|12
+| rowspan=2|[[Tonkocheyev Stadium |Stadion imeni Tonkocheyeva]] [[File:Kamianets-Podilskyi Tonkocheiev Stadium 1.jpg|150px]]
+| rowspan=2|[[Kamianets-Podilskyi]]
+|[[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]]
+|align=center rowspan=2| 2,587
+|-
+| [[FSC Bukovyna Chernivtsi|Bukovyna Chernivtsi]]
+|used as home ground in 1 match
+|}
+Unlike clubs like FC Kharkiv, Shakhtar and Zorya, which are forced to play away from their home stadiums due to proximity to the open [[Russo-Ukrainian war (2022–present)|combat area]], Kudrivka and Bukovyna do not have qualified stadiums.<ref>{{cite web |title=Клуб Першої ліги з гучною назвою побудує з нуля новий стадіон під Києвом: розкрито, де команда гратиме в УПЛ |url=https://ukrfootball.ua/upl/klub-pershoyi-ligi-z-guchnoyu-nazvoyu-pobuduye-z-nulya-novii-stadion-pid-kiyevom-rozkrito-de-komanda-gratime-v-upl/ |website=ukrfootball.ua |access-date=1 June 2026 |archive-url=https://web.archive.org/web/20260316090000/https://ukrfootball.ua/upl/klub-pershoyi-ligi-z-guchnoyu-nazvoyu-pobuduye-z-nulya-novii-stadion-pid-kiyevom-rozkrito-de-komanda-gratime-v-upl/ |archive-date=16 March 2026 |language=Ukrainian |date=22 April 2025 |trans-title=The First League club with a bold name will build their new stadium near Kyiv from ground up. It was learned where the club would play in the UPL}}</ref><ref>{{cite web |title=Епіцентр визначився зі стадіоном на сезон УПЛ |url=https://champion.com.ua/ukr/football/epicentr-obrav-stadion-dlya-matchiv-upl-1042622/ |website=champion.com.ua |access-date=1 June 2026 |archive-url=https://web.archive.org/web/20250710031210/https://champion.com.ua/ukr/football/epicentr-obrav-stadion-dlya-matchiv-upl-1042622/ |archive-date=10 July 2025 |language=Ukrainian |date=9 July 2025 |trans-title=Epitsentr has decided with their stadium for the UPL season}}</ref><ref>{{cite web |title=Реконструкція без результату: стадіон у Кам’янці-Подільському досі не готовий до матчів УПЛ |url=https://ngp-ua.info/2026/02/85706 |website=ngp-ua.info |access-date=1 June 2026 |archive-url=https://web.archive.org/web/20260601221603/https://ngp-ua.info/2026/02/85706 |archive-date=1 June 2026 |language=Ukrainian |date=19 February 2026 |trans-title=The reconstruction with no results: the stadium in Kamianets-Podilskyi is still not ready for the UPL matches}}</ref>
+
+=== Personnel and sponsorship ===
+{|class="wikitable sortable" style="text-align:left;"
+|-
+!Team
+!President
+!Head coach
+!Captain
+!Kit manufacturer
+!Shirt sponsor
+|-
+| [[FSC Bukovyna Chernivtsi|Bukovyna Chernivtsi]]
+| Andriy Safronyak
+| {{#invoke:flag|icon|UKR}} [[Serhiy Shyshchenko]]
+| {{#invoke:flag|icon|UKR}} [[Bohdan Boychuk]]
+| Nike
+| Dmart
+|-
+| [[FC Chornomorets Odesa|Chornomorets Odesa]]
+| [[Oleksandr Hranovskyi (businessman)|Oleksandr Hranovskyi]]
+|{{#invoke:flag|icon|UKR}} [[Roman Hryhorchuk]]
+|{{#invoke:flag|icon|UKR}} [[Vladyslav Klymenko]]
+| [[Kelme (company)|Kelme]]
+| —
+|-
+| [[FC Dynamo Kyiv|Dynamo Kyiv]]
+| [[Ihor Surkis]]
+| {{#invoke:flag|icon|UKR}} [[Ihor Kostyuk]] 
+| {{#invoke:flag|icon|UKR}} [[Vitaliy Buyalskyi]]
+| [[New Balance]]
+| GG.BET
+|-
+| [[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]]
+| Ivan Chernonoh
+|{{#invoke:flag|icon|UKR}} [[Serhiy Nahornyak]]
+|{{#invoke:flag|icon|UKR}} [[Vladyslav Moroz]]
+| Macron
+| Епіцентр
+|-
+| [[FC Karpaty Lviv|Karpaty Lviv]]
+| Volodymyr Matkivskyi
+| {{#invoke:flag|icon|ESP}} [[Fran Fernández]]
+| {{#invoke:flag|icon|MDA}} [[Vladyslav Babohlo]]
+| Nike
+| [[80th Air Assault Brigade]]
+|-
+| [[FC Kolos Kovalivka|Kolos Kovalivka]]
+| [[Andriy Zasukha]]
+| {{#invoke:flag|icon|UKR}} [[Ruslan Kostyshyn]]
+| {{#invoke:flag|icon|UKR}} [[Andriy Tsurikov]]
+| Nike
+| Svitanok
+|-
+| [[FC Kryvbas Kryvyi Rih|Kryvbas Kryvyi Rih]]
+| Kostyantyn Karamanits
+| {{#invoke:flag|icon|NLD}} [[Patrick van Leeuwen]]
+| {{#invoke:flag|icon|UKR}} [[Volodymyr Vilivald]]
+| SKIDAN
+| Rudomain
+|-
+|[[FC Kudrivka]]
+|[[Roman Solodarenko]]
+|{{#invoke:flag|icon|UKR}} [[Oleksandr Protchenko]]{{efn|Yevhen Zadorozhnyi is listed as the head coach on the UPL website.}}
+|{{#invoke:flag|icon|UKR}} [[Anton Yashkov]]
+|Kelme
+|betking
+|-
+|[[FC Livyi Bereh Kyiv|Livyi Bereh Kyiv]]
+|[[Mykola Lavrenko]]
+|{{#invoke:flag|icon|UKR}} [[Oleksandr Ryabokon]]
+|{{#invoke:flag|icon|UKR}} [[Yevhen Banada]]
+|Nike
+|Метало Гальва Україна
+|-
+| [[FC LNZ Cherkasy|LNZ Cherkasy]]
+| Viktor Kravchenko
+| {{#invoke:flag|icon|UKR}} [[Vitaliy Ponomaryov]]
+| {{#invoke:flag|icon|UKR}} [[Nazariy Muravskyi]]
+| [[Macron (sportswear)|Macron]]
+| teviita
+|-
+|[[FC Kharkiv]]
+| Bohdan Boyko
+|{{#invoke:flag|icon|HRV}} [[Mladen Bartulović]]
+|{{#invoke:flag|icon|UKR}} [[Ivan Kalyuzhnyi]]
+|[[Adidas]]
+|Whitebit
+|-
+| [[FC Obolon Kyiv|Obolon Kyiv]]
+| [[Oleksandr Slobodian]]
+| {{#invoke:flag|icon|UKR}} Oleksandr Antonenko (interim)
+| {{#invoke:flag|icon|UKR}} [[Oleh Slobodyan]]
+| [[Jako]]
+| [[Obolon (company)|Obolon]]
+|-
+| [[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+| Hennadiy Butkevych
+| {{#invoke:flag|icon|UKR}} [[Ruslan Rotan]]
+| {{#invoke:flag|icon|UKR}} [[Ruslan Babenko]]
+| Nike
+| BGV Group
+|-
+| [[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+| [[Rinat Akhmetov]]
+| {{#invoke:flag|icon|TUR}} [[Arda Turan]]
+| {{#invoke:flag|icon|UKR}} [[Mykola Matviyenko]]
+| Puma
+| [[System Capital Management|SCM]], BETON
+|-
+| [[NK Veres Rivne|Veres Rivne]]
+| Ivan Nadieyin
+| {{#invoke:flag|icon|UKR}} [[Oleh Shandruk]]
+| {{#invoke:flag|icon|UKR}} [[Ihor Kharatin]]
+| Kelme
+| betking
+|-
+| [[FC Zorya Luhansk|Zorya Luhansk]]
+| [[Yevhen Heller]]
+| {{#invoke:flag|icon|UKR}} [[Viktor Skrypnyk]]
+| {{#invoke:flag|icon|UKR}} [[Pylyp Budkivskyi]]
+| Puma
+| ''Without sponsor''
+|}
+
+=== Managerial changes ===
+{|class="wikitable sortable" style="font-size:85%"
+|-
+!Team
+!Outgoing manager
+!Manner of departure
+!Date of vacancy
+!Table
+!Incoming manager
+!Date of appointment
+|-
+|-
+|}
+'''''Notes:'''''
+<templatestyles src="Reflist/styles.css" /><div class="reflist reflist-lower-alpha"><references group="lower-alpha" /></div>
+
+==League table==
+<onlyinclude>{{#invoke:Sports table|main|style=WDL|section=League
+|source=[https://upl.ua/en upl.ua]
+
+<!--Update team positions here-->
+|team_order = PZH, SHA, KAR, KHA, EPC, DYN, ZOR, BUK, VER, KRY, LNZ, LBK, CHO, OBL, KOL, KUD,       
+
+<!--Don't remove this section when it's empty!-->
+<!--Head to head classification-->
+<!--Please use this section for head-to-head (H2H) ranking (classification); in case of ranking (classification) other than H2H, do not add footnotes to avoid unnecessary spam. There is a separate footnote for that reason, "Rules for classification".-->
+|hth_PZH=Ranked on head-to-head points: Polissya Zhytomyr 3, Shakhtar Donetsk 0. |hth_SHA=PZH
+|hth_VER=Ranked on head-to-head points (goal difference, goals scored): Veres Rivne 3 (+1, 1),  Kryvbas Kryvyi Rih 0 (0, 0), LNZ Cherkasy 0 (-1, 0). |hth_KRY=VER |hth_LNZ=VER
+<!--|hth_LBK=Ranked on head-to-head points (goal difference, goals scored): Livyi Bereh Kyiv 1(0-0+0), Chornomorets Odesa 1(0-0=00), Veres Rivne Rih 0(0-0=0)|hth_CHO=LBK|hth_VER=LBK
+
+ <!--Update team qualifications here (defined below)-->
+|result1=CLLS |result2=ECL2Q |result3=ECL2Q |result4=|result5=P4|result7=P4|result10=P4|result12=P4|result13=RPO |result14=RPO |result15=REL |result16=REL
+
+<!--Update team results here and then (if needed) positions above. Don't forget to update the date (update parameter)-->
+|update=6 September 2026 
+|win_BUK=1 |draw_BUK=3 |loss_BUK=1 |gf_BUK=3 |ga_BUK=3 <!-- Bukovyna Chernivtsi -->
+|win_CHO=1 |draw_CHO=1 |loss_CHO=2 |gf_CHO=2 |ga_CHO=4 <!-- Chornomorets Odesa -->
+|win_DYN=2 |draw_DYN=1 |loss_DYN=1 |gf_DYN=4 |ga_DYN=5 <!-- Dynamo Kyiv -->
+|win_EPC=2 |draw_EPC=2 |loss_EPC=1 |gf_EPC=6 |ga_EPC=2 <!-- Epitsentr Kamianets-Podilskyi -->
+|win_KAR=3 |draw_KAR=1 |loss_KAR=1 |gf_KAR=12 |ga_KAR=4 <!-- Karpaty Lviv -->
+|win_KOL=0 |draw_KOL=2 |loss_KOL=2 |gf_KOL=3 |ga_KOL=6 <!-- Kolos Kovalivka -->
+|win_KRY=1 |draw_KRY=2 |loss_KRY=2 |gf_KRY=7 |ga_KRY=9 <!-- Kryvbas Kryvyi Rih -->
+|win_KUD=0 |draw_KUD=2 |loss_KUD=3 |gf_KUD=2 |ga_KUD=13 <!-- Kudrivka -->
+|win_LBK=0 |draw_LBK=4 |loss_LBK=0 |gf_LBK=2 |ga_LBK=2 <!-- Livyi Bereh Kyiv -->
+|win_LNZ=1 |draw_LNZ=2 |loss_LNZ=2 |gf_LNZ=2 |ga_LNZ=4 <!-- LNZ Cherkasy -->
+|win_KHA=3 |draw_KHA=0 |loss_KHA=2 |gf_KHA=10 |ga_KHA=4 <!-- FC Kharkiv -->
+|win_OBL=0 |draw_OBL=3 |loss_OBL=2 |gf_OBL=0 |ga_OBL=8 <!-- Obolon Kyiv -->
+|win_PZH=4 |draw_PZH=0 |loss_PZH=1 |gf_PZH=13 |ga_PZH=5 <!-- Polissya Zhytomyr -->
+|win_SHA=4 |draw_SHA=0 |loss_SHA=1 |gf_SHA=10 |ga_SHA=4 <!-- Shakhtar Donetsk -->
+|win_VER=1 |draw_VER=2 |loss_VER=2 |gf_VER=3 |ga_VER=4 <!-- Veres Rivne -->
+|win_ZOR=2 |draw_ZOR=1 |loss_ZOR=2 |gf_ZOR=6 |ga_ZOR=8 <!-- Zorya Luhansk -->
+
+<!--Status-->
+|status_text_X=Assured of at least Europa League
+|status_text_Y=Assured of at least Conference League
+|status_text_Z=Can at best reach relegation play-off.
+|status_text_W=Excluded from the competitions
+|status_SHA=
+
+<!--Team definitions (wikilinks in table)-->
+|name_BUK=[[FSC Bukovyna Chernivtsi|Bukovyna Chernivtsi]]
+|name_CHO=[[FC Chornomorets Odesa|Chornomorets Odesa]]
+|name_DYN=[[FC Dynamo Kyiv|Dynamo Kyiv]]
+|name_EPC=[[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]]
+|name_KAR=[[FC Karpaty Lviv|Karpaty Lviv]]
+|name_KOL=[[FC Kolos Kovalivka|Kolos Kovalivka]]
+|name_KRY=[[FC Kryvbas Kryvyi Rih|Kryvbas Kryvyi Rih]]
+|name_KUD=[[FC Kudrivka|Kudrivka]]
+|name_LBK=[[FC Livyi Bereh Kyiv|Livyi Bereh Kyiv]]
+|name_LNZ=[[FC LNZ Cherkasy|LNZ Cherkasy]]
+|name_KHA=[[FC Kharkiv|Kharkiv]]
+|name_OBL=[[FC Obolon Kyiv|Obolon Kyiv]]
+<!--|name_OLK=[[FC Oleksandriya|Oleksandriya]]-->
+|name_PZH=[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+|name_SHA=[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|name_VER=[[NK Veres Rivne|Veres Rivne]]
+|name_ZOR=[[FC Zorya Luhansk|Zorya Luhansk]]
+|name_TBD=TBD
+
+<!--Table settings and rules-->
+|show_limit=5
+|class_rules=1) Points; 2) Head-to-head points; 3) Head-to-head goal difference; 4) Head-to-head goals scored; 5) Goal difference; 6) Goals scored; 7) Draw or "Golden match" if two teams are tied for title (Article 22, paragraph 3).<ref>{{cite web |title=РЕГЛАМЕНТ  Чемпіонату України з футболу  серед команд клубів  Української Прем’єр-Ліги  сезону 2026/27 |url=https://uaf.ua/storage/documents/01KY221YR02T3ZYSFSNE293CG6.pdf |website=uaf.ua |access-date=5 August 2026 |archive-url=https://web.archive.org/web/20260805172317/https://uaf.ua/storage/documents/01KY221YR02T3ZYSFSNE293CG6.pdf |archive-date=5 August 2026 |language=Ukrainian |trans-title=The Ukrainian Football Championship regulations of the 2026/27 season for the Ukrainian Premier League clubs' teams}}</ref>
+
+<!--Qualification definitions-->
+|res_col_header=QR
+|col_CLLS=green1 |text_CLLS=Qualification for the {{nowrap|[[2027–28 UEFA Champions League#Second qualifying round|Champions League second qualifying round]]}}
+|col_EL1Q=blue1 |text_EL1Q=Qualification for the [[2027–28 UEFA Europa League#First qualifying round|Europa League first qualifying round]]
+|col_ECL2Q=yellow1 |text_ECL2Q=Qualification for the {{nowrap|[[2027–28 UEFA Conference League#Second qualifying round|Conference League second qualifying round]]}}
+|col_RPO=red2 |text_RPO=Qualification for the {{nowrap|[[#Relegation play-offs|Relegation play-off]]}}
+|col_REL=red1  |text_REL=Relegation to {{nowrap|[[2027–28 Ukrainian First League|Ukrainian First League]]}}
+|col_W=black1  |text_W=Excluded from the competitions
+|col_P4=white-silver|text_P4=Qualified for the [[2026–27 Ukrainian Cup#Round of 16 (1/8)|Round of 16 UC]]
+
+}}</onlyinclude>
+
+==Results==
+Teams play each other twice on a home and away basis.
+{{#invoke:sports results|main
+| source = [https://upl.ua/en/tournaments/championship?tab=calendar&id=432 UPL calendar]
+| a_note = "a"
+| matches_style = FBR | solid_cell = grey
+|team1=BUK|team2=CHO|team3=DYN |team4=EPC|team5=KAR|team6=KOL|team7=KRY|team8=KUD|team9=LBK|team10=LNZ|team11=KHA|team12=OBL|team13=PZH|team14=SHA|team15=VER|team16=ZOR
+
+| update = 6 September 2026
+
+|name_BUK=[[FSC Bukovyna Chernivtsi|Bukovyna]]
+|name_CHO=[[FC Chornomorets Odesa|Chornomorets]]
+|name_DYN=[[FC Dynamo Kyiv|Dynamo]]
+|name_EPC=[[FC Epitsentr Kamianets-Podilskyi|Epitsentr]]
+|name_KAR=[[FC Karpaty Lviv|Karpaty]]
+|name_KOL=[[FC Kolos Kovalivka|Kolos]]
+|name_KRY=[[FC Kryvbas Kryvyi Rih|Kryvbas]]
+|name_KUD=[[FC Kudrivka|Kudrivka]]
+|name_LBK=[[FC Livyi Bereh Kyiv|Livyi Bereh]]
+|name_LNZ=[[FC LNZ Cherkasy|LNZ]]
+|name_KHA=[[FC Kharkiv|Kharkiv]]
+|name_OBL=[[FC Obolon Kyiv|Obolon]]
+|name_PZH=[[FC Polissya Zhytomyr|Polissya]]
+|name_SHA=[[FC Shakhtar Donetsk|Shakhtar]]
+|name_VER=[[NK Veres Rivne|Veres]]
+|name_ZOR=[[FC Zorya Luhansk|Zorya]]
+
+
+| match_BUK_DYN = 3-0 
+| match_BUK_EPC = 
+| match_BUK_KAR = 
+| match_BUK_KOL = 
+| match_BUK_KRY =
+| match_BUK_KUD =
+| match_BUK_KHA =
+| match_BUK_LBK = 
+| match_BUK_LNZ = 0-0 
+| match_BUK_OBL = 0-0
+| match_BUK_PZH = 
+| match_BUK_CHO = 
+| match_BUK_SHA = 
+| match_BUK_VER = 
+| match_BUK_ZOR = 13/9
+
+| match_CHO_BUK = 
+| match_CHO_DYN = 
+| match_CHO_EPC = 
+| match_CHO_KAR = 
+| match_CHO_KOL = ppd{{efn|The match has been postponed due to damage sustained by the stadium during a missile strike on the city of Odesa on August 7. A new date will be determined later.<ref>{{cite web |title=ВІДЕО. Окупанти вдарили по стадіону Чорноморець в Одесі |url=https://sport.ua/uk/news/896258-video-okupanti-vdarili-po-stadionu-chornomorets-v-odesi |website=sport.ua |access-date=9 August 2026}}</ref>}}
+| match_CHO_KRY = 1-0
+| match_CHO_KUD =
+| match_CHO_LBK = 0-0
+| match_CHO_LNZ = 
+| match_CHO_KHA = 
+| match_CHO_OBL = 18/9
+| match_CHO_PZH = 1-2
+| match_CHO_SHA = 
+| match_CHO_VER = 
+| match_CHO_ZOR = 
+
+| match_DYN_BUK = 
+| match_DYN_CHO = 
+| match_DYN_EPC = 14/9
+| match_DYN_KAR = 
+| match_DYN_KOL = 2-1
+| match_DYN_KRY =
+| match_DYN_KUD =
+| match_DYN_LBK = 2/12 | match_DYN_LBK_note = The match has been rescheduled due to Dynamo's participation in European competition qualifiers.
+| match_DYN_LNZ = 0-0
+| match_DYN_KHA = 
+| match_DYN_OBL = 
+| match_DYN_PZH = 
+| match_DYN_SHA = [[Klasychne derby|a]]
+| match_DYN_VER = 
+| match_DYN_ZOR = 
+
+| match_EPC_BUK = 0-0
+| match_EPC_CHO = 
+| match_EPC_DYN = 
+| match_EPC_KAR = 
+| match_EPC_KOL = 
+| match_EPC_KRY = 
+| match_EPC_KUD =
+| match_EPC_LBK = 19/9
+| match_EPC_LNZ = 
+| match_EPC_KHA = 
+| match_EPC_OBL = 3-0
+| match_EPC_PZH = 
+| match_EPC_SHA = 0-2
+| match_EPC_VER = 0-0
+| match_EPC_ZOR =
+
+| match_KAR_BUK = 3-0
+| match_KAR_CHO = 
+| match_KAR_DYN = 
+| match_KAR_EPC = 
+| match_KAR_KOL = 
+| match_KAR_KRY = 
+| match_KAR_KUD =
+| match_KAR_LBK =  
+| match_KAR_LNZ = 3-0
+| match_KAR_KHA = 
+| match_KAR_OBL = 
+| match_KAR_PZH = 
+| match_KAR_SHA = 1-2
+| match_KAR_VER = 20/9
+| match_KAR_ZOR = 
+
+| match_KOL_BUK = 
+| match_KOL_CHO = 
+| match_KOL_DYN = 
+| match_KOL_EPC = 
+| match_KOL_KAR = 11/9
+| match_KOL_KRY = 
+| match_KOL_KUD =
+| match_KOL_LBK = 
+| match_KOL_LNZ = 
+| match_KOL_KHA = 
+| match_KOL_OBL = 0-0  
+| match_KOL_PZH = 
+| match_KOL_SHA = 
+| match_KOL_VER = 
+| match_KOL_ZOR =
+
+| match_KRY_BUK = 
+| match_KRY_CHO = 
+| match_KRY_DYN = 
+| match_KRY_EPC = 
+| match_KRY_KAR = 1-4 
+| match_KRY_KOL = 2-2
+| match_KRY_KUD =
+| match_KRY_LBK = 1-1
+| match_KRY_LNZ = 
+| match_KRY_KHA = 12/9
+| match_KRY_OBL = 
+| match_KRY_PZH = 
+| match_KRY_SHA = 
+| match_KRY_VER = 
+| match_KRY_ZOR = 
+
+| match_KUD_BUK = 
+| match_KUD_CHO = 
+| match_KUD_DYN = 
+| match_KUD_EPC = 0-3
+| match_KUD_KAR =  
+| match_KUD_KOL = 
+| match_KUD_KRY =
+| match_KUD_LBK = 
+| match_KUD_LNZ = 
+| match_KUD_KHA = 
+| match_KUD_OBL = 0-0
+| match_KUD_PZH = 
+| match_KUD_SHA = 
+| match_KUD_VER = 
+| match_KUD_ZOR =
+
+| match_KHA_BUK = 19/9
+| match_KHA_CHO = 
+| match_KHA_DYN = 
+| match_KHA_EPC = 
+| match_KHA_KAR = 
+| match_KHA_KOL = 
+| match_KHA_KRY = 
+| match_KHA_KUD =
+| match_KHA_LBK = 
+| match_KHA_LNZ = 
+| match_KHA_OBL = 5-0
+| match_KHA_PZH = 
+| match_KHA_SHA = 0-1
+| match_KHA_VER = 1-0
+| match_KHA_ZOR = 
+
+| match_LBK_BUK = 
+| match_LBK_CHO = 
+| match_LBK_DYN = 
+| match_LBK_EPC = 
+| match_LBK_KAR = 1-1
+| match_LBK_KOL = 
+| match_LBK_KRY =
+| match_LBK_KUD = 0-0
+| match_LBK_LNZ =
+| match_LBK_KHA =  
+| match_LBK_OBL = 
+| match_LBK_PZH = 13/9
+| match_LBK_SHA = 
+| match_LBK_VER = 
+| match_LBK_ZOR =
+ 
+| match_LNZ_BUK = 
+| match_LNZ_CHO = 2-0
+| match_LNZ_DYN = 
+| match_LNZ_EPC = 
+| match_LNZ_KAR = 
+| match_LNZ_KOL = 
+| match_LNZ_KRY = 
+| match_LNZ_KUD = 
+| match_LNZ_KHA =
+| match_LNZ_LBK = 
+| match_LNZ_OBL = 12/9
+| match_LNZ_PZH = 
+| match_LNZ_SHA = 
+| match_LNZ_VER = 0-1
+| match_LNZ_ZOR = 
+
+| match_OBL_BUK = 
+| match_OBL_CHO = 
+| match_OBL_DYN = 
+| match_OBL_EPC = 
+| match_OBL_KAR = 
+| match_OBL_KOL = 
+| match_OBL_KRY =
+| match_OBL_KUD =  
+| match_OBL_KHA =
+| match_OBL_LBK = 
+| match_OBL_LNZ = 
+| match_OBL_PZH = 
+| match_OBL_SHA = 
+| match_OBL_VER = 
+| match_OBL_ZOR = 
+
+| match_PZH_BUK = 
+| match_PZH_CHO = 
+| match_PZH_DYN = 
+| match_PZH_EPC = 
+| match_PZH_KAR = 
+| match_PZH_KOL = 
+| match_PZH_KRY = 18/9
+| match_PZH_KUD = 5-1
+| match_PZH_LBK =
+| match_PZH_LNZ = 
+| match_PZH_KHA = 3-1
+| match_PZH_OBL = 
+| match_PZH_SHA = 
+| match_PZH_VER = 
+| match_PZH_ZOR = 1-2
+
+| match_SHA_BUK = 
+| match_SHA_CHO = 14/9
+| match_SHA_DYN = [[Klasychne derby|a]]
+| match_SHA_EPC = 
+| match_SHA_KAR = 
+| match_SHA_KOL = 
+| match_SHA_KRY = 
+| match_SHA_KUD = 5-1
+| match_SHA_LBK = 
+| match_SHA_LNZ = 20/9
+| match_SHA_KHA = 
+| match_SHA_OBL = 
+| match_SHA_PZH = 0-2
+| match_SHA_VER = 
+| match_SHA_ZOR = 
+
+| match_VER_BUK = 
+| match_VER_CHO = 
+| match_VER_DYN = 1-2
+| match_VER_EPC = 
+| match_VER_KAR = 
+| match_VER_KOL = 
+| match_VER_KRY = 
+| match_VER_KUD = 13/9
+| match_VER_LBK = 
+| match_VER_LNZ =  
+| match_VER_KHA = 
+| match_VER_OBL = 
+| match_VER_PZH = 
+| match_VER_SHA = 
+| match_VER_ZOR = 1-1
+
+| match_ZOR_BUK =  
+| match_ZOR_CHO = 
+| match_ZOR_DYN = 19/9
+| match_ZOR_EPC = 
+| match_ZOR_KAR = 
+| match_ZOR_KOL = 2-0
+| match_ZOR_KRY = 1-3
+| match_ZOR_KUD =
+| match_ZOR_LBK =  
+| match_ZOR_LNZ =  
+| match_ZOR_KHA = 0-3| match_ZOR_KHA_note = The match was interrupted with the score 0:1 in the 51st minute, the replay is scheduled for August 31, 1:00 PM.
+| match_ZOR_OBL = 
+| match_ZOR_PZH = 
+| match_ZOR_SHA = 
+| match_ZOR_VER = 
+
+| match_KDR_BUK = 
+| match_KDR_CHO = 
+| match_KDR_DYN = 
+| match_KDR_EPC = 
+| match_KDR_KAR = 
+| match_KDR_KOL = 
+| match_KDR_KRY = 
+| match_KDR_LBK = 
+| match_KDR_LNZ = 
+| match_KDR_KHA = 
+| match_KDR_OBL =  
+| match_KDR_PZH = 
+| match_KDR_SHA =  
+| match_KDR_VER = 
+| match_KDR_ZOR = 
+}}
+
+=== Matches affected by air raid alerts ===
+''' Round 1 '''<br>
+Kryvbas vs Karpaty. The match was interrupted in the 73rd minute for 57 minutes.<ref>{{cite web |title=Матч чемпіонату України Кривбас – Карпати зупинили на 74-й хвилині |url=https://sport.ua/uk/news/894705-match-chempionatu-ukraini-krivbas-karpati-zupinili-na-74-y-hvilini |website=sport.ua |access-date=9 August 2026}}</ref><br>
+''' Round 2 '''<br>
+Livyi Bereh vs Kudrivka. The match was delayed for 140 minutes and then was interrupted in the 17th minute for 79 minutes.<ref>{{cite web |title=Третья попытка сыграть: стало известно, когда возобновится матч Левый Берег – Кудровка |url=https://www.ua-football.com/ukrainian/high/1786205477-tretya-popytka-sygrat-stalo-izvestno-kogda-vozobnovitsya-match-levyy-bereg-kudrovka.html |website=www.ua-football.com |access-date=9 August 2026}}</ref><br>
+''' Round 3 ''' <br>
+Kryvbas vs Livyi Bereh. 2nd half of the match was delayed for 113 minutes. <ref>{{cite web |title=Кривбас у меншості втримав нічию проти Лівого Берега|url=https://football.ua/ukraine/586324-krivbas-u-menshosti-vtrimav-nichiju-proti-livogo-berega.html|website=Football.ua|access-date=15 August 2026}}</ref><br>
+''' Round 4 ''' <br>
+Kolos vs Obolon. The match was interrupted in the 76th minute for 150 minutes.<ref>{{cite web |title=Колос зіграв унічию з Оболонню у стартовому матчі четвертого туру УПЛ|url=https://sportarena.ua/uk/footboll/upl/kolos-zigrav-unichiyu-z-obolonnyu-u-startovomu-matchi/|website=Sportarena.ua|access-date=28 August 2026}}</ref><br>
+Livyi Bereh vs Karpaty. The match was delayed for 50 minutes. Second half of the match was delayed for 99 minutes and later was interrupted in the 75th minute for 14 minutes.<ref>{{cite web |title=Карпати не змогли обіграти Лівий Берег – "леви" перервали переможну серію, але залишились на вершині УПЛ|url=https://football24.ua/news/karpaty-ne-zmohly-obihraty-livyy-bereh-levy-perervaly-peremozhnu-seriyu-ale-zalyshylys-na-vershyni-upl-961687|website=Футбол24|access-date=29 August 2026}}</ref><br>
+Chornomorets vs Kryvbas. The match was delayed for 15 minutes.<br>
+LNZ vs Veres. The match was interrupted a few times: in the 29th minute for 41 minute; in the 78th minute for 121 minute; in the 82nd minute for 135 minutes.<br>
+Zorya vs Kharkiv. The match was interrupted a few times: in the 19th minute for 86 minutes; in the 51st minutes was postponed to the next day and then was interrupted again in the 87th minute for 6 minutes.<br>
+''' Round 5 ''' <br>
+Chornomorets vs Livyi Bereh. The match was delayed for 35 minutes<br>
+Polissya vs Kudrivka. Second half of the match was delayed<br>
+Kharkiv vs Obolon. The match was interrupted in the 88th for 161 minute<br>
+
+===Match results by week===
+{{#invoke:sports rbr table|table|sortable=y|legendpos=b
+|updated = 6 September 2026 |start_date= 
+|team1 = [[FSC Bukovyna Chernivtsi|Bukovyna]]
+|res1 = D/D/L/W/D/////////////////////////
+|team2 = [[FC Chornomorets Odesa|Chornomorets]]
+|res2 = L/-/L/W/D/////////////////////////
+|team3 = [[FC Dynamo Kyiv|Dynamo]]
+|res3 = -/W/W/L/D/////////////////////////
+|team4 = [[FC Epitsentr Kamianets-Podilskyi|Epitsentr]]
+|res4 = W/L/D/W/D/////////////////////////
+|team5 = [[FC Karpaty Lviv|Karpaty]]
+|res5 = W/W/W/D/L/////////////////////////
+|team6 = [[FC Kolos Kovalivka|Kolos]]
+|res6 = L/-/L/D/D/////////////////////////
+|team7 = [[FC Kryvbas Kryvyi Rih|Kryvbas]]
+|res7 = L/W/D/L/D/////////////////////////
+|team8 = [[FC Kudrivka|Kudrivka]]
+|res8 = L/D/D/L/L/////////////////////////
+|team9 = [[FC Kharkiv|Kharkiv]]
+|res9 = W/L/L/W/W/////////////////////////
+|team10 = [[FC Livyi Bereh Kyiv|Livyi Bereh]]
+|res10 = -/D/D/D/D/////////////////////////
+|team11 = [[FC LNZ Cherkasy|LNZ]]
+|res11 = D/L/W/L/D/////////////////////////
+|team12= [[FC Obolon Kyiv|Obolon]]
+|res12= L/D/D/D/L/////////////////////////
+|team13 = [[FC Polissya Zhytomyr|Polissya]]
+|res13 = W/W/L/W/W/////////////////////////
+|team14 = [[FC Shakhtar Donetsk|Shakhtar]]
+|res14 = W/W/W/L/W/////////////////////////
+|team15 = [[NK Veres Rivne|Veres]]
+|res15 = L/L/D/W/D/////////////////////////
+|team16 = [[FC Zorya Luhansk|Zorya]]
+|res16 = W/L/W/L/D/////////////////////////
+<!--|team6 = [[FC Kudrivka|Kudrivka]]
+|res6 = /////////////////////////////
+|team10 = [[FC Oleksandriya|Oleksandriya]]
+|res10 = /////////////////////////////-->
+
+|color_L = red2
+|text_L = Loss
+|color_D = #FEFCD9
+|text_D = Draw
+|color_W = green2 
+|text_W = Win
+|source = [https://upl.ua/ua/tournaments/championship/432/calendar upl.ua]
+}}
+
+===Position by round===
+{{#invoke:sports rbr table|table|sortable=y|legendpos=br 
+| source = [https://www.flashscore.ua/]
+| team2 = [[FC Shakhtar Donetsk|Shakhtar]]
+| pos2 = 1/2/2/3/2/////////////////////////
+| team11 = [[FC LNZ Cherkasy|LNZ]]
+| pos11 = 8/12/8/11/11/////////////////////////
+| team1 = [[FC Polissya Zhytomyr|Polissya]]
+| pos1 = 5/3/5/2/1/////////////////////////
+| team6 = [[FC Dynamo Kyiv|Dynamo]]
+| pos6 = 9/6/4/6/6/////////////////////////
+| team4 = [[FC Kharkiv|Kharkiv]]
+| pos4 = 6/7/9/5/4/////////////////////////
+| team15 = [[FC Kolos Kovalivka|Kolos]]
+| pos15 = 13/16/15/16/15/////////////////////////
+| team10 = [[FC Kryvbas Kryvyi Rih|Kryvbas]]
+| pos10 = 14/4/7/10/10/////////////////////////
+| team7 = [[FC Zorya Luhansk|Zorya]]
+| pos7 = 4/8/3/7/7/////////////////////////
+| team3 = [[FC Karpaty Lviv|Karpaty]]
+| pos3 = 2/1/1/1/3/////////////////////////
+| team5 = [[FC Epitsentr Kamianets-Podilskyi|Epitsentr]]
+| pos5 = 3/5/6/4/5/////////////////////////
+| team9 = [[NK Veres Rivne|Veres]]
+| pos9 = 12/15/14/9/9/////////////////////////
+| team14 = [[FC Obolon Kyiv|Obolon]]
+| pos14 = 15/13/10/14/14/////////////////////////
+| team16 = [[FC Kudrivka|Kudrivka]]
+| pos16 = 16/11/11/15/16/////////////////////////
+| team8 = [[FSC Bukovyna Chernivtsi|Bukovyna]]
+| pos8 = 7/9/13/8/8/////////////////////////
+| team13 = [[FC Chornomorets Odesa|Chornomorets]]
+| pos13 = 11/14/16/13/13/////////////////////////
+| team12 = [[FC Livyi Bereh Kyiv|Livyi Bereh]]
+| pos12 = 10/10/12/12/12/////////////////////////
+| 
+|color_A=green1
+|color_B=blue1
+|color_1=gold|text_1=League leaders/Champions of 2026–27 Ukrainian Premier League/Qualification for the {{nowrap|[[2027–28 UEFA Champions League#Second qualifying round|Champions League 2QR]]}}
+|color_2-3=green1|text_2-3=Qualification for [[2027–28 UEFA Conference League#Second qualifying round|Conference League 2QR]]
+|color_13-14=red4|text_13-14= Qualification for the [[#Relegation play-offs|Relegation play-offs]]
+|color_15-16=red1|text_15-16=Relegation to [[Ukrainian First League]]
+|color_C=red1
+}}
+
+== Season statistics ==
+
+=== Top goalscorers ===
+{{as of|2026|09|06}}<ref>[https://upl.ua/ua/tournaments/championship?tab=attackers&id=432 Top scorers]. Ukrainian Premier League.</ref>
+<!-- Scorers are ranked only by their goals scored. On the same number of goals they share ranking.
+Conditionally, scorers with the same number of goals are ranked further with advantage to those who scored from a play rather than from penalty mark and then in alphabetical order. Also, ranking is individual, not group, meaning that a group of players with the same number of goals reserves all ranking positions by number of players in that group. The next group cannot be ranked second (2) if the preceding group consists of more than one person. -->
+{| class="wikitable"
+|-
+!Rank
+!Scorer
+!Team
+!Goals<br />{{tooltip|Pen.|Penalties scored}}
+|-
+!rowspan=2|1
+|{{flagicon|NGA}} [[Peter Itodo]]
+|[[FC Kharkiv|Kharkiv]]
+|align=center|4 (1)
+|-
+|{{flagicon|UKR}} [[Ihor Krasnopir]]
+|[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+|align=center|4 (1)
+|-
+!rowspan=3|3
+|{{flagicon|BRA}} [[Fellipe Vieira]]
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|3 (0)
+|-
+|{{flagicon|BRA}} [[Kauã Elias]]
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|align=center|3 (0)
+|-
+|{{flagicon|KOS}} [[Baton Zabërgja]]
+|[[FC Kharkiv|Kharkiv]]
+|align=center|3 (0)
+|-
+!rowspan=9|6
+|{{flagicon|MDA}} [[Vladyslav Babohlo]]
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|2 (0)
+|-
+|{{flagicon|UKR}} [[Yan Kostenko]]
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|2 (0)
+|-
+|{{flagicon|BRA}} [[Luca Meirelles]]
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|align=center|2 (0)
+|-
+|{{flagicon|UKR}} [[Nazariy Rusyn]]
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|2 (0)
+|-
+|{{flagicon|BRA}} [[Alisson Santana]]
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|align=center|2 (0)
+|-
+|{{flagicon|UKR}} [[Vadym Sydun]]
+|[[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]]
+|align=center|2 (0)
+|-
+|{{flagicon|UKR}} [[Vladyslav Veleten]]
+|[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+|align=center|2 (0)
+|-
+|{{flagicon|UKR}} [[Matviy Ponomarenko]]
+|[[FC Dynamo Kyiv|Dynamo Kyiv]]
+|align=center|2 (1)
+|-
+|{{flagicon|ESP}} [[Joaquinet Sifuéntes|Joaquinete]]
+|[[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]] / [[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|2 (2)
+|-
+|}
+
+'''First goal of the season''':
+{{div col|colwidth=40em|small=yes}}
+* {{nowrap|{{#invoke:flag|fbicon|UKR}} [[Pylyp Budkivskyi]] – '''[[FC Zorya Luhansk|Zorya]]''' vs [[FC Kolos Kovalivka|Kolos]] {{small|(31 July 2026)}}}}
+{{div col end}}
+'''Own goals:'''
+{{div col|colwidth=40em|small=yes}}
+* {{nowrap|{{#invoke:flag|fbicon|POR}} [[Jimmy Mpanzu]] – for '''[[FC Zorya Luhansk|Zorya]]''' vs [[FC Kryvbas Kryvyi Rih|Kryvbas]] {{small|(9 August 2026)}}}}
+* {{nowrap|{{#invoke:flag|fbicon|UKR}} [[Vyacheslav Surkis]] – for '''[[FC Bukovyna Chernivtsi|Bukovyna]]''' vs [[FC Dynamo Kyiv|Dynamo]] {{small|(31 August 2026)}}}}
+* {{nowrap|{{#invoke:flag|fbicon|UKR}} [[Artur Dumanyuk]] – for '''[[FC Polissya Zhytomyr|Polissya]]''' vs [[FC Kudrivka|Kudrivka]] {{small|(4 September 2026)}}}}
+{{div col end}}
+
+===Hat-tricks===
+{{as of|2026|08|03}} 
+{| class="wikitable"
+|-
+!Player
+!For
+!Against
+!Result
+!Date
+|-
+|{{flagicon|BRA}} [[Kauã Elias]]
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|[[FC Kudrivka|Kudrivka]]
+|[https://upl.ua/ua/report/view/15887 5–1 (H)]
+|3 August 2026
+|}
+
+=== Clean sheets ===
+{{as of|2026|09|06}}
+{| class="wikitable" style="text-align:center"
+|-
+!Rank
+!Player
+!Club
+![[Clean sheet|Clean<br/>sheets]]
+|-
+!rowspan=2|1
+|align=left|{{flagicon|UKR}} [[Nikita Fedotov]]
+|align=left|[[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]]
+!rowspan=2|4
+|-
+|align=left|{{flagicon|UKR}} [[Herman Penkov]]
+|align=left|[[FC Bukovyna Chernivtsi|Bukovyna Chernivtsi]]
+|-
+!|3
+|align=left|{{flagicon|UKR}} [[Heorhiy Yermakov]]
+|align=left|[[FC Kharkiv|Kharkiv]]
+!|3
+|-
+!rowspan=9|4
+|align=left|{{flagicon|NGA}} [[Chijioke Aniagboso]]
+|align=left|[[FC Chornomorets Odesa|Chornomorets Odesa]]
+!rowspan=9|2
+|-
+|align=left|{{flagicon|UKR}} [[Kyrylo Barantsov]]
+|align=left|[[FC Obolon Kyiv|Obolon Kyiv]]
+|-
+|align=left|{{flagicon|UKR}} [[Nazariy Fedorivskyi]]
+|align=left|[[FC Obolon Kyiv|Obolon Kyiv]]
+|-
+|align=left|{{flagicon|UKR}} [[Valentyn Horokh]]
+|align=left|[[FC Veres Rivne|Veres Rivne]]
+|-
+|align=left|{{flagicon|UKR}} [[Dmytro Ledviy]]
+|align=left|[[FC LNZ Cherkasy|LNZ Cherkasy]]
+|-
+|align=left|{{flagicon|UKR}} [[Denys Marchenko]]
+|align=left|[[FC Karpaty Lviv|Karpaty Lviv]]
+|-
+|align=left|{{flagicon|UKR}} [[Dmytro Riznyk]]
+|align=left|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|-
+|align=left|{{flagicon|UKR}} [[Anton Yashkov]]
+|align=left|[[FC Kudrivka|Kudrivka]]
+|-
+|align=left|{{flagicon|UKR}} [[Roman Zhmurko]]
+|align=left|[[FC Livyi Bereh Kyiv|Livyi Bereh Kyiv]]
+|-
+!rowspan=5|12
+|align=left|{{flagicon|UKR}} [[Heorhiy Bushchan]]
+|align=left|[[FC Polissya Zhytomyr|Polissya Zhytomyr]] / [[FC Dynamo Kyiv|Dynamo Kyiv]]
+!rowspan=5|1
+|-
+|align=left|{{flagicon|UKR}} [[Oleh Kudryk]]
+|align=left|[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+|-
+|align=left|{{flagicon|UKR}} [[Ivan Pakholyuk]]
+|align=left|[[FC Kolos Kovalivka|Kolos Kovalivka]]
+|-
+|align=left|{{flagicon|UKR}} [[Oleksiy Palamarchuk]]
+|align=left|[[FC LNZ Cherkasy|LNZ Cherkasy]]
+|-
+|align=left|{{flagicon|UKR}} [[Vladyslav Rybak]]
+|align=left|[[FC Zorya Luhansk|Zorya Luhansk]]
+|-
+|}
+
+== Awards ==
+=== Monthly awards ===
+{|class="wikitable"
+|-
+!rowspan="2"|Month
+!colspan="2"|Player of the Month
+!colspan="2"|Coach of the Month
+!rowspan="2"|{{tooltip|Ref.|Reference}}
+|-
+!Player
+!Club
+!Coach
+!Club
+|-
+|August 2026
+|{{flagicon|UKR}} [[Yan Kostenko]]
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|{{flagicon|ESP}} [[Fran Fernández]]
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|<ref>{{Cite web|url=https://upl.ua/ua/news/view/11936|title=Стали відомі найкращі тренер та футболіст серпня Української Прем’єр-Ліги|date=7 September 2026}}</ref>
+|-
+|September 2026
+|
+|
+|
+|
+|align=center|
+|-
+|October 2026
+|
+|
+|
+|
+|align=center|
+|-
+|November 2026<hr />December 2026
+|
+|
+|
+|
+|align=center|
+|-
+|February 2027<hr />March 2027
+|
+|
+|
+|
+|align=center|
+|-
+|April 2027
+|
+|
+|
+|
+|align=center|
+|-
+|May 2027
+|
+|
+|
+|
+|align=center|
+|}
+
+=== Round awards ===
+<!--The Ukrainian Premier League does not publish its voting results on its website (missing round results: 4, 5, 16). As an alternative, the list includes information from another sports outlet, which provides informational support for the Professional Football League of Ukraine.-->
+The list includes winners of the Round by the Ukrainian Premier League as well as the Ukrainian internet publisher "SportArena".
+{|class="wikitable collapsible autocollapse" style="text-align:left; font-size:85%"
+|-
+!rowspan="2"|Round
+!colspan="3"|Player
+!colspan="3"|Coach
+|-
+!Player
+!Club
+!Reference
+!Coach
+!Club
+!Reference
+|-
+|rowspan=2|Round 1
+|{{flagicon|BRA}} [[Alisson Santana]] (SA)
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|align=center|<ref name=rd1liga>{{Cite web|url=https://sportarena.ua/uk/footboll/upl/alisson-santana-hoakinet-sifuentes-kauan-elias-i/|title=Аліссон Сантана, Хоакінет Сіфуентес, Кауан Еліас і трішки українських топарів: уся збірна 1-го туру Прем’єр-Ліги|date=4 August 2026}}</ref>
+|{{flagicon|ESP}} [[Fran Fernández]] (SA)
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|<ref name=rd1liga />
+|-
+|{{flagicon|BRA}} [[Kauã Elias]] (UPL)
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|align=center|<ref name=rd1upl>{{Cite web|url=https://upl.ua/ua/news/view/11788|title=Експерти визначили найкращого тренера, гравця та символічну збірну 1-го туру|date=5 August 2026}}</ref>
+|{{flagicon|ESP}} [[Fran Fernández]] (UPL)
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|<ref name=rd1upl/>
+|-
+|rowspan=2|Round 2
+|{{flagicon|UKR}} [[Kyrylo Barantsov]] (SA)
+|[[FC Obolon Kyiv|Obolon Kyiv]]
+|align=center|<ref name=rd2liga>{{Cite web|url=https://sportarena.ua/uk/footboll/upl/rotan-navi-felippe-baboglo-ta-maksimalno/|title=Ротань, Наві, Феліппе, Бабогло та максимально несподіваний герой тижня: вся збірна 2-го туру Прем’єр-Ліги|date=11 August 2026}}</ref>
+|{{flagicon|UKR}} [[Ruslan Rotan]] (SA)
+|[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+|align=center|<ref name=rd2liga />
+|-
+|{{flagicon|PAN}} [[Giovany Herbert]] (UPL)
+|[[FC Kryvbas Kryvyi Rih|Kryvbas Kryvyi Rih]]
+|align=center|<ref name=rd2upl>{{Cite web|url=https://upl.ua/ua/news/view/11822|title=Експерти визначили найкращого тренера, гравця та символічну збірну 2-го туру|date=12 August 2026}}</ref>
+|{{flagicon|ESP}} [[Fran Fernández]] (UPL)
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|<ref name=rd2upl/>
+|-
+|rowspan=2|Round 3
+|{{flagicon|UKR}} [[Danylo Kravchuk]] (SA)
+|[[FC LNZ Cherkasy|LNZ Cherkasy]]
+|align=center|<ref name=rd3upl>{{Cite web|url=https://sportarena.ua/uk/footboll/upl/bitva-harkiv-shahtar-predstavnik-kolosa-vsya/|title=Битва Харків – Шахтар, представник Колоса: вся збірна 3-го туру Прем’єр-Ліги – Кравчук, Феліппе, лідери Зорі|date=17 August 2026}}</ref>
+|{{flagicon|UKR}} [[Viktor Skrypnyk]] (SA)
+|[[FC Zorya Luhansk|Zorya Luhansk]]
+|align=center|<ref name=rd3upl/>
+|-
+|{{flagicon|BRA}} [[Fellipe Vieira]] (UPL)
+|[[FC Karpaty Lviv|Karpaty Lviv]]
+|align=center|<ref name=rd3liga>{{Cite web|url=https://upl.ua/ua/news/view/11856|title=Експерти визначили найкращого тренера, гравця та символічну збірну 3-го туру|date=19 August 2026}}</ref>
+|{{flagicon|UKR}} [[Viktor Skrypnyk]] (UPL)
+|[[FC Zorya Luhansk|Zorya Luhansk]]
+|align=center|<ref name=rd3liga />
+|-
+|rowspan=2|Round 4
+|{{flagicon|UKR}} [[Artem Kozak]] (SA)
+|[[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]]
+|align=center|<ref name=rd4upl>{{Cite web|url=https://sportarena.ua/uk/footboll/upl/kozhushko-nazarenko-sidun-avtor-het-trika-asistiv-i/|title=Кожушко, Назаренко, Сидун, автор хет-трика асистів і В’ячеслав Суркіс: уся збірна 4-го туру Прем’єр-Ліги|date=1 September 2026}}</ref>
+|{{flagicon|UKR}} [[Ruslan Rotan]] (SA)
+|[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+|align=center|<ref name=rd4upl/>
+|-
+|{{flagicon|UKR}} [[Artem Kozak]] (UPL)
+|[[FC Epitsentr Kamianets-Podilskyi|Epitsentr Kamianets-Podilskyi]]
+|align=center|<ref name=rd4liga>{{Cite web|url=https://upl.ua/ua/news/view/11909|title=Експерти визначили найкращого тренера, гравця та символічну збірну 4-го туру|date=2 September 2026}}</ref>
+|{{flagicon|UKR}} [[Ruslan Rotan]] (UPL)
+|[[FC Polissya Zhytomyr|Polissya Zhytomyr]]
+|align=center|<ref name=rd4liga/>
+|-
+|rowspan=2|Round 5
+|{{flagicon|NGA}} [[Peter Itodo]] (SA)
+|[[FC Kharkiv]]
+|align=center|<ref name=rd5upl>{{Cite web|url=https://sportarena.ua/uk/footboll/upl/itodo-krasnopir-fedotov-i-super-ivan-vsya-zbirna/|title=Ітодо, Краснопір, Федотов і Super Ivan: вся збірна 5-го туру Прем’єр-Ліги|date=7 September 2026}}</ref>
+|{{flagicon|CRO}} [[Mladen Bartulović]] (SA)
+|[[FC Kharkiv]]
+|align=center|<ref name=rd5upl/>
+|-
+|{{flagicon|NGA}} [[Peter Itodo]] (UPL)
+|[[FC Kharkiv]]
+|align=center|<ref name=rd5liga>{{Cite web|url=https://upl.ua/ua/news/view/11938|title=Експерти визначили найкращого тренера, гравця та символічну збірну 5-го туру|date=8 September 2026}}</ref>
+|{{flagicon|TUR}} [[Arda Turan]] (UPL)
+|[[FC Shakhtar Donetsk|Shakhtar Donetsk]]
+|align=center|<ref name=rd5liga/>
+|-
+|rowspan=2|Round 6
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 7
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 8
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 9
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 10
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 11
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 12
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 13
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 14
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 15
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 16
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|colspan=7 align=center bgcolor=lightgrey|winter break
+|-
+|rowspan=2|Round 17
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 18
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 19
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 20
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 21
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 22
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 23
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 24
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 25
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 26
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 27
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 28
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 29
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|rowspan=2|Round 30
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|
+|
+|align=center|
+|
+|
+|align=center|
+|-
+|}
+
+== Relegation play-offs ==
+<onlyinclude>{{#ifeq:{{{transcludesection|Relegation play-offs}}}|Relegation play-offs|
+
+{{TwoLegStart
+|team1 = Premier League teams
+|team2 = First League teams
+}}
+{{TwoLegResult| || x–x | || | }}
+{{TwoLegResult| || x–x | || | }}
+{{end}}
+
+===First Semi-final===
+{{#invoke:football box|main
+|date       = 
+|time       = 
+|team1      = 
+|score      = 
+|report     = 
+|team2      =  
+|goals1     = 
+
+|goals2     = 
+
+|location   = 
+|stadium    = 
+|attendance = 
+|referee    = 
+}}
+
+----
+{{#invoke:football box|main
+|date       = 
+|time       = 
+|team1      = 
+|score      = 
+|report     = 
+|team2      =  
+|goals1     = 
+
+|goals2     = 
+
+|location   = 
+|stadium    = 
+|attendance = 
+|referee    = 
+}}
+
+===Second Semi-final===
+{{#invoke:football box|main
+|date       = 
+|time       = 
+|team1      = 
+|score      = 
+|report     = 
+|team2      =  
+|goals1     = 
+
+|goals2     = 
+
+|location   = 
+|stadium    = 
+|attendance = 
+|referee    = 
+}}
+
+----
+{{#invoke:football box|main
+|date       = 
+|time       = 
+|team1      = 
+|score      = 
+|report     = 
+|team2      =  
+|goals1     = 
+
+|goals2     = 
+
+|location   = 
+|stadium    = 
+|attendance = 
+|referee    = 
+}}
+}}</onlyinclude>
+
+== See also ==
+* [[2026–27 Ukrainian Cup]]
+* [[2026–27 Ukrainian First League]]
+* [[2026–27 Ukrainian Second League]]
+* [[2026–27 Ukrainian Football Amateur League]]
+* [[2026–27 Ukrainian Premier League 2]] (Under-21)
+* [[2026–27 Ukrainian Women's Prime League]]
+* [[List of Ukrainian football transfers summer 2026]]
+* [[List of Ukrainian football transfers winter 2026–27]]
+
+==Notes==
+{{notelist-ua}}
+{{notelist}}
+
+==References==
+<references />
+
+== External links ==
+* [http://www.upl.ua/ Official website] of the [[Ukrainian Premier League]]
+
+{{Ukrainian Premier League}}
+{{2026–27 in European football (UEFA)}}
+{{2026–27 in Ukrainian football}}
+
+{{DEFAULTSORT:2026-27 Ukrainian Premier League}}
+[[Category:Ukrainian Premier League seasons]]
+[[Category:2026–27 in European men's top-tier association football leagues|Ukraine]]
+[[Category:2026–27 in Ukrainian association football leagues|1]]
+[[Category:Current association football seasons|Ukraine]]
+[[Category:Sports events affected by the Russian invasion of Ukraine]]

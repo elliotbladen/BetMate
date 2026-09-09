@@ -1,0 +1,4739 @@
+{
+  "cutoff_utc": "2026-09-09 23:13:40.992710+00:00",
+  "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
+  "source_archive": "outputs/football/ucl/2026-27/md01/_supporting/week_1_champions_league_prices/md1_remaining_normal_and_shadow/run/raw/uefa_team_news.html",
+  "source_sha256": "6b11ceedc10a256772989ecbdc790b12062c291487f6b44b89de8064ab595d61",
+  "source_published_at_utc": "2026-09-07T12:46:00Z",
+  "source_modified_at_utc": "2026-09-07T21:45:19Z",
+  "source_retrieved_at_utc": "2026-09-08T00:00:00Z",
+  "lineup_type": "uefa_predicted_not_confirmed",
+  "identity_overrides": [
+    {
+      "team": "Bodo/Glimt",
+      "name": "Haikin",
+      "player_id": "217655",
+      "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
+      "reason": "UEFA prints the goalkeeper as Haikin; the club's only senior goalkeeper of that name on the ESPN squad list is Nikita Haykin, an alternative transliteration of the same Cyrillic surname."
+    }
+  ],
+  "lineup_age_note": "The UEFA possible line-ups were last modified on 7 September 2026, three days before this snapshot. UEFA was unreachable for a fresher pull, so no matchday lineup news is included.",
+  "teams": {
+    "Fenerbahce": {
+      "espn_team": "Fenerbahce",
+      "latest_collected_match": "2026-08-26 19:00:00+00:00",
+      "collected_matches": 7,
+      "projected_players": [
+        {
+          "uefa_name": "Ederson",
+          "player_id": "176948",
+          "player_name": "Ederson",
+          "position_group": "GK",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5861111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 2.6129032258064515,
+            "roll_minutes": 52.75,
+            "history_rows": 8,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Mert Müldür",
+          "player_id": "266002",
+          "player_name": "Mert Müldür",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.06349206349206349,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 5.714285714285714,
+            "history_rows": 7,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Škriniar",
+          "player_id": "175195",
+          "player_name": "Milan Skriniar",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.875,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.125,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 78.75,
+            "history_rows": 8,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Aké",
+          "player_id": "159248",
+          "player_name": "Nathan Aké",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8388888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.2711038961038961,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 75.5,
+            "history_rows": 8,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Brown",
+          "player_id": "320982",
+          "player_name": "Archie Brown",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6571428571428571,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.14285714285714285,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.42857142857142855,
+            "roll_shots_on_target_p90": 0.2857142857142857,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 59.142857142857146,
+            "history_rows": 7,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "İsmail Yüksek",
+          "player_id": "305629",
+          "player_name": "Ismail Yüksek",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.173015873015873,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.5777310924369747,
+            "roll_shots_on_target_p90": 0.8214285714285714,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 15.571428571428571,
+            "history_rows": 7,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Kanté",
+          "player_id": "173556",
+          "player_name": "N'Golo Kanté",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9622222222222222,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.24657534246575344,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 86.6,
+            "history_rows": 5,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Kerem Aktürkoğlu",
+          "player_id": "306789",
+          "player_name": "Kerem Aktürkoglu",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8319444444444445,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.2864625302175665,
+            "roll_shots_p90": 1.418815471394037,
+            "roll_shots_on_target_p90": 1.168815471394037,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 74.875,
+            "history_rows": 8,
+            "latest_history": "2026-08-18 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Greenwood",
+          "player_id": "276221",
+          "player_name": "Mason Greenwood",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6277777777777778,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.28804347826086957,
+            "roll_assists_p90": 0.140625,
+            "roll_shots_p90": 4.071719720496894,
+            "roll_shots_on_target_p90": 0.7010869565217391,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 56.5,
+            "history_rows": 8,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Oğuz Aydın",
+          "player_id": "322813",
+          "player_name": "Oguz Aydin",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.22063492063492063,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 3.0789473684210527,
+            "roll_shots_on_target_p90": 2.740601503759398,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 19.857142857142858,
+            "history_rows": 7,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Muriqi",
+          "player_id": "240209",
+          "player_name": "Vedat Muriqi",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.725,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.515625,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 2.217369140006335,
+            "roll_shots_on_target_p90": 1.1684451219512195,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 65.25,
+            "history_rows": 8,
+            "latest_history": "2026-08-26 19:00:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/teams/436/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.118765+00:00",
+        "sha256": "995229c5d62949a61b4e5f8cc543cddb1b526c614cc62b021dcc78e5282adf72"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "124880",
+          "player_name": "Mert Günok",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "176948",
+          "player_name": "Ederson",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "275128",
+          "player_name": "Tarik Cetin",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "3126788",
+          "player_name": "Kuzey Sapaz",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "159248",
+          "player_name": "Nathan Aké",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "175195",
+          "player_name": "Milan Skriniar",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "222670",
+          "player_name": "Nélson Semedo",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "266002",
+          "player_name": "Mert Müldür",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "290511",
+          "player_name": "Munir Mercan",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "304866",
+          "player_name": "Jayden Oosterwolde",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "320982",
+          "player_name": "Archie Brown",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "340186",
+          "player_name": "Yiğit Demir",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "357205",
+          "player_name": "Kojo Peprah Oppong",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "380332",
+          "player_name": "Ognjen Mimovic",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "173556",
+          "player_name": "N'Golo Kanté",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "195821",
+          "player_name": "Marco Asensio",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "211923",
+          "player_name": "Irfan Can Kahveci",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "248676",
+          "player_name": "Matteo Guendouzi",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "261302",
+          "player_name": "Mert Yandas",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "305629",
+          "player_name": "Ismail Yüksek",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "311984",
+          "player_name": "Bartug Elmaz",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "371538",
+          "player_name": "Abdou Fall",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "139437",
+          "player_name": "Romelu Lukaku",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "240209",
+          "player_name": "Vedat Muriqi",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "276221",
+          "player_name": "Mason Greenwood",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "306789",
+          "player_name": "Kerem Aktürkoglu",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "322813",
+          "player_name": "Oguz Aydin",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "329486",
+          "player_name": "Nene Dorgeles",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "416476",
+          "player_name": "Alaettin Ekici",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "AS Roma": {
+      "espn_team": "AS Roma",
+      "latest_collected_match": "2026-04-05 18:45:00+00:00",
+      "collected_matches": 2,
+      "projected_players": [
+        {
+          "uefa_name": "Svilar",
+          "player_id": "238798",
+          "player_name": "Mile Svilar",
+          "position_group": "GK",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 4.5,
+            "roll_minutes": 90.0,
+            "history_rows": 2,
+            "latest_history": "2026-04-05 18:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Mancini",
+          "player_id": "212597",
+          "player_name": "Gianluca Mancini",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.75,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 1.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.5,
+            "roll_shots_on_target_p90": 1.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 67.5,
+            "history_rows": 2,
+            "latest_history": "2026-04-05 18:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Hermoso",
+          "player_id": "222529",
+          "player_name": "Mario Hermoso",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7740740740740741,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 69.66666666666667,
+            "history_rows": 3,
+            "latest_history": "2026-04-05 18:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Molina",
+          "player_id": "164826",
+          "player_name": "Nahuel Molina",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.44027777777777777,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.41666666666666663,
+            "roll_shots_p90": 6.125,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 39.625,
+            "history_rows": 8,
+            "latest_history": "2026-05-09 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Cristante",
+          "player_id": "169213",
+          "player_name": "Bryan Cristante",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 2,
+            "latest_history": "2026-04-05 18:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Koné",
+          "player_id": "285226",
+          "player_name": "Manu Koné",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Dybala",
+          "player_id": "164839",
+          "player_name": "Paulo Dybala",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Soulé",
+          "player_id": "323974",
+          "player_name": "Matìas Soulè",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6055555555555555,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.40625,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 54.5,
+            "history_rows": 2,
+            "latest_history": "2026-04-05 18:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Malen",
+          "player_id": "259481",
+          "player_name": "Donyell Malen",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5069444444444444,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.9774116847826086,
+            "roll_assists_p90": 0.17578125,
+            "roll_shots_p90": 3.2853380754475703,
+            "roll_shots_on_target_p90": 1.5781929347826087,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 45.625,
+            "history_rows": 8,
+            "latest_history": "2026-04-05 18:45:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [
+        {
+          "name": "N'Dicka",
+          "candidate_ids": []
+        },
+        {
+          "name": "Wesley França",
+          "candidate_ids": []
+        }
+      ],
+      "confirmed_out_conflicts": [],
+      "status": "requires_review",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/104/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.110077+00:00",
+        "sha256": "f22a628d87250d6ecbe1760c012a374c095f1ae612df68f67371717ed58dd171"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "206587",
+          "player_name": "Pierluigi Gollini",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "234300",
+          "player_name": "Devis Vásquez",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "238798",
+          "player_name": "Mile Svilar",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "398120",
+          "player_name": "Giorgio De Marzi",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "164826",
+          "player_name": "Nahuel Molina",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "212597",
+          "player_name": "Gianluca Mancini",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "222529",
+          "player_name": "Mario Hermoso",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "242593",
+          "player_name": "Evan Ndicka",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "271555",
+          "player_name": "Leonardo Balerdi",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "297296",
+          "player_name": "Anass Salah-Eddine",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "297300",
+          "player_name": "Devyne Rensch",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "332354",
+          "player_name": "Wesley",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "336104",
+          "player_name": "Konstantinos Koulierakis",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "340705",
+          "player_name": "Daniele Ghilardi",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "409371",
+          "player_name": "Emanuele Lulli",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "146335",
+          "player_name": "Marten de Roon",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "169213",
+          "player_name": "Bryan Cristante",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "204320",
+          "player_name": "Lorenzo Pellegrini",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "285226",
+          "player_name": "Manu Koné",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "360235",
+          "player_name": "Niccolò Pisilli",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "387204",
+          "player_name": "Rodrigo Mora",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "164839",
+          "player_name": "Paulo Dybala",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "250284",
+          "player_name": "Santiago Castro",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "259481",
+          "player_name": "Donyell Malen",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "323974",
+          "player_name": "Matìas Soulè",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "404546",
+          "player_name": "Antonio Arena",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "PSV Eindhoven": {
+      "espn_team": "PSV Eindhoven",
+      "latest_collected_match": "2026-09-05 18:00:00+00:00",
+      "collected_matches": 42,
+      "projected_players": [
+        {
+          "uefa_name": "Kovář",
+          "player_id": "277313",
+          "player_name": "Matej Kovár",
+          "position_group": "GK",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 2.75,
+            "roll_minutes": 90.0,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Dest",
+          "player_id": "266291",
+          "player_name": "Sergiño Dest",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8347222222222223,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.4244814174589456,
+            "roll_shots_p90": 1.002808988764045,
+            "roll_shots_on_target_p90": 0.6264044943820225,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 75.125,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Geertruida",
+          "player_id": "264828",
+          "player_name": "Lutsharel Geertruida",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.3902777777777778,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.1541095890410959,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 2.5380381604696676,
+            "roll_shots_on_target_p90": 0.28803816046966735,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 35.125,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Obispo",
+          "player_id": "245918",
+          "player_name": "Armando Obispo",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6069444444444444,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.2589285714285714,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 54.625,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Kostić",
+          "player_id": "174496",
+          "player_name": "Filip Kostic",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.12916666666666668,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.375,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.3977272727272727,
+            "roll_shots_on_target_p90": 0.375,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 11.625,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Sano",
+          "player_id": "341715",
+          "player_name": "Kodai Sano",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8833333333333333,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.16666666666666666,
+            "roll_shots_p90": 2.2777777777777777,
+            "roll_shots_on_target_p90": 1.0555555555555556,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 79.5,
+            "history_rows": 6,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Til",
+          "player_id": "240965",
+          "player_name": "Guus Til",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9375,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.4084507042253521,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 2.1434028246083887,
+            "roll_shots_on_target_p90": 0.9142646577137242,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 84.375,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Fernandez",
+          "player_id": "386885",
+          "player_name": "Noah Fernandez",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7208333333333333,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.2834507042253521,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.5374099802434515,
+            "roll_shots_on_target_p90": 0.6143330571665286,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 64.875,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Perišić",
+          "player_id": "103485",
+          "player_name": "Ivan Perisic",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7458333333333333,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.5808627581612258,
+            "roll_assists_p90": 0.44190140845070425,
+            "roll_shots_p90": 2.320054029914123,
+            "roll_shots_on_target_p90": 0.8933627581612258,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 67.125,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Pepi",
+          "player_id": "289120",
+          "player_name": "Ricardo Pepi",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8930555555555556,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.8495639534883721,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 3.700086250958344,
+            "roll_shots_on_target_p90": 1.3799314784053156,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 80.375,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Van Bommel",
+          "player_id": "340252",
+          "player_name": "Ruben Van Bommel",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8037037037037037,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.5970695970695971,
+            "roll_assists_p90": 0.38725490196078427,
+            "roll_shots_p90": 2.999784529196294,
+            "roll_shots_on_target_p90": 1.315018315018315,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 72.33333333333333,
+            "history_rows": 6,
+            "latest_history": "2026-09-05 18:00:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/148/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:34.390631+00:00",
+        "sha256": "bc5ec6518c049c9309e68b1732badcfc3b291ff1984a4e49a6898041e305bd12"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "190976",
+          "player_name": "Nick Olij",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "277313",
+          "player_name": "Matej Kovár",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "343607",
+          "player_name": "Tijn Smolenaars",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "388575",
+          "player_name": "Khadim Ngom",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "245918",
+          "player_name": "Armando Obispo",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "259136",
+          "player_name": "Mauro Júnior",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "264828",
+          "player_name": "Lutsharel Geertruida",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "266291",
+          "player_name": "Sergiño Dest",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "301279",
+          "player_name": "Kiliann Sildillia",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "304478",
+          "player_name": "Ryan Flamingo",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "364814",
+          "player_name": "Yarek Gasiorowski",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "386881",
+          "player_name": "Fabian Merién",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "174496",
+          "player_name": "Filip Kostic",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "239998",
+          "player_name": "Jerdy Schouten",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "240965",
+          "player_name": "Guus Til",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "287279",
+          "player_name": "Sven Mijnans",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "333399",
+          "player_name": "Paul Wanner",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "341715",
+          "player_name": "Kodai Sano",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "386885",
+          "player_name": "Noah Fernandez",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "405673",
+          "player_name": "Ayoni Santos",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "416395",
+          "player_name": "Shuryjano Cornecion",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "103485",
+          "player_name": "Ivan Perisic",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "168318",
+          "player_name": "Alassane Pléa",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "224042",
+          "player_name": "Sam Lammers",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "245805",
+          "player_name": "Dennis Man",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "289120",
+          "player_name": "Ricardo Pepi",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "325410",
+          "player_name": "Esmir Bajraktarevic",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "340252",
+          "player_name": "Ruben Van Bommel",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "346896",
+          "player_name": "Sami Ouaissa",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "399511",
+          "player_name": "Mikkel Hansen",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "414396",
+          "player_name": "Amir Bouhamdi",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Shakhtar Donetsk": {
+      "espn_team": "Shakhtar Donetsk",
+      "latest_collected_match": "2025-01-29 20:00:00+00:00",
+      "collected_matches": 8,
+      "projected_players": [
+        {
+          "uefa_name": "Riznyk",
+          "player_id": "276081",
+          "player_name": "Dmytro Riznyk",
+          "position_group": "GK",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 4.625,
+            "roll_minutes": 90.0,
+            "history_rows": 8,
+            "latest_history": "2025-01-29 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Bondar",
+          "player_id": "276070",
+          "player_name": "Valeriy Bondar",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.125,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 8,
+            "latest_history": "2025-01-29 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Matviyenko",
+          "player_id": "226181",
+          "player_name": "Mykola Matviyenko",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.25,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 8,
+            "latest_history": "2025-01-29 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Nazaryna",
+          "player_id": "235680",
+          "player_name": "Yehor Nazaryna",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 0.0,
+            "history_rows": 5,
+            "latest_history": "2025-01-22 17:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Ocheretko",
+          "player_id": "338311",
+          "player_name": "Oleh Ocheretko",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Marlon Gomes",
+          "player_id": "314851",
+          "player_name": "Marlon Gomes",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.4,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.13392857142857142,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 4.042379275653923,
+            "roll_shots_on_target_p90": 0.13392857142857142,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 36.0,
+            "history_rows": 8,
+            "latest_history": "2025-01-29 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Alisson Santana",
+          "player_id": "359420",
+          "player_name": "Alisson Santana",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Kauã Elias",
+          "player_id": "361432",
+          "player_name": "Kauã Elias",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Newertton",
+          "player_id": "361629",
+          "player_name": "Newertton",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.11666666666666667,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.20454545454545453,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 10.5,
+            "history_rows": 8,
+            "latest_history": "2025-01-29 20:00:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [
+        {
+          "name": "Vinícius Tobias",
+          "candidate_ids": []
+        },
+        {
+          "name": "Pedro Henrique",
+          "candidate_ids": []
+        }
+      ],
+      "confirmed_out_conflicts": [],
+      "status": "requires_review",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/493/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.345292+00:00",
+        "sha256": "1e7b92c5770d944c4798d153146f8384393bab0525e9d821b4480107ce34025b"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "276081",
+          "player_name": "Dmytro Riznyk",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "323228",
+          "player_name": "Kiril Fesiun",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "365668",
+          "player_name": "Denys Tvardovskyi",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "407170",
+          "player_name": "Rostyslav Bahlai",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "200651",
+          "player_name": "Marlon",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "226181",
+          "player_name": "Mykola Matviyenko",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "276070",
+          "player_name": "Valeriy Bondar",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "289554",
+          "player_name": "Irakli Azarovi",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "307928",
+          "player_name": "Vinicius Augusto",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "313078",
+          "player_name": "Pedrinho",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "314433",
+          "player_name": "Alaa Ghram",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "341774",
+          "player_name": "Alan Matturro",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "208788",
+          "player_name": "Oleksandr Karavaev",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "235680",
+          "player_name": "Yehor Nazaryna",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "253821",
+          "player_name": "Pedrinho",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "314851",
+          "player_name": "Marlon Gomes",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "326670",
+          "player_name": "Dmytro Kryskiv",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "338311",
+          "player_name": "Oleh Ocheretko",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "345648",
+          "player_name": "Eguinaldo",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "359420",
+          "player_name": "Alisson Santana",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "361629",
+          "player_name": "Newertton",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "365817",
+          "player_name": "Prosper Obah",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "380420",
+          "player_name": "Viktor Tsukanov",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "382379",
+          "player_name": "Gleiker Mendoza",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "382970",
+          "player_name": "Isaque",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "383068",
+          "player_name": "Lucas Ferreira",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "417344",
+          "player_name": "Bruninho",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "420713",
+          "player_name": "Denys Smetana",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "268019",
+          "player_name": "Lassina Traoré",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "361399",
+          "player_name": "Gabriel Teixeira",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "361432",
+          "player_name": "Kauã Elias",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "396504",
+          "player_name": "Luca Meirelles",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "417559",
+          "player_name": "Ryan Roberto",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Bayern Munich": {
+      "espn_team": "Bayern Munich",
+      "latest_collected_match": "2026-09-05 16:30:00+00:00",
+      "collected_matches": 49,
+      "projected_players": [
+        {
+          "uefa_name": "Neuer",
+          "player_id": "84774",
+          "player_name": "Manuel Neuer",
+          "position_group": "GK",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5833333333333334,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 1.25,
+            "roll_minutes": 52.5,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Laimer",
+          "player_id": "169189",
+          "player_name": "Konrad Laimer",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8125,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.5,
+            "roll_shots_p90": 0.75,
+            "roll_shots_on_target_p90": 0.125,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 73.125,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Upamecano",
+          "player_id": "222793",
+          "player_name": "Dayot Upamecano",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6805555555555556,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.375,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 61.25,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Tah",
+          "player_id": "188052",
+          "player_name": "Jonathan Tah",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6111111111111112,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.2904411764705882,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 55.0,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Davies",
+          "player_id": "236721",
+          "player_name": "Alphonso Davies",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5680555555555555,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.1814516129032258,
+            "roll_assists_p90": 1.354515050167224,
+            "roll_shots_p90": 0.6288200339558574,
+            "roll_shots_on_target_p90": 0.1814516129032258,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 51.125,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Kimmich",
+          "player_id": "190161",
+          "player_name": "Joshua Kimmich",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9375,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.625,
+            "roll_shots_p90": 1.0,
+            "roll_shots_on_target_p90": 0.125,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 84.375,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Pavlović",
+          "player_id": "359370",
+          "player_name": "Aleksandar Pavlovic",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5944444444444444,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.13392857142857142,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 0.7767857142857142,
+            "roll_shots_on_target_p90": 0.26785714285714285,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 53.5,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Olise",
+          "player_id": "286831",
+          "player_name": "Michael Olise",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7111111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.875,
+            "roll_assists_p90": 0.25,
+            "roll_shots_p90": 3.8538401253918497,
+            "roll_shots_on_target_p90": 1.7159090909090908,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 64.0,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Musiala",
+          "player_id": "303821",
+          "player_name": "Jamal Musiala",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6388888888888888,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.34090909090909094,
+            "roll_assists_p90": 0.25,
+            "roll_shots_p90": 3.5563590723067735,
+            "roll_shots_on_target_p90": 0.9273931015686512,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 57.5,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Luis Díaz",
+          "player_id": "257390",
+          "player_name": "Luis Díaz",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7916666666666666,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 2.75,
+            "roll_shots_on_target_p90": 1.125,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 71.25,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Kane",
+          "player_id": "142200",
+          "player_name": "Harry Kane",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8041666666666667,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.875,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 3.017857142857143,
+            "roll_shots_on_target_p90": 1.5,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 72.375,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 16:30:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/132/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:34.856238+00:00",
+        "sha256": "f159e70362df2bc5012cfaa562de245982d2b5525a0755bc99e54eef3257e2a7"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "84774",
+          "player_name": "Manuel Neuer",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "113733",
+          "player_name": "Sven Ulreich",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "323790",
+          "player_name": "Jonas Urbig",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "97111",
+          "player_name": "Hiroki Ito",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "120829",
+          "player_name": "Nathaniel Brown",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "157688",
+          "player_name": "Kim Min-Jae",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "188052",
+          "player_name": "Jonathan Tah",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "222793",
+          "player_name": "Dayot Upamecano",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "236721",
+          "player_name": "Alphonso Davies",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "276329",
+          "player_name": "Josip Stanisic",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "169189",
+          "player_name": "Konrad Laimer",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "190161",
+          "player_name": "Joshua Kimmich",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "286831",
+          "player_name": "Michael Olise",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "303821",
+          "player_name": "Jamal Musiala",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "304572",
+          "player_name": "Ismael Saibari",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "324660",
+          "player_name": "Tom Bischof",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "359370",
+          "player_name": "Aleksandar Pavlovic",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "402841",
+          "player_name": "Lennart Karl",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "405585",
+          "player_name": "David Daiber",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "409016",
+          "player_name": "Bara Sapoko Ndiaye",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "417373",
+          "player_name": "Maycon Cardozo",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "142200",
+          "player_name": "Harry Kane",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "178980",
+          "player_name": "Serge Gnabry",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "257390",
+          "player_name": "Luis Díaz",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Bodo/Glimt": {
+      "espn_team": "Bodo/Glimt",
+      "latest_collected_match": "2026-09-04 17:00:00+00:00",
+      "collected_matches": 35,
+      "projected_players": [
+        {
+          "uefa_name": "Haikin",
+          "player_id": "217655",
+          "player_name": "Nikita Haykin",
+          "position_group": "GK",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": {
+            "team": "Bodo/Glimt",
+            "name": "Haikin",
+            "player_id": "217655",
+            "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
+            "reason": "UEFA prints the goalkeeper as Haikin; the club's only senior goalkeeper of that name on the ESPN squad list is Nikita Haykin, an alternative transliteration of the same Cyrillic surname."
+          },
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 2.15625,
+            "roll_minutes": 93.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Sjøvold",
+          "player_id": "333755",
+          "player_name": "Fredrik Sjøvold",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.703125,
+            "roll_shots_on_target_p90": 0.34375,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 92.5,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Nielsen",
+          "player_id": "387380",
+          "player_name": "Villads Nielsen",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.375,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.125,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 33.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Bjørtuft",
+          "player_id": "269732",
+          "player_name": "Odin Bjørtuft",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.125,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.71875,
+            "roll_shots_on_target_p90": 0.09375,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 92.5,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Bjørkan",
+          "player_id": "238088",
+          "player_name": "Fredrik André Bjørkan",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.43327702702702703,
+            "roll_assists_p90": 0.140625,
+            "roll_shots_p90": 0.9823841698841698,
+            "roll_shots_on_target_p90": 0.43327702702702703,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 72.0,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Auklend",
+          "player_id": "303740",
+          "player_name": "Sondre Auklend",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8486111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.125,
+            "roll_assists_p90": 0.5367288961038961,
+            "roll_shots_p90": 1.7300959909655562,
+            "roll_shots_on_target_p90": 0.375,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 76.375,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Berg",
+          "player_id": "205924",
+          "player_name": "Patrick Berg",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.125,
+            "roll_assists_p90": 0.375,
+            "roll_shots_p90": 2.554570895522388,
+            "roll_shots_on_target_p90": 0.8125,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.875,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Brunstad Fet",
+          "player_id": "208353",
+          "player_name": "Sondre Brunstad Fet",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9402777777777778,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 0.988854895104895,
+            "roll_shots_on_target_p90": 0.375,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 84.625,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Blomberg",
+          "player_id": "307798",
+          "player_name": "Ole Didrik Blomberg",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9069444444444444,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.4861550632911392,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 1.1285601265822784,
+            "roll_shots_on_target_p90": 0.6285601265822784,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 81.625,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Helmersen",
+          "player_id": "218561",
+          "player_name": "Andreas Helmersen",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.775,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.725,
+            "roll_assists_p90": 0.225,
+            "roll_shots_p90": 3.3625,
+            "roll_shots_on_target_p90": 1.5656249999999998,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 69.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Hauge",
+          "player_id": "235789",
+          "player_name": "Jens Petter Hauge",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6888888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 1.4134461620469083,
+            "roll_assists_p90": 0.8112136803874092,
+            "roll_shots_p90": 2.7839818763326223,
+            "roll_shots_on_target_p90": 1.5696961620469083,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 62.0,
+            "history_rows": 8,
+            "latest_history": "2026-09-04 17:00:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:34.383154+00:00",
+        "sha256": "559fbf68ef12ef5a88c48f630a02e1fc9eb2987d3c1ca9016580984986882d63"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "217655",
+          "player_name": "Nikita Haykin",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "227625",
+          "player_name": "Julian Faye Lund",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "359286",
+          "player_name": "Isak Sjong",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "3130704",
+          "player_name": "Martin Lund Andersen",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "133225",
+          "player_name": "Mathias Olsen",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "176883",
+          "player_name": "Haitam Aleesami",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "218466",
+          "player_name": "Jostein Gundersen",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "238088",
+          "player_name": "Fredrik André Bjørkan",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "269732",
+          "player_name": "Odin Bjørtuft",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "302019",
+          "player_name": "Isak Dybvik Määttä",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "333755",
+          "player_name": "Fredrik Sjøvold",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "387380",
+          "player_name": "Villads Nielsen",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "3133979",
+          "player_name": "Tobias Solbakken",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "3133984",
+          "player_name": "Matias Bobo Høgsæt Jaiteh",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "203670",
+          "player_name": "Ulrik Saltnes",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "205924",
+          "player_name": "Patrick Berg",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "208353",
+          "player_name": "Sondre Brunstad Fet",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "235789",
+          "player_name": "Jens Petter Hauge",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "268460",
+          "player_name": "Joshua Kitolano",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "271088",
+          "player_name": "Hakon Evjen",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "303740",
+          "player_name": "Sondre Auklend",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "307798",
+          "player_name": "Ole Didrik Blomberg",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "319066",
+          "player_name": "Magnus Riisnaes",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "324932",
+          "player_name": "Joel Mvuka",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "383359",
+          "player_name": "Teo Ingilæ",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "3117493",
+          "player_name": "Kasper Johansen Solhaug",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "3133951",
+          "player_name": "Levi Monsen Yeboah",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "3133980",
+          "player_name": "Jesper Rabben Nygård",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "3133981",
+          "player_name": "Milton Käld",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "3133983",
+          "player_name": "Erling Eliassen",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "3140226",
+          "player_name": "Assan Sanyang",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "218561",
+          "player_name": "Andreas Helmersen",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "255311",
+          "player_name": "Ola Brynhildsen",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "285947",
+          "player_name": "August Mikkelsen",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "418004",
+          "player_name": "Hindrin Chooly",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "3133982",
+          "player_name": "Jakob Strand",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Como": {
+      "espn_team": "Como",
+      "latest_collected_match": "2026-08-30 16:30:00+00:00",
+      "collected_matches": 3,
+      "projected_players": [
+        {
+          "uefa_name": "Butez",
+          "player_id": "214740",
+          "player_name": "Jean Butez",
+          "position_group": "GK",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.3333333333333333,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 1.3333333333333333,
+            "roll_minutes": 90.0,
+            "history_rows": 3,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Yan Couto",
+          "player_id": "297084",
+          "player_name": "Yan Couto",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.09166666666666666,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 5.625,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 5.625,
+            "roll_shots_on_target_p90": 5.625,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 8.25,
+            "history_rows": 8,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Ramón",
+          "player_id": "380318",
+          "player_name": "Jacobo Ramón",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.32916666666666666,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.8125,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 29.625,
+            "history_rows": 8,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Chalobah",
+          "player_id": "227784",
+          "player_name": "Trevoh Chalobah",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6680555555555555,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.125,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 60.125,
+            "history_rows": 8,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Valle",
+          "player_id": "192146",
+          "player_name": "Álex Valle",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.575,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.140625,
+            "roll_assists_p90": 0.3629032258064516,
+            "roll_shots_p90": 0.515625,
+            "roll_shots_on_target_p90": 0.265625,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 51.75,
+            "history_rows": 8,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Perrone",
+          "player_id": "309241",
+          "player_name": "Máximo Perrone",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7555555555555555,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.3333333333333333,
+            "roll_shots_on_target_p90": 0.3333333333333333,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 68.0,
+            "history_rows": 3,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Da Cunha",
+          "player_id": "291285",
+          "player_name": "Lucas Da Cunha",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7296296296296296,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.6666666666666666,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 3.0768146582100067,
+            "roll_shots_on_target_p90": 1.0155038759689923,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 65.66666666666667,
+            "history_rows": 3,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Diao",
+          "player_id": "364742",
+          "player_name": "Assane Diao",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8518518518518519,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.4615384615384615,
+            "roll_shots_p90": 3.4576662666153397,
+            "roll_shots_on_target_p90": 1.1592128801431127,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 76.66666666666667,
+            "history_rows": 3,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Paz",
+          "player_id": "337970",
+          "player_name": "Nico Paz",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9666666666666667,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.3333333333333333,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 4.518518518518518,
+            "roll_shots_on_target_p90": 1.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 87.0,
+            "history_rows": 3,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Baturina",
+          "player_id": "311475",
+          "player_name": "Martin Baturina",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8513888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.31896551724137934,
+            "roll_assists_p90": 0.1939655172413793,
+            "roll_shots_p90": 2.773789029646762,
+            "roll_shots_on_target_p90": 0.9157511564339782,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 76.625,
+            "history_rows": 8,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Douvikas",
+          "player_id": "262071",
+          "player_name": "Anastasios Douvikas",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.962962962962963,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.3333333333333333,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 2.0416666666666665,
+            "roll_shots_on_target_p90": 1.0416666666666667,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 86.66666666666667,
+            "history_rows": 3,
+            "latest_history": "2026-08-30 16:30:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/2572/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.384225+00:00",
+        "sha256": "0fe03f7b8a29af2c1a69a82348a21dd6ffdde0bfbc7ba176aa119dcde4704ec0"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "108662",
+          "player_name": "Robert Sánchez",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "115025",
+          "player_name": "Mauro Vigorito",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "214740",
+          "player_name": "Jean Butez",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "175887",
+          "player_name": "Marc-Oliver Kempf",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "181060",
+          "player_name": "Edoardo Goldaniga",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "192146",
+          "player_name": "Álex Valle",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "227784",
+          "player_name": "Trevoh Chalobah",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "252372",
+          "player_name": "Alberto Dossena",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "297084",
+          "player_name": "Yan Couto",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "317233",
+          "player_name": "Kaiki",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "323273",
+          "player_name": "Ivan Smolcic",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "325553",
+          "player_name": "Willy Kambwala",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "380318",
+          "player_name": "Jacobo Ramón",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "264211",
+          "player_name": "Luis Milla",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "265912",
+          "player_name": "Maxence Caqueret",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "276822",
+          "player_name": "Samuele Ricci",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "291285",
+          "player_name": "Lucas Da Cunha",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "309241",
+          "player_name": "Máximo Perrone",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "311475",
+          "player_name": "Martin Baturina",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "337970",
+          "player_name": "Nico Paz",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "380970",
+          "player_name": "Adrian Lahdo",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "387723",
+          "player_name": "Mattia Liberali",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "248633",
+          "player_name": "Moise Kean",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "262071",
+          "player_name": "Anastasios Douvikas",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "337858",
+          "player_name": "Jayden Addai",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "364742",
+          "player_name": "Assane Diao",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "387491",
+          "player_name": "Jesús Rodriguez",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "RB Leipzig": {
+      "espn_team": "RB Leipzig",
+      "latest_collected_match": "2026-09-05 13:30:00+00:00",
+      "collected_matches": 29,
+      "projected_players": [
+        {
+          "uefa_name": "Vandevoordt",
+          "player_id": "277377",
+          "player_name": "Maarten Vandevoordt",
+          "position_group": "GK",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.875,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 2.375,
+            "roll_minutes": 78.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Baku",
+          "player_id": "258963",
+          "player_name": "Ridle Baku",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8569444444444444,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.4215146523322352,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.9249832157323055,
+            "roll_shots_on_target_p90": 0.7099761907937736,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 77.125,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Orbán",
+          "player_id": "162162",
+          "player_name": "Willi Orbán",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.125,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.625,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Lukeba",
+          "player_id": "319100",
+          "player_name": "Castello Lukeba",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7652777777777777,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.25,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 68.875,
+            "history_rows": 8,
+            "latest_history": "2026-08-29 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Raum",
+          "player_id": "249548",
+          "player_name": "David Raum",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.725,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.3002386002120891,
+            "roll_shots_p90": 0.625,
+            "roll_shots_on_target_p90": 0.375,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 65.25,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "El Aynaoui",
+          "player_id": "323807",
+          "player_name": "Neil El Aynaoui",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.3703703703703704,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.8000000000000002,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 33.333333333333336,
+            "history_rows": 3,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Seiwald",
+          "player_id": "305956",
+          "player_name": "Nicolas Seiwald",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8291666666666667,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.5673076923076923,
+            "roll_shots_on_target_p90": 0.2692307692307692,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 74.625,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Gruda",
+          "player_id": "357683",
+          "player_name": "Brajan Gruda",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5763888888888888,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.375,
+            "roll_shots_p90": 2.5148122481399415,
+            "roll_shots_on_target_p90": 1.2961224038886434,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 51.875,
+            "history_rows": 8,
+            "latest_history": "2026-08-29 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Bakayoko",
+          "player_id": "310131",
+          "player_name": "Johan Bakayoko",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.1736111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 4.831574675324675,
+            "roll_shots_on_target_p90": 1.4914772727272727,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 15.625,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Nkunku",
+          "player_id": "222176",
+          "player_name": "Christopher Nkunku",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5277777777777778,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.8653846153846154,
+            "roll_shots_p90": 1.3754826254826256,
+            "roll_shots_on_target_p90": 0.5357142857142857,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 47.5,
+            "history_rows": 4,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Nusa",
+          "player_id": "319368",
+          "player_name": "Antonio Nusa",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6986111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 4.104978354978355,
+            "roll_shots_on_target_p90": 3.054383116883117,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 62.875,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 13:30:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/11420/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.099424+00:00",
+        "sha256": "ca6453abaa4405ebb06edc45c49ff0d630e0198c578de9b5df75b726c0e7314b"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "193610",
+          "player_name": "Ørjan Nyland",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "200079",
+          "player_name": "Leopold Zingerle",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "277377",
+          "player_name": "Maarten Vandevoordt",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "162162",
+          "player_name": "Willi Orbán",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "201803",
+          "player_name": "Lukas Klostermann",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "220711",
+          "player_name": "Benjamin Henrichs",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "249548",
+          "player_name": "David Raum",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "258963",
+          "player_name": "Ridle Baku",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "318316",
+          "player_name": "Maxime Estève",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "319100",
+          "player_name": "Castello Lukeba",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "368003",
+          "player_name": "Max Finkgrafe",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "384380",
+          "player_name": "Abdoul Koné",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "274897",
+          "player_name": "Christoph Baumgartner",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "305956",
+          "player_name": "Nicolas Seiwald",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "307364",
+          "player_name": "Rocco Reitz",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "319368",
+          "player_name": "Antonio Nusa",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "323807",
+          "player_name": "Neil El Aynaoui",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "330233",
+          "player_name": "Ezechiel Banzuzi",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "364897",
+          "player_name": "Assan Ouédraogo",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "372232",
+          "player_name": "Andrija Maksimovic",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "388683",
+          "player_name": "Viggo Gebel",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "413837",
+          "player_name": "Benno Kaltefleiter",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "222176",
+          "player_name": "Christopher Nkunku",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "310131",
+          "player_name": "Johan Bakayoko",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "324766",
+          "player_name": "Rômulo",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "357683",
+          "player_name": "Brajan Gruda",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "363038",
+          "player_name": "Marc Guiu",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "366911",
+          "player_name": "Tidiam Gomis",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "387845",
+          "player_name": "Sani Suleiman",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "413839",
+          "player_name": "Samba Konate",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Manchester United": {
+      "espn_team": "Manchester United",
+      "latest_collected_match": "2026-05-03 14:30:00+00:00",
+      "collected_matches": 4,
+      "projected_players": [
+        {
+          "uefa_name": "Lammens",
+          "player_id": "301425",
+          "player_name": "Senne Lammens",
+          "position_group": "GK",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 2.0,
+            "roll_minutes": 90.0,
+            "history_rows": 4,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Dalot",
+          "player_id": "238902",
+          "player_name": "Diogo Dalot",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.75,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 4,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Yoro",
+          "player_id": "340206",
+          "player_name": "Leny Yoro",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.25,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 22.5,
+            "history_rows": 4,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Martínez",
+          "player_id": "233937",
+          "player_name": "Lisandro Martínez",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.5,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 2,
+            "latest_history": "2026-01-25 16:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Mazraoui",
+          "player_id": "239350",
+          "player_name": "Noussair Mazraoui",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.007407407407407407,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 0.6666666666666666,
+            "history_rows": 3,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Andrey Santos",
+          "player_id": "314858",
+          "player_name": "Andrey Santos",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.4986111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.3585884138628889,
+            "roll_shots_on_target_p90": 0.1906779661016949,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 44.875,
+            "history_rows": 8,
+            "latest_history": "2026-05-09 11:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Mainoo",
+          "player_id": "328466",
+          "player_name": "Kobbie Mainoo",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.25,
+            "roll_shots_p90": 1.0,
+            "roll_shots_on_target_p90": 0.5,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 4,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Mbeumo",
+          "player_id": "271170",
+          "player_name": "Bryan Mbeumo",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8055555555555556,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.6429883649724434,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 3.4028781383955913,
+            "roll_shots_on_target_p90": 1.2598897734231476,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 72.5,
+            "history_rows": 4,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Bruno Fernandes",
+          "player_id": "124091",
+          "player_name": "Bruno Fernandes",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 1.0,
+            "roll_shots_p90": 2.0,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 4,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Dorgu",
+          "player_id": "366781",
+          "player_name": "Patrick Dorgu",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6888888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.7037037037037037,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 3.407407407407407,
+            "roll_shots_on_target_p90": 1.037037037037037,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 62.0,
+            "history_rows": 3,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Šeško",
+          "player_id": "289155",
+          "player_name": "Benjamin Sesko",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.4013888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 1.125,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 3.1609573502722323,
+            "roll_shots_on_target_p90": 1.5,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 36.125,
+            "history_rows": 8,
+            "latest_history": "2026-05-03 14:30:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.123239+00:00",
+        "sha256": "bfe9dd40d36aee42f7af21b7058621e316da153379eff5516e854cd841c47a98"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "42250",
+          "player_name": "Tom Heaton",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "130877",
+          "player_name": "Karl Darlow",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "301425",
+          "player_name": "Senne Lammens",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "325550",
+          "player_name": "Dermot Mee",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "157073",
+          "player_name": "Harry Maguire",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "167127",
+          "player_name": "Luke Shaw",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "233937",
+          "player_name": "Lisandro Martínez",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "238902",
+          "player_name": "Diogo Dalot",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "239349",
+          "player_name": "Matthijs de Ligt",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "239350",
+          "player_name": "Noussair Mazraoui",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "340206",
+          "player_name": "Leny Yoro",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "356044",
+          "player_name": "Ayden Heaven",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "356940",
+          "player_name": "Harry Amass",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "366781",
+          "player_name": "Patrick Dorgu",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "124091",
+          "player_name": "Bruno Fernandes",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "193297",
+          "player_name": "Youri Tielemans",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "205081",
+          "player_name": "Jack Fletcher",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "231167",
+          "player_name": "Mason Mount",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "241468",
+          "player_name": "Manuel Ugarte",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "314858",
+          "player_name": "Andrey Santos",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "328466",
+          "player_name": "Kobbie Mainoo",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "338814",
+          "player_name": "Carlos Baleba",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "393138",
+          "player_name": "Tyler Fletcher",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "230945",
+          "player_name": "Marcus Rashford",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "259902",
+          "player_name": "Matheus Cunha",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "271170",
+          "player_name": "Bryan Mbeumo",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "276327",
+          "player_name": "Joshua Zirkzee",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "289155",
+          "player_name": "Benjamin Sesko",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "291630",
+          "player_name": "Amad Diallo",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "358180",
+          "player_name": "Shea Lacey",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Sabah FK": {
+      "espn_team": "Sabah FK",
+      "latest_collected_match": "2026-08-25 16:45:00+00:00",
+      "collected_matches": 8,
+      "projected_players": [
+        {
+          "uefa_name": "Pokatilov",
+          "player_id": "189045",
+          "player_name": "Stas Pokatilov",
+          "position_group": "GK",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 1.53125,
+            "roll_minutes": 93.75,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Solvet",
+          "player_id": "240479",
+          "player_name": "Steve Solvet",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.14285714285714285,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.5730337078651686,
+            "roll_shots_on_target_p90": 0.14285714285714285,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 94.14285714285714,
+            "history_rows": 7,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Dashdamirov",
+          "player_id": "290642",
+          "player_name": "Rahman Dashdamirov",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.125,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.09375,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 93.75,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Puchacz",
+          "player_id": "258421",
+          "player_name": "Tymoteusz Puchacz",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.625,
+            "roll_shots_p90": 0.5,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.0,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Zedadka",
+          "player_id": "204778",
+          "player_name": "Akim Zedadka",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9791666666666666,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 0.25,
+            "roll_shots_on_target_p90": 0.125,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 88.125,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Rakhmonaliev",
+          "player_id": "362336",
+          "player_name": "Umarali Rakhmonaliev",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9277777777777778,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.140625,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 1.59375,
+            "roll_shots_on_target_p90": 0.671875,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 83.5,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Lepinjica",
+          "player_id": "260848",
+          "player_name": "Ivan Lepinjica",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 0.25,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 91.25,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Parris",
+          "player_id": "268529",
+          "player_name": "Kaheem Parris",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.39166666666666666,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.8653846153846154,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.5302197802197801,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 35.25,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Mickels",
+          "player_id": "291791",
+          "player_name": "Joy Lance Mickels",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 1.0,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.5087746305418719,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 2.5,
+            "roll_shots_on_target_p90": 0.9375,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 90.875,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Simić",
+          "player_id": "193291",
+          "player_name": "Veljko Simic",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9763888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.75,
+            "roll_assists_p90": 0.125,
+            "roll_shots_p90": 0.7586206896551724,
+            "roll_shots_on_target_p90": 0.5043103448275862,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 87.875,
+            "history_rows": 8,
+            "latest_history": "2026-08-25 16:45:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [
+        {
+          "name": "Isaev",
+          "candidate_ids": []
+        }
+      ],
+      "confirmed_out_conflicts": [],
+      "status": "requires_review",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/21922/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.862155+00:00",
+        "sha256": "5c6a302cf91661041674173bb7d63bba8906c94041e2df5433ad5dc1fe74cb20"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "189045",
+          "player_name": "Stas Pokatilov",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "327995",
+          "player_name": "Amin Ramazanov",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "388497",
+          "player_name": "Ravan Mirzammadov",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "407499",
+          "player_name": "Rauf Ayyubov",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "204778",
+          "player_name": "Akim Zedadka",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "237718",
+          "player_name": "Tellur Mutallimov",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "240479",
+          "player_name": "Steve Solvet",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "258421",
+          "player_name": "Tymoteusz Puchacz",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "290642",
+          "player_name": "Rahman Dashdamirov",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "304354",
+          "player_name": "Júnior Almeida",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "332563",
+          "player_name": "Aden Mccarthy",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "3098819",
+          "player_name": "Cəfər Muxtarov",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "3100832",
+          "player_name": "Japhet Dungus Bulus",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "3105659",
+          "player_name": "Godfred Boakye",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "260848",
+          "player_name": "Ivan Lepinjica",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "268529",
+          "player_name": "Kaheem Parris",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "274346",
+          "player_name": "Rodrigo Fernandes",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "274878",
+          "player_name": "Aleksey Isayev",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "290575",
+          "player_name": "Zinédine Ould Khaled",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "316614",
+          "player_name": "Xander Severina",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "321356",
+          "player_name": "Du Queiroz",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "338216",
+          "player_name": "Abdulakh Khaybulaev",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "342959",
+          "player_name": "Rauf Rustamli",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "362336",
+          "player_name": "Umarali Rakhmonaliev",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "374108",
+          "player_name": "Khayal Aliyev",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "412121",
+          "player_name": "Sahin Ibrahimov",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "193291",
+          "player_name": "Veljko Simic",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "291791",
+          "player_name": "Joy Lance Mickels",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "308907",
+          "player_name": "Patrick Orphe M'Bina",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "350244",
+          "player_name": "Carlos Eduardo",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "385377",
+          "player_name": "Christian Nwachukwu",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "393322",
+          "player_name": "Younes Lachaab",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Slavia Prague": {
+      "espn_team": "Slavia Prague",
+      "latest_collected_match": "2026-01-28 20:00:00+00:00",
+      "collected_matches": 8,
+      "projected_players": [
+        {
+          "uefa_name": "Markovič",
+          "player_id": "291407",
+          "player_name": "Jakub Markovic",
+          "position_group": "GK",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.25,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 1.25,
+            "roll_minutes": 22.5,
+            "history_rows": 8,
+            "latest_history": "2026-01-28 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Vlček",
+          "player_id": "283008",
+          "player_name": "Tomás Vlcek",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5126984126984128,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 46.142857142857146,
+            "history_rows": 7,
+            "latest_history": "2026-01-21 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Zima",
+          "player_id": "290116",
+          "player_name": "David Zima",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9583333333333334,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.25,
+            "roll_shots_on_target_p90": 0.125,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 86.25,
+            "history_rows": 8,
+            "latest_history": "2026-01-28 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Chaloupek",
+          "player_id": "370744",
+          "player_name": "Stepán Chaloupek",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.7763888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.25,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.5,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 69.875,
+            "history_rows": 8,
+            "latest_history": "2026-01-28 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Isife",
+          "player_id": "417931",
+          "player_name": "Samuel Isife",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Nowak",
+          "player_id": "410093",
+          "player_name": "Wiktor Nowak",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Sadílek",
+          "player_id": "249525",
+          "player_name": "Michal Sadílek",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8333333333333334,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.5949410163339381,
+            "roll_shots_on_target_p90": 0.29605263157894735,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 75.0,
+            "history_rows": 8,
+            "latest_history": "2026-01-28 20:00:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Jurásek",
+          "player_id": "335996",
+          "player_name": "David Jurásek",
+          "position_group": "DEF",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Šturm",
+          "player_id": "322169",
+          "player_name": "Danijel Sturm",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Ayaosi",
+          "player_id": "3098601",
+          "player_name": "Emmanuel Dennis Ayaosi",
+          "position_group": "MID",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": null,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": null
+        },
+        {
+          "uefa_name": "Chorý",
+          "player_id": "257336",
+          "player_name": "Tomás Chorý",
+          "position_group": "ATT",
+          "side": "home",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6263888888888889,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.9035964035964035,
+            "roll_shots_on_target_p90": 0.5211038961038961,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 56.375,
+            "history_rows": 8,
+            "latest_history": "2026-01-28 20:00:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:35.617849+00:00",
+        "sha256": "1361ec11da810ce49982eb31c762c847987effb85abdceb4bf618c02f1e4f392"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "159130",
+          "player_name": "Ondrej Kolar",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "291407",
+          "player_name": "Jakub Markovic",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "412120",
+          "player_name": "Nazar Domchak",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "220165",
+          "player_name": "Ange N'Guessan",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "271265",
+          "player_name": "Igoh Ogbu",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "280885",
+          "player_name": "Tomás Holes",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "283008",
+          "player_name": "Tomás Vlcek",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "290116",
+          "player_name": "David Zima",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "335996",
+          "player_name": "David Jurásek",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "352303",
+          "player_name": "Mikulás Konecny",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "370744",
+          "player_name": "Stepán Chaloupek",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "395008",
+          "player_name": "Jakub Kolísek",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "413940",
+          "player_name": "Eliás Piták",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "417931",
+          "player_name": "Samuel Isife",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "3099524",
+          "player_name": "Oskar Kubiak",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "249525",
+          "player_name": "Michal Sadílek",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "256751",
+          "player_name": "David Moses",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "294618",
+          "player_name": "Lukás Provod",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "406125",
+          "player_name": "Toumani Diakité",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "410093",
+          "player_name": "Wiktor Nowak",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "418535",
+          "player_name": "Mubarak Suleiman",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "420913",
+          "player_name": "Pavel Kacor",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "3098601",
+          "player_name": "Emmanuel Dennis Ayaosi",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "175766",
+          "player_name": "Ivan Schranz",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "257336",
+          "player_name": "Tomás Chorý",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "322169",
+          "player_name": "Danijel Sturm",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "343733",
+          "player_name": "Mojmír Chytil",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "3098598",
+          "player_name": "Adonija Bryan Ouanda",
+          "position_group": "ATT"
+        }
+      ]
+    },
+    "Lens": {
+      "espn_team": "Lens",
+      "latest_collected_match": "2026-09-05 15:15:00+00:00",
+      "collected_matches": 21,
+      "projected_players": [
+        {
+          "uefa_name": "Risser",
+          "player_id": "344517",
+          "player_name": "Robin Risser",
+          "position_group": "GK",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.875,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 1.75,
+            "roll_minutes": 78.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Antonio",
+          "player_id": "393432",
+          "player_name": "Kyllian Antonio",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.3875,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.28846153846153844,
+            "roll_shots_p90": 0.25,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 34.875,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Ganiou",
+          "player_id": "350577",
+          "player_name": "Pierre Ganiou",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.9305555555555556,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.14240506329113925,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.3335815338793746,
+            "roll_shots_on_target_p90": 0.3924050632911392,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 83.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Todibo",
+          "player_id": "277327",
+          "player_name": "Jean-Clair Todibo",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6666666666666666,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 0.0,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 60.0,
+            "history_rows": 3,
+            "latest_history": "2026-05-10 15:30:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Skóraś",
+          "player_id": "288481",
+          "player_name": "Michal Skoras",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.48055555555555557,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.40178571428571425,
+            "roll_shots_p90": 0.12640449438202248,
+            "roll_shots_on_target_p90": 0.0,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 43.25,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Haidara",
+          "player_id": "228557",
+          "player_name": "Amadou Haidara",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.2861111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.18442622950819673,
+            "roll_shots_p90": 0.36885245901639346,
+            "roll_shots_on_target_p90": 0.18442622950819673,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 25.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Cuisance",
+          "player_id": "258871",
+          "player_name": "Michaël Cuisance",
+          "position_group": "MID",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6370370370370371,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.8736846365549618,
+            "roll_shots_on_target_p90": 1.4511494252873565,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 57.333333333333336,
+            "history_rows": 3,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Udol",
+          "player_id": "233199",
+          "player_name": "Matthieu Udol",
+          "position_group": "DEF",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.8458333333333333,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 1.25,
+            "roll_shots_on_target_p90": 0.25,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 76.125,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Thauvin",
+          "player_id": "156898",
+          "player_name": "Florian Thauvin",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.6986111111111111,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.8554788610871441,
+            "roll_assists_p90": 0.30942622950819676,
+            "roll_shots_p90": 3.5917716756626605,
+            "roll_shots_on_target_p90": 1.230478861087144,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 62.875,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Ivanović",
+          "player_id": "364180",
+          "player_name": "Franjo Ivanovic",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.33611111111111114,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.1814516129032258,
+            "roll_assists_p90": 0.45,
+            "roll_shots_p90": 1.1484644277507732,
+            "roll_shots_on_target_p90": 0.9670128148475474,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 30.25,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        },
+        {
+          "uefa_name": "Édouard",
+          "player_id": "222180",
+          "player_name": "Odsonne Édouard",
+          "position_group": "ATT",
+          "side": "away",
+          "identity_method": "unique normalized name-token match within the current team roster; goalkeeper separated",
+          "identity_override": null,
+          "lineup_source": null,
+          "expected_minutes_share": 0.5305555555555556,
+          "expected_minutes_method": "prior-eight-roster-row mean; scenario estimate, not a source observation",
+          "history": {
+            "roll_goals_p90": 0.0,
+            "roll_assists_p90": 0.0,
+            "roll_shots_p90": 4.900662123366153,
+            "roll_shots_on_target_p90": 2.0664768414349695,
+            "roll_saves_p90": 0.0,
+            "roll_minutes": 47.75,
+            "history_rows": 8,
+            "latest_history": "2026-09-05 15:15:00+00:00"
+          }
+        }
+      ],
+      "unresolved": [],
+      "confirmed_out_conflicts": [],
+      "status": "complete",
+      "roster_source": {
+        "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175/roster",
+        "retrieved_at_utc": "2026-09-09T22:55:34.872751+00:00",
+        "sha256": "f6c25fa8835c3fdfb3a63eba626a6010dd9260fc8bd2359b435c5b9622c84c68"
+      },
+      "available_recent_roster": [
+        {
+          "player_id": "101451",
+          "player_name": "Régis Gurtner",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "131742",
+          "player_name": "Mathieu Gorgelin",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "344517",
+          "player_name": "Robin Risser",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "403417",
+          "player_name": "Ilan Jourdren",
+          "position_group": "GK"
+        },
+        {
+          "player_id": "181946",
+          "player_name": "Ruben Aguilar",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "197187",
+          "player_name": "Jonathan Gradit",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "233199",
+          "player_name": "Matthieu Udol",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "277327",
+          "player_name": "Jean-Clair Todibo",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "286011",
+          "player_name": "Saud Abdulhamid",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "288487",
+          "player_name": "Maik Nawrocki",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "297385",
+          "player_name": "Jhoanner Chavez",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "329484",
+          "player_name": "Samson Baidoo",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "350577",
+          "player_name": "Pierre Ganiou",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "387044",
+          "player_name": "Nidal Celik",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "393432",
+          "player_name": "Kyllian Antonio",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "401306",
+          "player_name": "Souleymane Sagnan",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "158066",
+          "player_name": "Thorgan Hazard",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "228557",
+          "player_name": "Amadou Haidara",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "258871",
+          "player_name": "Michaël Cuisance",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "341720",
+          "player_name": "Yassine Titraoui",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "387061",
+          "player_name": "Andrija Bulatovic",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "412217",
+          "player_name": "Mezian Soares",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "156898",
+          "player_name": "Florian Thauvin",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "213535",
+          "player_name": "Moussa Diarra",
+          "position_group": "DEF"
+        },
+        {
+          "player_id": "215687",
+          "player_name": "Florian Sotoca",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "222180",
+          "player_name": "Odsonne Édouard",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "288481",
+          "player_name": "Michal Skoras",
+          "position_group": "MID"
+        },
+        {
+          "player_id": "308246",
+          "player_name": "Abdallah Sima",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "333228",
+          "player_name": "Junior Kadile",
+          "position_group": "ATT"
+        },
+        {
+          "player_id": "364180",
+          "player_name": "Franjo Ivanovic",
+          "position_group": "ATT"
+        }
+      ]
+    }
+  }
+}

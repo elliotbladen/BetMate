@@ -2,6 +2,8 @@
 
 The UCL player shadow has now been trained, evaluated and run. Nine 90-minute 1X2 research comparisons are saved.
 
+**The six remaining matchday-1 fixtures (Sydney 11 September) are priced in [`md1_remaining_normal_and_shadow/`](md1_remaining_normal_and_shadow/)** — 1X2 and O/U 2.5, normal and shadow, three of six priced normally and one of six in shadow mode. That folder holds the board, the frozen `predictions.csv`, every input and both runs, plus `run/settle.py` to score it once the matches are played.
+
 - [Normal versus player-shadow price board](player_shadow_final/report.md)
 - [Prices CSV](player_shadow_final/prices.csv)
 - [Full player, tier, source and calculation audit](player_shadow_final/prices.json)
