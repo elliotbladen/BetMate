@@ -22,7 +22,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-function validEvent(event: unknown): event is Record<string, unknown> {
+export function validAnalyticsEvent(event: unknown): event is Record<string, unknown> {
   if (!isRecord(event)) return false;
   if (typeof event.event_name !== 'string' || !EVENT_NAMES.has(event.event_name)) return false;
   if (typeof event.occurred_at_utc !== 'string' || typeof event.session_id !== 'string') return false;
@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
   let body: unknown;
   try { body = await req.json(); } catch { return NextResponse.json({ error: 'invalid JSON' }, { status: 400 }); }
   const events = Array.isArray(body) ? body : [body];
-  if (events.length < 1 || events.length > 20 || !events.every(validEvent)) {
+  if (events.length < 1 || events.length > 20 || !events.every(validAnalyticsEvent)) {
     return NextResponse.json({ error: 'invalid analytics event' }, { status: 400 });
   }
   const consented = events.filter((event) => event.consent_state !== 'denied');
