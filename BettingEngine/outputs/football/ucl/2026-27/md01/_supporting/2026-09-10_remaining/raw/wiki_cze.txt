@@ -1,0 +1,797 @@
+{{Infobox football league season
+|competition        = [[Czech First League]]
+|image              = 
+|pixels             = 
+|season             = 2026–27
+|dates              = 25 July 2026 – 29 May 2027
+|winners            = 
+|relegated          = 
+|continentalcup1    = 
+|continentalcup1 qualifiers = 
+|continentalcup2    = 
+|continentalcup2 qualifiers = 
+|continentalcup3    = 
+|continentalcup3 qualifiers = 
+|league topscorer   = [[Martin Šubert]] (5 goals)
+|biggest home win   = {{nowrap|[[SK Slavia Prague|Slavia]] 5–1 [[1. FC Slovácko|Slovácko]]}}<br>{{small|26 July 2026}}<br>{{nowrap|[[SK Slavia Prague|Slavia]] 4–0 [[FC Zbrojovka Brno|Zbrojovka]]}}<br>{{small|5 September 2026}}<br>{{nowrap|[[FK Mladá Boleslav|Ml. Boleslav]] 4–0 [[FC Baník Ostrava|Ostrava]]}}<br>{{small|6 September 2026}}
+|biggest away win   = {{nowrap|[[FC Baník Ostrava|Ostrava]] 0–4 [[SK Slavia Prague|Slavia]]}}<br>{{small|1 August 2026}}<br>{{nowrap|[[SK Artis Brno|Artis]] 0–4 [[AC Sparta Prague|Sparta]]}}<br>{{small|22 August 2026}}
+|highest scoring    = {{nowrap|[[FK Teplice|Teplice]] 5–5 [[FC Viktoria Plzeň|Plzeň]]}}<br>{{small|8 August 2026}}
+|matches            = 55
+|total goals        = 156
+|longest wins       = 
+|longest unbeaten   = 
+|longest winless    = 
+|longest losses     = 
+|highest attendance = 
+|lowest attendance  = 
+|attendance         = 
+|average attendance = 
+|prevseason         = [[2025–26 Czech First League|2025–26]]
+|nextseason         = ''[[2027–28 Czech First League|2027–28]]''
+|updated = 6 September 2026
+}}
+The '''2026–27 Czech First League''', known as the '''[[Czech First League|Chance Liga]]''' for sponsorship reasons, will be the 34th season of the [[Czech Republic]]'s top-tier [[association football|football]] for professional clubs since its establishment, in 1993. [[SK Slavia Prague|Slavia Prague]] are the reigning champions. The season is scheduled to start in July 2026. The first half of the season will have 18 rounds, finishing in December, and the other half will commence on 30 January 2027. The season is expected to end on 29 May 2027 with two extra play-out fixtures on 3–6 June 2027.<ref>{{cite web |title=Ligové grémium schválilo termínovou listinu pro sezonu 2026/27. Platby solidarity přinesou klubům více peněz|url=https://www.lfafotbal.cz/clanek/912-ligove-gremium-schvalilo-terminovou-listinu-pro-sezonu-2026-27-platby-solidarity-prinesou-klubum-vice-penez|publisher=League Football Association|language=cs|date=2025-12-03}}</ref><ref name=idnes>{{cite web |last=Novák|first=Miloslav|title=Příští sezona fotbalové ligy začne šest dnů po finále MS, bude opět s nadstavbou|url=https://www.idnes.cz/fotbal/prvni-liga/chance-liga-2026-2027-prvni-liga-terminova-listina-terminovka.A251203_131317_fotbal_min|work=[[iDNES.cz]]|language=cs|date=2025-12-03}}</ref>
+
+==Format==
+The general season format is unchanged from last season. The 16 clubs will play each other home and away, until the league is split up in championship, play-off and relegation groups. The lowest-ranked team will be relegated directly to the second league, and the two teams positioned 14th and 15th will play a play-out with two teams from the second league positioned 2nd and 3rd in a home and away format. [[Video assistant referee|VAR]] will be featured at all matches played. There are no changes in the rules. The only adjustment compared to last season is the match schedule, which has been adapted to the [[2026 FIFA World Cup]], and therefore only 18 rounds are planned for the autumn part of the league instead of the usual 19.<ref name=idnes/>
+
+==Teams==
+{{location map+ |Czech Republic |width=480 |float=right |caption=Locations of the '''2026–27 Czech First League''' teams |places=
+{{location map~ |Czech Republic |lat=50.083333 |long=14.416667 |marksize=12 |label='''Prague''' |position=bottom}}
+{{location map~ |Czech Republic |lat=50.734444 |long=15.168056 |label=<small>[[FK Jablonec|Jablonec]]</small>}}
+{{location map~ |Czech Republic |lat=50.776667 |long=15.046667 |label=<small>[[FC Slovan Liberec|Slovan&nbsp;Liberec]]</small> |position=left}}
+{{location map~ |Czech Republic |lat=50.4125   |long=14.904444 |label=<small>[[FK Mladá Boleslav|Mladá&nbsp;Boleslav]]</small>}}
+{{location map~ |Czech Republic |lat=49.6      |long=17.248333 |label=<small>{{nowrap|[[SK Sigma Olomouc|Sigma&nbsp;Olomouc]]}}</small> |position=left}}
+{{location map~ |Czech Republic |lat=50.20652  |long=15.845354 |label=<small>[[FC Hradec Králové|Hradec&nbsp;Králové]]</small> |position=left}}
+{{location map~ |Czech Republic |lat=49.804314 |long=18.255961 |label=<small>[[FC Baník Ostrava|Baník&nbsp;Ostrava]]</small> |position=left}}
+{{location map~ |Czech Republic |lat=50.038611 |long=15.779167 |label=<small>[[FK Pardubice|Pardubice]]</small> |position=bottom}}
+{{location map~ |Czech Republic |lat=49.7475   |long=13.3775   |label=<small>[[FC Viktoria Plzeň|Viktoria&nbsp;Plzeň]]</small> |position=bottom}}
+{{location map~ |Czech Republic |lat=49.05947  |long=17.44629  |label=<small>[[1. FC Slovácko|Slovácko]]</small> |position=right}}
+{{location map~ |Czech Republic |lat=50.633333 |long=13.816667 |label=<small>[[FK Teplice|Teplice]]</small> |position=left}}
+{{location map~ |Czech Republic |lat=49.227162 |long=16.586276 |marksize=12 |label='''Brno''' |position=bottom}}
+{{location map~ |Czech Republic |lat=49.233056 |long=17.666944 |label=<small>[[FC Zlín|Zlín]]</small> |position=top}}
+{{location map~ |Czech Republic |lat=51.1      |long=19.0      |mark=TransparentPlaceholder.png |label=<small>'''Prague&nbsp;teams:'''<br/>{{nowrap|[[Bohemians 1905]]}}<br/>[[SK Slavia Prague|Slavia Prague]]<br/>[[AC Sparta Prague|Sparta Prague]]<br/>'''Brno&nbsp;teams:'''<br/>[[SK Artis Brno|Artis Brno]]<br/>[[FC Zbrojovka Brno|Zbrojovka Brno]]</small>}}
+}}
+
+===Promotion and relegation (pre-season)===
+A total of sixteen teams contest the league, including thirteen sides from the 2025–26 season, the winner of last season's second league, and two winners of the play-out, determined on 30–31 May 2026.
+
+;Team promoted to Czech First League
+After being relegated in the [[2022–23 Czech First League|2022–23]] season, [[FC Zbrojovka Brno]] returns to Czech First League as the champion of the [[2025–26 Czech National Football League]].<ref>{{cite web |title=Zbrojovka se vrací do první ligy! Po remíze Artisu s Táborskem má o postupu jasno|url=https://www.idnes.cz/fotbal/domaci-souteze/zbrojovka-se-vraci-do-prvni-ligy-po-remize-artisu-s-taborskem-ma-o-postupu-jasno.A260420_190104_fot_dsouteze_tit|work=[[iDNES.cz]]|language=cs|date=2026-04-20|agency=[[Czech News Agency]]}}</ref>
+
+;Teams relegated from Czech First League
+The lowest positioned team from the [[2025–26 Czech First League|last season]], [[FK Dukla Prague]], was relegated to the Czech National Football League.
+
+;Karviná match-fixing
+On 15 June 2026, [[MFK Karviná]] was administratively relegated to the second-tier FNL by the Ethics Committee of the [[Football Association of the Czech Republic|FAČR]] due to alleged [[2026 Czech football match-fixing scandal|match-fixing]].<ref>{{cite news |last=Smrkovský|first=Lukáš|url=https://ct24.ceskatelevize.cz/clanek/domaci/eticka-komise-facr-vyloucila-karvinou-z-prvni-ligy-kvuli-ovlivnovani-zapasu-374612|title=Etická komise FAČR vyloučila Karvinou z první ligy kvůli ovlivňování zápasů|work=[[ČT24]]|date=15 June 2026|access-date=26 June 2026|publisher=[[Czech Television]]|language=cs|agency=[[Czech News Agency]]}}</ref> The club appealed the decision and the fixtures of the 2026–27 season were drawn with Karviná as a member of the league. On 28 June 2026, the club decided to withdraw its appeal and leave the Czech First League. Because the 2025–26 season was officially concluded on 22 June, the Karviná's place in the league was preferentially offered to the Czech National Football League's last season best teams. After [[FC Silon Táborsko]] rejected the offer, Karviná was replaced by [[SK Artis Brno]].<ref>{{cite web |title=Artis Brno přijal nabídku od LFA a v příští sezoně bude hrát první ligu|url=https://www.seznamzpravy.cz/clanek/sport-fotbal-artis-brno-prijal-nabidku-od-lfa-a-v-pristi-sezone-bude-hrat-prvni-ligu-310003|work=Seznam Zprávy|language=cs|date=4 July 2026|access-date=4 July 2026}}</ref>
+
+===Locations and stadiums===
+{{col-start}}
+{{col-2}}
+{| class="wikitable sortable"
+|-
+! Team
+! Location
+! Stadium
+! Capacity
+! class="unsortable" | {{abbr|Ref.|References}}
+|-
+| [[SK Artis Brno]]
+| [[Brno]]
+| [[Městský fotbalový stadion Srbská]]
+| align="center" | 10,785
+| style="text-align:center" |<ref>{{cite web |title=Club info SK Artis Brno|url=http://en.chanceliga.cz/klub/2027/stadion/41-sk-artis-brno#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[Bohemians 1905]]
+| [[Prague]]
+| [[Ďolíček]]
+| align="center" | 6,300
+| style="text-align:center" |<ref>{{cite web |title=Club info Bohemians 1905|url=http://en.chanceliga.cz/klub/2027/stadion/20-bohemians-praha-1905#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FC Hradec Králové]]
+| [[Hradec Králové]]
+| [[Malšovická aréna]]
+| align="center" | 9,300
+| style="text-align:center" |<ref>{{cite web |title=Club info FC Hradec Králové|url=http://en.chanceliga.cz/klub/2027/stadion/11-fc-hradec-kralove#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FK Jablonec]]
+| [[Jablonec nad Nisou]]
+| [[Stadion Střelnice]]
+| align="center" | 5,690
+| style="text-align:center" |<ref>{{cite web |title=Club info FK Jablonec|url=http://en.chanceliga.cz/klub/2027/stadion/4-fk-jablonec#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FC Slovan Liberec]]
+| [[Liberec]]
+| [[Stadion u Nisy]]
+| align="center" | 9,900
+| style="text-align:center" |<ref>{{cite web |title=Club info FC Slovan Liberec|url=http://en.chanceliga.cz/klub/2027/stadion/7-fc-slovan-liberec#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FK Mladá Boleslav]]
+| [[Mladá Boleslav]]
+| [[Lokotrans Aréna]]
+| align="center" | 5,000
+| style="text-align:center" |<ref>{{cite web |title=Club info FK Mladá Boleslav|url=http://en.chanceliga.cz/klub/2027/stadion/8-fk-mlada-boleslav#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[SK Sigma Olomouc]]
+| [[Olomouc]]
+| [[Andrův stadion]]
+| align="center" | 12,474
+| style="text-align:center" |<ref>{{cite web |title=Club info SK Sigma Olomouc|url=http://en.chanceliga.cz/klub/2027/stadion/13-sk-sigma-olomouc#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FC Baník Ostrava]]
+| [[Ostrava]]
+| [[Městský stadion (Ostrava)]]
+| align="center" | 15,081
+| style="text-align:center" |<ref>{{cite web |title=Club info FC Baník Ostrava|url=http://en.chanceliga.cz/klub/2027/stadion/14-fc-banik-ostrava#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FK Pardubice]]
+| [[Pardubice]]
+| [[CFIG Arena]]
+| align="center" | 4,620
+| style="text-align:center" |<ref>{{cite web |title=Club info FK Pardubice|url=http://en.chanceliga.cz/klub/2027/stadion/39-fk-pardubice#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FC Viktoria Plzeň]]
+| [[Plzeň]]
+| [[Doosan Arena]]
+| align="center" | 11,597
+| style="text-align:center" |<ref>{{cite web |title=Club info FC Viktoria Plzeň|url=http://en.chanceliga.cz/klub/2027/stadion/6-fc-viktoria-plzen#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[SK Slavia Prague]]
+| [[Prague]]
+| [[Fortuna Arena]]
+| align="center" | 19,370
+| style="text-align:center" |<ref>{{cite web |title=Club info SK Slavia Praha|url=http://en.chanceliga.cz/klub/2027/stadion/5-sk-slavia-praha#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[1. FC Slovácko]]
+| [[Uherské Hradiště]]
+| [[Městský fotbalový stadion Miroslava Valenty]]
+| align="center" | 8,000
+| style="text-align:center" |<ref>{{cite web |title=Club info 1. FC Slovácko|url=http://en.chanceliga.cz/klub/2027/stadion/16-1-fc-slovacko#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[AC Sparta Prague]]
+| [[Prague]]
+| [[Stadion Letná|epet ARENA]]
+| align="center" | 18,349
+| style="text-align:center" |<ref>{{cite web |title=Club info AC Sparta Praha|url=http://en.chanceliga.cz/klub/2027/stadion/2-ac-sparta-praha#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FK Teplice]]
+| [[Teplice]]
+| [[Na Stínadlech]]
+| align="center" | 17,078
+| style="text-align:center" |<ref>{{cite web |title=Club info FK Teplice|url=http://en.chanceliga.cz/klub/2027/stadion/17-fk-teplice#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FC Zbrojovka Brno]]
+| [[Brno]]
+| [[Městský fotbalový stadion Srbská]]
+| align="center" | 10,785
+| style="text-align:center" |<ref>{{cite web |title=Club info FC Zbrojovka Brno|url=http://en.chanceliga.cz/klub/2027/stadion/9-fc-zbrojovka-brno#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|-
+| [[FC Zlín]]
+| [[Zlín]]
+| [[Letná Stadion (Zlín)]]
+| align="center" | 5,898
+| style="text-align:center" |<ref>{{cite web |title=Club info FC Zlín|url=http://en.chanceliga.cz/klub/2027/stadion/33-fc-zlin#tab|work=Chance Liga|access-date=2026-06-03}}</ref>
+|}
+{{col-1-of-2}}
+
+{| class="wikitable"
+! Rank
+! [[Regions of the Czech Republic|Region]]
+! Number of teams
+! Club(s)
+|-
+| align="center"|1
+| {{flag|Prague}}
+| align="center"|3
+| Bohemians 1905, Sparta Prague, Slavia Prague
+|-
+| align="center" rowspan=3|2
+| {{flag|Liberec Region|name=Liberec}}
+| align="center" rowspan=3|2
+| Jablonec, Slovan Liberec
+|-
+| {{flag|South Moravian Region|name=South Moravian}}
+| Artis Brno, Zbrojovka Brno
+|-
+| {{flag|Zlín Region|name=Zlín}}
+| Slovácko, Zlín
+|-
+| align="center" rowspan=7|5
+| {{flag|Central Bohemian Region|name=Central Bohemian}}
+| align="center" rowspan=7|1
+| Mladá Boleslav
+|-
+| {{flag|Hradec Králové Region|name=Hradec Králové}}
+| Hradec Králové
+|-
+| {{flag|Moravian-Silesian Region|name=Moravian-Silesian}}
+| Baník Ostrava
+|-
+| {{flag|Olomouc Region|name=Olomouc}}
+| Sigma Olomouc
+|-
+| {{flag|Pardubice Region|name=Pardubice}}
+| Pardubice
+|-
+| {{flag|Plzeň Region|name=Plzeň}}
+| Viktoria Plzeň
+|-
+| {{flag|Ústí nad Labem Region|name=Ústí nad Labem}}
+| Teplice
+|}
+{{col-end}}
+
+===Personnel and kits===
+{| class="wikitable sortable"
+|-
+! Team
+! Head coach
+! Captain
+! Kit manufacturer
+! Shirt sponsor
+|-
+| [[SK Artis Brno]]
+| {{#invoke:flag|icon|CZE}} [[Roman Nádvorník]]
+| {{#invoke:flag|icon|CZE}} [[Martin Pospíšil (footballer)|Martin Pospíšil]]
+| [[Kappa (brand)|Kappa]]
+| [[TEDOM]]
+|-
+| [[FC Baník Ostrava|Baník Ostrava]]
+| {{#invoke:flag|icon|CZE}} [[Roman Skuhravý]]
+| {{#invoke:flag|icon|CZE}} [[Martin Jedlička]]
+| [[Macron (sportswear)|Macron]]
+| Fortuna
+|-
+| [[Bohemians Praha 1905]]
+| {{#invoke:flag|icon|CZE}} Jaroslav Veselý
+| {{#invoke:flag|icon|CZE}} [[Aleš Čermák]]
+| [[Puma (brand)|Puma]]
+| Balshop
+|-
+| [[FC Hradec Králové]]
+| {{#invoke:flag|icon|CZE}} [[David Horejš]]
+| {{#invoke:flag|icon|CZE}} [[Vladimír Darida]]
+| [[Jako]]
+| [[Tipsport]]
+|-
+| [[FK Jablonec]]
+| {{#invoke:flag|icon|CZE}} [[Luboš Kozel]]
+| {{#invoke:flag|icon|SRB}} [[Nemanja Tekijaški]]
+| [[Macron (sportswear)|Macron]]
+| Chance
+|-
+| [[FK Mladá Boleslav]]
+| {{#invoke:flag|icon|CZE}} [[Aleš Majer]]
+| {{#invoke:flag|icon|SVK}} [[Martin Králik]]
+| [[Puma (brand)|Puma]]
+| [[Škoda Auto]]
+|-
+| [[FK Pardubice]]
+| {{#invoke:flag|icon|CZE}} [[Jan Trousil]]
+| {{#invoke:flag|icon|CZE}} [[Vojtěch Patrák]]
+| [[Joma]]
+| [[Tipsport]]
+|-
+| [[SK Sigma Olomouc]]
+| {{#invoke:flag|icon|CZE}} [[Pavel Hapal]]
+| {{#invoke:flag|icon|CZE}} [[Jan Kliment]]
+| [[Adidas]]
+| Creditas
+|-
+| [[SK Slavia Prague]]
+| {{#invoke:flag|icon|CZE}} [[Jindřich Trpišovský]]
+| {{#invoke:flag|icon|CZE}} [[Tomáš Holeš]]
+| [[Castore]]
+| [[eToro]]
+|-
+| [[1. FC Slovácko]]
+| {{#invoke:flag|icon|CZE}} [[Jan Jelínek]]
+| {{#invoke:flag|icon|CZE}} [[Michal Trávník]]
+| [[Puma (brand)|Puma]]
+| Solar Global
+|-
+| [[FC Slovan Liberec]]
+| {{#invoke:flag|icon|SVK}} [[Branislav Fodrek]]
+| {{#invoke:flag|icon|CZE}} [[Tomáš Koubek]]
+| [[Nike, Inc.|Nike]]
+| [[Tipsport]]
+|-
+| [[AC Sparta Prague]]
+| {{#invoke:flag|icon|DEN}} [[Brian Priske]]
+| {{#invoke:flag|icon|CZE}} [[Adam Karabec]]
+| [[Adidas]]
+| [[Betano (company)|Betano]]
+|-
+| [[FK Teplice]]
+| {{#invoke:flag|icon|SVK}} [[Zdenko Frťala]]
+| {{#invoke:flag|icon|CZE}} Michal Bílek
+| [[Macron (sportswear)|Macron]]
+| AGC
+|-
+| [[FC Viktoria Plzeň]]
+| {{#invoke:flag|icon|CZE}} [[Radoslav Kováč]]
+| {{#invoke:flag|icon|CZE}} [[Matěj Vydra]]
+| [[Macron (sportswear)|Macron]]
+| [[Doosan]]
+|-
+| [[FC Zbrojovka Brno]]
+| {{#invoke:flag|icon|CZE}} [[Martin Svědík]]
+| {{#invoke:flag|icon|CZE}} [[Jakub Klíma]]
+| [[Puma (brand)|Puma]]
+| Fastav
+|-
+| [[FC Zlín]]
+| {{#invoke:flag|icon|CZE}} [[Pavel Hoftych]]
+| {{#invoke:flag|icon|CZE}} [[Tomáš Poznar]]
+| [[Adidas]]
+| PSG
+|}
+
+==Managerial changes==
+'''Pre-season:'''
+{| class="wikitable sortable"
+|-
+! Team
+! Outgoing manager
+! Manner of departure
+! Date of vacancy
+! Replaced by
+! Date of appointment
+! Contract valid until
+|-
+| [[1. FC Slovácko|Slovácko]] || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Roman|Skuhravý}}<ref>{{cite news|title=Slovácko potvrdilo konec zachránce Skuhravého. Úspěšný kouč míří do Baníku|url=https://www.eurofotbal.cz/clanky/slovacko-potvrdilo-konec-zachrance-skuhraveho-uspesny-kouc-miri-do-baniku-828109/|access-date=10 June 2026 |work=Eurofotbal.cz |language=cs|agency=[[Czech News Agency]]|date=10 June 2026}}</ref> || End of contract || {{#invoke:dts|main|format=dmy|2026|06|10}} || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Jan|Jelínek}}<ref>{{cite news|last=Kopl|first=Libor|title=Slovácko potvrdilo příchod Jelínka ze Slavie. Smlouvu podepsal na tři roky|url=https://slovacky.denik.cz/fotbal-prvni-liga/slovacko-forbal-novy-trener-jan-jelinek-slavia-praha-zlin-luhacovice/|access-date=16 June 2026 |work=[[Deník]] |language=cs|publisher=[[Vltava Labe Media]]|date=16 June 2026}}</ref> || {{#invoke:dts|main|format=dmy|2026|06|16}} || 2029
+|-
+| [[FC Baník Ostrava|Baník Ostrava]] || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Josef|Dvorník}}<ref name="skuhravydvornik">{{cite news |last1=Petrů|first1=Václav|last2=Tomaškovič|first2=Jiří|title=Baník potvrdil příchod nového trenéra. Nejtěžší rozhodnutí, chtěli jsme ho už na podzim, řekl Mikloško|url=https://www.sport.cz/clanek/fotbal-ceska-1-liga-necekany-obrat-skuhravy-odmitl-slovacko-a-stane-se-trenerem-baniku-5475953|access-date=10 June 2025 |work=Sport.cz |language=cs|publisher=Borgis|date=9 June 2025}}</ref> || Sacked || {{#invoke:dts|main|format=dmy|2026|06|10}} || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Roman|Skuhravý}}<ref name="skuhravydvornik" /> || {{#invoke:dts|main|format=dmy|2026|06|10}} || Undisclosed
+|-
+| [[FC Slovan Liberec|Slovan Liberec]] || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Radoslav|Kováč}}<ref>{{cite news|title=U fotbalistů Slovanu Liberec po dvou letech skončil trenér Kováč, mohl by ho nahradit slovenský kouč Branislav Fodrek|url=https://genus.cz/sport/u-fotbalistu-slovanu-liberec-po-dvou-letech-skoncil-trener-kovac-mohl-by-ho-nahradit-slovensky-kouc-branislav-fodrek-n736451.htm|access-date=18 June 2025 |work=Genus.cz |language=cs|publisher=GENUS TV|date=18 June 2025|agency=[[Czech News Agency]]}}</ref> || Sacked || {{#invoke:dts|main|format=dmy|2026|06|18}} || {{#invoke:flag|fbaicon|SVK}} {{#invoke:sort|name|Branislav|Fodrek}}<ref>{{cite news|last=Votava|first=Šimon|title=Liberec potvrdil nástupce Kováče. Slovan povede slovenský trenér Fodrek|url=https://www.eurofotbal.cz/clanky/liberec-potvrdil-kovacuv-konec-odpovednost-za-smerovani-klubu-ma-nezmar-rekl-kania-829353/|access-date=19 June 2025 |work=Eurofotbal.cz |language=cs|date=18 June 2025}}</ref> || {{#invoke:dts|main|format=dmy|2026|06|18}} ||Undisclosed
+|}
+
+'''During the season:'''
+{| class="wikitable sortable"
+|-
+! Team
+! Outgoing manager
+! Manner of departure
+! Date of vacancy
+! Match-week
+! Position in table
+! Replaced by
+! Date of appointment
+! Contract valid until
+|-
+| [[FC Viktoria Plzeň|Viktoria Plzeň]] || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Martin|Hyský}}<ref name=Kovac>{{cite news |last1= Nussbauer|first1=Michal|last2=Neumann|first2=Robert|title=Hotovo. Plzeň má nového trenéra|url=https://www.sport.cz/clanek/fotbal-ceska-1-liga-hotovo-plzen-ma-noveho-trenera-5517730|access-date=23 August 2026 |work=Sport.cz|language=cs|publisher=Borgis|date=23 August 2026}}</ref>|| Sacked || {{#invoke:dts|main|format=dmy|2026|08|21}} || 4 || 10th || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Radoslav|Kováč}}<ref name=Kovac/> || {{#invoke:dts|main|format=dmy|2026|08|23}} ||End of the season
+|-
+| [[FC Zlín|Zlín]] || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Bronislav|Červenka}}<ref name=Hoftych>{{#invoke:cite|web|last=Fojtík|first=Petr|title=Ve Zlíně skončil Červenka, poslední tým fotbalové ligy má převzít Hoftych|url=https://www.idnes.cz/fotbal/prvni-liga/ve-zline-skoncil-cervenka-posledni-tym-fotbalove-ligy-ma-prevzit-hoftych.A260907_140813_fotbal_mama|work=iDNES.cz|language=cs|date=7 September 2026|access-date=7 September 2026|publisher=Mafra}}</ref>|| Sacked || {{#invoke:dts|main|format=dmy|2026|09|07}} || 7 || 16th || {{#invoke:flag|fbaicon|CZE}} {{#invoke:sort|name|Pavel|Hoftych}}<ref name=Hoftych/> || {{#invoke:dts|main|format=dmy|2026|09|07}} ||End of 2026
+|}
+
+==Regular season==
+===League table===
+<onlyinclude>{{#invoke:Sports table|main|style=WDL
+|section=Regular season
+|source=[http://en.chanceliga.cz/tabulka Chance Liga]
+|update=9 September 2026
+<!--Update team positions here-->
+|team_order=SLA, LIB, MLA, OLO, JAB, TEP, ZBR, HKR, PLZ, SPA, OST, BOH, ART, SLO, PCE, ZLN
+
+<!--Update team qualifications here (defined below)-->
+|result1=CHGR |result2=CHGR |result3=CHGR |result4=CHGR |result5=CHGR |result6=CHGR |result7=EUPO |result8=EUPO |result9=EUPO |result10=EUPO |result11=REGR |result12=REGR |result13=REGR |result14=REGR |result15=REGR |result16=REGR
+
+<!--Update team results here and then (if needed) positions above. Don't forget to update the date (update parameter)-->
+|win_ART=1 |draw_ART=1 |loss_ART=5 |gf_ART=6 |ga_ART=16 <!-- Artis Brno -->
+|win_BOH=1 |draw_BOH=3 |loss_BOH=2 |gf_BOH=6 |ga_BOH=9  <!-- Bohemians 1905 -->
+|win_HKR=3 |draw_HKR=2 |loss_HKR=2 |gf_HKR=6 |ga_HKR=6  <!-- Hradec Králové -->
+|win_JAB=4 |draw_JAB=1 |loss_JAB=2 |gf_JAB=10|ga_JAB=6  <!-- Jablonec -->
+|win_LIB=5 |draw_LIB=1 |loss_LIB=1 |gf_LIB=10|ga_LIB=4  <!-- Slovan Liberec -->
+|win_MLA=4 |draw_MLA=2 |loss_MLA=0 |gf_MLA=15|ga_MLA=6  <!-- Mladá Boleslav -->
+|win_OLO=4 |draw_OLO=1 |loss_OLO=2 |gf_OLO=13|ga_OLO=8  <!-- Sigma Olomouc -->
+|win_OST=3 |draw_OST=0 |loss_OST=4 |gf_OST=4 |ga_OST=13 <!-- Baník Ostrava -->
+|win_PCE=0 |draw_PCE=2 |loss_PCE=5 |gf_PCE=5 |ga_PCE=12 <!-- Pardubice -->
+|win_PLZ=2 |draw_PLZ=4 |loss_PLZ=1 |gf_PLZ=14|ga_PLZ=12 <!-- Viktoria Plzeň -->
+|win_SLA=5 |draw_SLA=2 |loss_SLA=0 |gf_SLA=21|ga_SLA=5  <!-- Slavia Prague -->
+|win_SLO=0 |draw_SLO=3 |loss_SLO=4 |gf_SLO=5 |ga_SLO=12 <!-- Slovácko -->
+|win_SPA=3 |draw_SPA=0 |loss_SPA=4 |gf_SPA=13|ga_SPA=12 <!-- Sparta Prague -->
+|win_TEP=4 |draw_TEP=1 |loss_TEP=2 |gf_TEP=15|ga_TEP=13 <!-- Teplice -->
+|win_ZBR=4 |draw_ZBR=1 |loss_ZBR=2 |gf_ZBR=10|ga_ZBR=9  <!-- Zbrojovka Brno -->
+|win_ZLN=0 |draw_ZLN=0 |loss_ZLN=7 |gf_ZLN=6 |ga_ZLN=16 <!-- Zlín -->
+
+<!--Team definitions (wikilinks in table)-->
+|name_ART=[[SK Artis Brno|Artis Brno]]
+|name_BOH=[[Bohemians 1905]]
+|name_HKR=[[FC Hradec Králové|Hradec Králové]]
+|name_JAB=[[FK Jablonec|Jablonec]]
+|name_LIB=[[FC Slovan Liberec|Slovan Liberec]]
+|name_MLA=[[FK Mladá Boleslav|Mladá Boleslav]]
+|name_OLO=[[SK Sigma Olomouc|Sigma Olomouc]]
+|name_OST=[[FC Baník Ostrava|Baník Ostrava]]
+|name_PCE=[[FK Pardubice|Pardubice]]
+|name_PLZ=[[FC Viktoria Plzeň|Viktoria Plzeň]]
+|name_SLA=[[SK Slavia Prague|Slavia Prague]]
+|name_SLO=[[1. FC Slovácko|Slovácko]]
+|name_SPA=[[AC Sparta Prague|Sparta Prague]]
+|name_TEP=[[FK Teplice|Teplice]]
+|name_ZBR=[[FC Zbrojovka Brno|Zbrojovka Brno]]
+|name_ZLN=[[FC Zlín|Zlín]]
+
+<!--Table settings and rules-->
+|show_limit= 5
+|class_rules= 1) Points; 2) Head-to-head points; 3) Head-to-head goal difference; 4) Head-to-head goals scored; 5) Goal difference; 6) Goals scored; 7) Fair-play ranking; 8) Draw.<ref>{{cite web |title=Herní model|url=https://www.chanceliga.cz/text/122-herni-model-ligy|work=Chance Liga|language=cs|access-date=2026-06-03}}</ref>
+
+<!--Qualification and relegation column definitions-->
+|res_col_header=QR
+|col_CHGR=green1|text_CHGR=Qualification for the [[2026–27 Czech First League#Championship group|championship group]]
+|col_EUPO=blue1 |text_EUPO=Qualification for the [[2026–27 Czech First League#Middle group|middle group]]
+|col_REGR=red1  |text_REGR=Qualification for the [[2026–27 Czech First League#Relegation group|relegation group]]
+}}</onlyinclude>
+
+===Results===
+{{#invoke:sports results|main
+|source = [http://en.chanceliga.cz/rozpis-zapasu?type=1 Chance Liga]
+|update = 9 September 2026
+|a_note = yes
+|matches_style = FBR
+|team_order=ART, BOH, HKR, JAB, LIB, MLA, OLO, OST, PCE, PLZ, SLA, SLO, SPA, TEP, ZBR, ZLN
+
+|name_ART=[[SK Artis Brno|Artis Brno]]
+|name_BOH=[[Bohemians 1905]]
+|name_HKR=[[FC Hradec Králové|Hradec Králové]]
+|name_JAB=[[FK Jablonec|Jablonec]]
+|name_LIB=[[FC Slovan Liberec|Slovan Liberec]]
+|name_MLA=[[FK Mladá Boleslav|Mladá Boleslav]]
+|name_OLO=[[SK Sigma Olomouc|Sigma Olomouc]]
+|name_OST=[[FC Baník Ostrava|Baník Ostrava]]
+|name_PCE=[[FK Pardubice|Pardubice]]
+|name_PLZ=[[FC Viktoria Plzeň|Viktoria Plzeň]]
+|name_SLA=[[SK Slavia Prague|Slavia Prague]]
+|name_SLO=[[1. FC Slovácko|Slovácko]]
+|name_SPA=[[AC Sparta Prague|Sparta Prague]]
+|name_TEP=[[FK Teplice|Teplice]]
+|name_ZBR=[[FC Zbrojovka Brno|Zbrojovka Brno]]
+|name_ZLN=[[FC Zlín|Zlín]]
+
+| match_ART_BOH = 
+| match_ART_HKR = 
+| match_ART_JAB = 
+| match_ART_LIB = {{small|19 Sep}}
+| match_ART_MLA = 2–4
+| match_ART_OLO = 1–2
+| match_ART_OST = 
+| match_ART_PCE = 
+| match_ART_PLZ = 0–3
+| match_ART_SLA = 
+| match_ART_SLO = 
+| match_ART_SPA = 0–4
+| match_ART_TEP = 
+| match_ART_ZBR = 
+| match_ART_ZLN = 
+
+| match_BOH_ART = 
+| match_BOH_HKR = 0–0
+| match_BOH_JAB = 1–1
+| match_BOH_LIB = 
+| match_BOH_MLA = {{small|14 Oct}}
+| match_BOH_OLO = 
+| match_BOH_OST = 
+| match_BOH_PCE = 
+| match_BOH_PLZ = 
+| match_BOH_SLA = 
+| match_BOH_SLO = {{small|12 Sep}}
+| match_BOH_SPA = 
+| match_BOH_TEP = 
+| match_BOH_ZBR = 
+| match_BOH_ZLN = 
+
+| match_HKR_ART = 
+| match_HKR_BOH = 
+| match_HKR_JAB = 
+| match_HKR_LIB = 
+| match_HKR_MLA = 
+| match_HKR_OLO = 
+| match_HKR_OST = 2–1
+| match_HKR_PCE = 2–1
+| match_HKR_PLZ = 0–0
+| match_HKR_SLA = 
+| match_HKR_SLO = 
+| match_HKR_SPA = 2–1
+| match_HKR_TEP = {{small|20 Sep}}
+| match_HKR_ZBR = 
+| match_HKR_ZLN = 
+
+| match_JAB_ART = 
+| match_JAB_BOH = 
+| match_JAB_HKR = 
+| match_JAB_LIB = 1–2
+| match_JAB_MLA = 
+| match_JAB_OLO = 2–1
+| match_JAB_OST = 3–0
+| match_JAB_PCE = 
+| match_JAB_PLZ = 
+| match_JAB_SLA = 
+| match_JAB_SLO = 1–0
+| match_JAB_SPA = 
+| match_JAB_TEP = 
+| match_JAB_ZBR = 
+| match_JAB_ZLN = {{small|20 Sep}}
+
+| match_LIB_ART = 
+| match_LIB_BOH = 
+| match_LIB_HKR = 2–0
+| match_LIB_JAB = 
+| match_LIB_MLA = {{small|12 Sep}}
+| match_LIB_OLO = 
+| match_LIB_OST = 
+| match_LIB_PCE = 
+| match_LIB_PLZ = 
+| match_LIB_SLA = 1–1
+| match_LIB_SLO = 
+| match_LIB_SPA = 
+| match_LIB_TEP = 0–1
+| match_LIB_ZBR = 
+| match_LIB_ZLN = 
+
+| match_MLA_ART = 
+| match_MLA_BOH = 
+| match_MLA_HKR = 
+| match_MLA_JAB = 
+| match_MLA_LIB = 
+| match_MLA_OLO = 
+| match_MLA_OST = 4–0
+| match_MLA_PCE = 
+| match_MLA_PLZ = 
+| match_MLA_SLA = 
+| match_MLA_SLO = 2–1
+| match_MLA_SPA = 2–0
+| match_MLA_TEP = 
+| match_MLA_ZBR = {{small|19 Sep}}
+| match_MLA_ZLN = 
+
+| match_OLO_ART = 
+| match_OLO_BOH = 3–0
+| match_OLO_HKR = 
+| match_OLO_JAB = 
+| match_OLO_LIB = 
+| match_OLO_MLA = 2–2
+| match_OLO_OST = 
+| match_OLO_PCE = 3–1
+| match_OLO_PLZ = 
+| match_OLO_SLA = 
+| match_OLO_SLO = 
+| match_OLO_SPA = {{small|20 Sep}}
+| match_OLO_TEP = 
+| match_OLO_ZBR = 
+| match_OLO_ZLN = 
+
+| match_OST_ART = 1–0
+| match_OST_BOH = 
+| match_OST_HKR = 
+| match_OST_JAB = 
+| match_OST_LIB = 
+| match_OST_MLA = 
+| match_OST_OLO = 1–0
+| match_OST_PCE = {{small|13 Sep}}
+| match_OST_PLZ = 
+| match_OST_SLA = 0–4
+| match_OST_SLO = 
+| match_OST_SPA = 
+| match_OST_TEP = 
+| match_OST_ZBR = 
+| match_OST_ZLN = 
+
+| match_PCE_ART = 1–2
+| match_PCE_BOH = {{small|19 Sep}}
+| match_PCE_HKR = 
+| match_PCE_JAB = 0–2
+| match_PCE_LIB = 
+| match_PCE_MLA = 1–1
+| match_PCE_OLO = 
+| match_PCE_OST = 
+| match_PCE_PLZ = 
+| match_PCE_SLA = 
+| match_PCE_SLO = 
+| match_PCE_SPA = 
+| match_PCE_TEP = 
+| match_PCE_ZBR = 
+| match_PCE_ZLN = 
+
+| match_PLZ_ART = 
+| match_PLZ_BOH = 
+| match_PLZ_HKR = 
+| match_PLZ_JAB = 
+| match_PLZ_LIB = 1–3
+| match_PLZ_MLA = 
+| match_PLZ_OLO = {{small|13 Sep}}
+| match_PLZ_OST = 
+| match_PLZ_PCE = 
+| match_PLZ_SLA = 
+| match_PLZ_SLO = 1–1
+| match_PLZ_SPA = 
+| match_PLZ_TEP = 
+| match_PLZ_ZBR = 1–1
+| match_PLZ_ZLN = 3–2
+
+| match_SLA_ART = 
+| match_SLA_BOH = 2–2
+| match_SLA_HKR = 
+| match_SLA_JAB = 
+| match_SLA_LIB = 
+| match_SLA_MLA = 
+| match_SLA_OLO = 
+| match_SLA_OST = 
+| match_SLA_PCE = 2–1
+| match_SLA_PLZ = {{small|20 Sep}}
+| match_SLA_SLO = 5–1
+| match_SLA_SPA = [[Prague derby|a]]
+| match_SLA_TEP = 
+| match_SLA_ZBR = 4–0
+| match_SLA_ZLN = 
+
+| match_SLO_ART = 1–1
+| match_SLO_BOH = 
+| match_SLO_HKR = 
+| match_SLO_JAB = 
+| match_SLO_LIB = 
+| match_SLO_MLA = 
+| match_SLO_OLO = 1–2
+| match_SLO_OST = {{small|19 Sep}}
+| match_SLO_PCE = 0–0
+| match_SLO_PLZ = 
+| match_SLO_SLA = 
+| match_SLO_SPA = 
+| match_SLO_TEP = 
+| match_SLO_ZBR = 
+| match_SLO_ZLN = 
+
+| match_SPA_ART = 
+| match_SPA_BOH = 
+| match_SPA_HKR = 
+| match_SPA_JAB = {{small|12 Sep}}
+| match_SPA_LIB = 
+| match_SPA_MLA = 
+| match_SPA_OLO = 
+| match_SPA_OST = 
+| match_SPA_PCE = 
+| match_SPA_PLZ = 
+| match_SPA_SLA = [[Prague derby|0–3]]
+| match_SPA_SLO = 
+| match_SPA_TEP = 4–1
+| match_SPA_ZBR = 
+| match_SPA_ZLN = 3–1
+
+| match_TEP_ART = 
+| match_TEP_BOH = 3–1
+| match_TEP_HKR = 
+| match_TEP_JAB = 2–0
+| match_TEP_LIB = 
+| match_TEP_MLA = 
+| match_TEP_OLO = 
+| match_TEP_OST = 
+| match_TEP_PCE = 
+| match_TEP_PLZ = 5–5
+| match_TEP_SLA = {{small|13 Sep}}
+| match_TEP_SLO = 
+| match_TEP_SPA = 
+| match_TEP_ZBR = 0–2
+| match_TEP_ZLN = 
+
+| match_ZBR_ART = {{small|12 Sep}}
+| match_ZBR_BOH = 
+| match_ZBR_HKR = 1–0
+| match_ZBR_JAB = 
+| match_ZBR_LIB = 0–1
+| match_ZBR_MLA = 
+| match_ZBR_OLO = 
+| match_ZBR_OST = 
+| match_ZBR_PCE = 
+| match_ZBR_PLZ = 
+| match_ZBR_SLA = 
+| match_ZBR_SLO = 
+| match_ZBR_SPA = 3–1
+| match_ZBR_TEP = 
+| match_ZBR_ZLN = 3–2
+
+| match_ZLN_ART = 
+| match_ZLN_BOH = 0–2
+| match_ZLN_HKR = {{small|13 Sep}}
+| match_ZLN_JAB = 
+| match_ZLN_LIB = 0–1
+| match_ZLN_MLA = 
+| match_ZLN_OLO = 
+| match_ZLN_OST = 0–1
+| match_ZLN_PCE = 
+| match_ZLN_PLZ = 
+| match_ZLN_SLA = 
+| match_ZLN_SLO = 
+| match_ZLN_SPA = 
+| match_ZLN_ZBR = 
+| match_ZLN_TEP = 1–3
+}}
+
+==Season statistics==
+
+===Top scorers===
+{{updated|6 September 2026}}<ref>{{#invoke:cite|web|title=Statistiky: Hráči|url=https://www.chanceliga.cz/statistiky?status=0&season=2027&club=0&game_limit=0&nationality=&age=0&position=&order_dir=0&list_number=0&unit=1&parameter=2&order=6|work=Chance Liga}}</ref>
+{| class="wikitable" style="text-align:center"
+!Rank !! Player !! Club !! Goals
+|-
+|1
+|align="left"|{{#invoke:flag|icon|CZE}} [[Martin Šubert]]
+|align="left"|[[FK Mladá Boleslav|Mladá Boleslav]]
+|5
+|-
+|rowspan=4|2
+|align="left"|{{#invoke:flag|icon|CZE}} [[Mojmír Chytil]]
+|align="left"|[[SK Slavia Prague|Slavia]]
+|rowspan=4|4
+|-
+|align="left"|{{#invoke:flag|icon|POL}} [[Wiktor Nowak]]
+|align="left"|Slavia
+|-
+|align="left"|{{#invoke:flag|icon|CZE}} [[Daniel Vašulín]]
+|align="left"|[[FC Zbrojovka Brno|Zbrojovka]]
+|-
+|align="left"|{{#invoke:flag|icon|NGA}} [[John Auta]]
+|align="left"|[[FK Teplice|Teplice]]
+|-
+|6
+|align="left"|''12 players''
+|align="left"|
+|3
+|}
+
+===Clean sheets===
+{{updated|6 September 2026}}<ref>{{#invoke:cite|web|title=Statistiky: Brankáři|url=https://www.chanceliga.cz/statistiky?status=0&season=2027&club=0&game_limit=0&nationality=&age=0&position=0&list_number=0&unit=6|work=Chance Liga}}</ref>
+{| class="wikitable" style="text-align:center"
+|-
+!Rank
+!Player
+!Club
+!Clean sheets
+|-
+|rowspan=3|1
+|align="left"|{{#invoke:flag|fbaicon|CZE}} [[Martin Jedlička]]
+|align="left"| [[FC Baník Ostrava|Ostrava]]
+|rowspan=3|3
+|-
+|align="left"|{{#invoke:flag|icon|CZE}} [[Tomáš Koubek]]
+|align="left"|[[FC Slovan Liberec|Liberec]]
+|-
+|align="left"|{{#invoke:flag|icon|CZE}} [[Jakub Markovič]]
+|align="left"|[[SK Slavia Prague|Slavia]]
+|-
+|rowspan=5|4
+|align="left"|{{#invoke:flag|icon|SVK}} [[Tomáš Frühwald]]
+|align="left"|[[Bohemians 1905]]
+|rowspan=5|2
+|-
+|align="left"|{{#invoke:flag|icon|SVN}} [[Klemen Mihelak]]
+|align="left"|[[FK Jablonec|Jablonec]]
+|-
+|align="left"|{{#invoke:flag|icon|CZE}} [[Matouš Trmal]]
+|align="left"|[[FK Teplice|Teplice]]
+|-
+|align="left"|{{#invoke:flag|icon|CZE}} [[Adam Hrdina]]
+|align="left"|[[FC Zbrojovka Brno|Zbrojovka]]
+|-
+|align="left"|{{#invoke:flag|icon|CZE}} [[Jiří Floder]]
+|align="left"|[[FK Mladá Boleslav|Mladá Boleslav]]
+|-
+|9
+|align="left"|''6 players''
+|align="left"|
+|1
+|}
+
+==See also==
+*[[2026–27 Czech National Football League]]
+
+==References==
+{{reflist}}
+
+{{Czech First League}}
+{{2026–27 in Czech football}}
+{{2026–27 in European football (UEFA)}}
+
+{{DEFAULTSORT:Czech First League, 2026-27}}
+[[Category:2026–27 in European men's top-tier association football leagues]]
+[[Category:2026–27 in Czech football|1]]
+[[Category:Czech First League seasons|2026-27]]
+[[Category:Current association football seasons|Czech Republic 1]]

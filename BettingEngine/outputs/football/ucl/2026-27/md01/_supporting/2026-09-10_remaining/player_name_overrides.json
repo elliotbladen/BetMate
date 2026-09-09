@@ -1,0 +1,9 @@
+[
+  {
+    "team": "Bodo/Glimt",
+    "name": "Haikin",
+    "player_id": "217655",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
+    "reason": "UEFA prints the goalkeeper as Haikin; the club's only senior goalkeeper of that name on the ESPN squad list is Nikita Haykin, an alternative transliteration of the same Cyrillic surname."
+  }
+]
