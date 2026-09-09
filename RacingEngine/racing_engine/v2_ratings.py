@@ -30,6 +30,22 @@ SOURCE_PRIORITY = {
     "racing-com-rv-authorised": 2,
 }
 
+# The official Racing NSW PDF archive carries the race clock but NOT a usable
+# runner set: on the 1,006 races it shares with racing-com-nsw-authorised-v2 it
+# has fewer runners in 861 of them (10.5 vs 14.3 per race) and beaten lengths on
+# only 2.0% of rows against 75.0%.  So it must NOT own the result — but it is the
+# only NSW source with a clock at all.
+#
+# Before this, NSW had ZERO official times in the clean layer (0/1,388) against
+# Victoria's 99.8%, because `rnsw-authorised` is absent from SOURCE_PRIORITY and
+# was therefore filtered out entirely at load.  Any time-based figure could see
+# only Victoria, which is why Sydney horses could not post a competitive time
+# rating and the leaderboards skewed to Victorian runs.
+#
+# Fix: keep racing-com as the result/identity owner, and merge in the RNSW clock
+# for the same race.  Recovers 926 NSW race clocks.
+CLOCK_DONOR_SOURCE = "rnsw-authorised"
+
 # Holding figures, not immutable truths.  They implement the official
 # handicapping principle that historical race standards can anchor a race
 # until collateral form becomes sufficiently strong.
@@ -94,12 +110,32 @@ def class_family(text: str | None, classified: str | None = None) -> str:
     return "other"
 
 
+# Average race speed falls with distance, so a single 20.5 m/s ceiling was far too
+# loose — it admitted clocks like a 2000m in 99.1s (20.18 m/s, roughly 20 seconds
+# faster than any horse has run). Ceilings below are the fastest average speed
+# actually observed per band in the Victorian data (the trusted feed, 99.8% clock
+# coverage, zero races above 18.0 m/s) plus a little headroom for a genuine
+# record. The sprint ceiling is 18.0: 1100m at 18.24 m/s is 60.3s, faster than
+# the world record, so the NSW rows sitting above that are parse errors. Anything past that is a parse error, not a performance.
+SPEED_CEILING_BY_DISTANCE = ((1200, 18.0), (1600, 17.7), (2000, 17.4))
+SPEED_CEILING_STAYING = 17.3
+SPEED_FLOOR = 12.0
+
+
+def speed_ceiling(distance: int) -> float:
+    for limit, ceiling in SPEED_CEILING_BY_DISTANCE:
+        if distance <= limit:
+            return ceiling
+    return SPEED_CEILING_STAYING
+
+
 def plausible_race_clock(distance: int | None, seconds: float | None) -> tuple[bool, str]:
     if not distance or not seconds or seconds <= 0:
         return False, "missing_or_nonpositive"
     speed = distance / seconds
-    if speed < 12.0 or speed > 20.5:
-        return False, f"physically_implausible_average_speed_{speed:.2f}mps"
+    ceiling = speed_ceiling(distance)
+    if speed < SPEED_FLOOR or speed > ceiling:
+        return False, f"physically_implausible_average_speed_{speed:.2f}mps_vs_{ceiling}_ceiling"
     return True, "valid"
 
 
@@ -133,16 +169,31 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
         if row["source"] in SOURCE_PRIORITY:
             grouped[(row["race_date"], row["track_slug"], row["race_number"])].append(row)
     chosen = [max(values, key=lambda row: SOURCE_PRIORITY[row["source"]]) for values in grouped.values()]
-    quarantines = Counter(); runner_count = 0; timestamp = now()
+
+    # Clock donation: the chosen result source may not carry official_time_seconds
+    # (no NSW racing-com feed does).  Borrow it from the RNSW official archive for
+    # the same race, without letting that source own any other field.
+    donor_clock = {
+        (r["race_date"], r["track_slug"], r["race_number"]): r["official_time_seconds"]
+        for r in rows
+        if r["source"] == CLOCK_DONOR_SOURCE and r["official_time_seconds"] is not None
+    }
+
+    quarantines = Counter(); runner_count = 0; timestamp = now(); donated = 0
     for race in chosen:
         race_id = f"{race['race_date']}|{race['track_slug']}|{race['race_number']}"
-        valid_clock, clock_reason = plausible_race_clock(race["distance_metres"], race["official_time_seconds"])
+        official_time = race["official_time_seconds"]
+        if official_time is None:
+            borrowed = donor_clock.get((race["race_date"], race["track_slug"], race["race_number"]))
+            if borrowed is not None:
+                official_time = borrowed; donated += 1
+        valid_clock, clock_reason = plausible_race_clock(race["distance_metres"], official_time)
         family = class_family(race["race_class"], race["classified_family"])
         store.connection.execute(
             """INSERT INTO v2_clean_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (race_id,race["source"],race["race_date"],race["state"],race["track_slug"],race["race_number"],
              race["distance_metres"],race["race_class"],family,
-             race["official_time_seconds"] if valid_clock else None,
+             official_time if valid_clock else None,
              "valid" if valid_clock else "quarantined",race["source_url"],
              json.dumps({"identity_owner":"structured_result_card","clock_reason":clock_reason},sort_keys=True),timestamp))
         if not valid_clock:
@@ -160,7 +211,7 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
             if number in seen: continue
             seen.add(number)
             clock_ok, runner_reason = plausible_runner_clock(
-                race["official_time_seconds"] if valid_clock else None,
+                official_time if valid_clock else None,
                 runner["finish_time_seconds"],race["distance_metres"])
             store.connection.execute(
                 """INSERT INTO v2_clean_runner_results VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
@@ -175,7 +226,8 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
                 quarantines[runner_reason] += 1
     store.connection.commit()
     return {"races":len(chosen),"runners":runner_count,"quarantined":sum(quarantines.values()),
-            "quarantine_reasons":dict(quarantines),"excluded_identity_source":"rnsw-authorised"}
+            "quarantine_reasons":dict(quarantines),"excluded_identity_source":"rnsw-authorised",
+            "clocks_donated_from_rnsw":donated}
 
 
 def pounds_per_length(distance: int) -> float:
