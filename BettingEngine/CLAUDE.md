@@ -532,3 +532,67 @@ Use `--round 0` to auto-detect latest round.
 - Human stays in control — V1 recommends and logs, does not bet autonomously
 - Do not introduce black-box ML as the core engine
 - Do not build for AFL/EPL/racing yet — finish NRL V1 first
+
+---
+
+## NON-NEGOTIABLE ENGINEERING WORKFLOW
+
+These rules apply to every BetMate and BettingEngine change. They are required
+for portfolio quality and production reliability.
+
+### Before changing code
+
+1. Read the relevant `CLAUDE.md`, handover diary and architecture document.
+2. Check `git status` and identify unrelated work; never include it by accident.
+3. Create a focused feature branch. Do not work directly on `main` unless the
+   user explicitly requests an emergency hotfix.
+4. Write down the intended outcome and acceptance criteria before implementation.
+
+### During implementation
+
+1. Keep changes small and single-purpose.
+2. Preserve backward compatibility for API and data contracts unless a versioned
+   migration is included.
+3. Add tests for changed behaviour and data validation.
+4. Keep raw data, generated outputs and model artefacts traceable by run ID,
+   cutoff timestamp, source manifest and hash.
+5. Do not silently fabricate missing inputs, bypass fail-closed gates or enable
+   staking from shadow research.
+
+### Before committing
+
+Run the checks appropriate to the change and record them in the commit or PR:
+
+- `git diff --check`
+- Focused Python tests for engine changes
+- TypeScript, lint and build checks for BetMate changes
+- API contract and integration tests for boundary changes
+- Leakage, timestamp and reproducibility checks for data/model changes
+- Walk-forward evaluation and a written report for model changes
+
+Every commit must have a clear conventional message, for example:
+
+```text
+feat(engine): add timestamped NFL injury ingestion
+fix(api): reject stale pricing runs
+test(pricing): validate H2H probability coherence
+docs(analytics): define product event contract
+```
+
+### Pull requests and review
+
+All normal changes go through a GitHub pull request before merging. A PR must
+state the problem, resulting behaviour, files changed, tests run, data/model
+impact, risks and rollback or migration notes. UI changes include screenshots;
+model changes include the baseline, out-of-sample metrics and artifact hashes.
+
+The user reviews product behaviour and material model decisions. Codex or another
+developer performs the implementation review. CI must pass before merge.
+
+### After merging or deploying
+
+1. Verify the change in staging before production.
+2. Record the commit, run ID, deployment result and any follow-up work in a
+   handover diary.
+3. Keep `main` deployable and never leave a machine with uncommitted work at the
+   end of a session.
