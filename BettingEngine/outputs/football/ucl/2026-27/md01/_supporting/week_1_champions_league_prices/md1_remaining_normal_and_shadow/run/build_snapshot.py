@@ -19,7 +19,8 @@ from pathlib import Path
 import pandas as pd
 from bs4 import BeautifulSoup
 
-ROOT = Path(__file__).resolve().parents[7]
+ROOT = next(parent for parent in Path(__file__).resolve().parents
+            if (parent / "ml/football").is_dir())   # BettingEngine root, wherever this run is filed
 sys.path.insert(0, str(ROOT))
 from ml.football.ucl_player_features import player_prior
 from scripts.build_ucl_player_snapshot import normalize, resolve

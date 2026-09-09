@@ -1,7 +1,7 @@
 {
-  "cutoff_utc": "2026-09-09 22:57:04.700528+00:00",
+  "cutoff_utc": "2026-09-09 23:13:40.992710+00:00",
   "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
-  "source_archive": "outputs/football/ucl/2026-27/md01/_supporting/2026-09-10_remaining/raw/uefa_team_news.html",
+  "source_archive": "outputs/football/ucl/2026-27/md01/_supporting/week_1_champions_league_prices/md1_remaining_normal_and_shadow/run/raw/uefa_team_news.html",
   "source_sha256": "6b11ceedc10a256772989ecbdc790b12062c291487f6b44b89de8064ab595d61",
   "source_published_at_utc": "2026-09-07T12:46:00Z",
   "source_modified_at_utc": "2026-09-07T21:45:19Z",

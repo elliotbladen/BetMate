@@ -1,5 +1,5 @@
 {
-  "cutoff_utc": "2026-09-09T22:50:39.661208+00:00",
+  "cutoff_utc": "2026-09-09T23:13:35.111039+00:00",
   "status": "researched_scenario_not_production_promotion",
   "matchday": 1,
   "competition": "UEFA Champions League 2026/27 league phase",
@@ -88,7 +88,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/teams/436/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -102,7 +102,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/teams/436/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -116,7 +116,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/teams/436/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -138,7 +138,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_tur.1_436.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -198,7 +198,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/104/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -220,7 +220,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_ita.1_104.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -310,7 +310,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/148/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -324,7 +324,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/148/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -338,7 +338,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/148/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -352,7 +352,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/148/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -366,7 +366,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/148/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -380,7 +380,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams/148/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -402,7 +402,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_ned.1_148.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -487,7 +487,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/493/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -501,7 +501,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/493/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -515,7 +515,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/493/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -537,7 +537,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_uefa.champions_493.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -597,7 +597,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/132/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -619,7 +619,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_ger.1_132.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -699,7 +699,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -713,7 +713,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -727,7 +727,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -741,7 +741,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -755,7 +755,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -769,7 +769,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams/2980/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -793,7 +793,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_nor.1_2980.json",
         "rest_days": 6,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -870,7 +870,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_ita.1_2572.json",
         "rest_days": 6,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -920,7 +920,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/11420/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -934,7 +934,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/11420/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -948,7 +948,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/11420/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -962,7 +962,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/11420/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -986,7 +986,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_ger.1_11420.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -1056,7 +1056,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1070,7 +1070,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1084,7 +1084,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1098,7 +1098,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1112,7 +1112,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1126,7 +1126,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -1148,7 +1148,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_eng.1_360.json",
         "rest_days": 4,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -1184,7 +1184,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_uefa.champions_21922.json",
         "rest_days": null,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -1279,7 +1279,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1293,7 +1293,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1307,7 +1307,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1321,7 +1321,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1335,7 +1335,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1349,7 +1349,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -1373,7 +1373,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_uefa.champions_494.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"
@@ -1433,7 +1433,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1447,7 +1447,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1461,7 +1461,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1475,7 +1475,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1489,7 +1489,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           },
           {
@@ -1503,7 +1503,7 @@
             "source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
             "role_mapping": "ESPN squad position group mapped to the generic within-group role; no tactical position claimed. A full-back absent from a \"D\" group is therefore priced with centre-back weights.",
             "position_source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175/roster",
-            "retrieved_at_utc": "2026-09-09T22:50:39.661208+00:00",
+            "retrieved_at_utc": "2026-09-09T23:13:35.111039+00:00",
             "source_published_at_utc": "2026-09-07T12:25:09Z"
           }
         ],
@@ -1534,7 +1534,7 @@
         "predicted_lineup_source": "https://www.uefa.com/uefachampionsleague/news/02a9-2188cf675017-df8325ec95c3-1000--champions-league-predicted-line-ups-matchday-1-team-news-/",
         "predicted_not_confirmed": true,
         "source_published_at_utc": "2026-09-07T12:25:09Z",
-        "data_as_of_utc": "2026-09-09T22:50:39.661208+00:00",
+        "data_as_of_utc": "2026-09-09T23:13:35.111039+00:00",
         "espn_roster_file": "roster_fra.1_175.json",
         "rest_days": 5,
         "rest_basis": "calendar days since the latest verified domestic league match; cup and European fixtures were checked and none fall later"

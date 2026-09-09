@@ -88,3 +88,34 @@ Backward compatibility of the shadow-pricer change was checked by re-running the
 8 September job with its own defaults: `prices.csv` and the report price table come back
 byte-identical, because the totals block only appears when the baseline supplies totals
 and the 8 September baseline does not.
+
+## Follow-up in the same session — consolidated under week 1 and made settleable
+
+User asked for all of it to be saved in week 1 and said they want to see how the model
+goes next week.
+
+- The working run moved from `_supporting/2026-09-10_remaining/` to
+  `_supporting/week_1_champions_league_prices/md1_remaining_normal_and_shadow/run/`, so
+  the board, the frozen predictions, every raw source, both runs and the builders now sit
+  in one folder under week 1. `build_snapshot.py` no longer hardcodes a parent index — it
+  walks up to the directory containing `ml/football` — so the run is location-independent.
+- The whole chain was re-run from the new location so the paths and hashes recorded inside
+  `prices.json` match where the files actually live. Normal and shadow `prices.csv` come
+  back byte-identical to the pre-move run.
+- `run/build_predictions.py` writes `predictions.csv`: twelve rows (six fixtures × two
+  modes) with the probabilities frozen at the 10 September cutoff, each fixture's ESPN
+  event id sourced from the archived summaries, and empty result columns. Blocked
+  fixtures are kept as rows with empty probabilities so next week's coverage is visible
+  rather than implied.
+- `run/settle.py` fetches the final scores from the same ESPN endpoint, fills the result
+  columns and scores 1X2 (RPS, Brier, log loss, hit rate) and O/U 2.5 on both the raw and
+  isotonic tracks. It refuses to score a fixture that is not finished, and reports a
+  common-fixtures-only block alongside the per-mode table because normal priced three
+  fixtures and shadow one.
+- `rps` and `score` were checked against hand arithmetic: a perfect forecast scores 0, the
+  worst scores 1, and 0.5/0.3/0.2 on a home win scores 0.145.
+- Dry run today: 0 of 6 fixtures finished, nothing scored, as expected.
+
+**Caution for next week:** three fixtures in normal mode and one in shadow cannot separate
+the two modes, and the O/U 2.5 over-bias is a season-scale finding. Treat the settled
+numbers as a data point, not a verdict.
