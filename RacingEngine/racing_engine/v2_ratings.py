@@ -56,7 +56,17 @@ SOURCE_PRIORITY = {
 #
 # Split of ownership: racing-com owns RUNNER facts (identity, finishing order,
 # margins, weights); the official RNSW report owns RACE facts (distance, clock).
+#
+# ⚠ DONATION MUST BE IDENTITY-VERIFIED. The RNSW importer sometimes fetches the
+# WRONG MEETING for a date — 437 of the 1,006 shared races have a completely
+# different runner set. The clearest case is 2024-04-13 Randwick, where the RNSW
+# rows contain WINX, HARTNELL and HAPPY CLAPPER: that is the 2018 Queen Elizabeth,
+# not the 2024 card. Donating a clock or distance from those rows silently
+# attaches another meeting's facts to this one, which is worse than having no
+# clock at all. So a donation only happens when the two sources agree on who
+# actually ran.
 CLOCK_DONOR_SOURCE = "rnsw-authorised"
+DONOR_IDENTITY_OVERLAP = 0.80   # share of the smaller runner set that must match
 
 # Holding figures, not immutable truths.  They implement the official
 # handicapping principle that historical race standards can anchor a race
@@ -185,15 +195,36 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
     # Clock donation: the chosen result source may not carry official_time_seconds
     # (no NSW racing-com feed does).  Borrow it from the RNSW official archive for
     # the same race, without letting that source own any other field.
+    # Which donor races actually describe the same race? Compare runner identity.
+    donor_ok: set[tuple[str, str, int]] = set()
+    runners_by_source: dict[tuple[str, str, int], dict[str, set[str]]] = defaultdict(dict)
+    for row in store.connection.execute(
+            """SELECT race_date, track_slug, race_number, source, runner_name
+                 FROM runner_results WHERE race_date < ?""", (as_of_date,)):
+        k = (row["race_date"], row["track_slug"], row["race_number"])
+        runners_by_source[k].setdefault(row["source"], set()).add(identity_key(row["runner_name"]))
+    for k, per_source in runners_by_source.items():
+        donor = per_source.get(CLOCK_DONOR_SOURCE)
+        if not donor:
+            continue
+        for src, names in per_source.items():
+            if src == CLOCK_DONOR_SOURCE or not names:
+                continue
+            if len(donor & names) / max(1, min(len(donor), len(names))) >= DONOR_IDENTITY_OVERLAP:
+                donor_ok.add(k)
+                break
+
     donor_clock = {
         (r["race_date"], r["track_slug"], r["race_number"]): r["official_time_seconds"]
         for r in rows
         if r["source"] == CLOCK_DONOR_SOURCE and r["official_time_seconds"] is not None
+        and (r["race_date"], r["track_slug"], r["race_number"]) in donor_ok
     }
     donor_distance = {
         (r["race_date"], r["track_slug"], r["race_number"]): r["distance_metres"]
         for r in rows
         if r["source"] == CLOCK_DONOR_SOURCE and r["distance_metres"]
+        and (r["race_date"], r["track_slug"], r["race_number"]) in donor_ok
     }
 
     quarantines = Counter(); runner_count = 0; timestamp = now(); donated = 0; redistanced = 0
@@ -249,7 +280,11 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
     store.connection.commit()
     return {"races":len(chosen),"runners":runner_count,"quarantined":sum(quarantines.values()),
             "quarantine_reasons":dict(quarantines),"excluded_identity_source":"rnsw-authorised",
-            "clocks_donated_from_rnsw":donated,"distances_corrected_from_rnsw":redistanced}
+            "clocks_donated_from_rnsw":donated,"distances_corrected_from_rnsw":redistanced,
+            "donor_races_identity_verified":len(donor_ok),
+            "donor_races_rejected_wrong_meeting":len(runners_by_source and
+                {k for k,v in runners_by_source.items()
+                 if CLOCK_DONOR_SOURCE in v and k not in donor_ok})}
 
 
 def pounds_per_length(distance: int) -> float:

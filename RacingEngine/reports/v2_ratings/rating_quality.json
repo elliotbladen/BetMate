@@ -1,109 +1,41 @@
 {
   "form-first-v2.0": {
     "as_of_date": null,
+    "baselines": {
+      "coin_flip_concordance": 0.5,
+      "last_start_figure_concordance": 0.5704,
+      "official_rating_concordance": 0.5476,
+      "official_rating_pairs": 139210
+    },
     "concordance": {
-      "concordance": 0.5533,
-      "mean_race_concordance": 0.5607,
+      "concordance": 0.5526,
+      "mean_race_concordance": 0.5603,
       "pairs": 96716,
       "races": 2533,
       "ties": 1
     },
     "margin_calibration": {
       "note": "rating points implied per length beaten; compare with the engine's pounds-per-length scale (3.0 at 1000m to 1.0 at 2800m)",
-      "observations": 9653,
-      "points_per_length": 0.16
+      "observations": 9654,
+      "points_per_length": 0.164
     },
     "model_version": "form-first-v2.0",
     "note": "Rating-layer metrics only. Win probability, strike rate and ROI belong to the Pricing Engine (build plan stage 6).",
     "repeatability": {
-      "correlation": 0.6307,
-      "mean_abs_change_between_runs": 8.68,
+      "correlation": 0.6463,
+      "mean_abs_change_between_runs": 8.57,
       "pairs": 22213
     },
     "runs": 29541,
     "scale": {
       "max": 127.4,
       "median": 74.1,
-      "min": -200.5,
+      "min": -196.9,
       "n": 29541,
-      "p5": 48.8,
+      "p5": 49.0,
       "p95": 103.1,
-      "runs_over_120": 12,
+      "runs_over_120": 13,
       "runs_over_125": 1
-    },
-    "segments": {
-      "class": {
-        "benchmark": {
-          "concordance": 0.5305,
-          "pairs": 45312
-        },
-        "group_1": {
-          "concordance": 0.6026,
-          "pairs": 10538
-        },
-        "group_2": {
-          "concordance": 0.5907,
-          "pairs": 7847
-        },
-        "group_3": {
-          "concordance": 0.5616,
-          "pairs": 11094
-        },
-        "listed": {
-          "concordance": 0.5521,
-          "pairs": 7310
-        },
-        "open": {
-          "concordance": 0.5853,
-          "pairs": 1847
-        },
-        "other": {
-          "concordance": 0.5591,
-          "pairs": 12768
-        }
-      },
-      "distance": {
-        "1000-1200": {
-          "concordance": 0.5544,
-          "pairs": 31997
-        },
-        "1300-1600": {
-          "concordance": 0.5571,
-          "pairs": 41078
-        },
-        "1700-2000": {
-          "concordance": 0.5445,
-          "pairs": 16262
-        },
-        "2000+": {
-          "concordance": 0.5461,
-          "pairs": 7379
-        }
-      },
-      "field_size": {
-        "large (12+)": {
-          "concordance": 0.5437,
-          "pairs": 39958
-        },
-        "medium (8-11)": {
-          "concordance": 0.5569,
-          "pairs": 43977
-        },
-        "small (<8)": {
-          "concordance": 0.5707,
-          "pairs": 12781
-        }
-      },
-      "state": {
-        "NSW": {
-          "concordance": 0.5584,
-          "pairs": 51523
-        },
-        "VIC": {
-          "concordance": 0.5475,
-          "pairs": 45193
-        }
-      }
     }
   }
 }
