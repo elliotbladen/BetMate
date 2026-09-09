@@ -1,0 +1,13 @@
+{
+  "built_at": "2026-09-09T00:07:56+00:00",
+  "git_commit": "f6c42c3",
+  "seed_bytes": 50102704,
+  "excluded_tables": [
+    "horse_rating_states",
+    "run_performances"
+  ],
+  "race_results_max_date": "2026-08-29",
+  "race_results_rows": 4074,
+  "runner_results_rows": 52223,
+  "sectionals_rows": 43305
+}

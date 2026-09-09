@@ -19,10 +19,16 @@ the work machine had newer uncommitted data, and each side held work the other l
 work existed only in the work machine's working tree). Reconciled in commit `cefe758`.
 
 **Protocol — every session, both machines:**
-- **Start of session:** `& scripts\git-sync-start.ps1` — refuses to pull over a dirty
-  tree, fast-forward only, never auto-merges divergence.
-- **End of session:** `& scripts\git-sync-end.ps1 "what happened"` — commits everything
-  and pushes. NEVER leave a machine with uncommitted work.
+- **Start of session:**
+  - Windows: `& scripts\git-sync-start.ps1`
+  - macOS:   `./scripts/git-sync-start.sh`
+  Refuses to pull over a dirty tree, fast-forward only, never auto-merges
+  divergence, and **checks the RacingEngine seed against your local DB**.
+- **End of session:**
+  - Windows: `& scripts\git-sync-end.ps1 "what happened"`
+  - macOS:   `./scripts/git-sync-end.sh "what happened"`
+  **Rebuilds the RacingEngine seed if this machine is ahead of it**, then commits
+  everything and pushes. NEVER leave a machine with uncommitted work.
 - `git config pull.ff only` is set on the work machine — set it on the home machine too.
 - If sync-start reports divergence: stop and reconcile deliberately (diff both sides,
   keep the newer of each file) — never `git checkout --` or `git reset --hard` blind.
@@ -39,12 +45,30 @@ work existed only in the work machine's working tree). Reconciled in commit `cef
   was locking `.git/objects` mid-write. **Never put a working copy inside OneDrive / any
   file-sync folder.** Git is the only sync path between machines.
 - **Home machine (user `ElliotBladen`):** `C:\Users\ElliotBladen\Apps`.
-- The `scripts\git-sync-*.ps1` files hardcode `Set-Location "C:\Users\ElliotBladen\Apps"` —
-  wrong on this machine. Run the git steps from `F:\dev\BetMate` directly, or change that
-  line to `Set-Location (Split-Path $PSScriptRoot -Parent)` so it works on both.
-- **RacingEngine DB** is not synced: `git lfs pull` then `RacingEngine/restore_db.sh`
-  (+ `python -m racing_engine.performance --as-of <cutoff>` to rebuild the two excluded
-  V1 tables). The live `racing_engine.sqlite` never travels by git or sync.
+- **Fixed 2026-09-09:** the sync scripts no longer hardcode a path — they resolve the
+  repo root from their own location, so the same script works on every machine.
+  macOS equivalents (`git-sync-start.sh` / `git-sync-end.sh`) now exist too.
+- **RacingEngine DB (fixed 2026-09-09).** The live `racing_engine.sqlite` (18.5 GB)
+  never travels — but **91% of it is regenerable model output**: `run_performances`
+  (14.2 GB) and `horse_rating_states` (2.6 GB). The irreplaceable source data —
+  results, sectionals, cards, steward reports — is ~450 MB, **~52 MB gzipped**, and
+  DOES travel as `RacingEngine/data/seed/racing_seed.sql.gz` (Git LFS).
+
+  The seed only works if it is rebuilt after racing work. That is now automatic:
+  `scripts/racing_seed_status.py` compares the seed's manifest watermark
+  (`data/seed/seed_manifest.json` — max race date + row counts) against the live DB
+  and both sync scripts act on it. Exit 1 = local DB behind the seed, restore it;
+  exit 2 = local DB ahead, rebuild the seed before pushing.
+
+  Manual equivalents:
+  - Behind:  `cd RacingEngine && git lfs pull && ./restore_db.sh`
+  - Ahead:   `cd RacingEngine && python3 build_seed.py` then commit
+  - After restoring, regenerate the two excluded tables:
+    `python -m racing_engine.performance --as-of <cutoff>`
+
+  **Do not cloud-host this.** The sync problem is 52 MB, not 18.5 GB. A Postgres
+  migration would be a large change across 82 SQLite-native modules to solve a
+  problem the seed already solves.
 - The pre-monorepo standalone `BettingEngine` checkout was removed from this machine on
   2026-08-29 (was fully pushed to `github.com/elliotbladen/BettingEngine`).
 
