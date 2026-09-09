@@ -1,5 +1,18 @@
 # Horse Rating System — Audit & Review
 
+> ## Scope: this is a HORSE RATING ENGINE
+>
+> It rates runs and horses. It is not a tipping, pricing or betting model. The
+> Pricing Engine is a separate, later build (stage 6) and the rating is expected
+> to be **50-60% of its signal** — which is why the rating must be correct on its
+> own terms first.
+>
+> **Rating gates** (`python3 -m racing_engine.rating_quality`): concordance on
+> prior form, run-to-run repeatability, margin calibration, scale.
+> **Not rating gates**: win probability, top-pick strike rate, log loss, ROI.
+> Those belong to the Pricing Engine. Any strike-rate or log-loss figure in this
+> document is a DIAGNOSTIC, never a promotion gate.
+
 Date: 6 September 2026
 Model audited: `form-first-v2.0` (`racing_engine/v2_ratings.py`)
 Reviewer's brief: full audit + external benchmark against professional rating

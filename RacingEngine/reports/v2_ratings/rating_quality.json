@@ -1,0 +1,35 @@
+{
+  "form-first-v2.0": {
+    "as_of_date": null,
+    "concordance": {
+      "concordance": 0.5527,
+      "mean_race_concordance": 0.5605,
+      "pairs": 94279,
+      "races": 2476,
+      "ties": 1
+    },
+    "margin_calibration": {
+      "note": "rating points implied per length beaten; compare with the engine's pounds-per-length scale (3.0 at 1000m to 1.0 at 2800m)",
+      "observations": 9432,
+      "points_per_length": 0.165
+    },
+    "model_version": "form-first-v2.0",
+    "note": "Rating-layer metrics only. Win probability, strike rate and ROI belong to the Pricing Engine (build plan stage 6).",
+    "repeatability": {
+      "correlation": 0.6443,
+      "mean_abs_change_between_runs": 8.58,
+      "pairs": 21683
+    },
+    "runs": 28939,
+    "scale": {
+      "max": 127.4,
+      "median": 74.1,
+      "min": -196.9,
+      "n": 28939,
+      "p5": 48.9,
+      "p95": 103.0,
+      "runs_over_120": 12,
+      "runs_over_125": 1
+    }
+  }
+}

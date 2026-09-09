@@ -1,5 +1,18 @@
 # Rating model selection — which model is production, which is shadow
 
+> ## Scope: this is a HORSE RATING ENGINE
+>
+> It rates runs and horses. It is not a tipping, pricing or betting model. The
+> Pricing Engine is a separate, later build (stage 6) and the rating is expected
+> to be **50-60% of its signal** — which is why the rating must be correct on its
+> own terms first.
+>
+> **Rating gates** (`python3 -m racing_engine.rating_quality`): concordance on
+> prior form, run-to-run repeatability, margin calibration, scale.
+> **Not rating gates**: win probability, top-pick strike rate, log loss, ROI.
+> Those belong to the Pricing Engine. Any strike-rate or log-loss figure in this
+> document is a DIAGNOSTIC, never a promotion gate.
+
 Date: 8 September 2026
 Follow-up to `rating_system_audit_2026-09.md` (6 Sep).
 Question from the user: *"form-first-v3.0 — that's the one to use, right? Audit it.

@@ -327,7 +327,26 @@ def _softmax(xs):
 
 
 def prediction_test(store: RacingStore, as_of_date: str, *, walk_forward: bool = True) -> dict[str, Any]:
-    """v3.1 franked run figures vs par-v2 vs uniform, frozen naive protocol.
+    """DIAGNOSTIC ONLY — NOT A RATING GATE.
+
+    This fits a softmax temperature over the ratings and scores log loss and
+    top-pick strike. That is a PRICING-layer proxy: it measures
+    ratings -> probabilities -> picks, and the conversion step is not part of the
+    rating. It misjudges a rating in both directions — a well-ordered rating can
+    fail because one global temperature cannot map ratings to probabilities
+    across field sizes, distances and class (the engine's own note: "temperature
+    maxed the grid"), and a flat rating can pass by being calibrated in aggregate
+    while ordering fields badly.
+
+    THIS IS A HORSE RATING ENGINE. Judge it with racing_engine.rating_quality:
+    concordance on prior form, run-to-run repeatability, margin calibration and
+    scale. Win probability, strike rate and ROI belong to the Pricing Engine
+    (build plan stage 6 — "no profit claim is permitted from ratings alone").
+
+    Kept because it is a useful early read on whether the ratings will survive
+    the pricing layer. Never use it to promote or reject a rating.
+
+    v3.1 franked run figures vs par-v2 vs uniform, frozen naive protocol.
 
     WALK-FORWARD (default, and the only honest setting).
     Franking revises a race once its beaten field runs again, so a 2024 run's

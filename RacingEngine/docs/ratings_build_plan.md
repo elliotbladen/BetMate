@@ -1,5 +1,18 @@
 # RacingEngine ratings build plan
 
+> ## Scope: this is a HORSE RATING ENGINE
+>
+> It rates runs and horses. It is not a tipping, pricing or betting model. The
+> Pricing Engine is a separate, later build (stage 6) and the rating is expected
+> to be **50-60% of its signal** — which is why the rating must be correct on its
+> own terms first.
+>
+> **Rating gates** (`python3 -m racing_engine.rating_quality`): concordance on
+> prior form, run-to-run repeatability, margin calibration, scale.
+> **Not rating gates**: win probability, top-pick strike rate, log loss, ROI.
+> Those belong to the Pricing Engine. Any strike-rate or log-loss figure in this
+> document is a DIAGNOSTIC, never a promotion gate.
+
 Status: agreed direction as at 2026-08-20. This document preserves the design
 decisions and ordered work for the next build sessions. Build and validate one
 step at a time; do not silently promote several new rating inputs together.
