@@ -85,6 +85,7 @@ def schema(store: RacingStore) -> None:
       finish_position INTEGER NOT NULL, beaten_lengths REAL,
       par_v2_figure REAL NOT NULL, franking_revision REAL NOT NULL,
       performance_rating REAL NOT NULL, frank_contributors INTEGER NOT NULL,
+      frank_effective_from TEXT,
       confidence REAL NOT NULL, detail_json TEXT NOT NULL, created_at TEXT NOT NULL,
       PRIMARY KEY (model_version, as_of_date, race_date, track_slug, race_number, runner_number)
     )""")
@@ -152,9 +153,15 @@ def build_franked_runs(store: RacingStore, as_of_date: str) -> dict[str, Any]:
     for v in hist.values():
         v.sort()
 
-    def later_form(horse_key: str, after: str) -> float | None:
-        laters = [fig for d, fig in hist.get(horse_key, []) if after < d < as_of_date]
-        return statistics.median(laters[:FRANK_LATER_RUN_WINDOW]) if len(laters) >= FRANK_MIN_LATER_RUNS else None
+    def later_form(horse_key: str, after: str) -> tuple[float, str] | None:
+        """Median of the beaten horse's next few runs, plus the date that
+        evidence became available. The date is what makes the revision
+        effective-dated: before it, the franking simply did not exist."""
+        laters = [(d, fig) for d, fig in hist.get(horse_key, []) if after < d < as_of_date]
+        if len(laters) < FRANK_MIN_LATER_RUNS:
+            return None
+        window = laters[:FRANK_LATER_RUN_WINDOW]
+        return statistics.median(f for _d, f in window), window[-1][0]
 
     now = utc_now()
     counts = defaultdict(int)
@@ -166,31 +173,38 @@ def build_franked_runs(store: RacingStore, as_of_date: str) -> dict[str, Any]:
             continue
         winner_fig = winner["performance_rating"]
 
-        anchors, contributors = [], 0
+        anchors, contributors, contributor_dates = [], 0, []
         for r in rows:
             if r["finish_position"] in (None, 1) or r["finish_position"] > 5:
                 continue
-            lf = later_form(r["horse_key"], race_date)
-            if lf is None:
+            got = later_form(r["horse_key"], race_date)
+            if got is None:
                 continue
+            lf, evidence_date = got
             margin = abs(r["beaten_lengths"]) if r["beaten_lengths"] is not None else 0.5
             anchors.append(lf + _adj_margin(margin))
+            contributor_dates.append(evidence_date)
             contributors += 1
 
         revision = franking_revision(winner_fig, anchors, contributors)
+        # The revision only exists once FRANK_MIN_CONTRIBUTORS beaten horses have
+        # run again, so it becomes knowable on the date the Nth of them ran.
+        effective_from = None
         if revision:
             counts["franked"] += 1
+            effective_from = sorted(contributor_dates)[FRANK_MIN_CONTRIBUTORS - 1]
 
         for r in rows:
             fig = r["performance_rating"] + revision
             detail = {"par_v2_figure": r["performance_rating"], "franking_revision": revision,
                       "frank_contributors": contributors,
+                      "frank_effective_from": effective_from,
                       "frank_status": "franked" if revision else "not yet franked (beaten field has not run again)"}
             store.connection.execute(
-                """INSERT INTO franked_run_performances VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                """INSERT INTO franked_run_performances VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (RUN_MODEL_VERSION, as_of_date, race_date, track_slug, race_number, r["runner_number"],
                  r["horse_key"], r["horse_name"], r["finish_position"], r["beaten_lengths"],
-                 r["performance_rating"], revision, fig, contributors, r["confidence"],
+                 r["performance_rating"], revision, fig, contributors, effective_from, r["confidence"],
                  json.dumps(detail, sort_keys=True), now))
             written += 1
     store.connection.commit()
@@ -312,8 +326,22 @@ def _softmax(xs):
     return [x / s for x in e]
 
 
-def prediction_test(store: RacingStore, as_of_date: str) -> dict[str, Any]:
-    """v3.1 franked run figures vs par-v2 vs uniform, frozen naive protocol."""
+def prediction_test(store: RacingStore, as_of_date: str, *, walk_forward: bool = True) -> dict[str, Any]:
+    """v3.1 franked run figures vs par-v2 vs uniform, frozen naive protocol.
+
+    WALK-FORWARD (default, and the only honest setting).
+    Franking revises a race once its beaten field runs again, so a 2024 run's
+    franked figure contains 2025-26 form. Scoring a 2025 race with that figure
+    leaks the future: `prior()` filters the run DATES correctly, but the run
+    VALUES already knew what happened next. That is the increment-9 promotion
+    blocker, and it is why the headline 18.2% strike was optimistic.
+
+    With walk_forward=True a run contributes its franked figure only if the
+    franking was knowable before the race being predicted
+    (`frank_effective_from < race_date`); otherwise it contributes its unfranked
+    par-v2 base. Pass walk_forward=False only to reproduce the old, leaky number
+    for comparison — never to justify a promotion.
+    """
     def history(table, model, extra=""):
         h = defaultdict(list)
         for row in store.connection.execute(
@@ -322,6 +350,18 @@ def prediction_test(store: RacingStore, as_of_date: str) -> dict[str, Any]:
             h[row["horse_key"]].append((row["race_date"], float(row["performance_rating"])))
         return h
 
+    def franked_history_effective():
+        """(race_date, base, franked, effective_from) per horse."""
+        h = defaultdict(list)
+        for row in store.connection.execute(
+            """SELECT race_date, horse_key, par_v2_figure, performance_rating, frank_effective_from
+                 FROM franked_run_performances WHERE model_version=? AND as_of_date=?
+                ORDER BY race_date""", (RUN_MODEL_VERSION, as_of_date)):
+            h[row["horse_key"]].append((row["race_date"], float(row["par_v2_figure"]),
+                                        float(row["performance_rating"]), row["frank_effective_from"]))
+        return h
+
+    v31_eff = franked_history_effective()
     v31 = history("franked_run_performances", RUN_MODEL_VERSION)
     pv2 = history("par_run_performances", PAR_V2_MODEL)
     races = store.connection.execute(
@@ -331,6 +371,13 @@ def prediction_test(store: RacingStore, as_of_date: str) -> dict[str, Any]:
 
     def prior(h, k, day):
         vals = [v for d, v in h.get(k, []) if d < day]
+        return statistics.median(vals[-3:]) if vals else 100.0
+
+    def prior_walk_forward(k, day):
+        """Median of the horse's last 3 runs as the figures stood on `day`:
+        franked only where the franking evidence predates the race."""
+        vals = [(franked if (eff is not None and eff < day) else base)
+                for d, base, franked, eff in v31_eff.get(k, []) if d < day]
         return statistics.median(vals[-3:]) if vals else 100.0
 
     examples = []
@@ -348,7 +395,9 @@ def prediction_test(store: RacingStore, as_of_date: str) -> dict[str, Any]:
         if min(cov(v31), cov(pv2)) < 0.60:
             continue
         examples.append({"date": rc["race_date"], "winner": winner, "field": len(keys),
-                         "v31": [prior(v31, k, rc["race_date"]) for k in keys],
+                         "v31": [(prior_walk_forward(k, rc["race_date"]) if walk_forward
+                                  else prior(v31, k, rc["race_date"])) for k in keys],
+                         "v31_leaky": [prior(v31, k, rc["race_date"]) for k in keys],
                          "pv2": [prior(pv2, k, rc["race_date"]) for k in keys]})
 
     train = [e for e in examples if e["date"] < "2025-01-01"]
@@ -369,10 +418,20 @@ def prediction_test(store: RacingStore, as_of_date: str) -> dict[str, Any]:
 
     u = statistics.mean(math.log(e["field"]) for e in test)
     m31, mp2 = metrics("v31"), metrics("pv2")
-    return {"train_races": len(train), "test_races": len(test),
-            "par_v2": mp2, "form_first_v3_1": m31, "uniform_log_loss": u,
-            "v3_1_beats_uniform": m31["mean_log_loss"] < u,
-            "v3_1_beats_par_v2": m31["mean_log_loss"] < mp2["mean_log_loss"]}
+    leaky = metrics("v31_leaky") if walk_forward else None
+    out = {"train_races": len(train), "test_races": len(test),
+           "protocol": "walk_forward_effective_dated" if walk_forward else "LEAKY_as_of_franking",
+           "par_v2": mp2, "form_first_v3_1": m31, "uniform_log_loss": u,
+           "v3_1_beats_uniform": m31["mean_log_loss"] < u,
+           "v3_1_beats_par_v2": m31["mean_log_loss"] < mp2["mean_log_loss"]}
+    if leaky is not None:
+        # Kept visible on purpose: the gap between these two IS the leakage, and
+        # the old headline number came from the leaky column.
+        out["form_first_v3_1_leaky_for_comparison"] = leaky
+        out["leakage_log_loss_overstatement"] = leaky["mean_log_loss"] - m31["mean_log_loss"]
+        out["leakage_strike_overstatement"] = (leaky["top_pick_strike_rate"]
+                                               - m31["top_pick_strike_rate"])
+    return out
 
 
 def run(store: RacingStore, as_of_date: str) -> dict[str, Any]:
