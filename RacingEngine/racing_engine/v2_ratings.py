@@ -42,8 +42,20 @@ SOURCE_PRIORITY = {
 # only Victoria, which is why Sydney horses could not post a competitive time
 # rating and the leaderboards skewed to Victorian runs.
 #
-# Fix: keep racing-com as the result/identity owner, and merge in the RNSW clock
-# for the same race.  Recovers 926 NSW race clocks.
+# Fix: keep racing-com as the result/identity owner, and merge in the RNSW
+# RACE-LEVEL facts for the same race.  Recovers 926 NSW race clocks.
+#
+# Distance is donated too, and that matters more than the clock.  The two NSW
+# sources disagree on distance for 362 of the 1,006 races they share, and the
+# clock settles which is right: on those 362, the RNSW distance is physically
+# consistent with the official time in 362 cases, racing-com in 89.  One example
+# is Redzel winning a Listed Quality at Randwick on 2023-09-02 in 59.16s —
+# rnsw says 1000m (16.9 m/s), racing-com says 2400m.  Distance drives the
+# track/distance/going par, pounds-per-length and every speed check, so a wrong
+# distance is worse than a missing clock.
+#
+# Split of ownership: racing-com owns RUNNER facts (identity, finishing order,
+# margins, weights); the official RNSW report owns RACE facts (distance, clock).
 CLOCK_DONOR_SOURCE = "rnsw-authorised"
 
 # Holding figures, not immutable truths.  They implement the official
@@ -178,21 +190,31 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
         for r in rows
         if r["source"] == CLOCK_DONOR_SOURCE and r["official_time_seconds"] is not None
     }
+    donor_distance = {
+        (r["race_date"], r["track_slug"], r["race_number"]): r["distance_metres"]
+        for r in rows
+        if r["source"] == CLOCK_DONOR_SOURCE and r["distance_metres"]
+    }
 
-    quarantines = Counter(); runner_count = 0; timestamp = now(); donated = 0
+    quarantines = Counter(); runner_count = 0; timestamp = now(); donated = 0; redistanced = 0
     for race in chosen:
         race_id = f"{race['race_date']}|{race['track_slug']}|{race['race_number']}"
+        key = (race["race_date"], race["track_slug"], race["race_number"])
+        distance = race["distance_metres"]
+        donor_d = donor_distance.get(key)
+        if donor_d and donor_d != distance:
+            distance = donor_d; redistanced += 1
         official_time = race["official_time_seconds"]
         if official_time is None:
-            borrowed = donor_clock.get((race["race_date"], race["track_slug"], race["race_number"]))
+            borrowed = donor_clock.get(key)
             if borrowed is not None:
                 official_time = borrowed; donated += 1
-        valid_clock, clock_reason = plausible_race_clock(race["distance_metres"], official_time)
+        valid_clock, clock_reason = plausible_race_clock(distance, official_time)
         family = class_family(race["race_class"], race["classified_family"])
         store.connection.execute(
             """INSERT INTO v2_clean_races VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (race_id,race["source"],race["race_date"],race["state"],race["track_slug"],race["race_number"],
-             race["distance_metres"],race["race_class"],family,
+             distance,race["race_class"],family,
              official_time if valid_clock else None,
              "valid" if valid_clock else "quarantined",race["source_url"],
              json.dumps({"identity_owner":"structured_result_card","clock_reason":clock_reason},sort_keys=True),timestamp))
@@ -212,7 +234,7 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
             seen.add(number)
             clock_ok, runner_reason = plausible_runner_clock(
                 official_time if valid_clock else None,
-                runner["finish_time_seconds"],race["distance_metres"])
+                runner["finish_time_seconds"],distance)
             store.connection.execute(
                 """INSERT INTO v2_clean_runner_results VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
                 (race_id,number,runner["runner_name"],identity_key(runner["runner_name"]),runner["finish_position"],
@@ -227,7 +249,7 @@ def rebuild_clean_history(store: RacingStore, as_of_date: str) -> dict[str, Any]
     store.connection.commit()
     return {"races":len(chosen),"runners":runner_count,"quarantined":sum(quarantines.values()),
             "quarantine_reasons":dict(quarantines),"excluded_identity_source":"rnsw-authorised",
-            "clocks_donated_from_rnsw":donated}
+            "clocks_donated_from_rnsw":donated,"distances_corrected_from_rnsw":redistanced}
 
 
 def pounds_per_length(distance: int) -> float:
