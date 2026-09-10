@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:tipping": "tsx --test tests/tipping-results.test.ts"
+    "test:tipping": "tsx --test tests/tipping-results.test.ts",
+    "test:tipping:ui": "node --test tests/tipping-ui.test.cjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.88.0",
