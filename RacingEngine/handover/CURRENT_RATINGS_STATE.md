@@ -2,6 +2,31 @@
 
 Last updated: 10 September 2026.
 
+## Owner rejected step 1; step 2 WFA review (10 September 2026)
+
+The owner rejected the raw-time step-1 candidate because Lindermann and
+Ceolwulf were rated too low. PR #5 was closed without merging. Do not use
+`race-strength-raw-v0.1-shadow` or treat that proposal as accepted work.
+
+Step 2 starts independently from main on `feat/horse-ratings-wfa-coverage`.
+The new `wfa_profile_review` CLI reconstructs race-day age from fetched
+Racing.com profile age, bypassing missing Sydney profile links with exact
+source/race/runner matching and provider-ID/name checks. All reconstructed
+rows are explicitly retrospective and excluded from point-in-time use.
+
+On the same 29,541 finished runs, usable base WFA references increase from
+11,522 (39.0%) through the old links to 29,044 (98.3%) in the review output.
+The remaining 497 are 360 unsupported 2yo schedule cells, 113 missing age/sex,
+23 unverified identities and one birth-date disagreement. Northern-hemisphere
+AR170 eligibility remains unassessed; these are base references only.
+
+The branch also corrects the AR168 5+ reference over 1600–2400m from 59.5kg to
+59kg, verified against the official June 2026 PDF (also present in June 2023).
+The review provides standalone WFA-component sensitivities, not new ratings.
+No source database, production rating or accepted model was changed.
+See `../docs/wfa_step2_review_2026-09-10.md` for tests, examples and scope.
+Await owner review of the step-2 PR before merge or deployment.
+
 ## 9 September continuation — clock integrity and unfinished blend
 
 The working tree contains unfinished changes to `form_first_v3.py`: par-v2

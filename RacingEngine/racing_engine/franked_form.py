@@ -421,6 +421,14 @@ def prediction_test(store: RacingStore, as_of_date: str, *, walk_forward: bool =
 
     train = [e for e in examples if e["date"] < "2025-01-01"]
     test = [e for e in examples if e["date"] >= "2025-01-01"]
+    if not train or not test:
+        return {
+            "train_races": len(train),
+            "test_races": len(test),
+            "protocol": "walk_forward_effective_dated" if walk_forward else "LEAKY_as_of_franking",
+            "status": "blocked_insufficient_scored_races",
+            "reason": "Both a non-empty training period and a non-empty test period are required",
+        }
     temps = (3., 5., 8., 10., 12., 15.)
 
     def loss(rows, name, t):
