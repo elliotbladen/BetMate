@@ -14,6 +14,8 @@ interface RoundData {
 
 /** Fixtures and saved selections must belong to the same round and account. */
 export function useTippingRound(gameweek: number, userId: string | null, compId: string | null, seasonComplete: boolean) {
+  // Include account and competition: identical game IDs must never reuse another
+  // participant’s selections, even for the same gameweek.
   const scope = JSON.stringify([gameweek, userId, compId, seasonComplete]);
   const [data, setData] = useState<RoundData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -44,6 +46,8 @@ export function useTippingRound(gameweek: number, userId: string | null, compId:
       const requestedRevision = editRevision.current;
       try {
         const options = { signal: controller.signal, cache: 'no-store' as const };
+        // Publish both responses together. Rendering new fixtures with an old
+        // round’s tips caused invisible selections and the reported 11/10 count.
         const [fixturesResponse, tipsResponse] = await Promise.all([
           fetch(`/api/tipping/fixtures?gameweek=${gameweek}`, options),
           compId ? fetch(`/api/tipping/tips?${new URLSearchParams({ comp_id: compId, user_id: userId, gameweek: String(gameweek) })}`, options) : null,
@@ -53,6 +57,8 @@ export function useTippingRound(gameweek: number, userId: string | null, compId:
           fixturesResponse.json(), tipsResponse ? tipsResponse.json() : { tips: [] },
         ]);
         if (fixturePayload.gameweek !== gameweek || !Array.isArray(fixturePayload.fixtures) || !Array.isArray(tipPayload.tips)) throw new Error('invalid round');
+        // Abort handles navigation; the revision also rejects a refresh that
+        // started before an edit, even if that edit has since been saved.
         if (controller.signal.aborted || generation.current !== currentGeneration || requestedRevision !== editRevision.current || dirty.current || savingRef.current) return;
 
         const fixtures: Fixture[] = fixturePayload.fixtures.filter((fixture: Fixture) => fixture.gameweek === gameweek);
@@ -87,6 +93,7 @@ export function useTippingRound(gameweek: number, userId: string | null, compId:
     };
   }, [scope, gameweek, userId, compId, seasonComplete, retryVersion]);
 
+  // Hide the previous round immediately on render, before effect cleanup runs.
   const round = data?.scope === scope ? data : null;
   const fixtures = round?.fixtures ?? [];
   const tips = round?.tips ?? {};
@@ -138,6 +145,7 @@ export function useTippingRound(gameweek: number, userId: string | null, compId:
 
   return {
     fixtures, tips, tipGrades: round?.grades ?? {}, roundComplete: round?.complete ?? false,
+    // Count visible fixtures, never arbitrary keys returned by a stale response.
     tippedCount: fixtures.filter(fixture => tips[fixture.id]).length,
     ready: !!round, loading, error, saving, saved, selectTip, saveTips,
     // Retrying a failed background refresh must not discard an unsaved draft.
