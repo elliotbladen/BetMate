@@ -72,6 +72,10 @@ KEEP_COLS = [
     "MaxCH", "MaxCD", "MaxCA", "AvgCH", "AvgCD", "AvgCA",
     "B365C>2.5", "B365C<2.5", "MaxC>2.5", "MaxC<2.5",
     "AvgC>2.5", "AvgC<2.5",
+    # Betfair Exchange totals. football-data is retiring Pinnacle (E1: full through
+    # 2024/25, 260/552 in 2025/26, column absent in 2026/27) and BFE is the successor
+    # sharp reference. De-vigged BFE correlates 0.979 with de-vigged Pinnacle.
+    "BFE>2.5", "BFE<2.5", "BFEC>2.5", "BFEC<2.5",
     "B365CAHH", "B365CAHA", "MaxCAHH", "MaxCAHA", "AvgCAHH", "AvgCAHA",
 ]
 
