@@ -167,3 +167,153 @@ Parked for ~a month. On return:
 Scope reminder: this rules out goals, shots, shots on target, corners, rest and
 referee. It says nothing about xG, confirmed lineups or weather - none of which were
 in the 3,312-match sample.
+
+---
+
+# Addendum 2 — the two remaining questions, answered (2026-09-10 PM)
+
+The caveats section above left exactly two things undone: a tree ensemble ("worth one
+attempt before closing the question for good"), and the "routes back in" list. Both are
+now settled. **Neither reopens the market. The question is closed.**
+
+Nothing here touches the vault — `load()` drops 2025/26 before anything else runs, and
+the market-anchored line stays closed per its pre-registration.
+
+## 1. Tree ensemble — no interactions to find
+
+`ml/football/backtest/efl_totals_tree_probe.py`. Design frozen in the docstring before
+running: the de-vigged close enters as an XGBoost **`base_margin`**, so the trees can
+only learn residual structure; rounds chosen by early stopping on the last *training*
+season; one conservative hyper-parameter set, no grid.
+
+Two pre-specified feature sets, because symmetric sums are precisely what would destroy
+an interaction: **A** = the same 7 aggregates the linear probe used, **B** = all 21 raw
+per-team rolling stats.
+
+| Season | n | CLOSE | mkt-cal | mkt+linear | **treeA** | **treeB** | trees only |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 2021/22 | 544 | .6833 | .6848 | .6882 | .6854 | .6836 | .6896 |
+| 2022/23 | 545 | .6841 | .6837 | .6834 | .6839 | .6845 | .6880 |
+| 2023/24 | 529 | .6737 | .6764 | .6755 | .6724 | .6733 | .7001 |
+| 2024/25 | 535 | .6835 | .6827 | .6825 | .6848 | .6832 | .6911 |
+
+Pooled, n=2,153:
+
+```
+market-only          0.68194   <- the baseline
+market+linear        0.68245   gain -0.00052  (worse)
+market+treeA (agg)   0.68167   gain +0.00027   1/4 seasons   95% CI [-0.0027, +0.0033]
+market+treeB (raw)   0.68119   gain +0.00075   2/4 seasons   95% CI [-0.0011, +0.0026]
+trees only, no mkt   0.69214   gain -0.01020  (worse)
+closing line         0.68121   <- treeB lands on top of it, to 5 decimal places
+```
+
+Both confidence intervals straddle zero and neither model beats market-only in more than
+half the seasons. The most telling number is the last one: the best tree configuration
+reproduces the closing line to within 0.00002. **That is what "a tidier copy of the
+market" looks like when you measure it.** Given the market as a base margin, the trees
+found nothing to add and correctly declined to move — early stopping picked 4 to 37
+rounds in three of four seasons.
+
+Trees without the market are worse than the market by 0.0102, comfortably the largest
+effect in the table, and in the wrong direction.
+
+**Harness self-tests** (`--selftest`), because a null result is what a broken harness
+produces:
+
+```
+[1] base_margin wiring: 0 rounds vs market, max abs diff 5.68e-08   PASS
+[2] planted realised total: log-loss 0.0189 vs market 0.6835       PASS
+```
+
+Check 1 matters most: if the base margin were not wired up, every "gain" in the table
+would be measured against the wrong base.
+
+## 2. Confirmed lineups — priced already
+
+`ml/football/backtest/efl_totals_lineup_probe.py`. ESPN confirmed XIs, 2023/24 + 2024/25
+(2025/26 has 525 matches of starters and is deliberately not loaded — it is the spent
+vault). 851 matches join to football-data with opening and closing odds; all 24 team
+names map cleanly, and the 958→851 loss is the per-team 5-match burn-in.
+
+Features are what tonight's XI actually did in that team's **prior** 10 matches: summed
+per-90 shots, shots on target and goals, plus minutes-share continuity.
+
+Two things reframe this test relative to the earlier ones, and both cut against it:
+
+* The XI is known ~1h before kickoff, so the honest benchmark is the **closing** line,
+  not the open. Anything found here is only bettable after lineups drop, into the
+  hardest price of the day — and this account bets at the open.
+* The vault is spent, so there is no sealed season left to confirm on. The primary test
+  is therefore a **powered correlation on all 851 matches**, not an under-powered
+  one-season walk-forward.
+
+**Primary: does the XI explain what the closing line got wrong?**
+
+| feature | r vs over25 | p | **r vs market residual** | p |
+|---|---:|---:|---:|---:|
+| xi_shots90_sum | +0.0557 | .105 | **+0.0004** | .992 |
+| xi_sot90_sum | +0.0616 | .072 | +0.0205 | .550 |
+| xi_goals90_sum | +0.0528 | .123 | +0.0203 | .554 |
+| xi_minshare_sum | +0.0243 | .479 | +0.0360 | .294 |
+| xi_minshare_min | +0.0024 | .944 | +0.0118 | .732 |
+| *(the close itself)* | *+0.1675* | *<.0001* | — | — |
+
+n=851 detects |r| ≥ 0.096 at 80% power. The XI's attacking capability correlates with
+the outcome at roughly the same weak magnitude as the goals and shots features already
+tested (+0.05 to +0.06, none significant here) — and its correlation with the market
+residual is **+0.0004, p=0.99**. The market has priced it.
+
+Secondary walk-forward (train 2023/24 → test 2024/25, 464 rows, under-powered by
+design): close .68399, market-only .68717, market+XI **.69465** — worse by 0.0075.
+
+Self-check: planting the realised total against the residual returns r=+0.79,
+p=6e-184, so the residual test detects signal when it is there.
+
+## 3. Real xG — blocked for longer than the parked plan assumed
+
+The parked decision said "re-run this probe with real xG" on return in ~a month. That is
+not available. Verified today by fetching the football-data headers directly:
+
+| Season | E0 (EPL) | E1 (Championship) |
+|---|---|---|
+| 2022/23 – 2025/26 | no HxG/AxG | no HxG/AxG |
+| 2026/27 | **present** | **present** |
+
+football-data publishes xG **from 2026/27 only**. Local coverage today: Championship
+60/69 matches, EPL 30/30, and zero in every prior season. A 552-match Championship
+season means a usable sample arrives around **May 2027**, not October 2026.
+
+Alternative sources were checked, not assumed:
+
+* **Understat** — still dead, and worse than the 2025-05-25 note recorded. The league
+  pages now return HTTP 200 with the correct title but **no embedded data payload at
+  all** (18KB, adsense blob only, no `datesData`/`teamsData`) — for *historical* seasons
+  too, not just recent ones. It is not a route back for the EPL scale-break fix either.
+* **FBref/StatsBomb** — returns 403 to a plain client. Plausible but unverified; it would
+  need a proper client or a paid feed, and that is a source-evaluation job, not a
+  probe re-run.
+
+## Where this leaves the question
+
+The original verdict was "no signal beyond the market **in the data we hold**". That
+qualifier is now much smaller than it was:
+
+| Route | Status |
+|---|---|
+| Goals, shots, SOT, corners, rest, referee — linear | Ruled out (Addendum 1) |
+| The same, with interactions | **Ruled out — trees find nothing over the market** |
+| Confirmed starting XIs | **Ruled out — r=+0.0004 against the market residual** |
+| Real xG | Blocked to ~May 2027 on football-data; no working alternative source today |
+| Weather at kickoff | Untested. Not in any football tier, needs a historical backfill |
+
+**Recommendation, unchanged and now better supported: do not price Championship
+O/U 2.5 as a bettable market, and do not spend more time modelling it.** Three
+independent classes of input have now been tested and all three are already in the
+price. The remaining two both require acquiring data we do not have, and only one of
+them (xG) has a known arrival date.
+
+If anything is worth doing here, it is the **source-evaluation job** — get real xG for
+both leagues from something other than football-data — because that one piece of work
+also unblocks the EPL totals scale break, which is a live model fault rather than a
+speculative edge. That is a data-acquisition task, not a modelling one.
