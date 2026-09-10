@@ -3,7 +3,8 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from racing_engine.map_position import (RunnerInput, blend_context, ensure_schema,
-    simulate_field, smoothed_probabilities, state_from_position)
+    _profile, distance_band, going_bucket, simulate_field, smoothed_probabilities,
+    state_from_position, evaluate_history, VERSION)
 from racing_engine.storage import RacingStore
 
 class MapPositionTests(unittest.TestCase):
@@ -39,5 +40,47 @@ class MapPositionTests(unittest.TestCase):
                 names={row[0] for row in store.connection.execute("select name from sqlite_master where type='table'")}
                 self.assertIn("map_runner_predictions",names)
             finally: store.close()
+
+    def test_context_buckets_are_stable(self):
+        self.assertEqual(going_bucket("Soft 5"), "soft")
+        self.assertEqual(distance_band(1200), "sprint")
+        self.assertEqual(distance_band(1600), "mile")
+        self.assertEqual(distance_band(2000), "middle")
+
+    def test_profile_prefers_track_distance_going_history(self):
+        with TemporaryDirectory() as folder:
+            store = RacingStore(Path(folder) / "test.sqlite")
+            try:
+                ensure_schema(store)
+                exact_detail = '{"distance_band":"sprint","going_bucket":"soft"}'
+                fallback_detail = '{"distance_band":"staying","going_bucket":"good"}'
+                for i in range(4):
+                    store.connection.execute(
+                        """INSERT INTO map_runner_history_features VALUES
+                        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                        (VERSION, "src", f"2024-01-{i + 1:02d}", "randwick", i + 1, i + 1,
+                         "example", "Example", "leader", 1, 10, None, "unavailable", 1,
+                         0, 0, 0, f"2024-01-{i + 1:02d}", exact_detail, "now"))
+                    store.connection.execute(
+                        """INSERT INTO map_runner_history_features VALUES
+                        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                        (VERSION, "src", f"2023-12-{i + 1:02d}", "randwick", i + 1, i + 1,
+                         "example", "Example", "backmarker", 9, 10, None, "unavailable", 1,
+                         0, 0, 0, f"2023-12-{i + 1:02d}", fallback_detail, "now"))
+                probs, runs, _ = _profile(
+                    store, RunnerInput(1, "Example", 1), "2025-01-01",
+                    track_slug="randwick", distance_metres=1000, going="Soft 5")
+                self.assertEqual(runs, 4)
+                self.assertGreater(probs["leader"], probs["backmarker"])
+            finally:
+                store.close()
+
+    def test_empty_history_is_a_blocked_evaluation(self):
+        with TemporaryDirectory() as folder:
+            store = RacingStore(Path(folder) / "test.sqlite")
+            try:
+                self.assertEqual(evaluate_history(store)["status"], "BLOCKED_NO_LABELLED_HISTORY")
+            finally:
+                store.close()
 
 if __name__ == "__main__": unittest.main()
