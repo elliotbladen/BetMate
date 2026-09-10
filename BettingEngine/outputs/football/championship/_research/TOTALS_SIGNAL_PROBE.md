@@ -111,3 +111,59 @@ been competitive with the market, which is consistent with 2026/27's live record
   information over the close, there is no principled place for such a rule to come from.
 - 2019/20 and 2020/21 include COVID crowd-less matches, which changed home advantage
   and scoring. They are in training, not in the test seasons.
+
+
+---
+
+# Addendum — measured against the OPENING line (2026-09-10)
+
+The probe above benchmarks the closing line. The operative question for this account
+is the **opening** line, which is where bets actually get placed. Re-measured with the
+isotonic calibrator refitted on **prior seasons only** (the earlier in-sample figures
+were optimistic; 2021/22 drops out for want of a prior season).
+
+## Log-loss vs the open
+
+| Season | n | OPEN | CLOSE | model (cal) | vs open |
+|---|---:|---:|---:|---:|---:|
+| 2022/23 | 552 | .6850 | .6835 | .6862 | +.0012 level |
+| 2023/24 | 550 | .6818 | .6749 | .7003 | +.0185 open better |
+| 2024/25 | 550 | .6800 | .6826 | .6840 | +.0040 open better |
+| **Pooled** | 1652 | **.6823** | .6803 | .6902 | open better |
+
+One season level, two worse, none better.
+
+## Staking simulation at the opening Pinnacle price, flat 1u
+
+| Threshold | Bets | % Under | Strike | P&L | ROI | **CLV** |
+|---|---:|---:|---:|---:|---:|---:|
+| EV >= 5% | 773 | 70% | 44.9% | -19.00u | -2.46% | **-1.24%** |
+| EV >= 10% | 480 | 76% | 41.9% | -28.49u | -5.94% | **-1.28%** |
+| EV >= 20% | 198 | 83% | 40.4% | -7.64u | -3.86% | **-1.91%** |
+
+**CLV is negative at every threshold.** Betting at the open, a model with genuine
+information should see the line drift toward it. This drifts away, consistently, over
+480 bets and three seasons. Combined with 70-83% of selections being Unders, the
+selection is being driven by the calibrator's structural lean rather than by the
+fixtures.
+
+## Decision (user, 2026-09-10)
+
+Parked for ~a month. On return:
+
+1. **Re-run this probe with real xG.** `HxG`/`AxG` now ship in the live E1 file
+   (60 matches at time of writing, accumulating each round). Same harness. This is the
+   one input plausibly not fully in the price, and it is shared with the EPL xG fix.
+2. **Re-test the mean-reversion question at GW12-15.** As of GW6 the within-season
+   decline (3.028 -> 2.606 goals/game) is p=0.23, and the season mean is not
+   significantly above the long-run mean at all (z=1.48, p=0.14) - though the
+   over-rate is (p=0.008). Historical check: Championship seasons do NOT systematically
+   start hot (mean first-69 vs rest = -0.021 g/g, only 5/12 hotter), so there is no
+   general reversion effect to lean on. Closest comparator is 2023/24, which opened at
+   an identical 2.826 and settled to 2.660 - it came down, but stayed the highest full
+   season on record.
+3. **Grade GW7** via `scripts/grade_gameweek_saved_bets.py`.
+
+Scope reminder: this rules out goals, shots, shots on target, corners, rest and
+referee. It says nothing about xG, confirmed lineups or weather - none of which were
+in the 3,312-match sample.
