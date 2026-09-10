@@ -2,6 +2,29 @@
 
 Last updated: 10 September 2026.
 
+## Step 1 review branch — raw-clock race strength (10 September 2026)
+
+The owner excluded wind work and requested steps 1–3 in order, with review
+before release. Step 1 is implemented on
+`feat/horse-ratings-strength-wfa-validation` as the separate
+`race-strength-raw-v0.1-shadow` candidate. See
+`../docs/race_strength_step1_2026-09-10.md` for the complete mechanism,
+validation, component examples and material limitations. Accepted production
+remains `form-first-v2.0`; no model has been promoted.
+
+The source database was opened read-only. Candidate output is a separate new
+SQLite file and is at-the-weights achieved merit, not WFA or current ability.
+Raw clocks, earlier form and a weak class prior set one robust race level;
+source-aware sectionals alter trust and margin scaling without a late bonus.
+No wind, daily variant or rail adjustment is applied.
+
+The local review rated 29,478 runs in 2,750 races; 192 races are class-only and
+328 hit the provisional clock cap. This scale still needs scrutiny, including
+the cap on Via Sistina's Cox Plate and the highest run being Boldinho. These
+are recorded review limitations, not a validation pass. WFA work (step 2) and
+same-row rating-quality validation (step 3) have not been undertaken here.
+Stop at the step-1 PR for owner review before further implementation or release.
+
 ## 9 September continuation — clock integrity and unfinished blend
 
 The working tree contains unfinished changes to `form_first_v3.py`: par-v2
