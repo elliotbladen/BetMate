@@ -29,6 +29,7 @@ import requests
 HERE = Path(__file__).resolve().parent
 DEFAULT_CONFIG = HERE / "odds_collection_config.json"
 ODDS_URL = "https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
+EVENTS_URL = "https://api.the-odds-api.com/v4/sports/"
 UTC = timezone.utc
 
 
@@ -137,6 +138,30 @@ def cadence_minutes(config: dict, nearest_kickoff: datetime | None,
     return 360
 
 
+def next_due_at(config: dict, nearest_kickoff: datetime | None,
+                now: datetime, interval: int) -> datetime:
+    """When to wake next: the cadence interval, or just before the next kickoff.
+
+    The baseline cadence is deliberately slow (2-hourly) because 60% of price
+    movement happens more than a day out as slow drift, which a slow cadence
+    captures perfectly well. But a movement model's TARGET is the closing price,
+    and 25% of movement lands inside the final six hours — so a stale last
+    observation corrupts the label, not just the features.
+
+    Driving that off the cadence ladder is what you must not do: with staggered
+    kickoffs the "nearest kickoff" rolls forward all evening and the sport never
+    leaves tight mode (measured: 86,046 credits/month against a 20,000 quota).
+    Waking once per kickoff cluster costs ~1,900 credits/month instead.
+    """
+    due = now + timedelta(minutes=interval)
+    lead = int(config.get("close_capture_lead_minutes", 3))
+    if nearest_kickoff:
+        close_at = nearest_kickoff - timedelta(minutes=lead)
+        if now < close_at < due:
+            return close_at
+    return due
+
+
 def checkpoint_for(minutes_to_kickoff: int, config: dict) -> tuple[str, int] | None:
     if 0 <= minutes_to_kickoff <= int(config["closing_window_minutes"]):
         return "close", 0
@@ -191,6 +216,36 @@ class Supabase:
                 data=json.dumps(batch), timeout=45,
             )
             response.raise_for_status()
+
+
+def upcoming_events(api_key: str, api_sport_key: str) -> list[datetime] | None:
+    """Kickoff times for a competition, or None if the check itself failed.
+
+    /events and /sports are FREE — measured, x-requests-last: 0 — while /odds costs
+    one credit per market per region. So this gates the paid call: no fixtures on the
+    board means no reason to spend anything.
+
+    This is deliberately used INSTEAD of the API's `active` flag. On 2026-09-11 the
+    Champions League read active=false while the Europa League was already active with
+    fixtures six days out, and the UCL league phase starts the same week. Trusting the
+    flag would have skipped matchday one. Fixtures appearing on the board is the fact
+    that matters; the flag is an opinion about it.
+    """
+    try:
+        resp = requests.get(f"{EVENTS_URL}{api_sport_key}/events",
+                            params={"apiKey": api_key}, timeout=30)
+        resp.raise_for_status()
+        out = []
+        for row in resp.json():
+            when = parse_time(row.get("commence_time"))
+            if when:
+                out.append(when)
+        return sorted(out)
+    except Exception as exc:
+        # Fail OPEN: if the free check breaks we still collect, we just pay for it.
+        print(f"fixture check failed for {api_sport_key} ({exc}); fetching anyway",
+              file=sys.stderr)
+        return None
 
 
 def fetch_odds(api_key: str, api_sport_key: str, config: dict) -> tuple[list[dict], dict]:
@@ -260,6 +315,20 @@ def main() -> int:
         sport_config = config["sports"][sport]
         if not sport_config.get("enabled", False):
             continue
+        fixtures = None
+        if config.get("skip_when_no_fixtures", True) and not args.input_json:
+            fixtures = upcoming_events(api_key, sport_config["api_key"])
+            if fixtures is not None and not fixtures:
+                print(f"{sport}: no fixtures on the board - skipped (0 credits)")
+                if db:
+                    db.upsert("odds_sport_poll_state", [{
+                        "sport": sport, "api_sport_key": sport_config["api_key"],
+                        "enabled": True, "last_attempt_at": iso(now),
+                        "next_due_at": iso(now + timedelta(minutes=int(
+                            config.get("no_fixture_recheck_minutes", 180)))),
+                        "nearest_kickoff": None, "updated_at": iso(now),
+                    }])
+                continue
         state = poll_states.get(sport, {})
         next_due = parse_time(state.get("next_due_at"))
         if not args.force and next_due and now < next_due:
@@ -342,7 +411,7 @@ def main() -> int:
             db.upsert("odds_sport_poll_state", [{
                 "sport": sport, "api_sport_key": sport_config["api_key"], "enabled": True,
                 "last_attempt_at": iso(now), "last_success_at": iso(now),
-                "next_due_at": iso(now + timedelta(minutes=interval)),
+                "next_due_at": iso(next_due_at(config, nearest, now, interval)),
                 "nearest_kickoff": iso(nearest) if nearest else None,
                 "consecutive_failures": 0, "last_error": None,
                 "api_requests_remaining": remaining, "updated_at": iso(now),
