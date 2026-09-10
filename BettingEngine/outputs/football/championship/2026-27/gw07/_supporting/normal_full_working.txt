@@ -1,0 +1,491 @@
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-11)...
+
+====================================================================
+  WEST HAM  vs  WREXHAM     Fri 11 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   West Ham λ=1.50   Wrexham μ=1.30
+  Elo diff:      +9 (home advantage in Elo pts)
+  Pressing:      West Ham 13.8 (low press)   Wrexham 13.5 (low press)
+  Form (last 5): West Ham 10pts   Wrexham 6pts
+  Rest days:     West Ham 3d ⚠ short rest   Wrexham 3d ⚠ short rest
+  Injuries home: ST
+
+  TIER ADJUSTMENTS  (base: λ=1.50 μ=1.30  →  adjusted: λ=1.32 μ=1.18)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.023 xG each team  (pressing suppresses goals)
+  T3 Form:       λ +0.032   μ -0.032
+  T3 Rest home:  ×0.94 fatigue penalty (West Ham)
+  T3 Rest away:  ×0.94 fatigue penalty (Wrexham)
+  T5 Inj home:   attack −9%   defence −0%  (→ μ rises)
+  T7 Set-piece:  λ +0.006   μ +0.014  (home corners 6.0 won/5.7 conceded | away 4.6 won/5.7 conceded)
+  T8 New-team:   λ +0.027   μ +0.000  (ClubElo prior, wt=0.60)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.400        2.50      1.58  -37.0%  model longer
+  Draw              0.292        3.43      4.13  +20.5%  ← VALUE (model shorter)
+  Away win          0.308        3.24      5.11  +57.8%  ← VALUE (model shorter)
+  Over 2.5          0.449        2.22      1.60  -27.9%  model longer
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.381        2.62         —  
+  AH +0.5 A         0.619        1.62         —  
+
+  D-C ratings:   West Ham att=1.00 def=1.00 hfa=1.00   |   Wrexham att=1.14 def=0.95
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-11
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  BOLTON  vs  CARDIFF     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Bolton λ=1.42   Cardiff μ=1.14
+  Elo diff:      +15 (home advantage in Elo pts)
+  Pressing:      Bolton 14.2 (low press)   Cardiff 12.8 (medium)
+  Form (last 5): Bolton 1pts   Cardiff 3pts
+  Rest days:     Bolton 4d ⚠ short rest   Cardiff 4d ⚠ short rest
+  Injuries home: RB
+
+  TIER ADJUSTMENTS  (base: λ=1.42 μ=1.14  →  adjusted: λ=1.35 μ=1.13)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.021 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.016   μ +0.016
+  T5 Inj home:   attack −2%   defence −3%  (→ μ rises)
+  T7 Set-piece:  λ +0.020   μ -0.009  (home corners 7.7 won/2.7 conceded | away 6.0 won/5.0 conceded)
+  T8 New-team:   λ -0.027   μ -0.027  (ClubElo prior, wt=0.60)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.415        2.41      2.42  +0.6%  aligned
+  Draw              0.291        3.43      3.58  +4.4%  ← VALUE (model shorter)
+  Away win          0.294        3.40      2.60  -23.5%  model longer
+  Over 2.5          0.449        2.22      1.62  -27.2%  model longer
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.400        2.50         —  
+  AH +0.5 A         0.600        1.67         —  
+
+  D-C ratings:   Bolton att=1.00 def=1.00 hfa=1.00   |   Cardiff att=1.00 def=1.00
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  DERBY  vs  BIRMINGHAM     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Derby λ=1.30   Birmingham μ=0.89
+  Elo diff:      -24 (home advantage in Elo pts)
+  Pressing:      Derby 14.1 (low press)   Birmingham 10.9 (medium)
+  Form (last 5): Derby 4pts   Birmingham 6pts
+  Rest days:     Derby 3d ⚠ short rest   Birmingham 3d ⚠ short rest
+
+  TIER ADJUSTMENTS  (base: λ=1.30 μ=0.89  →  adjusted: λ=1.19 μ=0.86)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.007 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.016   μ +0.016
+  T3 Rest home:  ×0.94 fatigue penalty (Derby)
+  T3 Rest away:  ×0.94 fatigue penalty (Birmingham)
+  T7 Set-piece:  λ -0.008   μ +0.011  (home corners 6.7 won/4.0 conceded | away 6.0 won/4.0 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.417        2.40      3.19  +32.9%  ← VALUE (model shorter)
+  Draw              0.311        3.21      3.34  +4.0%  ← VALUE (model shorter)
+  Away win          0.272        3.68      2.16  -41.2%  model longer
+  Over 2.5          0.403        2.48      1.97  -20.6%  model longer
+  Under 2.5         0.597        1.67         —  
+  AH -0.5 H         0.419        2.39         —  
+  AH +0.5 A         0.581        1.72         —  
+
+  D-C ratings:   Derby att=1.07 def=1.01 hfa=0.83   |   Birmingham att=0.79 def=0.97
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  WEST BROM  vs  QPR     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   West Brom λ=1.68   QPR μ=0.91
+  Elo diff:      +22 (home advantage in Elo pts)
+  Pressing:      West Brom 10.6 (medium)   QPR 12.8 (medium)
+  Form (last 5): West Brom 10pts   QPR 8pts
+  Rest days:     West Brom 3d ⚠ short rest   QPR 3d ⚠ short rest
+  Injuries home: RB
+
+  TIER ADJUSTMENTS  (base: λ=1.68 μ=0.91  →  adjusted: λ=1.54 μ=0.89)
+  ────────────────────────────────────────
+  T2 PPDA:       +0.004 xG each team  (passive teams, more open)
+  T3 Form:       λ +0.016   μ -0.016
+  T3 Rest home:  ×0.94 fatigue penalty (West Brom)
+  T3 Rest away:  ×0.94 fatigue penalty (QPR)
+  T5 Inj home:   attack −2%   defence −3%  (→ μ rises)
+  T7 Set-piece:  λ -0.033   μ +0.019  (home corners 4.7 won/4.6 conceded | away 6.0 won/4.3 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.495        2.02      2.02  -0.2%  aligned
+  Draw              0.281        3.56      3.56  -0.1%  aligned
+  Away win          0.224        4.46      3.33  -25.2%  model longer
+  Over 2.5          0.449        2.22      1.74  -21.6%  model longer
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.510        1.96         —  
+  AH +0.5 A         0.489        2.04         —  
+
+  D-C ratings:   West Brom att=0.96 def=1.13 hfa=1.11   |   QPR att=0.90 def=0.90
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  BLACKBURN  vs  MILLWALL     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Blackburn λ=1.06   Millwall μ=1.09
+  Elo diff:      -104 (home advantage in Elo pts)
+  Pressing:      Blackburn 13.0 (low press)   Millwall 13.6 (low press)
+  Form (last 5): Blackburn 4pts   Millwall 9pts
+  Rest days:     Blackburn 4d ⚠ short rest   Millwall 7d 
+  Injuries away: CM, ST, CM, RB
+
+  TIER ADJUSTMENTS  (base: λ=1.06 μ=1.09  →  adjusted: λ=1.14 μ=1.00)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.018 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.040   μ +0.040
+  T5 Inj away:   attack −15%   defence −11%  (→ λ rises)
+  T7 Set-piece:  λ +0.025   μ +0.057  (home corners 4.4 won/6.1 conceded | away 7.0 won/8.6 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.342        2.93      2.83  -3.2%  model longer
+  Draw              0.301        3.33      3.36  +0.9%  aligned
+  Away win          0.358        2.80      2.35  -16.0%  model longer
+  Over 2.5          0.449        2.22      1.88  -15.5%  model longer
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.369        2.71         —  
+  AH +0.5 A         0.631        1.58         —  
+
+  D-C ratings:   Blackburn att=0.95 def=1.03 hfa=0.91   |   Millwall att=0.98 def=1.16
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  CHARLTON  vs  PORTSMOUTH     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Charlton λ=1.18   Portsmouth μ=1.13
+  Elo diff:      +12 (home advantage in Elo pts)
+  Pressing:      Charlton 15.8 (low press)   Portsmouth 12.3 (medium)
+  Form (last 5): Charlton 8pts   Portsmouth 6pts
+  Rest days:     Charlton 3d ⚠ short rest   Portsmouth 7d 
+
+  TIER ADJUSTMENTS  (base: λ=1.18 μ=1.13  →  adjusted: λ=1.10 μ=1.10)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.029 xG each team  (pressing suppresses goals)
+  T3 Form:       λ +0.016   μ -0.016
+  T3 Rest home:  ×0.94 fatigue penalty (Charlton)
+  T7 Set-piece:  λ +0.003   μ +0.021  (home corners 5.5 won/6.1 conceded | away 4.6 won/6.0 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.370        2.70      2.65  -1.9%  aligned
+  Draw              0.308        3.25      3.14  -3.4%  model longer
+  Away win          0.322        3.11      2.63  -15.4%  model longer
+  Over 2.5          0.449        2.22      2.17  -2.2%  aligned
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.337        2.97         —  
+  AH +0.5 A         0.663        1.51         —  
+
+  D-C ratings:   Charlton att=0.83 def=1.04 hfa=0.87   |   Portsmouth att=1.03 def=0.87
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  MIDDLESBROUGH  vs  NORWICH     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Middlesbrough λ=1.54   Norwich μ=1.24
+  Elo diff:      +36 (home advantage in Elo pts)
+  Pressing:      Middlesbrough 10.2 (medium)   Norwich 9.1 (high press)
+  Form (last 5): Middlesbrough 10pts   Norwich 9pts
+  Rest days:     Middlesbrough 7d    Norwich 3d ⚠ short rest
+
+  TIER ADJUSTMENTS  (base: λ=1.54 μ=1.24  →  adjusted: λ=1.63 μ=1.20)
+  ────────────────────────────────────────
+  T2 PPDA:       +0.033 xG each team  (passive teams, more open)
+  T3 Form:       λ +0.008   μ -0.008
+  T3 Rest away:  ×0.94 fatigue penalty (Norwich)
+  T7 Set-piece:  λ +0.041   μ +0.007  (home corners 9.7 won/3.8 conceded | away 5.9 won/4.4 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.464        2.16      1.87  -13.4%  model longer
+  Draw              0.270        3.70      3.77  +2.0%  aligned
+  Away win          0.266        3.76      3.62  -3.8%  model longer
+  Over 2.5          0.476        2.10      1.59  -24.0%  model longer
+  Under 2.5         0.524        1.91         —  
+  AH -0.5 H         0.459        2.18         —  
+  AH +0.5 A         0.541        1.85         —  
+
+  D-C ratings:   Middlesbrough att=1.34 def=1.10 hfa=0.80   |   Norwich att=1.20 def=0.98
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  PRESTON  vs  LINCOLN     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Preston λ=1.29   Lincoln μ=1.22
+  Elo diff:      -42 (home advantage in Elo pts)
+  Pressing:      Preston 16.1 (low press)   Lincoln 14.5 (low press)
+  Form (last 5): Preston 3pts   Lincoln 5pts
+  Rest days:     Preston 4d ⚠ short rest   Lincoln 7d 
+
+  TIER ADJUSTMENTS  (base: λ=1.29 μ=1.22  →  adjusted: λ=1.28 μ=1.17)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.046 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.016   μ +0.016
+  T7 Set-piece:  λ +0.058   μ +0.006  (home corners 5.7 won/6.1 conceded | away 3.5 won/9.5 conceded)
+  T8 New-team:   λ +0.000   μ -0.027  (ClubElo prior, wt=0.60)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.381        2.63      2.23  -15.4%  model longer
+  Draw              0.291        3.43      3.47  +1.1%  aligned
+  Away win          0.328        3.05      2.97  -2.6%  aligned
+  Over 2.5          0.449        2.22      1.80  -19.1%  model longer
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.374        2.67         —  
+  AH +0.5 A         0.626        1.60         —  
+
+  D-C ratings:   Preston att=0.92 def=0.93 hfa=0.98   |   Lincoln att=1.00 def=1.00
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  SOUTHAMPTON  vs  BRISTOL CITY     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Southampton λ=2.18   Bristol City μ=1.19
+  Elo diff:      +64 (home advantage in Elo pts)
+  Pressing:      Southampton 12.0 (medium)   Bristol City 16.2 (low press)
+  Form (last 5): Southampton 11pts   Bristol City 10pts
+  Rest days:     Southampton 4d ⚠ short rest   Bristol City 7d 
+
+  TIER ADJUSTMENTS  (base: λ=2.18 μ=1.19  →  adjusted: λ=2.17 μ=1.15)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.029 xG each team  (pressing suppresses goals)
+  T3 Form:       λ +0.008   μ -0.008
+  T7 Set-piece:  λ +0.011   μ -0.001  (home corners 6.3 won/4.9 conceded | away 4.3 won/5.7 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.569        1.76      1.67  -5.3%  model longer
+  Draw              0.232        4.31      3.97  -8.0%  model longer
+  Away win          0.200        5.01      4.49  -10.3%  model longer
+  Over 2.5          0.595        1.68      1.59  -5.6%  model longer
+  Under 2.5         0.405        2.47         —  
+  AH -0.5 H         0.594        1.68         —  
+  AH +0.5 A         0.406        2.46         —  
+
+  D-C ratings:   Southampton att=1.54 def=1.00 hfa=0.99   |   Bristol City att=1.04 def=0.99
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  SWANSEA  vs  BURNLEY     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Swansea λ=1.41   Burnley μ=1.12
+  Elo diff:      -25 (home advantage in Elo pts)
+  Pressing:      Swansea 14.8 (low press)   Burnley 10.2 (medium)
+  Form (last 5): Swansea 8pts   Burnley 2pts
+  Rest days:     Swansea 4d ⚠ short rest   Burnley 4d ⚠ short rest
+  Injuries away: CM
+
+  TIER ADJUSTMENTS  (base: λ=1.41 μ=1.12  →  adjusted: λ=1.46 μ=1.08)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.007 xG each team  (pressing suppresses goals)
+  T3 Form:       λ +0.048   μ -0.048
+  T5 Inj away:   attack −3%   defence −4%  (→ λ rises)
+  T7 Set-piece:  λ -0.045   μ +0.019  (home corners 4.9 won/5.9 conceded | away 4.7 won/3.3 conceded)
+  T8 New-team:   λ +0.000   μ +0.027  (ClubElo prior, wt=0.60)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.433        2.31      2.11  -8.8%  model longer
+  Draw              0.284        3.52      3.46  -1.6%  aligned
+  Away win          0.283        3.54      3.18  -10.1%  model longer
+  Over 2.5          0.449        2.22      1.79  -19.3%  model longer
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.443        2.26         —  
+  AH +0.5 A         0.557        1.79         —  
+
+  D-C ratings:   Swansea att=1.04 def=1.01 hfa=0.96   |   Burnley att=1.00 def=1.00
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-12)...
+
+====================================================================
+  WATFORD  vs  STOKE     Sat 12 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Watford λ=1.39   Stoke μ=0.93
+  Elo diff:      +19 (home advantage in Elo pts)
+  Pressing:      Watford 14.7 (low press)   Stoke 12.6 (medium)
+  Form (last 5): Watford 5pts   Stoke 7pts
+  Rest days:     Watford 4d ⚠ short rest   Stoke 4d ⚠ short rest
+  Injuries away: AM, CB
+
+  TIER ADJUSTMENTS  (base: λ=1.39 μ=0.93  →  adjusted: λ=1.45 μ=0.88)
+  ────────────────────────────────────────
+  T2 PPDA:       -0.023 xG each team  (pressing suppresses goals)
+  T3 Form:       λ -0.016   μ +0.016
+  T5 Inj away:   attack −8%   defence −8%  (→ λ rises)
+  T7 Set-piece:  λ -0.012   μ +0.035  (home corners 5.6 won/5.8 conceded | away 5.9 won/4.9 conceded)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.475        2.10      2.35  +12.1%  ← VALUE (model shorter)
+  Draw              0.290        3.45      3.32  -3.8%  model longer
+  Away win          0.235        4.26      2.86  -32.8%  model longer
+  Over 2.5          0.449        2.22      1.91  -14.1%  model longer
+  Under 2.5         0.551        1.82         —  
+  AH -0.5 H         0.486        2.06         —  
+  AH +0.5 A         0.514        1.95         —  
+
+  D-C ratings:   Watford att=0.91 def=1.00 hfa=1.07   |   Stoke att=0.81 def=1.00
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-12
+====================================================================
+
+
+
+Loading data (EFL Championship)...
+Fitting D-C model (as of 2026-09-13)...
+
+====================================================================
+  SHEFFIELD UNITED  vs  WOLVES     Sun 13 Sep 2026
+====================================================================
+
+  CONTEXT
+  ────────────────────────────────────────
+  D-C base xG:   Sheffield United λ=1.66   Wolves μ=1.00
+  Elo diff:      -1 (home advantage in Elo pts)
+  Pressing:      Sheffield United 12.0 (medium)   Wolves 10.1 (medium)
+  Form (last 5): Sheffield United 8pts   Wolves 8pts
+  Rest days:     Sheffield United 5d    Wolves 7d 
+
+  TIER ADJUSTMENTS  (base: λ=1.66 μ=1.00  →  adjusted: λ=1.70 μ=1.05)
+  ────────────────────────────────────────
+  T2 PPDA:       +0.013 xG each team  (passive teams, more open)
+  T7 Set-piece:  λ +0.025   μ +0.006  (home corners 6.6 won/4.6 conceded | away 5.0 won/6.3 conceded)
+  T8 New-team:   λ +0.000   μ +0.027  (ClubElo prior, wt=0.60)
+
+  MARKETS
+  ──────────────────────────────────────────────────────────────
+  Market           Fair P   Fair Odds    Market  CLV
+  ──────────────────────────────────────────────────────────────
+  Home win          0.487        2.05      2.90  +41.5%  ← VALUE (model shorter)
+  Draw              0.270        3.70      3.45  -6.9%  model longer
+  Away win          0.243        4.12      2.25  -45.3%  model longer
+  Over 2.5          0.476        2.10      1.72  -18.1%  model longer
+  Under 2.5         0.524        1.91         —  
+  AH -0.5 H         0.511        1.96         —  
+  AH +0.5 A         0.489        2.04         —  
+
+  D-C ratings:   Sheffield United att=1.10 def=1.14 hfa=1.06   |   Wolves att=1.00 def=1.00
+  Model data:    6693 matches fitted  |  2205 calibration rows  |  as of 2026-09-13
+====================================================================
+

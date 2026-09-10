@@ -1,0 +1,164 @@
+{
+  "generated_at": "2026-09-10T14:02:55.621908",
+  "method": "D-C refit on 2026/27 results only, shrunk to league average by n/(n+6)",
+  "shrink_prior_games": 6.0,
+  "current_season_attack": {
+    "Birmingham": 0.9499,
+    "Blackburn": 0.7718,
+    "Bolton": 0.6446,
+    "Bristol City": 1.6505,
+    "Burnley": 1.222,
+    "Cardiff": 0.6479,
+    "Charlton": 1.2166,
+    "Derby": 0.7176,
+    "Lincoln": 0.5651,
+    "Middlesbrough": 0.8123,
+    "Millwall": 1.6535,
+    "Norwich": 0.9752,
+    "Portsmouth": 2.7354,
+    "Preston": 0.4222,
+    "QPR": 1.2362,
+    "Sheffield United": 1.0892,
+    "Southampton": 1.0239,
+    "Stoke": 0.609,
+    "Swansea": 1.8528,
+    "Watford": 0.5524,
+    "West Brom": 1.0517,
+    "West Ham": 1.1029,
+    "Wolves": 1.8617,
+    "Wrexham": 1.1694
+  },
+  "current_season_defence": {
+    "Birmingham": 1.1295,
+    "Blackburn": 0.9745,
+    "Bolton": 0.4557,
+    "Bristol City": 1.2745,
+    "Burnley": 0.6552,
+    "Cardiff": 0.4896,
+    "Charlton": 1.2826,
+    "Derby": 0.683,
+    "Lincoln": 1.825,
+    "Middlesbrough": 0.9703,
+    "Millwall": 1.2781,
+    "Norwich": 1.03,
+    "Portsmouth": 0.5148,
+    "Preston": 0.6881,
+    "QPR": 1.2303,
+    "Sheffield United": 0.7606,
+    "Southampton": 1.1513,
+    "Stoke": 1.6173,
+    "Swansea": 3.0,
+    "Watford": 0.8086,
+    "West Brom": 1.8489,
+    "West Ham": 0.9192,
+    "Wolves": 0.6336,
+    "Wrexham": 1.378
+  },
+  "fixtures": [
+    {
+      "date": "2026-09-11",
+      "home": "West Ham",
+      "away": "Wrexham",
+      "production": {
+        "p_home": 0.39992,
+        "p_draw": 0.29168,
+        "p_away": 0.3084,
+        "p_over25": 0.449495,
+        "lambda_home": 1.32,
+        "lambda_away": 1.184
+      },
+      "current_season_ratings": {
+        "p_home": 0.40461,
+        "p_draw": 0.28594,
+        "p_away": 0.30945,
+        "p_over25": 0.47561,
+        "lambda_home": 1.386,
+        "lambda_away": 1.236
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Bolton",
+      "away": "Cardiff",
+      "production": {
+        "p_home": 0.41498,
+        "p_draw": 0.29132,
+        "p_away": 0.2937,
+        "p_over25": 0.449495,
+        "lambda_home": 1.347,
+        "lambda_away": 1.133
+      },
+      "current_season_ratings": {
+        "p_home": 0.4182,
+        "p_draw": 0.27788,
+        "p_away": 0.30392,
+        "p_over25": 0.47561,
+        "lambda_home": 1.491,
+        "lambda_away": 1.288
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Preston",
+      "away": "Lincoln",
+      "production": {
+        "p_home": 0.3809,
+        "p_draw": 0.29125,
+        "p_away": 0.32785,
+        "p_over25": 0.449495,
+        "lambda_home": 1.281,
+        "lambda_away": 1.168
+      },
+      "current_season_ratings": {
+        "p_home": 0.3445,
+        "p_draw": 0.32716,
+        "p_away": 0.32834,
+        "p_over25": 0.354839,
+        "lambda_home": 0.93,
+        "lambda_away": 0.927
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "home": "Swansea",
+      "away": "Burnley",
+      "production": {
+        "p_home": 0.433413,
+        "p_draw": 0.284079,
+        "p_away": 0.282508,
+        "p_over25": 0.449495,
+        "lambda_home": 1.463,
+        "lambda_away": 1.082
+      },
+      "current_season_ratings": {
+        "p_home": 0.467994,
+        "p_draw": 0.262098,
+        "p_away": 0.269908,
+        "p_over25": 0.55914,
+        "lambda_home": 1.768,
+        "lambda_away": 1.203
+      }
+    },
+    {
+      "date": "2026-09-13",
+      "home": "Sheffield United",
+      "away": "Wolves",
+      "production": {
+        "p_home": 0.486956,
+        "p_draw": 0.270031,
+        "p_away": 0.243013,
+        "p_over25": 0.47561,
+        "lambda_home": 1.698,
+        "lambda_away": 1.05
+      },
+      "current_season_ratings": {
+        "p_home": 0.479744,
+        "p_draw": 0.247667,
+        "p_away": 0.272589,
+        "p_over25": 0.604167,
+        "lambda_home": 2.03,
+        "lambda_away": 1.443
+      }
+    }
+  ]
+}
