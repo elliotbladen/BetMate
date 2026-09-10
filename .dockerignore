@@ -1,8 +1,15 @@
 # The cloud workers need cloud/ and nothing else. Without this the build context is
-# the whole monorepo — hundreds of MB of NFL play-by-play parquet, the RacingEngine
-# seed and the Next.js site — none of which any worker uses.
+# the whole monorepo — ~150MB of NFL play-by-play parquet, a 45MB RacingEngine seed
+# and the Next.js site — none of which any worker uses.
 #
-# Keep ALL of cloud/: the odds collector and the race-day tempo worker both build
-# from this directory (cloud/Dockerfile and cloud/Dockerfile.tempo).
+# All three lines are required. "*" excludes the cloud directory itself, "!cloud"
+# puts the directory back, and "!cloud/**" puts its CONTENTS back. Without the
+# third line COPY cloud/requirements.txt finds nothing and the build fails.
 *
-!cloud/
+!cloud
+!cloud/**
+
+# Never ship secrets into an image, even by accident.
+cloud/.env
+cloud/.env.*
+!cloud/.env.example
