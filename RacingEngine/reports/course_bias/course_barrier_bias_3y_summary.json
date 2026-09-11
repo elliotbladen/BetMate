@@ -1,0 +1,704 @@
+{
+  "date_range": {
+    "from": "2023-09-06",
+    "to": "2026-09-05"
+  },
+  "tracks": [
+    "caulfield",
+    "sportsbet-sandown-hillside",
+    "sportsbet-sandown-lakeside",
+    "flemington",
+    "rosehill",
+    "randwick"
+  ],
+  "rows": 31032,
+  "summary": {
+    "caulfield": {
+      "sprint_upto_1400m": {
+        "starts": 3434,
+        "wins": 340,
+        "barriers": 16,
+        "top_by_win_pct": [
+          {
+            "barrier": 14,
+            "starts": 38,
+            "wins": 7,
+            "win_pct": 18.42105263157895
+          },
+          {
+            "barrier": 3,
+            "starts": 340,
+            "wins": 42,
+            "win_pct": 12.352941176470589
+          },
+          {
+            "barrier": 6,
+            "starts": 333,
+            "wins": 41,
+            "win_pct": 12.312312312312311
+          },
+          {
+            "barrier": 2,
+            "starts": 340,
+            "wins": 40,
+            "win_pct": 11.764705882352942
+          },
+          {
+            "barrier": 13,
+            "starts": 60,
+            "wins": 7,
+            "win_pct": 11.666666666666666
+          }
+        ]
+      },
+      "mile_1400_1800m": {
+        "starts": 1225,
+        "wins": 115,
+        "barriers": 16,
+        "top_by_win_pct": [
+          {
+            "barrier": 10,
+            "starts": 81,
+            "wins": 12,
+            "win_pct": 14.814814814814815
+          },
+          {
+            "barrier": 6,
+            "starts": 113,
+            "wins": 13,
+            "win_pct": 11.504424778761061
+          },
+          {
+            "barrier": 5,
+            "starts": 115,
+            "wins": 13,
+            "win_pct": 11.304347826086957
+          },
+          {
+            "barrier": 7,
+            "starts": 110,
+            "wins": 12,
+            "win_pct": 10.909090909090908
+          },
+          {
+            "barrier": 9,
+            "starts": 86,
+            "wins": 9,
+            "win_pct": 10.465116279069768
+          }
+        ]
+      },
+      "middle_1800_2400m": {
+        "starts": 1071,
+        "wins": 98,
+        "barriers": 18,
+        "top_by_win_pct": [
+          {
+            "barrier": 3,
+            "starts": 98,
+            "wins": 14,
+            "win_pct": 14.285714285714286
+          },
+          {
+            "barrier": 2,
+            "starts": 98,
+            "wins": 13,
+            "win_pct": 13.26530612244898
+          },
+          {
+            "barrier": 10,
+            "starts": 63,
+            "wins": 8,
+            "win_pct": 12.698412698412698
+          },
+          {
+            "barrier": 7,
+            "starts": 93,
+            "wins": 11,
+            "win_pct": 11.827956989247312
+          },
+          {
+            "barrier": 5,
+            "starts": 97,
+            "wins": 10,
+            "win_pct": 10.309278350515465
+          }
+        ]
+      },
+      "staying_over_2400m": {
+        "starts": 0,
+        "wins": 0,
+        "barriers": 0,
+        "top_by_win_pct": []
+      }
+    },
+    "sportsbet-sandown-hillside": {
+      "sprint_upto_1400m": {
+        "starts": 601,
+        "wins": 54,
+        "barriers": 19,
+        "top_by_win_pct": [
+          {
+            "barrier": 2,
+            "starts": 54,
+            "wins": 9,
+            "win_pct": 16.666666666666668
+          },
+          {
+            "barrier": 5,
+            "starts": 54,
+            "wins": 9,
+            "win_pct": 16.666666666666668
+          },
+          {
+            "barrier": 3,
+            "starts": 54,
+            "wins": 7,
+            "win_pct": 12.962962962962964
+          },
+          {
+            "barrier": 1,
+            "starts": 54,
+            "wins": 6,
+            "win_pct": 11.11111111111111
+          },
+          {
+            "barrier": 4,
+            "starts": 54,
+            "wins": 6,
+            "win_pct": 11.11111111111111
+          }
+        ]
+      },
+      "mile_1400_1800m": {
+        "starts": 342,
+        "wins": 30,
+        "barriers": 18,
+        "top_by_win_pct": [
+          {
+            "barrier": 10,
+            "starts": 20,
+            "wins": 5,
+            "win_pct": 25.0
+          },
+          {
+            "barrier": 11,
+            "starts": 17,
+            "wins": 3,
+            "win_pct": 17.647058823529413
+          },
+          {
+            "barrier": 12,
+            "starts": 16,
+            "wins": 2,
+            "win_pct": 12.5
+          },
+          {
+            "barrier": 8,
+            "starts": 29,
+            "wins": 3,
+            "win_pct": 10.344827586206897
+          },
+          {
+            "barrier": 5,
+            "starts": 30,
+            "wins": 3,
+            "win_pct": 10.0
+          }
+        ]
+      },
+      "middle_1800_2400m": {
+        "starts": 44,
+        "wins": 4,
+        "barriers": 13,
+        "top_by_win_pct": []
+      },
+      "staying_over_2400m": {
+        "starts": 0,
+        "wins": 0,
+        "barriers": 0,
+        "top_by_win_pct": []
+      }
+    },
+    "sportsbet-sandown-lakeside": {
+      "sprint_upto_1400m": {
+        "starts": 115,
+        "wins": 13,
+        "barriers": 13,
+        "top_by_win_pct": [
+          {
+            "barrier": 2,
+            "starts": 13,
+            "wins": 3,
+            "win_pct": 23.076923076923077
+          },
+          {
+            "barrier": 1,
+            "starts": 13,
+            "wins": 2,
+            "win_pct": 15.384615384615385
+          },
+          {
+            "barrier": 4,
+            "starts": 13,
+            "wins": 2,
+            "win_pct": 15.384615384615385
+          },
+          {
+            "barrier": 5,
+            "starts": 13,
+            "wins": 1,
+            "win_pct": 7.6923076923076925
+          },
+          {
+            "barrier": 3,
+            "starts": 13,
+            "wins": 0,
+            "win_pct": 0.0
+          }
+        ]
+      },
+      "mile_1400_1800m": {
+        "starts": 33,
+        "wins": 4,
+        "barriers": 11,
+        "top_by_win_pct": []
+      },
+      "middle_1800_2400m": {
+        "starts": 28,
+        "wins": 3,
+        "barriers": 12,
+        "top_by_win_pct": []
+      },
+      "staying_over_2400m": {
+        "starts": 0,
+        "wins": 0,
+        "barriers": 0,
+        "top_by_win_pct": []
+      }
+    },
+    "flemington": {
+      "sprint_upto_1400m": {
+        "starts": 2786,
+        "wins": 250,
+        "barriers": 19,
+        "top_by_win_pct": [
+          {
+            "barrier": 14,
+            "starts": 49,
+            "wins": 7,
+            "win_pct": 14.285714285714286
+          },
+          {
+            "barrier": 6,
+            "starts": 248,
+            "wins": 29,
+            "win_pct": 11.693548387096774
+          },
+          {
+            "barrier": 1,
+            "starts": 249,
+            "wins": 28,
+            "win_pct": 11.244979919678714
+          },
+          {
+            "barrier": 7,
+            "starts": 241,
+            "wins": 26,
+            "win_pct": 10.78838174273859
+          },
+          {
+            "barrier": 16,
+            "starts": 19,
+            "wins": 2,
+            "win_pct": 10.526315789473685
+          }
+        ]
+      },
+      "mile_1400_1800m": {
+        "starts": 1304,
+        "wins": 122,
+        "barriers": 17,
+        "top_by_win_pct": [
+          {
+            "barrier": 6,
+            "starts": 119,
+            "wins": 18,
+            "win_pct": 15.126050420168067
+          },
+          {
+            "barrier": 10,
+            "starts": 81,
+            "wins": 10,
+            "win_pct": 12.345679012345679
+          },
+          {
+            "barrier": 1,
+            "starts": 121,
+            "wins": 14,
+            "win_pct": 11.570247933884298
+          },
+          {
+            "barrier": 9,
+            "starts": 97,
+            "wins": 11,
+            "win_pct": 11.34020618556701
+          },
+          {
+            "barrier": 5,
+            "starts": 121,
+            "wins": 13,
+            "win_pct": 10.743801652892563
+          }
+        ]
+      },
+      "middle_1800_2400m": {
+        "starts": 651,
+        "wins": 52,
+        "barriers": 18,
+        "top_by_win_pct": [
+          {
+            "barrier": 7,
+            "starts": 51,
+            "wins": 9,
+            "win_pct": 17.647058823529413
+          },
+          {
+            "barrier": 9,
+            "starts": 49,
+            "wins": 7,
+            "win_pct": 14.285714285714286
+          },
+          {
+            "barrier": 10,
+            "starts": 43,
+            "wins": 5,
+            "win_pct": 11.627906976744185
+          },
+          {
+            "barrier": 4,
+            "starts": 52,
+            "wins": 6,
+            "win_pct": 11.538461538461538
+          },
+          {
+            "barrier": 14,
+            "starts": 21,
+            "wins": 2,
+            "win_pct": 9.523809523809524
+          }
+        ]
+      },
+      "staying_over_2400m": {
+        "starts": 494,
+        "wins": 42,
+        "barriers": 18,
+        "top_by_win_pct": [
+          {
+            "barrier": 4,
+            "starts": 42,
+            "wins": 9,
+            "win_pct": 21.428571428571427
+          },
+          {
+            "barrier": 13,
+            "starts": 14,
+            "wins": 3,
+            "win_pct": 21.428571428571427
+          },
+          {
+            "barrier": 3,
+            "starts": 42,
+            "wins": 5,
+            "win_pct": 11.904761904761905
+          },
+          {
+            "barrier": 1,
+            "starts": 42,
+            "wins": 5,
+            "win_pct": 11.904761904761905
+          },
+          {
+            "barrier": 8,
+            "starts": 38,
+            "wins": 4,
+            "win_pct": 10.526315789473685
+          }
+        ]
+      }
+    },
+    "rosehill": {
+      "sprint_upto_1400m": {
+        "starts": 4647,
+        "wins": 440,
+        "barriers": 19,
+        "top_by_win_pct": [
+          {
+            "barrier": 17,
+            "starts": 13,
+            "wins": 2,
+            "win_pct": 15.384615384615385
+          },
+          {
+            "barrier": 1,
+            "starts": 443,
+            "wins": 60,
+            "win_pct": 13.544018058690744
+          },
+          {
+            "barrier": 6,
+            "starts": 435,
+            "wins": 53,
+            "win_pct": 12.183908045977011
+          },
+          {
+            "barrier": 4,
+            "starts": 443,
+            "wins": 50,
+            "win_pct": 11.286681715575622
+          },
+          {
+            "barrier": 2,
+            "starts": 444,
+            "wins": 47,
+            "win_pct": 10.585585585585585
+          }
+        ]
+      },
+      "mile_1400_1800m": {
+        "starts": 1896,
+        "wins": 155,
+        "barriers": 21,
+        "top_by_win_pct": [
+          {
+            "barrier": 2,
+            "starts": 157,
+            "wins": 26,
+            "win_pct": 16.56050955414013
+          },
+          {
+            "barrier": 4,
+            "starts": 157,
+            "wins": 21,
+            "win_pct": 13.375796178343949
+          },
+          {
+            "barrier": 8,
+            "starts": 146,
+            "wins": 19,
+            "win_pct": 13.013698630136986
+          },
+          {
+            "barrier": 5,
+            "starts": 158,
+            "wins": 18,
+            "win_pct": 11.39240506329114
+          },
+          {
+            "barrier": 3,
+            "starts": 158,
+            "wins": 16,
+            "win_pct": 10.126582278481013
+          }
+        ]
+      },
+      "middle_1800_2400m": {
+        "starts": 1306,
+        "wins": 121,
+        "barriers": 18,
+        "top_by_win_pct": [
+          {
+            "barrier": 2,
+            "starts": 123,
+            "wins": 23,
+            "win_pct": 18.69918699186992
+          },
+          {
+            "barrier": 12,
+            "starts": 42,
+            "wins": 6,
+            "win_pct": 14.285714285714286
+          },
+          {
+            "barrier": 9,
+            "starts": 96,
+            "wins": 13,
+            "win_pct": 13.541666666666666
+          },
+          {
+            "barrier": 7,
+            "starts": 118,
+            "wins": 12,
+            "win_pct": 10.169491525423728
+          },
+          {
+            "barrier": 4,
+            "starts": 122,
+            "wins": 12,
+            "win_pct": 9.836065573770492
+          }
+        ]
+      },
+      "staying_over_2400m": {
+        "starts": 0,
+        "wins": 0,
+        "barriers": 0,
+        "top_by_win_pct": []
+      }
+    },
+    "randwick": {
+      "sprint_upto_1400m": {
+        "starts": 6604,
+        "wins": 575,
+        "barriers": 22,
+        "top_by_win_pct": [
+          {
+            "barrier": 3,
+            "starts": 596,
+            "wins": 74,
+            "win_pct": 12.416107382550335
+          },
+          {
+            "barrier": 8,
+            "starts": 542,
+            "wins": 62,
+            "win_pct": 11.439114391143912
+          },
+          {
+            "barrier": 2,
+            "starts": 595,
+            "wins": 57,
+            "win_pct": 9.579831932773109
+          },
+          {
+            "barrier": 6,
+            "starts": 594,
+            "wins": 55,
+            "win_pct": 9.25925925925926
+          },
+          {
+            "barrier": 4,
+            "starts": 598,
+            "wins": 55,
+            "win_pct": 9.19732441471572
+          }
+        ]
+      },
+      "mile_1400_1800m": {
+        "starts": 3255,
+        "wins": 267,
+        "barriers": 20,
+        "top_by_win_pct": [
+          {
+            "barrier": 4,
+            "starts": 276,
+            "wins": 36,
+            "win_pct": 13.043478260869565
+          },
+          {
+            "barrier": 2,
+            "starts": 277,
+            "wins": 35,
+            "win_pct": 12.635379061371841
+          },
+          {
+            "barrier": 18,
+            "starts": 18,
+            "wins": 2,
+            "win_pct": 11.11111111111111
+          },
+          {
+            "barrier": 5,
+            "starts": 277,
+            "wins": 30,
+            "win_pct": 10.830324909747292
+          },
+          {
+            "barrier": 9,
+            "starts": 229,
+            "wins": 24,
+            "win_pct": 10.480349344978166
+          }
+        ]
+      },
+      "middle_1800_2400m": {
+        "starts": 1047,
+        "wins": 90,
+        "barriers": 18,
+        "top_by_win_pct": [
+          {
+            "barrier": 1,
+            "starts": 93,
+            "wins": 15,
+            "win_pct": 16.129032258064516
+          },
+          {
+            "barrier": 6,
+            "starts": 92,
+            "wins": 13,
+            "win_pct": 14.130434782608695
+          },
+          {
+            "barrier": 4,
+            "starts": 92,
+            "wins": 11,
+            "win_pct": 11.956521739130435
+          },
+          {
+            "barrier": 3,
+            "starts": 92,
+            "wins": 11,
+            "win_pct": 11.956521739130435
+          },
+          {
+            "barrier": 11,
+            "starts": 47,
+            "wins": 5,
+            "win_pct": 10.638297872340425
+          }
+        ]
+      },
+      "staying_over_2400m": {
+        "starts": 149,
+        "wins": 12,
+        "barriers": 20,
+        "top_by_win_pct": [
+          {
+            "barrier": 4,
+            "starts": 12,
+            "wins": 3,
+            "win_pct": 25.0
+          },
+          {
+            "barrier": 2,
+            "starts": 12,
+            "wins": 2,
+            "win_pct": 16.666666666666668
+          },
+          {
+            "barrier": 7,
+            "starts": 12,
+            "wins": 2,
+            "win_pct": 16.666666666666668
+          },
+          {
+            "barrier": 8,
+            "starts": 12,
+            "wins": 1,
+            "win_pct": 8.333333333333334
+          },
+          {
+            "barrier": 3,
+            "starts": 12,
+            "wins": 1,
+            "win_pct": 8.333333333333334
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Win percentages are descriptive only. Cells with low starts require shrinkage and should not be treated as stable bias.",
+    "Moonee Valley is intentionally excluded until the rebuilt course has prospective race data and its geometry/rail regimes are verified."
+  ]
+}
