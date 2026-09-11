@@ -1,7 +1,7 @@
 """
 NRL Team Totals Matrix Builder
 Generates one sheet per NRL team with totals analysis vs market.
-Source: /Users/elliotbladen/Downloads/nrl (2).xlsx (seasons 2022–2025)
+Source: BetMate NRL historical xlsx (training seasons set by --seasons, default 2022-2025)
 Output: outputs/nrl_team_totals_matrix.xlsx
 """
 
@@ -379,7 +379,10 @@ def build_team_sheet(wb, team, all_rows, all_teams, all_venues):
 
     # Title
     ws.merge_cells("A1:F1")
-    tc = ws.cell(row=1, column=1, value=f"{team} — NRL Totals Matrix (2022–2025)")
+    _window = f"{min(SEASONS)}–{max(SEASONS)}" if len(SEASONS) > 1 else str(SEASONS[0])
+    _metric = "Over Hit Rate" if METRIC == "hitrate" else "Mean Total"
+    tc = ws.cell(row=1, column=1,
+                 value=f"{team} — NRL Totals Matrix [{_metric}] ({_window})")
     tc.fill = PatternFill("solid", fgColor="0D2137")
     tc.font = Font(color="FFFFFF", bold=True, size=12)
     tc.alignment = Alignment(horizontal="center", vertical="center")
