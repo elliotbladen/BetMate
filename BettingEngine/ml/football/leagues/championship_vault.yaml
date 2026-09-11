@@ -1,0 +1,90 @@
+# VAULT-ONLY CONFIG - single-use final validation. Do NOT use for development.
+# Identical to championship.yaml except test_seasons=2025/26 and an isolated clv_dir
+# so the production backtest_results.csv (which the totals calibrator reads) is untouched.
+# EFL Championship league config — see CHAMPIONSHIP_PLAN.md.
+#
+# GOALS-FED: no Understat coverage → xg_csv null → D-C fits on actual goals.
+# No PPDA → T2 pressing inactive (t2 returns 0.0 when ppda is None).
+#
+# ⚠️ VAULT RULE (user decision 2026-07-09): 2025/26 is a hold-out season.
+# It exists in the fetched data (needed for the final frozen-model run) but must
+# NEVER appear in test_seasons/feature_seasons or any development evaluation.
+#
+# Tier constants marked [E1-DERIVED] are computed from the fetched 2014/15–2024/25
+# data (scripts below); others start as EPL values pending backtest evidence.
+key: championship
+name: EFL Championship
+
+data:
+  matches_csv: matches/championship_matches.csv
+  xg_csv: null                        # goals-fed — no xG source for this league
+  ppda_csv: style/ppda_dated.csv      # manual FBref seed — update weekly
+  clubelo_csv: clubelo/season_ratings.csv  # run fetch/fetch_clubelo.py to populate
+  clv_dir: clv_vault
+  xg_fallback_factor: 1.0             # unused in goals-fed mode
+
+source:
+  provider: football-data
+  league_code: E1
+  seasons_from: "2014/15"
+  seasons_to: "2026/27"               # live season; 2025/26 remains the sealed evaluation vault
+
+model:
+  rho: -0.13                          # start at EPL value; revisit vs ~33% draw rate
+  dc_weight: 0.70
+  elo_weight: 0.30
+  decay_rate: 0.001                   # candidate for lengthening (goals noisier); tune in Phase 5
+  min_train: 200
+  between_season_omega: 0.770
+
+elo:
+  home_advantage: 65.0                # kept at EPL value — E1 home-win 43.2% vs EPL 44.6%,
+                                      # so no evidence of stronger HFA (research claim disproven by data)
+  k_base: 20.0
+  k_new: 40.0
+  k_new_threshold: 20
+  between_season_reversion: 0.30
+  draw_base: 0.27                     # [E1-DERIVED] actual draw rate 26.9% — EPL value confirmed
+
+backtest:
+  # Pristine direct-fetched data 2026-07-10 (hotspot) — all 12 seasons complete with
+  # full odds. Four test seasons for extra evidence. 2025/26 = VAULT, never here.
+  test_seasons: ["2025/26"]
+  feature_seasons: []
+
+tiers:
+  league_ppda_sum: 24.0               # 2 x 12.0 avg Championship opponent-shots proxy
+  league_ref_goals: 1.416             # [E1-DERIVED] avg FTHG across 127 refs, n=6072 (pristine data, vault excluded)
+  short_rest_days: 3                  # [E1-DERIVED] E1 median rest is 4d and 50.3% of games
+                                      # are <=4d — EPL threshold would penalise half the league.
+                                      # <=3d = 27.9% (genuine midweek turnarounds)
+  fatigue_factor: 0.94
+  corners_home_avg: 5.641             # [E1-DERIVED] n=6071 (pristine data, vault excluded)
+  corners_away_avg: 4.624             # [E1-DERIVED]
+  sp_xg_per_corner: 0.042
+  sp_weight: 0.35
+  sp_cap: 0.08
+  ppda_goals_coef: -0.007             # each 1pt ppda_sum above avg → -0.007 xG per team
+  form_goals_coef: 0.008
+  ref_goals_coef: 0.5
+  # T8: season-reset prior for the 6 new teams each August
+  # Prior decays linearly to 0 by game 15. ELO scale: +600pts ≈ +0.15 xG.
+  # Avg champ ELO ~1440 (from fetched data). Relegated PL team ~1600-1700,
+  # promoted L1 team ~1200-1300 → diffs of +200 to -200 → ±0.05 xG at full weight.
+  t8_decay_games: 15
+  t8_max_adj: 0.15
+  t8_elo_scale: 600.0
+  # T9: new manager bounce
+  t9_manager_adj: 0.07
+
+# Opening-round priors when ClubElo is unavailable. Values are Elo points
+# relative to an established Championship club and are intentionally modest.
+# Relegated PL: Burnley, West Ham, Wolves. Promoted L1: Bolton, Cardiff, Lincoln.
+new_team_elo_priors:
+  "2026/27":
+    Burnley: 180
+    West Ham: 180
+    Wolves: 180
+    Bolton: -180
+    Cardiff: -180
+    Lincoln: -180
