@@ -1,4 +1,4 @@
-import { createServerClient } from '@/lib/supabaseServer';
+import { createAdminClient } from '@/lib/supabaseAdmin';
 import { getActualResult, getEplFixtures, scoreResult, type Fixture } from '@/lib/tipping';
 
 type ApiScore = { name: string; score: string };
@@ -112,7 +112,7 @@ export async function syncTippingResults(gameweek: number): Promise<CompletedFix
   const fixtures = getEplFixtures(gameweek);
   if (!fixtures.length || !fixtures.some(fixture => new Date(fixture.kickoff).getTime() + 5400000 <= Date.now())) return [];
   const completed = await completedScores(fixtures);
-  const supabase = createServerClient();
+  const supabase = createAdminClient();
   const { data: tips, error: tipsError } = await supabase.from('tipping_tips').select('id, comp_id, user_id, game_id, selection, result, points').eq('gameweek', gameweek);
   if (tipsError) throw new Error(`Could not read tipping tips: ${tipsError.message}`);
 

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabaseServer';
+import { createAdminClient } from '@/lib/supabaseAdmin';
 import { getEplFixtures, getValidTipSelections, isGameweekLocked } from '@/lib/tipping';
 import { getAuthenticatedUser } from '@/lib/authServer';
 import { syncTippingResults } from '@/lib/tippingResults';
@@ -17,16 +17,31 @@ export async function GET(request: Request) {
   const gw = searchParams.get('gameweek');
   if (!compId || !userId) return NextResponse.json({ tips: [] });
   const gameweek = gw ? parseInt(gw, 10) : 1;
+  const fixtures = getFixtures(gameweek);
+
+  // Everyone in the comp can see everyone's tips ONCE THE ROUND LOCKS - that is
+  // the intended feature. Before it locks they are private: this handler takes
+  // user_id straight from the query string, so without this check any signed-in
+  // entrant could read a rival's selections before kickoff and tip against them.
+  // The route is the only thing enforcing this - the client below uses the
+  // service role, which bypasses row level security by design.
+  const roundLocked = fixtures.length > 0 && isGameweekLocked(fixtures);
+  if (userId !== user.id && !roundLocked) {
+    return NextResponse.json(
+      { error: 'Tips stay private until the gameweek locks' },
+      { status: 403 },
+    );
+  }
+
   await syncTippingResults(gameweek);
-  const supabase = createServerClient();
+  const supabase = createAdminClient();
   const { data, error } = await supabase.from('tipping_tips').select('*')
     .eq('comp_id', compId).eq('user_id', userId).eq('gameweek', gameweek);
   if (error) return NextResponse.json({ tips: [], error: error.message }, { status: 500 });
   const tips = data ?? [];
-  const fixtures = getFixtures(gameweek);
 
   // Preserve the existing default-away rule once the full round locks.
-  if (fixtures.length > 0 && isGameweekLocked(fixtures)) {
+  if (roundLocked) {
     const tippedGameIds = new Set(tips.map(t => t.game_id));
     for (const fix of fixtures.filter(f => !tippedGameIds.has(f.id))) {
       const { data: inserted } = await supabase.from('tipping_tips').upsert({
@@ -53,7 +68,7 @@ export async function POST(request: Request) {
     if (!comp_id || !Number.isInteger(gameweek) || !Array.isArray(tips)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
-    const supabase = createServerClient();
+    const supabase = createAdminClient();
     const fixtures = getFixtures(gameweek);
     if (fixtures.length === 0) {
       return NextResponse.json({ error: `No fixtures found for GW${gameweek}` }, { status: 404 });
