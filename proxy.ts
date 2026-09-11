@@ -21,6 +21,10 @@ const PUBLIC_PATHS = [
   '/auth/login',
   '/auth/register',
   '/auth/callback',
+  // Cron routes must bypass the session gate — Vercel Cron has no Supabase
+  // session. They are NOT actually public: each enforces
+  // `Authorization: Bearer $CRON_SECRET` itself and 401s without it.
+  '/api/cron',
   '/api/odds',
   '/api/odds/movements',
   '/api/weather',
