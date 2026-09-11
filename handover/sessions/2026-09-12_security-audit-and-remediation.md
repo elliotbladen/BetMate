@@ -112,3 +112,72 @@ site silently. Its own piece of work.
   locally generated; the risk arrives when one arrives from elsewhere.
 - **CSP** with nonces.
 - **`mobile/`** workspace never audited.
+
+---
+
+# Outcome — merged as PR #18 (`db172fb`)
+
+All three CI jobs green on `591bf58`: secret scan, type-check/lint/audit, Python audit.
+
+## CI earned its place within the hour
+
+`pip-audit` failed on its **first ever run**: `cloud/requirements.txt` pinned
+`requests==2.32.5`, carrying **PYSEC-2026-2275** (fixed in 2.33.0). That is the
+dependency the Railway collector runs on, and it was not something the npm-side
+audit would ever have surfaced. Bumped to `2.33.1` — the version this machine
+already had installed and that every collector cycle on 12 Sep executed against.
+
+Gitleaks independently confirmed no secrets in history, which is stronger evidence
+than the regex sweep done by hand earlier in the session.
+
+## ⚠️ VERCEL HAS NOT DEPLOYED FOR DAYS — betmate.au IS STALE
+
+Every Vercel deployment on `main` has **failed**, going back past the analytics
+merge. Railway deploys fine; Vercel does not.
+
+**This explains the tipping-reminder 401.** `curl` with the correct `CRON_SECRET`
+still returns 401 because the route was never deployed — the OLD gate is live on
+betmate.au and `/api/cron` is not in its allowlist. The 11 Sep diary's hypothesis
+(1) was right, and the cause is a failing build. It also means the Next 16 upgrade
+and the tipping feature are not live.
+
+Ruled out by testing, not by guessing:
+- **Not the code.** A clone of tracked files only — no `data/`, no `.env.local`,
+  exactly what Vercel receives — builds clean.
+- **Not `vercel.json`.** One daily cron, which Hobby permits.
+
+⚠️ A claim was made mid-session and retracted: that the check "failed in 0 seconds"
+and therefore never started building. That `0` is an empty duration column shown
+for *every* external check, including ones that pass. It means nothing.
+
+**Only the Vercel build log will say.** Needs `npm i -g vercel && vercel login`.
+
+## ⚠️ Process failure worth keeping
+
+The working directory switched branches mid-session, from
+`security/audit-remediation` to `research/nrl-totals-matrix-v2-hitrate` (local-only,
+two commits of NRL totals work, not this session's). The `requests` commit landed
+on that branch. **`git push` then reported "Everything up-to-date"** — true, because
+the security branch genuinely was; the commit simply was not on it.
+
+Caught only because `gh` showed no new CI run. Recovered by cherry-picking onto
+`security/audit-remediation` and moving the research branch back to `20386db`; both
+its commits are intact and the checkout was restored.
+
+**Rule: verify a push against `origin/<branch>`, never against push output.** Same
+family as everything else today — an operation reporting success while doing nothing.
+
+## Owner actions still outstanding
+
+1. **Run the verification query** in `supabase/migrations/20260912_tipping_rls.sql`,
+   then apply the migration and exercise the tipping flow. This is the one item the
+   owner has not deferred and it is unresolved.
+2. Anthropic spend cap and 2FA — **owner has explicitly deferred these (~1 year)**;
+   this is a beta. Do not re-raise.
+3. Vercel deploy failure — see above.
+
+## Left open by design
+
+- **F-03** `/api/chat` in-memory rate limit on serverless.
+- **F-07** unpickled model artefacts without checksums.
+- CSP with nonces. The `mobile/` workspace was never audited.
