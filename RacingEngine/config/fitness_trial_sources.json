@@ -1,0 +1,59 @@
+{
+  "registry_version": "fitness-trial-sources-v1",
+  "scope": "Australian thoroughbred official trials",
+  "sources": [
+    {
+      "source_id": "racing_australia",
+      "jurisdiction": "national",
+      "coverage": "national service centre and selected trial meetings; WA coverage must be verified separately",
+      "access_method": "public_html",
+      "calendar_url": "https://racingaustralia.horse/AboutUs/ServiceCentre.aspx",
+      "form_url_template": "https://www.racingaustralia.horse/FreeFields/AllForm.aspx?Key={date}%2C{state}%2C{track}%2CTrial&recentForm=N",
+      "supports": ["trial_meeting_discovery", "fields", "results", "horse_form"],
+      "status": "verified_public_entrypoint",
+      "notes": "Use as an aggregation/discovery source. Do not assume a public API or complete coverage of every trial meeting."
+    },
+    {
+      "source_id": "racing_nsw",
+      "jurisdiction": "NSW",
+      "coverage": "NSW official trial fields and finalised trial pages",
+      "access_method": "public_html",
+      "calendar_url": "https://www.racingnsw.com.au/",
+      "form_url_template": "https://mdata.racingnsw.com.au/FreeFields/Form.aspx?Key={date}%2CNSW%2C{track}%2CTrial",
+      "supports": ["trial_fields", "horse", "trainer", "jockey", "barrier", "trial_type", "distance", "finalised_status"],
+      "status": "verified_public_entrypoint",
+      "notes": "Check the page's XML/CSV links where exposed; retain the HTML source URL and collection timestamp."
+    },
+    {
+      "source_id": "racing_com_vic",
+      "jurisdiction": "VIC",
+      "coverage": "Victorian trial meeting cards and results where published",
+      "access_method": "public_html",
+      "calendar_url": "https://www.racing.com/form",
+      "form_url_template": "https://www.racing.com/form/{date}/{track}-trn-trial",
+      "sectionals_url": "https://dxp-static.racing.com/sectionals/index.html",
+      "supports": ["trial_meeting_discovery", "trial_fields", "results", "times_where_published", "sectionals_where_published"],
+      "status": "verified_public_entrypoint",
+      "notes": "Venue and trial URL slugs must be discovered from the meeting calendar; do not fabricate result URLs."
+    },
+    {
+      "source_id": "licensed_data_vendor",
+      "jurisdiction": "as contracted",
+      "coverage": "fallback for licensed historical trial archives",
+      "access_method": "licensed_api_or_bulk_file",
+      "calendar_url": null,
+      "form_url_template": null,
+      "supports": ["provider_ids", "historical_trials", "results", "timings_where_licensed"],
+      "status": "disabled_until_contract",
+      "notes": "No credentials or endpoint is stored in the repository. Enable only after rights and terms are verified."
+    }
+  ],
+  "policy": {
+    "preferred_order": ["official_state_or_national", "racing_com_vic", "licensed_data_vendor"],
+    "no_api_assumption": true,
+    "cache_raw_payloads": true,
+    "respect_terms_and_rate_limits": true,
+    "unresolved_source_data": "quarantine_with_reason_code",
+    "source_provenance_required": ["source_url", "collected_at", "effective_at", "parser_version", "payload_hash"]
+  }
+}
