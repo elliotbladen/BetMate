@@ -1,0 +1,28 @@
+# Free on private repos. This is the control that would have surfaced the two
+# critical unauthenticated Next.js RCEs months before Railway's deploy scanner
+# blocked a build over them.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      # One PR for routine patches; majors still come through individually so a
+      # breaking upgrade is never bundled with noise.
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: pip
+    directory: /cloud
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 3
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

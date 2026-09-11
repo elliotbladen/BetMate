@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabaseServer';
+import { createAdminClient } from '@/lib/supabaseAdmin';
 import { getAuthenticatedUser } from '@/lib/authServer';
 import { EPL_SEASON_FIXTURES } from '@/lib/tipping';
 
@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   const compId = searchParams.get('comp_id');
   const gw = searchParams.get('gameweek');
   if (!compId) return NextResponse.json({ leaderboard: [] });
-  const supabase = createServerClient();
+  const supabase = createAdminClient();
   const { data: entries, error: entriesErr } = await supabase.from('tipping_entries')
     .select('user_id, display_name, total_points').eq('comp_id', compId)
     .order('total_points', { ascending: false });

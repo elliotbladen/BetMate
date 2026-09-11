@@ -1,3 +1,4 @@
+import { createHash, timingSafeEqual } from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabaseAdmin';
 import { EPL_SEASON_FIXTURES, getEplFixtures, isGameweekLocked } from '@/lib/tipping';
@@ -10,6 +11,14 @@ export const dynamic = 'force-dynamic';
 const LEAD_HOURS = Number(process.env.TIPPING_REMINDER_LEAD_HOURS ?? 48);
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
+
+/** Constant-time header comparison. Hashing first keeps length from leaking too. */
+function timingSafeMatch(candidate: string | null, expected: string): boolean {
+  if (!candidate) return false;
+  const a = createHash('sha256').update(candidate).digest();
+  const b = createHash('sha256').update(expected).digest();
+  return timingSafeEqual(a, b);
+}
 
 type Missing = { userId: string; displayName: string; email: string; tipped: number };
 
@@ -32,7 +41,7 @@ export async function GET(request: Request) {
   if (!secret) {
     return NextResponse.json({ error: 'CRON_SECRET not configured' }, { status: 503 });
   }
-  if (request.headers.get('authorization') !== `Bearer ${secret}`) {
+  if (!timingSafeMatch(request.headers.get('authorization'), `Bearer ${secret}`)) {
     return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   }
 
