@@ -99,3 +99,73 @@ and read from the priced gameweek output rather than `latest.json`.
 4. **Market engine still has `ODDS_COLLECTION_LIVE_ENABLED=false`** — not collecting.
 5. **Settle cards bets 2026-0118/0119** once football-data publishes 12-13 Sep.
 6. Next 16 lint: 59 pre-existing findings now visible.
+
+
+---
+
+# END OF DAY — two things left half-live (2026-09-11 PM)
+
+## Odds collection: ONE snapshot captured, then nothing
+
+A controlled live run was executed **from the laptop** (`worker_id
+betmate-local-firstrun`) and it worked: 7 sports, 311 events, **8,099 quotes,
+8,099 opening changes, 4,548 checkpoints**, 42 credits, zero errors. Per sport:
+NFL 2588, EPL 2085, EFL 1439, NBA 1072, UCL 481, NRL 260, AFL 174.
+
+**Railway has not run once.** Branch was moved to `main` and all five variables
+were set via the Raw Editor (they had never been set — the deploy "succeeded"
+because the image built, but the collector would have died on
+`ODDS_API_KEY is required`). Seventy minutes later `odds_capture_runs` still
+contains only the laptop run.
+
+The collector inserts its run row BEFORE checking whether any sport is due, so a
+Railway execution would appear even on a do-nothing cycle. No row means the
+container is not executing.
+
+**Next step: read the Railway deployment logs.** Specifically whether a new
+deployment started after the variables were saved, and what it printed. Suspicion
+worth testing: the service shows "Online / 1 Replica", which is how Railway
+presents a long-lived service rather than a cron — the collector runs once and
+exits 0, and with `restartPolicyType: ON_FAILURE` it would not be restarted. If
+Railway is not honouring `deploy.cronSchedule` from `railway.json`, the fix is to
+configure the cron in the dashboard directly.
+
+⚠️ **Railway trial: "30 days or $5.00 left".** When that runs out the service stops
+and collection dies silently. Add a payment method before relying on it.
+
+## Tipping reminder: deployed but returning 401
+
+`https://betmate.au/api/cron/tipping-reminder?dry_run=1` returns **401 with the
+correct `CRON_SECRET`**. Cannot distinguish between two causes from outside:
+
+1. Vercel has not deployed the merged `main` yet — the old middleware (no
+   `/api/cron` in PUBLIC_PATHS) would 401 it, OR
+2. the route IS deployed but Vercel's `CRON_SECRET` does not match `.env.local`.
+
+The proxy and the route return an identical `{"error":"Unauthorised"}` body, which
+is why this is ambiguous. **A missing CRON_SECRET would give 503, not 401**, so the
+variable is at least present if the route is live.
+
+Evidence leaning towards (1): betmate.au was serving a response with `age: 4455`
+(74 minutes) at a point ~30 minutes after the merges.
+
+**Next step: check Vercel Deployments for a build from after the merge.** If none,
+auto-deploy may not be wired to `main`; hit Redeploy.
+
+## ⚠️ brendanturner STILL NOT EMAILED
+
+GW4 locks at the first kickoff — **Sat 12 Sep 14:00 UTC / 00:00 Sun AEST**. He is
+the only entrant missing (0/10; he tipped GW1-3 in full). The automation is not
+working yet and `RESEND_API_KEY` is **empty in `.env.local`**, so a manual send from
+the command line is also blocked until that key is pasted in. Sending by hand from
+a mail client remains the certain option.
+
+## Left running / left alone
+
+- Dev server and the :8777 referee-matrix server were stopped at end of session.
+- Branch `feat/market-engine-cloud` NOT deleted — keep until Railway is confirmed
+  collecting from `main`.
+- The two laptop launchd jobs (`com.betmate.odds-snapshot-10min`,
+  `com.betmate.prevent-sleep`) are STILL ENABLED. Do not unload them until Railway
+  is proven, they are the current fallback.
+- PR #13 (this diary + CLAUDE.md) open.
