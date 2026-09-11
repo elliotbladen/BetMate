@@ -94,29 +94,49 @@ function readSnapshotFile(file: string): SnapshotRow[] {
   });
 }
 
+/** Newest first: latest.csv, then dated archives in descending date order. */
 function snapshotFiles(): string[] {
   const files: string[] = [];
 
   for (const root of snapshotRoots()) {
     files.push(path.join(root, 'latest.csv'));
+    const dated: string[] = [];
     for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
       if (!entry.isDirectory()) continue;
       const yearDir = path.join(root, entry.name);
       for (const file of fs.readdirSync(yearDir)) {
-        if (file.endsWith('.csv')) files.push(path.join(yearDir, file));
+        if (file.endsWith('.csv')) dated.push(path.join(yearDir, file));
       }
     }
+    // filenames are YYYY-MM-DD.csv, so a reverse lexical sort is newest-first
+    dated.sort().reverse();
+    files.push(...dated);
   }
 
   return files;
 }
 
-function readSnapshotRows(): SnapshotRow[] {
-  return snapshotFiles().flatMap(readSnapshotFile);
+/**
+ * Rows for the most recent snapshot of one sport.
+ *
+ * Reads files newest-first and STOPS at the first one containing the sport,
+ * because only the single latest snapshot is ever used. The previous version
+ * flatMapped every CSV in the archive into memory on each request: by September
+ * 2026 that was 385MB across 41 files and 2.75M rows, each becoming a 12-field
+ * object, which OOM'd the dev server at 8GB. Production was never affected -
+ * data/ is gitignored so no snapshot files are deployed and snapshotRoots()
+ * returns empty there.
+ */
+function readSportRows(sport: SnapshotSport): SnapshotRow[] {
+  for (const file of snapshotFiles()) {
+    const rows = readSnapshotFile(file).filter((row) => row.sport === sport);
+    if (rows.length > 0) return rows;
+  }
+  return [];
 }
 
 export function readLatestOddsSnapshot(sport: SnapshotSport): OddsApiEvent[] {
-  const rows = readSnapshotRows().filter((row) => row.sport === sport);
+  const rows = readSportRows(sport);
   if (rows.length === 0) return [];
 
   const latestStamp = rows.reduce((latest, row) => {
