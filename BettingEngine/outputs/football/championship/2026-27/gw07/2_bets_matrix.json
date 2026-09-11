@@ -1,0 +1,142 @@
+{
+  "edge_threshold_pp": 7.5,
+  "net_required": 6,
+  "seasons": [
+    "2020/21",
+    "2021/22",
+    "2022/23",
+    "2023/24",
+    "2024/25"
+  ],
+  "note": "Draws are excluded - the matrix scores team sides only.",
+  "results": [
+    {
+      "home": "West Ham",
+      "away": "Wrexham",
+      "selection": "Wrexham",
+      "ev": 69.62,
+      "aligned": [],
+      "opposed": [],
+      "net": 0,
+      "stake_units": 1.0
+    },
+    {
+      "home": "Derby",
+      "away": "Birmingham",
+      "selection": "Derby",
+      "ev": 37.65,
+      "aligned": [],
+      "opposed": [
+        {
+          "team": "Derby",
+          "category": "Short rest (<=3 days)",
+          "edge_pp": -11.7,
+          "n": 41
+        },
+        {
+          "team": "Derby",
+          "category": "Competitive (2.50\u20133.49 fair)",
+          "edge_pp": -12.3,
+          "n": 46
+        }
+      ],
+      "net": -2,
+      "stake_units": 1.0
+    },
+    {
+      "home": "Watford",
+      "away": "Stoke",
+      "selection": "Watford",
+      "ev": 16.42,
+      "aligned": [
+        {
+          "team": "Watford",
+          "category": "vs Stoke",
+          "edge_pp": 25.4,
+          "n": 8
+        },
+        {
+          "team": "Stoke",
+          "category": "September",
+          "edge_pp": -13.5,
+          "n": 19
+        },
+        {
+          "team": "Stoke",
+          "category": "After a draw",
+          "edge_pp": -8.4,
+          "n": 62
+        },
+        {
+          "team": "Stoke",
+          "category": "vs Watford",
+          "edge_pp": -21.0,
+          "n": 8
+        }
+      ],
+      "opposed": [
+        {
+          "team": "Watford",
+          "category": "September",
+          "edge_pp": -10.2,
+          "n": 15
+        }
+      ],
+      "net": 3,
+      "stake_units": 1.0
+    },
+    {
+      "home": "Sheffield United",
+      "away": "Wolves",
+      "selection": "Sheffield United",
+      "ev": 50.96000000000001,
+      "aligned": [
+        {
+          "team": "Sheffield United",
+          "category": "All games",
+          "edge_pp": 8.7,
+          "n": 138
+        },
+        {
+          "team": "Sheffield United",
+          "category": "Home games",
+          "edge_pp": 9.8,
+          "n": 69
+        },
+        {
+          "team": "Sheffield United",
+          "category": "Sunday",
+          "edge_pp": 21.3,
+          "n": 9
+        },
+        {
+          "team": "Sheffield United",
+          "category": "September",
+          "edge_pp": 25.9,
+          "n": 12
+        },
+        {
+          "team": "Sheffield United",
+          "category": "After a win",
+          "edge_pp": 9.3,
+          "n": 77
+        },
+        {
+          "team": "Sheffield United",
+          "category": "Normal rest (4-8 days)",
+          "edge_pp": 13.2,
+          "n": 74
+        },
+        {
+          "team": "Sheffield United",
+          "category": "Competitive (2.50\u20133.49 fair)",
+          "edge_pp": 10.7,
+          "n": 28
+        }
+      ],
+      "opposed": [],
+      "net": 7,
+      "stake_units": 1.5
+    }
+  ]
+}

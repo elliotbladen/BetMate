@@ -1,0 +1,54 @@
+{
+ "West Ham": [
+  [
+   "Valentín Castellanos",
+   "ST"
+  ]
+ ],
+ "Bolton": [
+  [
+   "Lewis Brunt",
+   "RB"
+  ]
+ ],
+ "West Brom": [
+  [
+   "Brayann Pereira",
+   "RB"
+  ]
+ ],
+ "Millwall": [
+  [
+   "Casper de Norre",
+   "CM"
+  ],
+  [
+   "Josh Coburn",
+   "ST"
+  ],
+  [
+   "Jenson Metcalfe",
+   "CM"
+  ],
+  [
+   "Mark Sykes",
+   "RB"
+  ]
+ ],
+ "Burnley": [
+  [
+   "Hannibal Mejbri",
+   "CM"
+  ]
+ ],
+ "Stoke": [
+  [
+   "Sam Gallagher",
+   "AM"
+  ],
+  [
+   "Bosun Lawal",
+   "CB"
+  ]
+ ]
+}

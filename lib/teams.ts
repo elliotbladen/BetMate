@@ -1,4 +1,4 @@
-﻿import { EPL_TEAMS, CHAMPIONSHIP_TEAMS, UCL_TEAMS } from './soccerTeams';
+﻿import { getSoccerTeamMeta } from './soccerTeams';
 
 export interface TeamMeta {
   abbr: string;
@@ -49,11 +49,8 @@ export const AFL_TEAMS: Record<string, TeamMeta> = {
 
 export function getTeamMeta(teamName: string): TeamMeta | null {
   return (
-    NRL_TEAMS[teamName] ??
-    AFL_TEAMS[teamName] ??
-    EPL_TEAMS[teamName] ??
-    CHAMPIONSHIP_TEAMS[teamName] ??
-    UCL_TEAMS[teamName] ??
-    null
+    (Object.prototype.hasOwnProperty.call(NRL_TEAMS, teamName) ? NRL_TEAMS[teamName] : null) ??
+    (Object.prototype.hasOwnProperty.call(AFL_TEAMS, teamName) ? AFL_TEAMS[teamName] : null) ??
+    getSoccerTeamMeta(teamName)
   );
 }

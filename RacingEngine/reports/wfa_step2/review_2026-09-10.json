@@ -1,0 +1,148 @@
+{
+  "by_state": {
+    "NSW": {
+      "birth_date_checked": 0,
+      "birth_date_conflicts": 0,
+      "old_base_reference_available": 0,
+      "projected_age_differs_from_observed": 14633,
+      "reconstructed_base_reference_available": 15038,
+      "runs": 15275
+    },
+    "VIC": {
+      "birth_date_checked": 11546,
+      "birth_date_conflicts": 1,
+      "old_base_reference_available": 11522,
+      "projected_age_differs_from_observed": 13576,
+      "reconstructed_base_reference_available": 14006,
+      "runs": 14266
+    }
+  },
+  "counts": {
+    "birth_date_checked": 11546,
+    "birth_date_conflicts": 1,
+    "old_base_reference_available": 11522,
+    "projected_age_differs_from_observed": 28209,
+    "reconstructed_base_reference_available": 29044,
+    "runs": 29541
+  },
+  "examples": [
+    {
+      "ar170_status": "not_assessed_base_reference_only",
+      "base_wfa_kg": 44.0,
+      "carried_kg": 54.5,
+      "carried_minus_base_wfa_kg": 10.5,
+      "component_sensitivity_points": {
+        "0.5": 5.25,
+        "0.65": 6.825,
+        "0.9": 9.45
+      },
+      "distance_metres": 1100,
+      "horse_name": "Tempted",
+      "observation_after_race": true,
+      "observed_age": 4,
+      "observed_date": "2026-08-23",
+      "old_derived_base_wfa_kg": null,
+      "pit_eligible": false,
+      "provider_id": "5341300",
+      "race_date": "2025-02-01",
+      "racing_age": 2,
+      "retrospective": true,
+      "sex_group": "female",
+      "status": "base_reference_available",
+      "table_version": "ar168-170-2026-06-01-transcription-v2"
+    },
+    {
+      "ar170_status": "not_assessed_base_reference_only",
+      "base_wfa_kg": 56.5,
+      "carried_kg": 58.0,
+      "carried_minus_base_wfa_kg": 1.5,
+      "component_sensitivity_points": {
+        "0.5": 0.75,
+        "0.65": 0.975,
+        "0.9": 1.35
+      },
+      "distance_metres": 1000,
+      "horse_name": "Tempted",
+      "observation_after_race": true,
+      "observed_age": 4,
+      "observed_date": "2026-09-09",
+      "old_derived_base_wfa_kg": null,
+      "pit_eligible": false,
+      "provider_id": "5341300",
+      "race_date": "2026-09-05",
+      "racing_age": 4,
+      "retrospective": true,
+      "sex_group": "female",
+      "status": "base_reference_available",
+      "table_version": "ar168-170-2026-06-01-transcription-v2"
+    },
+    {
+      "ar170_status": "not_assessed_base_reference_only",
+      "base_wfa_kg": 59,
+      "carried_kg": 59.0,
+      "carried_minus_base_wfa_kg": 0.0,
+      "component_sensitivity_points": {
+        "0.5": 0.0,
+        "0.65": 0.0,
+        "0.9": 0.0
+      },
+      "distance_metres": 1600,
+      "horse_name": "Ceolwulf",
+      "observation_after_race": true,
+      "observed_age": 6,
+      "observed_date": "2026-09-09",
+      "old_derived_base_wfa_kg": null,
+      "pit_eligible": false,
+      "provider_id": "5338596",
+      "race_date": "2026-09-05",
+      "racing_age": 6,
+      "retrospective": true,
+      "sex_group": "male",
+      "status": "base_reference_available",
+      "table_version": "ar168-170-2026-06-01-transcription-v2"
+    },
+    {
+      "ar170_status": "not_assessed_base_reference_only",
+      "base_wfa_kg": 59,
+      "carried_kg": 59.0,
+      "carried_minus_base_wfa_kg": 0.0,
+      "component_sensitivity_points": {
+        "0.5": 0.0,
+        "0.65": 0.0,
+        "0.9": 0.0
+      },
+      "distance_metres": 1600,
+      "horse_name": "Lindermann",
+      "observation_after_race": true,
+      "observed_age": 7,
+      "observed_date": "2026-09-09",
+      "old_derived_base_wfa_kg": null,
+      "pit_eligible": false,
+      "provider_id": "5285699",
+      "race_date": "2026-09-05",
+      "racing_age": 7,
+      "retrospective": true,
+      "sex_group": "male",
+      "status": "base_reference_available",
+      "table_version": "ar168-170-2026-06-01-transcription-v2"
+    }
+  ],
+  "input_sha256": "d5a691da9ec668f75bcfd2ca3e1d356a84807bda3d1cee9bf2d2eb099eace9a4",
+  "observation_date_note": "Local import date in Australia/Sydney is a fetch-date proxy, not an archived pre-race timestamp",
+  "observed_through_inclusive": "2026-09-10",
+  "pit_eligible_runs": 0,
+  "race_cutoff_exclusive": "2026-09-06",
+  "ratings_changed": 0,
+  "rules_url": "https://www.racingaustralia.horse/uploadimg/Australian_rules_of_Racing/Australian_Rules_of_Racing_01_June_2026.pdf",
+  "scope": "Retrospective base WFA references and component sensitivity only; AR170 not assessed",
+  "sensitivity_note": "Uncapped standalone kg delta times coefficient; not fitted or added to any rating",
+  "status_counts": {
+    "base_reference_available": 29044,
+    "birth_date_age_conflict": 1,
+    "identity_not_verified": 23,
+    "missing_age_or_sex": 113,
+    "outside_schedule": 360
+  },
+  "table_version": "ar168-170-2026-06-01-transcription-v2",
+  "version": "wfa-profile-reconstruction-v0.1-review"
+}

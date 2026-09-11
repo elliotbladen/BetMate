@@ -1,0 +1,11 @@
+{
+  "elite_knee": 106.0,
+  "elite_tail_slope": 0.55,
+  "model_version": "dan-aligned-wfa-v0.1",
+  "pace_removed": 10093,
+  "performances": 29498,
+  "source_model": "form-first-v3.0",
+  "status": "research_shadow",
+  "wfa_adjusted": 11510,
+  "wfa_coverage": 0.3901959454878297
+}

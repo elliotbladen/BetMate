@@ -13,6 +13,16 @@ class WfaTests(unittest.TestCase):
         self.assertEqual(standard_weight("2026-08-01", 1400, 5, "M"), 57.0)
         self.assertEqual(standard_weight("2026-08-01", 1400, 5, "G"), 59.0)
 
+    def test_mature_middle_distance_reference_matches_ar168(self):
+        # Official June 2026 rules p87: 5+ is 59kg through 2400m,
+        # then 59.5kg beyond 2400m. Check every month and both boundaries.
+        for month in range(1, 13):
+            for distance in (1601, 2000, 2001, 2400):
+                with self.subTest(month=month, distance=distance):
+                    self.assertEqual(standard_weight(f"2026-{month:02}-01", distance, 5, "G"), 59)
+                    self.assertEqual(standard_weight(f"2026-{month:02}-01", distance, 8, "M"), 57)
+            self.assertEqual(standard_weight(f"2026-{month:02}-01", 2401, 5, "G"), 59.5)
+
     def test_long_distance_and_ineligible_cells(self):
         self.assertEqual(standard_weight("2026-08-01", 2400, 3, "C"), 48.5)
         self.assertEqual(standard_weight("2026-08-01", 2401, 5, "H"), 59.5)

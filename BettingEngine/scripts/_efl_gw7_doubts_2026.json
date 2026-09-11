@@ -1,0 +1,71 @@
+{
+ "Wrexham": [
+  "George Thomason (CM) - out since 22 Aug, absence already in ratings"
+ ],
+ "Bolton": [
+  "Luca Stephenson (RB) - last played 15 Aug"
+ ],
+ "Derby": [
+  "Lewis Travis (CM) 29 Aug",
+  "Carlton Morris (ST) 22 Aug",
+  "Rhian Brewster (AM, 0.40 start rate)",
+  "Craig Forsyth (CB) 1 Sep",
+  "Filip Bilbija (fringe)"
+ ],
+ "Birmingham": [
+  "Jhon Solis (CM) 1 Sep",
+  "Demarai Gray (AM, 0.20 start rate)",
+  "Max Bird (fringe)"
+ ],
+ "Blackburn": [
+  "Yuki Ohashi (fringe)"
+ ],
+ "Millwall": [
+  "Kyrell Lisbie (ST) 29 Aug",
+  "Lukas Jensen (GK) 22 Aug",
+  "Ryan Leonard (RB) 15 Aug",
+  "Luke Cundle (fringe)"
+ ],
+ "Charlton": [
+  "Nathaniel Chalobah (CM) 29 Aug",
+  "Billy Koumetio (CB) 22 Aug",
+  "William Mannion (GK) 15 Aug",
+  "Matthew Godden (ST) 15 Aug",
+  "Collins Sichenje (fringe)"
+ ],
+ "Portsmouth": [
+  "Josh Murphy (fringe)"
+ ],
+ "Middlesbrough": [
+  "Jeremy Sarmiento (AM) 29 Aug"
+ ],
+ "Preston": [
+  "Alistair McCann (CM) 22 Aug",
+  "Andrew Hughes (LB) 22 Aug"
+ ],
+ "Lincoln": [
+  "Thomas Hamer (CB) 22 Aug",
+  "Tendayi Darikwa (RB) 22 Aug"
+ ],
+ "Southampton": [
+  "Romeo Akachukwu (fringe)"
+ ],
+ "Burnley": [
+  "Bashir Humphreys (LB) 23 Aug",
+  "Dastan Satpaev (AM) 2 Sep"
+ ],
+ "Swansea": [
+  "Ross Stewart (fringe)"
+ ],
+ "Stoke": [
+  "Svante Ingelsson (CM, 0.50 start rate)",
+  "Ben Gibson (CB) 22 Aug"
+ ],
+ "Watford": [
+  "Marc Bola (LB) 16 Aug",
+  "Branimir Mlacic (fringe)"
+ ],
+ "_excluded_entirely": [
+  "62 listed players have made ZERO 2026/27 appearances (Soucek, Cacace, Sheaf, Chambers, Fish, Agyemang, Leonard, Dembele, Chair, Kone, Kargbo, Miller, Wharton, Luongo, Ivanovic, Servais, Edwards, Kelman, Umeh, Kosznovszky, Topic, Ahmed, Mahovo, Carroll, Potts, Jander, McNally, Cullen, Beyer, Barnes, Agyei, Banel, Burgess, Franco, Ampah, Cresswell, Tchamadeu, Ngakia, Baah, Boadu, Grieves, Akomeah, ...). Their absence is already fully embedded in the 2026/27 results the D-C fit and Elo are built on - feeding them to T5 double-counts."
+ ]
+}

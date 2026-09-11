@@ -36,7 +36,11 @@ from datetime import datetime
 BETS_CSV = os.path.join(os.path.dirname(__file__), '..', 'data', 'bets', 'actual_bets_2026.csv')
 
 FIELDNAMES = [
-    'bet_id', 'placed_date', 'placed_time', 'sport', 'season', 'round',
+    # 'week_ending' MUST stay first after bet_id. This list is the DictWriter
+    # fieldnames and the script rewrites the ENTIRE file on every save, so any
+    # column missing here is silently deleted from all historical rows. It was
+    # absent until 2026-09-11 and dropped week_ending from 118 settled bets.
+    'bet_id', 'week_ending', 'placed_date', 'placed_time', 'sport', 'season', 'round',
     'home_team', 'away_team', 'market_type', 'selection', 'line',
     'odds_taken', 'stake', 'return_amount', 'result', 'pnl',
     'bookmaker', 'model_price', 'model_line',
@@ -66,7 +70,9 @@ def _read_all():
 def _write_all(rows):
     path = _csv_path()
     with open(path, 'w', newline='', encoding='utf-8') as fh:
-        writer = csv.DictWriter(fh, fieldnames=FIELDNAMES)
+        # lineterminator='\n': csv defaults to CRLF, which rewrites every line in
+        # the file and turns a two-row append into a 120-row diff.
+        writer = csv.DictWriter(fh, fieldnames=FIELDNAMES, lineterminator='\n')
         writer.writeheader()
         for row in rows:
             # Fill any missing new columns with ''
@@ -234,7 +240,9 @@ def main():
     p_log.add_argument('--round',         required=True, type=int)
     p_log.add_argument('--home',          required=True)
     p_log.add_argument('--away',          required=True)
-    p_log.add_argument('--market',        required=True, choices=['h2h', 'handicap', 'total'])
+    # 'cards' is kept separate from 'total' so booking bets never pool with goals/points
+    # totals in the CLV and accuracy reports, which group by market_type.
+    p_log.add_argument('--market',        required=True, choices=['h2h', 'handicap', 'total', 'cards'])
     p_log.add_argument('--selection',     required=True)
     p_log.add_argument('--odds',          required=True, type=float)
     p_log.add_argument('--stake',         required=True, type=float)

@@ -57,17 +57,18 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-[#0D0D0D] border-b-2 border-[#00DEB8] shrink-0">
-        <div className="px-5 sm:px-8 h-[60px] flex items-center gap-3 md:gap-6">
+        <div className="px-2 sm:px-5 lg:px-8 h-[60px] flex items-center gap-1 sm:gap-3 lg:gap-6">
 
           {/* Logo */}
           <Link href="/odds" className="flex items-center shrink-0 select-none">
-            <span className="font-display font-extrabold text-[20px] tracking-tight text-white leading-none">
+            <span className="font-display font-extrabold text-[15px] sm:text-[20px] tracking-tight text-white leading-none">
               Bet<span className="text-[#00DEB8]">Mate</span>
             </span>
           </Link>
 
           {/* Primary sports */}
-          <div className="hidden md:flex items-center gap-0 border border-[#252525] rounded-md shrink-0">
+          <div className="flex min-w-0 flex-1 justify-center xl:flex-none">
+            <nav aria-label="Sports" className="flex items-center border border-[#252525] rounded-md">
               {TOP_TABS.map((tab, i) => {
                 const activeTop = isOdds ? topTabForSport(activeSport) : null;
                 const isActive = activeTop === tab;
@@ -86,7 +87,7 @@ export default function Header() {
                           }
                         }}
                         className={[
-                          'px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center gap-1',
+                          'px-1 sm:px-3 h-[32px] sm:h-[30px] text-[10px] sm:text-[11px] font-bold uppercase tracking-normal sm:tracking-widest transition-colors whitespace-nowrap inline-flex items-center gap-0.5 sm:gap-1',
                           i > 0 ? 'border-l border-[#252525]' : '',
                           isActive
                             ? 'bg-[#00DEB8] text-black'
@@ -94,7 +95,7 @@ export default function Header() {
                         ].join(' ')}
                       >
                         Football
-                        <svg className={`w-3 h-3 transition-transform ${footballDropdownOpen && isActive ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                        <svg className={`w-2 h-2 sm:w-3 sm:h-3 transition-transform ${footballDropdownOpen && isActive ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                       </button>
                       {footballDropdownOpen && isActive && (
                         <div className="absolute left-0 top-full mt-1 min-w-[160px] bg-[#111] border border-[#252525] rounded-md overflow-hidden shadow-xl z-50">
@@ -124,7 +125,7 @@ export default function Header() {
                     key={tab}
                     href={`/odds?sport=${tab}`}
                     className={[
-                      'px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
+                      'px-1 sm:px-3 h-[32px] sm:h-[30px] text-[10px] sm:text-[11px] font-bold uppercase tracking-normal sm:tracking-widest transition-colors whitespace-nowrap inline-flex items-center',
                       i > 0 ? 'border-l border-[#252525]' : '',
                       isActive
                         ? 'bg-[#00DEB8] text-black'
@@ -142,14 +143,14 @@ export default function Header() {
                     setRacingDropdownOpen((open) => !open);
                   }}
                   className={[
-                    'border-l border-[#252525] px-3 h-[30px] text-[11px] font-bold uppercase tracking-widest transition-colors whitespace-nowrap inline-flex items-center gap-1',
+                    'border-l border-[#252525] px-1 sm:px-3 h-[32px] sm:h-[30px] text-[10px] sm:text-[11px] font-bold uppercase tracking-normal sm:tracking-widest transition-colors whitespace-nowrap inline-flex items-center gap-0.5 sm:gap-1',
                     isRacing
                       ? 'bg-[#00DEB8] text-black'
                       : 'text-[#5C5C5C] hover:text-white hover:bg-[#1A1A1A]',
                   ].join(' ')}
                 >
                   Racing
-                  <svg className={`w-3 h-3 transition-transform ${racingDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  <svg className={`w-2 h-2 sm:w-3 sm:h-3 transition-transform ${racingDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 {racingDropdownOpen && (
                   <div className="absolute right-0 top-full mt-1 min-w-[142px] overflow-hidden rounded-md border border-[#252525] bg-[#111] shadow-xl z-50">
@@ -158,6 +159,7 @@ export default function Header() {
                   </div>
                 )}
               </div>
+            </nav>
           </div>
 
           {/* Nav -- desktop */}
@@ -218,8 +220,8 @@ export default function Header() {
             )}
           </div>
 
-          {/* Keep authentication visible whenever the full desktop nav is hidden. */}
-          <div className="xl:hidden ml-auto flex items-center">
+          {/* On phones, account access lives in the menu so sports remain visible. */}
+          <div className="hidden sm:flex xl:hidden shrink-0 items-center">
             {email ? (
               <button
                 type="button"
@@ -245,7 +247,7 @@ export default function Header() {
           {/* Menu button -- shown until the full desktop navigation fits. */}
           <button
             type="button"
-            className="xl:hidden flex flex-col justify-center items-center gap-[5px] w-11 h-11 shrink-0"
+            className="xl:hidden flex flex-col justify-center items-center gap-[5px] w-8 sm:w-11 h-11 shrink-0"
             onClick={() => setMobileOpen(o => !o)}
             aria-label="Menu"
             aria-expanded={mobileOpen}

@@ -65,13 +65,21 @@ def grade(bet, books):
     total = hg + ag
 
     if market == "1X2":
-        won = (side == "H" and hg > ag) or (side == "A" and ag > hg)
-        close = float(r["AvgCH"] if side == "H" else r["AvgCA"])
-        open_ = float(r["AvgH"] if side == "H" else r["AvgA"])
+        # side is "H", "D" or "A". Draws were unsupported before 2026-09-10 and
+        # were silently graded as losses against the AWAY odds column.
+        if side not in ("H", "D", "A"):
+            raise SystemExit(f"unknown 1X2 side {side!r} for {home} v {away}")
+        won = {"H": hg > ag, "D": hg == ag, "A": ag > hg}[side]
+        close = float(r[{"H": "AvgCH", "D": "AvgCD", "A": "AvgCA"}[side]])
+        open_ = float(r[{"H": "AvgH", "D": "AvgD", "A": "AvgA"}[side]])
     else:
-        won = total > 2.5
-        close = float(r["AvgC>2.5"])
-        open_ = float(r["Avg>2.5"])
+        # side is "OVER" or "UNDER". UNDER was unsupported before 2026-09-10 and
+        # was graded backwards against the OVER odds column.
+        if side not in ("OVER", "UNDER"):
+            raise SystemExit(f"unknown O/U side {side!r} for {home} v {away}")
+        won = total > 2.5 if side == "OVER" else total < 2.5
+        close = float(r["AvgC>2.5" if side == "OVER" else "AvgC<2.5"])
+        open_ = float(r["Avg>2.5" if side == "OVER" else "Avg<2.5"])
 
     pnl = stake * (price - 1) if won else -stake
     return {

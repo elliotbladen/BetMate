@@ -1,0 +1,13 @@
+date,home,away,referee,ref_games,ref_cards_pg,ref_o35_pct,team_cards_pg,lambda,p_over,p_under,be_over,be_under,priceable
+2026-09-12,Preston,Lincoln,S Martin,95,4.21,63.2,3.74,4.17,59.9,40.1,1.67,2.49,True
+2026-09-12,Watford,Stoke,L Smith,52,3.63,46.2,4.1,3.92,55.2,44.8,1.81,2.23,True
+2026-09-13,Sheffield United,Wolves,R Jones,12,3.85,58.3,3.85,3.91,54.9,45.1,1.82,2.22,False
+2026-09-12,West Brom,QPR,R Ricardo,27,4.02,59.3,3.68,3.9,54.7,45.3,1.83,2.21,True
+2026-09-11,West Ham,Wrexham,M Donohue,112,3.98,60.7,3.68,3.87,54.1,45.9,1.85,2.18,True
+2026-09-12,Blackburn,Millwall,J Smith,101,3.81,62.4,3.71,3.74,51.4,48.6,1.95,2.06,True
+2026-09-12,Southampton,Bristol City,S Allison,63,3.69,55.6,3.83,3.73,51.2,48.8,1.95,2.05,True
+2026-09-12,Middlesbrough,Norwich,A Herczeg,33,3.74,51.5,3.77,3.73,51.1,48.9,1.96,2.05,True
+2026-09-12,Swansea,Burnley,J Bell,66,3.64,50.0,3.85,3.7,50.5,49.5,1.98,2.02,True
+2026-09-12,Bolton,Cardiff,T Parsons,0,3.78,,3.66,3.66,49.8,50.2,2.01,1.99,False
+2026-09-12,Derby,Birmingham,J Busby,97,3.66,46.4,3.76,3.64,49.2,50.8,2.03,1.97,True
+2026-09-12,Charlton,Portsmouth,A Kitchen,80,3.25,38.8,3.76,3.22,40.3,59.7,2.48,1.68,True

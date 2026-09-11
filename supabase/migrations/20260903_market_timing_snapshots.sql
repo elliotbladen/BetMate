@@ -23,7 +23,7 @@ create table if not exists public.odds_capture_runs (
 
 create table if not exists public.odds_quote_state (
   quote_key text primary key,
-  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL')),
+  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL','NBA')),
   api_sport_key text not null,
   api_event_id text not null,
   commence_time timestamptz not null,
@@ -54,7 +54,7 @@ create table if not exists public.odds_quote_changes (
   quote_change_id bigint generated always as identity primary key,
   run_id uuid references public.odds_capture_runs(run_id) on delete set null,
   captured_at timestamptz not null,
-  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL')),
+  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL','NBA')),
   api_sport_key text not null,
   api_event_id text not null,
   canonical_match_id bigint,
@@ -90,7 +90,7 @@ create table if not exists public.odds_market_checkpoints (
   checkpoint_id bigint generated always as identity primary key,
   run_id uuid references public.odds_capture_runs(run_id) on delete set null,
   captured_at timestamptz not null,
-  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL')),
+  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL','NBA')),
   api_event_id text not null,
   commence_time timestamptz not null,
   home_team text not null,
@@ -113,7 +113,7 @@ create index if not exists odds_market_checkpoints_event_idx
   on public.odds_market_checkpoints (sport, api_event_id, checkpoint_name);
 
 create table if not exists public.odds_sport_poll_state (
-  sport text primary key check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL')),
+  sport text primary key check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL','NBA')),
   api_sport_key text not null,
   enabled boolean not null default false,
   last_attempt_at timestamptz,
@@ -130,7 +130,7 @@ create table if not exists public.market_news_events (
   news_event_id bigint generated always as identity primary key,
   published_at timestamptz not null,
   captured_at timestamptz not null default now(),
-  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL')),
+  sport text not null check (sport in ('AFL','NRL','EPL','EFL','NFL','UCL','NBA')),
   api_event_id text,
   canonical_match_id bigint,
   team_name text,

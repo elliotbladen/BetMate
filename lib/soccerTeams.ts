@@ -3,17 +3,9 @@
 // Team badge metadata for the soccer tabs (EPL / Championship / UCL).
 // Same shape as NRL_TEAMS / AFL_TEAMS in lib/teams.ts.
 //
-// CRITICAL (same rule as AFL): keys must match The Odds API team names
-// EXACTLY or badges silently fall back to plain text. These lists were
-// seeded 2026-07-10 from the expected 2026-27 season lineups BEFORE the
-// odds feed was live (API key lapsed) - VERIFY EVERY NAME against the
-// first real /api/odds/epl response at hook-up, especially:
-//   - "AFC Bournemouth" vs "Bournemouth"
-//   - "Brighton and Hove Albion" vs "Brighton & Hove Albion"
-//   - "Wolverhampton Wanderers" vs "Wolves"
-// Promotions/relegations for 2026-27 must also be reconciled at hook-up.
-//
-// Unknown teams are safe: TeamBadge renders the raw name as text.
+// Resolve feed/UEFA spelling variants through getSoccerTeamMeta below.
+// Palettes represent club identity/home colours, never a seasonal away kit.
+// Audit and official colour references: docs/football-team-colours.md.
 
 import type { TeamMeta } from './teams';
 
@@ -79,9 +71,23 @@ export const CHAMPIONSHIP_TEAMS: Record<string, TeamMeta> = {
 };
 
 // UCL: 36-club league phase. English/covered clubs resolve via EPL map first.
-// This list covers the regulars; anyone missing renders as plain text, which
-// is acceptable for the outline. Extend when the draw is known.
+// Includes the full 2026/27 league-phase roster, plus previously covered clubs.
 export const UCL_TEAMS: Record<string, TeamMeta> = {
+  'AEK Athens':                  { abbr: 'AEK', primary: '#FFC600', secondary: '#000000' },
+  'AS Roma':                     { abbr: 'ROM', primary: '#862633', secondary: '#F2A900' },
+  'Bodø/Glimt':                  { abbr: 'BOD', primary: '#F8DD00', secondary: '#120F0A' },
+  'Como':                        { abbr: 'COM', primary: '#003DA5', secondary: '#FFFFFF' },
+  'Fenerbahce':                  { abbr: 'FEN', primary: '#FFED00', secondary: '#002D72' },
+  'LASK':                        { abbr: 'LAS', primary: '#000000', secondary: '#FFFFFF' },
+  'RC Lens':                     { abbr: 'LEN', primary: '#F9D616', secondary: '#C8102E' },
+  'Real Betis':                  { abbr: 'BET', primary: '#00954C', secondary: '#FFFFFF' },
+  'Sabah FK':                    { abbr: 'SAB', primary: '#000000', secondary: '#E77DA8' },
+  'Shakhtar Donetsk':            { abbr: 'SHA', primary: '#F47920', secondary: '#000000' },
+  'Slavia Praha':                { abbr: 'SLA', primary: '#E30613', secondary: '#FFFFFF' },
+  'Slovan Bratislava':           { abbr: 'SLO', primary: '#6BBBE8', secondary: '#FFFFFF' },
+  'VfB Stuttgart':               { abbr: 'VFB', primary: '#FFFFFF', secondary: '#E32219' },
+  'Viking FK':                   { abbr: 'VIK', primary: '#00205B', secondary: '#FFFFFF' },
+  'Villarreal':                  { abbr: 'VIL', primary: '#FFE667', secondary: '#005DAA' },
   'Real Madrid':                { abbr: 'RMA', primary: '#FFFFFF', secondary: '#FEBE10' },
   'Barcelona':                  { abbr: 'BAR', primary: '#A50044', secondary: '#004D98' },
   'Atletico Madrid':            { abbr: 'ATM', primary: '#CB3524', secondary: '#FFFFFF' },
@@ -111,3 +117,89 @@ export const UCL_TEAMS: Record<string, TeamMeta> = {
   'Club Brugge':                { abbr: 'BRU', primary: '#0055A2', secondary: '#000000' },
   'Red Bull Salzburg':          { abbr: 'RBS', primary: '#DD0741', secondary: '#FFFFFF' },
 };
+
+/** Deliberately avoid fuzzy matching or removing FC/AFC from arbitrary names. */
+function normalizeSoccerTeamName(name: string): string {
+  return name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/ø/g, 'o').replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
+}
+
+// Explicit aliases keep similarly named clubs (e.g. Manchester clubs) distinct.
+const SOCCER_TEAM_ALIASES: Record<string, string> = {
+  'Wrexham AFC': 'Wrexham',
+  'Wrexham A.F.C.': 'Wrexham',
+  'QPR': 'Queens Park Rangers',
+  'West Brom': 'West Bromwich Albion',
+  'Wolves': 'Wolverhampton Wanderers',
+  'Sheffield Utd': 'Sheffield United',
+  'Sheffield Weds': 'Sheffield Wednesday',
+  'Birmingham': 'Birmingham City',
+  'Blackburn': 'Blackburn Rovers',
+  'Preston': 'Preston North End',
+  'Norwich': 'Norwich City',
+  'Swansea': 'Swansea City',
+  'Stoke': 'Stoke City',
+  'Cardiff': 'Cardiff City',
+  'Derby': 'Derby County',
+  'Bayern München': 'Bayern Munich',
+  'Bayern Munchen': 'Bayern Munich',
+  'FC Bayern München': 'Bayern Munich',
+  'B. Dortmund': 'Borussia Dortmund',
+  'Borussia Dortmund 09': 'Borussia Dortmund',
+  'Atleti': 'Atletico Madrid',
+  'Atlético de Madrid': 'Atletico Madrid',
+  'FC Barcelona': 'Barcelona',
+  'Paris Saint-Germain': 'Paris Saint Germain',
+  'Paris': 'Paris Saint Germain',
+  'PSG': 'Paris Saint Germain',
+  'Inter': 'Inter Milan',
+  'Internazionale': 'Inter Milan',
+  'FC Internazionale Milano': 'Inter Milan',
+  'Sporting CP': 'Sporting Lisbon',
+  'Sporting Clube de Portugal': 'Sporting Lisbon',
+  'FC Porto': 'Porto',
+  'PSV': 'PSV Eindhoven',
+  'Leipzig': 'RB Leipzig',
+  'Man City': 'Manchester City',
+  'Man United': 'Manchester United',
+  'Roma': 'AS Roma',
+  'AS Rome': 'AS Roma',
+  'FK Bodø/Glimt': 'Bodø/Glimt',
+  'Bodoe/Glimt': 'Bodø/Glimt',
+  'Bodoglimt': 'Bodø/Glimt',
+  'Como 1907': 'Como',
+  'Fenerbahçe SK': 'Fenerbahce',
+  'Fenerbahce Istanbul': 'Fenerbahce',
+  'Lens': 'RC Lens',
+  'Racing Club de Lens': 'RC Lens',
+  'LOSC Lille': 'Lille',
+  'Sabah': 'Sabah FK',
+  'Shakhtar': 'Shakhtar Donetsk',
+  'FC Shakhtar Donetsk': 'Shakhtar Donetsk',
+  "Shakhtar Donets'k": 'Shakhtar Donetsk',
+  'Slavia Prague': 'Slavia Praha',
+  'SK Slavia Praha': 'Slavia Praha',
+  'SK Slavia Prague': 'Slavia Praha',
+  'S. Bratislava': 'Slovan Bratislava',
+  'ŠK Slovan Bratislava': 'Slovan Bratislava',
+  'Stuttgart': 'VfB Stuttgart',
+  'Viking': 'Viking FK',
+  'LASK Linz': 'LASK',
+  'AEK Athens FC': 'AEK Athens',
+  'Real Betis Balompié': 'Real Betis',
+  'Villarreal CF': 'Villarreal',
+  'Club Brugge KV': 'Club Brugge',
+};
+
+const canonicalSoccerTeams = { ...UCL_TEAMS, ...CHAMPIONSHIP_TEAMS, ...EPL_TEAMS };
+const soccerTeamLookup = new Map(
+  Object.entries(canonicalSoccerTeams).map(([name, meta]) => [normalizeSoccerTeamName(name), meta]),
+);
+for (const [alias, canonical] of Object.entries(SOCCER_TEAM_ALIASES)) {
+  soccerTeamLookup.set(normalizeSoccerTeamName(alias), canonicalSoccerTeams[canonical]);
+}
+
+export function getSoccerTeamMeta(name: string): TeamMeta | null {
+  return soccerTeamLookup.get(normalizeSoccerTeamName(name)) ?? null;
+}

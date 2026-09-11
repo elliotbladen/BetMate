@@ -6,12 +6,14 @@ import { createClient } from '@/lib/supabase';
 import type { Fixture, TipSelection, LeaderboardRow, TippingComp } from '@/lib/tipping';
 import { getEplFixtures, isGameweekLocked } from '@/lib/tipping';
 import { EPL_TEAMS } from '@/lib/soccerTeams';
+import { useTippingRound } from '@/hooks/useTippingRound';
 import StreakCelebration from '@/components/tipping/StreakCelebration';
 
 // ─── Team badge helper ───────────────────────────────────────────────────────
-function TeamBadge({ name, selected, onClick, label }: {
+function TeamBadge({ name, selected, onClick, label, disabled }: {
   name: string;
   selected: boolean;
+  disabled: boolean;
   onClick: () => void;
   label: string;
 }) {
@@ -23,6 +25,9 @@ function TeamBadge({ name, selected, onClick, label }: {
   return (
     <button
       onClick={onClick}
+      disabled={disabled}
+      aria-label={name}
+      aria-pressed={selected}
       className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-all min-w-[72px] ${
         selected
           ? 'ring-2 ring-[#00DEB8] bg-[#00DEB8]/10 scale-105'
@@ -55,7 +60,7 @@ function FixtureCard({ fixture, tip, tipResult, tipPoints, onTip, locked }: {
     + ' ' + kickoff.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div className={`bg-white rounded-xl shadow-sm border p-4 ${isFinished ? 'opacity-75' : ''}`}>
+    <div data-fixture-id={fixture.id} className={`bg-white rounded-xl shadow-sm border p-4 ${isFinished ? 'opacity-75' : ''}`}>
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
         <span className="text-[11px] text-gray-400 font-mono">{fixture.venue}</span>
@@ -67,12 +72,16 @@ function FixtureCard({ fixture, tip, tipResult, tipPoints, onTip, locked }: {
         <TeamBadge
           name={fixture.home_team}
           selected={tip === 'home'}
+          disabled={locked}
           onClick={() => !locked && onTip('home')}
           label={fixture.home_team.split(' ').pop() ?? ''}
         />
 
         <button
           onClick={() => !locked && onTip('draw')}
+          disabled={locked}
+          aria-label="Draw"
+          aria-pressed={tip === 'draw'}
           className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-all min-w-[56px] ${
             tip === 'draw'
               ? 'ring-2 ring-[#00DEB8] bg-[#00DEB8]/10 scale-105'
@@ -88,6 +97,7 @@ function FixtureCard({ fixture, tip, tipResult, tipPoints, onTip, locked }: {
         <TeamBadge
           name={fixture.away_team}
           selected={tip === 'away'}
+          disabled={locked}
           onClick={() => !locked && onTip('away')}
           label={fixture.away_team.split(' ').pop() ?? ''}
         />
@@ -352,20 +362,17 @@ export default function TippingPage() {
   const [gameweek, setGameweek] = useState(1);
   const [firstAvailableGameweek, setFirstAvailableGameweek] = useState(1);
   const [seasonComplete, setSeasonComplete] = useState(false);
-  const [fixtures, setFixtures] = useState<Fixture[]>([]);
-  const [tips, setTips] = useState<Record<string, TipSelection>>({});
-  const [tipGrades, setTipGrades] = useState<Record<string, { result: TipSelection | null; points: number | null }>>({});
   const [leaderboard, setLeaderboard] = useState<LeaderboardRow[]>([]);
   const [comp, setComp] = useState<TippingComp | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState('');
   const [inviteCode, setInviteCode] = useState('');
   const [joined, setJoined] = useState(false);
-  const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
   const [celebrationStreak, setCelebrationStreak] = useState(0);
+  const round = useTippingRound(gameweek, userId, joined ? comp?.id ?? null : null, seasonComplete);
+  const { fixtures, tips, tipGrades, tippedCount, saving, saved } = round;
 
   // Get auth state + check comp membership from database
   useEffect(() => {
@@ -396,7 +403,6 @@ export default function TippingPage() {
         setUserId(null);
         setComp(null);
         setJoined(false);
-        setTips({});
         setLeaderboard([]);
         setAuthChecked(true);
       }
@@ -410,9 +416,11 @@ export default function TippingPage() {
   // gameweek is never removed prematurely.
   useEffect(() => {
     if (!userId) return;
-    fetch('/api/tipping/gameweeks')
+    const controller = new AbortController();
+    fetch('/api/tipping/gameweeks', { signal: controller.signal })
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => {
+        if (controller.signal.aborted) return;
         if (d.season_complete) {
           setSeasonComplete(true);
           setFirstAvailableGameweek(38);
@@ -424,64 +432,19 @@ export default function TippingPage() {
         }
       })
       .catch(() => {});
+    return () => controller.abort();
   }, [userId]);
 
-  // Load fixtures
+  // Only advance after a complete response for the displayed round.
   useEffect(() => {
-    if (seasonComplete) {
-      setFixtures([]);
-      return;
+    if (!round.roundComplete || gameweek !== firstAvailableGameweek) return;
+    if (gameweek === 38) {
+      setSeasonComplete(true);
+    } else {
+      setFirstAvailableGameweek(gameweek + 1);
+      setGameweek(gameweek + 1);
     }
-    const loadFixtures = () => fetch(`/api/tipping/fixtures?gameweek=${gameweek}`)
-      .then(r => r.json())
-      .then(d => {
-        setFixtures(d.fixtures ?? []);
-        if (d.round_complete && gameweek === firstAvailableGameweek) {
-          if (gameweek === 38) {
-            setSeasonComplete(true);
-            setFixtures([]);
-            return;
-          }
-          const nextGameweek = gameweek + 1;
-          setFirstAvailableGameweek(nextGameweek);
-          setGameweek(nextGameweek);
-        }
-      })
-      .catch(() => setFixtures([]));
-    void loadFixtures();
-    const timer = window.setInterval(loadFixtures, 5 * 60 * 1000);
-    return () => window.clearInterval(timer);
-  }, [gameweek, firstAvailableGameweek, seasonComplete]);
-
-  // Load existing tips if joined
-  const loadTips = useCallback(() => {
-    if (!comp || !userId) return;
-    setTips({});
-    setTipGrades({});
-    fetch(`/api/tipping/tips?comp_id=${comp.id}&user_id=${userId}&gameweek=${gameweek}`)
-      .then(r => r.json())
-      .then(d => {
-        const existing: Record<string, TipSelection> = {};
-        const grades: Record<string, { result: TipSelection | null; points: number | null }> = {};
-        for (const t of d.tips ?? []) {
-          existing[t.game_id] = t.selection;
-          grades[t.game_id] = {
-            result: t.result ?? null,
-            points: t.result == null ? null : Number(t.points ?? 0),
-          };
-        }
-        setTips(existing);
-        setTipGrades(grades);
-      })
-      .catch(() => {});
-  }, [comp, userId, gameweek]);
-
-  useEffect(() => {
-    if (!joined) return;
-    loadTips();
-    const timer = window.setInterval(loadTips, 5 * 60 * 1000);
-    return () => window.clearInterval(timer);
-  }, [joined, loadTips]);
+  }, [round.roundComplete, gameweek, firstAvailableGameweek]);
 
   // Load leaderboard
   useEffect(() => {
@@ -540,7 +503,6 @@ export default function TippingPage() {
           setUserId(null);
           setComp(null);
           setJoined(false);
-          setTips({});
           setLeaderboard([]);
           return;
         }
@@ -556,47 +518,6 @@ export default function TippingPage() {
     }
   };
 
-  // Save tips
-  const handleSave = async () => {
-    if (!comp || !userId) return;
-    setSaving(true);
-    setSaved(false);
-
-    const fixtureIds = new Set(fixtures.map(fixture => fixture.id));
-    const tipArray = Object.entries(tips).filter(([game_id]) => fixtureIds.has(game_id)).map(([game_id, selection]) => {
-      const fix = fixtures.find(f => f.id === game_id)!;
-      return {
-        game_id,
-        home_team: fix.home_team,
-        away_team: fix.away_team,
-        selection,
-      };
-    });
-
-    try {
-      const res = await fetch('/api/tipping/tips', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          comp_id: comp.id,
-          gameweek,
-          tips: tipArray,
-        }),
-      });
-      if (res.ok) {
-        setSaved(true);
-        setTimeout(() => setSaved(false), 3000);
-      } else {
-        const data = await res.json().catch(() => ({}));
-        setError(data.error ?? 'Failed to save tips');
-      }
-    } catch {
-      setError('Failed to save tips');
-    }
-    setSaving(false);
-  };
-
-  const tippedCount = Object.keys(tips).length;
   const totalGames = fixtures.length;
   const gameweekLocked = isGameweekLocked(fixtures);
 
@@ -776,6 +697,14 @@ export default function TippingPage() {
             </button>
           </div>
 
+          {round.loading && <div role="status" className="py-8 text-center text-sm text-gray-500">Loading this round’s saved tips…</div>}
+          {round.error && (
+            <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+              {round.error}
+              {!round.ready && <button onClick={round.retry} className="ml-3 font-semibold underline">Retry</button>}
+            </div>
+          )}
+
           {/* Progress */}
           <div className="flex items-center justify-between mb-4 text-sm text-gray-500">
             <span>{tippedCount}/{totalGames} tipped</span>
@@ -802,11 +731,11 @@ export default function TippingPage() {
                 tip={tips[f.id] ?? null}
                 tipResult={tipGrades[f.id]?.result ?? null}
                 tipPoints={tipGrades[f.id]?.points ?? null}
-                onTip={(sel) => setTips(prev => ({ ...prev, [f.id]: sel }))}
-                locked={gameweekLocked}
+                onTip={(sel) => round.selectTip(f.id, sel)}
+                locked={gameweekLocked || saving || !round.ready}
               />
             ))}
-            {fixtures.length === 0 && (
+            {fixtures.length === 0 && !round.loading && !round.error && (
               <div className="text-center text-gray-400 py-12 text-sm">
                 No fixtures loaded for GW{gameweek} yet.
               </div>
@@ -816,8 +745,8 @@ export default function TippingPage() {
           {/* Save button */}
           {tippedCount > 0 && (
             <button
-              onClick={handleSave}
-              disabled={saving || gameweekLocked}
+              onClick={round.saveTips}
+              disabled={saving || gameweekLocked || !round.ready}
               className={`w-full py-3 font-semibold rounded-xl transition-all ${
                 saved
                   ? 'bg-[#00DEB8] text-white'

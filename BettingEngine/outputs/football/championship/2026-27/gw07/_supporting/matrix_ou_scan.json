@@ -1,0 +1,58 @@
+[
+  {
+    "match": "West Ham v Wrexham",
+    "selection": "under25",
+    "best_price": 2.25,
+    "ev": 0.2386,
+    "aligned": 0,
+    "opposed": 0,
+    "net": 0,
+    "dc_reset": "West Ham",
+    "aligned_detail": [],
+    "opposed_detail": []
+  },
+  {
+    "match": "Bolton v Cardiff",
+    "selection": "under25",
+    "best_price": 2.3,
+    "ev": 0.2662,
+    "aligned": 0,
+    "opposed": 0,
+    "net": 0,
+    "dc_reset": "Bolton, Cardiff",
+    "aligned_detail": [],
+    "opposed_detail": []
+  },
+  {
+    "match": "Middlesbrough v Norwich",
+    "selection": "under25",
+    "best_price": 2.35,
+    "ev": 0.2323,
+    "aligned": 1,
+    "opposed": 2,
+    "net": -1,
+    "dc_reset": "",
+    "aligned_detail": [
+      {
+        "team": "Middlesbrough",
+        "category": "September",
+        "edge_pp": 23.1,
+        "n": 19
+      }
+    ],
+    "opposed_detail": [
+      {
+        "team": "Middlesbrough",
+        "category": "vs Norwich",
+        "edge_pp": -10.2,
+        "n": 8
+      },
+      {
+        "team": "Norwich",
+        "category": "vs Middlesbrough",
+        "edge_pp": -10.2,
+        "n": 8
+      }
+    ]
+  }
+]
