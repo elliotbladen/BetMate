@@ -75,29 +75,22 @@ happens; check the value ends `...8Wrd1wIDAQAB`. Region is ap-northeast-1 (Tokyo
 `RESEND_API_KEY` and `CRON_SECRET` are set in Vercel. **`RESEND_API_KEY` is NOT in
 the local `.env.local`** (empty) — local sends will report "not configured".
 
-## Baz GW4 tips
+## Tipping-script follow-up
 
-Submitted, all 10, favourites from the market prices in
-`BettingEngine/outputs/football/epl/2026-27/gw04/1_model.json`. 7 home, 3 away, no
-draws; the model agreed with the market on all ten. Baz sits on 45 pts from GW1-3.
-
-⚠️ **`scripts/baz_tipping.py` is BROKEN and was not used.** Its
-`data/epl/predictions/latest.json` was three rounds stale (GW2), and it matches
-predictions to fixtures by **home team only**, never checking the opponent. It would
-have tipped 9 of 10 games off the wrong opponent's odds — including Ipswich to win at
-Selhurst and Forest at Villa Park. **Fix it before next week:** match on both teams,
-and read from the priced gameweek output rather than `latest.json`.
+`scripts/baz_tipping.py` reads stale predictions and matches fixtures by home
+team only. Before reuse, match both teams and load the priced gameweek output.
+Private tips and participant records are omitted from this handover.
 
 ## Open
 
 1. **Verify the deploy** — `curl -H "Authorization: Bearer $CRON_SECRET"
    "https://betmate.au/api/cron/tipping-reminder?dry_run=1"`. This is the only way to
    confirm the Vercel env vars, which cannot be read back. Drop `dry_run` to send.
-   **brendanturner has still not been emailed** and GW4 locks Sat 14:00 UTC.
+   Reminder delivery still needs verification.
 2. **Click through the UI** after the Next 16 deploy.
 3. **Railway: repoint at `main`** before deleting `feat/market-engine-cloud`.
 4. **Market engine still has `ODDS_COLLECTION_LIVE_ENABLED=false`** — not collecting.
-5. **Settle cards bets 2026-0118/0119** once football-data publishes 12-13 Sep.
+5. Follow the existing settlement workflow once official results are available.
 6. Next 16 lint: 59 pre-existing findings now visible.
 
 
@@ -152,13 +145,11 @@ Evidence leaning towards (1): betmate.au was serving a response with `age: 4455`
 **Next step: check Vercel Deployments for a build from after the merge.** If none,
 auto-deploy may not be wired to `main`; hit Redeploy.
 
-## ⚠️ brendanturner STILL NOT EMAILED
+## Reminder delivery remains unverified
 
-GW4 locks at the first kickoff — **Sat 12 Sep 14:00 UTC / 00:00 Sun AEST**. He is
-the only entrant missing (0/10; he tipped GW1-3 in full). The automation is not
-working yet and `RESEND_API_KEY` is **empty in `.env.local`**, so a manual send from
-the command line is also blocked until that key is pasted in. Sending by hand from
-a mail client remains the certain option.
+The automation was not working at session end and local email credentials were
+not configured. Check deployment and credentials before relying on scheduled
+delivery. This note does not authorise a manual email send.
 
 ## Left running / left alone
 
