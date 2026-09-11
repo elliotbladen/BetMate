@@ -27,4 +27,3 @@ export function validAnalyticsEvent(event: unknown): event is Record<string, unk
   if (event.metadata !== undefined && !isRecord(event.metadata)) return false;
   return true;
 }
-

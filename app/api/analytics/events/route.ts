@@ -10,7 +10,6 @@ const requestWindows = new Map<string, { startedAt: number; count: number }>();
 const RATE_LIMIT = 30;
 const RATE_WINDOW_MS = 60_000;
 
-
 function adminClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
