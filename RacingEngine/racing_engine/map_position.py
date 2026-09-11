@@ -19,6 +19,28 @@ ROOT = Path(__file__).resolve().parents[1]
 VERSION = "map-position-shadow-v1"
 SECTIONAL_VERSION = "canonical-sectionals-v1.1-early-recovery"
 STATES = ("leader", "on_pace", "midfield", "backmarker")
+CONTEXT_MIN_HISTORY = 3
+
+
+def going_bucket(value: str | None) -> str | None:
+    text = (value or "").strip().lower()
+    for bucket in ("firm", "good", "soft", "heavy", "synthetic"):
+        if bucket in text:
+            return bucket
+    return None
+
+
+def distance_band(distance_metres: int | float | None) -> str | None:
+    if distance_metres is None:
+        return None
+    distance = float(distance_metres)
+    if distance < 1300:
+        return "sprint"
+    if distance < 1800:
+        return "mile"
+    if distance < 2200:
+        return "middle"
+    return "staying"
 
 
 def now() -> str:
@@ -104,7 +126,7 @@ def ensure_schema(store: RacingStore) -> None:
 def build_history(store: RacingStore) -> dict[str, int]:
     ensure_schema(store)
     rows = store.connection.execute("""
-      SELECT rr.*,race.distance_metres,
+      SELECT rr.*,race.distance_metres,race.track_condition,
              cs.early_to_800_seconds,cs.position_800m,cs.position_600m,cs.position_400m,
              cs.derivation_json,
              (SELECT count(*) FROM runner_results f WHERE f.source=rr.source
@@ -128,7 +150,10 @@ def build_history(store: RacingStore) -> dict[str, int]:
             (row["race_date"], row["track_slug"], row["race_number"], horse_key(row["runner_name"]))).fetchall()}
         derivation = json.loads(row["derivation_json"] or "{}")
         origin = "derived_finish_minus_late" if (derivation.get("features", {}).get("early_to_800_seconds", {}).get("method")) else ("observed" if row["early_to_800_seconds"] is not None else "unavailable")
-        detail = {"position_marker_priority": "800,600,400", "distance_metres": row["distance_metres"]}
+        detail = {"position_marker_priority": "800,600,400",
+                  "distance_metres": row["distance_metres"],
+                  "distance_band": distance_band(row["distance_metres"]),
+                  "going_bucket": going_bucket(row["track_condition"])}
         store.connection.execute("""INSERT OR REPLACE INTO map_runner_history_features VALUES
           (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", (
           VERSION,row["source"],row["race_date"],row["track_slug"],row["race_number"],row["runner_number"],
@@ -147,15 +172,36 @@ class RunnerInput:
     barrier: int | None
 
 
-def _profile(store: RacingStore, runner: RunnerInput, race_date: str) -> tuple[dict[str, float], int, float]:
+def _profile(store: RacingStore, runner: RunnerInput, race_date: str,
+             *, track_slug: str | None = None, distance_metres: int | None = None,
+             going: str | None = None) -> tuple[dict[str, float], int, float]:
     key = horse_key(runner.name)
     rows = store.connection.execute("""SELECT observed_state,slow_start_event
-      FROM map_runner_history_features WHERE model_version=? AND horse_key=?
-       AND race_date<? AND observed_state IS NOT NULL ORDER BY race_date DESC LIMIT 8""",
+      ,track_slug,detail_json FROM map_runner_history_features
+      WHERE model_version=? AND horse_key=? AND race_date<? AND observed_state IS NOT NULL
+      ORDER BY race_date DESC LIMIT 32""",
       (VERSION,key,race_date)).fetchall()
-    counts = Counter(row["observed_state"] for row in rows)
-    slow = sum(row["slow_start_event"] for row in rows) / len(rows) if rows else 0.0
-    return smoothed_probabilities(counts), len(rows), slow
+    target_band = distance_band(distance_metres)
+    target_going = going_bucket(going)
+    enriched = []
+    for row in rows:
+        detail = json.loads(row["detail_json"] or "{}")
+        enriched.append((row, detail))
+    exact = [(row, detail) for row, detail in enriched
+             if track_slug and row["track_slug"] == track_slug
+             and target_band and detail.get("distance_band") == target_band
+             and target_going and detail.get("going_bucket") == target_going]
+    track_distance = [(row, detail) for row, detail in enriched
+                      if track_slug and row["track_slug"] == track_slug
+                      and target_band and detail.get("distance_band") == target_band]
+    track_rows = [(row, detail) for row, detail in enriched
+                  if track_slug and row["track_slug"] == track_slug]
+    selected = next((group for group in (exact, track_distance, track_rows, enriched)
+                     if len(group) >= CONTEXT_MIN_HISTORY), enriched)
+    selected = selected[:8]
+    counts = Counter(row["observed_state"] for row, _ in selected)
+    slow = sum(row["slow_start_event"] for row, _ in selected) / len(selected) if selected else 0.0
+    return smoothed_probabilities(counts), len(selected), slow
 
 
 def simulate_field(probabilities: list[dict[str, float]], barriers: list[int | None],
@@ -182,19 +228,23 @@ def simulate_field(probabilities: list[dict[str, float]], barriers: list[int | N
 
 def predict_field(store: RacingStore, *, source: str, race_date: str, track_slug: str,
                   race_number: int, runners: Iterable[RunnerInput], as_of: str,
-                  iterations: int = 10_000) -> list[dict[str, Any]]:
+                  iterations: int = 10_000, distance_metres: int | None = None,
+                  going: str | None = None) -> list[dict[str, Any]]:
     ensure_schema(store); field=list(runners); size=len(field)
     field_hash=hashlib.sha256(json.dumps([(r.number,r.name,r.barrier) for r in field]).encode()).hexdigest()
     seed=int(field_hash[:8],16); probs=[]; metadata=[]
     for runner in field:
-        base,runs,slow=_profile(store,runner,race_date)
+        base,runs,slow=_profile(store,runner,race_date,track_slug=track_slug,
+                                 distance_metres=distance_metres,going=going)
         adjusted=blend_context(base,runner.barrier,size,slow_start_rate=slow)
         probs.append(adjusted); metadata.append((runs,slow))
     simulations=simulate_field(probs,[r.barrier for r in field],iterations,seed)
     output=[]; created=now()
     for runner,p,sim,(runs,slow) in zip(field,probs,simulations,metadata):
         confidence=min(0.90,0.20+0.09*runs)
-        detail={"status":"SHADOW_ONLY","probability_model":"recency-eight-dirichlet-context-v1","iterations":iterations}
+        detail={"status":"SHADOW_ONLY","probability_model":"recency-eight-dirichlet-context-v2",
+                "context":{"track_slug":track_slug,"distance_band":distance_band(distance_metres),
+                           "going_bucket":going_bucket(going)},"iterations":iterations}
         values=(VERSION,as_of,field_hash,source,race_date,track_slug,race_number,runner.number,
                 horse_key(runner.name),runner.name,runner.barrier,runs,p["leader"],p["on_pace"],p["midfield"],
                 p["backmarker"],sim["expected_rank"],sim["wide_risk"],slow,confidence,seed,as_of,json.dumps(detail,sort_keys=True),created)
@@ -221,7 +271,12 @@ def evaluate_history(store: RacingStore) -> dict[str, Any]:
                         max(p,key=p.get)==actual,-math.log(max(base[actual],1e-12)),
                         sum((base[s]-(s==actual))**2 for s in STATES)/len(STATES)))
         histories[row["horse_key"]].append(actual); population[actual]+=1
-    n=len(metrics); report={"model_version":VERSION,"runners":n,
+    n=len(metrics)
+    if not n:
+        return {"model_version": VERSION, "runners": 0,
+                "status": "BLOCKED_NO_LABELLED_HISTORY",
+                "reason": "No canonical sectional rows matched the configured feature version"}
+    report={"model_version":VERSION,"runners":n,
       "log_loss":sum(x[0] for x in metrics)/n,"brier":sum(x[1] for x in metrics)/n,
       "accuracy":sum(x[2] for x in metrics)/n,"baseline_log_loss":sum(x[3] for x in metrics)/n,
       "baseline_brier":sum(x[4] for x in metrics)/n,"status":"SHADOW_ONLY_DIAGNOSTIC"}
