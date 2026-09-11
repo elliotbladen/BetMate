@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validAnalyticsEvent } from '../app/api/analytics/events/route';
+import { validAnalyticsEvent } from '../lib/analyticsEvent';
 
 const valid = {
   event_name: 'page_view', occurred_at_utc: '2026-09-09T00:00:00.000Z',
