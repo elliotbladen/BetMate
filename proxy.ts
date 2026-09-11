@@ -1,3 +1,9 @@
+// Renamed from middleware.ts in the Next 16 upgrade — the `middleware` file
+// convention is deprecated in favour of `proxy`.
+//
+// NOTE: `proxy` runs on the NODE runtime and that is NOT configurable; the edge
+// runtime is unsupported here. This file previously ran on edge by default.
+// Supabase SSR auth works on node and the PUBLIC_PATHS gating below is unchanged.
 import { createServerClient } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -40,7 +46,7 @@ const PUBLIC_PATHS = [
   '/tipping',
 ];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Supabase PKCE stores its verifier in a host-scoped cookie. Starting OAuth on

@@ -15,10 +15,8 @@ const LEAGUES: Record<string, { oddsApiKey: string; snapshotSport: 'EPL' | 'CHAM
   ucl:          { oddsApiKey: 'soccer_uefa_champs_league', snapshotSport: 'UCL' },
 };
 
-export async function GET(
-  request: Request,
-  { params }: { params: { league: string } },
-) {
+export async function GET(request: Request, props: { params: Promise<{ league: string }> }) {
+  const params = await props.params;
   const { league } = params;
   const config = LEAGUES[league?.toLowerCase() ?? ''];
   if (!config) {
