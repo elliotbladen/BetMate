@@ -11,8 +11,8 @@
     "test:tipping:ui": "node --test tests/tipping-ui.test.cjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.88.0",
-    "@supabase/ssr": "^0.7.0",
+    "@anthropic-ai/sdk": "^0.124.0",
+    "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.103.0",
     "clsx": "^2.1.1",
     "lucide-react": "^1.44.0",
@@ -25,13 +25,13 @@
     "@types/node": "^20",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.5.5",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.4",
-    "playwright": "^1.60.0",
+    "playwright": "^1.63.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "tsx": "^4.23.12",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }
