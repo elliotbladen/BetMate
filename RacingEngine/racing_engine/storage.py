@@ -239,6 +239,19 @@ CREATE TABLE IF NOT EXISTS horse_aliases (
 );
 
 -- Rows that cannot be linked safely are retained for human review.
+CREATE TABLE IF NOT EXISTS fitness_quality_quarantine (
+    review_key TEXT PRIMARY KEY,
+    source TEXT NOT NULL,
+    source_event_id TEXT,
+    horse_id TEXT,
+    event_date TEXT,
+    reason_json TEXT NOT NULL DEFAULT '[]',
+    payload_hash TEXT,
+    raw_json TEXT NOT NULL DEFAULT '{}',
+    parser_version TEXT NOT NULL,
+    created_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS fitness_identity_quarantine (
     review_key TEXT PRIMARY KEY,
     source TEXT NOT NULL,
