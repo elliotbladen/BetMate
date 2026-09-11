@@ -1,8 +1,6 @@
 import tempfile, unittest
 from pathlib import Path
-import sys
-sys.path.insert(0, '/private/tmp/fitness_step3')
-from trial_ingest import archive_payload, collect_explicit_urls, discover_trial_links, extract_trial_rows
+from racing_engine.trial_ingest import archive_payload, collect_explicit_urls, discover_trial_links, extract_trial_rows
 
 HTML=b'''<html><a href="/form/race-trial">Trial</a><table><tr><th>Horse</th><th>Trainer</th><th>Jockey</th><th>Barrier</th><th>Position</th></tr><tr><td>Test Horse</td><td>T Trainer</td><td>J Rider</td><td>3</td><td>1</td></tr></table></html>'''
 class TrialIngestTests(unittest.TestCase):
