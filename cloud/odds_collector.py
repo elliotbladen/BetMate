@@ -277,21 +277,55 @@ def main() -> int:
     now = utcnow()
     selected = {x.strip().upper() for x in args.sports.split(",")} if args.sports else set(config["sports"])
     selected &= set(config["sports"])
-    live_switch = truthy(os.getenv("ODDS_COLLECTION_LIVE_ENABLED"))
-    live = not args.dry_run and live_switch
-    if not args.dry_run and not live:
-        print("Live collection is disabled. Set ODDS_COLLECTION_LIVE_ENABLED=true or use --dry-run.")
-        return 2
 
     api_key = os.getenv("ODDS_API_KEY", "")
     supabase_url = os.getenv("SUPABASE_URL") or os.getenv("NEXT_PUBLIC_SUPABASE_URL", "")
     service_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+    live_switch = truthy(os.getenv("ODDS_COLLECTION_LIVE_ENABLED"))
+    live = not args.dry_run and live_switch
+    worker_id = os.getenv("ODDS_WORKER_ID", socket.gethostname())
+
+    # Presence banner, printed before any guard can exit. Every misconfiguration
+    # below used to return 2 *before* the first Supabase write, so a container that
+    # never started and a container that started and was misconfigured left exactly
+    # the same evidence in the warehouse: nothing at all. On 2026-09-11 that
+    # ambiguity was read as "Railway is not executing", which was never established.
+    # Presence only, never a value - this line goes to a hosted deploy log.
+    print(f"collector start worker={worker_id} live={live} dry_run={args.dry_run} "
+          f"live_switch={live_switch} odds_api_key={'set' if api_key else 'MISSING'} "
+          f"supabase_url={'set' if supabase_url else 'MISSING'} "
+          f"service_role_key={'set' if service_key else 'MISSING'}")
+
+    def abort(reason: str) -> int:
+        """Exit 2, but leave a trace in the warehouse whenever that is possible."""
+        print(f"ABORT: {reason}", file=sys.stderr)
+        if supabase_url and service_key:
+            try:
+                Supabase(supabase_url, service_key).insert("odds_capture_runs", [{
+                    "run_id": str(uuid.uuid4()), "started_at": iso(now),
+                    "finished_at": iso(utcnow()), "worker_id": worker_id,
+                    "mode": "dry_run" if args.dry_run else "scheduled", "status": "failed",
+                    "sports_requested": sorted(selected),
+                    "errors": [{"stage": "preflight", "error": reason}],
+                    "metadata": {"aborted": True},
+                }])
+                print("recorded aborted run in odds_capture_runs")
+            except Exception as exc:  # never let reporting mask the real fault
+                print(f"could not record aborted run: {exc}", file=sys.stderr)
+        else:
+            print("no Supabase credentials, so this abort is only visible in this log",
+                  file=sys.stderr)
+        return 2
+
+    if not args.dry_run and not live:
+        return abort("ODDS_COLLECTION_LIVE_ENABLED is not true "
+                     f"(got {os.getenv('ODDS_COLLECTION_LIVE_ENABLED')!r}); "
+                     "set it to true or pass --dry-run")
     if not args.input_json and not api_key:
-        print("ODDS_API_KEY is required", file=sys.stderr)
-        return 2
+        return abort("ODDS_API_KEY is required")
     if live and (not supabase_url or not service_key):
-        print("SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required", file=sys.stderr)
-        return 2
+        return abort("SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL and "
+                     "SUPABASE_SERVICE_ROLE_KEY are required")
 
     db = Supabase(supabase_url, service_key) if live else None
     poll_states = {}
@@ -299,7 +333,6 @@ def main() -> int:
         poll_states = {row["sport"]: row for row in db.get_all("odds_sport_poll_state", {"select": "*"})}
 
     run_id = str(uuid.uuid4())
-    worker_id = os.getenv("ODDS_WORKER_ID", socket.gethostname())
     mode = "dry_run" if args.dry_run else ("checkpoint" if args.force else "scheduled")
     run = {"run_id": run_id, "started_at": iso(now), "worker_id": worker_id,
            "mode": mode, "status": "running", "sports_requested": sorted(selected)}
@@ -428,7 +461,16 @@ def main() -> int:
                     "consecutive_failures": failures, "last_error": str(exc)[:1000], "updated_at": iso(now),
                 }])
 
-    status = "success" if not errors else ("partial" if fetched_sports else "failed")
+    if errors:
+        status = "partial" if fetched_sports else "failed"
+    elif fetched_sports:
+        status = "success"
+    else:
+        # Nothing was due, or nothing had fixtures. The run row is still written so a
+        # silent worker is distinguishable from a quiet one — on 2026-09-11 a Railway
+        # container that never executed looked identical to a do-nothing cycle, because
+        # every cycle reported "success". Filter on status=eq.success for real captures.
+        status = "skipped"
     if db:
         response = requests.patch(
             f"{db.base}/odds_capture_runs", headers={**db.headers, "Prefer": "return=minimal"},
