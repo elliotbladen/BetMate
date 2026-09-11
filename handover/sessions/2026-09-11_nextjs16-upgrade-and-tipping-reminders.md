@@ -1,0 +1,162 @@
+# 2026-09-11 (PM) — Next.js 16 upgrade and automatic tipping reminders
+
+Both merged to `main`: **PR #11** (Next 14 → 16) and **PR #12** (tipping reminder cron).
+`main` is now `71a7f24`.
+
+## Next.js 14.2.35 → 16.3.4, React 18 → 19.3
+
+**Why:** 14.2.35 patched the two CVEs Railway blocked on, but the 14.x line still
+carried a tail of advisories including **two critical unauthenticated RCEs** only
+fixed in 15.5.24+. `npm audit` no longer flags `next` at all. Remaining:
+`@anthropic-ai/sdk` (moderate, breaking fix) and `xlsx` (**high, no upstream fix**,
+local-only pipeline).
+
+Migration used the official codemods and was small — 3 files for async request
+APIs (`cookies()` x2, `params` x1). No `headers()`, no `draftMode()`, no server
+actions, no parallel routes.
+
+| change | note |
+|---|---|
+| `middleware.ts` → `proxy.ts` | ⚠️ **runtime change** — `proxy` is node-only and NOT configurable; middleware defaulted to edge. Supabase SSR works on node; gating verified (public 200, gated 401). |
+| `images.domains` → `remotePatterns` | deprecated in 16 |
+| `next lint` → `eslint .` | removed in 16; flat config added. The repo had **no eslint config at all** before, so 59 findings appeared at once — all pre-existing quality issues, none upgrade breakage, none fixed. |
+
+### Two latent bugs the upgrade surfaced — neither caused by it
+
+1. **A UTF-8 BOM in `app/globals.css`.** Webpack tolerated it for years; Turbopack
+   (default builder in 16) fails to parse it. Only file in the repo with one.
+
+2. **`lib/oddsSnapshotFallback.ts` loaded the entire odds archive per request** —
+   `flatMap` over every CSV in `data/odds_snapshots`: **385MB, 41 files, 2.75M rows**,
+   each becoming a 12-field object. Dev server OOM'd at 8GB on any `/api/odds/*`
+   call. It only ever uses the latest snapshot, so it now reads newest-first and
+   stops. **8GB crash → flat 60MB.** Untouched since 2026-07-28 and NOT a production
+   issue: `data/` is gitignored so nothing deploys and `snapshotRoots()` is empty on
+   Vercel. A local-dev bug the growing archive finally triggered.
+
+Also pinned `turbopack.root` — Turbopack infers the workspace root from the nearest
+lockfile and there is a stray `package-lock.json` in `$HOME` from April, so it was
+treating `~/` as the root and trying to watch every file under it.
+
+⚠️ **The UI was never visually inspected** — no browser tooling was available this
+session. Merged on the owner's explicit instruction. A React 18→19 jump can change
+rendering in ways HTTP 200s do not catch. **Worth clicking `/odds` at 375px** (the
+`min-w-0` grid bug from May), the Ask Baz drawer, and the Details tabs.
+
+## Tipping reminder cron
+
+Daily Vercel cron at **09:00 UTC**: finds the next unlocked gameweek, and if it locks
+within 48h emails every entrant with incomplete tips, recording each send so nobody
+is nagged twice per round.
+
+`app/api/cron/tipping-reminder/route.ts` · `lib/supabaseAdmin.ts` ·
+`supabase/migrations/20260911_tipping_reminders.sql` (applied) · `vercel.json`
+
+⚠️ **`createServerClient()` fails as success.** `lib/supabaseServer.ts` uses the ANON
+key and, when that key is absent, returns a **no-op stub answering `[]` to every
+query**. The first dry run reported "0 people to remind" and looked like a clean pass
+having queried nothing. That shape is dangerous in an unattended job — hence
+`lib/supabaseAdmin.ts`, which throws. It is needed anyway: the job reads `auth.users`
+for addresses and writes `tipping_reminders`.
+
+⚠️ `/api/cron` had to go in `PUBLIC_PATHS` or the proxy would 401 the cron before the
+route ran. **It is not public** — the route requires `Authorization: Bearer
+$CRON_SECRET` and refuses outright if the secret is unset. Verified 401 without it.
+
+Bot entrants are excluded for free: `baz-bot` has no `auth.users` row, so no address.
+
+### Email setup (done)
+
+Resend, sending from betmate.au, **domain verified**. DKIM + SPF + MX confirmed live
+from two external resolvers. ⚠️ **The DKIM value silently truncated on first paste —
+88 of 218 characters.** Resend fails verification with an unhelpful error when this
+happens; check the value ends `...8Wrd1wIDAQAB`. Region is ap-northeast-1 (Tokyo).
+
+`RESEND_API_KEY` and `CRON_SECRET` are set in Vercel. **`RESEND_API_KEY` is NOT in
+the local `.env.local`** (empty) — local sends will report "not configured".
+
+## Tipping-script follow-up
+
+`scripts/baz_tipping.py` reads stale predictions and matches fixtures by home
+team only. Before reuse, match both teams and load the priced gameweek output.
+Private tips and participant records are omitted from this handover.
+
+## Open
+
+1. **Verify the deploy** — `curl -H "Authorization: Bearer $CRON_SECRET"
+   "https://betmate.au/api/cron/tipping-reminder?dry_run=1"`. This is the only way to
+   confirm the Vercel env vars, which cannot be read back. Drop `dry_run` to send.
+   Reminder delivery still needs verification.
+2. **Click through the UI** after the Next 16 deploy.
+3. **Railway: repoint at `main`** before deleting `feat/market-engine-cloud`.
+4. **Market engine still has `ODDS_COLLECTION_LIVE_ENABLED=false`** — not collecting.
+5. Follow the existing settlement workflow once official results are available.
+6. Next 16 lint: 59 pre-existing findings now visible.
+
+
+---
+
+# END OF DAY — two things left half-live (2026-09-11 PM)
+
+## Odds collection: ONE snapshot captured, then nothing
+
+A controlled live run was executed **from the laptop** (`worker_id
+betmate-local-firstrun`) and it worked: 7 sports, 311 events, **8,099 quotes,
+8,099 opening changes, 4,548 checkpoints**, 42 credits, zero errors. Per sport:
+NFL 2588, EPL 2085, EFL 1439, NBA 1072, UCL 481, NRL 260, AFL 174.
+
+**Railway has not run once.** Branch was moved to `main` and all five variables
+were set via the Raw Editor (they had never been set — the deploy "succeeded"
+because the image built, but the collector would have died on
+`ODDS_API_KEY is required`). Seventy minutes later `odds_capture_runs` still
+contains only the laptop run.
+
+The collector inserts its run row BEFORE checking whether any sport is due, so a
+Railway execution would appear even on a do-nothing cycle. No row means the
+container is not executing.
+
+**Next step: read the Railway deployment logs.** Specifically whether a new
+deployment started after the variables were saved, and what it printed. Suspicion
+worth testing: the service shows "Online / 1 Replica", which is how Railway
+presents a long-lived service rather than a cron — the collector runs once and
+exits 0, and with `restartPolicyType: ON_FAILURE` it would not be restarted. If
+Railway is not honouring `deploy.cronSchedule` from `railway.json`, the fix is to
+configure the cron in the dashboard directly.
+
+⚠️ **Railway trial: "30 days or $5.00 left".** When that runs out the service stops
+and collection dies silently. Add a payment method before relying on it.
+
+## Tipping reminder: deployed but returning 401
+
+`https://betmate.au/api/cron/tipping-reminder?dry_run=1` returns **401 with the
+correct `CRON_SECRET`**. Cannot distinguish between two causes from outside:
+
+1. Vercel has not deployed the merged `main` yet — the old middleware (no
+   `/api/cron` in PUBLIC_PATHS) would 401 it, OR
+2. the route IS deployed but Vercel's `CRON_SECRET` does not match `.env.local`.
+
+The proxy and the route return an identical `{"error":"Unauthorised"}` body, which
+is why this is ambiguous. **A missing CRON_SECRET would give 503, not 401**, so the
+variable is at least present if the route is live.
+
+Evidence leaning towards (1): betmate.au was serving a response with `age: 4455`
+(74 minutes) at a point ~30 minutes after the merges.
+
+**Next step: check Vercel Deployments for a build from after the merge.** If none,
+auto-deploy may not be wired to `main`; hit Redeploy.
+
+## Reminder delivery remains unverified
+
+The automation was not working at session end and local email credentials were
+not configured. Check deployment and credentials before relying on scheduled
+delivery. This note does not authorise a manual email send.
+
+## Left running / left alone
+
+- Dev server and the :8777 referee-matrix server were stopped at end of session.
+- Branch `feat/market-engine-cloud` NOT deleted — keep until Railway is confirmed
+  collecting from `main`.
+- The two laptop launchd jobs (`com.betmate.odds-snapshot-10min`,
+  `com.betmate.prevent-sleep`) are STILL ENABLED. Do not unload them until Railway
+  is proven, they are the current fallback.
+- PR #13 (this diary + CLAUDE.md) open.
