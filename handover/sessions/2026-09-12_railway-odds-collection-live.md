@@ -91,3 +91,103 @@ credits and race Railway for the poll state.
 4. `feat/market-engine-cloud` can be deleted once cron is confirmed — Railway now
    deploys from `main`.
 5. Vercel tipping-reminder 401 is untouched and still open.
+
+---
+
+# END OF SESSION — cron confirmed firing, and a December deadline found
+
+## The cron is live
+
+Confirmed on two consecutive five-minute boundaries, so it is a schedule and not a
+coincidence:
+
+```
+22:20:20  skipped  none  credits=0
+22:15:04  skipped  none  credits=0
+21:55:25  success  AFL,EFL,EPL,NBA,NFL,NRL,UCL  credits=42   <- Deploy-triggered
+```
+
+**Why it was not firing at first: the Cron Schedule had been set with the "Daily"
+dropdown preset (`0 0 * * *`), not a custom expression.** Railway's field defaults
+to a preset selector; the `Customize` link beside it is what accepts a raw crontab
+string. Leaving it on Daily would NOT have looked broken — one capture a day at
+midnight UTC, rows appearing, everything reading healthy, while missing every close
+capture and most of the 2-hourly drift. Same failure shape as the rest of the day.
+
+Two useful signals confirmed along the way: a **`Cron Runs` tab** appears on the
+service once a schedule actually registers, and Railway states outright that
+**"Serverless is not available for services that have a cron schedule"** — so
+scale-to-zero cannot silently sleep the collector.
+
+## The presence banner, working in production
+
+`railway logs --deployment` on a real idle cycle:
+
+```
+Starting Container
+collector start worker=betmate-market-worker-1 live=True dry_run=False
+  live_switch=True odds_api_key=set supabase_url=set service_role_key=set
+AFL: not due until 2026-09-11T23:55:25Z      (and the other six)
+{"status": "skipped", "sports": [], "requests": 0, "errors": []}
+```
+
+This is the line that would have ended yesterday's investigation in two minutes.
+
+## Railway CLI access now exists
+
+`railway login` completed as `elliotbladen@gmail.com`; the repo is linked to
+project `virtuous-respect` / service `BetMate` / environment `production`. Note the
+OAuth scope granted is `workspace:admin` + `project:admin` — full read/write, not
+read-only. A project-scoped `RAILWAY_TOKEN` is the narrower alternative if that ever
+matters.
+
+IDs, so no interactive linking is needed again:
+
+```
+project      65b6724e-5a68-4618-a203-06d30e4ec7cf
+service      7205580b-0028-4237-b9fb-31063e3a99c8
+environment  df30a73b-dc36-47c1-a966-18a8985e09f4
+```
+
+## ⚠️ `railway.json` is deprecated and STOPS WORKING 2026-12-01
+
+The CLI warns on every command:
+
+> Config as Code (railway.json / railway.toml) is deprecated. Prefer Infrastructure
+> as Code (`.railway/railway.ts`). Existing files keep working until **2026-12-01**.
+
+There is **no `.railway/` directory** — this repo is entirely on the deprecated
+path, which is the likeliest reason `deploy.cronSchedule` never applied.
+
+**This is a dated time bomb.** `railway.json` carries `builder: DOCKERFILE` and
+`dockerfilePath: cloud/Dockerfile`. When it stops being read, Railway falls back to
+auto-detection and tries to build the Next.js site — exactly the failure that
+blocked the original deploy on 11 Sep. It would break silently.
+
+`railway config migrate` translates it and **defaults to a dry run**. Not run this
+session. When it is done, keep the cron schedule in the dashboard where it is now
+proven, rather than moving it back into config.
+
+## State at close
+
+| | |
+|---|---|
+| Railway cron | ✅ firing every 5 min, verified twice |
+| All seven codes | ✅ collecting |
+| Credentials in container | ✅ all three confirmed by the banner |
+| Quota | 14,485 of 20,000 |
+| Next scheduled capture | 23:55 UTC, all 7 codes, ~42 credits |
+| First close captures | NRL 06:02, AFL 09:32 UTC |
+
+## Open, in priority order
+
+1. **⚠️ Railway trial: "30 days or $5.00 left".** Now the single biggest risk to
+   collection. When it runs out the service stops and it looks exactly like the
+   fault diagnosed today. Needs a payment method.
+2. **Migrate off `railway.json` before 2026-12-01.** Dry run first.
+3. Confirm the 23:55 capture and the two close captures landed.
+4. Delete `feat/market-engine-cloud` — `main` now carries everything and Railway
+   deploys from it.
+5. Vercel tipping-reminder 401 — untouched, still open.
+6. Local `main` is 24 commits behind origin and checked out in a worktree at
+   `/private/tmp/betmate-horse-ratings`. `git show main:` reads the WRONG ref.
