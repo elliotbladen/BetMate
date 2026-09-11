@@ -238,6 +238,21 @@ CREATE TABLE IF NOT EXISTS horse_aliases (
     PRIMARY KEY (source, source_horse_name)
 );
 
+-- Rows that cannot be linked safely are retained for human review.
+CREATE TABLE IF NOT EXISTS fitness_identity_quarantine (
+    review_key TEXT PRIMARY KEY,
+    source TEXT NOT NULL,
+    source_event_id TEXT,
+    source_horse_name TEXT NOT NULL,
+    event_date TEXT,
+    candidate_horse_ids_json TEXT NOT NULL DEFAULT '[]',
+    reason TEXT NOT NULL,
+    source_url TEXT,
+    raw_json TEXT NOT NULL DEFAULT '{}',
+    parser_version TEXT NOT NULL,
+    created_at TEXT NOT NULL
+);
+
 -- Durable identity is separate from source spellings and name normalisation.
 CREATE TABLE IF NOT EXISTS horses (
     horse_id TEXT PRIMARY KEY,
