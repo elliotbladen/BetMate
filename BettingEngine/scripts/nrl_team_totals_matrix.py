@@ -20,6 +20,14 @@ _BETMATE = Path(os.environ.get("BETMATE_ROOT", "")) if os.environ.get("BETMATE_R
 
 SOURCE_PATH = str(os.environ.get("NRL_HISTORICAL_XLSX") or _BETMATE / "data/nrl/historical/latest.xlsx")
 OUTPUT_PATH = str(_ROOT / "outputs" / "nrl_team_totals_matrix.xlsx")
+OUTPUT_PATH_V2 = str(_ROOT / "outputs" / "nrl_team_totals_matrix_v2.xlsx")
+
+# "mean"    (v1) — avg actual total vs avg closing line. Right-skewed: a blowout
+#                  moves the mean without moving what a bet settles on.
+# "hitrate" (v2) — over/under strike rate vs the 50% the line represents, which
+#                  is the quantity an over/under bet actually pays on. Mirrors
+#                  the handicap matrix, where implied is likewise a flat 50%.
+METRIC = "mean"
 SEASONS = (2022, 2023, 2024, 2025)
 MIN_SAMPLE = 3
 EDGE_FLAG_PCT = 15.0
@@ -178,6 +186,16 @@ def enrich_rows(rows):
 # ─────────────────────────────────────────────
 
 def compute_stats(games):
+    if METRIC == "hitrate":
+        # Pushes (total exactly on the line) return the stake, so they are not
+        # part of the strike rate the bet settles on.
+        decided = [g for g in games if g["total_score"] != g["market_total"]]
+        n = len(decided)
+        if n < MIN_SAMPLE:
+            return None
+        overs = sum(1 for g in decided if g["total_score"] > g["market_total"])
+        return round(overs / n * 100, 1), 50.0, n
+
     n = len(games)
     if n < MIN_SAMPLE:
         return None
@@ -187,6 +205,11 @@ def compute_stats(games):
 
 
 def edge_label(avg_actual, avg_market):
+    """(diff, relative edge %, direction, flag).
+
+    Both metrics express the edge as a relative deviation from the market
+    baseline, so the 15% flag threshold means the same thing in each.
+    """
     diff = avg_actual - avg_market
     if avg_market == 0:
         return round(diff, 1), 0.0, "", False
@@ -225,6 +248,15 @@ COL_HEADERS = [
     "Difference",
     "Edge % & Direction",
     "N (Games)",
+]
+
+COL_HEADERS_V2 = [
+    "Category",
+    "Over Hit Rate %",
+    "Market Implied (line = 50%)",
+    "Difference (pp)",
+    "Edge % & Direction",
+    "N (Decided Games)",
 ]
 
 
@@ -354,7 +386,7 @@ def build_team_sheet(wb, team, all_rows, all_teams, all_venues):
     ws.row_dimensions[1].height = 22
 
     # Column headers
-    for c, h in enumerate(COL_HEADERS, start=1):
+    for c, h in enumerate(COL_HEADERS_V2 if METRIC == "hitrate" else COL_HEADERS, start=1):
         ws.cell(row=2, column=c, value=h)
     style_header_row(ws, 2)
     ws.row_dimensions[2].height = 30
@@ -446,6 +478,22 @@ def build_team_sheet(wb, team, all_rows, all_teams, all_venues):
 # ─────────────────────────────────────────────
 
 def main():
+    global METRIC
+    import argparse
+    ap = argparse.ArgumentParser(description="NRL team totals matrix builder")
+    ap.add_argument("--metric", choices=["mean", "hitrate"], default="mean",
+                    help="mean = v1 (avg total vs avg line); hitrate = v2 (over strike rate vs 50%%)")
+    ap.add_argument("--seasons", default=None,
+                    help="comma list of training seasons (default 2022,2023,2024,2025)")
+    ap.add_argument("--out", default=None, help="output xlsx path")
+    args = ap.parse_args()
+    METRIC = args.metric
+    if args.seasons:
+        global SEASONS
+        SEASONS = tuple(int(x) for x in args.seasons.split(","))
+    out_path = args.out or (OUTPUT_PATH_V2 if METRIC == "hitrate" else OUTPUT_PATH)
+    print(f"Metric: {METRIC}")
+
     print("Loading data from Excel...")
     all_rows = load_data()
     print(f"  Loaded {len(all_rows)} games (seasons {SEASONS})")
@@ -471,8 +519,8 @@ def main():
         print(f"  {team}...")
         build_team_sheet(wb, team, all_rows, all_teams, all_venues)
 
-    wb.save(OUTPUT_PATH)
-    print(f"\nSaved: {OUTPUT_PATH}")
+    wb.save(out_path)
+    print(f"\nSaved: {out_path}")
     print(f"Sheets ({len(wb.sheetnames)}): {', '.join(wb.sheetnames)}")
 
 
