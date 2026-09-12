@@ -181,3 +181,81 @@ family as everything else today — an operation reporting success while doing n
 - **F-03** `/api/chat` in-memory rate limit on serverless.
 - **F-07** unpickled model artefacts without checksums.
 - CSP with nonces. The `mobile/` workspace was never audited.
+
+---
+
+# INCIDENT 2026-09-12 — collection stopped for 11 hours
+
+Railway alerted. Last run 10:10 UTC, nothing until 21:35. **All seven codes dark.**
+
+## Chain of three faults
+
+**1. Trigger — unstable paging.** `Supabase.get_all()` paged with `Range` offsets
+and **no `ORDER BY`**. Range offsets without a stable sort are not stable: Postgres
+may return rows in a different order per page request, so rows are silently skipped
+between pages. The collector's "what already exists" guard came back incomplete and
+it re-inserted checkpoints that were already there → 409.
+
+The correlation is exact — only sports over the 1000-row page size failed:
+
+| sport | rows in guard window | result |
+|---|---|---|
+| NFL | 2,986 | **409** |
+| EPL | 794–2,094 | **409** |
+| EFL | 1,471 | **409** |
+| NRL | 338 | fine |
+| AFL | 248 | fine |
+
+**2. Nothing absorbed it.** The insert passed `ignore_duplicates=True`, but
+PostgREST resolves that against the **PRIMARY KEY** unless `on_conflict` names other
+columns. `odds_market_checkpoints` has a generated-identity PK which never collides,
+so the composite UNIQUE was free to raise. **The call claimed idempotence and had
+none.**
+
+**3. Why it cost 11 hours.** `main()` returned `1` on any sport error. Railway runs
+this as a cron with `restartPolicyType: ON_FAILURE`, so a non-zero exit restarts the
+container and, once retries are spent, Railway marks the deployment crashed and
+**stops firing the cron entirely**. One sport's duplicate key killed all seven.
+
+⚠️ **For a scheduled worker the exit code is wired to the restart policy.** It is
+therefore the wrong channel for "some data did not land". That is the transferable
+lesson, not the 409.
+
+## Fixed (`997f68b`, `d61947c`) — verified on the live DB, both directions
+
+- `get_all()` takes **`order` as a required argument with no default**, so no future
+  call site can reintroduce this by omission. Two identical paged reads of NFL's
+  2,636 rows now return identical key sets.
+- Checkpoint insert passes `on_conflict`. Re-inserting an existing row is ignored;
+  the same row **without** `on_conflict` still returns `23505`, which is the control
+  proving the diagnosis.
+- `_check()` replaces `raise_for_status()`, which discarded PostgREST's body. "409
+  Conflict" said nothing; `23505` plus the constraint name said everything.
+- Partial runs exit **0**; preflight aborts still exit 2.
+- `railway.json` → `restartPolicyType: NEVER`. ⚠️ That deploy block has never been
+  reliably applied to this service (the cron schedule had to be set in the
+  dashboard), so **check the dashboard restart policy too**.
+
+**Confirmed working:** `21:35:07 success AFL,EFL,EPL,NBA,NFL,NRL,UCL credits=42`,
+zero errors, including all three sports that had been failing.
+
+## ⚠️ OUTSTANDING — 2,941 corrupted `opening` rows, NOT yet repaired
+
+The same paging bug corrupted `odds_quote_changes`: a missed `quote_key` reads as
+`prior is None`, which the collector records as **`change_kind='opening'`**. A quote
+opens once, so these are false — and `opening` is the reference price CLV is
+measured against.
+
+```
+EPL spurious 518   NFL spurious 2248   EFL spurious 175
+AFL / NRL / UCL / NBA  clean — never paged
+```
+
+`cloud/repair_spurious_openings.py` (dry run by default, `--apply` to write):
+**250 reclassified** (real moves wearing the wrong label, `previous_*` backfilled
+from the preceding row) and **2,691 deleted** (identical to the preceding row, so
+they record nothing — the collector only writes on change). 250 + 2,691 = 2,941,
+matching the independently counted total exactly.
+
+**NOT RUN — the delete is irreversible and needs the owner's go-ahead.** Nothing
+consumes this table yet, which is exactly why now is the cheap moment to fix it.
