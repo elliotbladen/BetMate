@@ -121,6 +121,65 @@ CREATE TABLE IF NOT EXISTS runner_results (
 
 -- One row per runner per observed marker. `section_seconds` is the time from
 -- the preceding marker; marker_metres is distance remaining to the finish.
+-- Immutable preparation events used by the fitness and trials engine.  Race,
+-- official-trial and other preparation records share one event contract while
+-- retaining their event_type so later models can learn context safely.
+CREATE TABLE IF NOT EXISTS fitness_events (
+    event_id TEXT PRIMARY KEY,
+    horse_id TEXT NOT NULL,
+    event_type TEXT NOT NULL CHECK (event_type IN ('race','official_trial','jumpout','exhibition_gallop','trackwork')),
+    event_date TEXT NOT NULL,
+    effective_at TEXT NOT NULL,
+    source TEXT NOT NULL,
+    source_event_id TEXT NOT NULL,
+    track_slug TEXT,
+    distance_metres INTEGER,
+    surface TEXT,
+    going TEXT,
+    rail_position TEXT,
+    trial_type TEXT,
+    heat_number INTEGER,
+    field_size INTEGER,
+    barrier INTEGER,
+    finish_position INTEGER,
+    beaten_margin REAL,
+    official_time_seconds REAL,
+    sectionals_json TEXT NOT NULL DEFAULT '{}',
+    jockey_id TEXT,
+    jockey_name TEXT,
+    trainer_id TEXT,
+    trainer_name TEXT,
+    official_flag INTEGER NOT NULL DEFAULT 1 CHECK (official_flag IN (0,1)),
+    source_url TEXT,
+    collected_at TEXT NOT NULL,
+    parser_version TEXT NOT NULL,
+    payload_hash TEXT NOT NULL,
+    raw_json TEXT NOT NULL,
+    detail_json TEXT NOT NULL DEFAULT '{}',
+    created_at TEXT NOT NULL,
+    FOREIGN KEY (horse_id) REFERENCES horses(horse_id),
+    UNIQUE (source, source_event_id, horse_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_fitness_events_horse_date
+    ON fitness_events (horse_id, event_date, effective_at);
+CREATE INDEX IF NOT EXISTS idx_fitness_events_type_date
+    ON fitness_events (event_type, event_date);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_fitness_events_payload
+    ON fitness_events (source, payload_hash, horse_id);
+
+CREATE TRIGGER IF NOT EXISTS fitness_events_no_update
+BEFORE UPDATE ON fitness_events
+BEGIN
+    SELECT RAISE(ABORT, 'fitness_events is append-only');
+END;
+
+CREATE TRIGGER IF NOT EXISTS fitness_events_no_delete
+BEFORE DELETE ON fitness_events
+BEGIN
+    SELECT RAISE(ABORT, 'fitness_events is append-only');
+END;
+
 CREATE TABLE IF NOT EXISTS runner_sectionals (
     source TEXT NOT NULL,
     race_date TEXT NOT NULL,
@@ -177,6 +236,34 @@ CREATE TABLE IF NOT EXISTS horse_aliases (
     detail_json TEXT NOT NULL DEFAULT '{}',
     updated_at TEXT NOT NULL,
     PRIMARY KEY (source, source_horse_name)
+);
+
+-- Rows that cannot be linked safely are retained for human review.
+CREATE TABLE IF NOT EXISTS fitness_quality_quarantine (
+    review_key TEXT PRIMARY KEY,
+    source TEXT NOT NULL,
+    source_event_id TEXT,
+    horse_id TEXT,
+    event_date TEXT,
+    reason_json TEXT NOT NULL DEFAULT '[]',
+    payload_hash TEXT,
+    raw_json TEXT NOT NULL DEFAULT '{}',
+    parser_version TEXT NOT NULL,
+    created_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS fitness_identity_quarantine (
+    review_key TEXT PRIMARY KEY,
+    source TEXT NOT NULL,
+    source_event_id TEXT,
+    source_horse_name TEXT NOT NULL,
+    event_date TEXT,
+    candidate_horse_ids_json TEXT NOT NULL DEFAULT '[]',
+    reason TEXT NOT NULL,
+    source_url TEXT,
+    raw_json TEXT NOT NULL DEFAULT '{}',
+    parser_version TEXT NOT NULL,
+    created_at TEXT NOT NULL
 );
 
 -- Durable identity is separate from source spellings and name normalisation.
