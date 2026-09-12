@@ -6,7 +6,7 @@ import json
 from collections import defaultdict
 from typing import Any, Iterable
 
-from .horse_identity import clean_name, durable_id, identity_key
+from .horse_identity import clean_name, identity_key
 from .storage import RacingStore, utc_now
 
 IDENTITY_VERSION = "fitness-trials-step4-v1"
@@ -17,24 +17,27 @@ def _candidates(store: RacingStore) -> dict[str, set[str]]:
     for row in store.connection.execute("SELECT horse_id, identity_key, canonical_name FROM horses"):
         out[row["identity_key"]].add(row["horse_id"])
         out[identity_key(row["canonical_name"])].add(row["horse_id"])
-    for row in store.connection.execute("SELECT horse_key, canonical_name, source_horse_name FROM horse_aliases"):
+    for row in store.connection.execute("""SELECT a.horse_key, a.canonical_name, a.source_horse_name
+            FROM horse_aliases a JOIN horses h ON h.horse_id=a.horse_key"""):
         out[identity_key(row["source_horse_name"])].add(row["horse_key"])
         out[identity_key(row["canonical_name"])].add(row["horse_key"])
     return out
 
 
-def _provider_ids(store: RacingStore) -> dict[tuple[str, str], str]:
+def _provider_ids(store: RacingStore) -> dict[tuple[str, str], set[str]]:
     """Read optional provider IDs stored in horse detail JSON without guessing."""
-    result: dict[tuple[str, str], str] = {}
+    result: dict[tuple[str, str], set[str]] = defaultdict(set)
     for row in store.connection.execute("SELECT horse_id, detail_json FROM horses"):
         try:
             detail = json.loads(row["detail_json"] or "{}")
         except json.JSONDecodeError:
             continue
-        for provider, key in (("racing_australia", "source_horse_id"), ("racing_com", "source_horse_id")):
+        if not isinstance(detail, dict):
+            continue
+        for provider, key in (("racing_australia", "source_horse_id"), ("racing_com", "source_horse_id"), ("racing_nsw", "source_horse_id")):
             value = detail.get(provider, {}).get(key) if isinstance(detail.get(provider), dict) else None
             if value:
-                result[(provider, str(value))] = row["horse_id"]
+                result[(provider, str(value))].add(row["horse_id"])
     return result
 
 
@@ -50,11 +53,25 @@ def link_rows(store: RacingStore, rows: Iterable[dict[str, Any]]) -> dict[str, A
         source_name = str(row.get("horse_name") or row.get("source_horse_name") or "").strip()
         provider = str(row.get("provider") or source)
         source_id = row.get("source_horse_id") or row.get("provider_horse_id")
-        horse_id = provider_ids.get((provider, str(source_id))) if source_id else None
+        provider_candidates = provider_ids.get((provider, str(source_id)), set()) if source_id else set()
+        if len(provider_candidates) > 1:
+            row.update({"identity_method": "ambiguous", "identity_confidence": 0.0,
+                        "review_status": "quarantine", "quarantine_reason": "duplicate_provider_identity",
+                        "candidate_horse_ids": sorted(provider_candidates)})
+            quarantined.append(row)
+            continue
+        horse_id = next(iter(provider_candidates)) if provider_candidates else None
         method = "provider_id" if horse_id else None
         confidence = 1.0 if horse_id else 0.0
         cleaned, transformations = clean_name(source, source_name)
         key = identity_key(cleaned)
+        name_candidates = names.get(key, set())
+        if horse_id and name_candidates and horse_id not in name_candidates:
+            row.update({"identity_method": "conflict", "identity_confidence": 0.0,
+                        "review_status": "quarantine", "quarantine_reason": "provider_name_disagreement",
+                        "candidate_horse_ids": sorted(name_candidates | provider_candidates)})
+            quarantined.append(row)
+            continue
         if not horse_id:
             candidates = names.get(key, set())
             if len(candidates) == 1:
@@ -78,15 +95,16 @@ def link_rows(store: RacingStore, rows: Iterable[dict[str, Any]]) -> dict[str, A
             "linked": len(linked), "quarantined": len(quarantined)}
 
 
-def persist_quarantine(store: RacingStore, rows: Iterable[dict[str, Any]]) -> int:
+def persist_quarantine(store: RacingStore, rows: Iterable[dict[str, Any]], *, commit: bool = True) -> int:
     """Persist only unresolved/ambiguous rows for human review."""
     now = utc_now(); count = 0
     for row in rows:
         source = str(row.get("source") or "unknown")
         event_id = str(row.get("source_event_id") or row.get("event_id") or "")
         horse_name = str(row.get("horse_name") or row.get("source_horse_name") or "")
-        review_key = hashlib.sha256(f"{source}\0{event_id}\0{horse_name}".encode()).hexdigest()
-        store.connection.execute("""INSERT INTO fitness_identity_quarantine
+        evidence = {k: v for k, v in row.items() if k not in {"created_at", "collected_at", "effective_at", "raw_payload_hash"}}
+        review_key = hashlib.sha256(json.dumps(evidence, sort_keys=True, default=str).encode()).hexdigest()
+        cursor = store.connection.execute("""INSERT INTO fitness_identity_quarantine
           (review_key,source,source_event_id,source_horse_name,event_date,candidate_horse_ids_json,
            reason,source_url,raw_json,parser_version,created_at)
           VALUES (?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(review_key) DO NOTHING""",
@@ -94,5 +112,7 @@ def persist_quarantine(store: RacingStore, rows: Iterable[dict[str, Any]]) -> in
            json.dumps(row.get("candidate_horse_ids", []), sort_keys=True),
            row.get("quarantine_reason", "unknown"), row.get("source_url"),
            json.dumps(row, sort_keys=True, default=str), row.get("parser_version", IDENTITY_VERSION), now))
-        count += 1
-    store.connection.commit(); return count
+        count += cursor.rowcount
+    if commit:
+        store.connection.commit()
+    return count

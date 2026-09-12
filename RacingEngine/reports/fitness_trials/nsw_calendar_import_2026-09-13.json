@@ -1,0 +1,41 @@
+{
+  "abandoned_meetings": 1,
+  "advertised_starters": 1641,
+  "calendar_source": "https://mdata.racingnsw.com.au/FreeFields/Calendar_Results.aspx",
+  "completed_meetings": 39,
+  "counts": {
+    "fitness_events": 450,
+    "fitness_identity_quarantine": 1190,
+    "fitness_quality_quarantine": 143
+  },
+  "database_rows": 1783,
+  "exact_source_identity_match": true,
+  "excluded_other_states": [
+    {
+      "date": "2026-08-21",
+      "state": "ACT",
+      "track": "Canberra Acton",
+      "url": "https://mdata.racingnsw.com.au/FreeFields/Results.aspx?Key=2026Aug21,ACT,Canberra%20Acton,Trial"
+    },
+    {
+      "date": "2026-09-04",
+      "state": "ACT",
+      "track": "Canberra",
+      "url": "https://mdata.racingnsw.com.au/FreeFields/Results.aspx?Key=2026Sep04,ACT,Canberra,Trial"
+    }
+  ],
+  "foreign_key_violations": 0,
+  "heats": 214,
+  "independent_parser": "BeautifulSoup html.parser; independent source row and link extraction",
+  "non_starters": 142,
+  "production_database_changed": false,
+  "raw_data_location": "RacingEngine/data/trials_review/nsw_archive/",
+  "source_pages": 40,
+  "source_rows": 1783,
+  "source_window": [
+    "2026-08-13",
+    "2026-09-11"
+  ],
+  "sqlite_integrity": "ok",
+  "unresolved_result_codes": 1
+}
