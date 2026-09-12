@@ -5,10 +5,28 @@ import { EPL_SEASON_FIXTURES, getEplFixtures, isGameweekLocked } from '@/lib/tip
 
 export const dynamic = 'force-dynamic';
 
-// How close to lock we start nagging. The cron runs daily, so a window wider than
-// 24h guarantees at least one run lands inside it; the tipping_reminders table
-// stops anyone being nagged twice for the same gameweek.
-const LEAD_HOURS = Number(process.env.TIPPING_REMINDER_LEAD_HOURS ?? 48);
+// Target: roughly 24 hours before the first kickoff of the gameweek.
+//
+// Nobody is emailed twice - tipping_reminders dedupes per person per gameweek - so
+// the daily cron is only how often we CHECK, not how often anyone is nagged. The
+// send happens on the first check where the lock is within LEAD_HOURS.
+//
+// Vercel Hobby caps cron at once per day (more frequent expressions fail to
+// deploy) with +/-59 min precision, so an exact 24h trigger is not available. The
+// pair below was chosen by running every (hour, lead) combination against all 38
+// real gameweek kickoffs in lib/epl-2026-27-fixtures.json:
+//
+//   15:00 UTC + 30h  ->  20.5h to 29.0h notice, MEDIAN EXACTLY 24.0h, 0 rounds under 20h
+//   09:00 UTC + 48h  ->  26.5h to 35.0h notice, median 30.0h          (the old setting)
+//   any hour  + 24h  ->   2.5h to 11.0h notice                        (looks right, is not)
+//
+// That last line is the trap: setting the lead to 24 to get "24 hours notice"
+// makes it far WORSE, because the first daily check under 24h can be minutes
+// before kickoff. The lead has to exceed the gap between checks.
+//
+// Re-run that comparison if the fixture list changes shape (a midweek round, or
+// Friday-night kickoffs moving).
+const LEAD_HOURS = Number(process.env.TIPPING_REMINDER_LEAD_HOURS ?? 30);
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 
