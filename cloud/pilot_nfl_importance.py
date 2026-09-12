@@ -38,7 +38,44 @@ from urllib.request import Request, urlopen
 BASE = "https://github.com/nflverse/nflverse-data/releases/download"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Safari/537.36"
 
-STAR_SNAP_SHARE = 0.75
+# ── Positional value ─────────────────────────────────────────────────────────
+# Snap share alone says WHO IS ON THE FIELD, not who matters. An offensive guard
+# plays ~100% of snaps by definition, which is why the first version rated Dominick
+# Puni above Christian McCaffrey and produced ELEVEN stars per team.
+#
+# NFL positional value is one of the better-established findings in the sport's
+# analytics: quarterback dwarfs everything, then premium pass rusher / left tackle /
+# WR1 / CB1, then the rest, with running back and off-ball linebacker long known to
+# be devalued relative to how they are talked about. These weights encode that
+# ordering. They are deliberately visible and tunable rather than buried in a score.
+POSITION_VALUE = {
+    "QB": 5.0,
+    "DE": 1.8, "EDGE": 1.8, "OLB": 1.5,
+    "LT": 1.6, "T": 1.5, "OT": 1.5,
+    "WR": 1.5,
+    "CB": 1.4, "DB": 1.3,
+    "DT": 1.2, "DL": 1.2, "NT": 1.0,
+    "TE": 1.0, "S": 1.0, "FS": 1.0, "SS": 1.0,
+    "LB": 0.9, "ILB": 0.85, "MLB": 0.85,
+    "C": 0.85, "G": 0.8, "OL": 0.8, "OG": 0.8,
+    "RB": 0.8, "FB": 0.4,
+    "K": 0.3, "P": 0.3, "LS": 0.2,
+}
+DEFAULT_POSITION_VALUE = 0.8
+
+# A backup quarterback's value is contingent on the starter's absence - a different
+# quantity from the starter's own importance, and not a star's.
+BACKUP_QB_VALUE = 0.8
+
+# A specialist playing 80% of special-teams snaps is not a star. Measuring each
+# player inside his own unit was right for offence vs defence and badly wrong here -
+# it promoted Luke Gifford, a special-teamer, to tier 3.
+SPECIAL_TEAMS_FACTOR = 0.3
+
+# The owner's constraint: at most 2-3 stars per team, or the tier means nothing for
+# a market study. Scarcity is the whole point of the rating.
+MAX_STARS_PER_TEAM = 3
+STAR_SCORE_FLOOR = 0.55      # a bad team does not get 3 stars by default
 REGULAR_SNAP_SHARE = 0.35
 
 
@@ -94,20 +131,56 @@ def rate_team(team: str, seasons=(2025, 2026)) -> list[dict]:
             "rated_on": rated_on,
         })
 
+    # The starting quarterback is the one taking most offensive snaps - NOT every QB
+    # over a threshold. Identify him BEFORE scoring, because the 5.0 quarterback
+    # premium belongs to the job, not to the position group: a backup's value is
+    # contingent on the starter being absent, which is a different quantity
+    # entirely. Scoring both alike put Mac Jones - a backup covering an injury - in
+    # a star slot alongside the man he was covering for.
+    qbs = [r for r in out if r["position"] == "QB"]
+    starter_qb = max(qbs, key=lambda r: r["snap_share"]) if qbs else None
+
+    # ── Score = availability x positional value ──────────────────────────────
     for r in out:
-        share, position = r["snap_share"], r["position"]
-        if position == "QB" and r["mean_snap_pct"] >= 0.5:
+        pos_value = POSITION_VALUE.get(r["position"], DEFAULT_POSITION_VALUE)
+        if r["position"] == "QB" and r is not starter_qb:
+            pos_value = BACKUP_QB_VALUE
+        unit_factor = SPECIAL_TEAMS_FACTOR if r["unit"] == "special_teams" else 1.0
+        r["position_value"] = pos_value
+        r["score"] = round(r["snap_share"] * pos_value * unit_factor, 3)
+
+    # ── Tier by RANK, not by threshold ───────────────────────────────────────
+    # The owner's constraint is scarcity: 2-3 stars per team. A fixed cut-off cannot
+    # deliver that - it gave 11 - because it has no idea how many players cleared it.
+    # Ranking does, and it removes cliff edges: nobody drops a tier for being one
+    # percentage point short, which is how Alisson was demoted in the football pilot.
+    ranked = sorted(out, key=lambda r: -r["score"])
+    stars: list[dict] = []
+    if starter_qb and starter_qb["score"] >= STAR_SCORE_FLOOR:
+        stars.append(starter_qb)                 # QB first: he is the position
+    for r in ranked:
+        if len(stars) >= MAX_STARS_PER_TEAM:
+            break
+        if r is starter_qb or r["score"] < STAR_SCORE_FLOOR:
+            continue
+        stars.append(r)
+    star_ids = {id(r) for r in stars}
+
+    for r in out:
+        if id(r) in star_ids:
             r["tier"] = 3
-            r["basis"] = f"starting quarterback ({r['mean_snap_pct']:.0%} of snaps when active)"
-        elif share >= STAR_SNAP_SHARE:
-            r["tier"] = 3
-            r["basis"] = f"plays {share:.0%} of available {r['unit']} snaps"
-        elif share >= REGULAR_SNAP_SHARE:
+            r["basis"] = (f"starting QB, score {r['score']}" if r is starter_qb
+                          else f"top-{MAX_STARS_PER_TEAM} score {r['score']} "
+                               f"({r['snap_share']:.0%} snaps x {r['position']} value {r['position_value']})")
+        elif r["snap_share"] >= REGULAR_SNAP_SHARE and r["unit"] != "special_teams":
             r["tier"] = 2
-            r["basis"] = f"rotation, {share:.0%} of available {r['unit']} snaps"
+            r["basis"] = f"regular, {r['snap_share']:.0%} of {r['unit']} snaps, score {r['score']}"
+        elif r["position"] == "QB" and r["snap_share"] >= 0.15:
+            r["tier"] = 2
+            r["basis"] = "backup quarterback - matters only if the starter goes down"
         else:
             r["tier"] = 1
-            r["basis"] = f"fringe, {share:.0%} of available {r['unit']} snaps"
+            r["basis"] = f"fringe/specialist, score {r['score']}"
         r["tier_label"] = {1: "not important", 2: "important", 3: "star"}[r["tier"]]
     return out
 
@@ -117,12 +190,12 @@ if __name__ == "__main__":
     for team, name in (("SF", "San Francisco 49ers"), ("JAX", "Jacksonville Jaguars")):
         print(f"\n=== {name} ===", flush=True)
         rated = rate_team(team)
-        rated.sort(key=lambda r: (-r["tier"], -r["snap_share"]))
+        rated.sort(key=lambda r: (-r["tier"], -r["score"]))
         everything.extend(rated)
-        print(f"  {'tier':<5} {'share':<7} {'pos':<5} {'unit':<14} {'gms':<7} player")
+        print(f"  {'tier':<5} {'score':<7} {'share':<7} {'pos':<5} {'unit':<14} {'gms':<7} player")
         for r in rated[:14]:
-            print(f"  {r['tier']:<5} {r['snap_share']:<7.0%} {r['position']:<5} {r['unit']:<14} "
-                  f"{r['games_played']}/{r['team_games']:<4} {r['player']}")
+            print(f"  {r['tier']:<5} {r['score']:<7.2f} {r['snap_share']:<7.0%} {r['position']:<5} "
+                  f"{r['unit']:<14} {r['games_played']}/{r['team_games']:<4} {r['player']}")
         print(f"  ... {len(rated)} players total")
     d = Path("data/player_importance"); d.mkdir(parents=True, exist_ok=True)
     path = d / f"pilot_nfl_{datetime.now(timezone.utc).date().isoformat()}.json"
