@@ -182,29 +182,60 @@ class Supabase:
             "Content-Type": "application/json",
         }
 
-    def get_all(self, table: str, params: dict, page_size: int = 1000) -> list[dict]:
+    @staticmethod
+    def _check(response: requests.Response) -> None:
+        """raise_for_status() throws away PostgREST's body, which is the only part
+        that says WHICH constraint was violated. A bare '409 Conflict' cost most of
+        an evening on 2026-09-12."""
+        if response.status_code >= 400:
+            raise RuntimeError(
+                f"{response.status_code} on {response.url.split('?')[0]}: {response.text[:500]}"
+            )
+
+    def get_all(self, table: str, params: dict, order: str, page_size: int = 1000) -> list[dict]:
+        """Page through a table. `order` is REQUIRED and must be unique.
+
+        Range offsets without an ORDER BY are unstable: Postgres may return rows in
+        a different order for each page request, so rows get skipped between pages.
+        That is exactly what broke on 2026-09-12 - the caller's "what already
+        exists" set came back incomplete for every sport over 1000 rows (EPL, EFL,
+        NFL) and complete for every sport under it (AFL, NRL), which is why only
+        the big three threw 409s.
+        """
         output: list[dict] = []
         start = 0
         while True:
             headers = {**self.headers, "Range": f"{start}-{start + page_size - 1}"}
-            response = requests.get(f"{self.base}/{table}", headers=headers, params=params, timeout=30)
-            response.raise_for_status()
+            response = requests.get(f"{self.base}/{table}", headers=headers,
+                                    params={**params, "order": order}, timeout=30)
+            self._check(response)
             page = response.json()
             output.extend(page)
             if len(page) < page_size:
                 return output
             start += page_size
 
-    def insert(self, table: str, rows: list[dict], ignore_duplicates: bool = False) -> None:
+    def insert(self, table: str, rows: list[dict], ignore_duplicates: bool = False,
+               on_conflict: str | None = None) -> None:
+        """Insert rows. `on_conflict` names the unique columns to ignore duplicates on.
+
+        PostgREST's resolution=ignore-duplicates targets the PRIMARY KEY unless
+        on_conflict says otherwise. odds_market_checkpoints has a generated identity
+        PK, so the PK never collides and the composite UNIQUE was left to raise 409 -
+        the insert claimed to be idempotent and was not.
+        """
         if not rows:
             return
         prefer = "return=minimal"
+        params: dict[str, str] = {}
         if ignore_duplicates:
             prefer += ",resolution=ignore-duplicates"
+            if on_conflict:
+                params["on_conflict"] = on_conflict
         for batch in chunks(rows):
             response = requests.post(f"{self.base}/{table}", headers={**self.headers, "Prefer": prefer},
-                                     data=json.dumps(batch), timeout=45)
-            response.raise_for_status()
+                                     params=params, data=json.dumps(batch), timeout=45)
+            self._check(response)
 
     def upsert(self, table: str, rows: list[dict]) -> None:
         if not rows:
@@ -215,7 +246,7 @@ class Supabase:
                 headers={**self.headers, "Prefer": "return=minimal,resolution=merge-duplicates"},
                 data=json.dumps(batch), timeout=45,
             )
-            response.raise_for_status()
+            self._check(response)
 
 
 def upcoming_events(api_key: str, api_sport_key: str) -> list[datetime] | None:
@@ -330,7 +361,7 @@ def main() -> int:
     db = Supabase(supabase_url, service_key) if live else None
     poll_states = {}
     if db:
-        poll_states = {row["sport"]: row for row in db.get_all("odds_sport_poll_state", {"select": "*"})}
+        poll_states = {row["sport"]: row for row in db.get_all("odds_sport_poll_state", {"select": "*"}, order="sport")}
 
     run_id = str(uuid.uuid4())
     mode = "dry_run" if args.dry_run else ("checkpoint" if args.force else "scheduled")
@@ -391,11 +422,14 @@ def main() -> int:
             existing = {row["quote_key"]: row for row in db.get_all(
                 "odds_quote_state",
                 {"sport": f"eq.{sport}", "select": "quote_key,value_fingerprint,line_value,price_decimal,first_seen_at,last_changed_at"},
+                order="quote_key",
             )}
             existing_checkpoints = {
                 (row["api_event_id"], row["bookmaker_key"], row["market_key"], row["selection_key"], row["checkpoint_name"])
-                for row in db.get_all("odds_market_checkpoints", {"sport": f"eq.{sport}", "commence_time": f"gte.{iso(now - timedelta(hours=1))}",
-                                                                  "select": "api_event_id,bookmaker_key,market_key,selection_key,checkpoint_name"})
+                for row in db.get_all("odds_market_checkpoints",
+                                      {"sport": f"eq.{sport}", "commence_time": f"gte.{iso(now - timedelta(hours=1))}",
+                                       "select": "checkpoint_id,api_event_id,bookmaker_key,market_key,selection_key,checkpoint_name"},
+                                      order="checkpoint_id")
             }
             changes, checkpoints, states = [], [], []
             for row in rows:
@@ -438,7 +472,11 @@ def main() -> int:
                     "last_changed_at": last_changed, "updated_at": row["captured_at"],
                 })
             db.insert("odds_quote_changes", changes)
-            db.insert("odds_market_checkpoints", checkpoints, ignore_duplicates=True)
+            # Belt and braces: the in-memory guard above is now an optimisation, not a
+            # correctness requirement. Anything it misses - a paging gap, two runs
+            # overlapping, a retry - is absorbed here instead of aborting the sport.
+            db.insert("odds_market_checkpoints", checkpoints, ignore_duplicates=True,
+                      on_conflict="sport,api_event_id,bookmaker_key,market_key,selection_key,checkpoint_name")
             db.upsert("odds_quote_state", states)
             totals["changes"] += len(changes)
             db.upsert("odds_sport_poll_state", [{
