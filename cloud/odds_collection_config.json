@@ -1,5 +1,4 @@
 {
-  "live_enabled": false,
   "regions": "au,uk",
   "markets": "h2h,spreads,totals",
   "odds_format": "decimal",

@@ -6,7 +6,6 @@
   },
   "deploy": {
     "cronSchedule": "*/5 * * * *",
-    "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 3
+    "restartPolicyType": "NEVER"
   }
 }

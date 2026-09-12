@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabaseServer';
+import { createAdminClient } from '@/lib/supabaseAdmin';
 import { scoreResult, getActualResult, getEplFixtures } from '@/lib/tipping';
 import { getAuthenticatedUser } from '@/lib/authServer';
 import { isOwnerEmail } from '@/lib/owner';
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: `No fixtures found for GW${gameweek}` }, { status: 404 });
     }
 
-    const supabase = createServerClient();
+    const supabase = createAdminClient();
 
     // Build a map of game_id -> { home_score, away_score }
     const resultMap = new Map<string, { home_score: number; away_score: number }>();

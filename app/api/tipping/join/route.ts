@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabaseServer';
+import { createAdminClient } from '@/lib/supabaseAdmin';
 import { getAuthenticatedUser } from '@/lib/authServer';
 
 export async function GET() {
   const user = await getAuthenticatedUser();
   if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
-  const supabase = createServerClient();
+  const supabase = createAdminClient();
   const { data: entries } = await supabase.from('tipping_entries')
     .select('comp_id, display_name').eq('user_id', user.id).limit(1);
   if (!entries?.length) return NextResponse.json({ comp: null });
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     if (!invite_code || !display_name) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
-    const supabase = createServerClient();
+    const supabase = createAdminClient();
     const { data: comps, error: compErr } = await supabase.from('tipping_comps')
       .select('*').eq('invite_code', invite_code.toUpperCase()).limit(1);
     if (compErr || !comps?.length) {

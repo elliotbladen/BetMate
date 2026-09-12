@@ -182,29 +182,60 @@ class Supabase:
             "Content-Type": "application/json",
         }
 
-    def get_all(self, table: str, params: dict, page_size: int = 1000) -> list[dict]:
+    @staticmethod
+    def _check(response: requests.Response) -> None:
+        """raise_for_status() throws away PostgREST's body, which is the only part
+        that says WHICH constraint was violated. A bare '409 Conflict' cost most of
+        an evening on 2026-09-12."""
+        if response.status_code >= 400:
+            raise RuntimeError(
+                f"{response.status_code} on {response.url.split('?')[0]}: {response.text[:500]}"
+            )
+
+    def get_all(self, table: str, params: dict, order: str, page_size: int = 1000) -> list[dict]:
+        """Page through a table. `order` is REQUIRED and must be unique.
+
+        Range offsets without an ORDER BY are unstable: Postgres may return rows in
+        a different order for each page request, so rows get skipped between pages.
+        That is exactly what broke on 2026-09-12 - the caller's "what already
+        exists" set came back incomplete for every sport over 1000 rows (EPL, EFL,
+        NFL) and complete for every sport under it (AFL, NRL), which is why only
+        the big three threw 409s.
+        """
         output: list[dict] = []
         start = 0
         while True:
             headers = {**self.headers, "Range": f"{start}-{start + page_size - 1}"}
-            response = requests.get(f"{self.base}/{table}", headers=headers, params=params, timeout=30)
-            response.raise_for_status()
+            response = requests.get(f"{self.base}/{table}", headers=headers,
+                                    params={**params, "order": order}, timeout=30)
+            self._check(response)
             page = response.json()
             output.extend(page)
             if len(page) < page_size:
                 return output
             start += page_size
 
-    def insert(self, table: str, rows: list[dict], ignore_duplicates: bool = False) -> None:
+    def insert(self, table: str, rows: list[dict], ignore_duplicates: bool = False,
+               on_conflict: str | None = None) -> None:
+        """Insert rows. `on_conflict` names the unique columns to ignore duplicates on.
+
+        PostgREST's resolution=ignore-duplicates targets the PRIMARY KEY unless
+        on_conflict says otherwise. odds_market_checkpoints has a generated identity
+        PK, so the PK never collides and the composite UNIQUE was left to raise 409 -
+        the insert claimed to be idempotent and was not.
+        """
         if not rows:
             return
         prefer = "return=minimal"
+        params: dict[str, str] = {}
         if ignore_duplicates:
             prefer += ",resolution=ignore-duplicates"
+            if on_conflict:
+                params["on_conflict"] = on_conflict
         for batch in chunks(rows):
             response = requests.post(f"{self.base}/{table}", headers={**self.headers, "Prefer": prefer},
-                                     data=json.dumps(batch), timeout=45)
-            response.raise_for_status()
+                                     params=params, data=json.dumps(batch), timeout=45)
+            self._check(response)
 
     def upsert(self, table: str, rows: list[dict]) -> None:
         if not rows:
@@ -215,7 +246,7 @@ class Supabase:
                 headers={**self.headers, "Prefer": "return=minimal,resolution=merge-duplicates"},
                 data=json.dumps(batch), timeout=45,
             )
-            response.raise_for_status()
+            self._check(response)
 
 
 def upcoming_events(api_key: str, api_sport_key: str) -> list[datetime] | None:
@@ -277,29 +308,62 @@ def main() -> int:
     now = utcnow()
     selected = {x.strip().upper() for x in args.sports.split(",")} if args.sports else set(config["sports"])
     selected &= set(config["sports"])
-    live_switch = truthy(os.getenv("ODDS_COLLECTION_LIVE_ENABLED"))
-    live = not args.dry_run and live_switch
-    if not args.dry_run and not live:
-        print("Live collection is disabled. Set ODDS_COLLECTION_LIVE_ENABLED=true or use --dry-run.")
-        return 2
 
     api_key = os.getenv("ODDS_API_KEY", "")
     supabase_url = os.getenv("SUPABASE_URL") or os.getenv("NEXT_PUBLIC_SUPABASE_URL", "")
     service_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+    live_switch = truthy(os.getenv("ODDS_COLLECTION_LIVE_ENABLED"))
+    live = not args.dry_run and live_switch
+    worker_id = os.getenv("ODDS_WORKER_ID", socket.gethostname())
+
+    # Presence banner, printed before any guard can exit. Every misconfiguration
+    # below used to return 2 *before* the first Supabase write, so a container that
+    # never started and a container that started and was misconfigured left exactly
+    # the same evidence in the warehouse: nothing at all. On 2026-09-11 that
+    # ambiguity was read as "Railway is not executing", which was never established.
+    # Presence only, never a value - this line goes to a hosted deploy log.
+    print(f"collector start worker={worker_id} live={live} dry_run={args.dry_run} "
+          f"live_switch={live_switch} odds_api_key={'set' if api_key else 'MISSING'} "
+          f"supabase_url={'set' if supabase_url else 'MISSING'} "
+          f"service_role_key={'set' if service_key else 'MISSING'}")
+
+    def abort(reason: str) -> int:
+        """Exit 2, but leave a trace in the warehouse whenever that is possible."""
+        print(f"ABORT: {reason}", file=sys.stderr)
+        if supabase_url and service_key:
+            try:
+                Supabase(supabase_url, service_key).insert("odds_capture_runs", [{
+                    "run_id": str(uuid.uuid4()), "started_at": iso(now),
+                    "finished_at": iso(utcnow()), "worker_id": worker_id,
+                    "mode": "dry_run" if args.dry_run else "scheduled", "status": "failed",
+                    "sports_requested": sorted(selected),
+                    "errors": [{"stage": "preflight", "error": reason}],
+                    "metadata": {"aborted": True},
+                }])
+                print("recorded aborted run in odds_capture_runs")
+            except Exception as exc:  # never let reporting mask the real fault
+                print(f"could not record aborted run: {exc}", file=sys.stderr)
+        else:
+            print("no Supabase credentials, so this abort is only visible in this log",
+                  file=sys.stderr)
+        return 2
+
+    if not args.dry_run and not live:
+        return abort("ODDS_COLLECTION_LIVE_ENABLED is not true "
+                     f"(got {os.getenv('ODDS_COLLECTION_LIVE_ENABLED')!r}); "
+                     "set it to true or pass --dry-run")
     if not args.input_json and not api_key:
-        print("ODDS_API_KEY is required", file=sys.stderr)
-        return 2
+        return abort("ODDS_API_KEY is required")
     if live and (not supabase_url or not service_key):
-        print("SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required", file=sys.stderr)
-        return 2
+        return abort("SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL and "
+                     "SUPABASE_SERVICE_ROLE_KEY are required")
 
     db = Supabase(supabase_url, service_key) if live else None
     poll_states = {}
     if db:
-        poll_states = {row["sport"]: row for row in db.get_all("odds_sport_poll_state", {"select": "*"})}
+        poll_states = {row["sport"]: row for row in db.get_all("odds_sport_poll_state", {"select": "*"}, order="sport")}
 
     run_id = str(uuid.uuid4())
-    worker_id = os.getenv("ODDS_WORKER_ID", socket.gethostname())
     mode = "dry_run" if args.dry_run else ("checkpoint" if args.force else "scheduled")
     run = {"run_id": run_id, "started_at": iso(now), "worker_id": worker_id,
            "mode": mode, "status": "running", "sports_requested": sorted(selected)}
@@ -358,11 +422,14 @@ def main() -> int:
             existing = {row["quote_key"]: row for row in db.get_all(
                 "odds_quote_state",
                 {"sport": f"eq.{sport}", "select": "quote_key,value_fingerprint,line_value,price_decimal,first_seen_at,last_changed_at"},
+                order="quote_key",
             )}
             existing_checkpoints = {
                 (row["api_event_id"], row["bookmaker_key"], row["market_key"], row["selection_key"], row["checkpoint_name"])
-                for row in db.get_all("odds_market_checkpoints", {"sport": f"eq.{sport}", "commence_time": f"gte.{iso(now - timedelta(hours=1))}",
-                                                                  "select": "api_event_id,bookmaker_key,market_key,selection_key,checkpoint_name"})
+                for row in db.get_all("odds_market_checkpoints",
+                                      {"sport": f"eq.{sport}", "commence_time": f"gte.{iso(now - timedelta(hours=1))}",
+                                       "select": "checkpoint_id,api_event_id,bookmaker_key,market_key,selection_key,checkpoint_name"},
+                                      order="checkpoint_id")
             }
             changes, checkpoints, states = [], [], []
             for row in rows:
@@ -405,7 +472,11 @@ def main() -> int:
                     "last_changed_at": last_changed, "updated_at": row["captured_at"],
                 })
             db.insert("odds_quote_changes", changes)
-            db.insert("odds_market_checkpoints", checkpoints, ignore_duplicates=True)
+            # Belt and braces: the in-memory guard above is now an optimisation, not a
+            # correctness requirement. Anything it misses - a paging gap, two runs
+            # overlapping, a retry - is absorbed here instead of aborting the sport.
+            db.insert("odds_market_checkpoints", checkpoints, ignore_duplicates=True,
+                      on_conflict="sport,api_event_id,bookmaker_key,market_key,selection_key,checkpoint_name")
             db.upsert("odds_quote_state", states)
             totals["changes"] += len(changes)
             db.upsert("odds_sport_poll_state", [{
@@ -428,7 +499,16 @@ def main() -> int:
                     "consecutive_failures": failures, "last_error": str(exc)[:1000], "updated_at": iso(now),
                 }])
 
-    status = "success" if not errors else ("partial" if fetched_sports else "failed")
+    if errors:
+        status = "partial" if fetched_sports else "failed"
+    elif fetched_sports:
+        status = "success"
+    else:
+        # Nothing was due, or nothing had fixtures. The run row is still written so a
+        # silent worker is distinguishable from a quiet one — on 2026-09-11 a Railway
+        # container that never executed looked identical to a do-nothing cycle, because
+        # every cycle reported "success". Filter on status=eq.success for real captures.
+        status = "skipped"
     if db:
         response = requests.patch(
             f"{db.base}/odds_capture_runs", headers={**db.headers, "Prefer": "return=minimal"},
@@ -441,7 +521,24 @@ def main() -> int:
         )
         response.raise_for_status()
     print(json.dumps({"status": status, "sports": fetched_sports, **totals, "errors": errors}, indent=2))
-    return 0 if not errors else 1
+
+    # EXIT 0 EVEN ON PARTIAL FAILURE - deliberately.
+    #
+    # This runs as a Railway cron with restartPolicyType ON_FAILURE. A non-zero exit
+    # makes Railway restart the container, and once the retries are spent it marks
+    # the deployment crashed and STOPS FIRING THE CRON ALTOGETHER. On 2026-09-12 a
+    # single sport's 409 returned 1 here and cost eleven hours of collection across
+    # all seven codes - the scheduler was gone, not the collector.
+    #
+    # For a scheduled worker the exit code is wired to the restart policy, so it is
+    # the wrong channel for "some data did not land". Errors are recorded in
+    # odds_capture_runs.status and .errors, which is queryable and does not take the
+    # scheduler down with it. Preflight aborts still return 2, because an invocation
+    # that cannot run at all SHOULD be loud.
+    if errors:
+        print(f"{len(errors)} sport(s) errored - recorded in odds_capture_runs, exiting 0 "
+              f"so the cron keeps its schedule", file=sys.stderr)
+    return 0
 
 
 if __name__ == "__main__":
