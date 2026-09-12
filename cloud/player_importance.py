@@ -53,6 +53,45 @@ The second is the more valuable question: it scores us, not just the market.
       is the strongest in any code: the QB is the one position where the backup
       changes the line by points on his own.
 
+MULTI-SEASON RESEARCH (2026-09-13). What FotMob actually exposes:
+
+  * 12 seasons of league data: 2015/2016 through 2026/2027 (leagues?id -> 
+    allAvailableSeasons). A one-season rating is not viable and the owner is right
+    to insist on history.
+  * playerData carries careerHistory (club spells with appearances - Van Dijk shows
+    379 for Liverpool since 2018), statSeasons (per season, per competition, with
+    hasDeepStats), and recentMatches.
+  * recentMatches is ~70 matches / ~1 year, and per match gives minutesPlayed,
+    playedInMatch, onBench, rating, homeScore, awayScore, opponent and isHomeTeam.
+    That is a ready-made WOWY row: participation AND result in one record.
+
+⚠️ BUT recentMatches lists ONLY matches the player PLAYED (Van Dijk: 70 of 70).
+   Matches MISSED have to be derived by subtracting his played-match ids from the
+   TEAM's fixture list. Cost: one fixtures call per club plus one playerData call
+   per player, so roughly 29 calls per club and ~2,300 across the three
+   competitions - a batch job, not an inline one.
+
+⚠️⚠️ THE AVAILABILITY BIAS - THIS IS WHY WOWY CANNOT BE THE RANKER.
+
+   Van Dijk played 39 of 39 Premier League matches in the last year. His "without"
+   sample is ZERO, so WOWY cannot rate him at all.
+
+   This is structural, not bad luck: the most important players are the ones who
+   never miss. WOWY is therefore weakest for exactly the tier 3s it is most needed
+   to find, and strongest for squad players who rotate in and out - the opposite of
+   what we want from a ranker. Minutes share had him at 39/39 = 100% immediately.
+
+   Multi-season softens it (Van Dijk's ACL season gives a real "without" sample)
+   but only for stars who happen to have been injured before, which is a biased
+   subset and cannot be relied on.
+
+SO THE DIVISION OF LABOUR IS:
+   minutes share  = THE RANKER. Works for every player, best for the never-injured.
+   WOWY           = THE VALIDATOR, and the study metric itself. It measures what an
+                    absence costs, which is the very thing the market prices - and
+                    it becomes available for a player at precisely the moment he
+                    gets injured, which is when we need it.
+
 ⚠️ POINT IN TIME. A rating is stamped with `rated_on` and never rewritten. If a
    squad player breaks through in March and we relabel him a star, then look back
    at his October injury, we would "discover" the market ignored a star - when he
