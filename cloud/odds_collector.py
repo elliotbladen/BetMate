@@ -521,7 +521,24 @@ def main() -> int:
         )
         response.raise_for_status()
     print(json.dumps({"status": status, "sports": fetched_sports, **totals, "errors": errors}, indent=2))
-    return 0 if not errors else 1
+
+    # EXIT 0 EVEN ON PARTIAL FAILURE - deliberately.
+    #
+    # This runs as a Railway cron with restartPolicyType ON_FAILURE. A non-zero exit
+    # makes Railway restart the container, and once the retries are spent it marks
+    # the deployment crashed and STOPS FIRING THE CRON ALTOGETHER. On 2026-09-12 a
+    # single sport's 409 returned 1 here and cost eleven hours of collection across
+    # all seven codes - the scheduler was gone, not the collector.
+    #
+    # For a scheduled worker the exit code is wired to the restart policy, so it is
+    # the wrong channel for "some data did not land". Errors are recorded in
+    # odds_capture_runs.status and .errors, which is queryable and does not take the
+    # scheduler down with it. Preflight aborts still return 2, because an invocation
+    # that cannot run at all SHOULD be loud.
+    if errors:
+        print(f"{len(errors)} sport(s) errored - recorded in odds_capture_runs, exiting 0 "
+              f"so the cron keeps its schedule", file=sys.stderr)
+    return 0
 
 
 if __name__ == "__main__":
