@@ -34,6 +34,41 @@ def main() -> int:
     states.raise_for_status()
     now = datetime.now(timezone.utc)
     alerts = []
+    # Integrity: a quote opens exactly ONCE. More than one 'opening' for the same
+    # series means the collector's "already seen" map came back incomplete - the
+    # 2026-09-12 unstable-paging bug, which silently produced 2,941 false openings
+    # before anyone noticed. Cheap to check, and 'opening' is the reference price
+    # CLV is measured against, so a wrong one is not cosmetic.
+    # The partial unique index in 20260913_quote_changes_one_opening.sql prevents
+    # this at the database level; this check also catches it where that index has
+    # not been applied.
+    seen: set[tuple] = set()
+    duplicate_openings = 0
+    start = 0
+    while True:
+        page = requests.get(
+            f"{url}/rest/v1/odds_quote_changes", headers={**headers, "Range": f"{start}-{start + 999}"},
+            params={"change_kind": "eq.opening", "order": "quote_change_id",
+                    "select": "sport,api_event_id,bookmaker_key,market_key,selection_key"},
+            timeout=30,
+        )
+        page.raise_for_status()
+        rows = page.json()
+        for row in rows:
+            identity = (row["sport"], row["api_event_id"], row["bookmaker_key"],
+                        row["market_key"], row["selection_key"])
+            if identity in seen:
+                duplicate_openings += 1
+            seen.add(identity)
+        if len(rows) < 1000:
+            break
+        start += 1000
+    if duplicate_openings:
+        alerts.append({
+            "severity": "critical", "type": "duplicate_openings",
+            "message": f"{duplicate_openings} quotes have more than one 'opening' row - "
+                       f"run cloud/repair_spurious_openings.py",
+        })
     database_mb = float(storage["database_mb"])
     if database_mb >= config["database_critical_mb"]:
         alerts.append({"severity": "critical", "type": "database_size", "message": f"Database is {database_mb:.1f} MB"})

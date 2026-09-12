@@ -38,6 +38,7 @@ import sys
 from pathlib import Path
 
 import requests
+from datetime import datetime, timezone
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -71,6 +72,8 @@ def classify(prev: dict, row: dict) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true", help="write the repair (default is a dry run)")
+    ap.add_argument("--backup-dir", default="data/market_repair_backups",
+                    help="where to write the pre-change snapshot (always written with --apply)")
     args = ap.parse_args()
 
     url = os.getenv("SUPABASE_URL") or os.getenv("NEXT_PUBLIC_SUPABASE_URL", "")
@@ -79,6 +82,13 @@ def main() -> int:
         print("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required", file=sys.stderr)
         return 2
     db = Supabase(url, key)
+
+    # Every row this run touches is written out BEFORE anything changes. The delete
+    # is otherwise irreversible, and a repair you cannot undo is a worse bug than
+    # the one it fixes.
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    backup_dir = Path(args.backup_dir)
+    backup: dict[str, list] = {}
 
     total_fix, total_del = 0, 0
     for sport in SPORTS:
@@ -112,6 +122,15 @@ def main() -> int:
         total_del += len(to_delete)
 
         if args.apply:
+            by_id = {r["quote_change_id"]: r for r in rows}
+            backup[sport] = {
+                "reclassified": [by_id[r["quote_change_id"]] for r in to_fix],
+                "deleted": [by_id[i] for i in to_delete],
+            }
+            backup_dir.mkdir(parents=True, exist_ok=True)
+            path = backup_dir / f"quote_changes_repair_{stamp}.json"
+            path.write_text(json.dumps(backup, indent=2, default=str), encoding="utf-8")
+
             for row in to_fix:
                 qid = row.pop("quote_change_id")
                 resp = requests.patch(
@@ -132,6 +151,8 @@ def main() -> int:
 
     verb = "repaired" if args.apply else "WOULD repair (dry run — pass --apply)"
     print(f"\n{verb}: {total_fix} reclassified, {total_del} deleted")
+    if args.apply:
+        print(f"pre-change snapshot: {backup_dir / f'quote_changes_repair_{stamp}.json'}")
     return 0
 
 
