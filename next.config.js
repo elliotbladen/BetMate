@@ -12,6 +12,36 @@ const nextConfig = {
     root: __dirname,
   },
 
+  // Vercel bundles every file a function might read. lib/matrixEV.ts reads
+  // BettingEngine spreadsheets from disk, so the tracer pulled the whole engine
+  // into /api/ev-signals: 2.49GB against a 250MB limit, and the deploy was
+  // REJECTED for days. The build always succeeded, which is why this looked like
+  // a build problem and was not - it failed at "Deploying outputs".
+  //
+  // Excluding these is safe: matrixEV guards every read with existsSync and
+  // returns {}, and the route try/catches to { signals: [] }. EV signals are
+  // deliberately blank on Vercel anyway - the BettingEngine IP stays local.
+  //
+  // Nothing here is needed at runtime on Vercel. data/ and the engine outputs are
+  // gitignored so they never reach the deployment in the first place; these
+  // patterns stop the tracer from reserving space for them regardless.
+  outputFileTracingExcludes: {
+    '*': [
+      './BettingEngine/**',
+      './RacingEngine/**',
+      './ml/**',
+      './data/**',
+      './handover/**',
+      './outputs/**',
+      './**/*.xlsx',
+      './**/*.csv',
+      './**/*.parquet',
+      './**/*.sqlite',
+      './**/*.pkl',
+      './**/*.db',
+    ],
+  },
+
   // Response headers applied to every route. Deliberately NOT including a
   // Content-Security-Policy yet: Next injects inline scripts, so a useful CSP
   // needs nonces wired through the app, and a wrong one breaks the site silently.

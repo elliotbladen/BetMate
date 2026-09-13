@@ -33,6 +33,9 @@
 -- AFTER APPLYING, exercise the tipping flow end to end: join a comp, submit
 -- tips, load the leaderboard.
 --
+-- ⚠️ auth.uid() returns UUID; these tables store user_id / created_by as TEXT.
+-- Comparing them directly fails with 42883 "operator does not exist: uuid = text".
+-- Both sides are cast to text so the policy works whichever type the column is.
 -- ###########################################################################
 
 -- Row Level Security for the tipping tables.
@@ -73,8 +76,8 @@ drop policy if exists "Creator updates own comp" on public.tipping_comps;
 create policy "Creator updates own comp"
   on public.tipping_comps for update
   to authenticated
-  using (auth.uid() = created_by)
-  with check (auth.uid() = created_by);
+  using (auth.uid()::text = created_by::text)
+  with check (auth.uid()::text = created_by::text);
 
 -- ---------------------------------------------------------------------------
 -- tipping_entries - who is in which competition. The leaderboard needs every
@@ -94,14 +97,14 @@ drop policy if exists "Users insert own entry" on public.tipping_entries;
 create policy "Users insert own entry"
   on public.tipping_entries for insert
   to authenticated
-  with check (auth.uid() = user_id);
+  with check (auth.uid()::text = user_id::text);
 
 drop policy if exists "Users update own entry" on public.tipping_entries;
 create policy "Users update own entry"
   on public.tipping_entries for update
   to authenticated
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
+  using (auth.uid()::text = user_id::text)
+  with check (auth.uid()::text = user_id::text);
 
 -- ---------------------------------------------------------------------------
 -- tipping_tips - the selections themselves.
@@ -123,20 +126,20 @@ drop policy if exists "Users read own tips" on public.tipping_tips;
 create policy "Users read own tips"
   on public.tipping_tips for select
   to authenticated
-  using (auth.uid() = user_id);
+  using (auth.uid()::text = user_id::text);
 
 drop policy if exists "Users insert own tips" on public.tipping_tips;
 create policy "Users insert own tips"
   on public.tipping_tips for insert
   to authenticated
-  with check (auth.uid() = user_id);
+  with check (auth.uid()::text = user_id::text);
 
 drop policy if exists "Users update own tips" on public.tipping_tips;
 create policy "Users update own tips"
   on public.tipping_tips for update
   to authenticated
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
+  using (auth.uid()::text = user_id::text)
+  with check (auth.uid()::text = user_id::text);
 
 -- No delete policy anywhere: nothing in the app deletes tips, entries or comps,
 -- and a policy that does not exist cannot be exploited. Add one when a feature
