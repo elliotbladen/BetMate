@@ -88,7 +88,13 @@ create table if not exists public.player_availability_observations (
   captured_at timestamptz not null,
   code text not null check (code in ('EPL','EFL','UCL','NFL')),
   source text not null,
-  source_match_id text,                 -- null for NFL: the report is club-level
+  -- NOT NULL with an empty-string sentinel for club-level rows (the NFL report is
+  -- not fixture-level). A nullable column here forced a coalesce() in the unique
+  -- index, and PostgREST CANNOT target an expression index from an on_conflict
+  -- column list - so every duplicate would have raised 23505 instead of being
+  -- ignored, which is precisely the fault that cost eleven hours of odds
+  -- collection on 2026-09-12.
+  source_match_id text not null default '',
   kickoff_utc timestamptz,
   minutes_to_kickoff integer,
   team_name text not null,
@@ -112,13 +118,12 @@ create table if not exists public.player_availability_observations (
   created_at timestamptz not null default now()
 );
 
--- A table-level UNIQUE cannot contain an expression, and source_match_id is NULL
--- for NFL rows (its report is club-level, not fixture-level). NULLs are never equal
--- in a unique constraint, so without the coalesce every NFL re-observation would
--- insert a duplicate rather than being skipped. Hence a unique INDEX.
+-- Plain column list so that an ignore-duplicates insert can name it verbatim in
+-- on_conflict. This is the constraint the collector must pass:
+--   on_conflict=code,team_name,player_name,source_match_id,value_fingerprint
 create unique index if not exists player_availability_dedupe_idx
   on public.player_availability_observations
-     (code, team_name, player_name, coalesce(source_match_id, ''), value_fingerprint);
+     (code, team_name, player_name, source_match_id, value_fingerprint);
 
 create index if not exists player_availability_team_idx
   on public.player_availability_observations (code, team_name, captured_at desc);

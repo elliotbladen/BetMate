@@ -168,30 +168,41 @@ def rate_club(team_id: int, team_name: str, league_id: int, bar: dict[str, float
     return rows
 
 
-CLUBS = [(8650, "Liverpool", 47), (8455, "Chelsea", 47), (8633, "Real Madrid", 87)]
+LEAGUES = {"EPL": 47, "EFL": 48, "UCL": 42, "LALIGA": 87}
 
 if __name__ == "__main__":
-    bars: dict[int, dict[str, float]] = {}
-    for league_id, label in ((47, "Premier League"), (87, "LaLiga")):
-        print(f"\nleague rating bars — {label}:", flush=True)
-        bars[league_id] = league_rating_bar(league_id)
-
+    import sys
+    codes = sys.argv[1:] or ["EPL", "EFL", "UCL"]
     everything = []
-    for team_id, name, league_id in CLUBS:
-        print(f"\n=== {name} ===", flush=True)
-        rows = rate_club(team_id, name, league_id, bars[league_id])
-        rows.sort(key=lambda r: (-r["stars"], -(r["season_rating"] or 0)))
-        everything.extend(rows)
-        stars = [r for r in rows if r["stars"] == 2]
-        print(f"  {'★':<3} {'rating':<7} {'p85':<6} {'min/app':<8} {'apps':<7} {'pos':<12} player")
-        for r in rows[:12]:
-            print(f"  {r['stars']:<3} {str(r['season_rating'] or '-'):<7} "
-                  f"{str(r['league_p85'] or '-'):<6} {r['minutes_per_appearance']:<8.0f} "
-                  f"{r['appearances']}/{r['team_matches']:<4} "
-                  f"{str(r['position_group'] or '-'):<12} {r['player']}")
-        print(f"  2-STAR ({len(stars)}): {', '.join(r['player'] for r in stars) or 'none'}")
+    for code in codes:
+        league_id = LEAGUES[code]
+        print(f"\n########## {code} (league {league_id}) ##########", flush=True)
+        print("league rating bars:", flush=True)
+        bar = league_rating_bar(league_id)
+        teams = clubs(league_id)
+        print(f"  {len(teams)} clubs to rate", flush=True)
+        for team_id, name in teams:
+            try:
+                rows = rate_club(team_id, name, league_id, bar)
+            except Exception as exc:
+                print(f"  {name:<26} FAILED {str(exc)[:50]}", flush=True)
+                continue
+            for r in rows:
+                r["code"] = code
+            everything.extend(rows)
+            stars = [r["player"] for r in rows if r["stars"] == 2]
+            print(f"  {name:<26} {len(rows):>2} players | 2-star ({len(stars)}): "
+                  f"{', '.join(stars) if stars else 'none'}", flush=True)
 
-    d = Path("data/player_importance"); d.mkdir(parents=True, exist_ok=True)
-    p = d / f"football_stars_{datetime.now(timezone.utc).date().isoformat()}.json"
-    p.write_text(json.dumps(everything, indent=2), encoding="utf-8")
-    print(f"\nwrote {len(everything)} players -> {p}")
+            # Write incrementally: a 40-minute run must not lose everything to one
+            # network blip at minute 38.
+            d = Path("data/player_importance"); d.mkdir(parents=True, exist_ok=True)
+            out = d / f"football_stars_all_{datetime.now(timezone.utc).date().isoformat()}.json"
+            out.write_text(json.dumps(everything, indent=2), encoding="utf-8")
+
+    from collections import Counter
+    c = Counter(r["stars"] for r in everything)
+    print(f"\nTOTAL {len(everything)} players | 2-star {c[2]} | 1-star {c[1]}")
+    by_code = Counter((r["code"], r["stars"]) for r in everything)
+    for code in codes:
+        print(f"  {code}: {by_code[(code,2)]} two-star of {by_code[(code,1)]+by_code[(code,2)]}")
