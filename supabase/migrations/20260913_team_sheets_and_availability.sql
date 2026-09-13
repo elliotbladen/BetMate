@@ -45,7 +45,10 @@ create table if not exists public.team_news_capture_runs (
 -- ---------------------------------------------------------------------------
 create table if not exists public.team_sheet_observations (
   observation_id bigint generated always as identity primary key,
-  run_id uuid references public.team_news_capture_runs(run_id) on delete set null,
+  -- No ON DELETE clause: the two-word form lost its space in a paste and Postgres
+  -- rejected "ondelete". Capture runs are never deleted, so the default (restrict)
+  -- is the behaviour we want anyway.
+  run_id uuid references public.team_news_capture_runs(run_id),
   captured_at timestamptz not null,
   code text not null check (code in ('EPL','EFL','UCL','NFL')),
   source text not null,
@@ -84,7 +87,10 @@ create index if not exists team_sheet_observations_fixture_idx
 -- ---------------------------------------------------------------------------
 create table if not exists public.player_availability_observations (
   observation_id bigint generated always as identity primary key,
-  run_id uuid references public.team_news_capture_runs(run_id) on delete set null,
+  -- No ON DELETE clause: the two-word form lost its space in a paste and Postgres
+  -- rejected "ondelete". Capture runs are never deleted, so the default (restrict)
+  -- is the behaviour we want anyway.
+  run_id uuid references public.team_news_capture_runs(run_id),
   captured_at timestamptz not null,
   code text not null check (code in ('EPL','EFL','UCL','NFL')),
   source text not null,
