@@ -1,0 +1,75 @@
+{
+  "season": 2026,
+  "round": 28,
+  "game_date": "2026-09-11",
+  "home_team": "South Sydney Rabbitohs",
+  "away_team": "Newcastle Knights",
+  "source": "the_odds_api",
+  "collected_at": "2026-09-11T10:25:30.057389+00:00",
+  "odds_api_game_id": "3e6260ba3b7217715e6c4011f56c28cf",
+  "odds_api_home": "South Sydney Rabbitohs",
+  "odds_api_away": "Newcastle Knights",
+  "commence_time": "2026-09-11T09:50:00Z",
+  "bookmakers": {
+    "unibet": {
+      "h2h": {
+        "away": 1.63,
+        "home": 2.23
+      }
+    },
+    "tab": {
+      "h2h": {
+        "away": 1.65,
+        "home": 2.2
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "away": 1.63,
+        "home": 2.16
+      },
+      "spreads": {
+        "away_price": 1.87,
+        "away_point": -2.5,
+        "home_price": 1.85,
+        "home_point": 2.5
+      },
+      "totals": {
+        "over_price": 1.88,
+        "over_point": 40.5,
+        "under_price": 1.81,
+        "under_point": 40.5
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "away": 1.55,
+        "home": 2.35
+      }
+    },
+    "sportsbet": {
+      "h2h": {
+        "away": 1.45,
+        "home": 2.55
+      },
+      "spreads": {
+        "away_price": 1.9,
+        "away_point": -4.5,
+        "home_price": 1.9,
+        "home_point": 4.5
+      },
+      "totals": {
+        "over_price": 1.92,
+        "over_point": 40.5,
+        "under_price": 1.88,
+        "under_point": 40.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "away": 1.61,
+        "home": 1.39
+      }
+    }
+  }
+}

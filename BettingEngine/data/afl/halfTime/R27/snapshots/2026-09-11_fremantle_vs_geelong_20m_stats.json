@@ -1,0 +1,43 @@
+{
+  "season": 2026,
+  "round": 27,
+  "game_date": "2026-09-11",
+  "home_team": "Fremantle",
+  "away_team": "Geelong",
+  "venue": "Perth Stadium",
+  "source": "squiggle_api",
+  "collected_at": "2026-09-11T10:44:17.478757+00:00",
+  "home_ht_score": 38,
+  "away_ht_score": 13,
+  "home_goals": 6,
+  "home_behinds": 2,
+  "away_goals": 2,
+  "away_behinds": 1,
+  "squiggle_id": 38725,
+  "round_game_num": 1,
+  "fox_match_id": "AFL20262701",
+  "timestr": "1/4 Time",
+  "notes": "",
+  "snapshot_label": "20m",
+  "snapshot_complete_pct": 25.0,
+  "home_inside_50s": 17,
+  "home_clearances": 12,
+  "home_clangers": 17,
+  "away_inside_50s": 9,
+  "away_clearances": 7,
+  "away_clangers": 8,
+  "live_stats_source": "footywire",
+  "live_stats_sources": [
+    "footywire",
+    "foxsports"
+  ],
+  "live_stats_status": "complete",
+  "footywire_mid": 11618,
+  "live_stats_crosscheck": "disagreement",
+  "live_stats_disagreements": {
+    "home_clangers": {
+      "footywire": 17,
+      "foxsports": 16
+    }
+  }
+}

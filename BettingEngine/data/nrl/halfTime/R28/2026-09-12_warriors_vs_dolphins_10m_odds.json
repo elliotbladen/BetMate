@@ -1,0 +1,81 @@
+{
+  "season": 2026,
+  "round": 28,
+  "game_date": "2026-09-12",
+  "home_team": "Warriors",
+  "away_team": "Dolphins",
+  "source": "the_odds_api",
+  "collected_at": "2026-09-12T06:23:25.488689+00:00",
+  "odds_api_game_id": "453c6fc162e9b84517308af728f3f481",
+  "odds_api_home": "New Zealand Warriors",
+  "odds_api_away": "Dolphins",
+  "commence_time": "2026-09-12T06:08:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "away": 2.1,
+        "home": 1.68
+      },
+      "spreads": {
+        "away_price": 1.8,
+        "away_point": 2.5,
+        "home_price": 2.02,
+        "home_point": -2.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 42.5,
+        "under_price": 1.9,
+        "under_point": 42.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "away": 2.4,
+        "home": 1.55
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "away": 2.17,
+        "home": 1.64
+      },
+      "spreads": {
+        "away_price": 1.85,
+        "away_point": 2.5,
+        "home_price": 1.87,
+        "home_point": -2.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 43.5,
+        "under_price": 1.85,
+        "under_point": 43.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "away": 2.25,
+        "home": 1.61
+      },
+      "spreads": {
+        "away_price": 1.9,
+        "away_point": 3.5,
+        "home_price": 1.86,
+        "home_point": -3.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "away": 2.1,
+        "home": 1.52
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "away": 2.25,
+        "home": 1.6
+      }
+    }
+  }
+}

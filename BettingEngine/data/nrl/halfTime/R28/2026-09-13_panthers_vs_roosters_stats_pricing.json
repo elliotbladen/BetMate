@@ -1,0 +1,117 @@
+{
+  "home_team": "Penrith Panthers",
+  "away_team": "Sydney Roosters",
+  "season": 2026,
+  "round": 28,
+  "game_date": "2026-09-13",
+  "priced_at": "2026-09-13T06:57:08.107475+00:00",
+  "ht_home_score": 12,
+  "ht_away_score": 12,
+  "ht_margin": 0,
+  "pregame_fair_hcap": -0.0,
+  "pregame_fair_total": 44.7,
+  "pregame_home_prob": 0.2997601918465228,
+  "second_half_expected_total": 23.07,
+  "second_half_home_expected": 11.535,
+  "second_half_away_expected": 11.535,
+  "error_adjustment": -0.63,
+  "conversion_adjustment": 0.0,
+  "restart_adjustment": -0.26,
+  "stats_implied_margin": -0.7,
+  "stats_regression_adj": 0.0,
+  "regression_factor_used": 0.55,
+  "ht_expected_margin": -0.24,
+  "ht_expected_total": 47.07,
+  "ht_home_win_prob": 0.5177,
+  "ht_away_win_prob": 0.4823,
+  "ht_home_odds": 1.93,
+  "ht_away_odds": 2.07,
+  "ht_hcap_line": -0.5,
+  "ht_total_line": 45.9,
+  "totals_model_version": "nrl_ht_totals_v3_process_distribution",
+  "totals_historical_h2_baseline": 22.99,
+  "totals_pregame_h2_prior": 23.69,
+  "totals_blended_h2_baseline": 23.27,
+  "totals_process_adjustment": 1.3,
+  "totals_fair_line": 45.93,
+  "totals_distribution_sample_size": 177,
+  "totals_feature_coverage": 1.0,
+  "totals_quality": "full_forward_calibration",
+  "totals_adjustments": [
+    "pace (2 proxies): +0.74",
+    "opportunity (2 proxies): -0.09",
+    "average completion 83.5%: +0.75",
+    "combined missed tackles 33: -0.11"
+  ],
+  "margin_model_version": "nrl_ht_margin_v3_remaining_margin_distribution",
+  "margin_elapsed_game_fraction": 0.5,
+  "margin_expected_remaining_pregame": -0.0,
+  "margin_baseline": 0.0,
+  "margin_process_adjustment": 0.26,
+  "margin_median": 0.54,
+  "margin_distribution_sample_size": 69,
+  "margin_feature_coverage": 1.0,
+  "margin_quality": "full_forward_calibration",
+  "margin_adjustments": [
+    "execution (2 proxies): -0.33",
+    "opportunity (2 proxies): +0.10",
+    "physical/defensive (3 proxies): +0.49",
+    "conversion regression: +0.00"
+  ],
+  "ingame_home_injuries": [
+    {
+      "name": "Mitch Kenny",
+      "position": "Hooker",
+      "number": 9,
+      "side": "home",
+      "minute": 33,
+      "title": "Interchange - HIA",
+      "source": "nrl_api"
+    }
+  ],
+  "ingame_away_injuries": [
+    {
+      "name": "Egan Butcher",
+      "position": "2nd Row",
+      "number": 20,
+      "side": "away",
+      "minute": 19,
+      "title": "Interchange - HIA no return",
+      "source": "nrl_api"
+    }
+  ],
+  "ingame_injury_hcap_adj": -0.5,
+  "ingame_injury_total_adj": -1.5,
+  "ingame_injury_sources": [
+    "nrl_api"
+  ],
+  "sin_bins": [
+    {
+      "name": "Nat Butcher",
+      "position": "Interchange",
+      "number": 16,
+      "side": "away",
+      "minute": 38,
+      "title": "On Report",
+      "type": "sin_bin"
+    },
+    {
+      "name": "Nathan Cleary",
+      "position": "Halfback",
+      "number": 7,
+      "side": "home",
+      "minute": 40,
+      "title": "On Report",
+      "type": "sin_bin"
+    }
+  ],
+  "signal_strength": "neutral",
+  "signal_direction": "NEUTRAL",
+  "signal_notes": [
+    "IN-GAME INJURY: Penrith Panthers — Mitch Kenny (Hooker) off at 33min [Interchange - HIA]",
+    "IN-GAME INJURY: Sydney Roosters — Egan Butcher (2nd Row) off at 19min [Interchange - HIA no return]",
+    "Injury hcap adj -0.5 pts (home perspective)",
+    "SIN BIN: Sydney Roosters — Nat Butcher (Interchange) at 38min",
+    "SIN BIN: Penrith Panthers — Nathan Cleary (Halfback) at 40min"
+  ]
+}

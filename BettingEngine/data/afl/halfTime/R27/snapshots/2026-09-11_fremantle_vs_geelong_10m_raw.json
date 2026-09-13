@@ -1,0 +1,33 @@
+{
+  "collected_at": "2026-09-11T10:28:01.008503+00:00",
+  "game": {
+    "is_final": 4,
+    "agoals": 1,
+    "localtime": "2026-09-11 18:10:00",
+    "is_grand_final": 0,
+    "round": 27,
+    "ateam": "Geelong",
+    "hteamid": 6,
+    "hbehinds": 1,
+    "hscore": 25,
+    "winner": null,
+    "year": 2026,
+    "id": 38725,
+    "updated": "2026-09-11 20:27:51",
+    "roundname": "Semi-Finals",
+    "tz": "+10:00",
+    "abehinds": 1,
+    "ascore": 7,
+    "winnerteamid": null,
+    "unixtime": 1789121400,
+    "complete": 13,
+    "venue": "Perth Stadium",
+    "hgoals": 4,
+    "date": "2026-09-11 20:10:00",
+    "ateamid": 7,
+    "timestr": "Q1 16:23",
+    "hteam": "Fremantle",
+    "_round_game_num": 1,
+    "fox_match_id": "AFL20262701"
+  }
+}

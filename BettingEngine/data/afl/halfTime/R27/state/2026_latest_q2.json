@@ -1,0 +1,32 @@
+{
+  "Fremantle vs Geelong": {
+    "is_final": 4,
+    "agoals": 7,
+    "localtime": "2026-09-11 18:10:00",
+    "is_grand_final": 0,
+    "round": 27,
+    "ateam": "Geelong",
+    "hteamid": 6,
+    "hbehinds": 5,
+    "hscore": 65,
+    "winner": null,
+    "year": 2026,
+    "id": 38725,
+    "updated": "2026-09-11 21:22:08",
+    "roundname": "Semi-Finals",
+    "abehinds": 2,
+    "tz": "+10:00",
+    "ascore": 44,
+    "winnerteamid": null,
+    "unixtime": 1789121400,
+    "complete": 49,
+    "venue": "Perth Stadium",
+    "hgoals": 10,
+    "date": "2026-09-11 20:10:00",
+    "ateamid": 7,
+    "timestr": "Q2 31:59",
+    "hteam": "Fremantle",
+    "_round_game_num": 1,
+    "fox_match_id": "AFL20262701"
+  }
+}

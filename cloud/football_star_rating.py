@@ -55,15 +55,31 @@ MIN_APPEARANCE_SHARE = 0.30    # enough evidence, but tolerant of a long injury
 _last = 0.0
 
 
-def _get(url: str) -> dict:
+def _get(url: str, attempts: int = 4) -> dict:
+    """Fetch with retry.
+
+    ⚠️ A single transient DNS failure lost 32 of 37 Champions League clubs on the
+       first full run - "Errno 8: nodename nor servname provided" - because one
+       exception aborted that club and the loop moved on. FotMob was reachable again
+       minutes later, so the data was never the problem; the lack of a retry was.
+       A 40-minute crawl must survive a blip.
+    """
     global _last
-    wait = 1.0 - (time.monotonic() - _last)
-    if wait > 0:
-        time.sleep(wait)
-    with urlopen(Request(url, headers={"User-Agent": UA, "Accept": "application/json"}),
-                 timeout=30) as r:
-        _last = time.monotonic()
-        return json.loads(r.read())
+    last_error = None
+    for attempt in range(attempts):
+        wait = 1.0 - (time.monotonic() - _last)
+        if wait > 0:
+            time.sleep(wait)
+        try:
+            with urlopen(Request(url, headers={"User-Agent": UA, "Accept": "application/json"}),
+                         timeout=30) as r:
+                _last = time.monotonic()
+                return json.loads(r.read())
+        except Exception as exc:
+            last_error = exc
+            _last = time.monotonic()
+            time.sleep(2 ** attempt)          # 1s, 2s, 4s
+    raise last_error
 
 
 def clubs(league_id: int) -> list[tuple[int, str]]:

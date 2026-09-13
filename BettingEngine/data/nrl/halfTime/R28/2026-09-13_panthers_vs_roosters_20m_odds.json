@@ -1,0 +1,81 @@
+{
+  "season": 2026,
+  "round": 28,
+  "game_date": "2026-09-13",
+  "home_team": "Penrith Panthers",
+  "away_team": "Sydney Roosters",
+  "source": "the_odds_api",
+  "collected_at": "2026-09-13T06:33:02.830764+00:00",
+  "odds_api_game_id": "7d73ccff7c50260724db8ca3ccdb7b8d",
+  "odds_api_home": "Penrith Panthers",
+  "odds_api_away": "Sydney Roosters",
+  "commence_time": "2026-09-13T06:07:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.37,
+        "away": 2.93
+      },
+      "spreads": {
+        "home_price": 1.82,
+        "home_point": -5.5,
+        "away_price": 1.98,
+        "away_point": 5.5
+      },
+      "totals": {
+        "over_price": 1.97,
+        "over_point": 44.5,
+        "under_price": 1.83,
+        "under_point": 44.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 1.14,
+        "away": 5.5
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "home": 1.29,
+        "away": 3.25
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -7.5,
+        "away_price": 1.85,
+        "away_point": 7.5
+      },
+      "totals": {
+        "over_price": 1.88,
+        "over_point": 44.5,
+        "under_price": 1.81,
+        "under_point": 44.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 1.24,
+        "away": 3.9
+      },
+      "spreads": {
+        "home_price": 1.92,
+        "home_point": -8.5,
+        "away_price": 1.84,
+        "away_point": 8.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.22,
+        "away": 3.25
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 1.33,
+        "away": 3.15
+      }
+    }
+  }
+}
