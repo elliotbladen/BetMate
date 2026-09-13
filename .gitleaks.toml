@@ -1,16 +1,19 @@
 # gitleaks configuration
 #
-# Keeps the FULL default ruleset and adds one narrow allowlist.
+# Keeps the FULL default ruleset (`useDefault = true`) and adds one narrow allowlist.
 #
-# WHY: the halftime capture files (BettingEngine/data/{afl,nrl}/halfTime/**) record
-# `odds_api_game_id` — the PUBLIC event identifier The Odds API assigns to a fixture.
-# It is a 32-char hex string, so the default `generic-api-key` rule matches it on
-# entropy purely because the field name contains "api". The same identifiers appear
-# in the odds snapshot CSVs and in URLs; they are not credentials and grant nothing.
+# WHY: the halftime capture files record `odds_api_game_id` — the PUBLIC event
+# identifier The Odds API assigns to a fixture. It is a 32-char hex string, so the
+# default `generic-api-key` rule matches it on entropy purely because the field name
+# contains "api". The same identifiers appear in the odds snapshot CSVs and in request
+# URLs; they are identifiers, not credentials, and grant nothing on their own.
 #
-# The allowlist is deliberately keyed on THAT FIELD NAME AND SHAPE, not on a path.
-# Excluding the directories would blind the scanner to a real key that landed there,
-# which is the failure mode worth avoiding.
+# The allowlist requires BOTH conditions (condition = "AND"):
+#   - the file is a halftime capture under BettingEngine/data/{afl,nrl}/halfTime/, and
+#   - the flagged secret is exactly 32 lowercase hex characters
+# so a real key landing in those directories — which would not be bare 32-hex — is
+# still caught. A blanket path exclusion would have blinded the scanner there, which
+# is the failure mode actually worth avoiding.
 
 title = "BetMate"
 
@@ -18,8 +21,11 @@ title = "BetMate"
 useDefault = true
 
 [[allowlists]]
-description = "The Odds API public event id (odds_api_game_id) — an identifier, not a secret"
-regexTarget = "line"
+description = "The Odds API public event id in halftime captures — an identifier, not a secret"
+condition = "AND"
+paths = [
+  '''BettingEngine/data/(afl|nrl)/halfTime/.*\.json$''',
+]
 regexes = [
-  '''"odds_api_game_id"\s*:\s*"[0-9a-f]{32}"''',
+  '''^[0-9a-f]{32}$''',
 ]
