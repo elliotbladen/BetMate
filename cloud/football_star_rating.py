@@ -210,11 +210,18 @@ if __name__ == "__main__":
             print(f"  {name:<26} {len(rows):>2} players | 2-star ({len(stars)}): "
                   f"{', '.join(stars) if stars else 'none'}", flush=True)
 
-            # Write incrementally: a 40-minute run must not lose everything to one
-            # network blip at minute 38.
+            # Write incrementally, PER CODE. A 40-minute run must not lose everything
+            # to one network blip at minute 38.
+            #
+            # ⚠️ This was a single shared filename and it DESTROYED DATA: re-running
+            #    UCL alone rewrote the file with UCL-only rows and wiped completed
+            #    EPL and EFL ratings. One file per code means a partial re-run can
+            #    only ever affect the code being re-run.
             d = Path("data/player_importance"); d.mkdir(parents=True, exist_ok=True)
-            out = d / f"football_stars_all_{datetime.now(timezone.utc).date().isoformat()}.json"
-            out.write_text(json.dumps(everything, indent=2), encoding="utf-8")
+            today = datetime.now(timezone.utc).date().isoformat()
+            per_code = [r for r in everything if r.get("code") == code]
+            (d / f"football_stars_{code}_{today}.json").write_text(
+                json.dumps(per_code, indent=2), encoding="utf-8")
 
     from collections import Counter
     c = Counter(r["stars"] for r in everything)
