@@ -1,0 +1,25 @@
+# gitleaks configuration
+#
+# Keeps the FULL default ruleset and adds one narrow allowlist.
+#
+# WHY: the halftime capture files (BettingEngine/data/{afl,nrl}/halfTime/**) record
+# `odds_api_game_id` — the PUBLIC event identifier The Odds API assigns to a fixture.
+# It is a 32-char hex string, so the default `generic-api-key` rule matches it on
+# entropy purely because the field name contains "api". The same identifiers appear
+# in the odds snapshot CSVs and in URLs; they are not credentials and grant nothing.
+#
+# The allowlist is deliberately keyed on THAT FIELD NAME AND SHAPE, not on a path.
+# Excluding the directories would blind the scanner to a real key that landed there,
+# which is the failure mode worth avoiding.
+
+title = "BetMate"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "The Odds API public event id (odds_api_game_id) — an identifier, not a secret"
+regexTarget = "line"
+regexes = [
+  '''"odds_api_game_id"\s*:\s*"[0-9a-f]{32}"''',
+]
