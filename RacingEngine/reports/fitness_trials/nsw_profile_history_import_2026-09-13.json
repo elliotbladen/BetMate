@@ -1,0 +1,71 @@
+{
+  "final_meeting_replay": {
+    "expected_meetings": 40,
+    "failed_meetings": [],
+    "identity_quarantined": 1,
+    "inserted": 0,
+    "quality_quarantined": 143,
+    "unchanged": 1639
+  },
+  "identity_resolution": {
+    "expected_profiles": 1300,
+    "fitness_events": 1639,
+    "fitness_identity_quarantine": 1190,
+    "fitness_quality_quarantine": 143,
+    "foreign_key_violations": 0,
+    "integrity_check": "ok",
+    "new_resolutions": 1189,
+    "original_events_preserved": 450,
+    "original_quarantine_preserved": true,
+    "outstanding_identity_quarantine": 1,
+    "trial_history_observations": 6408,
+    "trial_identity_resolutions": 1189,
+    "trial_profile_evidence": 1299,
+    "unresolved_profiles": [
+      {
+        "reason": "profile_name_disagreement",
+        "source_horse_id": "MTc3ODg5MzU0MjQ="
+      }
+    ],
+    "verified_profiles": 1299
+  },
+  "local_backups_verified": true,
+  "pr": 14,
+  "production_release": false,
+  "profiles": {
+    "downloaded": 1300,
+    "held": 1,
+    "new_registry_horses": 959,
+    "verified": 1299
+  },
+  "remaining_quality_review": {
+    "non_starters": 142,
+    "unresolved_result_code_lp": 1
+  },
+  "requested_history_window": [
+    "2023-09-13",
+    "2026-09-12"
+  ],
+  "scope": "Local review database; 1,300-horse calendar cohort; historical observations are not accepted events",
+  "source_audit": {
+    "database_trial_observations": 6408,
+    "distinct_meeting_links": 819,
+    "exact_source_database_match": true,
+    "held_profiles": [
+      {
+        "reason": "profile_name_disagreement",
+        "source_horse_id": "MTc3ODg5MzU0MjQ="
+      }
+    ],
+    "historical_observations_before_calendar_window": 4754,
+    "independent_parser": "BeautifulSoup",
+    "observed_date_range": [
+      "2023-09-18",
+      "2026-09-11"
+    ],
+    "outside_window_trials": 464,
+    "source_trial_observations": 6408,
+    "verified_profiles": 1299
+  },
+  "tests_passed": 53
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import defaultdict
+from datetime import datetime
 from typing import Any, Iterable
 
 from .horse_identity import clean_name, identity_key
@@ -45,6 +46,15 @@ def link_rows(store: RacingStore, rows: Iterable[dict[str, Any]]) -> dict[str, A
     """Link rows and return linked/quarantined records; never auto-merges ambiguity."""
     names = _candidates(store)
     provider_ids = _provider_ids(store)
+    available = {}
+    for record in store.connection.execute("SELECT horse_id, detail_json FROM horses"):
+        try:
+            detail = json.loads(record["detail_json"] or "{}")
+            profile = detail.get("racing_nsw", {}) if isinstance(detail, dict) else {}
+            if isinstance(profile, dict) and profile.get("observed_at"):
+                available[record["horse_id"]] = profile["observed_at"]
+        except (ValueError, TypeError):
+            continue
     linked: list[dict[str, Any]] = []
     quarantined: list[dict[str, Any]] = []
     for raw in rows:
@@ -86,6 +96,9 @@ def link_rows(store: RacingStore, rows: Iterable[dict[str, Any]]) -> dict[str, A
                         "review_status": "quarantine", "quarantine_reason": "no_registry_match",
                         "candidate_horse_ids": [], "cleaned_horse_name": cleaned})
             quarantined.append(row); continue
+        if provider == "racing_nsw" and method == "provider_id" and horse_id in available and row.get("effective_at"):
+            # Resolving an old source today cannot make the identity available yesterday.
+            row["effective_at"] = max((row["effective_at"], available[horse_id]), key=datetime.fromisoformat)
         row.update({"horse_id": horse_id, "cleaned_horse_name": cleaned, "identity_method": method,
                     "identity_confidence": confidence, "review_status": "automatic",
                     "identity_version": IDENTITY_VERSION, "transformations": transformations})

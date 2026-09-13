@@ -129,3 +129,72 @@ This is NSW calendar coverage for one available month. VIC, ACT and the older
 three-year archive are not claimed complete. No fitness model, live scheduler,
 rating promotion or production release is included. PR #14 remains open for
 continued work and owner review.
+
+## Horse profiles and historical trial observations
+
+The follow-up collector is `racing_engine.trial_profiles`. Its cohort is the
+unique Racing NSW horse codes in accepted events and identity quarantine from
+the saved calendar import. This is a cohort history download, not a complete
+national archive. It follows the official All Form endpoint and stores trials
+inside the requested date window. Race starts are excluded.
+
+Each profile must agree with the archived result name, have a valid birth date,
+and corroborate the horse's known trial dates, heats, field sizes and finishes.
+Provider IDs and existing birth-date evidence must not conflict. A mismatch is
+held for review. The collector does not invent aliases to force a match.
+
+```sh
+PYTHONPATH=RacingEngine python3 -m racing_engine.trial_profiles \
+  --database /absolute/path/to/trials_review.sqlite \
+  --registry-database /absolute/path/to/racing_engine.sqlite \
+  --archive /absolute/path/to/trial_raw_archive \
+  --run-directory /absolute/path/to/profile_run \
+  --from-date 2023-09-13 --to-date 2026-09-12
+```
+
+Unlike meeting runs, a profile run is resumable in the same directory. Its plan
+fixes the database, horse cohort and date window. Reports are atomic checkpoints;
+raw pages are content-addressed. Four download workers share a request-start
+throttle, and only the main thread writes SQLite. Failed downloaded pages replay
+from the archive; failed network requests retry on the next invocation. Add
+`--recheck` to revalidate all saved profiles and replay their database writes.
+No raw profiles, owner tables or signed replay URLs belong in Git or PR text.
+
+The review database adds three append-only evidence tables:
+
+- `trial_profile_evidence`: verified identity, birth date and archived source hash.
+- `trial_history_observations`: source-dated trial history and the actual linked
+  full-meeting URL. These observations are not accepted `fitness_events`.
+- `trial_identity_resolutions`: original quarantine key, resolved horse and
+  profile evidence. Original quarantine records remain intact.
+
+After collecting profiles, verify their archived hashes and source-to-database
+history, then replay the original complete meetings to accept resolved runners:
+
+```sh
+PYTHONPATH=RacingEngine python3 -m racing_engine.trial_profile_reconcile \
+  --database /absolute/path/to/trials_review.sqlite \
+  --registry-database /absolute/path/to/racing_engine.sqlite \
+  --profile-directory /absolute/path/to/profile_run \
+  --meeting-directory /absolute/path/to/previous_reconciled_meeting_run \
+  --run-directory /absolute/path/to/new_resolution_run \
+  --archive /absolute/path/to/trial_raw_archive
+```
+
+The resolution audit distinguishes historical quarantine rows from outstanding
+reviews. Reconciliation verifies that every original event and quarantine row
+remains unchanged. Newly resolved events become effective no earlier than the
+profile observation that established their identity. Repeating reconciliation
+in a new run directory must insert no additional events or resolutions.
+
+Older profile observations still require full-meeting reconciliation before
+promotion into accepted events or fitness modelling. Their presence in the
+review database does not establish complete meeting coverage, historical
+availability, or readiness for production.
+
+The 13 September follow-up downloaded all 1,300 cohort profiles, verified 1,299,
+and installed 6,408 history observations (4,754 older than the calendar window).
+It resolved 1,189 identity-review rows, bringing accepted events to 1,639.
+The ANOTHERBADDECISION/WADDLES name discrepancy remains one outstanding identity
+review. See `handover/sessions/2026-09-13_trials-profiles-and-history.md` for the
+current counts, evidence locations and next reconciliation stage.
