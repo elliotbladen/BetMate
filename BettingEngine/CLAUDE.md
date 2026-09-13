@@ -523,6 +523,15 @@ Use `--round 0` to auto-detect latest round.
 
 ## BACKLOG (medium-term)
 
+> **⚠️ 2027 AFL SCOPE RULE (owner, 2026-09-14): targeted rebuild, NOT a gut-and-replace.**
+> Keep the hybrid split (margin/H2H/handicap → 25/75 blend, totals → rules+tiers — measured
+> and confirmed 2026-09-13), the T1–T9 stack, the 25/75 weights (do not re-fit on one
+> season), the Monte Carlo machinery and the data pipeline. Rebuild only T5's mass-absence
+> failure (±8 cap — top priority), the anti-selective EV≥10% staking filter, the h2h book,
+> a testable T6 siege-mentality flag, and the Monte Carlo totals widening. Nothing measured
+> said the model is wrong in structure. See
+> `../handover/sessions/2026-09-13_afl-prelim-finals-pricing.md`.
+
 | Item | Trigger | Notes |
 |------|---------|-------|
 | Build MCP server | AFL automation stable + signals pipeline built | Full architecture in `handover/MCP_PREP.md`. Read-only query layer for Baz. Sport-parameterised from day 1. ~1 day to build once prereqs are met. |

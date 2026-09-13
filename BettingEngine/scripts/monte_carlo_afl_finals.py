@@ -24,7 +24,8 @@ sys.path.insert(0, str(ROOT))
 DB = ROOT / "data" / "model.db"
 FEATURES = ROOT / "ml" / "afl" / "results" / "features_afl.csv"
 MODELS = ROOT / "ml" / "afl" / "results" / "models"
-SNAPSHOT = ROOT.parent / "data" / "odds_snapshots" / "2026" / "2026-09-02_afl_finals_week2_sportsbet.csv"
+DEFAULT_SNAPSHOT = (ROOT.parent / "data" / "odds_snapshots" / "2026"
+                    / "2026-09-02_afl_finals_week2_sportsbet.csv")
 OUT_DIR = ROOT / "outputs" / "monte_carlo"
 
 # Players listed as Test/TBC on September 1. The deterministic engine assumes
@@ -45,6 +46,20 @@ UNCERTAIN_AVAILABILITY = {
         ("Sydney Swans", 0.50, -3.0, -2.0),   # Joel Amartey, test
         ("Brisbane Lions", 0.10, -3.0, -1.5), # Hugh McCluggage, expected in
     ],
+    # ── 2026 Preliminary Finals (R27) ────────────────────────────────────────
+    # Sourced 2026-09-13 from the local scraper + afl.com.au, cross-checked.
+    # The deterministic T5 file treats every one of these as PLAYING, so each
+    # entry is the probability that assumption is wrong. Team lists land Thu.
+    ("Sydney Swans", "Fremantle Dockers"): [
+        ("Sydney Swans",      0.30, -1.5, -0.5),  # Justin McInerney, hamstring, test
+        ("Fremantle Dockers", 0.45, -2.0, -1.0),  # Sean Darcy, knee, test (Jackson is No.1 ruck)
+        ("Fremantle Dockers", 0.40, -0.5, +0.5),  # Brandon Walker, ankle, test
+    ],
+    ("Hawthorn Hawks", "Brisbane Lions"): [
+        ("Hawthorn Hawks", 0.50, -1.5, +1.0),  # Jack Scrimshaw, knee, test
+        ("Hawthorn Hawks", 0.35, -1.0, -0.5),  # Ned Reeves, larynx — back-up ruck to Meek
+        ("Brisbane Lions", 0.40, -0.5, +0.5),  # Noah Answerth, ankle, test
+    ],
 }
 
 
@@ -52,9 +67,9 @@ def fair(probability: float) -> float:
     return round(1.0 / probability, 2) if probability > 0 else 999.0
 
 
-def load_markets() -> dict[tuple[str, str], dict]:
+def load_markets(snapshot: Path) -> dict[tuple[str, str], dict]:
     markets: dict[tuple[str, str], dict] = {}
-    with SNAPSHOT.open(encoding="utf-8-sig", newline="") as handle:
+    with snapshot.open(encoding="utf-8-sig", newline="") as handle:
         for row in csv.DictReader(handle):
             key = (row["home_team"], row["away_team"])
             game = markets.setdefault(key, {})
@@ -108,11 +123,22 @@ def main() -> None:
     parser.add_argument("--round", type=int, default=25)
     parser.add_argument("--sims", type=int, default=100_000)
     parser.add_argument("--seed", type=int, default=20260902)
+    parser.add_argument("--markets", type=Path, default=DEFAULT_SNAPSHOT,
+                        help="CSV of market prices: home_team,away_team,market,outcome,price,line")
+    parser.add_argument("--out", type=str, default="afl_finals_week2_2026_100k.csv",
+                        help="output filename inside outputs/monte_carlo/")
+    parser.add_argument("--home-bias", type=float, default=0.0,
+                        help="pts of measured home-favouritism to subtract from the blended "
+                             "margin. 0.0 keeps the frozen spec. The 25/75 blend measured "
+                             "+5.70 over 95 priced 2026 games (see the R27 report).")
     args = parser.parse_args()
+
+    if not args.markets.exists():
+        raise SystemExit(f"market snapshot not found: {args.markets}")
 
     rng = np.random.default_rng(args.seed)
     residuals = out_of_sample_residuals()
-    markets = load_markets()
+    markets = load_markets(args.markets)
     rows = []
 
     for game in load_prices(args.round):
@@ -121,6 +147,7 @@ def main() -> None:
         # 75% ML / 25% rules for margin; rules-only for totals. H2H is derived
         # coherently from the simulated margin rather than separately blended.
         margin_mean = 0.25 * game["rules_margin"] + 0.75 * game["primary_margin"]
+        margin_mean -= args.home_bias
         total_mean = game["rules_total"]
 
         sampled = residuals[rng.integers(0, len(residuals), args.sims)]
@@ -182,7 +209,7 @@ def main() -> None:
         rows.append(row)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    output = OUT_DIR / "afl_finals_week2_2026_100k.csv"
+    output = OUT_DIR / args.out
     pd.DataFrame(rows).to_csv(output, index=False)
     print(pd.DataFrame(rows).to_string(index=False))
     print(f"\nSaved: {output}")

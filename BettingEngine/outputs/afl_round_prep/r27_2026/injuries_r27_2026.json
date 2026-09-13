@@ -1,0 +1,51 @@
+{
+  "season": 2026,
+  "round": 27,
+  "label": "Preliminary Finals",
+  "built": "2026-09-13",
+  "sources": [
+    "data/afl/injuries/processed/latest-injuries.json (scraped 2026-09-13T02:29Z)",
+    "afl.com.au/matches/injury-list (cross-checked 2026-09-13)",
+    "afl.com.au 'Medical room: the full AFL injury list, FW3'"
+  ],
+  "source_note": "The afl.com.au fetch returned the HAWTHORN and GEELONG blocks transposed (it listed Worpel/Stanley/Conway/Barker under Hawthorn — all Geelong 2026 players — and Nash/Reeves/Scrimshaw/Anderson under Geelong — all Hawthorn). Undoing the swap, it agrees with the local scraper on all four prelim clubs. Hawthorn's list below is the corrected one.",
+  "curation_rule": "Only players whose absence is NOT already absorbed by the rating are given full weight. A player absent for many rounds with a settled replacement is downgraded a quality notch or dropped, and the reason is recorded in `excluded`. 'doubtful'/'test' players are recorded but are not 'out'.",
+  "injuries": {
+    "Sydney Swans": [
+      {"player": "Isaac Heeney",  "status": "out", "position": "midfielder",   "quality": "elite",   "injury": "Suspended (club sanction)", "estimated_return": "season", "note": "Banned 2026-08-19 for the rest of the season. Missed 2 games (R23, QF). ELO built over 20+ games WITH him, so this is NOT yet absorbed by the rating."},
+      {"player": "Chad Warner",   "status": "out", "position": "midfielder",   "quality": "elite",   "injury": "Suspended (club sanction)", "estimated_return": "season", "note": "Same sanction."},
+      {"player": "Callum Mills",  "status": "out", "position": "midfielder",   "quality": "elite",   "injury": "ACL (right knee)",          "estimated_return": "season", "note": "Captain. Ruptured ACL late Q1 of the QF on 2026-09-05 — NEW this week; the rating has ~1 game of partial evidence only."},
+      {"player": "Nick Blakey",   "status": "out", "position": "key_defender", "quality": "elite",   "injury": "Suspended (club sanction)", "estimated_return": "season", "note": "Rebounding half-back. Same sanction."},
+      {"player": "James Jordon",  "status": "out", "position": "midfielder",   "quality": "good",    "injury": "Suspended (club sanction)", "estimated_return": "season"},
+      {"player": "Riley Bice",    "status": "out", "position": "key_defender", "quality": "average", "injury": "Suspended (club sanction)", "estimated_return": "season"},
+      {"player": "Peter Ladhams", "status": "out", "position": "ruck",         "quality": "average", "injury": "Hip/Groin",                 "estimated_return": "season"},
+      {"player": "Justin McInerney", "status": "doubtful", "position": "winger", "quality": "good",  "injury": "Hamstring",                 "estimated_return": "test", "note": "Reported likely to be available — NOT counted as out."},
+      {"player": "Ned Bowman",       "status": "doubtful", "position": "utility","quality": "depth", "injury": "Hamstring",                 "estimated_return": "1-2 weeks"},
+      {"player": "Noah Chamberlain", "status": "doubtful", "position": "utility","quality": "depth", "injury": "Hamstring",                 "estimated_return": "1 week"}
+    ],
+    "Fremantle Dockers": [
+      {"player": "Sam Sturt",     "status": "out", "position": "small_forward","quality": "average", "injury": "Hamstring", "estimated_return": "TBC"},
+      {"player": "Brennan Cox",   "status": "out", "position": "key_defender", "quality": "average", "injury": "Calf",      "estimated_return": "1 week", "note": "Downgraded from 'good' — missed the semi and Oscar McDonald has held the spot, so most of the loss is already in the rating."},
+      {"player": "Sean Darcy",       "status": "doubtful", "position": "ruck",        "quality": "good",    "injury": "Knee",  "estimated_return": "test", "note": "Luke Jackson is the incumbent No.1 ruck — NOT counted as out."},
+      {"player": "Brandon Walker",   "status": "doubtful", "position": "key_defender","quality": "average", "injury": "Ankle", "estimated_return": "test"},
+      {"player": "Aiden Riddle",     "status": "doubtful", "position": "utility",     "quality": "depth",   "injury": "Foot",  "estimated_return": "1 week"}
+    ],
+    "Hawthorn Hawks": [
+      {"player": "Conor Nash",    "status": "out", "position": "midfielder", "quality": "average", "injury": "Neck", "estimated_return": "season", "note": "Downgraded from 'good' — long-term absence, fully absorbed by the rating."},
+      {"player": "Jack Scrimshaw",   "status": "doubtful", "position": "key_defender", "quality": "good",  "injury": "Knee",   "estimated_return": "test", "note": "Has not played a senior game since R8 — absence is entirely in the rating, so excluded from 'out' rather than double-counted."},
+      {"player": "Ned Reeves",       "status": "doubtful", "position": "ruck",         "quality": "average","injury": "Larynx", "estimated_return": "1 week", "note": "Back-up ruck to Lloyd Meek; reported available for the prelim if required."},
+      {"player": "Cody Anderson",    "status": "doubtful", "position": "utility",      "quality": "depth", "injury": "Hamstring","estimated_return": "1 week"}
+    ],
+    "Brisbane Lions": [
+      {"player": "Jack Payne",    "status": "out", "position": "key_defender", "quality": "average", "injury": "Knee", "estimated_return": "season", "note": "Downgraded from 'good' — season-ending, long absorbed."},
+      {"player": "Henry Smith",   "status": "out", "position": "ruck",         "quality": "depth",   "injury": "Foot", "estimated_return": "season"},
+      {"player": "Reece Torrent",     "status": "out", "position": "utility", "quality": "depth", "injury": "Ankle", "estimated_return": "season"},
+      {"player": "Zane Zakostelsky",  "status": "out", "position": "utility", "quality": "depth", "injury": "Knee",  "estimated_return": "season"},
+      {"player": "Noah Answerth",     "status": "doubtful", "position": "key_defender", "quality": "average", "injury": "Ankle", "estimated_return": "test"}
+    ]
+  },
+  "excluded": {
+    "Sydney Swans": ["Max King (back, season) — depth, no senior role", "Liam Hetherton (back, season) — depth", "Will Edwards (calf, season) — depth", "Joel Amartey — reported fit and available"],
+    "note": "The five suspended Swans are deliberately INCLUDED at full weight. The Championship 'absentees already in the ratings' lesson does not transfer here: those ratings were fitted with zero appearances from the player, whereas Sydney's 1743 ELO was built across a full season WITH Heeney/Warner/Blakey and has been moved by only two subsequent games."
+  }
+}
