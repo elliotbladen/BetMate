@@ -111,6 +111,14 @@ create table if not exists public.player_availability_observations (
   -- away the distinction between "back in three weeks" and "might play Saturday".
   expected_return_raw text,
 
+  -- The importance rating AS IT STOOD ON THE DAY OF CAPTURE. Stamped once and
+  -- never recomputed: if a squad player breaks out in March and is relabelled a
+  -- star, an October injury being studied must still carry the October rating, or
+  -- the study discovers a market "failure" to react to someone who was not yet a
+  -- star. rating_as_of is what makes that auditable.
+  star_rating smallint,
+  rating_as_of date,
+
   practice_status text,                 -- NFL only: DNP / Limited / Full
   game_status text,                     -- NFL only: Out / Doubtful / Questionable
 

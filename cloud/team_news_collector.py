@@ -57,19 +57,28 @@ import fotmob                                                      # noqa: E402
 UTC = timezone.utc
 
 # Minutes before kickoff at which a capture is wanted, per code.
+# ⚠️ The two short windows must sit at least 2 x TOLERANCE apart or they OVERLAP,
+#    and a single tick at the midpoint satisfies both - so one of them never fires
+#    on its own. The audit caught exactly that at T-75m and T-90m when these were
+#    10 minutes apart. 20 apart leaves a clean gap either side of the deadline.
 WINDOWS = {
-    "football": [72 * 60, 48 * 60, 24 * 60, 80, 70],
-    "NFL": [72 * 60, 48 * 60, 24 * 60, 95, 85],
+    "football": [72 * 60, 48 * 60, 24 * 60, 85, 65],   # deadline is 75m
+    "NFL": [72 * 60, 48 * 60, 24 * 60, 100, 80],       # deadline is 90m
 }
-# How close to a target counts as hitting it. Five minutes matches the cron period;
-# anything tighter and a window is missed entirely on a slow cycle.
 TOLERANCE_MINUTES = 5
 
 RATING_DIR = Path("data/player_importance")
 
 
 def window_name(minutes: int) -> str:
-    if minutes >= 60:
+    """A distinct label per window.
+
+    ⚠️ An earlier version switched to hours above 60 minutes, so 85, 80, 70 and 65
+       ALL became "t_minus_1h". The before-and-after bracket around the team-sheet
+       deadline - the whole reason this collector exists - would have been
+       indistinguishable in the data. Only whole hours get an hour label.
+    """
+    if minutes >= 60 and minutes % 60 == 0:
         return f"t_minus_{minutes // 60}h"
     return f"t_minus_{minutes}m"
 
