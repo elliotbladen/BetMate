@@ -198,3 +198,18 @@ It resolved 1,189 identity-review rows, bringing accepted events to 1,639.
 The ANOTHERBADDECISION/WADDLES name discrepancy remains one outstanding identity
 review. See `handover/sessions/2026-09-13_trials-profiles-and-history.md` for the
 current counts, evidence locations and next reconciliation stage.
+
+## Coverage correction after the owner's spot check
+
+The original cohort missed Autumn Glow's July trials and Sheza Alibi's Victorian
+jumpouts. The follow-up `trial_calendar_expansion` queries each completed day
+for NSW/VIC/ACT rather than deriving the horse population from one month's
+NSW results. It now stores 8,909 source observations from 147 populated calendar
+IDs in the 13 July–12 September window, with thirteen empty IDs explicitly held
+as source gaps. The database has 3,280 accepted events. Unmatched observations
+and unknown source result codes remain review items, not fabricated identities
+or finishing positions. This is still not complete national coverage.
+
+Use `trial_review_page --database PATH --output DIRECTORY` to generate the local
+source-linked spot check. Full commands, regression evidence and remaining work:
+`handover/sessions/2026-09-13_trials-coverage-correction.md`.

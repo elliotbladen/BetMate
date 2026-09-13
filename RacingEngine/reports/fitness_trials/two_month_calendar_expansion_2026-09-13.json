@@ -1,0 +1,226 @@
+{
+  "additional_autumn_glow_history_rows": 13,
+  "audit": {
+    "accepted_events_total": 3280,
+    "date_range": [
+      "2026-07-13",
+      "2026-09-12"
+    ],
+    "days_checked": 62,
+    "exact_source_database_match": true,
+    "foreign_key_violations": 0,
+    "integrity_check": "ok",
+    "observations_by_state": {
+      "ACT": 45,
+      "NSW": 3303,
+      "VIC": 5561
+    },
+    "observations_by_type": {
+      "jumpout": 5108,
+      "official_trial": 3801
+    },
+    "original_events_and_quarantine_preserved": true,
+    "replay_insertions": 0,
+    "replay_observations": 0,
+    "shortlist_regression": [
+      {
+        "event_date": "2026-07-20",
+        "event_type": "official_trial",
+        "field_size": 7,
+        "finish_position": 3,
+        "heat_number": 1,
+        "horse_name": "Autumn Glow",
+        "source_url": "https://www.racing.com/form/2026-07-20/royal-randwick-trial/race/1",
+        "track": "Royal Randwick"
+      },
+      {
+        "event_date": "2026-07-31",
+        "event_type": "official_trial",
+        "field_size": null,
+        "finish_position": 3,
+        "heat_number": 1,
+        "horse_name": "Autumn Glow",
+        "source_url": "https://www.racing.com/form/2026-07-31/royal-randwick-trial/race/1",
+        "track": "Royal Randwick"
+      },
+      {
+        "event_date": "2026-07-28",
+        "event_type": "jumpout",
+        "field_size": 6,
+        "finish_position": 2,
+        "heat_number": 1,
+        "horse_name": "Sheza Alibi",
+        "source_url": "https://www.racing.com/form/2026-07-28/southside-pakenham-jumpout/race/1",
+        "track": "Southside Pakenham"
+      },
+      {
+        "event_date": "2026-08-11",
+        "event_type": "jumpout",
+        "field_size": 6,
+        "finish_position": 1,
+        "heat_number": 1,
+        "horse_name": "Sheza Alibi",
+        "source_url": "https://www.racing.com/form/2026-08-11/southside-pakenham-synthetic-jumpout/race/1",
+        "track": "Southside Pakenham Synthetic"
+      }
+    ],
+    "source_rows": 8909,
+    "stored_review_statuses": {
+      "ambiguous_source_heat_number": 1,
+      "conflicting_heat_clocks": 32,
+      "corroborates_existing_event": 1516,
+      "unmatched_registry_identity": 5291,
+      "unresolved_source_result_code": 428,
+      "verified_result": 1641
+    }
+  },
+  "import": {
+    "accepted_inserted": 0,
+    "days_expected": 62,
+    "days_verified": 62,
+    "existing_events": 3157,
+    "failed_dates": [],
+    "failed_meetings": [],
+    "foreign_key_violations": 0,
+    "held": 5752,
+    "integrity_check": "ok",
+    "meetings_expected": 160,
+    "meetings_imported": 147,
+    "observations_inserted": 0,
+    "settings": {
+      "from_date": "2026-07-13",
+      "states": [
+        "NSW",
+        "VIC",
+        "ACT"
+      ],
+      "to_date": "2026-09-12"
+    },
+    "source_rows": 8909,
+    "status": "completed_with_source_gaps",
+    "unavailable_meetings": [
+      {
+        "date": "2026-07-13",
+        "id": "5197172",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-13/dubbo-trial",
+        "state": "NSW",
+        "venue": "Dubbo"
+      },
+      {
+        "date": "2026-07-13",
+        "id": "5197157",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-13/quirindi-trial",
+        "state": "NSW",
+        "venue": "Quirindi"
+      },
+      {
+        "date": "2026-07-18",
+        "id": "5197158",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-18/inverell-trial",
+        "state": "NSW",
+        "venue": "Inverell"
+      },
+      {
+        "date": "2026-07-21",
+        "id": "5195233",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-21/warwick-farm-trial",
+        "state": "NSW",
+        "venue": "Warwick Farm"
+      },
+      {
+        "date": "2026-07-22",
+        "id": "5197131",
+        "isJumpOut": true,
+        "isTrial": false,
+        "meetUrl": "https://www.racing.com/form/2026-07-22/ladbrokes-geelong-synthetic-jumpout",
+        "state": "VIC",
+        "venue": "Ladbrokes Geelong Synthetic"
+      },
+      {
+        "date": "2026-07-22",
+        "id": "5197130",
+        "isJumpOut": true,
+        "isTrial": false,
+        "meetUrl": "https://www.racing.com/form/2026-07-22/mornington-jumpout",
+        "state": "VIC",
+        "venue": "Mornington"
+      },
+      {
+        "date": "2026-07-31",
+        "id": "5195235",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-31/royal-randwick-trial",
+        "state": "NSW",
+        "venue": "Royal Randwick"
+      },
+      {
+        "date": "2026-08-06",
+        "id": "5197302",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-08-06/moree-trial",
+        "state": "NSW",
+        "venue": "Moree"
+      },
+      {
+        "date": "2026-08-14",
+        "id": "5197394",
+        "isJumpOut": true,
+        "isTrial": false,
+        "meetUrl": "https://www.racing.com/form/2026-08-14/moe-jumpout",
+        "state": "VIC",
+        "venue": "Moe"
+      },
+      {
+        "date": "2026-08-17",
+        "id": "5197308",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-08-17/scone-trial",
+        "state": "NSW",
+        "venue": "Scone"
+      },
+      {
+        "date": "2026-08-22",
+        "id": "5197310",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-08-22/quirindi-trial",
+        "state": "NSW",
+        "venue": "Quirindi"
+      },
+      {
+        "date": "2026-09-05",
+        "id": "5197813",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-09-05/kempsey-trial",
+        "state": "NSW",
+        "venue": "Kempsey"
+      },
+      {
+        "date": "2026-09-06",
+        "id": "5197825",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-09-06/gundagai-trial",
+        "state": "NSW",
+        "venue": "Gundagai"
+      }
+    ]
+  },
+  "new_accepted_events": 1641,
+  "production_modified": false,
+  "review_page_horses": 8,
+  "review_page_records": 20,
+  "tests_passed": 59
+}
