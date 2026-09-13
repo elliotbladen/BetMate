@@ -162,6 +162,18 @@ FINALS_ELO_OVERRIDE = {
         'Brisbane Lions':    1706.3,   # lost QF2 to Sydney 88-141
         'Adelaide Crows':    1659.0,   # won EF 90-68 vs Western Bulldogs
     },
+    # Post-Finals-Week-2 (Semi Finals), computed by walking each team's last
+    # game forward with ml/afl/game_log.update_elo (K=72 finals, HOME_ADV_ELO=65)
+    # off the pre-match ratings in the rebuilt features_afl.csv.
+    # Cross-check: the same method reproduces the R26 overrides above exactly,
+    # and Hawthorn 1704.9 / Sydney 1743.2 match the post-week-1 figures recorded
+    # independently in outputs/results/afl_semifinals_pricing_2026.md.
+    27: {
+        'Sydney Swans':      1743.2,   # won QF2 141-88 vs Brisbane   (1704.3 -> 1743.2)
+        'Brisbane Lions':    1735.1,   # won SF2 144-91 vs Adelaide   (1706.3 -> 1735.1)
+        'Fremantle Dockers': 1709.4,   # won SF1 120-106 vs Geelong   (1680.8 -> 1709.4)
+        'Hawthorn Hawks':    1704.9,   # won QF1 72-40 at Fremantle   (1654.0 -> 1704.9)
+    },
 }
 
 # ── T5 Injuries — update manually before each round ──────────────────────────
@@ -2218,7 +2230,8 @@ def main():
                 if wx_data:
                     print(f'    [T7] {venue}: T={wx_data.get("temp_c")}°C  '
                           f'W={wx_data.get("wind_kmh")}km/h  '
-                          f'P={wx_data.get("precip_mm")}mm  [tomorrow_io]')
+                          f'P={wx_data.get("precip_mm")}mm  '
+                          f'[{wx_data.get("data_source", "unknown")}]')
             else:
                 print(f'    [T7] no coords for venue "{venue}" — weather skipped')
                 wx_data = {}

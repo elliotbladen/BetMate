@@ -1,0 +1,3 @@
+season,round,run_date,game_date,home_team,away_team,market_home_prob,legacy_primary_home_prob,legacy_edge_home,current_shadow_home_prob,current_shadow_edge_home
+2026,27,2026-09-13,2026-09-18,Sydney Swans,Fremantle Dockers,0.3800223908446324,0.8,0.41997760915536764,0.6216,0.24157760915536763
+2026,27,2026-09-13,2026-09-19,Hawthorn Hawks,Brisbane Lions,0.47750764303392057,0.7445,0.2669923569660795,0.6488,0.17129235696607947

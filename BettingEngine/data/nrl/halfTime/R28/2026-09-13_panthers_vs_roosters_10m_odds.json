@@ -1,0 +1,171 @@
+{
+  "season": 2026,
+  "round": 28,
+  "game_date": "2026-09-13",
+  "home_team": "Penrith Panthers",
+  "away_team": "Sydney Roosters",
+  "source": "the_odds_api",
+  "collected_at": "2026-09-13T05:54:39.785977+00:00",
+  "odds_api_game_id": "7d73ccff7c50260724db8ca3ccdb7b8d",
+  "odds_api_home": "Penrith Panthers",
+  "odds_api_away": "Sydney Roosters",
+  "commence_time": "2026-09-13T06:07:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.25,
+        "away": 3.7
+      },
+      "spreads": {
+        "home_price": 1.99,
+        "home_point": -8.5,
+        "away_price": 1.81,
+        "away_point": 8.5
+      },
+      "totals": {
+        "over_price": 1.97,
+        "over_point": 36.5,
+        "under_price": 1.83,
+        "under_point": 36.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 1.34,
+        "away": 3.2
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "home": 1.22,
+        "away": 3.9
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 1.23,
+        "away": 4.0
+      },
+      "spreads": {
+        "home_price": 1.86,
+        "home_point": -9.5,
+        "away_price": 1.9,
+        "away_point": 9.5
+      }
+    },
+    "betr_au": {
+      "h2h": {
+        "home": 1.38,
+        "away": 3.1
+      },
+      "spreads": {
+        "home_price": 1.95,
+        "home_point": -8.5,
+        "away_price": 1.85,
+        "away_point": 8.5
+      }
+    },
+    "neds": {
+      "h2h": {
+        "home": 1.35,
+        "away": 3.3
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -7.5,
+        "away_price": 1.8,
+        "away_point": 7.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 35.5,
+        "under_price": 1.9,
+        "under_point": 35.5
+      }
+    },
+    "ladbrokes_au": {
+      "h2h": {
+        "home": 1.35,
+        "away": 3.3
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -7.5,
+        "away_price": 1.8,
+        "away_point": 7.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 35.5,
+        "under_price": 1.9,
+        "under_point": 35.5
+      }
+    },
+    "betright": {
+      "h2h": {
+        "home": 1.44,
+        "away": 2.85
+      },
+      "spreads": {
+        "home_price": 1.95,
+        "home_point": -7.5,
+        "away_price": 1.85,
+        "away_point": 7.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 42.5,
+        "under_price": 1.87,
+        "under_point": 42.5
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.35,
+        "away": 3.5
+      }
+    },
+    "playup": {
+      "h2h": {
+        "home": 1.38,
+        "away": 3.1
+      },
+      "spreads": {
+        "home_price": 1.9,
+        "home_point": -7.5,
+        "away_price": 1.9,
+        "away_point": 7.5
+      },
+      "totals": {
+        "over_price": 1.88,
+        "over_point": 42.5,
+        "under_price": 1.88,
+        "under_point": 42.5
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 1.25,
+        "away": 3.75
+      }
+    },
+    "dabble_au": {
+      "h2h": {
+        "home": 1.37,
+        "away": 3.1
+      },
+      "spreads": {
+        "home_price": 1.9,
+        "home_point": -9.5,
+        "away_price": 1.9,
+        "away_point": 9.5
+      },
+      "totals": {
+        "over_price": 1.9,
+        "over_point": 43.5,
+        "under_price": 1.9,
+        "under_point": 43.5
+      }
+    }
+  }
+}

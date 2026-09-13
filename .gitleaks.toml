@@ -1,0 +1,41 @@
+# gitleaks configuration for BetMate
+#
+# Keeps the FULL default ruleset (`useDefault = true`) and adds one allowlist tied
+# to two specific FIELD NAMES that the default `generic-api-key` rule flags on
+# entropy alone:
+#
+#   odds_api_game_id  The Odds API's PUBLIC event identifier for a fixture, a
+#                     32-char hex string. Recorded in every halftime capture. The
+#                     same ids appear in the odds snapshot CSVs and in request
+#                     URLs. It identifies a match; it authenticates nothing.
+#
+#   publishedkey      An ESPN feed identifier ("soccer<matchid>") carried in the
+#                     Championship player-layer match feeds. Same story.
+#
+# WHY BOUND TO THE FIELD NAME, not to a path or to the secret's shape:
+#   - A path exclusion would blind the scanner to a real credential landing in
+#     those directories, which is the failure mode worth avoiding.
+#   - Allowing "any 32-char hex" would exempt a large class of genuine API keys.
+#     `condition = "AND"` was tried to bind path AND shape together and DOES NOT
+#     BIND in gitleaks 8.24.3 — a deliberately wrong path still suppressed the
+#     findings, i.e. it silently degraded to shape-only. Verified, then rejected.
+#   - Note also that a global `[[allowlists]]` array is silently ignored here;
+#     only the singular `[allowlist]` table takes effect.
+#
+# VERIFIED with gitleaks 8.24.3 over this branch's commit range:
+#   - as written                              -> 0 findings
+#   - negative control (field names altered)  -> 9 findings return
+#   - planted `odds_api_key` in an allowlisted halftime file -> still CAUGHT
+
+title = "BetMate"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public third-party event identifiers that only match on entropy"
+regexTarget = "match"
+regexes = [
+  '''odds_api_game_id"\s*:\s*"[0-9a-f]{32}"''',
+  '''publishedkey"\s*:\s*"soccer\d+"''',
+]

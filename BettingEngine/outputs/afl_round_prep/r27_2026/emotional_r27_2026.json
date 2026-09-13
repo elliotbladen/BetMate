@@ -1,0 +1,59 @@
+{
+  "season": 2026,
+  "round": 27,
+  "label": "Preliminary Finals",
+  "built": "2026-09-13",
+  "method": "Web research, 2026-09-13, across afl.com.au, ABC, ESPN and club sources. Every angle found was tested against the flag types AFL_T6_CONFIG actually supports (milestone, new_coach, star_return, shame_blowout, farewell, personal_tragedy, rivalry_derby, must_win, club_drama). Nothing invented outside that list.",
+  "flags": {},
+  "explicit_zero": true,
+  "angles_found_and_assessed": [
+    {
+      "team": "Sydney Swans",
+      "angle": "Five players (Heeney, Warner, Blakey, Jordon, Bice) banned by the club on 2026-08-19 for the rest of the season, tied to a police investigation.",
+      "candidate_flag": "club_drama (major, -3.0)",
+      "verdict": "REJECTED - twice over",
+      "reason": "(1) Double-count: the personnel loss is already carried at full weight in T5, where it pins the tier at its -8.0 cap. (2) The direction is contradicted by the only evidence there is. Since the sanction Sydney have won both games by 53 - including a qualifying final in which they were the heaviest underdogs - and Dean Cox said the win was partly motivated by having been written off. A suppressive flag would be fitting a narrative against two measured results."
+    },
+    {
+      "team": "Sydney Swans",
+      "angle": "Justin McInerney (hamstring) and Joel Amartey (Achilles) both reported fit and expected to be selected.",
+      "candidate_flag": "star_return (+3.5, or +1.75 at minor)",
+      "verdict": "REJECTED",
+      "reason": "Double-count in the opposite direction. Both are already treated as AVAILABLE in the T5 file (recorded as doubtful, not out), so the baseline price already has them playing. Adding a return bonus on top would pay for them twice. Also unsupported on merit: Sydney's forward line kicked 141 in the QF without Amartey (McDonald 6, Curnow 5, Papley 5)."
+    },
+    {
+      "team": "Sydney Swans",
+      "angle": "Written-off / siege-mentality effect - the strongest genuine emotional story of the round, and the mechanism behind a 53-point QF upset.",
+      "candidate_flag": "none exists",
+      "verdict": "UNPRICEABLE, recorded not invented",
+      "reason": "AFL_T6_CONFIG has no siege-mentality or underdog-response flag type. `shame_blowout` is the nearest but requires a heavy DEFEAT and Sydney won by 53. Inventing a flag type to capture it would be untestable. Recorded as a known unmodelled positive for Sydney."
+    },
+    {
+      "team": "Fremantle Dockers",
+      "angle": "First preliminary final since 2015 (11-year drought). Coach Justin Longmuir publicly claimed underdog status ahead of the game despite being the market favourite.",
+      "candidate_flag": "must_win / occasion",
+      "verdict": "REJECTED",
+      "reason": "`must_win` is symmetric - every preliminary final is must-win for both sides, so it cancels in the handicap and only adds noise to the total. There is no drought or occasion flag type (T3's 3E occasion signal is ANZAC-only). Longmuir's underdog framing is rhetoric, not a measurable state."
+    },
+    {
+      "team": "Hawthorn Hawks",
+      "angle": "First preliminary final since their 2015 premiership season; beat Fremantle in QF1 as a boilover.",
+      "candidate_flag": "must_win / occasion",
+      "verdict": "REJECTED",
+      "reason": "Same as Fremantle - symmetric and unsupported. Note it cancels particularly cleanly here: BOTH prelims are a first-since-2015 return for the home side, so even if a drought effect existed it would apply to Sydney's opponent and Hawthorn equally."
+    },
+    {
+      "team": "Brisbane Lions",
+      "angle": "Chasing a third straight premiership; fourth consecutive preliminary final; lost the QF to Sydney by 53 after which Chris Fagan questioned the group's mentality ('we've got work to do').",
+      "candidate_flag": "shame_blowout (+1.5)",
+      "verdict": "REJECTED - already spent",
+      "reason": "The response game has already happened and already been rewarded: Brisbane answered the 53-point QF loss by winning the semi 144-91, also by 53. Applying a bounce-back flag to the game AFTER the bounce-back double-counts an effect the ELO has now absorbed. Their four-straight-prelims experience has no flag type and is arguably already in the rating."
+    }
+  ],
+  "checked_and_absent": [
+    "Retirements/farewells: the 2026 retirements found (Taylor Walker - Adelaide, 316 games; Tom Liberatore - Western Bulldogs) are both at clubs already eliminated. No farewell flag at any of the four prelim clubs.",
+    "Milestones: no 100th/200th/300th game found for any prelim participant. Note this is a weak negative - there is no reliable milestone feed for finals week, so treat as 'not found' rather than 'none exist'.",
+    "New coach: none. Personal tragedy: none found. Rivalry/derby: neither fixture is a derby."
+  ],
+  "note": "This is a researched, evidence-backed zero, not a failed scrape. scrapers/afl_emotional.py has no output on this machine (data/afl/emotional/ does not exist), so the research was done manually."
+}
