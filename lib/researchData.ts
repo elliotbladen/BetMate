@@ -1020,6 +1020,8 @@ export const MODEL_BETS: ModelBet[] = [
   { id:98,  date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                   market:'Sharks +8.5',            predictedLine:null,  takenPrice:1.89, closingPrice:1.90, clv:-3.0, clvLabel:'-3.0 pts', result:'win',  plUnits:0.45,  runningTotal:1.20  },
   { id:99,  date:'2026-09-04', match:'Gold Coast Titans vs Dolphins',                        market:'Titans +12.5',           predictedLine:null,  takenPrice:1.90, closingPrice:1.95, clv:1.0, clvLabel:'+1.0 pts', result:'win',  plUnits:0.45,  runningTotal:1.65  },
   { id:100, date:'2026-09-05', match:'Cronulla Sharks vs Melbourne Storm',                   market:'Under 51.5',             predictedLine:null,  takenPrice:1.97, closingPrice:2.20, clv:0.0, clvLabel:'0.0 pts', result:'win',  plUnits:0.49,  runningTotal:2.14  },
+  // Screenshot bet recorded 2026-09-12. Net return is normalised by the $25 stake.
+  { id:101, date:'2026-09-12', match:'Cronulla Sharks vs North Queensland Cowboys',         market:'Cronulla Sharks -7.5 (stake $25; return $46.75)', predictedLine:null, takenPrice:1.87, closingPrice:null, result:'win', plUnits:0.87, runningTotal:3.01 },
 ];
 
 
@@ -1037,6 +1039,11 @@ export const MODEL_BETS: ModelBet[] = [
 // closingPrice = football-data.co.uk consensus average close,
 // clv = takenPrice / closingPrice - 1, runningTotal = cumulative plUnits.
 export const FOOTBALL_MODEL_BETS: ModelBet[] = [
-  // No bets placed yet this season.
+  // Screenshot bets. plUnits is net return divided by the recorded stake;
+  // no closing prices were shown, so CLV is intentionally left pending.
+  { id:1, date:'2026-09-11', competition:'UCL', match:'PSV vs Shakhtar',                  market:'Shakhtar And Draw (stake $25; return $65.75)',                         predictedLine:null, takenPrice:2.63, closingPrice:null, result:'win',  plUnits:1.63,  runningTotal:1.63 },
+  { id:2, date:'2026-09-11', competition:'UCL', match:'Slavia Prague vs Lens',             market:'Under 2.5 Goals (cashed out; return $20.05 from $25 stake)',       predictedLine:null, takenPrice:2.00, closingPrice:null, result:'loss', plUnits:-0.20, runningTotal:1.43 },
+  { id:3, date:'2026-09-11', competition:'UCL', match:'Slavia Prague vs Lens',             market:'Slavia Prague Win (stake $25; no return)',                          predictedLine:null, takenPrice:2.60, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:0.43 },
+  { id:4, date:'2026-09-11', competition:'UCL', match:'Bayern Munich vs Bodo Glimt',       market:'Bodo Glimt +3.0 (stake $25; no return)',                            predictedLine:null, takenPrice:2.25, closingPrice:null, result:'loss', plUnits:-1.00, runningTotal:-0.57 },
+  { id:5, date:'2026-09-13', competition:'EFL', match:'Watford vs Stoke',                  market:'Over 3.5 Cards (stake $20.05; return $37.09)',                      predictedLine:null, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.85,  runningTotal:0.28 },
 ];
-
