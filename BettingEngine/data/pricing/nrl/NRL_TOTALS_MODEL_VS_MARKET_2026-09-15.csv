@@ -1,0 +1,5 @@
+season,round,date,home_team,away_team,model_total,market_close_total,model_selection,actual_home,actual_away,actual_total,result,model_market_gap_points,source_model,source_market
+2026,28,2026-09-11,South Sydney Rabbitohs,Newcastle Knights,50.2,48.5,Over,10,20,30,loss,1.7,NRL_PRICING_R28_2026-09-08_finals_wk1.csv,odds_snapshots/2026/2026-09-11.csv
+2026,28,2026-09-12,New Zealand Warriors,Dolphins,45.7,47.5,Under,16,26,42,win,-1.8,NRL_PRICING_R28_2026-09-08_finals_wk1.csv,odds_snapshots/2026/2026-09-12.csv
+2026,28,2026-09-12,Cronulla Sharks,North QLD Cowboys,46.4,47.5,Under,26,16,42,win,-1.1,NRL_PRICING_R28_2026-09-08_finals_wk1.csv,odds_snapshots/2026/2026-09-12.csv
+2026,28,2026-09-13,Penrith Panthers,Sydney Roosters,43.2,43.0,Over,38,10,48,win,0.2,NRL_PRICING_R28_2026-09-08_finals_wk1.csv,odds_snapshots/2026/2026-09-13.csv
