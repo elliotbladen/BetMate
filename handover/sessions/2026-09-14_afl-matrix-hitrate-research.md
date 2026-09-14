@@ -123,6 +123,28 @@ evidence; these are modelled settlements at recorded prices.
    2027 before staking. Rebuild the matrix after the 2026 grand final.
 3. Keep `--metric`. On AFL it buys resolution, not de-tilting.
 
+## Follow-up in the same session — the NRL threshold that was never tested
+
+Owner asked whether NRL had actually been positive. It had been, on **2026 alone**
+(+18.92% at net +10, 12 bets) — and the published NRL walk-forward **stopped at net
++7**, so net +10 had never been tested across seasons.
+
+`scripts/walkforward_nrl_matrix.py` closes that out, driving the **unmodified**
+`backtest_nrl_matrix_net7_2026.py`. Validated first by reproducing the published
+cells>=5%/net+5 row exactly (−15.3 / +3.3 / −21.6 / +7.0, pooled −7.93%, n=382).
+
+Over **10 test seasons (2017-2026)**: net+8 open +0.99% (n=446); net+10 close −3.49%
+(n=209); net+10 open −1.34% (n=209); net+10 cells>=8% −7.60% (n=157); net+12 open
++6.36% (n=70). **Every CI straddles zero, ~5/10 seasons positive throughout.**
+
+**NRL shows NO dose-response** where AFL climbs monotonically with selectivity. Same
+harness, nothing manufactured on NRL — **a negative control passing**, which
+strengthens the AFL result rather than weakening it. Addendum appended to
+`NRL_TOTALS_MATRIX_V2_HITRATE.md` so the next reader does not re-form the old
+impression from the 2026 row.
+
+**Owner's call: AFL matrices are for TOTALS ONLY.** Branch merged to main.
+
 ## Next
 
 - Port the NRL local viewer (`_nrl_totals_v2_viewer.py`) to AFL if the sheets want
