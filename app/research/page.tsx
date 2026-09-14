@@ -4,6 +4,16 @@ import { useState, useMemo } from 'react';
 import { LEGACY_BETS, MODEL_BETS, AFL_MODEL_BETS, FOOTBALL_MODEL_BETS } from '@/lib/researchData';
 import type { Sport, BetResult, LegacyBet, ModelBet, Competition } from '@/lib/researchData';
 
+// The latest screenshot ledger spans the NRL and football model tabs. Keep a
+// single landing view so newly recorded bets are visible without changing tabs.
+const RECENT_BETS: ModelBet[] = [...MODEL_BETS.slice(-3), ...FOOTBALL_MODEL_BETS]
+  .sort((a, b) => a.date.localeCompare(b.date) || a.id - b.id)
+  .reduce<ModelBet[]>((rows, bet) => {
+    const runningTotal = (rows.at(-1)?.runningTotal ?? 0) + bet.plUnits;
+    rows.push({ ...bet, runningTotal: Number(runningTotal.toFixed(2)) });
+    return rows;
+  }, []);
+
 function resultBadge(r: BetResult) {
   if (r === 'win')  return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-[#00DEB8]/15 text-[#00DEB8]">W</span>;
   if (r === 'loss') return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-red-500/15 text-red-500">L</span>;
@@ -296,11 +306,11 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
 }
 
 // -- Page ----------------------------------------------------------------------
-const TABS = ['Sports Betting', 'NRL Model', 'AFL Model', 'Football Model'] as const;
+const TABS = ['Recent Bets', 'Sports Betting', 'NRL Model', 'AFL Model', 'Football Model'] as const;
 type Tab = typeof TABS[number];
 
 export default function ResearchPage() {
-  const [activeTab, setActiveTab] = useState<Tab>('Sports Betting');
+  const [activeTab, setActiveTab] = useState<Tab>('Recent Bets');
 
   const allBets = useMemo(() => {
     const combined = [...LEGACY_BETS, ...MODEL_BETS];
@@ -341,6 +351,7 @@ export default function ResearchPage() {
           ))}
         </div>
 
+        {activeTab === 'Recent Bets'   && <ModelTab bets={RECENT_BETS} byCompetition />}
         {activeTab === 'Sports Betting' && <AllBetsTab />}
         {activeTab === 'NRL Model'      && <ModelTab bets={MODEL_BETS} />}
         {activeTab === 'AFL Model'      && <ModelTab bets={AFL_MODEL_BETS} />}
@@ -350,4 +361,3 @@ export default function ResearchPage() {
     </div>
   );
 }
-
