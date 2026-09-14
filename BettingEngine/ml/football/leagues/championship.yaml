@@ -41,7 +41,11 @@ model:
   # alone and shrinks toward average by n/(n+new_team_shrink_games), so six games move
   # the rating halfway and nothing swings on one result. Falls back to league average
   # automatically when the season is too young to fit.
-  new_team_reset: shrunk_current_season
+  # TESTED AND FAILED 2026-09-14 — left at league_average. The shrunk mode is
+  # implemented, tested and available, but a 10-season walk-forward over 2,436
+  # fixtures rejected it: 1X2 improved slightly (7/10 seasons) while O/U got
+  # worse in 10 of 10. See RESET_FIX_BACKTEST_RESULT.md before switching it on.
+  new_team_reset: league_average
   new_team_shrink_games: 6.0
 
 elo:
