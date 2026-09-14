@@ -33,6 +33,16 @@ model:
   decay_rate: 0.001                   # candidate for lengthening (goals noisier); tune in Phase 5
   min_train: 200
   between_season_omega: 0.770
+  # Clubs new to the division (promoted or relegated in) carry stale D-C parameters
+  # from the last time they were here. "league_average" wipes them to exactly average
+  # and also discards their current-season results — which rated West Ham and Wolves
+  # as average Championship sides in GW7 2026/27, and both comfortably outplayed the
+  # team the model preferred. "shrunk_current_season" instead refits on this season
+  # alone and shrinks toward average by n/(n+new_team_shrink_games), so six games move
+  # the rating halfway and nothing swings on one result. Falls back to league average
+  # automatically when the season is too young to fit.
+  new_team_reset: shrunk_current_season
+  new_team_shrink_games: 6.0
 
 elo:
   home_advantage: 65.0                # kept at EPL value — E1 home-win 43.2% vs EPL 44.6%,

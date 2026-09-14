@@ -37,6 +37,8 @@ T9 (--new-manager-home/away): +0.07 xG boost for the match after a manager chang
 from __future__ import annotations
 
 import argparse
+import contextlib
+import io
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -252,8 +254,54 @@ def _load_t8_elo_diff(
     return float(fallback) if fallback is not None else None
 
 
-def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str], as_of: datetime) -> dict:
-    """Remove ancient Championship parameters for clubs returning this season."""
+def _season_label(as_of: datetime) -> str:
+    """Season string ("2026/27") that `as_of` falls in. Seasons roll over in July."""
+    year = as_of.year if as_of.month >= 7 else as_of.year - 1
+    return f"{year}/{str(year + 1)[-2:]}"
+
+
+def _current_season_dc_ratings(df: pd.DataFrame, as_of: datetime, rho: float) -> dict | None:
+    """Fit D-C on the current season's completed results only, equal-weighted.
+
+    Returns None when the season is too young to fit — the caller then keeps the
+    flat league-average reset rather than inventing a rating.
+    """
+    season = _season_label(as_of)
+    cur = df[(df["Season"] == season) & (df["Date"] < as_of)].rename(
+        columns={"HomeTeam": "home_team", "AwayTeam": "away_team"})
+    if cur.empty:
+        return None
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            fitted = dc_fit(cur, as_of=as_of, rho=rho, decay_rate=0.0)
+    except Exception:
+        return None
+    return fitted or None
+
+
+def _games_played_this_season(df: pd.DataFrame, team: str, as_of: datetime) -> int:
+    season = _season_label(as_of)
+    played = df[(df["Season"] == season) & (df["Date"] < as_of)]
+    return int(((played["HomeTeam"] == team) | (played["AwayTeam"] == team)).sum())
+
+
+def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str],
+                               as_of: datetime, mode: str = "league_average",
+                               shrink_games: float = 6.0, rho: float = -0.13) -> dict:
+    """Neutralise stale D-C parameters for clubs returning to this division.
+
+    A club promoted or relegated into the league carries whatever the long-memory
+    fit still remembers from the last time it was here, which can be many seasons
+    stale. Both modes clear that.
+
+    mode="league_average" (the original behaviour) leaves them at exactly average,
+    which also discards the games they have played THIS season.
+
+    mode="shrunk_current_season" replaces that with a D-C fit on the current
+    season alone, shrunk toward league average by n/(n+shrink_games) so a handful
+    of games cannot swing the rating. Falls back to league average whenever the
+    current-season fit is unavailable or does not cover the club.
+    """
     year = as_of.year if as_of.month >= 7 else as_of.year - 1
     prev_season = f"{year - 1}/{str(year)[-2:]}"
     prev_teams = set(df[df["Season"] == prev_season]["HomeTeam"]) | set(df[df["Season"] == prev_season]["AwayTeam"])
@@ -266,6 +314,35 @@ def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str]
         ratings["attack"][team] = 1.0
         ratings["defence"][team] = 1.0
         ratings["home_adv"][team] = 1.0
+    ratings["new_team_reset_mode"] = "league_average"
+    if mode != "shrunk_current_season":
+        return ratings
+
+    current = _current_season_dc_ratings(df, as_of, rho)
+    if not current:
+        ratings["new_team_reset_note"] = "current-season fit unavailable — held at league average"
+        return ratings
+
+    override = {}
+    for team in reset:
+        raw_att = current.get("attack", {}).get(team)
+        raw_def = current.get("defence", {}).get(team)
+        if raw_att is None or raw_def is None:
+            continue
+        n = _games_played_this_season(df, team, as_of)
+        weight = n / (n + shrink_games) if (n + shrink_games) > 0 else 0.0
+        att = 1.0 + weight * (float(raw_att) - 1.0)
+        dfc = 1.0 + weight * (float(raw_def) - 1.0)
+        ratings["attack"][team] = att
+        ratings["defence"][team] = dfc
+        override[team] = {"att": round(att, 4), "def": round(dfc, 4), "games": n,
+                          "weight": round(weight, 4),
+                          "raw_att": round(float(raw_att), 4),
+                          "raw_def": round(float(raw_def), 4)}
+    # home_adv stays at 1.0: three home games is no basis for a per-team figure.
+    if override:
+        ratings["new_team_reset_mode"] = "shrunk_current_season"
+        ratings["reset_override"] = override
     return ratings
 
 
@@ -314,7 +391,11 @@ def price_match(
         suggestion = f"Did you mean: {close}?" if close else f"Known teams: {known[:10]}..."
         print(f"  '{home}' not found. {suggestion}")
         return
-    ratings = _reset_new_team_dc_ratings(ratings, df, [home, away], as_of)
+    ratings = _reset_new_team_dc_ratings(
+        ratings, df, [home, away], as_of,
+        mode=str(cfg.model.get("new_team_reset", "league_average")),
+        shrink_games=float(cfg.model.get("new_team_shrink_games", 6.0)),
+        rho=rho)
 
     elo = build_from_history(df[df["Date"] < as_of], as_of=as_of, **cfg.elo)
 
