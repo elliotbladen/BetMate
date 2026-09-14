@@ -514,14 +514,43 @@ def price_match(
     # Elo is built first: the elo_seeded reset mode needs it as an input.
     elo = build_from_history(df[df["Date"] < as_of], as_of=as_of, **cfg.elo)
 
+    # ── New-team reset, PER MARKET ────────────────────────────────────────────
+    # `new_team_reset` governs totals and the Asian handicap; `new_team_reset_1x2`
+    # governs 1X2 and defaults to it, so any league that sets only the one key
+    # behaves exactly as before and every other league is untouched.
+    #
+    # Championship runs them SPLIT — elo_seeded for 1X2, league_average for totals
+    # — because a 10-season walk-forward over 2,436 fixtures measured the two
+    # markets wanting opposite things from the same ratings. elo_seeded improved
+    # 1X2 by -0.0188 in 10 of 10 seasons and worsened O/U by +0.0142 in 8 of 10.
+    # The cause is the model's algebra, not the method: lam = base x att / def_away
+    # means defence DIVIDES, so any spread away from 1.0 lifts expected goals even
+    # when symmetric, and att = def = 1.0 (what league_average sets) is the unique
+    # level-neutral pair. Three attempts to have both from one ratings set failed
+    # their pre-registered tests; splitting is what the evidence supports.
+    # See outputs/football/championship/_research/{ELO_SEEDED,LEVEL_NEUTRAL}_RESULT.md.
+    reset_kw = dict(shrink_games=float(cfg.model.get("new_team_shrink_games", 6.0)),
+                    rho=rho, elo_ratings=getattr(elo, "ratings", None))
+    mode_totals = str(cfg.model.get("new_team_reset", "league_average"))
+    mode_1x2 = str(cfg.model.get("new_team_reset_1x2", mode_totals))
+
     ratings = _reset_new_team_dc_ratings(
-        ratings, df, [home, away], as_of,
-        mode=str(cfg.model.get("new_team_reset", "league_average")),
-        shrink_games=float(cfg.model.get("new_team_shrink_games", 6.0)),
-        rho=rho, elo_ratings=getattr(elo, "ratings", None))
+        ratings, df, [home, away], as_of, mode=mode_totals, **reset_kw)
+    if mode_1x2 == mode_totals:
+        # Single-mode league: identical object, so the code path below is the
+        # one that has always run.
+        ratings_1x2 = ratings
+    else:
+        ratings_1x2 = _reset_new_team_dc_ratings(
+            dc_fit(dc_input, as_of=as_of, rho=rho,
+                   decay_rate=float(cfg.model["decay_rate"])),
+            df, [home, away], as_of, mode=mode_1x2, **reset_kw)
 
     # ── Base D-C + Elo ────────────────────────────────────────────────────────
     lam_base, mu_base = expected_goals(home, away, ratings)
+    lam_base_1x2, mu_base_1x2 = (
+        (lam_base, mu_base) if ratings_1x2 is ratings
+        else expected_goals(home, away, ratings_1x2))
 
     # ── Look up contextual data ───────────────────────────────────────────────
     ppda_h       = get_ppda(ppda_df, home, as_of)
@@ -573,6 +602,10 @@ def price_match(
     adj = apply_all_tiers(lam_base, mu_base, context, cfg.tier_params)
     lam = adj.lam_final
     mu  = adj.mu_final
+    # Same tier stack, applied to the 1X2 base. Identical object when unsplit.
+    adj_1x2 = (adj if ratings_1x2 is ratings
+               else apply_all_tiers(lam_base_1x2, mu_base_1x2, context, cfg.tier_params))
+    lam_1x2, mu_1x2 = adj_1x2.lam_final, adj_1x2.mu_final
 
     elo_mkts = elo.win_probabilities(home, away)
 
@@ -587,7 +620,7 @@ def price_match(
     # ── Scoreline matrix → market probabilities ───────────────────────────────
     matrix   = build_scoreline_matrix(lam, mu, rho=rho)
     dc_mkts  = derive_markets(matrix)
-    p_home, p_draw, p_away = _blend_1x2(lam, mu)
+    p_home, p_draw, p_away = _blend_1x2(lam_1x2, mu_1x2)
 
     # ── T5 swing cap on 1X2 ──────────────────────────────────────────────────
     # Price the same match with injuries removed, then cap how far the injury
@@ -603,7 +636,7 @@ def price_match(
             away=_strip_injuries(context.away),
             ref_goals_pg=ref_goals_pg,
         )
-        base_adj = apply_all_tiers(lam_base, mu_base, base_ctx, cfg.tier_params)
+        base_adj = apply_all_tiers(lam_base_1x2, mu_base_1x2, base_ctx, cfg.tier_params)
         p_home_base, p_draw_base, p_away_base = _blend_1x2(base_adj.lam_final, base_adj.mu_final)
         p_home = _clamp_swing(p_home, p_home_base, T5_H2H_SWING_CAP)
         p_draw = _clamp_swing(p_draw, p_draw_base, T5_H2H_SWING_CAP)
@@ -728,6 +761,12 @@ def price_match(
           f"   |   {away} att={att.get(away,1):.2f} def={dfd.get(away,1):.2f}")
     print(f"  Model data:    {ratings['n_matches']} matches fitted  |  "
           f"{len(prior)} calibration rows  |  as of {as_of.date()}")
+    if ratings_1x2 is not ratings:
+        a1, d1 = ratings_1x2["attack"], ratings_1x2["defence"]
+        print(f"  New-team mode: 1X2 {mode_1x2}  |  totals/AH {mode_totals}")
+        print(f"    1X2 ratings: {home} att={a1.get(home,1):.2f} def={d1.get(home,1):.2f}"
+              f"   |   {away} att={a1.get(away,1):.2f} def={d1.get(away,1):.2f}"
+              f"   -> lam {lam_1x2:.2f}/{mu_1x2:.2f} vs totals {lam:.2f}/{mu:.2f}")
     print(f"{'='*W}\n")
     return {
         "league": league, "home": home, "away": away, "as_of": as_of.date().isoformat(),
@@ -743,6 +782,9 @@ def price_match(
         "fair_away_base": to_odds(p_away_base),
         "fair_over25": to_odds(p_o), "fair_under25": to_odds(p_u),
         "new_team_resets": ratings.get("new_team_resets", []),
+        "new_team_reset_mode_totals": ratings.get("new_team_reset_mode", mode_totals),
+        "new_team_reset_mode_1x2": ratings_1x2.get("new_team_reset_mode", mode_1x2),
+        "lambda_home_1x2": round(lam_1x2, 4), "lambda_away_1x2": round(mu_1x2, 4),
         "t8_home_elo_diff": t8_elo_diff_h, "t8_away_elo_diff": t8_elo_diff_a,
     }
 

@@ -84,3 +84,38 @@ def test_shrunk_mode_falls_back_until_the_season_can_be_fitted():
                                      mode="shrunk_current_season")
     assert got["attack"]["Wolves"] == 1.0
     assert got["new_team_reset_mode"] == "league_average"
+
+
+def test_championship_splits_the_new_team_reset_by_market():
+    """1X2 runs elo_seeded, totals stay league_average — signed off 2026-09-15.
+
+    A single `new_team_reset` cannot serve both: elo_seeded improved 1X2 in 10 of
+    10 seasons and worsened O/U in 8 of 10, because defence divides in
+    lam = base x att / def_away. If someone collapses these back to one key, or
+    flips totals onto a spread mode, this fails.
+    """
+    from ml.football.league_config import load_league
+
+    cfg = load_league("championship")
+    assert cfg.model.get("new_team_reset") == "league_average"
+    assert cfg.model.get("new_team_reset_1x2") == "elo_seeded"
+
+
+def test_other_leagues_default_1x2_reset_to_the_single_key():
+    """Absent `new_team_reset_1x2`, a league must behave exactly as before."""
+    from ml.football.league_config import load_league
+
+    cfg = load_league("epl")
+    totals = str(cfg.model.get("new_team_reset", "league_average"))
+    assert str(cfg.model.get("new_team_reset_1x2", totals)) == totals
+
+
+def test_elo_seeded_falls_back_to_league_average_without_elo():
+    """No Elo supplied must degrade to average, not to a stale rating."""
+    df = pd.DataFrame({"Season": ["2025/26"], "HomeTeam": ["Blackburn"], "AwayTeam": ["Preston"]})
+    ratings = {"attack": {"Wolves": 1.4}, "defence": {"Wolves": .7}, "home_adv": {"Wolves": 1.3}}
+    got = _reset_new_team_dc_ratings(ratings, df, ["Wolves"], datetime(2026, 8, 14),
+                                     mode="elo_seeded", elo_ratings=None)
+    assert got["attack"]["Wolves"] == got["defence"]["Wolves"] == 1.0
+    assert got["new_team_reset_mode"] == "league_average"
+    assert "no Elo supplied" in got["new_team_reset_note"]

@@ -58,7 +58,16 @@ model:
   # seasons) and fails ONLY on totals. A per-market split — elo_seeded for 1X2,
   # league_average for totals — is the obvious next test and has NOT been run.
   # See RESET_FIX_BACKTEST_RESULT.md, ELO_SEEDED_RESULT.md, LEVEL_NEUTRAL_RESULT.md.
+  # TOTALS + ASIAN HANDICAP. Stays league_average: all three alternatives made
+  # totals worse, and the totals model is not bet (it loses to a constant
+  # base-rate guess pooled, 0.69263 vs 0.69107).
   new_team_reset: league_average
+  # 1X2 ONLY. Signed off 2026-09-15. elo_seeded scored 1.0366 against the
+  # league_average baseline's 1.0554 — better in 10 of 10 seasons, 9 of 9
+  # dropping 2015/16 where Elo has one prior season. Best result measured on
+  # this model. It is a better MODEL, not an edge: the de-vigged close scores
+  # 1.0172, so do not bet Championship 1X2 off it.
+  new_team_reset_1x2: elo_seeded
   new_team_shrink_games: 6.0
 
 elo:
