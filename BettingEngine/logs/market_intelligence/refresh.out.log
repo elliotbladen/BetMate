@@ -15356,3 +15356,64 @@ Written /Users/elliotbladen/BetMate/data/nrl/team-news/latest.json
 [2026-09-14T12:15:11] Market event log
 Wrote 955 events -> /Users/elliotbladen/BetMate/data/market_events/2026_events.csv
   injury: 955
+AFL injury refresh pinned to prepared round 27
+[2026-09-14T13:15:12] NRL injuries
+2026-09-14 13:15:12 [INFO] Targeting season=2026 round=29
+2026-09-14 13:15:12 [INFO] Attempt 1/3 -- Zero Tackle injuries R29 2026
+2026-09-14 13:15:13 [INFO]   Brisbane Broncos                         4 injuries
+2026-09-14 13:15:13 [INFO]   Canberra Raiders                         4 injuries
+2026-09-14 13:15:13 [INFO]   Canterbury-Bankstown Bulldogs            2 injuries
+2026-09-14 13:15:14 [INFO]   Cronulla-Sutherland Sharks               4 injuries
+2026-09-14 13:15:14 [INFO]   Dolphins                                 1 injuries
+2026-09-14 13:15:14 [INFO]   Gold Coast Titans                        7 injuries
+2026-09-14 13:15:14 [INFO]   Manly-Warringah Sea Eagles               4 injuries
+2026-09-14 13:15:15 [INFO]   Melbourne Storm                          7 injuries
+2026-09-14 13:15:15 [INFO]   Newcastle Knights                        5 injuries
+2026-09-14 13:15:15 [INFO]   New Zealand Warriors                     5 injuries
+2026-09-14 13:15:16 [INFO]   North Queensland Cowboys                 2 injuries
+2026-09-14 13:15:16 [INFO]   Parramatta Eels                          3 injuries
+2026-09-14 13:15:16 [INFO]   Penrith Panthers                         4 injuries
+2026-09-14 13:15:17 [INFO]   South Sydney Rabbitohs                   3 injuries
+2026-09-14 13:15:17 [INFO]   St. George Illawarra Dragons             7 injuries
+2026-09-14 13:15:17 [INFO]   Sydney Roosters                          6 injuries
+2026-09-14 13:15:17 [INFO]   Wests Tigers                             5 injuries
+2026-09-14 13:15:17 [INFO] Zero Tackle total: 73 records across 17 teams
+2026-09-14 13:15:17 [INFO] Wrote latest-injuries.json -- 73 player records, round 29
+2026-09-14 13:15:17 [INFO] Injuries scraped -- 73 records
+[2026-09-14T13:15:17] NRL team news
+Written /Users/elliotbladen/BetMate/data/nrl/team-news/latest.json
+  Round 29 | Teams: 17 | Injuries: 73 | Suspensions preserved: 0
+[2026-09-14T13:15:18] NRL market-moving news
+2026-09-14 13:15:19 [INFO] Targeting season=2026 round=29
+2026-09-14 13:15:19 [INFO] Fetched NRL Casualty Ward                904 bytes
+2026-09-14 13:15:20 [INFO] Fetched NRL Judiciary Report             862 bytes
+2026-09-14 13:15:20 [INFO] Fetched NRL News                         798 bytes
+2026-09-14 13:15:21 [INFO] Fetched Brisbane Broncos News            805 bytes
+2026-09-14 13:15:22 [INFO] Fetched Canterbury-Bankstown Bulldogs News 806 bytes
+2026-09-14 13:15:23 [INFO] Fetched Canberra Raiders News            805 bytes
+2026-09-14 13:15:23 [INFO] Fetched Cronulla-Sutherland Sharks News  804 bytes
+2026-09-14 13:15:24 [INFO] Fetched Dolphins News                    809 bytes
+2026-09-14 13:15:25 [INFO] Fetched Gold Coast Titans News           804 bytes
+2026-09-14 13:15:25 [INFO] Fetched Manly-Warringah Sea Eagles News  807 bytes
+2026-09-14 13:15:26 [INFO] Fetched Melbourne Storm News             812 bytes
+2026-09-14 13:15:27 [INFO] Fetched Newcastle Knights News           814 bytes
+2026-09-14 13:15:27 [INFO] Fetched New Zealand Warriors News        804 bytes
+2026-09-14 13:15:28 [INFO] Fetched North Queensland Cowboys News    805 bytes
+2026-09-14 13:15:29 [INFO] Fetched Parramatta Eels News             807 bytes
+2026-09-14 13:15:29 [INFO] Fetched Penrith Panthers News            813 bytes
+2026-09-14 13:15:30 [INFO] Fetched South Sydney Rabbitohs News      176500 bytes
+2026-09-14 13:15:31 [INFO] Fetched St. George Illawarra Dragons News 805 bytes
+2026-09-14 13:15:31 [INFO] Fetched Sydney Roosters News             806 bytes
+2026-09-14 13:15:32 [INFO] Fetched Wests Tigers News                809 bytes
+2026-09-14 13:15:32 [INFO] Wrote 0 flags
+2026-09-14 13:15:32 [INFO] JSON: /Users/elliotbladen/BetMate/data/nrl/news_flags/processed/2026/2026-09-14.json
+2026-09-14 13:15:32 [INFO] CSV:  /Users/elliotbladen/BetMate/data/nrl/news_flags/processed/2026/2026-09-14.csv
+2026-09-14 13:15:32 [INFO] News flags complete -- 0 total, 0 HIGH
+[2026-09-14T13:15:33] AFL injuries
+2026-09-14 13:15:33 [INFO] Targeting season=2026 round=27
+2026-09-14 13:15:33 [INFO] Attempt 1/3 -- AFL injuries R27 2026
+2026-09-14 13:15:34 [INFO] Parsed 33 player records across all teams
+2026-09-14 13:15:34 [INFO] Wrote latest-injuries.json -- 33 records, round 27
+[2026-09-14T13:15:34] Market event log
+Wrote 955 events -> /Users/elliotbladen/BetMate/data/market_events/2026_events.csv
+  injury: 955

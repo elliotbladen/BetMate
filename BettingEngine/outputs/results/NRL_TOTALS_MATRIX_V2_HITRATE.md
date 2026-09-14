@@ -180,3 +180,67 @@ manufactures nothing. It makes the AFL result more credible, not less.
 
 2026's +18.92% reproduces exactly and sits inside a series swinging +45.6% to −45.8%.
 It was a good draw, as this document already concluded.
+
+---
+
+# END-OF-SEASON REVIEW 2026 — ALL THREE NRL MARKETS WALK-FORWARDED, MATRICES RETIRED
+
+The addendum above closed the totals threshold gap. This closes the remaining one:
+**h2h and handicap had never been walk-forwarded at all.** Their published figures
+(−26.9% and −5.0%) were **2026 alone**. The AFL study held every market to a 9-season
+walk-forward before concluding, so NRL is brought to the same standard before any
+decision is taken.
+
+## ⚠️ A data gap found on the way, which changed the numbers
+
+The NRL history is **missing H2H and LINE-ODDS closing prices for 70% of 2024
+(64/213) and 99.5% of 2025 (1/213)**. Totals coverage is complete in every season.
+
+On the first run those seasons entered as **silent zeros** — 2025 produced 0 bets and
+reported "+0.00% ROI", which reads as a flat season rather than as no data. This is
+DATA_INTEGRITY_LESSONS #8 (silent coverage gaps) landing in a live analysis.
+`--skip-seasons` was added and **every h2h/handicap figure below excludes 2024-25.**
+Totals is unaffected and still uses all 10 seasons.
+
+## Results — rolling 4-season window, each test season out of sample
+
+| market | net | pooled ROI | n | 95% CI | seasons +ve |
+|---|---|---|---|---|---|
+| h2h | +7 | −4.95% | 449 | [−12.4, +2.7] | 2/8 |
+| h2h | +10 | +0.26% | 161 | [−11.5, +12.5] | 5/8 |
+| **handicap** | **+7** | **−12.52%** | 419 | **[−21.7, −3.4]** | **0/8** |
+| handicap | +10 | −11.96% | 136 | [−27.6, +4.4] | 2/8 |
+| totals | +8 open | +0.99% | 446 | [−7.7, +10.0] | 5/10 |
+| totals | +10 open | −1.34% | 209 | [−14.2, +11.2] | 5/10 |
+| totals | +12 open | +6.36% | 70 | [−15.8, +28.5] | 6/10 |
+
+**Handicap loses significantly** — its CI excludes zero and it is negative in eight
+seasons out of eight. h2h and totals sit on zero. **No market shows a dose-response**
+at any threshold, which is the specific property AFL totals does show.
+
+## Decision (owner, 2026-09-14): RETIRED FROM PRODUCTION
+
+Removed from the pipeline:
+
+- `prepare_round.py` — Step 8 (regenerate matrices) and Step 9 (push to Supabase),
+  their helpers, and the `--skip-matrices` flag. An in-place comment records the
+  measured reason so it is not re-added without the numbers.
+- `push_matrices_to_supabase.py` — deleted (NRL-only).
+- `matrix_confluence.py` — retirement banner, kept as research tooling only.
+- Web: `app/api/ev-signals/route.ts`, `lib/matrixEV.ts` and the GameCard value-edge
+  badges, which were fed exclusively by these matrices.
+
+**Kept:** the builders, the backtest and `walkforward_nrl_matrix.py`, so the question
+can be re-opened with evidence rather than rebuilt from scratch. `--validate`
+reproduces the published totals row and exits non-zero on mismatch.
+
+⚠️ **AFL IS UNAFFECTED.** AFL totals at net ≥10 is the one matrix result that survived
+walk-forward in either sport — see `AFL_TOTALS_MATRIX_V2_HITRATE.md`.
+
+Reproduce:
+```
+python scripts/walkforward_nrl_matrix.py --validate
+python scripts/walkforward_nrl_matrix.py --market h2h      --net 7 --skip-seasons 2024,2025
+python scripts/walkforward_nrl_matrix.py --market handicap --net 7 --skip-seasons 2024,2025
+python scripts/walkforward_nrl_matrix.py --market totals   --net 10 --price open
+```
