@@ -2,6 +2,31 @@
 """
 scripts/matrix_confluence.py — T9 Matrix Confluence Analyser
 
+⚠️ RETIRED 2026-09-14 — NO LONGER PART OF THE NRL PRICING PIPELINE.
+
+The NRL base-rate matrices this reads (h2h / handicap / totals) were retired at
+the end of the 2026 season. A 10-season walk-forward
+(`scripts/walkforward_nrl_matrix.py`) found no edge at any level of confluence:
+
+    h2h      net+7   -4.95%  (n=449) CI [-12.4, +2.7]    2/8 seasons +ve
+    h2h      net+10  +0.26%  (n=161) CI [-11.5, +12.5]   5/8
+    handicap net+7  -12.52%  (n=419) CI [-21.7, -3.4]    0/8   <- excludes zero
+    handicap net+10 -11.96%  (n=136) CI [-27.6, +4.4]    2/8
+    totals   net+8 to +12, -3.49% to +6.36%, every CI straddling zero
+
+Handicap loses significantly. Nothing shows a dose-response at any threshold,
+which is the specific thing AFL totals DOES show.
+
+⚠️ AFL IS UNAFFECTED — `scripts/afl_matrix_confluence.py` stays live. AFL totals
+at net >=10 is the one matrix result that survived walk-forward in either sport.
+See `outputs/results/AFL_TOTALS_MATRIX_V2_HITRATE.md`.
+
+Kept as research tooling so the analysis can be re-run if the question is ever
+revisited. It is no longer invoked by `prepare_round.py`, and the matrices it
+reads are no longer regenerated or pushed to Supabase.
+
+Original documentation follows.
+
 Scans the upcoming round's fixture and flags games where 3+ applicable
 matrix edges of 5%+ all point in the same direction for any market.
 
