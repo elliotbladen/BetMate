@@ -2,6 +2,17 @@
 
 Last updated: 10 September 2026.
 
+## 14 September 2026 — September 12 meeting collection awaiting review
+
+Flemington and Rosehill's 20 races and 219 finishers are collected and rated in
+the isolated local database `data/review/flemington-rosehill-2026-09-12/racing_engine.sqlite`.
+See `../reports/meetings/2026-09-12-flemington-rosehill/README.md` for the top 10,
+coverage, validation and the exact pending date-scoped database package.
+The canonical database and committed seed remain unchanged pending owner approval.
+Accepted ratings remain `form-first-v2.0`; V2.10 figures and next-start proxies
+are explicitly shadow-only. Actual collection-time snapshots are frozen for
+all 219 runs. No model promotion or pricing release is proposed.
+
 ## Owner rejected step 1; step 2 WFA review (10 September 2026)
 
 The owner rejected the raw-time step-1 candidate because Lindermann and
