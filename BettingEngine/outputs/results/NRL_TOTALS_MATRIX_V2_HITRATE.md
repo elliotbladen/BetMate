@@ -108,9 +108,14 @@ disqualify it — but it means there is no second, independent signal supporting
 
 Month ROI at net +8 swings +49% / +10% / −5% / +3% / −31% / +6% / +107%.
 
-## 2027 matrix — BUILT, with two conditions
+## 2027 matrix — BUILT, then DELETED 2026-09-14 (owner's call)
 
-`outputs/nrl_team_totals_matrix_v2_2027.xlsx`, trained on a rolling 4-season window
+⚠️ **`outputs/nrl_team_totals_matrix_v2_2027.xlsx` HAS BEEN DELETED.** Once the net+10/+12
+walk-forward below showed no edge at any threshold, the owner's call was that a sheet
+which does not produce an edge is not worth carrying. Recoverable from git history if
+ever needed; rebuild command is below. The record of what it contained is kept here.
+
+It was trained on a rolling 4-season window
 **2023–2026**, metric `hitrate`. Sheet titles are now dynamic and carry the window and
 metric, so a matrix can no longer silently claim the wrong training seasons.
 
