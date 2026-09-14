@@ -45,6 +45,20 @@ genuinely fixed that lean (overs improved 0.7284 → 0.7076) and then overshot, 
 the unders (0.6571 → 0.7087). Unders are 53% of these fixtures, so the damage outweighs
 the gain.
 
+Measured directly: the new mode raised the expected total by **+0.098 goals** on average
+and pushed it up in **9 of the 10 seasons**. That is the whole story on totals — it moved
+the goal level up, which helped overs and cost more on unders.
+
+> **Correction, same day.** An earlier version of this file explained the totals damage as
+> Bolton's attack 0.82 and defence 0.73 "both pushing the same way". That was wrong, and it
+> came from reading the sign of `defence` backwards. In `expected_goals`,
+> `lam = base × att_home / def_away` — defence is a DIVISOR, so a value **above** 1.0 is a
+> good defence and below 1.0 is a leaky one. Bolton's 0.73 means they were rated as
+> conceding MORE than average, not fewer, so their attack and defence figures pushed
+> totals in OPPOSITE directions, not the same one. The measured +0.098 above replaces that
+> reasoning. The verdict, the numbers and the decision rule are unaffected — only the
+> explanation was wrong.
+
 **The lesson: more spread is not automatically better.** The extra movement has to track
 reality. Here the current-season fit moved the totals estimate around more than the
 underlying truth supported — it added variance without adding accuracy. Any future

@@ -285,9 +285,52 @@ def _games_played_this_season(df: pd.DataFrame, team: str, as_of: datetime) -> i
     return int(((played["HomeTeam"] == team) | (played["AwayTeam"] == team)).sum())
 
 
+def _elo_seeded_new_team_ratings(ratings: dict, elo_ratings: dict[str, float],
+                                 reset_clubs: list[str]) -> dict[str, tuple[float, float]] | None:
+    """Attack/defence for a new club, read off its Elo instead of a current-season refit.
+
+    Elo is ONE number per club. It can say "stronger" but has no way to say "higher
+    scoring", so it cannot push attack and defence in contradictory directions and it
+    cannot shift the league goal level the way an independent two-parameter refit can.
+    That matters: the shrunk_current_season mode was rejected on 2026-09-14 precisely
+    because it raised expected totals by +0.098 goals in 9 of 10 seasons.
+
+    The Elo -> attack/defence mapping is calibrated on the ESTABLISHED clubs in the same
+    fit — regress each club's log attack and log defence on its Elo, then apply those
+    slopes to the clubs we have no reliable D-C parameters for. Nothing is tuned on the
+    new clubs themselves.
+
+    Returns None when there is too little to calibrate against.
+    """
+    established = [t for t in ratings.get("attack", {})
+                   if t not in reset_clubs and t in elo_ratings]
+    if len(established) < 10:
+        return None
+    x = np.array([float(elo_ratings[t]) for t in established], dtype=float)
+    xc = x - x.mean()
+    denom = float(xc @ xc)
+    if denom <= 0:
+        return None
+    log_att = np.log(np.clip([ratings["attack"][t] for t in established], 1e-6, None))
+    log_def = np.log(np.clip([ratings["defence"][t] for t in established], 1e-6, None))
+    k_att = float(xc @ (log_att - log_att.mean()) / denom)
+    k_def = float(xc @ (log_def - log_def.mean()) / denom)
+
+    out: dict[str, tuple[float, float]] = {}
+    for team in reset_clubs:
+        if team not in elo_ratings:
+            continue
+        dx = float(elo_ratings[team]) - x.mean()
+        att = float(np.exp(log_att.mean() + k_att * dx))
+        dfc = float(np.exp(log_def.mean() + k_def * dx))
+        out[team] = (float(np.clip(att, 0.2, 3.0)), float(np.clip(dfc, 0.2, 3.0)))
+    return out or None
+
+
 def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str],
                                as_of: datetime, mode: str = "league_average",
-                               shrink_games: float = 6.0, rho: float = -0.13) -> dict:
+                               shrink_games: float = 6.0, rho: float = -0.13,
+                               elo_ratings: dict[str, float] | None = None) -> dict:
     """Neutralise stale D-C parameters for clubs returning to this division.
 
     A club promoted or relegated into the league carries whatever the long-memory
@@ -315,6 +358,25 @@ def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str]
         ratings["defence"][team] = 1.0
         ratings["home_adv"][team] = 1.0
     ratings["new_team_reset_mode"] = "league_average"
+
+    if mode == "elo_seeded":
+        if not elo_ratings:
+            ratings["new_team_reset_note"] = "no Elo supplied — held at league average"
+            return ratings
+        seeded = _elo_seeded_new_team_ratings(ratings, elo_ratings, reset)
+        if not seeded:
+            ratings["new_team_reset_note"] = "Elo calibration unavailable — held at league average"
+            return ratings
+        override = {}
+        for team, (att, dfc) in seeded.items():
+            ratings["attack"][team] = att
+            ratings["defence"][team] = dfc
+            override[team] = {"att": round(att, 4), "def": round(dfc, 4),
+                              "elo": round(float(elo_ratings[team]), 1)}
+        ratings["new_team_reset_mode"] = "elo_seeded"
+        ratings["reset_override"] = override
+        return ratings
+
     if mode != "shrunk_current_season":
         return ratings
 
@@ -391,13 +453,14 @@ def price_match(
         suggestion = f"Did you mean: {close}?" if close else f"Known teams: {known[:10]}..."
         print(f"  '{home}' not found. {suggestion}")
         return
+    # Elo is built first: the elo_seeded reset mode needs it as an input.
+    elo = build_from_history(df[df["Date"] < as_of], as_of=as_of, **cfg.elo)
+
     ratings = _reset_new_team_dc_ratings(
         ratings, df, [home, away], as_of,
         mode=str(cfg.model.get("new_team_reset", "league_average")),
         shrink_games=float(cfg.model.get("new_team_shrink_games", 6.0)),
-        rho=rho)
-
-    elo = build_from_history(df[df["Date"] < as_of], as_of=as_of, **cfg.elo)
+        rho=rho, elo_ratings=getattr(elo, "ratings", None))
 
     # ── Base D-C + Elo ────────────────────────────────────────────────────────
     lam_base, mu_base = expected_goals(home, away, ratings)

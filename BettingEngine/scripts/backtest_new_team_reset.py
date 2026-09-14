@@ -39,6 +39,8 @@ from ml.football.models.elo import build_from_history                  # noqa: E
 from ml.football.price_match import _reset_new_team_dc_ratings, load_data  # noqa: E402
 
 EPS = 1e-12
+MODES = ("league_average", "shrunk_current_season", "elo_seeded")
+TAG = {"league_average": "old", "shrunk_current_season": "shr", "elo_seeded": "elo"}
 OUT = ROOT / "outputs/football/championship/_research"
 
 
@@ -110,10 +112,11 @@ def run(seasons: list[str], cfg, df: pd.DataFrame) -> dict:
             if not base or "attack" not in base:
                 continue
             variants = {}
-            for mode in ("league_average", "shrunk_current_season"):
+            for mode in MODES:
                 variants[mode] = _reset_new_team_dc_ratings(
                     base, df, new_clubs, date.to_pydatetime(), mode=mode,
-                    shrink_games=float(cfg.model.get("new_team_shrink_games", 6.0)), rho=rho)
+                    shrink_games=float(cfg.model.get("new_team_shrink_games", 6.0)),
+                    rho=rho, elo_ratings=getattr(elo, "ratings", None))
 
             for m in day.itertuples():
                 if m.HomeTeam not in base["attack"] or m.AwayTeam not in base["attack"]:
@@ -138,7 +141,7 @@ def run(seasons: list[str], cfg, df: pd.DataFrame) -> dict:
                     s = ph + pdw + pa
                     ph, pdw, pa = ph / s, pdw / s, pa / s
                     po = float(mk["p_over25"])
-                    tag = "old" if mode == "league_average" else "new"
+                    tag = TAG[mode]
                     rec[f"{tag}_1x2"] = surprise({"H": ph, "D": pdw, "A": pa}[actual])
                     rec[f"{tag}_ou"] = surprise(po if over else 1 - po)
                     rec[f"{tag}_lam"] = lam + mu
@@ -164,45 +167,49 @@ def report(rows: list[dict]) -> dict:
     df = pd.DataFrame(rows)
     if df.empty:
         print("no rows scored"); return {}
-    out = {"n_games": len(df), "seasons": {}}
-    print(f"\n{'season':<10}{'n':>5}{'1X2 old':>10}{'1X2 new':>10}{'  ':>3}"
-          f"{'O/U old':>10}{'O/U new':>10}{'  ':>3}{'mkt 1X2':>10}")
-    print("-" * 74)
-    w1 = w2 = 0
-    for season, g in df.groupby("season"):
-        a, b = g.old_1x2.mean(), g.new_1x2.mean()
-        c, d = g.old_ou.mean(), g.new_ou.mean()
-        mk = g.mkt_1x2.mean() if "mkt_1x2" in g and g.mkt_1x2.notna().any() else float("nan")
-        w1 += b < a
-        w2 += d < c
-        print(f"{season:<10}{len(g):>5}{a:>10.4f}{b:>10.4f}{'<' if b<a else '>':>3}"
-              f"{c:>10.4f}{d:>10.4f}{'<' if d<c else '>':>3}{mk:>10.4f}")
-        out["seasons"][season] = {"n": len(g), "old_1x2": a, "new_1x2": b,
-                                  "old_ou": c, "new_ou": d, "mkt_1x2": mk}
     n_seasons = df.season.nunique()
-    print("-" * 74)
-    print(f"{'POOLED':<10}{len(df):>5}{df.old_1x2.mean():>10.4f}{df.new_1x2.mean():>10.4f}"
-          f"{'<' if df.new_1x2.mean()<df.old_1x2.mean() else '>':>3}"
-          f"{df.old_ou.mean():>10.4f}{df.new_ou.mean():>10.4f}"
-          f"{'<' if df.new_ou.mean()<df.old_ou.mean() else '>':>3}"
-          f"{df.mkt_1x2.mean() if 'mkt_1x2' in df else float('nan'):>10.4f}")
-    out.update({"seasons_won_1x2": int(w1), "seasons_won_ou": int(w2),
-                "n_seasons": int(n_seasons),
-                "pooled": {"old_1x2": df.old_1x2.mean(), "new_1x2": df.new_1x2.mean(),
-                           "old_ou": df.old_ou.mean(), "new_ou": df.new_ou.mean()}})
+    out = {"n_games": len(df), "n_seasons": int(n_seasons), "variants": {}}
 
-    need = math.ceil(0.7 * n_seasons)
-    c1 = df.new_1x2.mean() < df.old_1x2.mean()
-    c2 = df.new_ou.mean() < df.old_ou.mean()
-    c3 = w1 >= need and w2 >= need
-    print("\nPre-registered decision rule:")
-    print(f"  1) 1X2 improves pooled ............ {'PASS' if c1 else 'FAIL'}")
-    print(f"  2) O/U improves pooled ............ {'PASS' if c2 else 'FAIL'}")
-    print(f"  3) both win >= {need} of {n_seasons} seasons ...... "
-          f"{'PASS' if c3 else 'FAIL'}  (1X2 {w1}/{n_seasons}, O/U {w2}/{n_seasons})")
-    verdict = "KEEP" if (c1 and c2 and c3) else "REWORK"
-    print(f"\n  VERDICT: {verdict}")
-    out["verdict"] = verdict
+    print(f"\n{'season':<10}{'n':>5}" +
+          "".join(f"{t+' 1X2':>11}" for t in ("old", "shr", "elo")) +
+          "".join(f"{t+' O/U':>11}" for t in ("old", "shr", "elo")) + f"{'mkt 1X2':>11}")
+    print("-" * 108)
+    wins = {t: {"1x2": 0, "ou": 0} for t in ("shr", "elo")}
+    for season, g in df.groupby("season"):
+        line = f"{season:<10}{len(g):>5}"
+        for t in ("old", "shr", "elo"):
+            line += f"{g[f'{t}_1x2'].mean():>11.4f}"
+        for t in ("old", "shr", "elo"):
+            line += f"{g[f'{t}_ou'].mean():>11.4f}"
+        mk = g.mkt_1x2.mean() if "mkt_1x2" in g and g.mkt_1x2.notna().any() else float("nan")
+        line += f"{mk:>11.4f}"
+        print(line)
+        for t in ("shr", "elo"):
+            wins[t]["1x2"] += g[f"{t}_1x2"].mean() < g.old_1x2.mean()
+            wins[t]["ou"] += g[f"{t}_ou"].mean() < g.old_ou.mean()
+    print("-" * 108)
+    line = f"{'POOLED':<10}{len(df):>5}"
+    for t in ("old", "shr", "elo"):
+        line += f"{df[f'{t}_1x2'].mean():>11.4f}"
+    for t in ("old", "shr", "elo"):
+        line += f"{df[f'{t}_ou'].mean():>11.4f}"
+    line += f"{df.mkt_1x2.mean() if 'mkt_1x2' in df else float('nan'):>11.4f}"
+    print(line)
+
+    print("\nvs league_average baseline (negative = better):")
+    for t, label in (("shr", "shrunk_current_season"), ("elo", "elo_seeded")):
+        d1 = df[f"{t}_1x2"].mean() - df.old_1x2.mean()
+        d2 = df[f"{t}_ou"].mean() - df.old_ou.mean()
+        print(f"  {label:<24} 1X2 {d1:+.4f} ({wins[t]['1x2']}/{n_seasons} seasons)   "
+              f"O/U {d2:+.4f} ({wins[t]['ou']}/{n_seasons} seasons)")
+        out["variants"][label] = {"d_1x2": d1, "d_ou": d2,
+                                  "seasons_won_1x2": int(wins[t]["1x2"]),
+                                  "seasons_won_ou": int(wins[t]["ou"]),
+                                  "pooled_1x2": df[f"{t}_1x2"].mean(),
+                                  "pooled_ou": df[f"{t}_ou"].mean()}
+    out["baseline"] = {"pooled_1x2": df.old_1x2.mean(), "pooled_ou": df.old_ou.mean(),
+                       "market_1x2": float(df.mkt_1x2.mean()) if "mkt_1x2" in df else None}
+    out["lam"] = {t: float(df[f"{t}_lam"].mean()) for t in ("old", "shr", "elo")}
     return out
 
 
