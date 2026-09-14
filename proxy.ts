@@ -28,7 +28,6 @@ const PUBLIC_PATHS = [
   '/api/odds',
   '/api/odds/movements',
   '/api/weather',
-  '/api/ev-signals',
   '/api/team-news',
   '/api/odds/fixture',
   '/api/referees/nrl',
