@@ -464,6 +464,21 @@ def build_team_sheet(wb, team, all_rows, all_teams):
 # ─────────────────────────────────────────────
 
 def main():
+    global SEASONS, SOURCE_PATH, OUTPUT_PATH
+    import argparse
+    ap = argparse.ArgumentParser(description="NRL h2h matrix builder")
+    ap.add_argument("--seasons", default=None,
+                    help="comma list of training seasons (default 2022,2023,2024,2025)")
+    ap.add_argument("--source", default=None, help="input historical xlsx")
+    ap.add_argument("--out", default=None, help="output xlsx path")
+    args = ap.parse_args()
+    if args.seasons:
+        SEASONS = tuple(int(x) for x in args.seasons.split(","))
+    if args.source:
+        SOURCE_PATH = args.source
+    if args.out:
+        OUTPUT_PATH = args.out
+
     print("Loading data...")
     all_rows = load_data()
     print(f"  Loaded {len(all_rows)} games (seasons {SEASONS})")
