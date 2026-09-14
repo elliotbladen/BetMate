@@ -3,7 +3,8 @@
 Collected the two completed meetings and rated their 219 finishers using the
 existing accepted `form-first-v2.0` model. This change contains data and review
 outputs only; no engine, website, model formula or production configuration
-changes. Main and the existing canonical database have not been updated.
+changes. The owner approved this release on 15 September 2026; application evidence is
+recorded in `release_2026-09-15.json`.
 
 ## Collected data
 
@@ -93,22 +94,28 @@ No prices were fabricated from the post-race results.
 - The 14 focused report-date, Victorian-sectional, V2 rating and young-WFA tests
   passed. No UI checks apply to this data-only change.
 
-## Saved database and pending release
+## Approved release — 15 September 2026
 
-The completed local database is:
-`RacingEngine/data/review/flemington-rosehill-2026-09-12/racing_engine.sqlite`.
-The unchanged baseline remains `RacingEngine/data/racing_engine.sqlite`.
+The owner approved merging PR #33 and applying its reviewed data, retaining
+`form-first-v2.0`. The Dan-aligned experiment is ended; its unmerged default
+switch is excluded. PR #14 stays open and is outside this release.
 
-The manifest identifies the exact compressed SQL package and hashes for a
-subsequent approved update. It contains plain INSERT statements scoped to these
-two meetings, including source data, derived ratings and frozen snapshots. It
-contains no historical deletes or updates. Raw provider payloads are retained
-locally rather than attached to this review PR.
+The hash-verified package in `manifest.json` adds only these two meetings.
+It preserves all 29,541 historical accepted ratings and freezes the 219 new
+accepted/shadow snapshots at their actual collection time. Before application,
+a fresh compact copy of the current canonical database passed replay, full
+integrity, foreign-key, rating/CSV equality and duplicate-insert rejection checks.
+The compact copy excludes data only from the seed builder's existing two legacy
+exclusions (`run_performances`, `horse_rating_states`); the canonical database
+retains those tables and their contents.
 
-After explicit approval of this PR, verify the package hash and the destination
-baseline, back up the destination, confirm these source rows are absent, then
-apply the package in its transaction. Recheck coverage and ratings, rebuild the
-cross-machine seed from the updated canonical database and deliver that data
-under the same specifically approved scope. The package must fail on existing
-keys rather than replacing any other collection. Until approval, the canonical
-database, committed seed and production remain unchanged.
+The canonical database is `RacingEngine/data/racing_engine.sqlite`.
+`release_2026-09-15.json` records the backup and verified application results.
+The cross-machine seed now contains the same retained tables and weekend data;
+restore verification is recorded in that release report. No ratings were
+recalculated, no model formula changed, and no pricing or UI release is included.
+
+All 14 focused parser/rating tests passed during release validation. The report
+date tests require the existing RacingEngine virtual environment (`pypdf` is
+not installed in the system Python). The original full 17 GB integrity check
+remains unclaimed; the fresh compact release database passed its full check.
