@@ -41,10 +41,23 @@ model:
   # alone and shrinks toward average by n/(n+new_team_shrink_games), so six games move
   # the rating halfway and nothing swings on one result. Falls back to league average
   # automatically when the season is too young to fit.
-  # TESTED AND FAILED 2026-09-14 — left at league_average. The shrunk mode is
-  # implemented, tested and available, but a 10-season walk-forward over 2,436
-  # fixtures rejected it: 1X2 improved slightly (7/10 seasons) while O/U got
-  # worse in 10 of 10. See RESET_FIX_BACKTEST_RESULT.md before switching it on.
+  # THREE MODES TESTED, ALL THREE FAILED — left at league_average. Each was
+  # pre-registered before it was run and each is implemented and still available
+  # behind this key. Same harness every time: 10-season walk-forward, 2,436
+  # fixtures, 2025/26 sealed. Do not switch one on without reading its result doc.
+  #   shrunk_current_season  1X2 -0.0053 (7/10)   O/U +0.0174 (0/10)
+  #   elo_seeded             1X2 -0.0188 (10/10)  O/U +0.0142 (2/10)
+  #   elo_seeded_level_neutral 1X2 -0.0182 (10/10) O/U +0.0063 (4/10)
+  # All three fail on totals. The cause is the model's algebra, not the methods:
+  # lam = base x att / def_away means defence DIVIDES, so any spread away from 1.0
+  # raises expected goals even when symmetric. att = def = 1.0 — what league_average
+  # sets — is the unique level-neutral pair. The level-neutral variant removed 83%
+  # of the level shift but only 56% of the O/U damage, so the diagnosis is
+  # incomplete: part of the harm is the spread itself, not the level.
+  # ⚠️ elo_seeded's 1X2 gain is the best result measured on this model (10/10
+  # seasons) and fails ONLY on totals. A per-market split — elo_seeded for 1X2,
+  # league_average for totals — is the obvious next test and has NOT been run.
+  # See RESET_FIX_BACKTEST_RESULT.md, ELO_SEEDED_RESULT.md, LEVEL_NEUTRAL_RESULT.md.
   new_team_reset: league_average
   new_team_shrink_games: 6.0
 
