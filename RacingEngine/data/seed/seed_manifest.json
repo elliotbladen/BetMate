@@ -1,13 +1,13 @@
 {
-  "built_at": "2026-09-09T06:14:48+00:00",
-  "git_commit": "c6055d8",
-  "seed_bytes": 46868113,
+  "built_at": "2026-09-14T22:29:38+00:00",
+  "git_commit": "1ffe908",
+  "seed_bytes": 54229772,
   "excluded_tables": [
     "horse_rating_states",
     "run_performances"
   ],
-  "race_results_max_date": "2026-09-05",
-  "race_results_rows": 3096,
-  "runner_results_rows": 41992,
-  "sectionals_rows": 43305
+  "race_results_max_date": "2026-09-12",
+  "race_results_rows": 3116,
+  "runner_results_rows": 42258,
+  "sectionals_rows": 43524
 }

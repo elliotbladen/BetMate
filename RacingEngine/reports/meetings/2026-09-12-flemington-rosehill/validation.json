@@ -1,0 +1,38 @@
+{
+  "historical_accepted_rows_identical": true,
+  "historical_accepted_rows": 29541,
+  "baseline_latest_race_date": "2026-09-05",
+  "integrity_checks": {
+    "race_results": "ok",
+    "runner_results": "ok",
+    "runner_sectionals": "ok",
+    "canonical_sectionals": "ok",
+    "v2_clean_races": "ok",
+    "v2_clean_runner_results": "ok",
+    "v2_run_performances": "ok",
+    "v2_achieved_run_candidates": "ok",
+    "v2_vic_200m_sectionals": "ok",
+    "meeting_run_rating_snapshots": "ok"
+  },
+  "replay_matches_review_database": {
+    "race_results": 20,
+    "runner_results": 266,
+    "runner_sectionals": 1073,
+    "steward_reports": 20,
+    "steward_events": 135,
+    "steward_report_ingestions": 0,
+    "canonical_sectionals": 219,
+    "v2_clean_races": 20,
+    "v2_clean_runner_results": 266,
+    "v2_vic_200m_sectionals": 889,
+    "v2_vic_200m_acquisition_audit": 10,
+    "v2_run_performances": 219,
+    "v2_race_time_evidence": 18,
+    "v2_runner_energy_sectionals": 219,
+    "v2_achieved_run_candidates": 219,
+    "meeting_run_rating_snapshots": 219
+  },
+  "foreign_keys": "passed",
+  "duplicate_replay_rejected": true,
+  "full_database_check": "Stopped after six minutes; targeted table checks passed instead."
+}

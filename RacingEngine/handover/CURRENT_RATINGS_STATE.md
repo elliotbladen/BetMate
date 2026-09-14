@@ -1,6 +1,23 @@
 # Current horse-ratings state
 
-Last updated: 10 September 2026.
+Last updated: 15 September 2026.
+
+## 15 September 2026 — V2 retained; September 12 release approved
+
+The owner approved PR #33 for merge and application of the reviewed weekend
+collection. **`form-first-v2.0` remains the accepted main rating model.**
+The owner ended the Dan-aligned experiment and requested deletion of
+`fix/main-horse-rating-system`; do not revive or promote that branch or use its
+99.83 Sheza Alibi figure as the accepted result. Already-merged alternative
+model artifacts are historical research, not a change to the production default.
+
+Flemington and Rosehill's 20 races and 219 finishers for September 12 are being
+released under PR #33 with the existing V2 figures, including Sheza Alibi 114.24.
+The reviewed insert-only operation preserves historical ratings and frozen
+snapshots. See `../reports/meetings/2026-09-12-flemington-rosehill/README.md`
+and `release_2026-09-15.json` for application evidence and backup location.
+The portable seed includes the weekend data. V2.10 remains shadow-only.
+PR #14 remains open: trial backfill is unfinished and is outside this release.
 
 ## Owner rejected step 1; step 2 WFA review (10 September 2026)
 
