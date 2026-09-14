@@ -22,6 +22,8 @@ AFL favourite thresholds (line = 3 goals = 18 pts):
 """
 
 import csv
+import os
+from pathlib import Path
 from datetime import datetime, timedelta, date
 from collections import defaultdict
 
@@ -29,9 +31,11 @@ import ephem
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 
-SOURCE_PATH = "/Users/elliotbladen/Downloads/afl (2) (1).xlsx"
-OUTPUT_PATH = "/Users/elliotbladen/Betting_model/outputs/afl_handicap_matrix.xlsx"
-CSV_PATH    = "/Users/elliotbladen/Betting_model/outputs/afl_handicap_matrix.csv"
+SOURCE_PATH = str(os.environ.get("AFL_HISTORICAL_XLSX")
+                  or Path(__file__).resolve().parents[1]
+                  / "outputs" / "afl_weekly_review" / "historical" / "latest.xlsx")
+OUTPUT_PATH = str(Path(__file__).resolve().parents[1] / "outputs" / "afl_handicap_matrix.xlsx")
+CSV_PATH    = str(Path(__file__).resolve().parents[1] / "outputs" / "afl_handicap_matrix.csv")
 SEASONS          = (2022, 2023, 2024, 2025)
 MIN_SAMPLE       = 3
 EDGE_FLAG_PCT    = 15.0
@@ -493,6 +497,25 @@ def build_team_sheet(wb, team, all_rows, all_teams, csv_rows):
 # ─────────────────────────────────────────────
 
 def main():
+    global SEASONS, SOURCE_PATH, OUTPUT_PATH, CSV_PATH
+    import argparse
+    ap = argparse.ArgumentParser(description="AFL handicap matrix builder")
+    ap.add_argument("--seasons", default=None,
+                    help="comma list of training seasons (default 2022,2023,2024,2025)")
+    ap.add_argument("--source", default=None, help="input historical xlsx")
+    ap.add_argument("--out", default=None, help="output xlsx path")
+    ap.add_argument("--csv-out", default=None, help="output csv path")
+    args = ap.parse_args()
+    if args.seasons:
+        SEASONS = tuple(int(x) for x in args.seasons.split(","))
+    if args.source:
+        SOURCE_PATH = args.source
+    if args.out:
+        OUTPUT_PATH = args.out
+    if args.csv_out:
+        CSV_PATH = args.csv_out
+    print(f"Source: {SOURCE_PATH}")
+
     print("Loading data...")
     all_rows = load_data()
     print(f"  Loaded {len(all_rows)} games (seasons {SEASONS})")
