@@ -5194,3 +5194,839 @@ Fixture API error (attempt 2/5): HTTPSConnectionPool(host='www.nrl.com', port=44
 Fixture API error (attempt 3/5): HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
 Fixture API error (attempt 4/5): HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
 Fixture API error (attempt 5/5): HTTPSConnectionPool(host='www.nrl.com', port=443): Max retries exceeded with url: /draw/data/?competition=111&season=2026 (Caused by NameResolutionError("HTTPSConnection(host='www.nrl.com', port=443): Failed to resolve 'www.nrl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+[2026-09-12 12:35:43] ht_gameday_runner --sport nrl --season 2026
+Round 28: 2 game(s) today, first KO 16:05, last KO 19:50, poller stops 22:20
+Using caffeinate -dimsu to prevent system, idle and display sleep
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[12:35:44] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:36:14] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 2883s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[13:24:18] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:24:48] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 1621s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[13:51:51] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 841s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[14:05:53] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[14:06:23] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 1641s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[14:33:45] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[14:34:15] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 965s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[14:50:21] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[14:50:51] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 1019s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[15:07:52] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:08:22] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 1129s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[15:27:12] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:27:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 980s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[15:44:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:44:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 1143s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[16:03:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[16:04:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'Upcoming', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 1155s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  10-MIN SNAPSHOT: Warriors vs Dolphins (observed 816s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Warriors 2 – 2 Dolphins
+  Tries:         Warriors 0 / Dolphins 0
+  Conversions:   Warriors 0 / Dolphins 0
+  Errors:        Warriors 1.0 / Dolphins 1.0
+  Set Restarts:  Warriors 1 / Dolphins 1
+  Run Metres:    Warriors 232.0 / Dolphins 187.0
+  Possession:    Warriors 56% / Dolphins 44%
+  Completion:    Warriors 100% / Dolphins 80%
+  Penalties:     Warriors 1.0 / Dolphins 2.0
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-12_warriors_vs_dolphins_10m_stats.json
+  Odds API: 3 events, 14117 calls remaining
+  Odds API: matched New Zealand Warriors vs Dolphins (id=453c6fc162e9...)
+  Odds API: 6 bookmakers with live full-game odds
+  Odds saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-12_warriors_vs_dolphins_10m_odds.json
+Poller heartbeat stale for 1117s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  20-MIN SNAPSHOT: Warriors vs Dolphins (observed 1738s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Warriors 10 – 8 Dolphins
+  Tries:         Warriors 1 / Dolphins 1
+  Conversions:   Warriors 1 / Dolphins 1
+  Errors:        Warriors 3.0 / Dolphins 2.0
+  Set Restarts:  Warriors 2 / Dolphins 4
+  Run Metres:    Warriors 517.0 / Dolphins 383.0
+  Possession:    Warriors 57% / Dolphins 43%
+  Completion:    Warriors 81% / Dolphins 81%
+  Penalties:     Warriors 2.0 / Dolphins 3.0
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-12_warriors_vs_dolphins_20m_stats.json
+  Odds API: 3 events, 14114 calls remaining
+  Odds API: matched New Zealand Warriors vs Dolphins (id=453c6fc162e9...)
+  Odds API: 6 bookmakers with live full-game odds
+  Odds saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-12_warriors_vs_dolphins_20m_odds.json
+
+=======================================================
+  30-MIN SNAPSHOT: Warriors vs Dolphins (observed 1923s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Warriors 10 – 8 Dolphins
+  Tries:         Warriors 1 / Dolphins 1
+  Conversions:   Warriors 1 / Dolphins 1
+  Errors:        Warriors 3.0 / Dolphins 2.0
+  Set Restarts:  Warriors 2 / Dolphins 5
+  Run Metres:    Warriors 564.0 / Dolphins 432.0
+  Possession:    Warriors 54% / Dolphins 46%
+  Completion:    Warriors 83% / Dolphins 84%
+  Penalties:     Warriors 3.0 / Dolphins 4.0
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-12_warriors_vs_dolphins_30m_stats.json
+  Odds API: using cached event ID 453c6fc162e9...
+  Odds API: 6 bookmakers with live full-game odds
+Poller exited early (code 1) — restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  40-MIN SNAPSHOT: Warriors vs Dolphins (observed 2400s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Warriors 12 – 8 Dolphins
+  Tries:         Warriors 1 / Dolphins 1
+  Conversions:   Warriors 1 / Dolphins 1
+  Errors:        Warriors 3.0 / Dolphins 5.0
+  Set Restarts:  Warriors 3 / Dolphins 5
+  Run Metres:    Warriors 757.0 / Dolphins 566.0
+  Possession:    Warriors 58% / Dolphins 42%
+  Completion:    Warriors 86% / Dolphins 76%
+  Penalties:     Warriors 4.0 / Dolphins 6.0
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-12_warriors_vs_dolphins_40m_stats.json
+
+  Saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-12_warriors_vs_dolphins_stats.json
+
+  Fetching halftime odds...
+  Odds API: 3 events, 14108 calls remaining
+  Odds API: matched New Zealand Warriors vs Dolphins (id=453c6fc162e9...)
+  Odds API: 6 bookmakers with live full-game odds
+  Odds saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-12_warriors_vs_dolphins_live_odds.json
+
+  Running pricing model...
+Loaded stats: 2026-09-12_warriors_vs_dolphins_stats.json
+
+=================================================================
+HALF-TIME PRICING — Warriors vs Dolphins
+=================================================================
+  HT Score:       Warriors 12 – 8 Dolphins
+  HT Margin:      +4 (home perspective)
+  Pre-game hcap:  -0.0
+
+  --- Second Half Estimates ---
+  2H expected total: 23.2 pts
+  2H home expected:  11.6 pts
+  2H away expected:  11.6 pts
+
+  --- Adjustments ---
+  Error adj:         +1.3
+  Conversion adj:    +0.0
+  Restart adj:       +0.5
+
+  --- Legacy Margin Diagnostics (not active pricing) ---
+  Stats-implied margin: +1.4 (errors + in-20s + restarts)
+  Legacy regression:    0.55 (diagnostic only)
+
+  --- In-Game Injuries (source: nrl_api) ---
+  Warriors              James Fisher-Harris       (Prop           ) off 26min  hcap -1.0
+  Dolphins              Thomas Flegler            (Prop           ) off 9min  hcap -1.0
+  Net injury hcap adj: +0.0 (home perspective)
+  Net injury total adj: -1.0
+
+  --- Sin Bins / Send-Offs ---
+  SIN BIN: Warriors — Adam Pompey (Centre) at 28min
+  SIN BIN: Dolphins — Isaiya Katoa (Halfback) at 34min
+
+  --- Updated Prices ---
+  Expected final margin: +4.9 (home)
+  Win prob:         Warriors 68.0% / Dolphins 31.9%
+  Fair H2H odds:    Warriors 1.47 / Dolphins 3.13
+  HT Hcap line:     -4.5 (home)
+  Margin model:     nrl_ht_margin_v3_remaining_margin_distribution (full_forward_calibration, coverage 100%)
+  Remaining prior: -0.0 (50% of pregame margin)
+  Margin base/live: +4.0 / +0.9; median +4.5; empirical n=63
+    • execution (2 proxies): +0.80
+    • opportunity (3 proxies): -0.03
+    • physical/defensive (3 proxies): +0.13
+    • conversion regression: +0.00
+  HT Total line:    41.9
+  Expected total:   43.2 (mean; not the betting line)
+  Totals model:     nrl_ht_totals_v3_process_distribution (full_forward_calibration, coverage 100%)
+  Totals H2 base:   historical 24.1 / pregame 23.7 / blended 23.9
+  Totals process:   +0.3
+  Distribution:     empirical n=169; 50/50 line 41.9
+    • pace (2 proxies): -0.62
+    • opportunity (3 proxies): -0.09
+    • average completion 81.0%: +0.50
+    • combined missed tackles 51: +0.53
+
+  --- Signal ---
+  Strength:   WEAK
+  Direction:  HOME
+  • IN-GAME INJURY: Warriors — James Fisher-Harris (Prop) off at 26min [Interchange - HIA]
+  • IN-GAME INJURY: Dolphins — Thomas Flegler (Prop) off at 9min [Interchange - HIA no return]
+  • SIN BIN: Warriors — Adam Pompey (Centre) at 28min
+  • SIN BIN: Dolphins — Isaiya Katoa (Halfback) at 34min
+=================================================================
+
+Saved pricing → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-12_warriors_vs_dolphins_stats_pricing.json
+Poller heartbeat stale for 696s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  40-MIN SNAPSHOT: Warriors vs Dolphins (observed 2400s)
+=======================================================
+Poller heartbeat stale for 254s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  40-MIN SNAPSHOT: Warriors vs Dolphins (observed 2648s)
+=======================================================
+Poller heartbeat stale for 396s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  40-MIN SNAPSHOT: Warriors vs Dolphins (observed 2930s)
+=======================================================
+Poller heartbeat stale for 400s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  40-MIN SNAPSHOT: Warriors vs Dolphins (observed 3227s)
+=======================================================
+Poller heartbeat stale for 831s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  40-MIN SNAPSHOT: Warriors vs Dolphins (observed 4006s)
+=======================================================
+Poller heartbeat stale for 2055s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[18:27:31] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[18:28:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'Upcoming', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 11887s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[21:46:13] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[21:46:43] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[21:47:26] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[21:48:31] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[22:22:09] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[2026-09-12 23:47:33] Done — poller stopped.
+[2026-09-13 11:00:00] ht_gameday_runner --sport nrl --season 2026
+Round 28: 1 game(s) today, first KO 16:05, last KO 16:05, poller stops 18:35
+Using caffeinate -dimsu to prevent system, idle and display sleep
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[11:00:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:00:31] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:01:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:01:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:02:02] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:02:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:03:02] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:03:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:04:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:04:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:05:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:05:34] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:06:04] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:06:34] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:07:05] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:07:35] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:08:05] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:08:35] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:09:06] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:09:36] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:10:06] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:10:37] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:11:07] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:11:37] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:12:07] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:12:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:13:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:13:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:14:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:14:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:15:09] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:15:39] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:16:09] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:16:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:17:10] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:17:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:18:10] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:18:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:19:11] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:19:41] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:20:11] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:20:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:21:12] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:21:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:22:12] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:22:43] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:23:13] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:23:43] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:24:13] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:24:44] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:25:14] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:25:44] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:26:14] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:26:45] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:27:15] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:27:45] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:28:16] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:28:46] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:29:16] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:29:46] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:30:17] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:30:47] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:31:17] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:31:47] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:32:18] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:32:48] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:33:18] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:33:49] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:34:19] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:34:49] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:35:19] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:35:50] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:36:20] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:36:50] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:37:20] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:37:51] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:38:21] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 609s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[11:48:30] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:49:00] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:49:31] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:50:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:50:31] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:51:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:51:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:52:02] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:52:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:53:02] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:53:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:54:02] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:54:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:55:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:55:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:56:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:56:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:57:04] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:57:34] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:58:04] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:58:34] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:59:04] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[11:59:35] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:00:05] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:00:35] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:01:05] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:01:35] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:02:06] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:02:36] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:03:06] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:03:36] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:04:07] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:04:37] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:05:07] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:05:37] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:06:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:06:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:07:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:07:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:08:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:08:39] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:09:09] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:09:39] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:10:09] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:10:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:11:10] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:11:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:12:10] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:12:41] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:13:11] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:13:41] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:14:12] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:14:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:15:12] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:15:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:16:13] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:16:43] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:17:13] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:17:44] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:18:14] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:18:44] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:19:14] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:19:44] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:20:15] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:20:45] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:21:15] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:21:45] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:22:16] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:22:46] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:23:16] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:23:46] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:24:16] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:24:47] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:25:17] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:25:47] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:26:17] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:26:47] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:27:17] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:27:48] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:28:18] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:28:48] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:29:18] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:29:48] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:30:19] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:30:49] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:31:19] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:31:49] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:32:19] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:32:50] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:33:20] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:33:50] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:34:20] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:34:50] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:35:21] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:35:51] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:36:21] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:36:51] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:37:21] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:37:52] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:38:22] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:38:52] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:39:22] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:39:53] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:40:23] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:40:53] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:41:23] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:41:53] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:42:24] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:42:54] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:43:24] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:43:54] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:44:25] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:44:55] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:45:25] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:45:55] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:46:25] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:46:56] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:47:26] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:47:56] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:48:26] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:48:56] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:49:27] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:49:57] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:50:27] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:50:57] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:51:27] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:51:57] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:52:28] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:52:58] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:53:28] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:53:58] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:54:28] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:54:59] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:55:29] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:55:59] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:56:29] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:56:59] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:57:30] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:58:00] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:58:30] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:59:00] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[12:59:30] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:00:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:00:31] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:01:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:01:31] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:02:01] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:02:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:03:02] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:03:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:04:02] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:04:32] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:05:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:05:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:06:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:06:33] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:07:03] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:07:34] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:08:04] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:08:34] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:09:04] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:09:34] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:10:05] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:10:35] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:11:05] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:11:35] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:12:06] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:12:36] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:13:06] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:13:36] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:14:06] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:14:37] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:15:07] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:15:37] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:16:07] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:16:37] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:17:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:17:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:18:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:18:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:19:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:19:39] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:20:09] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:20:39] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:21:09] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:21:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:22:10] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:22:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:23:10] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:23:40] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:24:11] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:24:41] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:25:11] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:25:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:26:12] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:26:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:27:12] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:27:43] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:28:13] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:28:43] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:29:13] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:29:44] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[13:30:14] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:20:39] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:21:11] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:21:42] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+  Draw API error: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+[15:25:35] No halftime games yet. States: []
+Poller heartbeat stale for 1310s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[15:47:26] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:47:56] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:49:30] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+Poller heartbeat stale for 247s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[15:53:38] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+[15:54:08] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'Upcoming', 0)]
+
+=======================================================
+  10-MIN SNAPSHOT: Panthers vs Roosters (observed 642s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Penrith Panthers 0 – 0 Sydney Roosters
+  Tries:         Penrith Panthers 0 / Sydney Roosters 0
+  Conversions:   Penrith Panthers 0 / Sydney Roosters 0
+  Errors:        Penrith Panthers 3.0 / Sydney Roosters 1.0
+  Set Restarts:  Penrith Panthers 0 / Sydney Roosters 0
+  Run Metres:    Penrith Panthers 307.0 / Sydney Roosters 197.0
+  Possession:    Penrith Panthers 63% / Sydney Roosters 37%
+  Completion:    Penrith Panthers 57% / Sydney Roosters 100%
+  Penalties:     Penrith Panthers None / Sydney Roosters None
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-13_panthers_vs_roosters_10m_stats.json
+  Odds API: 2 events, 13397 calls remaining
+  Odds API: matched Penrith Panthers vs Sydney Roosters (id=7d73ccff7c50...)
+  Odds API: 12 bookmakers with live full-game odds
+  Odds saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-13_panthers_vs_roosters_10m_odds.json
+Poller heartbeat stale for 1605s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  10-MIN SNAPSHOT: Panthers vs Roosters (observed 694s)
+=======================================================
+
+=======================================================
+  20-MIN SNAPSHOT: Panthers vs Roosters (observed 1314s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Penrith Panthers 6 – 6 Sydney Roosters
+  Tries:         Penrith Panthers 1 / Sydney Roosters 1
+  Conversions:   Penrith Panthers 1 / Sydney Roosters 1
+  Errors:        Penrith Panthers 3.0 / Sydney Roosters 3.0
+  Set Restarts:  Penrith Panthers 2 / Sydney Roosters 1
+  Run Metres:    Penrith Panthers 508.0 / Sydney Roosters 341.0
+  Possession:    Penrith Panthers 60% / Sydney Roosters 40%
+  Completion:    Penrith Panthers 78% / Sydney Roosters 83%
+  Penalties:     Penrith Panthers 0.0 / Sydney Roosters 1.0
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-13_panthers_vs_roosters_20m_stats.json
+  Odds API: 2 events, 13382 calls remaining
+  Odds API: matched Penrith Panthers vs Sydney Roosters (id=7d73ccff7c50...)
+  Odds API: 6 bookmakers with live full-game odds
+  Odds saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-13_panthers_vs_roosters_20m_odds.json
+
+=======================================================
+  30-MIN SNAPSHOT: Panthers vs Roosters (observed 1816s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Penrith Panthers 6 – 12 Sydney Roosters
+  Tries:         Penrith Panthers 1 / Sydney Roosters 2
+  Conversions:   Penrith Panthers 1 / Sydney Roosters 2
+  Errors:        Penrith Panthers 5.0 / Sydney Roosters 3.0
+  Set Restarts:  Penrith Panthers 2 / Sydney Roosters 1
+  Run Metres:    Penrith Panthers 651.0 / Sydney Roosters 586.0
+  Possession:    Penrith Panthers 55% / Sydney Roosters 45%
+  Completion:    Penrith Panthers 76% / Sydney Roosters 88%
+  Penalties:     Penrith Panthers 0.0 / Sydney Roosters 1.0
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-13_panthers_vs_roosters_30m_stats.json
+  Odds API: using cached event ID 7d73ccff7c50...
+  Odds API: 6 bookmakers with live full-game odds
+Poller exited early (code 1) — restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+
+=======================================================
+  30-MIN SNAPSHOT: Panthers vs Roosters (observed 1832s)
+=======================================================
+
+=======================================================
+  40-MIN SNAPSHOT: Panthers vs Roosters (observed 2400s)
+=======================================================
+
+  ──────────────────────────────────────────────────
+  HT Score:      Penrith Panthers 12 – 12 Sydney Roosters
+  Tries:         Penrith Panthers 2 / Sydney Roosters 2
+  Conversions:   Penrith Panthers 2 / Sydney Roosters 2
+  Errors:        Penrith Panthers 5.0 / Sydney Roosters 4.0
+  Set Restarts:  Penrith Panthers 2 / Sydney Roosters 1
+  Run Metres:    Penrith Panthers 873.0 / Sydney Roosters 792.0
+  Possession:    Penrith Panthers 54% / Sydney Roosters 46%
+  Completion:    Penrith Panthers 82% / Sydney Roosters 85%
+  Penalties:     Penrith Panthers 1.0 / Sydney Roosters 3.0
+  ──────────────────────────────────────────────────
+  Snapshot saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/snapshots/2026-09-13_panthers_vs_roosters_40m_stats.json
+
+  Saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-13_panthers_vs_roosters_stats.json
+
+  Fetching halftime odds...
+  Odds API: 2 events, 13356 calls remaining
+  Odds API: matched Penrith Panthers vs Sydney Roosters (id=7d73ccff7c50...)
+  Odds API: 6 bookmakers with live full-game odds
+  Odds saved → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-13_panthers_vs_roosters_live_odds.json
+
+  Running pricing model...
+Loaded stats: 2026-09-13_panthers_vs_roosters_stats.json
+
+=================================================================
+HALF-TIME PRICING — Penrith Panthers vs Sydney Roosters
+=================================================================
+  HT Score:       Penrith Panthers 12 – 12 Sydney Roosters
+  HT Margin:      +0 (home perspective)
+  Pre-game hcap:  -0.0
+
+  --- Second Half Estimates ---
+  2H expected total: 23.1 pts
+  2H home expected:  11.5 pts
+  2H away expected:  11.5 pts
+
+  --- Adjustments ---
+  Error adj:         -0.6
+  Conversion adj:    +0.0
+  Restart adj:       -0.3
+
+  --- Legacy Margin Diagnostics (not active pricing) ---
+  Stats-implied margin: -0.7 (errors + in-20s + restarts)
+  Legacy regression:    0.55 (diagnostic only)
+
+  --- In-Game Injuries (source: nrl_api) ---
+  Penrith Panthers      Mitch Kenny               (Hooker         ) off 33min  hcap -2.0
+  Sydney Roosters       Egan Butcher              (2nd Row        ) off 19min  hcap -1.5
+  Net injury hcap adj: -0.5 (home perspective)
+  Net injury total adj: -1.5
+
+  --- Sin Bins / Send-Offs ---
+  SIN BIN: Sydney Roosters — Nat Butcher (Interchange) at 38min
+  SIN BIN: Penrith Panthers — Nathan Cleary (Halfback) at 40min
+
+  --- Updated Prices ---
+  Expected final margin: -0.2 (home)
+  Win prob:         Penrith Panthers 51.8% / Sydney Roosters 48.2%
+  Fair H2H odds:    Penrith Panthers 1.93 / Sydney Roosters 2.07
+  HT Hcap line:     -0.5 (home)
+  Margin model:     nrl_ht_margin_v3_remaining_margin_distribution (full_forward_calibration, coverage 100%)
+  Remaining prior: -0.0 (50% of pregame margin)
+  Margin base/live: +0.0 / +0.3; median +0.5; empirical n=69
+    • execution (2 proxies): -0.33
+    • opportunity (2 proxies): +0.10
+    • physical/defensive (3 proxies): +0.49
+    • conversion regression: +0.00
+  HT Total line:    45.9
+  Expected total:   47.1 (mean; not the betting line)
+  Totals model:     nrl_ht_totals_v3_process_distribution (full_forward_calibration, coverage 100%)
+  Totals H2 base:   historical 23.0 / pregame 23.7 / blended 23.3
+  Totals process:   +1.3
+  Distribution:     empirical n=177; 50/50 line 45.9
+    • pace (2 proxies): +0.74
+    • opportunity (2 proxies): -0.09
+    • average completion 83.5%: +0.75
+    • combined missed tackles 33: -0.11
+
+  --- Signal ---
+  Strength:   NEUTRAL
+  Direction:  NEUTRAL
+  • IN-GAME INJURY: Penrith Panthers — Mitch Kenny (Hooker) off at 33min [Interchange - HIA]
+  • IN-GAME INJURY: Sydney Roosters — Egan Butcher (2nd Row) off at 19min [Interchange - HIA no return]
+  • Injury hcap adj -0.5 pts (home perspective)
+  • SIN BIN: Sydney Roosters — Nat Butcher (Interchange) at 38min
+  • SIN BIN: Penrith Panthers — Nathan Cleary (Halfback) at 40min
+=================================================================
+
+Saved pricing → /Users/elliotbladen/BetMate/BettingEngine/data/nrl/halfTime/R28/2026-09-13_panthers_vs_roosters_stats_pricing.json
+[17:58:17] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[17:58:48] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[17:59:18] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[17:59:48] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:00:18] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:00:49] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:01:19] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:01:49] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:02:20] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:02:50] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:03:20] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:03:50] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:04:21] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:04:51] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:05:21] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:05:51] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:06:22] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:06:52] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:07:22] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:07:52] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:08:23] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:08:53] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:09:23] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:09:53] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:10:24] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:10:54] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:11:24] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:11:55] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:12:25] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:12:55] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:13:25] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:13:56] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:14:26] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:14:56] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:15:27] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:15:57] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:16:27] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:16:57] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+Poller heartbeat stale for 414s — terminating and restarting.
+
+NRL Halftime Scraper — R28 2026
+Polling every 30s. Ctrl+C to stop.
+
+[18:23:54] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[18:24:24] No halftime games yet. States: [('Rabbitohs vs Knights', 'FullTime', 0), ('Warriors vs Dolphins', 'FullTime', 0), ('Sharks vs Cowboys', 'FullTime', 0), ('Panthers vs Roosters', 'FullTime', 0)]
+[2026-09-13 20:25:17] Done — poller stopped.
+[2026-09-14 11:00:00] ht_gameday_runner --sport nrl --season 2026
+No games today — exiting.
