@@ -139,3 +139,39 @@ and 2026 is the only clearly positive season. The 2026 figures above are the bas
 the decision to proceed; they are not evidence that the pooled result is wrong.
 Recommend tracking 2027 selections paper-only until the season has enough bets to
 compare against these numbers.
+
+---
+
+# ADDENDUM 2026-09-14 — net +10 and +12 WERE never walk-forwarded. Now they are.
+
+The walk-forward above stops at **net +7**. The +18.92% at net +10 in the 2026 table
+was **one season, 12 bets**. The AFL repeat of this study
+(`AFL_TOTALS_MATRIX_V2_HITRATE.md`) found AFL's edge living specifically at net >=10
+and *climbing* with selectivity, so the untested threshold was worth closing out.
+
+Driver: `scripts/walkforward_nrl_matrix.py`, which shells out to the unmodified
+`backtest_nrl_matrix_net7_2026.py`. **Validated first** by reproducing the published
+cells>=5%/net+5 row exactly: −15.3 / +3.3 / −21.6 / +7.0, pooled −7.93%, n=382.
+
+Rolling 4-season window, **10 test seasons 2017-2026** (NRL carries closing totals
+from 2013), v2/hitrate:
+
+| config | pooled ROI | n | 95% CI | seasons +ve |
+|---|---|---|---|---|
+| net +8, open | +0.99% | 446 | [−7.7, +10.0] | 5/10 |
+| net +10, close | −3.49% | 209 | [−16.4, +9.1] | 5/10 |
+| net +10, open | −1.34% | 209 | [−14.2, +11.2] | 5/10 |
+| net +10, cells ≥8%, open | −7.60% | 157 | [−22.4, +7.6] | 5/10 |
+| net +12, open | +6.36% | 70 | [−15.8, +28.5] | 6/10 |
+
+**Conclusion unchanged, now tested at every threshold: there is no edge at any level of
+confluence.** The series wobbles around zero (+0.99 → −1.34 → −7.60 → +6.36) with every
+CI straddling zero and roughly 5 of 10 seasons positive throughout — a coin flip.
+
+**Critically, NRL shows NO dose-response.** AFL's ROI climbs monotonically with
+selectivity (+7.0 → +13.0 → +14.4 → +19.9 → +25.4 at the open); NRL's does not move in
+any direction. That is a **negative control passing**: the same harness, run on NRL,
+manufactures nothing. It makes the AFL result more credible, not less.
+
+2026's +18.92% reproduces exactly and sits inside a series swinging +45.6% to −45.8%.
+It was a good draw, as this document already concluded.

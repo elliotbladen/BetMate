@@ -6,6 +6,8 @@ Output: outputs/afl_h2h_matrix.xlsx
 """
 
 import math
+import os
+from pathlib import Path
 from datetime import datetime, timedelta, date
 from collections import defaultdict
 
@@ -13,8 +15,10 @@ import ephem
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 
-SOURCE_PATH = "/Users/elliotbladen/Downloads/afl (2) (1).xlsx"
-OUTPUT_PATH = "/Users/elliotbladen/Betting_model/outputs/afl_h2h_matrix.xlsx"
+SOURCE_PATH = str(os.environ.get("AFL_HISTORICAL_XLSX")
+                  or Path(__file__).resolve().parents[1]
+                  / "outputs" / "afl_weekly_review" / "historical" / "latest.xlsx")
+OUTPUT_PATH = str(Path(__file__).resolve().parents[1] / "outputs" / "afl_h2h_matrix.xlsx")
 SEASONS          = (2022, 2023, 2024, 2025)
 MIN_SAMPLE       = 3
 EDGE_FLAG_PCT    = 15.0
@@ -459,6 +463,22 @@ def build_team_sheet(wb, team, all_rows, all_teams):
 # ─────────────────────────────────────────────
 
 def main():
+    global SEASONS, SOURCE_PATH, OUTPUT_PATH
+    import argparse
+    ap = argparse.ArgumentParser(description="AFL h2h matrix builder")
+    ap.add_argument("--seasons", default=None,
+                    help="comma list of training seasons (default 2022,2023,2024,2025)")
+    ap.add_argument("--source", default=None, help="input historical xlsx")
+    ap.add_argument("--out", default=None, help="output xlsx path")
+    args = ap.parse_args()
+    if args.seasons:
+        SEASONS = tuple(int(x) for x in args.seasons.split(","))
+    if args.source:
+        SOURCE_PATH = args.source
+    if args.out:
+        OUTPUT_PATH = args.out
+    print(f"Source: {SOURCE_PATH}")
+
     print("Loading data...")
     all_rows = load_data()
     print(f"  Loaded {len(all_rows)} games (seasons {SEASONS})")
