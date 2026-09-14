@@ -37,6 +37,8 @@ T9 (--new-manager-home/away): +0.07 xG boost for the match after a manager chang
 from __future__ import annotations
 
 import argparse
+import contextlib
+import io
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -252,8 +254,151 @@ def _load_t8_elo_diff(
     return float(fallback) if fallback is not None else None
 
 
-def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str], as_of: datetime) -> dict:
-    """Remove ancient Championship parameters for clubs returning this season."""
+def _season_label(as_of: datetime) -> str:
+    """Season string ("2026/27") that `as_of` falls in. Seasons roll over in July."""
+    year = as_of.year if as_of.month >= 7 else as_of.year - 1
+    return f"{year}/{str(year + 1)[-2:]}"
+
+
+def _current_season_dc_ratings(df: pd.DataFrame, as_of: datetime, rho: float) -> dict | None:
+    """Fit D-C on the current season's completed results only, equal-weighted.
+
+    Returns None when the season is too young to fit — the caller then keeps the
+    flat league-average reset rather than inventing a rating.
+    """
+    season = _season_label(as_of)
+    cur = df[(df["Season"] == season) & (df["Date"] < as_of)].rename(
+        columns={"HomeTeam": "home_team", "AwayTeam": "away_team"})
+    if cur.empty:
+        return None
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            fitted = dc_fit(cur, as_of=as_of, rho=rho, decay_rate=0.0)
+    except Exception:
+        return None
+    return fitted or None
+
+
+def _games_played_this_season(df: pd.DataFrame, team: str, as_of: datetime) -> int:
+    season = _season_label(as_of)
+    played = df[(df["Season"] == season) & (df["Date"] < as_of)]
+    return int(((played["HomeTeam"] == team) | (played["AwayTeam"] == team)).sum())
+
+
+def _elo_seeded_new_team_ratings(ratings: dict, elo_ratings: dict[str, float],
+                                 reset_clubs: list[str]) -> dict[str, tuple[float, float]] | None:
+    """Attack/defence for a new club, read off its Elo instead of a current-season refit.
+
+    Elo is ONE number per club. It can say "stronger" but has no way to say "higher
+    scoring", so it cannot push attack and defence in contradictory directions and it
+    cannot shift the league goal level the way an independent two-parameter refit can.
+    That matters: the shrunk_current_season mode was rejected on 2026-09-14 precisely
+    because it raised expected totals by +0.098 goals in 9 of 10 seasons.
+
+    The Elo -> attack/defence mapping is calibrated on the ESTABLISHED clubs in the same
+    fit — regress each club's log attack and log defence on its Elo, then apply those
+    slopes to the clubs we have no reliable D-C parameters for. Nothing is tuned on the
+    new clubs themselves.
+
+    Returns None when there is too little to calibrate against.
+    """
+    established = [t for t in ratings.get("attack", {})
+                   if t not in reset_clubs and t in elo_ratings]
+    if len(established) < 10:
+        return None
+    x = np.array([float(elo_ratings[t]) for t in established], dtype=float)
+    xc = x - x.mean()
+    denom = float(xc @ xc)
+    if denom <= 0:
+        return None
+    log_att = np.log(np.clip([ratings["attack"][t] for t in established], 1e-6, None))
+    log_def = np.log(np.clip([ratings["defence"][t] for t in established], 1e-6, None))
+    k_att = float(xc @ (log_att - log_att.mean()) / denom)
+    k_def = float(xc @ (log_def - log_def.mean()) / denom)
+
+    out: dict[str, tuple[float, float]] = {}
+    for team in reset_clubs:
+        if team not in elo_ratings:
+            continue
+        dx = float(elo_ratings[team]) - x.mean()
+        att = float(np.exp(log_att.mean() + k_att * dx))
+        dfc = float(np.exp(log_def.mean() + k_def * dx))
+        out[team] = (float(np.clip(att, 0.2, 3.0)), float(np.clip(dfc, 0.2, 3.0)))
+    return out or None
+
+
+def _neutralise_new_team_level(ratings: dict, seeded: dict[str, tuple[float, float]],
+                               reset_clubs: list[str]
+                               ) -> tuple[dict[str, tuple[float, float]], float]:
+    """Strip the goal-level shift out of seeded ratings, keeping their ordering.
+
+    Expected goals is `base x att_home / def_away` — defence DIVIDES. Spreading defence
+    away from 1.0 therefore raises average goals even when the spread is symmetric:
+    halving a club's defence adds a whole goal of scoring, doubling another's removes
+    only half of one. att = def = 1.0 is the unique pair that shifts nothing, which is
+    why the flat league_average reset beat both attempts to give new clubs real ratings
+    on totals (+0.098 and +0.119 goals, measured 2026-09-14).
+
+    Scale every new club's defence by one scalar c, chosen so the mean expected total
+    over every new-club-vs-established-club pairing, both orientations, equals what the
+    flat baseline would have produced. Only the terms dividing by the NEW club's defence
+    move with c, so the total is A + B/c and c solves in closed form.
+
+    Averaging over the league's ACTUAL established ratings matters: assuming a notional
+    average opponent gives c = 0.996 — a no-op — because the shift comes from the real
+    spread of opposition, not from an idealised one.
+
+    Ratios between the new clubs are untouched, so everything that helped 1X2 survives;
+    only the level moves back. Returns the ratings and the c applied.
+    """
+    if not seeded:
+        return seeded, 1.0
+    att, dfd, hfa = ratings["attack"], ratings["defence"], ratings["home_adv"]
+    base_h = float(ratings.get("base_home_xg", 1.569))
+    base_a = float(ratings.get("base_away_xg", 1.263))
+    established = [t for t in att if t not in reset_clubs and dfd.get(t, 0) > 0]
+    if len(established) < 8:
+        return seeded, 1.0
+
+    a_fixed = b_scaled = t_base = 0.0
+    for a_i, d_i in seeded.values():
+        if d_i <= 0:
+            return seeded, 1.0
+        for j in established:
+            a_j, d_j, h_j = float(att[j]), float(dfd[j]), float(hfa.get(j, 1.0))
+            # new club at home: lam = base_h*a_i/d_j, mu = base_a*a_j/d_i
+            # new club away:    lam = base_h*a_j*h_j/d_i, mu = base_a*a_i/d_j
+            a_fixed += base_h * a_i / d_j + base_a * a_i / d_j
+            b_scaled += (base_a * a_j + base_h * a_j * h_j) / d_i
+            t_base += (base_h / d_j + base_a * a_j
+                       + base_h * a_j * h_j + base_a / d_j)
+    denom = t_base - a_fixed
+    if denom <= 1e-9 or b_scaled <= 0:
+        return seeded, 1.0
+    c = b_scaled / denom
+    if not 0.2 < c < 5.0:                   # refuse to apply a wild correction
+        return seeded, 1.0
+    return {t: (a, d * c) for t, (a, d) in seeded.items()}, float(c)
+
+
+def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str],
+                               as_of: datetime, mode: str = "league_average",
+                               shrink_games: float = 6.0, rho: float = -0.13,
+                               elo_ratings: dict[str, float] | None = None) -> dict:
+    """Neutralise stale D-C parameters for clubs returning to this division.
+
+    A club promoted or relegated into the league carries whatever the long-memory
+    fit still remembers from the last time it was here, which can be many seasons
+    stale. Both modes clear that.
+
+    mode="league_average" (the original behaviour) leaves them at exactly average,
+    which also discards the games they have played THIS season.
+
+    mode="shrunk_current_season" replaces that with a D-C fit on the current
+    season alone, shrunk toward league average by n/(n+shrink_games) so a handful
+    of games cannot swing the rating. Falls back to league average whenever the
+    current-season fit is unavailable or does not cover the club.
+    """
     year = as_of.year if as_of.month >= 7 else as_of.year - 1
     prev_season = f"{year - 1}/{str(year)[-2:]}"
     prev_teams = set(df[df["Season"] == prev_season]["HomeTeam"]) | set(df[df["Season"] == prev_season]["AwayTeam"])
@@ -266,6 +411,58 @@ def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str]
         ratings["attack"][team] = 1.0
         ratings["defence"][team] = 1.0
         ratings["home_adv"][team] = 1.0
+    ratings["new_team_reset_mode"] = "league_average"
+
+    if mode in ("elo_seeded", "elo_seeded_level_neutral"):
+        if not elo_ratings:
+            ratings["new_team_reset_note"] = "no Elo supplied — held at league average"
+            return ratings
+        seeded = _elo_seeded_new_team_ratings(ratings, elo_ratings, reset)
+        if not seeded:
+            ratings["new_team_reset_note"] = "Elo calibration unavailable — held at league average"
+            return ratings
+        level_c = 1.0
+        if mode == "elo_seeded_level_neutral":
+            seeded, level_c = _neutralise_new_team_level(ratings, seeded, reset)
+            ratings["new_team_level_correction"] = round(level_c, 4)
+        override = {}
+        for team, (att, dfc) in seeded.items():
+            ratings["attack"][team] = att
+            ratings["defence"][team] = dfc
+            override[team] = {"att": round(att, 4), "def": round(dfc, 4),
+                              "elo": round(float(elo_ratings[team]), 1)}
+        ratings["new_team_reset_mode"] = mode
+        ratings["reset_override"] = override
+        return ratings
+
+    if mode != "shrunk_current_season":
+        return ratings
+
+    current = _current_season_dc_ratings(df, as_of, rho)
+    if not current:
+        ratings["new_team_reset_note"] = "current-season fit unavailable — held at league average"
+        return ratings
+
+    override = {}
+    for team in reset:
+        raw_att = current.get("attack", {}).get(team)
+        raw_def = current.get("defence", {}).get(team)
+        if raw_att is None or raw_def is None:
+            continue
+        n = _games_played_this_season(df, team, as_of)
+        weight = n / (n + shrink_games) if (n + shrink_games) > 0 else 0.0
+        att = 1.0 + weight * (float(raw_att) - 1.0)
+        dfc = 1.0 + weight * (float(raw_def) - 1.0)
+        ratings["attack"][team] = att
+        ratings["defence"][team] = dfc
+        override[team] = {"att": round(att, 4), "def": round(dfc, 4), "games": n,
+                          "weight": round(weight, 4),
+                          "raw_att": round(float(raw_att), 4),
+                          "raw_def": round(float(raw_def), 4)}
+    # home_adv stays at 1.0: three home games is no basis for a per-team figure.
+    if override:
+        ratings["new_team_reset_mode"] = "shrunk_current_season"
+        ratings["reset_override"] = override
     return ratings
 
 
@@ -314,12 +511,46 @@ def price_match(
         suggestion = f"Did you mean: {close}?" if close else f"Known teams: {known[:10]}..."
         print(f"  '{home}' not found. {suggestion}")
         return
-    ratings = _reset_new_team_dc_ratings(ratings, df, [home, away], as_of)
-
+    # Elo is built first: the elo_seeded reset mode needs it as an input.
     elo = build_from_history(df[df["Date"] < as_of], as_of=as_of, **cfg.elo)
+
+    # ── New-team reset, PER MARKET ────────────────────────────────────────────
+    # `new_team_reset` governs totals and the Asian handicap; `new_team_reset_1x2`
+    # governs 1X2 and defaults to it, so any league that sets only the one key
+    # behaves exactly as before and every other league is untouched.
+    #
+    # Championship runs them SPLIT — elo_seeded for 1X2, league_average for totals
+    # — because a 10-season walk-forward over 2,436 fixtures measured the two
+    # markets wanting opposite things from the same ratings. elo_seeded improved
+    # 1X2 by -0.0188 in 10 of 10 seasons and worsened O/U by +0.0142 in 8 of 10.
+    # The cause is the model's algebra, not the method: lam = base x att / def_away
+    # means defence DIVIDES, so any spread away from 1.0 lifts expected goals even
+    # when symmetric, and att = def = 1.0 (what league_average sets) is the unique
+    # level-neutral pair. Three attempts to have both from one ratings set failed
+    # their pre-registered tests; splitting is what the evidence supports.
+    # See outputs/football/championship/_research/{ELO_SEEDED,LEVEL_NEUTRAL}_RESULT.md.
+    reset_kw = dict(shrink_games=float(cfg.model.get("new_team_shrink_games", 6.0)),
+                    rho=rho, elo_ratings=getattr(elo, "ratings", None))
+    mode_totals = str(cfg.model.get("new_team_reset", "league_average"))
+    mode_1x2 = str(cfg.model.get("new_team_reset_1x2", mode_totals))
+
+    ratings = _reset_new_team_dc_ratings(
+        ratings, df, [home, away], as_of, mode=mode_totals, **reset_kw)
+    if mode_1x2 == mode_totals:
+        # Single-mode league: identical object, so the code path below is the
+        # one that has always run.
+        ratings_1x2 = ratings
+    else:
+        ratings_1x2 = _reset_new_team_dc_ratings(
+            dc_fit(dc_input, as_of=as_of, rho=rho,
+                   decay_rate=float(cfg.model["decay_rate"])),
+            df, [home, away], as_of, mode=mode_1x2, **reset_kw)
 
     # ── Base D-C + Elo ────────────────────────────────────────────────────────
     lam_base, mu_base = expected_goals(home, away, ratings)
+    lam_base_1x2, mu_base_1x2 = (
+        (lam_base, mu_base) if ratings_1x2 is ratings
+        else expected_goals(home, away, ratings_1x2))
 
     # ── Look up contextual data ───────────────────────────────────────────────
     ppda_h       = get_ppda(ppda_df, home, as_of)
@@ -371,6 +602,10 @@ def price_match(
     adj = apply_all_tiers(lam_base, mu_base, context, cfg.tier_params)
     lam = adj.lam_final
     mu  = adj.mu_final
+    # Same tier stack, applied to the 1X2 base. Identical object when unsplit.
+    adj_1x2 = (adj if ratings_1x2 is ratings
+               else apply_all_tiers(lam_base_1x2, mu_base_1x2, context, cfg.tier_params))
+    lam_1x2, mu_1x2 = adj_1x2.lam_final, adj_1x2.mu_final
 
     elo_mkts = elo.win_probabilities(home, away)
 
@@ -385,7 +620,7 @@ def price_match(
     # ── Scoreline matrix → market probabilities ───────────────────────────────
     matrix   = build_scoreline_matrix(lam, mu, rho=rho)
     dc_mkts  = derive_markets(matrix)
-    p_home, p_draw, p_away = _blend_1x2(lam, mu)
+    p_home, p_draw, p_away = _blend_1x2(lam_1x2, mu_1x2)
 
     # ── T5 swing cap on 1X2 ──────────────────────────────────────────────────
     # Price the same match with injuries removed, then cap how far the injury
@@ -401,7 +636,7 @@ def price_match(
             away=_strip_injuries(context.away),
             ref_goals_pg=ref_goals_pg,
         )
-        base_adj = apply_all_tiers(lam_base, mu_base, base_ctx, cfg.tier_params)
+        base_adj = apply_all_tiers(lam_base_1x2, mu_base_1x2, base_ctx, cfg.tier_params)
         p_home_base, p_draw_base, p_away_base = _blend_1x2(base_adj.lam_final, base_adj.mu_final)
         p_home = _clamp_swing(p_home, p_home_base, T5_H2H_SWING_CAP)
         p_draw = _clamp_swing(p_draw, p_draw_base, T5_H2H_SWING_CAP)
@@ -526,6 +761,12 @@ def price_match(
           f"   |   {away} att={att.get(away,1):.2f} def={dfd.get(away,1):.2f}")
     print(f"  Model data:    {ratings['n_matches']} matches fitted  |  "
           f"{len(prior)} calibration rows  |  as of {as_of.date()}")
+    if ratings_1x2 is not ratings:
+        a1, d1 = ratings_1x2["attack"], ratings_1x2["defence"]
+        print(f"  New-team mode: 1X2 {mode_1x2}  |  totals/AH {mode_totals}")
+        print(f"    1X2 ratings: {home} att={a1.get(home,1):.2f} def={d1.get(home,1):.2f}"
+              f"   |   {away} att={a1.get(away,1):.2f} def={d1.get(away,1):.2f}"
+              f"   -> lam {lam_1x2:.2f}/{mu_1x2:.2f} vs totals {lam:.2f}/{mu:.2f}")
     print(f"{'='*W}\n")
     return {
         "league": league, "home": home, "away": away, "as_of": as_of.date().isoformat(),
@@ -541,6 +782,9 @@ def price_match(
         "fair_away_base": to_odds(p_away_base),
         "fair_over25": to_odds(p_o), "fair_under25": to_odds(p_u),
         "new_team_resets": ratings.get("new_team_resets", []),
+        "new_team_reset_mode_totals": ratings.get("new_team_reset_mode", mode_totals),
+        "new_team_reset_mode_1x2": ratings_1x2.get("new_team_reset_mode", mode_1x2),
+        "lambda_home_1x2": round(lam_1x2, 4), "lambda_away_1x2": round(mu_1x2, 4),
         "t8_home_elo_diff": t8_elo_diff_h, "t8_away_elo_diff": t8_elo_diff_a,
     }
 

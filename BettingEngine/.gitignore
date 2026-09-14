@@ -53,3 +53,7 @@ Thumbs.db
 # must be backed up separately, not committed with model code.
 ml/football/data/*/player_layer/*.sqlite
 ml/football/data/*/player_layer/roster_espn_*.csv
+
+# Timestamped safety copies written by scripts/ingest_espn_results_supplement.py
+# every time it runs. The live matches CSV is committed; these duplicates are not.
+ml/football/data/*/matches/*.backup-*.csv
