@@ -366,3 +366,53 @@ Auto-detected round: 27
   Finished: 2026-09-14 08:20:03
 ############################################################
 
+Saved /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/availability/afl_r27_2026-09-14_monday.json: 33 projected player absences
+
+======================================================================
+  LINE MOVEMENT PREDICTOR — AFL R27 2026
+======================================================================
+
+Loading data...
+  ELO data: 18 teams
+  Historical matchups: 108 pairs
+  Team lists: 18 teams with ins/outs
+  Verified injury records: 33
+  Projected availability: 33 players
+  Ladder: 18 teams
+  Fixture: 2 games
+
+Game                                               Shortens                    Conf    Totals
+-----------------------------------------------------------------------------------------------
+  Swans vs Dockers                                 Dockers                      36%      EVEN
+  Hawks vs Lions                                   Hawks                         6%      EVEN
+
+Feature breakdown:
+  Game                            Injury     ELO  Finals    Hist  Public    Form   Venue   TOTAL
+  ------------------------------------------------------------------------------
+  Swans v Dockers                -1.000 +0.047 +0.000 +0.000 +0.000 +0.029 +0.000 -0.2377
+  Hawks v Lions                  +0.150 -0.105 +0.000 +0.000 +0.300 -0.065 +0.000 +0.0400
+
+Predictions saved: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/predictions/afl_r27_2026-09-14_monday.json
+Latest pointer: /Users/elliotbladen/BetMate/BettingEngine/data/line_movement/predictions/afl_latest.json
+Auto-detected round: 27
+
+############################################################
+  LINE MOVEMENT PIPELINE — AFL R27 2026
+  Started: 2026-09-14 13:20:06
+############################################################
+
+============================================================
+  STEP: Build AFL projected availability
+============================================================
+
+
+============================================================
+  STEP: Predict AFL R27 line movements
+============================================================
+
+
+############################################################
+  PIPELINE COMPLETE — AFL R27
+  Finished: 2026-09-14 13:20:10
+############################################################
+

@@ -108,9 +108,14 @@ disqualify it — but it means there is no second, independent signal supporting
 
 Month ROI at net +8 swings +49% / +10% / −5% / +3% / −31% / +6% / +107%.
 
-## 2027 matrix — BUILT, with two conditions
+## 2027 matrix — BUILT, then DELETED 2026-09-14 (owner's call)
 
-`outputs/nrl_team_totals_matrix_v2_2027.xlsx`, trained on a rolling 4-season window
+⚠️ **`outputs/nrl_team_totals_matrix_v2_2027.xlsx` HAS BEEN DELETED.** Once the net+10/+12
+walk-forward below showed no edge at any threshold, the owner's call was that a sheet
+which does not produce an edge is not worth carrying. Recoverable from git history if
+ever needed; rebuild command is below. The record of what it contained is kept here.
+
+It was trained on a rolling 4-season window
 **2023–2026**, metric `hitrate`. Sheet titles are now dynamic and carry the window and
 metric, so a matrix can no longer silently claim the wrong training seasons.
 
@@ -175,3 +180,94 @@ manufactures nothing. It makes the AFL result more credible, not less.
 
 2026's +18.92% reproduces exactly and sits inside a series swinging +45.6% to −45.8%.
 It was a good draw, as this document already concluded.
+
+---
+
+# END-OF-SEASON REVIEW 2026 — ALL THREE NRL MARKETS WALK-FORWARDED, MATRICES RETIRED
+
+The addendum above closed the totals threshold gap. This closes the remaining one:
+**h2h and handicap had never been walk-forwarded at all.** Their published figures
+(−26.9% and −5.0%) were **2026 alone**. The AFL study held every market to a 9-season
+walk-forward before concluding, so NRL is brought to the same standard before any
+decision is taken.
+
+## ⚠️ A data gap found on the way, which changed the numbers
+
+The NRL history is **missing H2H and LINE-ODDS closing prices for 70% of 2024
+(64/213) and 99.5% of 2025 (1/213)**. Totals coverage is complete in every season.
+
+On the first run those seasons entered as **silent zeros** — 2025 produced 0 bets and
+reported "+0.00% ROI", which reads as a flat season rather than as no data. This is
+DATA_INTEGRITY_LESSONS #8 (silent coverage gaps) landing in a live analysis.
+`--skip-seasons` was added and **every h2h/handicap figure below excludes 2024-25.**
+Totals is unaffected and still uses all 10 seasons.
+
+## Results — rolling 4-season window, each test season out of sample
+
+| market | net | pooled ROI | n | 95% CI | seasons +ve |
+|---|---|---|---|---|---|
+| h2h | +7 | −4.95% | 449 | [−12.4, +2.7] | 2/8 |
+| h2h | +10 | +0.26% | 161 | [−11.5, +12.5] | 5/8 |
+| **handicap** | **+7** | **−12.52%** | 419 | **[−21.7, −3.4]** | **0/8** |
+| handicap | +10 | −11.96% | 136 | [−27.6, +4.4] | 2/8 |
+| totals | +8 open | +0.99% | 446 | [−7.7, +10.0] | 5/10 |
+| totals | +10 open | −1.34% | 209 | [−14.2, +11.2] | 5/10 |
+| totals | +12 open | +6.36% | 70 | [−15.8, +28.5] | 6/10 |
+
+**Handicap loses significantly** — its CI excludes zero and it is negative in eight
+seasons out of eight. h2h and totals sit on zero. **No market shows a dose-response**
+at any threshold, which is the specific property AFL totals does show.
+
+## Decision (owner, 2026-09-14): RETIRED FROM PRODUCTION
+
+Removed from the pipeline:
+
+- `prepare_round.py` — Step 8 (regenerate matrices) and Step 9 (push to Supabase),
+  their helpers, and the `--skip-matrices` flag. An in-place comment records the
+  measured reason so it is not re-added without the numbers.
+- `push_matrices_to_supabase.py` — deleted (NRL-only).
+- `matrix_confluence.py` — retirement banner, kept as research tooling only.
+- Web: `app/api/ev-signals/route.ts`, `lib/matrixEV.ts` and the GameCard value-edge
+  badges, which were fed exclusively by these matrices.
+
+**Kept:** the builders, the backtest and `walkforward_nrl_matrix.py`, so the question
+can be re-opened with evidence rather than rebuilt from scratch. `--validate`
+reproduces the published totals row and exits non-zero on mismatch.
+
+⚠️ **AFL IS UNAFFECTED.** AFL totals at net ≥10 is the one matrix result that survived
+walk-forward in either sport — see `AFL_TOTALS_MATRIX_V2_HITRATE.md`.
+
+Reproduce:
+```
+python scripts/walkforward_nrl_matrix.py --validate
+python scripts/walkforward_nrl_matrix.py --market h2h      --net 7 --skip-seasons 2024,2025
+python scripts/walkforward_nrl_matrix.py --market handicap --net 7 --skip-seasons 2024,2025
+python scripts/walkforward_nrl_matrix.py --market totals   --net 10 --price open
+```
+
+## Considered and rejected: keeping only the net +12 rule
+
+Before scrapping, one narrower option was weighed — run **net +12 at the open only**,
+the single best configuration: **+6.36%, n=70 over 10 seasons ≈ 7 bets a year.**
+
+Rejected, for three reasons:
+
+1. **Unverifiable at that volume.** Confirming a ~6% edge needs on the order of 1,000
+   bets. At 7 a year that is ~150 years. The 95% CI is **[−15.8, +28.5]** — −15.8% is
+   as consistent with the data as +6.36%, and no realistic amount of future betting
+   would separate them.
+2. **It is the smallest sample, which is where extreme values turn up by chance**
+   (n=70, the thinnest cell in the grid), and it was the best of five configurations
+   tried — so the measured figure is biased upward. 6/10 seasons positive is barely
+   off a coin flip.
+3. **It competes for bankroll with a measurably better rule.** The same net +12 rule
+   on AFL gives n=148 over 9 seasons — about 16 bets a year at **+25.38%, CI
+   [+10.2, +39.5]** — twice the volume, four times the edge, and a lower bound that
+   stays strongly positive.
+
+**Owner's call 2026-09-14: scrapped.** The tooling is retained, so the rule can be
+paper-tracked at no cost if anyone wants to revisit it:
+
+```
+python scripts/walkforward_nrl_matrix.py --market totals --net 12 --price open
+```

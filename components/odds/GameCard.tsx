@@ -7,7 +7,6 @@ import { Flame, Lock } from 'lucide-react';
 import BlurLock from './BlurLock';
 import { BOOKMAKER_META } from '@/lib/oddsApi';
 import type { MovementMap, Movement } from '@/lib/oddsMovement';
-import type { EVSignal } from '@/lib/matrixEV';
 import { getVenue } from '@/lib/venues';
 import { getTeamMeta } from '@/lib/teams';
 import { buildGameUrl, APP_STORE_LINKS } from '@/lib/affiliate';
@@ -427,46 +426,15 @@ function TotalsRow({ odds, evOver, evUnder, userPlan, isLoggedIn, gameId, sport,
 
 // â"€â"€â"€ Helpers for EV signal lookup â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
-function pickSignal(signals: EVSignal[], market: EVSignal['market'], side: EVSignal['side']): EVSignal | undefined {
-  return signals.find(s => s.market === market && s.side === side);
-}
-
-function freeEV(sig: EVSignal | undefined): number | undefined {
-  if (!sig) return undefined;
-  return sig.tier === 'free' ? sig.edgePct : undefined;
-}
-
 // â"€â"€â"€ Card â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 export default function GameCard({ game, userPlan, isLoggedIn = false, movements, refreshCount }: GameCardProps) {
   const [tab, setTab] = useState<MarketTab>('H2H');
-  const [evSignals, setEvSignals] = useState<EVSignal[]>([]);
-
-  useEffect(() => {
-    fetch(`/api/ev-signals?home=${encodeURIComponent(game.homeTeam)}&away=${encodeURIComponent(game.awayTeam)}`)
-      .then(r => r.json())
-      .then(d => { if (d.signals) setEvSignals(d.signals); })
-      .catch(() => {});
-  }, [game.homeTeam, game.awayTeam]);
 
   const bestHome = getBest(game.odds, 'home');
   const bestAway = getBest(game.odds, 'away');
   const bucketColor = BUCKET_COLOR[(game.refereeBucket ?? '').toUpperCase()] ?? 'text-[#9CA3AF]';
   const venue = getVenue(game.homeTeam);
 
-  // EV lookups per market/side
-  const evH2hHome  = pickSignal(evSignals, 'h2h', 'home');
-  const evH2hAway  = pickSignal(evSignals, 'h2h', 'away');
-  const evHcapHome = pickSignal(evSignals, 'handicap', 'home');
-  const evHcapAway = pickSignal(evSignals, 'handicap', 'away');
-  const evTotOver  = pickSignal(evSignals, 'totals', 'over');
-  const evTotUnder = pickSignal(evSignals, 'totals', 'under');
-
-  // Per-tab signal presence for tab dot indicator
-  const tabHasSignal: Record<MarketTab, boolean> = {
-    H2H:      !!(evH2hHome || evH2hAway),
-    HANDICAP: !!(evHcapHome || evHcapAway),
-    TOTALS:   !!(evTotOver || evTotUnder),
-  };
 
   return (
     <article className="border border-[#E2E8F0] rounded-lg bg-white overflow-hidden shadow-sm">
@@ -515,9 +483,6 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
             ].join(' ')}
           >
             {t}
-            {tabHasSignal[t] && (
-              <span className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#00DEB8]" />
-            )}
           </button>
         ))}
       </div>
@@ -533,11 +498,11 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
         const bestDraw = hasDraws ? Math.max(...Object.entries(game.odds).filter(([, o]) => o.draw != null).map(([k, o]) => effectivePrice(k, o.draw!)), 0) : 0;
         return (
           <div className="px-5 py-4 space-y-4">
-            <OddsRow label={`HOME — ${game.homeShort}`} odds={game.odds} side="home" best={bestHome} evPct={freeEV(evH2hHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+            <OddsRow label={`HOME — ${game.homeShort}`} odds={game.odds} side="home" best={bestHome} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
             {hasDraws && (
               <OddsRow label="DRAW" odds={game.odds} side="draw" best={bestDraw} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
             )}
-            <OddsRow label={`AWAY — ${game.awayShort}`} odds={game.odds} side="away" best={bestAway} evPct={freeEV(evH2hAway)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+            <OddsRow label={`AWAY — ${game.awayShort}`} odds={game.odds} side="away" best={bestAway} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} market="h2h" sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
             <MarginRow entries={h2hMargins} />
           </div>
         );
@@ -549,8 +514,8 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
           }));
           return (
             <div className="px-5 py-4 space-y-4">
-              <SpreadsRow label={`HOME — ${game.homeShort}`} odds={game.spreadsOdds!} side="home" evPct={freeEV(evHcapHome)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
-              <SpreadsRow label={`AWAY — ${game.awayShort}`} odds={game.spreadsOdds!} side="away" evPct={freeEV(evHcapAway)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+              <SpreadsRow label={`HOME — ${game.homeShort}`} odds={game.spreadsOdds!} side="home" userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+              <SpreadsRow label={`AWAY — ${game.awayShort}`} odds={game.spreadsOdds!} side="away" userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
               <MarginRow entries={spreadMargins} />
             </div>
           );
@@ -565,7 +530,7 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
           }));
           return (
             <div className="px-5 py-4 space-y-4">
-              <TotalsRow odds={game.totalsOdds!} evOver={freeEV(evTotOver)} evUnder={freeEV(evTotUnder)} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
+              <TotalsRow odds={game.totalsOdds!} userPlan={userPlan} isLoggedIn={isLoggedIn} gameId={game.id} sport={game.sport} homeTeam={game.homeTeam} awayTeam={game.awayTeam} movements={movements} refreshCount={refreshCount} />
               <MarginRow entries={totalsMargins} />
             </div>
           );
@@ -581,67 +546,27 @@ export default function GameCard({ game, userPlan, isLoggedIn = false, movements
         </div>
       )}
 
-      {/* â"€â"€ Value Edge strip â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
-      <div className="border-t border-[#E2E8F0] px-5 pt-3 pb-2 flex flex-wrap items-center gap-2">
-        {/* Free-tier value edge signals */}
-        {evSignals.filter(s => s.tier === 'free').map((s, i) => {
-          const label =
-            s.market === 'h2h'      ? `H2H ${s.side.toUpperCase()} ${s.edgePct.toFixed(1)}%` :
-            s.market === 'handicap' ? `HCAP ${s.side.toUpperCase()} ${s.edgePct.toFixed(1)}%` :
-            `TOTALS ${s.side.toUpperCase()} ${s.edgePct.toFixed(1)}%`;
-          return (
-            <span key={i} className="inline-flex items-center gap-1 px-2.5 py-1 rounded border border-[#00DEB8]/40 bg-[#00DEB8]/8 text-[#00DEB8] text-[10px] font-mono font-bold uppercase tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00DEB8] shrink-0" />
-              EDGE {label}
+      {/* Public % / line-move strip.
+          The NRL "value edge" signals that used to live here were retired
+          2026-09-14 — a 10-season walk-forward found no edge in the NRL
+          matrices that fed them. See BettingEngine/outputs/results/
+          NRL_TOTALS_MATRIX_V2_HITRATE.md. Rendered only when it has content. */}
+      {((game.publicPct && game.publicTeam) || game.lineMoveSummary) && (
+        <div className="border-t border-[#E2E8F0] px-5 pt-3 pb-2 flex flex-wrap items-center gap-2">
+          {game.publicPct && game.publicTeam && (
+            <span className="inline-flex items-center px-2.5 py-1 rounded border border-[#E2E8F0] bg-[#F8FAFC] text-[10px] font-mono text-[#6B7280] uppercase tracking-wide">
+              {game.publicPct}% PUBLIC {game.publicTeam}
             </span>
-          );
-        })}
+          )}
 
-        {/* PRO-tier value edge signals â€" blurred for free users */}
-        {evSignals.filter(s => s.tier === 'pro').map((s, i) => {
-          const label =
-            s.market === 'h2h'      ? `H2H ${s.side.toUpperCase()}` :
-            s.market === 'handicap' ? `HCAP ${s.side.toUpperCase()}` :
-            `TOTALS ${s.side.toUpperCase()}`;
-          return userPlan === 'pro' ? (
-            <span key={i} className="inline-flex items-center gap-1 px-2.5 py-1 rounded border border-[#7C3AED]/50 bg-[#7C3AED]/10 text-[#a78bfa] text-[10px] font-mono font-bold uppercase tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] shrink-0" />
-              PRO EDGE {label} {s.edgePct.toFixed(1)}%
+          {game.lineMoveSummary && (
+            <span className="inline-flex items-center px-2.5 py-1 rounded border border-[#E2E8F0] bg-[#F8FAFC] text-[10px] font-mono text-[#6B7280] uppercase tracking-wide">
+              LINE {game.lineMoveSummary}
             </span>
-          ) : (
-            <BlurLock key={i}>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded border border-[#7C3AED]/50 bg-[#7C3AED]/10 text-[#a78bfa] text-[10px] font-mono font-bold uppercase tracking-wide">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] shrink-0" />
-                PRO EDGE {label}
-              </span>
-            </BlurLock>
-          );
-        })}
-
-        {/* No signals placeholder */}
-        {evSignals.length === 0 && (
-          <span className="text-[#9CA3AF] text-[10px] font-mono uppercase tracking-widest">No value edge detected</span>
-        )}
-
-        {game.publicPct && game.publicTeam && (
-          <span className="inline-flex items-center px-2.5 py-1 rounded border border-[#E2E8F0] bg-[#F8FAFC] text-[10px] font-mono text-[#6B7280] uppercase tracking-wide">
-            {game.publicPct}% PUBLIC {game.publicTeam}
-          </span>
-        )}
-
-        {game.lineMoveSummary && (
-          <span className="inline-flex items-center px-2.5 py-1 rounded border border-[#E2E8F0] bg-[#F8FAFC] text-[10px] font-mono text-[#6B7280] uppercase tracking-wide">
-            LINE {game.lineMoveSummary}
-          </span>
-        )}
-      </div>
-      {evSignals.length > 0 && (
-        <div className="px-5 pb-3">
-          <p className="text-[#9CA3AF] text-[9px] font-mono leading-snug">
-            <span className="text-[#9CA3AF]">Value edge signals are derived from 4 years of NRL data (2022â€"2025). Backing the flagged side has historically returned positive value over this period. Past performance does not guarantee future results.</span>
-          </p>
+          )}
         </div>
       )}
+
 
       {/* â"€â"€ PRO upgrade strip â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       {userPlan === 'free' && (

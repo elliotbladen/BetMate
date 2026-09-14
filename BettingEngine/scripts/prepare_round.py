@@ -63,7 +63,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from utils.supabase_push import push as _sb_push, load_env as _load_env
 from pricing.tier10_origin import (
     find_active_origin_game, compute_team_origin_pts, compute_origin_adjustments,
 )
@@ -1621,51 +1620,6 @@ def step7_price(conn, season: int, round_number: int,
 
 
 # =============================================================================
-# Step 8: Regenerate matrices
-# =============================================================================
-
-def step8_regenerate_matrices():
-    """
-    Regenerate H2H, handicap, and totals matrices from the latest
-    BetMate historical xlsx. Must run AFTER fetch_aussportsbetting_nrl.py
-    has updated latest.xlsx.
-
-    Runs each matrix script as a subprocess so they remain independently
-    runnable. Failures are warnings, not fatal — stale matrices are better
-    than a blocked pipeline.
-    """
-    header('Step 8 — Regenerate matrices')
-
-    scripts_dir = Path(__file__).resolve().parent
-    matrix_scripts = [
-        'nrl_h2h_matrix.py',
-        'nrl_handicap_matrix.py',
-        'nrl_team_totals_matrix.py',
-    ]
-
-    for script in matrix_scripts:
-        script_path = scripts_dir / script
-        print(f'\n  Running {script} ...')
-        try:
-            result = subprocess.run(
-                [sys.executable, str(script_path)],
-                capture_output=True,
-                text=True,
-                timeout=120,
-            )
-            if result.returncode == 0:
-                ok(f'{script} complete')
-            else:
-                warn(f'{script} exited {result.returncode} — matrices may be stale')
-                if result.stderr:
-                    print(f'    {result.stderr.strip()[:200]}')
-        except subprocess.TimeoutExpired:
-            warn(f'{script} timed out after 120s — skipping')
-        except Exception as e:
-            warn(f'{script} failed: {e} — skipping')
-
-
-# =============================================================================
 # Main
 # =============================================================================
 
@@ -1687,8 +1641,6 @@ def main():
                         help='Skip steps 4+5 (injuries/refs already loaded)')
     parser.add_argument('--skip-weather', action='store_true',
                         help='Skip step 6a (weather already fetched or mock-clear preferred)')
-    parser.add_argument('--skip-matrices', action='store_true',
-                        help='Skip step 8 (matrix regeneration) — use if historical xlsx not yet updated')
     parser.add_argument('--skip-ml-shadow', action='store_true',
                         help='Skip the independent NRL XGBoost shadow after official pricing')
     parser.add_argument('--strict-injuries', action='store_true',
@@ -1815,112 +1767,23 @@ def main():
         reason = 'dry-run' if args.dry_run else '--skip-ml-shadow'
         ok(f'Step 7b ML shadow skipped ({reason}).')
 
-    # ── Step 8: Regenerate matrices from latest historical data ───────────
-    if not args.skip_matrices and not args.dry_run:
-        step8_regenerate_matrices()
-    elif args.dry_run:
-        ok('Step 8 skipped (dry-run).')
-    else:
-        ok('Step 8 skipped (--skip-matrices).')
-
-    # ── Step 9: Push matrices to Supabase ─────────────────────────────────
-    if not args.dry_run and not args.skip_matrices:
-        step9_push_matrices()
-    elif args.dry_run:
-        ok('Step 9 skipped (dry-run).')
-    else:
-        ok('Step 9 skipped (--skip-matrices).')
+    # ── Steps 8 & 9: RETIRED 2026-09-14 — NRL matrices produce no edge ────
+    # The NRL base-rate matrices (h2h / handicap / totals) used to be
+    # regenerated here and pushed to Supabase for the T9 confluence overlay.
+    # A 10-season walk-forward retired them at the end of the 2026 season:
+    #   h2h      net+7  -4.95%  (n=449) CI [-12.4, +2.7]   2/8 seasons +ve
+    #   handicap net+7  -12.52% (n=419) CI [-21.7, -3.4]   0/8 seasons +ve
+    #   totals   net+8 to +12, -3.49% to +6.36%, every CI straddling zero
+    # Handicap loses significantly; nothing shows a dose-response at any
+    # threshold. See outputs/results/NRL_TOTALS_MATRIX_V2_HITRATE.md.
+    # The builders and backtests remain as research tooling — only the
+    # production pipeline wiring is gone. AFL matrices are UNAFFECTED and
+    # remain live for totals (see AFL_TOTALS_MATRIX_V2_HITRATE.md).
 
     conn.close()
     print()
 
 
-# =============================================================================
-# Step 9: Push matrices to Supabase
-# =============================================================================
-
-def _parse_edge(val: str | None) -> dict | None:
-    """Parse '6.2% opposing' → {'edgePct': 6.2, 'direction': 'opposing'}. Returns None for '—'."""
-    if not val or str(val).strip() in ('—', '-', ''):
-        return None
-    import re
-    m = re.match(r'^([\d.]+)%\s+(.+)$', str(val).strip())
-    if not m:
-        return None
-    pct = float(m.group(1))
-    return {'edgePct': pct, 'direction': m.group(2).strip()}
-
-
-def _xlsx_to_matrix(path: Path) -> dict:
-    """Convert a matrix XLSX to the MatrixData JSON format expected by matrixEV.ts."""
-    import openpyxl
-    wb = openpyxl.load_workbook(path)
-    result = {}
-    for sheet_name in wb.sheetnames:
-        ws = wb[sheet_name]
-        rows = list(ws.iter_rows(values_only=True))
-        # Row 0 = title, Row 1 = column headers, Row 2+ = data
-        sheet: dict = {}
-        for row in rows[2:]:
-            category = row[0]
-            edge_raw = row[4] if len(row) > 4 else None  # col E = 'Edge % & Direction'
-            if not category:
-                continue
-            sheet[str(category)] = _parse_edge(edge_raw)
-        result[sheet_name] = sheet
-    return result
-
-
-def _handicap_csv_to_matrix(path: Path) -> dict:
-    """Convert nrl_handicap_matrix.csv to HandicapData JSON format expected by matrixEV.ts."""
-    import csv as _csv
-    result: dict = {}
-    with open(path, newline='', encoding='utf-8') as f:
-        reader = _csv.DictReader(f)
-        for row in reader:
-            team = row.get('team', '').strip()
-            category = row.get('category', '').strip()
-            try:
-                edge_pct = float(row.get('edge_pct', ''))
-                direction = row.get('direction', '').strip()
-            except (ValueError, TypeError):
-                continue
-            if not team or not category or not direction:
-                continue
-            result.setdefault(team, {})[category] = {'edgePct': edge_pct, 'direction': direction}
-    return result
-
-
-def step9_push_matrices():
-    """Push NRL matrices to Supabase so Vercel always has fresh data after pricing."""
-    header('Step 9 — Push matrices to Supabase')
-
-    _load_env()  # pull SUPABASE_* from .env.local if not already set
-
-    outputs = Path(__file__).resolve().parent.parent / 'outputs'
-    pushes = [
-        ('nrl_h2h_matrix',     outputs / 'nrl_h2h_matrix.xlsx',          'xlsx'),
-        ('nrl_totals_matrix',  outputs / 'nrl_team_totals_matrix.xlsx',   'xlsx'),
-        ('nrl_handicap_matrix', outputs / 'nrl_handicap_matrix.csv',      'csv'),
-    ]
-
-    any_ok = False
-    for key, path, fmt in pushes:
-        if not path.exists():
-            print(f'  SKIP  {key} — file not found: {path}')
-            continue
-        try:
-            data = _xlsx_to_matrix(path) if fmt == 'xlsx' else _handicap_csv_to_matrix(path)
-            if _sb_push(key, data):
-                ok(f'{key} → Supabase')
-                any_ok = True
-            else:
-                print(f'  SKIP  {key} — Supabase env vars not configured')
-        except Exception as exc:
-            print(f'  WARN  {key} push failed: {exc}')
-
-    if not any_ok:
-        print('  (Set NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY to enable auto-push)')
 
 
 if __name__ == '__main__':
