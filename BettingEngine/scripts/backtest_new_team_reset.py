@@ -39,8 +39,9 @@ from ml.football.models.elo import build_from_history                  # noqa: E
 from ml.football.price_match import _reset_new_team_dc_ratings, load_data  # noqa: E402
 
 EPS = 1e-12
-MODES = ("league_average", "shrunk_current_season", "elo_seeded")
-TAG = {"league_average": "old", "shrunk_current_season": "shr", "elo_seeded": "elo"}
+MODES = ("league_average", "shrunk_current_season", "elo_seeded", "elo_seeded_level_neutral")
+TAG = {"league_average": "old", "shrunk_current_season": "shr", "elo_seeded": "elo",
+       "elo_seeded_level_neutral": "eln"}
 OUT = ROOT / "outputs/football/championship/_research"
 
 
@@ -171,33 +172,34 @@ def report(rows: list[dict]) -> dict:
     out = {"n_games": len(df), "n_seasons": int(n_seasons), "variants": {}}
 
     print(f"\n{'season':<10}{'n':>5}" +
-          "".join(f"{t+' 1X2':>11}" for t in ("old", "shr", "elo")) +
-          "".join(f"{t+' O/U':>11}" for t in ("old", "shr", "elo")) + f"{'mkt 1X2':>11}")
-    print("-" * 108)
-    wins = {t: {"1x2": 0, "ou": 0} for t in ("shr", "elo")}
+          "".join(f"{t+' 1X2':>11}" for t in ("old", "shr", "elo", "eln")) +
+          "".join(f"{t+' O/U':>11}" for t in ("old", "shr", "elo", "eln")) + f"{'mkt 1X2':>11}")
+    print("-" * 130)
+    wins = {t: {"1x2": 0, "ou": 0} for t in ("shr", "elo", "eln")}
     for season, g in df.groupby("season"):
         line = f"{season:<10}{len(g):>5}"
-        for t in ("old", "shr", "elo"):
+        for t in ("old", "shr", "elo", "eln"):
             line += f"{g[f'{t}_1x2'].mean():>11.4f}"
-        for t in ("old", "shr", "elo"):
+        for t in ("old", "shr", "elo", "eln"):
             line += f"{g[f'{t}_ou'].mean():>11.4f}"
         mk = g.mkt_1x2.mean() if "mkt_1x2" in g and g.mkt_1x2.notna().any() else float("nan")
         line += f"{mk:>11.4f}"
         print(line)
-        for t in ("shr", "elo"):
+        for t in ("shr", "elo", "eln"):
             wins[t]["1x2"] += g[f"{t}_1x2"].mean() < g.old_1x2.mean()
             wins[t]["ou"] += g[f"{t}_ou"].mean() < g.old_ou.mean()
-    print("-" * 108)
+    print("-" * 130)
     line = f"{'POOLED':<10}{len(df):>5}"
-    for t in ("old", "shr", "elo"):
+    for t in ("old", "shr", "elo", "eln"):
         line += f"{df[f'{t}_1x2'].mean():>11.4f}"
-    for t in ("old", "shr", "elo"):
+    for t in ("old", "shr", "elo", "eln"):
         line += f"{df[f'{t}_ou'].mean():>11.4f}"
     line += f"{df.mkt_1x2.mean() if 'mkt_1x2' in df else float('nan'):>11.4f}"
     print(line)
 
     print("\nvs league_average baseline (negative = better):")
-    for t, label in (("shr", "shrunk_current_season"), ("elo", "elo_seeded")):
+    for t, label in (("shr", "shrunk_current_season"), ("elo", "elo_seeded"),
+                     ("eln", "elo_seeded_level_neutral")):
         d1 = df[f"{t}_1x2"].mean() - df.old_1x2.mean()
         d2 = df[f"{t}_ou"].mean() - df.old_ou.mean()
         print(f"  {label:<24} 1X2 {d1:+.4f} ({wins[t]['1x2']}/{n_seasons} seasons)   "
@@ -209,7 +211,7 @@ def report(rows: list[dict]) -> dict:
                                   "pooled_ou": df[f"{t}_ou"].mean()}
     out["baseline"] = {"pooled_1x2": df.old_1x2.mean(), "pooled_ou": df.old_ou.mean(),
                        "market_1x2": float(df.mkt_1x2.mean()) if "mkt_1x2" in df else None}
-    out["lam"] = {t: float(df[f"{t}_lam"].mean()) for t in ("old", "shr", "elo")}
+    out["lam"] = {t: float(df[f"{t}_lam"].mean()) for t in ("old", "shr", "elo", "eln")}
     return out
 
 

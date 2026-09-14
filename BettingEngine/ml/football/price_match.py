@@ -327,6 +327,60 @@ def _elo_seeded_new_team_ratings(ratings: dict, elo_ratings: dict[str, float],
     return out or None
 
 
+def _neutralise_new_team_level(ratings: dict, seeded: dict[str, tuple[float, float]],
+                               reset_clubs: list[str]
+                               ) -> tuple[dict[str, tuple[float, float]], float]:
+    """Strip the goal-level shift out of seeded ratings, keeping their ordering.
+
+    Expected goals is `base x att_home / def_away` — defence DIVIDES. Spreading defence
+    away from 1.0 therefore raises average goals even when the spread is symmetric:
+    halving a club's defence adds a whole goal of scoring, doubling another's removes
+    only half of one. att = def = 1.0 is the unique pair that shifts nothing, which is
+    why the flat league_average reset beat both attempts to give new clubs real ratings
+    on totals (+0.098 and +0.119 goals, measured 2026-09-14).
+
+    Scale every new club's defence by one scalar c, chosen so the mean expected total
+    over every new-club-vs-established-club pairing, both orientations, equals what the
+    flat baseline would have produced. Only the terms dividing by the NEW club's defence
+    move with c, so the total is A + B/c and c solves in closed form.
+
+    Averaging over the league's ACTUAL established ratings matters: assuming a notional
+    average opponent gives c = 0.996 — a no-op — because the shift comes from the real
+    spread of opposition, not from an idealised one.
+
+    Ratios between the new clubs are untouched, so everything that helped 1X2 survives;
+    only the level moves back. Returns the ratings and the c applied.
+    """
+    if not seeded:
+        return seeded, 1.0
+    att, dfd, hfa = ratings["attack"], ratings["defence"], ratings["home_adv"]
+    base_h = float(ratings.get("base_home_xg", 1.569))
+    base_a = float(ratings.get("base_away_xg", 1.263))
+    established = [t for t in att if t not in reset_clubs and dfd.get(t, 0) > 0]
+    if len(established) < 8:
+        return seeded, 1.0
+
+    a_fixed = b_scaled = t_base = 0.0
+    for a_i, d_i in seeded.values():
+        if d_i <= 0:
+            return seeded, 1.0
+        for j in established:
+            a_j, d_j, h_j = float(att[j]), float(dfd[j]), float(hfa.get(j, 1.0))
+            # new club at home: lam = base_h*a_i/d_j, mu = base_a*a_j/d_i
+            # new club away:    lam = base_h*a_j*h_j/d_i, mu = base_a*a_i/d_j
+            a_fixed += base_h * a_i / d_j + base_a * a_i / d_j
+            b_scaled += (base_a * a_j + base_h * a_j * h_j) / d_i
+            t_base += (base_h / d_j + base_a * a_j
+                       + base_h * a_j * h_j + base_a / d_j)
+    denom = t_base - a_fixed
+    if denom <= 1e-9 or b_scaled <= 0:
+        return seeded, 1.0
+    c = b_scaled / denom
+    if not 0.2 < c < 5.0:                   # refuse to apply a wild correction
+        return seeded, 1.0
+    return {t: (a, d * c) for t, (a, d) in seeded.items()}, float(c)
+
+
 def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str],
                                as_of: datetime, mode: str = "league_average",
                                shrink_games: float = 6.0, rho: float = -0.13,
@@ -359,7 +413,7 @@ def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str]
         ratings["home_adv"][team] = 1.0
     ratings["new_team_reset_mode"] = "league_average"
 
-    if mode == "elo_seeded":
+    if mode in ("elo_seeded", "elo_seeded_level_neutral"):
         if not elo_ratings:
             ratings["new_team_reset_note"] = "no Elo supplied — held at league average"
             return ratings
@@ -367,13 +421,17 @@ def _reset_new_team_dc_ratings(ratings: dict, df: pd.DataFrame, teams: list[str]
         if not seeded:
             ratings["new_team_reset_note"] = "Elo calibration unavailable — held at league average"
             return ratings
+        level_c = 1.0
+        if mode == "elo_seeded_level_neutral":
+            seeded, level_c = _neutralise_new_team_level(ratings, seeded, reset)
+            ratings["new_team_level_correction"] = round(level_c, 4)
         override = {}
         for team, (att, dfc) in seeded.items():
             ratings["attack"][team] = att
             ratings["defence"][team] = dfc
             override[team] = {"att": round(att, 4), "def": round(dfc, 4),
                               "elo": round(float(elo_ratings[team]), 1)}
-        ratings["new_team_reset_mode"] = "elo_seeded"
+        ratings["new_team_reset_mode"] = mode
         ratings["reset_override"] = override
         return ratings
 
