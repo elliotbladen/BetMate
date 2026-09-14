@@ -1,0 +1,351 @@
+{
+  "blockers": [
+    "National result/profile backfill incomplete",
+    "NT coverage has no Racing.com calendar entries and requires a primary-source archive",
+    "Remaining empty/ambiguous meetings and unverified clocks require further source evidence"
+  ],
+  "cached_meetings": 291,
+  "calendar_days_expected": 1096,
+  "calendar_days_verified": 1096,
+  "calendar_meetings": 4125,
+  "empty_meeting_resolutions": [
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2023-09-23",
+        "id": "5181713",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2023-09-23/grenfell-trial",
+        "state": "NSW",
+        "venue": "Grenfell"
+      },
+      "source_payload_hash": "896d1ea00402efb3fbd81056e5bb335f455eaba08a5bfad2b46312109e9625d6",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2023-10-14",
+        "id": "5181072",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2023-10-14/forbes-trial",
+        "state": "NSW",
+        "venue": "Forbes"
+      },
+      "source_payload_hash": "44f98e8d6cb8f402f38a344048e7a3d29c6a4edc7326be370fc81906293b4653",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2023-09-19",
+        "id": "5181258",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2023-09-19/toowoomba-trial",
+        "state": "QLD",
+        "venue": "Toowoomba"
+      },
+      "source_payload_hash": "7bd581ff75cc9a812b44d374119e56d1a3194b61127ff27e326187e9c86fa922",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2023-10-14",
+        "id": "5181672",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2023-10-14/atherton-trial",
+        "state": "QLD",
+        "venue": "Atherton"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-08-14",
+        "id": "5197394",
+        "isJumpOut": true,
+        "isTrial": false,
+        "meetUrl": "https://www.racing.com/form/2026-08-14/moe-jumpout",
+        "state": "VIC",
+        "venue": "Moe"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": "0e0109fd8a9d794cd7ec541a47364f3896b77462ab924758816757d83a41f413",
+      "canonical_source_meeting_id": "5197249",
+      "meeting": {
+        "date": "2026-07-31",
+        "id": "5195235",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-31/royal-randwick-trial",
+        "state": "NSW",
+        "venue": "Royal Randwick"
+      },
+      "source_payload_hash": "ab340c437221e19d77e75b0894e271f4eddb02dd1d8c0e9139152c9e036ff575",
+      "status": "duplicate_empty_source_listing"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-07-13",
+        "id": "5197157",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-13/quirindi-trial",
+        "state": "NSW",
+        "venue": "Quirindi"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-07-21",
+        "id": "5195233",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-21/warwick-farm-trial",
+        "state": "NSW",
+        "venue": "Warwick Farm"
+      },
+      "source_payload_hash": "0b31a1b02540d0c7d1379a75137ae7ec597d3adeef1c6fd92d8153c18cf90f80",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-07-22",
+        "id": "5197131",
+        "isJumpOut": true,
+        "isTrial": false,
+        "meetUrl": "https://www.racing.com/form/2026-07-22/ladbrokes-geelong-synthetic-jumpout",
+        "state": "VIC",
+        "venue": "Ladbrokes Geelong Synthetic"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-08-22",
+        "id": "5197310",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-08-22/quirindi-trial",
+        "state": "NSW",
+        "venue": "Quirindi"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-09-05",
+        "id": "5197813",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-09-05/kempsey-trial",
+        "state": "NSW",
+        "venue": "Kempsey"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-07-22",
+        "id": "5197130",
+        "isJumpOut": true,
+        "isTrial": false,
+        "meetUrl": "https://www.racing.com/form/2026-07-22/mornington-jumpout",
+        "state": "VIC",
+        "venue": "Mornington"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-09-06",
+        "id": "5197825",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-09-06/gundagai-trial",
+        "state": "NSW",
+        "venue": "Gundagai"
+      },
+      "source_payload_hash": "571ffa9f7a0ee87018821d05b62503d9eaac71cd8e8f8a629014650b8080fd45",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-08-17",
+        "id": "5197308",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-08-17/scone-trial",
+        "state": "NSW",
+        "venue": "Scone"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-07-13",
+        "id": "5197172",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-13/dubbo-trial",
+        "state": "NSW",
+        "venue": "Dubbo"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-08-06",
+        "id": "5197302",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-08-06/moree-trial",
+        "state": "NSW",
+        "venue": "Moree"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    },
+    {
+      "canonical_payload_hash": null,
+      "canonical_source_meeting_id": null,
+      "meeting": {
+        "date": "2026-07-18",
+        "id": "5197158",
+        "isJumpOut": false,
+        "isTrial": true,
+        "meetUrl": "https://www.racing.com/form/2026-07-18/inverell-trial",
+        "state": "NSW",
+        "venue": "Inverell"
+      },
+      "source_payload_hash": "688bea05e6be22ac8cded1b13edb444fda9a58c9ea0da4b34f05fff958b338ac",
+      "status": "unresolved_empty_source_meeting"
+    }
+  ],
+  "foreign_key_violations": 0,
+  "identity_links_resolved": 233,
+  "integrity_check": "ok",
+  "observation_resolution_statuses": {
+    "confirmed_nonstarter": 1648,
+    "confirmed_source_nonfinish_status": 3,
+    "corrected_source_heat_assignment": 4,
+    "no_official_result_match": 13005,
+    "verified_against_official_result": 1729
+  },
+  "official_participant_name_observations": 1893,
+  "recorded_access_blocks": [
+    {
+      "action": "requests_stopped; normal access restoration not verified",
+      "reason": "HTTP_403",
+      "recorded_at": "2026-09-13T21:26:18.262661+00:00",
+      "source": "racing_com",
+      "status": "access_blocked"
+    },
+    {
+      "action": "requests_stopped; normal access restoration not verified",
+      "reason": "source_access_challenge",
+      "recorded_at": "2026-09-13T21:26:18.264413+00:00",
+      "source": "racing_australia",
+      "status": "access_blocked"
+    }
+  ],
+  "states": {
+    "ACT": {
+      "cached_populated_meetings": 8,
+      "calendar_meetings": 68,
+      "coverage_status": "incomplete"
+    },
+    "NSW": {
+      "cached_populated_meetings": 124,
+      "calendar_meetings": 1562,
+      "coverage_status": "incomplete"
+    },
+    "NT": {
+      "cached_populated_meetings": 0,
+      "calendar_meetings": 0,
+      "coverage_status": "no_calendar_entries; geographic coverage not independently established"
+    },
+    "QLD": {
+      "cached_populated_meetings": 10,
+      "calendar_meetings": 489,
+      "coverage_status": "incomplete"
+    },
+    "SA": {
+      "cached_populated_meetings": 9,
+      "calendar_meetings": 242,
+      "coverage_status": "incomplete"
+    },
+    "TAS": {
+      "cached_populated_meetings": 5,
+      "calendar_meetings": 161,
+      "coverage_status": "incomplete"
+    },
+    "VIC": {
+      "cached_populated_meetings": 110,
+      "calendar_meetings": 1283,
+      "coverage_status": "incomplete"
+    },
+    "WA": {
+      "cached_populated_meetings": 8,
+      "calendar_meetings": 320,
+      "coverage_status": "incomplete"
+    }
+  },
+  "status": "not_ready_for_signoff",
+  "table_counts": {
+    "fitness_events": 4730,
+    "horses": 10194,
+    "trial_calendar_observations": 16389,
+    "trial_official_observations": 508,
+    "trial_provider_profiles": 336
+  },
+  "unmatched_observations": 10856,
+  "verified_clock_observations": 1893,
+  "window": {
+    "from": "2023-09-14",
+    "to": "2026-09-13"
+  }
+}

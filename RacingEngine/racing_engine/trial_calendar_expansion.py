@@ -4,18 +4,16 @@ import argparse
 import hashlib
 import json
 import re
-import time
-from concurrent.futures import ThreadPoolExecutor
 from collections import Counter
 from datetime import date, datetime, timedelta
 from pathlib import Path
-from threading import Lock
 from urllib.parse import urlparse
 
 from .fitness_identity import link_rows
 from .horse_identity import identity_key
 from .racing_com import DATE_QUERY, QUERY, graphql_request, centiseconds, distance_metres, lengths
 from .storage import RacingStore, utc_now
+from .trial_source_requests import SourceGate, SourceAccessStopped, bounded_map
 from .trial_ingest import archive_payload
 from .trial_meeting import MeetingError, validate_review_target
 
@@ -161,6 +159,8 @@ def main():
     for key in ('database','registry-database','archive','run-directory'):p.add_argument('--'+key,type=Path,required=True)
     p.add_argument('--from-date',required=True);p.add_argument('--to-date',required=True)
     p.add_argument('--states',default='NSW,VIC,ACT')
+    p.add_argument('--discovery-only',action='store_true',help='Archive and verify the complete calendar before downloading results.')
+    p.add_argument('--reuse-run',type=Path,action='append',default=[],help='Reuse hash-verified source archives from a previous run, applying this run’s state filter.')
     a=p.parse_args();validate_review_target(a.database,a.registry_database)
     start=date.fromisoformat(a.from_date);end=date.fromisoformat(a.to_date)
     if end<start or end>=date.today():raise MeetingError('window_must_contain_completed_days')
@@ -169,12 +169,21 @@ def main():
     if (root/'settings.json').exists():
         if json.loads((root/'settings.json').read_text())!=settings:raise MeetingError('resume_settings_mismatch')
     else:save(root/'settings.json',settings)
-    throttle=Lock()
-    def request(query,variables):
-        with throttle:time.sleep(.25)
-        return graphql_request(query,variables)
+    gate=SourceGate(root/'access_block.json')
+    def request(query,variables):return gate.call(graphql_request,query,variables)
     def collect_day(day):
         path=root/('calendar_'+day+'.json')
+        if not path.exists():
+            for previous_root in a.reuse_run:
+                candidate=previous_root/path.name
+                if not candidate.exists():continue
+                cached=json.loads(candidate.read_text())
+                if cached.get('status')!='verified':continue
+                raw=Path(cached['archive']['payload_path']).read_bytes()
+                if hashlib.sha256(raw).hexdigest()!=cached['archive']['payload_hash']:raise MeetingError('calendar_archive_hash_mismatch')
+                included,excluded=validate_calendar(json.loads(raw),day,states)
+                save(path,{'date':day,'status':'verified','meetings':included,'excluded':excluded,'archive':cached['archive']})
+                break
         if path.exists():
             previous=json.loads(path.read_text())
             if previous.get('status')=='verified':
@@ -189,10 +198,11 @@ def main():
             archive=archive_payload(a.archive,source_id='racing_com_trial_calendar',source_url='https://www.racing.com/form/'+day,payload=json.dumps(result,sort_keys=True).encode(),collected_at=utc_now())
             included,excluded=validate_calendar(result,day,states)
             report.update(status='verified',meetings=included,excluded=excluded,archive=archive)
+        except SourceAccessStopped:raise
         except Exception as exc:report['error']=str(exc) if isinstance(exc,MeetingError) else type(exc).__name__
         save(path,report);return report
     days=[(start+timedelta(days=n)).isoformat() for n in range((end-start).days+1)]
-    with ThreadPoolExecutor(max_workers=4) as pool:calendars=list(pool.map(collect_day,days))
+    calendars=list(bounded_map(collect_day,days))
     meetings={}
     for day in calendars:
         for item in day.get('meetings',[]):
@@ -201,10 +211,20 @@ def main():
     plan={'settings':settings,'days_expected':len(days),'days_verified':sum(d['status']=='verified' for d in calendars),
         'failed_dates':[d['date'] for d in calendars if d['status']!='verified'],'meetings':list(meetings.values())}
     save(root/'plan.json',plan);print(json.dumps({k:v for k,v in plan.items() if k!='meetings'}),flush=True)
+    if a.discovery_only:
+        if plan['failed_dates']:raise SystemExit(2)
+        return
     store=RacingStore(a.database);store.connection.executescript(SCHEMA)
     def collect(item):
         path=root/('meeting_'+item['id']+'.json')
         report=json.loads(path.read_text()) if path.exists() else {'meeting':item,'status':'pending'}
+        if not report.get('archive'):
+            for previous_root in a.reuse_run:
+                candidate=previous_root/path.name
+                if candidate.exists():
+                    cached=json.loads(candidate.read_text())
+                    if cached.get('meeting')==item and cached.get('archive'):
+                        report['archive']=cached['archive'];break
         rows=None
         try:
             if report.get('archive'):
@@ -216,17 +236,17 @@ def main():
                 archive=archive_payload(a.archive,source_id='racing_com_trial_meetings',source_url=item['meetUrl'],payload=json.dumps(result,sort_keys=True).encode(),collected_at=utc_now())
                 report['archive']=archive
             rows=parse_meeting(result,item,archive['collected_at'])
+        except SourceAccessStopped:raise
         except Exception as exc:report.update(status='failed',error=str(exc) if isinstance(exc,MeetingError) else type(exc).__name__)
         return path,report,rows
     reports=[]
-    with ThreadPoolExecutor(max_workers=4) as pool:
-        for n,(path,report,rows) in enumerate(pool.map(collect,plan['meetings']),1):
-            if rows is not None:
-                report.update(install_meeting(store,rows,report['archive']['payload_hash']))
-                report.update(status='imported' if rows else 'no_results_published',source_rows=len(rows))
-                report.pop('error',None)
-            save(path,report);reports.append(report)
-            if n%20==0 or n==len(plan['meetings']):print(json.dumps({'meetings_processed':n,'of':len(plan['meetings']),'source_rows':sum(r.get('source_rows',0) for r in reports)}),flush=True)
+    for n,(path,report,rows) in enumerate(bounded_map(collect,plan['meetings']),1):
+        if rows is not None:
+            report.update(install_meeting(store,rows,report['archive']['payload_hash']))
+            report.update(status='imported' if rows else 'no_results_published',source_rows=len(rows))
+            report.pop('error',None)
+        save(path,report);reports.append(report)
+        if n%20==0 or n==len(plan['meetings']):print(json.dumps({'meetings_processed':n,'of':len(plan['meetings']),'source_rows':sum(r.get('source_rows',0) for r in reports)}),flush=True)
     summary={k:v for k,v in plan.items() if k!='meetings'}
     summary.update(meetings_expected=len(meetings),meetings_imported=sum(r['status']=='imported' for r in reports),
         unavailable_meetings=[r['meeting'] for r in reports if r['status']=='no_results_published'],

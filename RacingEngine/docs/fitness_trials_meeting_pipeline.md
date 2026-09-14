@@ -213,3 +213,9 @@ or finishing positions. This is still not complete national coverage.
 Use `trial_review_page --database PATH --output DIRECTORY` to generate the local
 source-linked spot check. Full commands, regression evidence and remaining work:
 `handover/sessions/2026-09-13_trials-coverage-correction.md`.
+
+## National data-completion checkpoint, 14 September 2026
+
+The three-year daily calendar is archived, but the result/profile backfill is **not complete**. Racing.com HTTP 403 and Racing Australia human-verification responses stopped collection. See `handover/sessions/2026-09-14_trial-data-completion-blocked.md` and `reports/fitness_trials/national_data_completion_2026-09-14.json` for denominators, evidence and outstanding work.
+
+`trial_profile_catalog` adds verified provider identities without rewriting source observations. `trial_official_archive` stores count-reconciled official result sheets and participant IDs/names. `trial_data_reconcile` records immutable corrections and exposes `trial_normalized_observations`; retain the view's identity, clock and review flags when querying. It corrects proven wrong-heat source entries rather than guessing a clock. `trial_coverage_report` records proven empty-listing duplicates and leaves unsupported meetings open. These are data operations only; no fitness or pricing calculations have been introduced.

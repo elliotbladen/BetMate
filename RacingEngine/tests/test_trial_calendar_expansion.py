@@ -65,3 +65,21 @@ def test_empty_placeholder_heats_and_ambiguous_numbering(store):
     assert len(rows)==4 and all(r['detail']['ambiguous_heat_number'] for r in rows)
     store.connection.executescript(SCHEMA)
     assert install_meeting(store,rows,'source')['accepted_inserted']==0
+
+def test_discovery_reuses_verified_archive_with_new_state_filter(tmp_path,monkeypatch):
+    import hashlib,json,sys
+    import racing_engine.trial_calendar_expansion as module
+    old=tmp_path/'old';old.mkdir();new=tmp_path/'new'
+    raw=json.dumps({'data':{'GetMeetingByDate':[ITEM]}}).encode();archive=tmp_path/'calendar.json';archive.write_bytes(raw)
+    cached={'date':ITEM['date'],'status':'verified','meetings':[],'excluded':[ITEM],
+      'archive':{'payload_path':str(archive),'payload_hash':hashlib.sha256(raw).hexdigest()}}
+    (old/('calendar_'+ITEM['date']+'.json')).write_text(json.dumps(cached))
+    args=['collect','--database',str(tmp_path/'review.sqlite'),'--registry-database',str(tmp_path/'registry.sqlite'),
+      '--archive',str(tmp_path/'raw'),'--run-directory',str(new),'--from-date',ITEM['date'],'--to-date',ITEM['date'],
+      '--states','VIC','--reuse-run',str(old),'--discovery-only']
+    monkeypatch.setattr(sys,'argv',args)
+    def network_forbidden(*args,**kwargs):raise AssertionError('cached discovery must not request the source')
+    monkeypatch.setattr(module,'graphql_request',network_forbidden)
+    module.main();plan=json.loads((new/'plan.json').read_text())
+    assert plan['days_verified']==1 and plan['meetings']==[ITEM]
+    assert not (tmp_path/'review.sqlite').exists()

@@ -39,6 +39,9 @@ def _provider_ids(store: RacingStore) -> dict[tuple[str, str], set[str]]:
             value = detail.get(provider, {}).get(key) if isinstance(detail.get(provider), dict) else None
             if value:
                 result[(provider, str(value))].add(row["horse_id"])
+    if store.connection.execute("SELECT 1 FROM sqlite_master WHERE name='trial_provider_profiles'").fetchone():
+        for row in store.connection.execute('SELECT source_horse_id,horse_id FROM trial_provider_profiles'):
+            result[('racing_com',row['source_horse_id'])].add(row['horse_id'])
     return result
 
 
@@ -52,9 +55,12 @@ def link_rows(store: RacingStore, rows: Iterable[dict[str, Any]]) -> dict[str, A
             detail = json.loads(record["detail_json"] or "{}")
             profile = detail.get("racing_nsw", {}) if isinstance(detail, dict) else {}
             if isinstance(profile, dict) and profile.get("observed_at"):
-                available[record["horse_id"]] = profile["observed_at"]
+                available[("racing_nsw",record["horse_id"])] = profile["observed_at"]
         except (ValueError, TypeError):
             continue
+    if store.connection.execute("SELECT 1 FROM sqlite_master WHERE name='trial_provider_profiles'").fetchone():
+        for record in store.connection.execute("SELECT horse_id,observed_at FROM trial_provider_profiles"):
+            available[("racing_com",record["horse_id"])]=record["observed_at"]
     linked: list[dict[str, Any]] = []
     quarantined: list[dict[str, Any]] = []
     for raw in rows:
@@ -96,9 +102,9 @@ def link_rows(store: RacingStore, rows: Iterable[dict[str, Any]]) -> dict[str, A
                         "review_status": "quarantine", "quarantine_reason": "no_registry_match",
                         "candidate_horse_ids": [], "cleaned_horse_name": cleaned})
             quarantined.append(row); continue
-        if provider == "racing_nsw" and method == "provider_id" and horse_id in available and row.get("effective_at"):
+        if method == "provider_id" and (provider,horse_id) in available and row.get("effective_at"):
             # Resolving an old source today cannot make the identity available yesterday.
-            row["effective_at"] = max((row["effective_at"], available[horse_id]), key=datetime.fromisoformat)
+            row["effective_at"] = max((row["effective_at"], available[(provider,horse_id)]), key=datetime.fromisoformat)
         row.update({"horse_id": horse_id, "cleaned_horse_name": cleaned, "identity_method": method,
                     "identity_confidence": confidence, "review_status": "automatic",
                     "identity_version": IDENTITY_VERSION, "transformations": transformations})
