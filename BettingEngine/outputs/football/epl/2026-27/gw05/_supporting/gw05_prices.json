@@ -1,0 +1,531 @@
+{
+  "generated_at": "2026-09-15T14:59:16.630486",
+  "competition": "EPL",
+  "season": "2026/27",
+  "matchweek": 5,
+  "limitations": [
+    "T5 PARTIAL: only 6 clubs audited from a source that serves its data; 12 clubs are UNAUDITED, not injury-free.",
+    "No player shadow \u2014 ESPN starting-XI feeds are not refreshed for GW5.",
+    "No referee appointments injected (T6 = 0).",
+    "No market odds injected \u2014 EV is not computed here."
+  ],
+  "games": [
+    {
+      "date": "2026-09-18",
+      "home": "Brentford",
+      "away": "Chelsea",
+      "absences_home": [
+        [
+          "Kaye Furo",
+          "CM"
+        ],
+        [
+          "Nathan Collins",
+          "CB"
+        ],
+        [
+          "Mathias Jensen",
+          "CM"
+        ],
+        [
+          "Sepp van den Berg",
+          "CB"
+        ],
+        [
+          "Josh Dasilva",
+          "CM"
+        ],
+        [
+          "Antoni Milambo",
+          "CM"
+        ]
+      ],
+      "absences_away": [],
+      "home_unaudited": false,
+      "away_unaudited": true,
+      "price": {
+        "league": "epl",
+        "home": "Brentford",
+        "away": "Chelsea",
+        "as_of": "2026-09-18",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.816,
+        "lambda_away": 2.294,
+        "p_home": 0.389516,
+        "p_draw": 0.233625,
+        "p_away": 0.376859,
+        "p_home_base": 0.418153,
+        "p_draw_base": 0.236307,
+        "p_away_base": 0.34554,
+        "t5_h2h_swing_capped": true,
+        "p_over25": 0.777778,
+        "p_under25": 0.222222,
+        "fair_home": 2.57,
+        "fair_draw": 4.28,
+        "fair_away": 2.65,
+        "fair_home_base": 2.39,
+        "fair_draw_base": 4.23,
+        "fair_away_base": 2.89,
+        "fair_over25": 1.29,
+        "fair_under25": 4.5,
+        "new_team_resets": [],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.816,
+        "lambda_away_1x2": 2.294,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Tottenham",
+      "away": "Aston Villa",
+      "absences_home": [
+        [
+          "Mykhailo Mudryk",
+          "LW"
+        ],
+        [
+          "Xavi Simons",
+          "AM"
+        ],
+        [
+          "Wilson Odobert",
+          "LW"
+        ],
+        [
+          "Dejan Kulusevski",
+          "AM"
+        ],
+        [
+          "Pedro Porro",
+          "RB"
+        ],
+        [
+          "Sandro Tonali",
+          "CM"
+        ]
+      ],
+      "absences_away": [
+        [
+          "Joao Gomes",
+          "CM"
+        ]
+      ],
+      "home_unaudited": false,
+      "away_unaudited": false,
+      "price": {
+        "league": "epl",
+        "home": "Tottenham",
+        "away": "Aston Villa",
+        "as_of": "2026-09-19",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.763,
+        "lambda_away": 1.625,
+        "p_home": 0.415414,
+        "p_draw": 0.247597,
+        "p_away": 0.336989,
+        "p_home_base": 0.448569,
+        "p_draw_base": 0.241883,
+        "p_away_base": 0.309548,
+        "t5_h2h_swing_capped": true,
+        "p_over25": 0.639091,
+        "p_under25": 0.360909,
+        "fair_home": 2.41,
+        "fair_draw": 4.04,
+        "fair_away": 2.97,
+        "fair_home_base": 2.23,
+        "fair_draw_base": 4.13,
+        "fair_away_base": 3.23,
+        "fair_over25": 1.56,
+        "fair_under25": 2.77,
+        "new_team_resets": [],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.763,
+        "lambda_away_1x2": 1.625,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Brighton",
+      "away": "Arsenal",
+      "absences_home": [],
+      "absences_away": [],
+      "home_unaudited": true,
+      "away_unaudited": true,
+      "price": {
+        "league": "epl",
+        "home": "Brighton",
+        "away": "Arsenal",
+        "as_of": "2026-09-19",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.35,
+        "lambda_away": 1.903,
+        "p_home": 0.277339,
+        "p_draw": 0.242537,
+        "p_away": 0.480124,
+        "p_home_base": 0.277339,
+        "p_draw_base": 0.242537,
+        "p_away_base": 0.480124,
+        "t5_h2h_swing_capped": false,
+        "p_over25": 0.585366,
+        "p_under25": 0.414634,
+        "fair_home": 3.61,
+        "fair_draw": 4.12,
+        "fair_away": 2.08,
+        "fair_home_base": 3.61,
+        "fair_draw_base": 4.12,
+        "fair_away_base": 2.08,
+        "fair_over25": 1.71,
+        "fair_under25": 2.41,
+        "new_team_resets": [],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.35,
+        "lambda_away_1x2": 1.903,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Everton",
+      "away": "Ipswich",
+      "absences_home": [],
+      "absences_away": [
+        [
+          "Jack Taylor",
+          "CM"
+        ]
+      ],
+      "home_unaudited": true,
+      "away_unaudited": false,
+      "price": {
+        "league": "epl",
+        "home": "Everton",
+        "away": "Ipswich",
+        "as_of": "2026-09-19",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.952,
+        "lambda_away": 1.013,
+        "p_home": 0.559051,
+        "p_draw": 0.244333,
+        "p_away": 0.196616,
+        "p_home_base": 0.54166,
+        "p_draw_base": 0.2503,
+        "p_away_base": 0.20804,
+        "t5_h2h_swing_capped": true,
+        "p_over25": 0.521978,
+        "p_under25": 0.478022,
+        "fair_home": 1.79,
+        "fair_draw": 4.09,
+        "fair_away": 5.09,
+        "fair_home_base": 1.85,
+        "fair_draw_base": 4.0,
+        "fair_away_base": 4.81,
+        "fair_over25": 1.92,
+        "fair_under25": 2.09,
+        "new_team_resets": [
+          "Ipswich"
+        ],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.952,
+        "lambda_away_1x2": 1.013,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Newcastle",
+      "away": "Hull",
+      "absences_home": [],
+      "absences_away": [],
+      "home_unaudited": true,
+      "away_unaudited": true,
+      "price": {
+        "league": "epl",
+        "home": "Newcastle",
+        "away": "Hull",
+        "as_of": "2026-09-19",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 2.583,
+        "lambda_away": 1.21,
+        "p_home": 0.58943,
+        "p_draw": 0.21277,
+        "p_away": 0.1978,
+        "p_home_base": 0.58943,
+        "p_draw_base": 0.21277,
+        "p_away_base": 0.1978,
+        "t5_h2h_swing_capped": false,
+        "p_over25": 0.673469,
+        "p_under25": 0.326531,
+        "fair_home": 1.7,
+        "fair_draw": 4.7,
+        "fair_away": 5.06,
+        "fair_home_base": 1.7,
+        "fair_draw_base": 4.7,
+        "fair_away_base": 5.06,
+        "fair_over25": 1.48,
+        "fair_under25": 3.06,
+        "new_team_resets": [
+          "Hull"
+        ],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 2.583,
+        "lambda_away_1x2": 1.21,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Nott'm Forest",
+      "away": "Coventry",
+      "absences_home": [],
+      "absences_away": [],
+      "home_unaudited": true,
+      "away_unaudited": true,
+      "price": {
+        "league": "epl",
+        "home": "Nott'm Forest",
+        "away": "Coventry",
+        "as_of": "2026-09-19",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.639,
+        "lambda_away": 1.062,
+        "p_home": 0.49747,
+        "p_draw": 0.26798,
+        "p_away": 0.23455,
+        "p_home_base": 0.49747,
+        "p_draw_base": 0.26798,
+        "p_away_base": 0.23455,
+        "t5_h2h_swing_capped": false,
+        "p_over25": 0.505208,
+        "p_under25": 0.494792,
+        "fair_home": 2.01,
+        "fair_draw": 3.73,
+        "fair_away": 4.26,
+        "fair_home_base": 2.01,
+        "fair_draw_base": 3.73,
+        "fair_away_base": 4.26,
+        "fair_over25": 1.98,
+        "fair_under25": 2.02,
+        "new_team_resets": [
+          "Coventry"
+        ],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.639,
+        "lambda_away_1x2": 1.062,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Bournemouth",
+      "away": "Liverpool",
+      "absences_home": [],
+      "absences_away": [
+        [
+          "Hugo Ekitike",
+          "ST"
+        ],
+        [
+          "Conor Bradley",
+          "RB"
+        ],
+        [
+          "Giovanni Leoni",
+          "CB"
+        ],
+        [
+          "Federico Chiesa",
+          "FW"
+        ]
+      ],
+      "home_unaudited": false,
+      "away_unaudited": false,
+      "price": {
+        "league": "epl",
+        "home": "Bournemouth",
+        "away": "Liverpool",
+        "as_of": "2026-09-20",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.947,
+        "lambda_away": 2.126,
+        "p_home": 0.337472,
+        "p_draw": 0.232367,
+        "p_away": 0.43016,
+        "p_home_base": 0.31163,
+        "p_draw_base": 0.22291,
+        "p_away_base": 0.46546,
+        "t5_h2h_swing_capped": true,
+        "p_over25": 0.777778,
+        "p_under25": 0.222222,
+        "fair_home": 2.96,
+        "fair_draw": 4.3,
+        "fair_away": 2.32,
+        "fair_home_base": 3.21,
+        "fair_draw_base": 4.49,
+        "fair_away_base": 2.15,
+        "fair_over25": 1.29,
+        "fair_under25": 4.5,
+        "new_team_resets": [],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.947,
+        "lambda_away_1x2": 2.126,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Leeds",
+      "away": "Crystal Palace",
+      "absences_home": [],
+      "absences_away": [],
+      "home_unaudited": true,
+      "away_unaudited": true,
+      "price": {
+        "league": "epl",
+        "home": "Leeds",
+        "away": "Crystal Palace",
+        "as_of": "2026-09-20",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.909,
+        "lambda_away": 1.507,
+        "p_home": 0.46896,
+        "p_draw": 0.24837,
+        "p_away": 0.28267,
+        "p_home_base": 0.46896,
+        "p_draw_base": 0.24837,
+        "p_away_base": 0.28267,
+        "t5_h2h_swing_capped": false,
+        "p_over25": 0.673469,
+        "p_under25": 0.326531,
+        "fair_home": 2.13,
+        "fair_draw": 4.03,
+        "fair_away": 3.54,
+        "fair_home_base": 2.13,
+        "fair_draw_base": 4.03,
+        "fair_away_base": 3.54,
+        "fair_over25": 1.48,
+        "fair_under25": 3.06,
+        "new_team_resets": [],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.909,
+        "lambda_away_1x2": 1.507,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Man City",
+      "away": "Sunderland",
+      "absences_home": [
+        [
+          "Jeremy Doku",
+          "LW"
+        ]
+      ],
+      "absences_away": [],
+      "home_unaudited": false,
+      "away_unaudited": true,
+      "price": {
+        "league": "epl",
+        "home": "Man City",
+        "away": "Sunderland",
+        "as_of": "2026-09-20",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 2.31,
+        "lambda_away": 0.717,
+        "p_home": 0.682108,
+        "p_draw": 0.200084,
+        "p_away": 0.117808,
+        "p_home_base": 0.7004,
+        "p_draw_base": 0.18901,
+        "p_away_base": 0.11059,
+        "t5_h2h_swing_capped": true,
+        "p_over25": 0.542852,
+        "p_under25": 0.457148,
+        "fair_home": 1.47,
+        "fair_draw": 5.0,
+        "fair_away": 8.49,
+        "fair_home_base": 1.43,
+        "fair_draw_base": 5.29,
+        "fair_away_base": 9.04,
+        "fair_over25": 1.84,
+        "fair_under25": 2.19,
+        "new_team_resets": [],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 2.31,
+        "lambda_away_1x2": 0.717,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Fulham",
+      "away": "Man United",
+      "absences_home": [
+        [
+          "Tom Cairney",
+          "CM"
+        ],
+        [
+          "Ryan Sessegnon",
+          "LB"
+        ]
+      ],
+      "absences_away": [],
+      "home_unaudited": false,
+      "away_unaudited": true,
+      "price": {
+        "league": "epl",
+        "home": "Fulham",
+        "away": "Man United",
+        "as_of": "2026-09-20",
+        "model_version": "dc_elo_rules_v1.1_season_reset",
+        "lambda_home": 1.69,
+        "lambda_away": 1.84,
+        "p_home": 0.352602,
+        "p_draw": 0.244823,
+        "p_away": 0.402575,
+        "p_home_base": 0.38189,
+        "p_draw_base": 0.24593,
+        "p_away_base": 0.37218,
+        "t5_h2h_swing_capped": true,
+        "p_over25": 0.673469,
+        "p_under25": 0.326531,
+        "fair_home": 2.84,
+        "fair_draw": 4.08,
+        "fair_away": 2.48,
+        "fair_home_base": 2.62,
+        "fair_draw_base": 4.07,
+        "fair_away_base": 2.69,
+        "fair_over25": 1.48,
+        "fair_under25": 3.06,
+        "new_team_resets": [],
+        "new_team_reset_mode_totals": "league_average",
+        "new_team_reset_mode_1x2": "league_average",
+        "lambda_home_1x2": 1.69,
+        "lambda_away_1x2": 1.84,
+        "t8_home_elo_diff": null,
+        "t8_away_elo_diff": null
+      }
+    }
+  ]
+}
