@@ -1,0 +1,13 @@
+home,away,status,selection,model_fair,result,won,book,earliest_available_odds,last_available_odds,earliest_quote_time,last_quote_time,last_quote_minutes_before_kickoff,earliest_profit,last_profit
+Club Brugge,Aston Villa,NO_FINAL_FROZEN_TOTAL_PRICE,,,2-3,,,,,,,,,
+Borussia Dortmund,Villarreal,NO_FINAL_FROZEN_TOTAL_PRICE,,,3-2,,,,,,,,,
+Porto,Manchester City,NO_FINAL_FROZEN_TOTAL_PRICE,,,0-2,,,,,,,,,
+Real Madrid,Inter,NO_FINAL_FROZEN_TOTAL_PRICE,,,2-1,,,,,,,,,
+Barcelona,Feyenoord,NO_FINAL_FROZEN_TOTAL_PRICE,,,5-1,,,,,,,,,
+Liverpool,Atlético de Madrid,NO_FINAL_FROZEN_TOTAL_PRICE,,,2-1,,,,,,,,,
+Paris Saint-Germain,Slovan Bratislava,NO_FINAL_FROZEN_TOTAL_PRICE,,,6-1,,,,,,,,,
+Sporting CP,Galatasaray,NO_FINAL_FROZEN_TOTAL_PRICE,,,3-1,,,,,,,,,
+Napoli,Arsenal,NO_FINAL_FROZEN_TOTAL_PRICE,,,0-1,,,,,,,,,
+PSV Eindhoven,Shakhtar Donetsk,FROZEN_RAW_TOTAL_MISSING_2_5_QUOTES,over,1.327844907714779,1-1,False,,,,,,,,
+Bayern Munich,Bodo/Glimt,FROZEN_RAW_TOTAL_MISSING_2_5_QUOTES,over,1.1693171188026192,5-0,True,,,,,,,,
+Slavia Prague,Lens,FROZEN_RAW_TOTAL_WITH_QUOTES,under,1.508978421608571,2-3,False,betmgm,1.9803921568627452,2.3,2026-09-08T11:04:39.283678+00:00,2026-09-10T18:57:38.103254+00:00,2.3649457666666667,-1,-1

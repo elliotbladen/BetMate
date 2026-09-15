@@ -1,0 +1,17 @@
+{
+  "bets": 12,
+  "wins": 8,
+  "stake": 12,
+  "opening_return": 12.560813246696828,
+  "closing_return": 11.69442428638724,
+  "opening_profit": 0.5608132466968285,
+  "closing_profit": -0.3055757136127595,
+  "mean_raw_clv_pct": 3.8560390152387227,
+  "mean_margin_removed_clv_pct": 0.9930242145614833,
+  "model_sha256": {
+    "BettingEngine/outputs/football/ucl/2026-27/md01/_supporting/week_1_shadow_player_rating/prices.csv": "09816012568e04f7200a70b4ac958e39db73ad71af7bfa05a3a19921f4fd13a9",
+    "BettingEngine/outputs/football/ucl/2026-27/md01/_supporting/week_1_champions_league_prices/md1_remaining_normal_and_shadow/run/normal/prices.csv": "fadfecfecabebeecc519c7624264ebaa94f056b24454e5c0066965d4dbf74cda"
+  },
+  "opening_roi_pct": 4.6734437224735705,
+  "closing_roi_pct": -2.546464280106329
+}

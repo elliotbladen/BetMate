@@ -1,0 +1,249 @@
+anchor,snapshot_ts,sport,away,home,commence_time,market,side,line,book,american_odds,devig_fair_prob,best_price_flag
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Feyenoord,Barcelona,2026-09-09T16:45:00Z,ml,home,,pinnacle,-1433,0.886608,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Feyenoord,Barcelona,2026-09-09T16:45:00Z,ml,away,,pinnacle,2157,0.042024,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Feyenoord,Barcelona,2026-09-09T16:45:00Z,ml,draw,,pinnacle,1229,0.071368,0
+last_available_pregame,2026-09-09T16:42:20.042597+00:00,soccer_uefa_champs_league,Feyenoord,Barcelona,2026-09-09T16:45:00Z,ml,home,,pinnacle,-1225,0.896851,0
+last_available_pregame,2026-09-09T16:42:20.042597+00:00,soccer_uefa_champs_league,Feyenoord,Barcelona,2026-09-09T16:45:00Z,ml,away,,pinnacle,3000,0.031292,0
+last_available_pregame,2026-09-09T16:42:20.042597+00:00,soccer_uefa_champs_league,Feyenoord,Barcelona,2026-09-09T16:45:00Z,ml,draw,,pinnacle,1250,0.071857,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Bodø/Glimt,Bayern Munich,2026-09-10T19:00:00Z,ml,home,,pinnacle,-1208,0.873444,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Bodø/Glimt,Bayern Munich,2026-09-10T19:00:00Z,ml,away,,pinnacle,1631,0.054636,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Bodø/Glimt,Bayern Munich,2026-09-10T19:00:00Z,ml,draw,,pinnacle,1215,0.071920,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,Bodø/Glimt,Bayern Munich,2026-09-10T19:00:00Z,ml,home,,pinnacle,-1250,0.898975,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,Bodø/Glimt,Bayern Munich,2026-09-10T19:00:00Z,ml,away,,pinnacle,2750,0.034066,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,Bodø/Glimt,Bayern Munich,2026-09-10T19:00:00Z,ml,draw,,pinnacle,1350,0.066958,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Villarreal,Borussia Dortmund,2026-09-08T19:00:00Z,ml,home,,pinnacle,-119,0.527812,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Villarreal,Borussia Dortmund,2026-09-08T19:00:00Z,ml,away,,pinnacle,317,0.232938,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Villarreal,Borussia Dortmund,2026-09-08T19:00:00Z,ml,draw,,pinnacle,306,0.239249,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Villarreal,Borussia Dortmund,2026-09-08T19:00:00Z,ml,home,,pinnacle,-135,0.558714,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Villarreal,Borussia Dortmund,2026-09-08T19:00:00Z,ml,away,,pinnacle,370,0.206931,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Villarreal,Borussia Dortmund,2026-09-08T19:00:00Z,ml,draw,,pinnacle,315,0.234356,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,ml,home,,pinnacle,154,0.382926,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,ml,away,,pinnacle,178,0.349868,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,ml,draw,,pinnacle,264,0.267207,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,ml,home,,pinnacle,148,0.392451,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,ml,away,,pinnacle,188,0.337944,1
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,ml,draw,,pinnacle,261,0.269606,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,ballybet,-148,0.572916,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,ballybet,120,0.427084,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,ballybet,-162,0.594191,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,ballybet,130,0.405809,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,betmgm,-155,0.568738,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,betmgm,110,0.431262,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,betmgm,-155,0.568738,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,betmgm,110,0.431262,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,betparx,-148,0.572916,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,betparx,120,0.427084,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,betparx,-162,0.594191,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,betparx,130,0.405809,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,betrivers,-148,0.572916,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,betrivers,120,0.427084,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,betrivers,-162,0.594191,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,betrivers,130,0.405809,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,fliff,-165,0.577152,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,fliff,110,0.422848,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,fliff,-170,0.581187,0
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,fliff,110,0.418813,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,novig,-141,0.578447,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,novig,133,0.421553,1
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,over,2.5,novig,-144,0.585397,1
+last_available_pregame,2026-09-08T16:41:58.200698+00:00,soccer_uefa_champs_league,Aston Villa,Club Brugge,2026-09-08T16:45:00Z,total,under,2.5,novig,138,0.414603,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,ml,home,,pinnacle,-140,0.562493,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,ml,away,,pinnacle,365,0.207371,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,ml,draw,,pinnacle,319,0.230137,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,ml,home,,pinnacle,-130,0.549831,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,ml,away,,pinnacle,370,0.206974,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,ml,draw,,pinnacle,300,0.243195,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,ballybet,-159,0.589934,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,ballybet,128,0.410066,0
+last_available_pregame,2026-09-09T04:00:51.767198+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,ballybet,-167,0.600820,0
+last_available_pregame,2026-09-09T04:00:51.767198+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,ballybet,133,0.399180,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,betmgm,-165,0.587427,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,betmgm,120,0.412573,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,betmgm,-185,0.611942,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,betmgm,130,0.388058,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,betparx,-159,0.589934,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,betparx,128,0.410066,0
+last_available_pregame,2026-09-09T04:00:51.767198+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,betparx,-167,0.600820,0
+last_available_pregame,2026-09-09T04:00:51.767198+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,betparx,133,0.399180,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,betrivers,-159,0.589934,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,betrivers,128,0.410066,0
+last_available_pregame,2026-09-09T04:00:51.767198+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,betrivers,-167,0.600820,0
+last_available_pregame,2026-09-09T04:00:51.767198+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,betrivers,133,0.399180,0
+earliest_available,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,bovada,-170,0.598859,0
+earliest_available,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,bovada,128,0.401141,0
+last_available_pregame,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,bovada,-170,0.598859,0
+last_available_pregame,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,bovada,128,0.401141,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,fliff,-185,0.602841,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,fliff,120,0.397159,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,fliff,-195,0.619015,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,fliff,130,0.380985,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,novig,-163,0.610898,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,novig,150,0.389102,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,over,2.5,novig,-156,0.605134,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Atlético Madrid,Liverpool,2026-09-09T19:00:00Z,total,under,2.5,novig,150,0.394866,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,ml,home,,pinnacle,405,0.191283,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,ml,away,,pinnacle,-134,0.553167,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,ml,draw,,pinnacle,278,0.255550,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,ml,home,,pinnacle,440,0.180076,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,ml,away,,pinnacle,-142,0.570588,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,ml,draw,,pinnacle,290,0.249336,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,ballybet,-113,0.503443,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,ballybet,-110,0.496557,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,ballybet,-108,0.491964,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,ballybet,-115,0.508036,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betmgm,-110,0.483473,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betmgm,-125,0.516527,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betmgm,-110,0.483473,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betmgm,-125,0.516527,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betonlineag,-110,0.500000,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betonlineag,-110,0.500000,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betonlineag,-101,0.484636,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betonlineag,-114,0.515364,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betparx,-113,0.503443,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betparx,-110,0.496557,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betparx,-108,0.491964,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betparx,-115,0.508036,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betrivers,-113,0.503443,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betrivers,-110,0.496557,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,betrivers,-108,0.491964,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,betrivers,-115,0.508036,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,bovada,-112,0.493279,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,bovada,-118,0.506721,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,bovada,-108,0.484310,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,bovada,-122,0.515690,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,fliff,-120,0.494673,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,fliff,-125,0.505327,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,fliff,-115,0.484013,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,fliff,-130,0.515987,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,lowvig,-110,0.500000,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,lowvig,-110,0.500000,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,lowvig,-101,0.484636,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,lowvig,-114,0.515364,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,novig,100,0.490299,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,novig,-108,0.509701,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,novig,106,0.479579,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,novig,-111,0.520421,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,pinnacle,-102,0.490443,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,pinnacle,-110,0.509557,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,over,2.5,pinnacle,100,0.487963,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Arsenal,Napoli,2026-09-09T19:00:00Z,total,under,2.5,pinnacle,-110,0.512037,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Shakhtar Donetsk,PSV Eindhoven,2026-09-10T16:45:00Z,ml,home,,pinnacle,-232,0.673099,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Shakhtar Donetsk,PSV Eindhoven,2026-09-10T16:45:00Z,ml,away,,pinnacle,562,0.145503,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Shakhtar Donetsk,PSV Eindhoven,2026-09-10T16:45:00Z,ml,draw,,pinnacle,431,0.181399,1
+last_available_pregame,2026-09-10T16:42:11.012513+00:00,soccer_uefa_champs_league,Shakhtar Donetsk,PSV Eindhoven,2026-09-10T16:45:00Z,ml,home,,pinnacle,-195,0.643142,0
+last_available_pregame,2026-09-10T16:42:11.012513+00:00,soccer_uefa_champs_league,Shakhtar Donetsk,PSV Eindhoven,2026-09-10T16:45:00Z,ml,away,,pinnacle,540,0.152025,0
+last_available_pregame,2026-09-10T16:42:11.012513+00:00,soccer_uefa_champs_league,Shakhtar Donetsk,PSV Eindhoven,2026-09-10T16:45:00Z,ml,draw,,pinnacle,375,0.204833,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,ŠK Slovan Bratislava,Paris Saint Germain,2026-09-09T19:00:00Z,ml,home,,pinnacle,-2984,0.928288,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,ŠK Slovan Bratislava,Paris Saint Germain,2026-09-09T19:00:00Z,ml,away,,pinnacle,4176,0.022437,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,ŠK Slovan Bratislava,Paris Saint Germain,2026-09-09T19:00:00Z,ml,draw,,pinnacle,1847,0.049276,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,ŠK Slovan Bratislava,Paris Saint Germain,2026-09-09T19:00:00Z,ml,home,,pinnacle,-2500,0.933735,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,ŠK Slovan Bratislava,Paris Saint Germain,2026-09-09T19:00:00Z,ml,away,,pinnacle,4750,0.020022,0
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,ŠK Slovan Bratislava,Paris Saint Germain,2026-09-09T19:00:00Z,ml,draw,,pinnacle,2000,0.046242,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,ml,home,,pinnacle,415,0.188556,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,ml,away,,pinnacle,-146,0.576321,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,ml,draw,,pinnacle,313,0.235124,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,ml,home,,pinnacle,460,0.173840,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,ml,away,,pinnacle,-153,0.588720,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,ml,draw,,pinnacle,310,0.237440,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,ballybet,-159,0.589934,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,ballybet,128,0.410066,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,ballybet,-143,0.563318,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,ballybet,115,0.436682,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,betmgm,-160,0.578300,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,betmgm,115,0.421700,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,betmgm,-140,0.543486,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,betmgm,100,0.456514,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,betparx,-159,0.589934,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,betparx,128,0.410066,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,betparx,-143,0.563318,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,betparx,115,0.436682,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,betrivers,-159,0.589934,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,betrivers,128,0.410066,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,betrivers,-143,0.563318,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,betrivers,115,0.436682,0
+earliest_available,2026-09-08T17:00:57.942601+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,bovada,-148,0.565788,0
+earliest_available,2026-09-08T17:00:57.942601+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,bovada,113,0.434212,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,bovada,-145,0.559827,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,bovada,110,0.440173,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,fliff,-170,0.586458,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,fliff,115,0.413542,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,fliff,-155,0.557122,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,fliff,100,0.442878,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,novig,-138,0.575631,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,novig,133,0.424369,1
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,over,2.5,novig,-133,0.560776,1
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Manchester City,Porto,2026-09-08T19:00:00Z,total,under,2.5,novig,122,0.439224,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Inter Milan,Real Madrid,2026-09-08T19:00:00Z,ml,home,,pinnacle,-161,0.598493,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Inter Milan,Real Madrid,2026-09-08T19:00:00Z,ml,away,,pinnacle,426,0.184454,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Inter Milan,Real Madrid,2026-09-08T19:00:00Z,ml,draw,,pinnacle,347,0.217053,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Inter Milan,Real Madrid,2026-09-08T19:00:00Z,ml,home,,pinnacle,-165,0.605476,1
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Inter Milan,Real Madrid,2026-09-08T19:00:00Z,ml,away,,pinnacle,445,0.178428,0
+last_available_pregame,2026-09-08T18:57:02.426968+00:00,soccer_uefa_champs_league,Inter Milan,Real Madrid,2026-09-08T19:00:00Z,ml,draw,,pinnacle,350,0.216096,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,ml,home,,pinnacle,154,0.380824,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,ml,away,,pinnacle,179,0.346700,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,ml,draw,,pinnacle,255,0.272477,1
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,ml,home,,pinnacle,194,0.330781,1
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,ml,away,,pinnacle,147,0.393724,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,ml,draw,,pinnacle,253,0.275495,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,ballybet,-122,0.525376,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,ballybet,100,0.474624,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,ballybet,-167,0.600820,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,ballybet,133,0.399180,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betmgm,-135,0.536194,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betmgm,-102,0.463806,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betmgm,-185,0.611942,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betmgm,130,0.388058,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betonlineag,-132,0.544038,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betonlineag,107,0.455962,1
+last_available_pregame,2026-09-10T04:00:56.198837+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betonlineag,-135,0.551458,0
+last_available_pregame,2026-09-10T04:00:56.198837+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betonlineag,111,0.448542,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betparx,-122,0.525376,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betparx,100,0.474624,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betparx,-167,0.600820,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betparx,133,0.399180,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betrivers,-122,0.525376,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betrivers,100,0.474624,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,betrivers,-167,0.600820,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,betrivers,133,0.399180,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,bovada,-135,0.544689,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,bovada,105,0.455311,0
+last_available_pregame,2026-09-10T04:00:56.198837+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,bovada,-140,0.552943,0
+last_available_pregame,2026-09-10T04:00:56.198837+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,bovada,108,0.447057,0
+earliest_available,2026-09-08T18:00:54.181904+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,fliff,-145,0.542081,0
+earliest_available,2026-09-08T18:00:54.181904+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,fliff,-105,0.457919,0
+last_available_pregame,2026-09-10T18:01:13.681591+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,fliff,-190,0.611108,0
+last_available_pregame,2026-09-10T18:01:13.681591+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,fliff,125,0.388892,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,lowvig,-132,0.544038,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,lowvig,107,0.455962,1
+last_available_pregame,2026-09-10T04:00:56.198837+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,lowvig,-135,0.551458,0
+last_available_pregame,2026-09-10T04:00:56.198837+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,lowvig,111,0.448542,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,novig,-127,0.535481,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,novig,104,0.464519,0
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,over,2.5,novig,-163,0.617811,1
+last_available_pregame,2026-09-10T18:57:38.103254+00:00,soccer_uefa_champs_league,RC Lens,Slavia Praha,2026-09-10T19:00:00Z,total,under,2.5,novig,160,0.382189,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,ml,home,,pinnacle,-122,0.530402,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,ml,away,,pinnacle,325,0.227096,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,ml,draw,,pinnacle,298,0.242502,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,ml,home,,pinnacle,-160,0.599623,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,ml,away,,pinnacle,430,0.183847,1
+last_available_pregame,2026-09-09T18:57:55.401905+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,ml,draw,,pinnacle,350,0.216530,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,ballybet,-155,0.581945,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,ballybet,123,0.418055,1
+last_available_pregame,2026-09-09T13:00:53.890591+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,ballybet,-175,0.611167,1
+last_available_pregame,2026-09-09T13:00:53.890591+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,ballybet,138,0.388833,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,betmgm,-160,0.578300,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,betmgm,115,0.421700,0
+last_available_pregame,2026-09-09T11:01:03.282158+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,betmgm,-190,0.615523,0
+last_available_pregame,2026-09-09T11:01:03.282158+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,betmgm,130,0.384477,0
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,betparx,-155,0.581945,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,betparx,123,0.418055,1
+last_available_pregame,2026-09-09T13:00:53.890591+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,betparx,-175,0.611167,1
+last_available_pregame,2026-09-09T13:00:53.890591+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,betparx,138,0.388833,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,betrivers,-155,0.581945,1
+earliest_available,2026-09-08T11:04:39.283678+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,betrivers,123,0.418055,1
+last_available_pregame,2026-09-09T13:00:53.890591+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,betrivers,-175,0.611167,1
+last_available_pregame,2026-09-09T13:00:53.890591+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,betrivers,138,0.388833,1
+earliest_available,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,bovada,-165,0.592153,0
+earliest_available,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,bovada,125,0.407847,1
+last_available_pregame,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,over,2.5,bovada,-165,0.592153,0
+last_available_pregame,2026-09-08T16:01:00.536222+00:00,soccer_uefa_champs_league,Galatasaray,Sporting Lisbon,2026-09-09T19:00:00Z,total,under,2.5,bovada,125,0.407847,1
