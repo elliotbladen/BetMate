@@ -33,7 +33,9 @@ from .rule_eras import rule_era_features
 
 # --- config from config.yaml ---
 HALF_LIFE_GAMES = 6
-PRIOR_SEASON_RETENTION = 0.35
+# Full prior-season state is retained at the season boundary. Alternatives are
+# evaluated explicitly by retention_analysis.py rather than silently selected.
+PRIOR_SEASON_RETENTION = 1.0
 GARBAGE_WP_LOW = 0.05
 GARBAGE_WP_HIGH = 0.95
 
@@ -116,7 +118,7 @@ def compute_game_stats(pbp: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def ewma_features(game_stats: pd.DataFrame) -> pd.DataFrame:
+def ewma_features(game_stats: pd.DataFrame, prior_season_retention: float = PRIOR_SEASON_RETENTION) -> pd.DataFrame:
     """
     Compute EWMA-smoothed features per team, shifted so week N uses
     only data through week N-1. Returns one row per (season, week, team).
@@ -125,6 +127,8 @@ def ewma_features(game_stats: pd.DataFrame) -> pd.DataFrame:
                 if any(c.startswith(p) for p in ["off_", "def_"])
                 and not c.endswith("_plays")]
 
+    if not 0.0 < prior_season_retention <= 1.0:
+        raise ValueError("prior_season_retention must be greater than zero and at most one")
     rows = []
     for team in sorted(game_stats.team.unique()):
         team_games = game_stats[game_stats.team == team].sort_values(["season", "week"])
@@ -139,8 +143,8 @@ def ewma_features(game_stats: pd.DataFrame) -> pd.DataFrame:
             # Season boundary: decay prior season
             if prev_season is not None and season != prev_season:
                 for c in epa_cols:
-                    ewma_state[c] *= PRIOR_SEASON_RETENTION
-                ewma_count = max(1, int(ewma_count * PRIOR_SEASON_RETENTION))
+                    ewma_state[c] *= prior_season_retention
+                ewma_count = max(1, int(ewma_count * prior_season_retention))
 
             # EMIT the shifted feature row BEFORE updating with this game
             row = {"season": int(season), "week": int(week), "team": team,

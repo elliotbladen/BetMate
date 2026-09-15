@@ -9,6 +9,8 @@ from typing import Any
 
 import pandas as pd
 
+from .shadow_components import component_names
+
 
 ROOT = Path(__file__).resolve().parents[2]
 REPORTS = ROOT / "ml/nfl/reports"
@@ -91,6 +93,12 @@ def assess_readiness() -> tuple[pd.DataFrame, dict[str, Any]]:
         "status": "shadow_framework_ready_live_inputs_blocked",
         "games": len(card), "ready_to_publish_t1_paper": True, "ready_to_bet": False,
         "staking_enabled": False, "blockers": blockers,
+        "shadow_components": {
+            "status": "shadow_only",
+            "registered": list(component_names()),
+            "official_price_changed": False,
+            "staking_enabled": False,
+        },
         "tier_registry": {name: {"status": value[0], "reason": value[1]} for name, value in TIER_REGISTRY.items()},
         "historical_consolidation": {
             "development_games": tier_audit["games"],

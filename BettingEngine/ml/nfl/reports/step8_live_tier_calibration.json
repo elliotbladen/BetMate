@@ -1,0 +1,21 @@
+{
+  "status": "calibrated_shadow_only",
+  "structural_prior_season_retention": 1.0,
+  "training_games": 2879,
+  "tier_adjustment_scale": 0.7830854193655986,
+  "calibration_method": "rolling-origin 2019-2024 residual shrinkage; 2025 vault excluded",
+  "development": {
+    "core_margin_mae": 10.241514084348204,
+    "joint_core_plus_qb_injury_continuity_mae": 10.057368567241433
+  },
+  "vault_2025_check": {
+    "core_margin_mae": 10.277422423473343,
+    "unshrunk_joint_margin_mae": 10.317491382294932,
+    "status": "not_a_promotion_result"
+  },
+  "active_next_round_components": ["t1_injuries", "t2_qb", "t2_continuity"],
+  "conditional_components": ["t2_weather_forecast_model_pending"],
+  "gate_only_components": ["t3_confluence"],
+  "execution_only_components": ["t8_market_disagreement"],
+  "staking_enabled": false
+}

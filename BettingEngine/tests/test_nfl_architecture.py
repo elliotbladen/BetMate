@@ -198,6 +198,13 @@ class NFLArchitectureTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "exceeds its cap"):
             TierAdjustment("weather", total_points=-6.0, cap_points=5.0)
 
+    def test_duplicate_tiers_are_rejected(self):
+        with self.assertRaisesRegex(ValueError, "double-count"):
+            apply_tiers(0.0, 45.0, [
+                TierAdjustment("qb", margin_points=1.0, mode=TierMode.ACTIVE),
+                TierAdjustment("qb", margin_points=1.0, mode=TierMode.ACTIVE),
+            ])
+
 
 if __name__ == "__main__":
     unittest.main()

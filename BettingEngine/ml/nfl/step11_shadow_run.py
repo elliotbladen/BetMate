@@ -22,6 +22,7 @@ def run_checkpoint() -> dict:
         "t2_t3_live_shadow": "unresolved" if "quarterback_review_incomplete" in readiness["blockers"] else "available",
         "t6_weather_shadow": "unresolved" if "stadium_coordinates_and_weather_capture_incomplete" in readiness["blockers"] else "available",
         "t8_t9_market_shadow": "unresolved" if "no_valid_timestamped_market_quotes" in readiness["blockers"] else "available",
+        "shadow_components": readiness.get("shadow_components", {}),
         "betting_decision": "ABSTAIN", "staking_enabled": False, "thresholds_retuned": False,
     }
     path = REPORTS / f"step11_shadow_checkpoint_{now.strftime('%Y%m%dT%H%M%SZ')}.json"

@@ -13,6 +13,7 @@ import numpy as np
 import pandas as pd
 
 from .baselines import fit_ridge, model_frame
+from .features import PRIOR_SEASON_RETENTION
 from .phase3 import CONTINUITY_COLUMNS, INJURY_COLUMNS, QB_COLUMNS
 
 
@@ -22,6 +23,8 @@ PERSONNEL = ROOT / "data/nfl/features/personnel_context.parquet"
 SCHEDULES = ROOT / "data/nfl/schedules/games.csv"
 PREDICTIONS = ROOT / "data/nfl/predictions/2026_week01_paper_frozen.csv"
 MODEL = ROOT / "ml/nfl/reports/step8_live_tier_model.json"
+MODEL_RETENTION_1 = ROOT / "ml/nfl/reports/step8_live_tier_model_retention_1_calibrated.json"
+TIER_ADJUSTMENT_SCALE = 0.7830854193655986
 TEMPLATE = ROOT / "data/nfl/live_tiers/2026_week01_input_template.json"
 EASTERN = ZoneInfo("America/New_York")
 
@@ -86,11 +89,11 @@ def validate_record(record: dict) -> list[str]:
     return errors
 
 
-def _model_payload() -> dict:
-    personnel = pd.read_parquet(PERSONNEL).drop(
+def _model_payload(features_path: Path = FEATURES, personnel_path: Path = PERSONNEL) -> dict:
+    personnel = pd.read_parquet(personnel_path).drop(
         columns=["season", "week", "home_team", "away_team", "roof", "surface"]
     )
-    games = pd.read_parquet(FEATURES).merge(personnel, on="game_id", how="left", validate="one_to_one")
+    games = pd.read_parquet(features_path).merge(personnel, on="game_id", how="left", validate="one_to_one")
     development = games[games.season.le(2024)].copy()
     core = model_frame(development)
     extras = development[QB_COLUMNS + INJURY_COLUMNS + CONTINUITY_COLUMNS].astype(float).fillna(0.0)
@@ -103,13 +106,16 @@ def _model_payload() -> dict:
     scale = dict(zip(model.columns, model.scale))
     return {
         "status": "shadow_only_trained_through_2024",
+        "structural_prior_season_retention": PRIOR_SEASON_RETENTION,
+        "tier_adjustment_scale": TIER_ADJUSTMENT_SCALE,
+        "tier_adjustment_calibration": "2019-2024 rolling-origin residual shrinkage",
         "training_games": len(development), "alpha": 25.0,
         "columns": list(model.columns), "mean": mean, "scale": scale,
         "standardized_coefficient": coefficient,
-        "tier_columns": {"t2_qb": QB_COLUMNS, "t2_availability_diagnostic": INJURY_COLUMNS, "t3_continuity": CONTINUITY_COLUMNS},
+        "tier_columns": {"t2_qb": QB_COLUMNS, "t1_injuries": INJURY_COLUMNS, "t3_continuity": CONTINUITY_COLUMNS},
         "application": {
             "t2_qb": "shadow_contribution_only",
-            "t2_availability": "diagnostic_no_points",
+            "t2_availability": "calibrated_incremental_contribution",
             "t3_continuity": "shadow_contribution_only",
             "staking_enabled": False,
             "caps_frozen": False,
@@ -117,12 +123,12 @@ def _model_payload() -> dict:
     }
 
 
-def train_model() -> dict:
-    if MODEL.exists():
-        raise RuntimeError(f"refusing to overwrite shadow model: {MODEL}")
-    payload = _model_payload()
-    MODEL.parent.mkdir(parents=True, exist_ok=True)
-    MODEL.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+def train_model(output_path: Path = MODEL, features_path: Path = FEATURES, personnel_path: Path = PERSONNEL) -> dict:
+    if output_path.exists():
+        raise RuntimeError(f"refusing to overwrite shadow model: {output_path}")
+    payload = _model_payload(features_path, personnel_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     return payload
 
 
@@ -208,13 +214,13 @@ def _contribution(values: dict[str, float], columns: list[str], model: dict) -> 
     ))
 
 
-def score_file(path: Path) -> dict:
+def score_file(path: Path, predictions_path: Path = PREDICTIONS, model_path: Path = MODEL) -> dict:
     validation = validate_file(path)
     if validation["status"] != "valid":
         return {**validation, "status": "unresolved_no_shadow_score"}
-    model = json.loads(MODEL.read_text(encoding="utf-8"))
+    model = json.loads(model_path.read_text(encoding="utf-8"))
     payload = json.loads(path.read_text(encoding="utf-8"))
-    predictions = pd.read_csv(PREDICTIONS).set_index("game_id")
+    predictions = pd.read_csv(predictions_path).set_index("game_id")
     rows = []
     for record in payload["games"]:
         game_id = record["game_id"]
@@ -224,16 +230,23 @@ def score_file(path: Path) -> dict:
             values[f"diff_{raw}"] = (
                 float(record["home"]["continuity"][raw]) - float(record["away"]["continuity"][raw])
             )
-        t2 = _contribution(values, model["tier_columns"]["t2_qb"], model)
-        t3 = _contribution(values, model["tier_columns"]["t3_continuity"], model)
+        for raw in ("injury_burden", "players_out", "players_questionable", "injury_report_rows"):
+            values[f"diff_{raw}"] = (
+                float(record["home"]["availability"][raw]) - float(record["away"]["availability"][raw])
+            )
+        scale = float(model.get("tier_adjustment_scale", 1.0))
+        t2 = scale * _contribution(values, model["tier_columns"]["t2_qb"], model)
+        t3 = scale * _contribution(values, model["tier_columns"]["t3_continuity"], model)
+        t1_injury = scale * _contribution(values, model["tier_columns"]["t1_injuries"], model)
         base_spread = float(predictions.loc[game_id, "ridge_fair_home_spread"])
         rows.append({
             "game_id": game_id, "as_of_utc": record["as_of_utc"],
             "t1_fair_home_spread": base_spread,
+            "t1_injury_margin_points": t1_injury,
             "t2_qb_shadow_margin_points": t2,
             "t3_continuity_shadow_margin_points": t3,
-            "combined_shadow_fair_home_spread_uncapped": base_spread - t2 - t3,
-            "availability_points_applied": 0.0,
+            "combined_shadow_fair_home_spread_uncapped": base_spread - t1_injury - t2 - t3,
+            "availability_points_applied": -t1_injury,
             "caps_frozen": False, "official_price_changed": False,
             "staking_enabled": False,
         })
