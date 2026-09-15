@@ -4,6 +4,7 @@ import argparse
 from collections import defaultdict, Counter
 from datetime import datetime
 import json
+from difflib import SequenceMatcher
 from pathlib import Path
 from .fitness_identity import link_rows
 from .horse_identity import clean_name, identity_key
@@ -87,6 +88,9 @@ def primary_match(row,candidates):
 
 def reconcile(store):
     c=store.connection;c.executescript(SCHEMA);index=defaultdict(list)
+    registry=defaultdict(list)
+    for h in c.execute('SELECT horse_id,canonical_name FROM horses'):
+        key=name_key(h['canonical_name']); registry[(key[:1],len(key)//3)].append((h['horse_id'],key))
     for row in official_rows(c):index[(row['event_date'],row['state'],track_key(row['track']),name_key(row['horse_name']))].append(row)
     observations=[dict(r) for r in c.execute('SELECT * FROM trial_calendar_observations')]
     rows=[]
@@ -100,6 +104,14 @@ def reconcile(store):
             row=byid[original['observation_id']];names={name_key(row['horse_name']),name_key(profiles.get(row.get('source_horse_id'),row['horse_name']))}
             candidates=[x for name in names for x in index.get((row['event_date'],row['state'],track_key(row['track']),name),[]) if row['event_type']=='official_trial']
             best,status=primary_match(row,candidates);hid=row.get('horse_id')
+            # Composite fingerprint fallback: same date/venue/heat/result and
+            # a unique near-name match can safely resolve legacy spelling drift.
+            if not hid and best and best.get('horse_name'):
+                target=name_key(best['horse_name']); pool=[]
+                for bucket in range(max(0,len(target)//3-1),len(target)//3+2): pool.extend(registry.get((target[:1],bucket),[]))
+                scores=sorted(((SequenceMatcher(None,target,k).ratio(),horse_id) for horse_id,k in pool),reverse=True)
+                if scores and scores[0][0]>=0.95 and (len(scores)==1 or scores[0][0]-scores[1][0]>=0.02):
+                    hid=scores[0][1]; row['identity_method']='composite_fingerprint'; row['identity_confidence']=scores[0][0]
             detail={'identity_status':'linked' if hid else 'unmatched','identity_method':row.get('identity_method'),'original_review_status':original['review_status']}
             if best:
                 keys=('source','source_url','payload_hash','observed_at','horse_name','heat_number','distance_metres','finish_position','field_size','beaten_margin','result_status','jockey_name','trainer_name','heat_time_seconds','timing_method','surface','going','jockey','trainer')
