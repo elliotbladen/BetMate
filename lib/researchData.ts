@@ -1023,9 +1023,12 @@ export const MODEL_BETS: ModelBet[] = [
   // Screenshot bets recorded 2026-09-12. 0.5u flat like R27 above: $25 = half a
   // unit, so plUnits is net return / $50. Corrected 2026-09-15 — these were first
   // entered at full stake (-1.00 on a loss), which double-counted every result.
-  { id:101, date:'2026-09-12', match:'Cronulla Sharks vs North Queensland Cowboys',         market:'Cronulla Sharks -7.5 (stake $25; return $46.75)', predictedLine:null, takenPrice:1.87, closingPrice:null, result:'win', plUnits:0.44, runningTotal:2.58 },
-  { id:102, date:'2026-09-13', match:'Penrith Panthers vs Sydney Roosters',                 market:'Sydney Roosters +10.5 (stake $25; return $43.75)', predictedLine:null, takenPrice:1.75, closingPrice:null, result:'win', plUnits:0.38, runningTotal:2.96 },
-  { id:103, date:'2026-09-12', match:'New Zealand Warriors vs Dolphins',                   market:'New Zealand Warriors -3.5 (stake $25; no return)', predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:2.46 },
+  // Dollars, kept here rather than in the market label so the column stays readable:
+  //   101 Cronulla -7.5  $25 -> $46.75   102 Roosters +10.5 $25 -> $43.75
+  //   103 Warriors -3.5  $25 -> $0
+  { id:101, date:'2026-09-12', match:'Cronulla Sharks vs North Queensland Cowboys',         market:'Cronulla Sharks -7.5', predictedLine:null, takenPrice:1.87, closingPrice:null, result:'win', plUnits:0.44, runningTotal:2.58 },
+  { id:102, date:'2026-09-13', match:'Penrith Panthers vs Sydney Roosters',                 market:'Sydney Roosters +10.5', predictedLine:null, takenPrice:1.75, closingPrice:null, result:'win', plUnits:0.38, runningTotal:2.96 },
+  { id:103, date:'2026-09-12', match:'New Zealand Warriors vs Dolphins',                   market:'New Zealand Warriors -3.5', predictedLine:null, takenPrice:1.90, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:2.46 },
 ];
 
 
@@ -1049,12 +1052,22 @@ export const FOOTBALL_MODEL_BETS: ModelBet[] = [
   // Screenshot bets. plUnits is net return in dollars / $50 (a $25 bet is 0.5u);
   // no closing prices were shown, so CLV is intentionally left pending.
   // Corrected 2026-09-15 — first entered at full stake, which doubled every row.
-  { id:1, date:'2026-09-11', competition:'UCL', match:'PSV vs Shakhtar',                  market:'Shakhtar And Draw (stake $25; return $65.75)',                         predictedLine:null, takenPrice:2.63, closingPrice:null, result:'win',  plUnits:0.82,  runningTotal:0.82 },
-  { id:2, date:'2026-09-11', competition:'UCL', match:'Slavia Prague vs Lens',             market:'Under 2.5 Goals (cashed out; return $20.05 from $25 stake)',       predictedLine:null, takenPrice:2.00, closingPrice:null, result:'loss', plUnits:-0.10, runningTotal:0.72 },
-  { id:3, date:'2026-09-11', competition:'UCL', match:'Slavia Prague vs Lens',             market:'Slavia Prague Win (stake $25; no return)',                          predictedLine:null, takenPrice:2.60, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:0.22 },
-  { id:4, date:'2026-09-11', competition:'UCL', match:'Bayern Munich vs Bodo Glimt',       market:'Bodo Glimt +3.0 (stake $25; no return)',                            predictedLine:null, takenPrice:2.25, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:-0.28 },
-  { id:5, date:'2026-09-13', competition:'EFL', match:'Watford vs Stoke',                  market:'Over 3.5 Cards (stake $20.05; return $37.09)',                      predictedLine:null, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.34,  runningTotal:0.06 },
-  { id:6, date:'2026-09-13', competition:'EPL', match:'Liverpool vs Fulham',                market:'Fulham +2 (stake $25; return $40.50)',                             predictedLine:null, takenPrice:1.62, closingPrice:null, result:'win',  plUnits:0.31,  runningTotal:0.37 },
-  { id:7, date:'2026-09-13', competition:'EPL', match:'Chelsea vs Hull City',                market:'Hull City or Draw (stake $25; return $100.00)',                    predictedLine:null, takenPrice:4.00, closingPrice:null, result:'win',  plUnits:1.50,  runningTotal:1.87 },
-  { id:8, date:'2026-09-14', competition:'EPL', match:'Manchester United vs Manchester City', market:'Manchester United +1 (stake $25; no return)',                     predictedLine:null, takenPrice:1.70, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:1.37 },
+  // Dollars, kept here rather than in the market label so the column stays readable.
+  // NOTE two of these are NOT $25 and cannot be recovered from plUnits alone:
+  //   1 Shakhtar And Draw   $25    -> $65.75
+  //   2 Under 2.5 Goals     $25    -> $20.05  (cashed out early)
+  //   3 Slavia Prague Win   $25    -> $0
+  //   4 Bodo Glimt +3.0     $25    -> $0
+  //   5 Over 3.5 Cards      $20.05 -> $37.09  (stake is the Slavia cash-out rolled on)
+  //   6 Fulham +2           $25    -> $40.50
+  //   7 Hull City or Draw   $25    -> $100.00
+  //   8 Man United +1       $25    -> $0
+  { id:1, date:'2026-09-11', competition:'UCL', match:'PSV vs Shakhtar',                  market:'Shakhtar And Draw',                         predictedLine:null, takenPrice:2.63, closingPrice:null, result:'win',  plUnits:0.82,  runningTotal:0.82 },
+  { id:2, date:'2026-09-11', competition:'UCL', match:'Slavia Prague vs Lens',             market:'Under 2.5 Goals (cashed out)',       predictedLine:null, takenPrice:2.00, closingPrice:null, result:'loss', plUnits:-0.10, runningTotal:0.72 },
+  { id:3, date:'2026-09-11', competition:'UCL', match:'Slavia Prague vs Lens',             market:'Slavia Prague Win',                          predictedLine:null, takenPrice:2.60, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:0.22 },
+  { id:4, date:'2026-09-11', competition:'UCL', match:'Bayern Munich vs Bodo Glimt',       market:'Bodo Glimt +3.0',                            predictedLine:null, takenPrice:2.25, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:-0.28 },
+  { id:5, date:'2026-09-13', competition:'EFL', match:'Watford vs Stoke',                  market:'Over 3.5 Cards',                      predictedLine:null, takenPrice:1.85, closingPrice:null, result:'win',  plUnits:0.34,  runningTotal:0.06 },
+  { id:6, date:'2026-09-13', competition:'EPL', match:'Liverpool vs Fulham',                market:'Fulham +2',                             predictedLine:null, takenPrice:1.62, closingPrice:null, result:'win',  plUnits:0.31,  runningTotal:0.37 },
+  { id:7, date:'2026-09-13', competition:'EPL', match:'Chelsea vs Hull City',                market:'Hull City or Draw',                    predictedLine:null, takenPrice:4.00, closingPrice:null, result:'win',  plUnits:1.50,  runningTotal:1.87 },
+  { id:8, date:'2026-09-14', competition:'EPL', match:'Manchester United vs Manchester City', market:'Manchester United +1',                     predictedLine:null, takenPrice:1.70, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:1.37 },
 ];
