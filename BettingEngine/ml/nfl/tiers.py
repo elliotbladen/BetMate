@@ -26,6 +26,10 @@ def apply_tiers(
     """Apply active tiers only; retain shadow tiers for prospective evaluation."""
 
     rows = tuple(adjustments)
+    tier_names = [row.tier for row in rows]
+    duplicates = sorted({name for name in tier_names if tier_names.count(name) > 1})
+    if duplicates:
+        raise ValueError(f"duplicate tier adjustments would double-count: {', '.join(duplicates)}")
     active = tuple(row for row in rows if row.mode is TierMode.ACTIVE)
     shadow = tuple(row for row in rows if row.mode is TierMode.SHADOW)
     margin = base_home_margin + sum(row.margin_points for row in active)

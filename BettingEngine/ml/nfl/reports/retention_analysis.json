@@ -1,0 +1,23 @@
+{
+  "status": "retention_walk_forward_complete",
+  "selection_rule": "choose only using training-fold results; no 2026 Week 1 outcomes",
+  "results": [
+    {
+      "retention": 0.35,
+      "games": 1599,
+      "margin_mae": 10.308588926057823,
+      "margin_rmse": 13.259845439396482,
+      "total_mae": 10.766788277585729,
+      "total_rmse": 13.625212611482361
+    },
+    {
+      "retention": 1.0,
+      "games": 1599,
+      "margin_mae": 10.241514084348204,
+      "margin_rmse": 13.200292238626487,
+      "total_mae": 10.769651819545713,
+      "total_rmse": 13.635594473299026
+    }
+  ],
+  "interpretation": "100% retention improves margin error by 0.067 points but slightly worsens total error by 0.003 points; keep 100% as the new structural setting and continue totals monitoring."
+}

@@ -58,7 +58,7 @@ model:
     garbage_time_win_probability_high: 0.95
   recency:
     in_season_half_life_games: 6
-    prior_season_retention: 0.35
+    prior_season_retention: 1.0
     defence_regression_multiplier: 1.25
   components:
     - opponent_adjusted_offence
@@ -90,7 +90,7 @@ step2_baselines:
     actual_onside_recoveries_are_pregame_features: false
 
 step3_personnel_context:
-  status: shadow
+  status: active_when_timestamped_complete
   development_seasons: [2019, 2020, 2021, 2022, 2023, 2024]
   quarterback:
     prior_dropbacks: 150
@@ -111,7 +111,7 @@ step3_personnel_context:
     require_prospective_starter_probabilities: true
 
 step3_5_qb_lab:
-  status: deep_shadow
+  status: active_when_timestamped_complete
   first_source: nflverse_ftn_charting
   current_cost_usd: 0
   historical_from: 2022
@@ -150,14 +150,22 @@ tiers:
     mode: active
     cap_margin_points: 10.0
     method: opponent_adjusted_ewma_epa_with_learned_shrinkage
+  t1_injuries:
+    mode: active_when_timestamped_complete
+    cap_margin_points: 7.0
+    method: calibrated_incremental_availability_residual
   t2_quarterback_personnel:
-    mode: shadow
+    mode: active_when_timestamped_complete
     cap_margin_points: 7.0
     method: starter_mixture_and_position_weighted_availability
   t3_roster_continuity:
-    mode: shadow
+    mode: active_when_timestamped_complete
     cap_margin_points: 3.0
     method: snaps_weighted_continuity
+  t3_confluence:
+    mode: active_gate_zero_points
+    required_independent_families: 3
+    method: agreement_gate_only
   t4_venue_travel:
     mode: shadow
     cap_margin_points: 2.5
@@ -167,9 +175,15 @@ tiers:
     cap_margin_points: 0.75
     prior: near_zero
   t6_weather_surface:
-    mode: shadow
+    mode: rejected_alias
     cap_total_points: 5.0
     primary_market: total
+    reason: reclassified_to_t2_weather
+  t2_weather:
+    mode: conditional_active_timestamped_forecast
+    cap_total_points: 5.0
+    primary_market: total
+    reason: promoted_slot_pending_timestamped_forecast_model
   t7_scheme_matchup:
     mode: rejected_diagnostic
     cap_margin_points: 2.0
@@ -252,3 +266,58 @@ final_readiness_2026:
   minimum_frozen_predictions_for_promotion: 500
   minimum_seasons_for_promotion: 2
   minimum_market_coverage: 0.90
+
+# Canonical overlay policy.  Only the included list may change a paper price.
+# Shadow inputs are retained for monitoring and cannot add points. Discarded
+# tiers are not consumed by the pricing script.
+tier_overlay_policy:
+  t1_included_points:
+    - t1_team_strength
+    - t1_injuries
+  t2_included_points:
+    - t2_quarterback_personnel
+    - t2_roster_continuity
+    - t2_weather
+  t3_included_gate_zero_points:
+    - t3_confluence
+  shadow_no_price:
+    - context_event_register
+  execution_only:
+    - t8_market_disagreement
+  discarded:
+    - t4_venue_travel
+    - t5_rest_schedule
+    - t7_scheme_matchup
+  adjustment_scale:
+    t1_injuries: 0.7830854193655986
+    t2_quarterback_personnel: 0.7830854193655986
+    t2_roster_continuity: 0.7830854193655986
+    t2_weather: 0.0
+    t3_confluence: 0.0
+  staking_enabled: false
+
+# Research architecture. These components run beside the official model and
+# are compared at season end. They have no authority to change live prices.
+shadow_components:
+  status: shadow_only
+  evaluation: [walk_forward, 2025_vault, opening_clv, closing_clv, fixed_rule_roi]
+  components:
+    drive_red_zone_residual:
+      target_market: total
+      cap_points: 3.0
+      feature_families: [drives, field_position, red_zone_opportunity, goal_to_go]
+    bayesian_touchdown_field_goal_regression:
+      target_market: total
+      cap_points: 3.0
+      feature_families: [red_zone_opportunity, touchdown_rate, field_goal_rate, league_prior]
+    turnover_luck_residual:
+      target_market: margin
+      cap_points: 1.5
+      feature_families: [interception_rate, fumble_rate, pressure, expected_turnover_rate]
+    special_teams_field_position:
+      target_market: margin
+      cap_points: 1.5
+      feature_families: [punt_field_position, kickoff_field_position, field_goal_distance, return_epa]
+  promotion_requires: [positive_out_of_sample_gain, positive_mean_clv, stable_multi_season_result]
+  official_price_changed: false
+  staking_enabled: false
