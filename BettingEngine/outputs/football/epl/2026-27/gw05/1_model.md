@@ -22,6 +22,37 @@ Data is current: `fetch_results.py --league epl --live-merge` pulled GW4 this se
 | Man City v Sunderland | 2.31–0.72 | 68.2% | 20.0% | 11.8% | 1.47 / 5.00 / 8.49 | 54.3% | 1.84 / 2.19 |
 | Fulham v Man United | 1.69–1.84 | 35.3% | 24.5% | 40.3% | 2.84 / 4.08 / 2.48 | **67.3%** | 1.48 / 3.06 |
 
+## 1X2 priced to a 105% book
+
+Probabilities renormalised to 1.0, multiplied by 1.05, inverted. Books land at
+104.8–105.2% from rounding to two decimals only; the underlying figures are exact.
+Machine-readable copy: `_supporting/gw05_1x2_105.json`.
+
+| fixture | **H** | **D** | **A** | book | best market H/D/A |
+|---|---|---|---|---|---|
+| Brentford v Chelsea | **2.45** | **4.08** | **2.53** | 104.9% | 3.05 / 4.00 / 2.32 |
+| Tottenham v Aston Villa | **2.29** | **3.85** | **2.83** | 105.0% | 2.08 / 3.75 / 3.90 |
+| Brighton v Arsenal | **3.43** | **3.93** | **1.98** | 105.1% | 5.20 / 4.10 / 1.75 |
+| Everton v Ipswich | **1.70** | **3.90** | **4.84** | 105.1% | 1.83 / 4.00 / 4.80 |
+| Newcastle v Hull | **1.62** | **4.48** | **4.81** | 104.8% | 1.66 / 4.50 / 5.60 |
+| Nott'm Forest v Coventry | **1.91** | **3.55** | **4.06** | 105.2% | 1.70 / 4.10 / 5.60 |
+| Bournemouth v Liverpool | **2.82** | **4.10** | **2.21** | 105.1% | 3.25 / 3.95 / 2.22 |
+| Leeds v Crystal Palace | **2.03** | **3.83** | **3.37** | 105.0% | 1.85 / 3.95 / 4.70 |
+| Man City v Sunderland | **1.40** | **4.76** | **8.08** | 104.8% | 1.34 / 6.00 / 11.00 |
+| Fulham v Man United | **2.70** | **3.89** | **2.37** | 104.9% | 3.65 / 3.95 / 2.08 |
+
+⚠️ **The model's draw price is SHORTER than the market's on nine of ten fixtures** —
+3.55–4.76 against a market running 3.75–6.00. That is a systematic tilt, not ten
+independent reads, and it is the mechanism behind several of the away-side EVs in the
+screen (over-weighting the draw pushes probability off the favourite and onto the dog
+once the book is normalised).
+
+**There is no 1X2 calibrator in this engine.** `price_match.py` fits an isotonic
+calibrator for totals only (`fit_totals_calibrator`); the 1X2 probabilities come
+straight out of the scoreline matrix blended with Elo, uncalibrated. The draw tilt is
+what an uncalibrated Dixon-Coles typically does, and `ml/football/backtest/walk_forward.py`
+is the tool that would measure it — **not yet run.**
+
 ## ⚠️ Fault 1 — the O/U 2.5 calibrator is quantised, and it is visible on this slate
 
 Ten fixtures produce **seven distinct P(Over) values**. `77.8%` appears twice and
