@@ -147,6 +147,8 @@ function AllBetsTab() {
 
   return (
     <>
+      <ModelTab bets={RECENT_BETS} byCompetition />
+
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-5">
         {[
           { label: 'Bets',     value: stats.total.toString(),                                          color: '' },
@@ -306,11 +308,11 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
 }
 
 // -- Page ----------------------------------------------------------------------
-const TABS = ['Recent Bets', 'Sports Betting', 'NRL Model', 'AFL Model', 'Football Model'] as const;
+const TABS = ['Sports Betting', 'NRL Model', 'AFL Model', 'Football Model'] as const;
 type Tab = typeof TABS[number];
 
 export default function ResearchPage() {
-  const [activeTab, setActiveTab] = useState<Tab>('Recent Bets');
+  const [activeTab, setActiveTab] = useState<Tab>('Sports Betting');
 
   const allBets = useMemo(() => {
     const combined = [...LEGACY_BETS, ...MODEL_BETS];
@@ -351,7 +353,6 @@ export default function ResearchPage() {
           ))}
         </div>
 
-        {activeTab === 'Recent Bets'   && <ModelTab bets={RECENT_BETS} byCompetition />}
         {activeTab === 'Sports Betting' && <AllBetsTab />}
         {activeTab === 'NRL Model'      && <ModelTab bets={MODEL_BETS} />}
         {activeTab === 'AFL Model'      && <ModelTab bets={AFL_MODEL_BETS} />}
