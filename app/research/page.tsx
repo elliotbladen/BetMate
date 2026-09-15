@@ -14,20 +14,24 @@ const RECENT_BETS: ModelBet[] = [...MODEL_BETS.slice(-3), ...FOOTBALL_MODEL_BETS
     return rows;
   }, []);
 
-const RECENT_BETS_AS_LEGACY: LegacyBet[] = RECENT_BETS.map(bet => ({
-  id: bet.id,
-  date: bet.date,
-  match: bet.match,
-  market: bet.market,
-  odds: bet.takenPrice,
-  closingOdds: bet.closingPrice,
-  clv: bet.clv,
-  clvLabel: bet.clvLabel,
-  result: bet.result,
-  cumPL: bet.runningTotal,
-  sport: bet.competition ? 'FOOTBALL' : 'NRL',
-  notes: '',
-}));
+const RECENT_BETS_AS_LEGACY: LegacyBet[] = RECENT_BETS.reduce<LegacyBet[]>((rows, bet, index) => {
+  const previousPL = rows.at(-1)?.cumPL ?? LEGACY_BETS.at(-1)?.cumPL ?? 0;
+  rows.push({
+    id: LEGACY_BETS.length + index + 1,
+    date: bet.date,
+    match: bet.match,
+    market: bet.market,
+    odds: bet.takenPrice,
+    closingOdds: bet.closingPrice,
+    clv: bet.clv,
+    clvLabel: bet.clvLabel,
+    result: bet.result,
+    cumPL: Number((previousPL + bet.plUnits).toFixed(2)),
+    sport: bet.competition ? 'FOOTBALL' : 'NRL',
+    notes: '',
+  });
+  return rows;
+}, []);
 
 const SPORTS_BETTING_BETS: LegacyBet[] = [...LEGACY_BETS, ...RECENT_BETS_AS_LEGACY];
 
