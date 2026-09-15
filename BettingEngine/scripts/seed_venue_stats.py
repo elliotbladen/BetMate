@@ -28,7 +28,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-SEED_SEASONS = (2023, 2025)
+# 2026-09-15: was (2023, 2025), which wrote ZERO rows because model.db holds only
+# 2026 (218 NRL matches) — so team_venue_stats was empty all season and T4 venue was a
+# silent no-op on every game. Made a CLI flag rather than another hardcoded guess.
+SEED_SEASONS = (2026,)
 LEAGUE_AVG_TOTAL = 47.0  # from tiers.yaml tier1_baseline.league_avg_total
 MIN_GAMES_FOR_EDGE = 5
 
@@ -200,6 +203,10 @@ def main():
     parser = argparse.ArgumentParser(
         description='Seed team_venue_stats and venue_profiles from 2023+2025 results'
     )
+    parser.add_argument('--seasons', default=None,
+                        help='Comma-separated seasons to seed from (default: %s). '
+                             'The DB must actually contain them — check first.'
+                             % ','.join(str(x) for x in SEED_SEASONS))
     parser.add_argument('--settings',  default='config/settings.yaml')
     parser.add_argument('--dry-run',   action='store_true',
                         help='Compute and print without writing to DB')
@@ -211,6 +218,8 @@ def main():
     conn.row_factory = sqlite3.Row
 
     mode = 'DRY RUN' if args.dry_run else 'WRITE'
+    if args.seasons:
+        globals()['SEED_SEASONS'] = tuple(int(x) for x in args.seasons.split(','))
     print(f"\nSeeding venue stats from seasons {SEED_SEASONS}  [mode={mode}]")
 
     summary = seed_venue_stats(conn, dry_run=args.dry_run)
