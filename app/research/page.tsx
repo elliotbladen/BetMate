@@ -14,6 +14,23 @@ const RECENT_BETS: ModelBet[] = [...MODEL_BETS.slice(-3), ...FOOTBALL_MODEL_BETS
     return rows;
   }, []);
 
+const RECENT_BETS_AS_LEGACY: LegacyBet[] = RECENT_BETS.map(bet => ({
+  id: bet.id,
+  date: bet.date,
+  match: bet.match,
+  market: bet.market,
+  odds: bet.takenPrice,
+  closingOdds: bet.closingPrice,
+  clv: bet.clv,
+  clvLabel: bet.clvLabel,
+  result: bet.result,
+  cumPL: bet.runningTotal,
+  sport: bet.competition ? 'FOOTBALL' : 'NRL',
+  notes: '',
+}));
+
+const SPORTS_BETTING_BETS: LegacyBet[] = [...LEGACY_BETS, ...RECENT_BETS_AS_LEGACY];
+
 function resultBadge(r: BetResult) {
   if (r === 'win')  return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-[#00DEB8]/15 text-[#00DEB8]">W</span>;
   if (r === 'loss') return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-red-500/15 text-red-500">L</span>;
@@ -140,15 +157,13 @@ function PLChart({ points, color = '#00DEB8' }: { points: number[]; color?: stri
 
 // -- All Bets tab --------------------------------------------------------------
 function AllBetsTab() {
-  const filtered = LEGACY_BETS;
+  const filtered = SPORTS_BETTING_BETS;
   const stats  = statsFor(filtered);
   const finalPL = filtered.length > 0 ? filtered[filtered.length - 1].cumPL : 0;
   const roi     = stats.decisive > 0 ? (finalPL / stats.decisive) * 100 : 0;
 
   return (
     <>
-      <ModelTab bets={RECENT_BETS} byCompetition />
-
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-5">
         {[
           { label: 'Bets',     value: stats.total.toString(),                                          color: '' },
