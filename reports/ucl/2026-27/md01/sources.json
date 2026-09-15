@@ -1,0 +1,144 @@
+{
+  "retrieved_date": "2026-09-15",
+  "export_url": "https://theoddsgap.com/api/odds-export.csv?sport=soccer_uefa_champs_league&market=ml,total&start=2026-08-01&end=2026-09-11",
+  "raw_export_sha256": "0d4371878a7127491943c6fd71fa52efb5098448e877fa5687882234c3228016",
+  "raw_export_rows": 33072,
+  "window_clamped": true,
+  "window_start": "2026-09-08T07:35:45.658902Z",
+  "window_end": "2026-09-11T00:00:00Z",
+  "result_source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+  "fixtures": [
+    {
+      "home_feed": "Club Brugge",
+      "opening_home_american": 164,
+      "opening_away_american": 148,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/aston-villa-vs-club-brugge",
+      "home_goals": 2,
+      "away_goals": 3
+    },
+    {
+      "home_feed": "Borussia Dortmund",
+      "opening_home_american": -126,
+      "opening_away_american": 307,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/villarreal-vs-borussia-dortmund",
+      "home_goals": 3,
+      "away_goals": 2
+    },
+    {
+      "home_feed": "Porto",
+      "opening_home_american": 318,
+      "opening_away_american": -126,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/manchester-city-vs-porto",
+      "home_goals": 0,
+      "away_goals": 2
+    },
+    {
+      "home_feed": "Real Madrid",
+      "opening_home_american": -165,
+      "opening_away_american": 402,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/inter-milan-vs-real-madrid",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "home_feed": "Barcelona",
+      "opening_home_american": -722,
+      "opening_away_american": 1394,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/feyenoord-vs-barcelona",
+      "home_goals": 5,
+      "away_goals": 1
+    },
+    {
+      "home_feed": "Liverpool",
+      "opening_home_american": -134,
+      "opening_away_american": 340,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/atletico-madrid-vs-liverpool",
+      "home_goals": 2,
+      "away_goals": 1
+    },
+    {
+      "home_feed": "Paris Saint Germain",
+      "opening_home_american": -2008,
+      "opening_away_american": 2959,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/sk-slovan-bratislava-vs-paris-saint-germain",
+      "home_goals": 6,
+      "away_goals": 1
+    },
+    {
+      "home_feed": "Sporting Lisbon",
+      "opening_home_american": 101,
+      "opening_away_american": 266,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/galatasaray-vs-sporting-lisbon",
+      "home_goals": 3,
+      "away_goals": 1
+    },
+    {
+      "home_feed": "Napoli",
+      "opening_home_american": 313,
+      "opening_away_american": -114,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/arsenal-vs-napoli",
+      "home_goals": 0,
+      "away_goals": 1
+    },
+    {
+      "home_feed": "PSV Eindhoven",
+      "opening_home_american": -238,
+      "opening_away_american": 555,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/shakhtar-donetsk-vs-psv-eindhoven",
+      "home_goals": 1,
+      "away_goals": 1
+    },
+    {
+      "home_feed": "Bayern Munich",
+      "opening_home_american": -659,
+      "opening_away_american": 1194,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/bodo-glimt-vs-bayern-munich",
+      "home_goals": 5,
+      "away_goals": 0
+    },
+    {
+      "home_feed": "Slavia Praha",
+      "opening_home_american": 185,
+      "opening_away_american": 144,
+      "opening_draw_american": null,
+      "opening_book": "pinnacle",
+      "opening_timestamp": null,
+      "opening_source": "https://theoddsgap.com/odds/champions-league/rc-lens-vs-slavia-praha",
+      "home_goals": 2,
+      "away_goals": 3
+    }
+  ]
+}
