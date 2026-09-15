@@ -70,11 +70,22 @@ signature of an uncalibrated Dixon-Coles.
 |---|---|
 | D-C + Elo spine | ✅ current through GW7, 81 matches |
 | new-team reset (1X2) | ✅ **elo_seeded** — new today |
-| T2 pressing | ⚠️ `ppda_dated.csv` still holds only matchweek-1 2026/27 rows; `get_ppda` has no recency guard |
-| T3 rest | ✅ |
-| T5 injuries | ❌ not injected — deliberate, see `2_bets.md` |
-| T6 referee | ❌ EFL had not published GW8 appointments |
-| T8 ClubElo prior | per-club decay, `matchweek` passed as games actually played |
+| T2 PPDA (pressing) | ✅ fired 12/12 · ⚠️ `ppda_dated.csv` holds only matchweek-1 2026/27 rows and `get_ppda` has no recency guard, so these are stale pressing figures |
+| T3 Form | ✅ fired 12/12 |
+| T3 Rest | ➖ fired 0/12 — every club on 6–7 days, below the fatigue threshold |
+| T5 injuries | ❌ 0/12 — deliberately not injected, see `2_bets.md` |
+| T6 referee | ❌ 0/12 — EFL had not published GW8 appointments |
+| T7 Set-piece (corners) | ✅ fired 12/12 |
+| T8 New-team ClubElo prior | ✅ fired 6/12 — only the new-to-division clubs; magnitudes are small (e.g. Cardiff λ −0.024, wt 0.53) |
+| T9 New manager | ➖ fired 0/12 — configured (`t9_manager_adj: 0.07`), no changes this week |
+
+**There is no T4 in the football engine** — the tier fields are T2, T3 (form and rest),
+T5, T6, T7, T8, T9. T4 (venue) exists in the NRL engine, not this one.
+
+So **four tiers contributed and four did not.** The adjustments that did fire are small:
+across the card they move λ/μ by roughly ±0.05 xG. **Effectively these are Dixon-Coles +
+Elo prices with a light pressing/form/set-piece dressing** — the spine is doing almost
+all the work, which is worth knowing before reading any EV off them.
 
 ⚠️ **Bristol City, Lincoln, Middlesbrough and Millwall play a rearranged GW6 fixture on
 15 Sep** (Bristol City v Lincoln, Middlesbrough v Millwall). That result is **not** in
