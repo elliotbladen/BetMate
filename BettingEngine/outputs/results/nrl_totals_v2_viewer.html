@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NRL Totals Matrix v2 — 2026 Backtest</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f4f4f1; --surface-1:#fcfcfb; --border:#e2e1dc;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#87857d;
+  --series-1:#2a78d6; --series-2:#eb6834;
+  --good:#1b7f4b; --bad:#c0322f; --grid:#e8e7e2;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111110; --surface-1:#1a1a19; --border:#33322e;
+  --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#8f8e85;
+  --series-1:#3987e5; --series-2:#d95926;
+  --good:#4ab87a; --bad:#e66767; --grid:#2a2926;
+}}
+:root[data-theme="dark"]{
+  --bg:#111110; --surface-1:#1a1a19; --border:#33322e;
+  --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#8f8e85;
+  --series-1:#3987e5; --series-2:#d95926;
+  --good:#4ab87a; --bad:#e66767; --grid:#2a2926;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text-primary);
+ font:14px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;}
+.wrap{max-width:1040px;margin:0 auto;padding:16px;padding-block:32px}
+h1{font-size:23px;margin:0 0 4px;letter-spacing:-.02em}
+h2{font-size:16px;margin:36px 0 10px;letter-spacing:-.01em}
+.sub{color:var(--text-secondary);margin:0 0 6px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:10px;padding:16px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:7px 9px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--text-secondary);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+tbody tr:last-child td{border-bottom:none}
+tr.pool td{font-weight:700;border-top:2px solid var(--border)}
+.pos{color:var(--good);font-weight:600}.neg{color:var(--bad);font-weight:600}
+.muted{color:var(--text-muted)}
+.scroll{overflow-x:auto}
+.hero{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.tile{background:var(--surface-1);border:1px solid var(--border);border-radius:10px;
+ padding:13px 15px;flex:1 1 150px}
+.tile .k{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-secondary)}
+.tile .v{font-size:25px;font-weight:700;letter-spacing:-.02em;margin-top:3px}
+.tile .n{font-size:12px;color:var(--text-muted)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:2px 0 10px;font-size:13px;color:var(--text-secondary)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.note{border-left:3px solid var(--series-2);padding:10px 14px;margin:14px 0;
+ background:var(--surface-1);border-radius:0 8px 8px 0;color:var(--text-secondary)}
+.note b{color:var(--text-primary)}
+svg{display:block;max-width:100%;overflow:visible}
+.tt{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;background:var(--surface-1);
+ border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:12.5px;
+ box-shadow:0 6px 22px rgba(0,0,0,.16);z-index:9;min-width:130px}
+.tt .r{display:flex;justify-content:space-between;gap:14px}
+footer{color:var(--text-muted);font-size:12px;margin-top:40px;border-top:1px solid var(--border);padding-top:14px}
+code{background:var(--bg);padding:1px 5px;border-radius:4px;font-size:12.5px}
+</style></head><body>
+<div class="wrap" id="app"></div>
+<div class="tt" id="tt"></div>
+<script>const D={"grid": [{"net": 10, "close": {"n": 12, "w": 7, "l": 5, "push": 0, "pnl": 2.27, "roi": 18.92, "strike": 58.3, "avg_price": 1.99}, "open": {"n": 12, "w": 7, "l": 5, "push": 0, "pnl": 1.93, "roi": 16.08, "strike": 58.3, "avg_price": 1.96}, "v1": {"n": 4, "w": 1, "l": 3, "push": 0, "pnl": -2.15, "roi": -53.75, "strike": 25.0, "avg_price": 1.86}, "ci": [-36.1, 74.4]}, {"net": 8, "close": {"n": 32, "w": 18, "l": 14, "push": 0, "pnl": 3.86, "roi": 12.06, "strike": 56.2, "avg_price": 1.99}, "open": {"n": 32, "w": 17, "l": 15, "push": 0, "pnl": 1.35, "roi": 4.22, "strike": 53.1, "avg_price": 1.96}, "v1": {"n": 17, "w": 9, "l": 8, "push": 0, "pnl": 0.29, "roi": 1.71, "strike": 52.9, "avg_price": 1.92}, "ci": [-22.9, 44.8]}, {"net": 7, "close": {"n": 43, "w": 23, "l": 20, "push": 0, "pnl": 2.45, "roi": 5.7, "strike": 53.5, "avg_price": 1.97}, "open": {"n": 43, "w": 22, "l": 21, "push": 0, "pnl": -0.16, "roi": -0.37, "strike": 51.2, "avg_price": 1.94}, "v1": {"n": 25, "w": 12, "l": 13, "push": 0, "pnl": -1.95, "roi": -7.8, "strike": 48.0, "avg_price": 1.92}, "ci": [-25.1, 35.3]}, {"net": 5, "close": {"n": 76, "w": 41, "l": 35, "push": 0, "pnl": 5.34, "roi": 7.03, "strike": 53.9, "avg_price": 1.99}, "open": {"n": 76, "w": 40, "l": 36, "push": 0, "pnl": 2.31, "roi": 3.04, "strike": 52.6, "avg_price": 1.95}, "v1": {"n": 56, "w": 30, "l": 26, "push": 0, "pnl": 1.99, "roi": 3.55, "strike": 53.6, "avg_price": 1.92}, "ci": [-15.1, 29.0]}], "bets": [{"date": "2026-03-12", "side": "OVER", "net": 13, "line": 50.5, "price": 1.85, "home": "Brisbane Broncos", "away": "Parramatta Eels", "score": "32-40", "total": 72, "result": "win", "pnl": 0.85}, {"date": "2026-03-14", "side": "UNDER", "net": 8, "line": 43.5, "price": 1.85, "home": "Penrith Panthers", "away": "Cronulla Sharks", "score": "26-6", "total": 32, "result": "win", "pnl": 0.85}, {"date": "2026-03-21", "side": "UNDER", "net": 8, "line": 49.5, "price": 1.95, "home": "Newcastle Knights", "away": "New Zealand Warriors", "score": "12-38", "total": 50, "result": "loss", "pnl": -1.0}, {"date": "2026-03-27", "side": "UNDER", "net": 9, "line": 46.5, "price": 1.9, "home": "New Zealand Warriors", "away": "Wests Tigers", "score": "14-32", "total": 46, "result": "win", "pnl": 0.9}, {"date": "2026-03-28", "side": "UNDER", "net": 10, "line": 46.5, "price": 1.85, "home": "Canterbury Bulldogs", "away": "Newcastle Knights", "score": "16-24", "total": 40, "result": "win", "pnl": 0.85}, {"date": "2026-04-02", "side": "OVER", "net": 11, "line": 51.5, "price": 1.85, "home": "Dolphins", "away": "Manly Sea Eagles", "score": "18-52", "total": 70, "result": "win", "pnl": 0.85}, {"date": "2026-04-05", "side": "UNDER", "net": 8, "line": 47.5, "price": 2.0, "home": "Newcastle Knights", "away": "Canberra Raiders", "score": "32-12", "total": 44, "result": "win", "pnl": 1.0}, {"date": "2026-04-10", "side": "OVER", "net": 9, "line": 49.5, "price": 1.9, "home": "Brisbane Broncos", "away": "North QLD Cowboys", "score": "31-35", "total": 66, "result": "win", "pnl": 0.9}, {"date": "2026-04-12", "side": "OVER", "net": 8, "line": 51.5, "price": 1.95, "home": "Parramatta Eels", "away": "Gold Coast Titans", "score": "10-52", "total": 62, "result": "win", "pnl": 0.95}, {"date": "2026-04-12", "side": "UNDER", "net": 9, "line": 49.5, "price": 1.9, "home": "Wests Tigers", "away": "Newcastle Knights", "score": "42-22", "total": 64, "result": "loss", "pnl": -1.0}, {"date": "2026-04-24", "side": "OVER", "net": 8, "line": 46.5, "price": 1.85, "home": "Brisbane Broncos", "away": "Canterbury Bulldogs", "score": "32-12", "total": 44, "result": "loss", "pnl": -1.0}, {"date": "2026-04-26", "side": "OVER", "net": 11, "line": 53.5, "price": 1.8, "home": "Manly Sea Eagles", "away": "Parramatta Eels", "score": "33-18", "total": 51, "result": "loss", "pnl": -1.0}, {"date": "2026-05-08", "side": "OVER", "net": 9, "line": 56.5, "price": 1.91, "home": "North QLD Cowboys", "away": "Parramatta Eels", "score": "30-33", "total": 63, "result": "win", "pnl": 0.91}, {"date": "2026-05-09", "side": "UNDER", "net": 9, "line": 52.5, "price": 2.1, "home": "St George Dragons", "away": "Newcastle Knights", "score": "10-44", "total": 54, "result": "loss", "pnl": -1.0}, {"date": "2026-06-06", "side": "OVER", "net": 8, "line": 50.5, "price": 1.95, "home": "Brisbane Broncos", "away": "Gold Coast Titans", "score": "23-28", "total": 51, "result": "win", "pnl": 0.95}, {"date": "2026-06-07", "side": "UNDER", "net": 11, "line": 49.5, "price": 2.2, "home": "Wests Tigers", "away": "Penrith Panthers", "score": "0-68", "total": 68, "result": "loss", "pnl": -1.0}, {"date": "2026-06-26", "side": "OVER", "net": 10, "line": 47.5, "price": 1.85, "home": "Brisbane Broncos", "away": "Sydney Roosters", "score": "18-24", "total": 42, "result": "loss", "pnl": -1.0}, {"date": "2026-06-28", "side": "UNDER", "net": 10, "line": 49.5, "price": 2.18, "home": "Newcastle Knights", "away": "Wests Tigers", "score": "12-6", "total": 18, "result": "win", "pnl": 1.18}, {"date": "2026-07-03", "side": "UNDER", "net": 8, "line": 45.5, "price": 2.15, "home": "Penrith Panthers", "away": "South Sydney Rabbitohs", "score": "36-14", "total": 50, "result": "loss", "pnl": -1.0}, {"date": "2026-07-05", "side": "UNDER", "net": 9, "line": 50.5, "price": 2.1, "home": "Newcastle Knights", "away": "Dolphins", "score": "13-12", "total": 25, "result": "win", "pnl": 1.1}, {"date": "2026-07-11", "side": "OVER", "net": 10, "line": 48.5, "price": 1.95, "home": "Sydney Roosters", "away": "Parramatta Eels", "score": "28-12", "total": 40, "result": "loss", "pnl": -1.0}, {"date": "2026-07-17", "side": "UNDER", "net": 9, "line": 44.5, "price": 2.06, "home": "Cronulla Sharks", "away": "Newcastle Knights", "score": "20-18", "total": 38, "result": "win", "pnl": 1.06}, {"date": "2026-07-24", "side": "UNDER", "net": 8, "line": 45.5, "price": 2.1, "home": "South Sydney Rabbitohs", "away": "Melbourne Storm", "score": "28-26", "total": 54, "result": "loss", "pnl": -1.0}, {"date": "2026-07-25", "side": "OVER", "net": 9, "line": 47.5, "price": 1.85, "home": "North QLD Cowboys", "away": "Brisbane Broncos", "score": "18-10", "total": 28, "result": "loss", "pnl": -1.0}, {"date": "2026-08-02", "side": "UNDER", "net": 10, "line": 51.5, "price": 2.3, "home": "Cronulla Sharks", "away": "South Sydney Rabbitohs", "score": "32-16", "total": 48, "result": "win", "pnl": 1.3}, {"date": "2026-08-09", "side": "UNDER", "net": 8, "line": 43.5, "price": 2.2, "home": "Canberra Raiders", "away": "Newcastle Knights", "score": "24-30", "total": 54, "result": "loss", "pnl": -1.0}, {"date": "2026-08-16", "side": "UNDER", "net": 12, "line": 46.5, "price": 2.12, "home": "Wests Tigers", "away": "St George Dragons", "score": "22-24", "total": 46, "result": "win", "pnl": 1.12}, {"date": "2026-08-21", "side": "OVER", "net": 8, "line": 50.5, "price": 1.95, "home": "Canberra Raiders", "away": "Brisbane Broncos", "score": "30-34", "total": 64, "result": "win", "pnl": 0.95}, {"date": "2026-08-21", "side": "OVER", "net": 12, "line": 51.5, "price": 1.85, "home": "Dolphins", "away": "Parramatta Eels", "score": "34-16", "total": 50, "result": "loss", "pnl": -1.0}, {"date": "2026-08-30", "side": "UNDER", "net": 8, "line": 47.5, "price": 2.18, "home": "New Zealand Warriors", "away": "Newcastle Knights", "score": "46-32", "total": 78, "result": "loss", "pnl": -1.0}, {"date": "2026-09-04", "side": "UNDER", "net": 8, "line": 56.5, "price": 2.02, "home": "Gold Coast Titans", "away": "Dolphins", "score": "20-24", "total": 44, "result": "win", "pnl": 1.02}, {"date": "2026-09-06", "side": "UNDER", "net": 10, "line": 50.5, "price": 2.12, "home": "Penrith Panthers", "away": "Wests Tigers", "score": "38-10", "total": 48, "result": "win", "pnl": 1.12}], "equity": [0.85, 1.7, 0.7, 1.6, 2.45, 3.3, 4.3, 5.2, 6.15, 5.15, 4.15, 3.15, 4.06, 3.06, 4.01, 3.01, 2.01, 3.19, 2.19, 3.29, 2.29, 3.35, 2.35, 1.35, 2.65, 1.65, 2.77, 3.72, 2.72, 1.72, 2.74, 3.86], "wf": [{"thr": 5.0, "net": 5, "seasons": {"v1": {"2023": {"n": 53, "w": 24, "l": 29, "push": 0, "pnl": -6.91, "roi": -13.04, "strike": 45.3, "avg_price": 1.92}, "2024": {"n": 73, "w": 45, "l": 28, "push": 0, "pnl": 12.12, "roi": 16.61, "strike": 61.6, "avg_price": 1.89}, "2025": {"n": 70, "w": 35, "l": 35, "push": 0, "pnl": -4.64, "roi": -6.63, "strike": 50.0, "avg_price": 1.88}, "2026": {"n": 56, "w": 30, "l": 26, "push": 0, "pnl": 1.99, "roi": 3.55, "strike": 53.6, "avg_price": 1.92}}, "v2": {"2023": {"n": 113, "w": 50, "l": 63, "push": 0, "pnl": -17.34, "roi": -15.35, "strike": 44.2, "avg_price": 1.91}, "2024": {"n": 94, "w": 51, "l": 43, "push": 0, "pnl": 3.07, "roi": 3.27, "strike": 54.3, "avg_price": 1.9}, "2025": {"n": 99, "w": 41, "l": 58, "push": 0, "pnl": -21.35, "roi": -21.57, "strike": 41.4, "avg_price": 1.9}, "2026": {"n": 76, "w": 41, "l": 35, "push": 0, "pnl": 5.34, "roi": 7.03, "strike": 53.9, "avg_price": 1.99}}}, "pool": {"v1": {"n": 252, "w": 134, "l": 118, "push": 0, "pnl": 2.56, "roi": 1.02, "strike": 53.2, "avg_price": 1.9}, "v2": {"n": 382, "w": 183, "l": 199, "push": 0, "pnl": -30.28, "roi": -7.93, "strike": 47.9, "avg_price": 1.92}}}, {"thr": 5.0, "net": 7, "seasons": {"v1": {"2023": {"n": 18, "w": 9, "l": 9, "push": 0, "pnl": -0.76, "roi": -4.2, "strike": 50.0, "avg_price": 1.92}, "2024": {"n": 30, "w": 18, "l": 12, "push": 0, "pnl": 3.95, "roi": 13.17, "strike": 60.0, "avg_price": 1.9}, "2025": {"n": 28, "w": 11, "l": 17, "push": 0, "pnl": -7.25, "roi": -25.89, "strike": 39.3, "avg_price": 1.89}, "2026": {"n": 25, "w": 12, "l": 13, "push": 0, "pnl": -1.95, "roi": -7.8, "strike": 48.0, "avg_price": 1.92}}, "v2": {"2023": {"n": 65, "w": 31, "l": 34, "push": 0, "pnl": -5.61, "roi": -8.62, "strike": 47.7, "avg_price": 1.91}, "2024": {"n": 51, "w": 32, "l": 19, "push": 0, "pnl": 9.92, "roi": 19.45, "strike": 62.7, "avg_price": 1.9}, "2025": {"n": 63, "w": 25, "l": 38, "push": 0, "pnl": -15.56, "roi": -24.7, "strike": 39.7, "avg_price": 1.9}, "2026": {"n": 43, "w": 23, "l": 20, "push": 0, "pnl": 2.45, "roi": 5.7, "strike": 53.5, "avg_price": 1.97}}}, "pool": {"v1": {"n": 101, "w": 50, "l": 51, "push": 0, "pnl": -6.01, "roi": -5.95, "strike": 49.5, "avg_price": 1.9}, "v2": {"n": 222, "w": 111, "l": 111, "push": 0, "pnl": -8.8, "roi": -3.96, "strike": 50.0, "avg_price": 1.92}}}, {"thr": 3.0, "net": 5, "seasons": {"v1": {"2023": {"n": 78, "w": 33, "l": 45, "push": 0, "pnl": -15.04, "roi": -19.28, "strike": 42.3, "avg_price": 1.91}, "2024": {"n": 94, "w": 58, "l": 36, "push": 0, "pnl": 16.21, "roi": 17.25, "strike": 61.7, "avg_price": 1.9}, "2025": {"n": 105, "w": 52, "l": 53, "push": 0, "pnl": -6.28, "roi": -5.98, "strike": 49.5, "avg_price": 1.9}, "2026": {"n": 91, "w": 45, "l": 46, "push": 0, "pnl": -3.88, "roi": -4.26, "strike": 49.5, "avg_price": 1.93}}, "v2": {"2023": {"n": 114, "w": 54, "l": 60, "push": 0, "pnl": -10.68, "roi": -9.37, "strike": 47.4, "avg_price": 1.91}, "2024": {"n": 96, "w": 52, "l": 44, "push": 0, "pnl": 2.92, "roi": 3.04, "strike": 54.2, "avg_price": 1.9}, "2025": {"n": 102, "w": 43, "l": 59, "push": 0, "pnl": -20.6, "roi": -20.2, "strike": 42.2, "avg_price": 1.9}, "2026": {"n": 80, "w": 46, "l": 34, "push": 0, "pnl": 11.67, "roi": 14.59, "strike": 57.5, "avg_price": 2.0}}}, "pool": {"v1": {"n": 368, "w": 188, "l": 180, "push": 0, "pnl": -8.99, "roi": -2.44, "strike": 51.1, "avg_price": 1.91}, "v2": {"n": 392, "w": 195, "l": 197, "push": 0, "pnl": -16.69, "roi": -4.26, "strike": 49.7, "avg_price": 1.92}}}, {"thr": 3.0, "net": 7, "seasons": {"v1": {"2023": {"n": 40, "w": 14, "l": 26, "push": 0, "pnl": -13.27, "roi": -33.16, "strike": 35.0, "avg_price": 1.91}, "2024": {"n": 54, "w": 37, "l": 17, "push": 0, "pnl": 16.07, "roi": 29.76, "strike": 68.5, "avg_price": 1.9}, "2025": {"n": 63, "w": 27, "l": 36, "push": 0, "pnl": -11.95, "roi": -18.97, "strike": 42.9, "avg_price": 1.9}, "2026": {"n": 54, "w": 28, "l": 26, "push": 0, "pnl": -0.04, "roi": -0.07, "strike": 51.9, "avg_price": 1.93}}, "v2": {"2023": {"n": 66, "w": 31, "l": 35, "push": 0, "pnl": -6.69, "roi": -10.13, "strike": 47.0, "avg_price": 1.91}, "2024": {"n": 54, "w": 34, "l": 20, "push": 0, "pnl": 10.62, "roi": 19.67, "strike": 63.0, "avg_price": 1.9}, "2025": {"n": 65, "w": 26, "l": 39, "push": 0, "pnl": -15.61, "roi": -24.02, "strike": 40.0, "avg_price": 1.9}, "2026": {"n": 45, "w": 28, "l": 17, "push": 0, "pnl": 10.82, "roi": 24.04, "strike": 62.2, "avg_price": 1.98}}}, "pool": {"v1": {"n": 211, "w": 106, "l": 105, "push": 0, "pnl": -9.19, "roi": -4.35, "strike": 50.2, "avg_price": 1.91}, "v2": {"n": 230, "w": 119, "l": 111, "push": 0, "pnl": -0.86, "roi": -0.37, "strike": 51.7, "avg_price": 1.92}}}], "seasons": [{"year": 2019, "n": 201, "line": 39.64, "actual": 39.33, "bias": 0.31, "over": 49.3, "jump": null}, {"year": 2020, "n": 169, "line": 40.77, "actual": 42.25, "bias": -1.48, "over": 54.4, "jump": 1.13}, {"year": 2021, "n": 201, "line": 46.5, "actual": 45.87, "bias": 0.64, "over": 48.3, "jump": 5.73}, {"year": 2022, "n": 201, "line": 42.66, "actual": 43.4, "bias": -0.74, "over": 55.2, "jump": -3.84}, {"year": 2023, "n": 213, "line": 44.04, "actual": 45.29, "bias": -1.25, "over": 47.9, "jump": 1.38}, {"year": 2024, "n": 213, "line": 46.55, "actual": 46.77, "bias": -0.22, "over": 48.8, "jump": 2.51}, {"year": 2025, "n": 213, "line": 46.67, "actual": 46.26, "bias": 0.41, "over": 47.4, "jump": 0.12}, {"year": 2026, "n": 204, "line": 49.19, "actual": 48.11, "bias": 1.07, "over": 44.1, "jump": 2.52}], "months": [{"m": "Feb", "n": 2, "line": 42.0, "actual": 37.5, "bias": 4.5, "over": 50.0, "bets": 0}, {"m": "Mar", "n": 30, "line": 48.6, "actual": 48.27, "bias": 0.33, "over": 50.0, "bets": 5}, {"m": "Apr", "n": 32, "line": 50.16, "actual": 53.12, "bias": -2.97, "over": 50.0, "bets": 7}, {"m": "May", "n": 36, "line": 51.58, "actual": 46.81, "bias": 4.78, "over": 38.9, "bets": 2}, {"m": "Jun", "n": 28, "line": 49.32, "actual": 43.61, "bias": 5.71, "over": 32.1, "bets": 4}, {"m": "Jul", "n": 31, "line": 46.69, "actual": 45.87, "bias": 0.82, "over": 45.2, "bets": 6}, {"m": "Aug", "n": 37, "line": 47.99, "actual": 49.11, "bias": -1.12, "over": 45.9, "bets": 6}, {"m": "Sep", "n": 8, "line": 53.25, "actual": 55.88, "bias": -2.62, "over": 50.0, "bets": 2}], "balance": [{"label": "v1 mean", "window": "2022\u201325", "overs": 432, "unders": 341, "pct": 56}, {"label": "v2 hit rate", "window": "2022\u201325", "overs": 355, "unders": 392, "pct": 48}, {"label": "v2 hit rate", "window": "2023\u201326", "overs": 278, "unders": 458, "pct": 38}]};</script>
+<script>
+const $=(h)=>{const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild;};
+const sgn=v=>(v>0?'+':'')+v.toFixed(2);
+const cls=v=>v>0?'pos':(v<0?'neg':'muted');
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const tt=document.getElementById('tt');
+function showTT(e,rows,title){
+  tt.innerHTML=`<div style="font-weight:600;margin-bottom:5px">${esc(title)}</div>`+
+    rows.map(r=>`<div class="r"><span class="muted">${esc(r[0])}</span><span>${esc(r[1])}</span></div>`).join('');
+  tt.style.opacity=1;
+  const b=tt.getBoundingClientRect();
+  let x=e.clientX+14,y=e.clientY-10;
+  if(x+b.width>innerWidth-8)x=e.clientX-b.width-14;
+  if(y+b.height>innerHeight-8)y=innerHeight-b.height-8;
+  tt.style.left=x+'px';tt.style.top=Math.max(8,y)+'px';
+}
+const hideTT=()=>tt.style.opacity=0;
+
+const app=document.getElementById('app');
+function sec(h){app.appendChild($(`<h2>${h}</h2>`));}
+function card(node){const c=$('<div class="card"></div>');c.appendChild(node);app.appendChild(c);return c;}
+
+/* ---------- header ---------- */
+app.appendChild($(`<h1>NRL totals matrix v2 — 2026 backtest</h1>`));
+app.appendChild($(`<p class="sub">Hit-rate metric, $1 flat stakes, cells &ge;5% edge (the production confluence
+ threshold). Matrix trained 2022&ndash;25, so 2026 is fully out of sample. Hover any chart.</p>`));
+
+/* ---------- hero ---------- */
+const rec=D.grid.find(g=>g.net===8);
+const hero=$('<div class="hero"></div>');
+[['ROI @ close',sgn(rec.close.roi)+'%',rec.close.n+' bets, net +8'],
+ ['ROI @ open',sgn(rec.open.roi)+'%','same bets, opening price'],
+ ['Strike',rec.close.strike+'%','break-even '+(100/rec.close.avg_price).toFixed(1)+'% @ $'+rec.close.avg_price],
+ ['P/L',(rec.close.pnl>0?'+$':'-$')+Math.abs(rec.close.pnl).toFixed(2),'on $'+rec.close.n+' staked'],
+ ['95% CI',rec.ci[0]+'% … +'+rec.ci[1]+'%','bootstrap, straddles zero']
+].forEach(([k,v,n])=>hero.appendChild($(
+  `<div class="tile"><div class="k">${k}</div><div class="v ${v.startsWith('+')?'pos':(v.startsWith('-')?'neg':'')}">${v}</div><div class="n">${esc(n)}</div></div>`)));
+app.appendChild(hero);
+
+/* ---------- grid table ---------- */
+sec('Every threshold, 2026');
+{
+ const t=$(`<div class="scroll"><table><thead><tr>
+ <th>net</th><th>bets</th><th>W–L</th><th>strike</th><th>avg $</th>
+ <th>v2 ROI @ close</th><th>v2 ROI @ open</th><th>v1 ROI @ close</th></tr></thead><tbody></tbody></table></div>`);
+ const tb=t.querySelector('tbody');
+ D.grid.forEach(g=>tb.appendChild($(`<tr>
+   <td><b>+${g.net}</b></td><td>${g.close.n}</td><td>${g.close.w}–${g.close.l}</td>
+   <td>${g.close.strike}%</td><td>$${g.close.avg_price.toFixed(2)}</td>
+   <td class="${cls(g.close.roi)}">${sgn(g.close.roi)}%</td>
+   <td class="${cls(g.open.roi)}">${sgn(g.open.roi)}%</td>
+   <td class="${cls(g.v1.roi)}">${sgn(g.v1.roi)}%</td></tr>`)));
+ card(t);
+}
+
+/* ---------- equity curve ---------- */
+sec('Bankroll through the season (net +8, closing price)');
+{
+ const W=960,H=230,P={t:14,r:16,b:28,l:44};
+ const eq=D.equity, n=eq.length;
+ const lo=Math.min(0,...eq), hi=Math.max(0,...eq), pad=(hi-lo)*0.12||1;
+ const x=i=>P.l+i*(W-P.l-P.r)/Math.max(1,n-1);
+ const y=v=>P.t+(hi+pad-v)*(H-P.t-P.b)/((hi+pad)-(lo-pad));
+ let ticks=''; const step=(hi-lo)>8?4:2;
+ for(let v=Math.ceil((lo-pad)/step)*step;v<=hi+pad;v+=step){
+   ticks+=`<line x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>
+   <text x="${P.l-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--text-muted)">${v>0?'+':''}${v}u</text>`;
+ }
+ const path=eq.map((v,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+ const dots=eq.map((v,i)=>`<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="4.5"
+   fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2" data-i="${i}" style="cursor:pointer"/>`).join('');
+ const svg=$(`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cumulative profit">
+   ${ticks}
+   <line x1="${P.l}" x2="${W-P.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+   <path d="${path}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>
+   ${dots}
+   <text x="${P.l}" y="${H-8}" font-size="11" fill="var(--text-muted)">bet 1</text>
+   <text x="${W-P.r}" y="${H-8}" font-size="11" fill="var(--text-muted)" text-anchor="end">bet ${n}</text>
+ </svg>`);
+ svg.querySelectorAll('circle').forEach(c=>{
+   c.addEventListener('mousemove',e=>{const i=+c.dataset.i,b=D.bets[i];
+     showTT(e,[['date',b.date],['bet',b.side+' '+b.line],['game',b.score+' = '+b.total],
+       ['result',b.result],['P/L',sgn(b.pnl)+'u'],['running',sgn(D.equity[i])+'u']],
+       b.home.split(' ').pop()+' v '+b.away.split(' ').pop());});
+   c.addEventListener('mouseleave',hideTT);
+ });
+ const c=card(svg);
+ c.insertBefore($(`<div class="legend"><span><i style="background:var(--series-1)"></i>cumulative profit (units)</span></div>`),svg);
+}
+
+/* ---------- the 2026 line story ---------- */
+sec('Why 2026 leaned under — the market line vs what actually happened');
+app.appendChild($(`<p class="sub">Your read was that a rule change pushed the books to price overs 1&ndash;2 points high,
+ and that it drifted back toward the mean. The data says the jump was <b>+2.52 pts</b> and the overshoot was real
+ &mdash; but it was concentrated in the middle of the season, not spread across it.</p>`));
+{
+ const M=D.months, W=960,H=250,P={t:16,r:16,b:40,l:44};
+ const vals=M.flatMap(m=>[m.line,m.actual]);
+ const lo=Math.min(...vals)-3, hi=Math.max(...vals)+3;
+ const x=i=>P.l+i*(W-P.l-P.r)/Math.max(1,M.length-1);
+ const y=v=>P.t+(hi-v)*(H-P.t-P.b)/(hi-lo);
+ let ticks='';
+ for(let v=Math.ceil(lo/5)*5;v<=hi;v+=5){
+   ticks+=`<line x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>
+   <text x="${P.l-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--text-muted)">${v}</text>`;
+ }
+ const mk=(key,col)=>M.map((m,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(m[key]).toFixed(1)}`).join(' ');
+ let dots='';
+ M.forEach((m,i)=>{
+   dots+=`<circle cx="${x(i).toFixed(1)}" cy="${y(m.line).toFixed(1)}" r="4.5" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"/>`;
+   dots+=`<circle cx="${x(i).toFixed(1)}" cy="${y(m.actual).toFixed(1)}" r="4.5" fill="var(--series-2)" stroke="var(--surface-1)" stroke-width="2"/>`;
+ });
+ const hit=M.map((m,i)=>`<rect x="${(x(i)-26).toFixed(1)}" y="${P.t}" width="52" height="${H-P.t-P.b}"
+   fill="transparent" data-i="${i}" style="cursor:crosshair"/>`).join('');
+ const labs=M.map((m,i)=>`<text x="${x(i).toFixed(1)}" y="${H-18}" text-anchor="middle" font-size="11.5"
+   fill="var(--text-secondary)">${m.m}</text>
+   <text x="${x(i).toFixed(1)}" y="${H-5}" text-anchor="middle" font-size="10" fill="var(--text-muted)">n=${m.n}</text>`).join('');
+ const svg=$(`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Market line vs actual total by month, 2026">
+  ${ticks}
+  <path d="${mk('line')}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>
+  <path d="${mk('actual')}" fill="none" stroke="var(--series-2)" stroke-width="2" stroke-linejoin="round"/>
+  ${dots}${labs}${hit}</svg>`);
+ svg.querySelectorAll('rect').forEach(r=>{
+  r.addEventListener('mousemove',e=>{const m=M[+r.dataset.i];
+    showTT(e,[['market line',m.line.toFixed(2)],['actual total',m.actual.toFixed(2)],
+      ['line too high by',sgn(m.bias)],['over rate',m.over+'%'],
+      ['games',m.n],['v2 bets',m.bets]],'2026 — '+m.m);});
+  r.addEventListener('mouseleave',hideTT);
+ });
+ const c=card(svg);
+ c.insertBefore($(`<div class="legend">
+   <span><i style="background:var(--series-1)"></i>market closing line</span>
+   <span><i style="background:var(--series-2)"></i>actual total scored</span></div>`),svg);
+}
+{
+ const t=$(`<div class="scroll"><table><thead><tr><th>month</th><th>games</th><th>market line</th>
+  <th>actual</th><th>line too high by</th><th>over rate</th><th>v2 bets</th></tr></thead><tbody></tbody></table></div>`);
+ const tb=t.querySelector('tbody');
+ D.months.forEach(m=>tb.appendChild($(`<tr><td><b>${m.m}</b></td><td>${m.n}</td>
+   <td>${m.line.toFixed(2)}</td><td>${m.actual.toFixed(2)}</td>
+   <td class="${m.bias>2?'neg':''}">${sgn(m.bias)}</td><td>${m.over}%</td><td>${m.bets}</td></tr>`)));
+ card(t);
+}
+app.appendChild($(`<div class="note"><b>The overshoot was a mid-season window, not the whole year.</b>
+ May and June ran <b>+4.78</b> and <b>+5.71</b> points too high with over rates of 38.9% and 32.1%.
+ The first and last thirds of the season were close to efficient (line too high by &minus;0.56 and &minus;0.99,
+ over rate 47.1% in both). So the books did correct &mdash; but the drift across the whole season is only
+ &minus;1.06 pts (r = &minus;0.086), because the damage was a bulge in the middle rather than a slope.
+ <br><br><b>And the matrix mostly missed it.</b> Only 6 of the 32 net +8 bets fell in May&ndash;June,
+ the one genuinely mispriced stretch of the season.</div>`));
+
+/* ---------- season table ---------- */
+sec('Season by season — the 2026 jump in context');
+{
+ const t=$(`<div class="scroll"><table><thead><tr><th>season</th><th>games</th><th>avg line</th>
+  <th>vs prior</th><th>avg actual</th><th>line too high by</th><th>over rate</th></tr></thead><tbody></tbody></table></div>`);
+ const tb=t.querySelector('tbody');
+ D.seasons.forEach(s=>tb.appendChild($(`<tr${s.year===2026?' style="font-weight:700"':''}>
+   <td>${s.year}</td><td>${s.n}</td><td>${s.line.toFixed(2)}</td>
+   <td class="${s.jump>1.5?'neg':'muted'}">${s.jump===null?'—':sgn(s.jump)}</td>
+   <td>${s.actual.toFixed(2)}</td><td class="${s.bias>0.9?'neg':''}">${sgn(s.bias)}</td>
+   <td>${s.over}%</td></tr>`)));
+ card(t);
+}
+
+/* ---------- walk-forward ---------- */
+sec('Walk-forward — the reason this is not yet a staked system');
+app.appendChild($(`<p class="sub">Rolling 4-season training window, each test season strictly out of sample.
+ 2026 is the good draw, not the baseline.</p>`));
+{
+ const t=$(`<div class="scroll"><table><thead><tr><th>config</th><th>ver</th>
+  <th>2023</th><th>2024</th><th>2025</th><th>2026</th><th>pooled ROI</th><th>bets</th></tr></thead><tbody></tbody></table></div>`);
+ const tb=t.querySelector('tbody');
+ D.wf.forEach(w=>{
+  ['v1','v2'].forEach((k,j)=>{
+   const p=w.pool[k];
+   const tds=[2023,2024,2025,2026].map(y=>{const s=w.seasons[k][y];
+     return s?`<td class="${cls(s.roi)}">${sgn(s.roi)}%</td>`:'<td class="muted">—</td>';}).join('');
+   tb.appendChild($(`<tr${k==='v2'?' class="pool"':''}>
+     <td>${j?'':'cells ≥'+w.thr+'%, net +'+w.net}</td><td>${k}</td>${tds}
+     <td class="${cls(p.roi)}">${sgn(p.roi)}%</td><td class="muted">${p.n}</td></tr>`));
+  });
+ });
+ card(t);
+}
+
+/* ---------- cell balance ---------- */
+sec('What adding 2026 does to the sheet');
+{
+ const t=$(`<div class="scroll"><table><thead><tr><th>matrix</th><th>training window</th>
+  <th>overs cells</th><th>unders cells</th><th>% overs</th></tr></thead><tbody></tbody></table></div>`);
+ const tb=t.querySelector('tbody');
+ D.balance.forEach(b=>tb.appendChild($(`<tr><td>${esc(b.label)}</td><td>${esc(b.window)}</td>
+   <td>${b.overs}</td><td>${b.unders}</td>
+   <td class="${b.pct>=54?'neg':(b.pct<=42?'neg':'')}"><b>${b.pct}%</b></td></tr>`)));
+ card(t);
+}
+app.appendChild($(`<div class="note">v1's 56% overs tilt came from measuring a right-skewed mean.
+ v2 on the same window is a balanced 48%. Retraining on <b>2023&ndash;26 swings it to 38% overs</b> &mdash;
+ that lean is inherited from one outlier season, so it is the first thing to check if 2027 runs badly.</div>`));
+
+/* ---------- bet list ---------- */
+sec('All 32 bets — net +8, closing price');
+{
+ const t=$(`<div class="scroll"><table><thead><tr><th>date</th><th>match</th><th>bet</th><th>net</th>
+  <th>price</th><th>score</th><th>total</th><th>result</th><th>P/L</th><th>running</th></tr></thead><tbody></tbody></table></div>`);
+ const tb=t.querySelector('tbody');
+ D.bets.forEach((b,i)=>tb.appendChild($(`<tr>
+   <td class="muted">${b.date}</td>
+   <td>${esc(b.home.split(' ').pop())} v ${esc(b.away.split(' ').pop())}</td>
+   <td><b>${b.side} ${b.line}</b></td><td>+${b.net}</td><td>$${b.price.toFixed(2)}</td>
+   <td class="muted">${b.score}</td><td>${b.total}</td>
+   <td class="${b.result==='win'?'pos':(b.result==='push'?'muted':'neg')}">${b.result}</td>
+   <td class="${cls(b.pnl)}">${sgn(b.pnl)}</td>
+   <td class="${cls(D.equity[i])}">${sgn(D.equity[i])}</td></tr>`)));
+ card(t);
+}
+
+app.appendChild($(`<footer>Generated by <code>scripts/_nrl_totals_v2_viewer.py</code> from
+ <code>nrl_team_totals_matrix_v2.xlsx</code> and <code>outputs/nrl_weekly_review/historical/latest.xlsx</code>.
+ Every figure recomputed at page build &mdash; nothing hardcoded.</footer>`));
+</script>
+</body></html>

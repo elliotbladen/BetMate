@@ -60,7 +60,9 @@ for r in rows:
         h_odds = r['primary_home_odds']
         a_odds = r['primary_away_odds']
         total  = r['primary_total']
-        msrc   = (r.get('primary_source_margin') or 'rules')[:2].upper()
+        # sqlite3.Row supports __getitem__ but not .get() — index by name, guarded on the column existing
+        _src   = r['primary_source_margin'] if 'primary_source_margin' in fields else None
+        msrc   = (_src or 'rules')[:2].upper()
     else:
         margin = r['rules_margin']
         h_odds = r['rules_home_odds']

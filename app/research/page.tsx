@@ -4,6 +4,37 @@ import { useState, useMemo } from 'react';
 import { LEGACY_BETS, MODEL_BETS, AFL_MODEL_BETS, FOOTBALL_MODEL_BETS } from '@/lib/researchData';
 import type { Sport, BetResult, LegacyBet, ModelBet, Competition } from '@/lib/researchData';
 
+// The latest screenshot ledger spans the NRL and football model tabs. Keep a
+// single landing view so newly recorded bets are visible without changing tabs.
+const RECENT_BETS: ModelBet[] = [...MODEL_BETS.slice(-3), ...FOOTBALL_MODEL_BETS]
+  .sort((a, b) => a.date.localeCompare(b.date) || a.id - b.id)
+  .reduce<ModelBet[]>((rows, bet) => {
+    const runningTotal = (rows.at(-1)?.runningTotal ?? 0) + bet.plUnits;
+    rows.push({ ...bet, runningTotal: Number(runningTotal.toFixed(2)) });
+    return rows;
+  }, []);
+
+const RECENT_BETS_AS_LEGACY: LegacyBet[] = RECENT_BETS.reduce<LegacyBet[]>((rows, bet, index) => {
+  const previousPL = rows.at(-1)?.cumPL ?? LEGACY_BETS.at(-1)?.cumPL ?? 0;
+  rows.push({
+    id: LEGACY_BETS.length + index + 1,
+    date: bet.date,
+    match: bet.match,
+    market: bet.market,
+    odds: bet.takenPrice,
+    closingOdds: bet.closingPrice,
+    clv: bet.clv,
+    clvLabel: bet.clvLabel,
+    result: bet.result,
+    cumPL: Number((previousPL + bet.plUnits).toFixed(2)),
+    sport: bet.competition ? 'FOOTBALL' : 'NRL',
+    notes: '',
+  });
+  return rows;
+}, []);
+
+const SPORTS_BETTING_BETS: LegacyBet[] = [...LEGACY_BETS, ...RECENT_BETS_AS_LEGACY];
+
 function resultBadge(r: BetResult) {
   if (r === 'win')  return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-[#00DEB8]/15 text-[#00DEB8]">W</span>;
   if (r === 'loss') return <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-red-500/15 text-red-500">L</span>;
@@ -130,7 +161,7 @@ function PLChart({ points, color = '#00DEB8' }: { points: number[]; color?: stri
 
 // -- All Bets tab --------------------------------------------------------------
 function AllBetsTab() {
-  const filtered = LEGACY_BETS;
+  const filtered = SPORTS_BETTING_BETS;
   const stats  = statsFor(filtered);
   const finalPL = filtered.length > 0 ? filtered[filtered.length - 1].cumPL : 0;
   const roi     = stats.decisive > 0 ? (finalPL / stats.decisive) * 100 : 0;
@@ -350,4 +381,3 @@ export default function ResearchPage() {
     </div>
   );
 }
-

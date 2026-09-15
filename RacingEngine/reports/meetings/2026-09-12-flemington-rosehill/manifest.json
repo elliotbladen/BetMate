@@ -1,0 +1,121 @@
+{
+  "date": "2026-09-12",
+  "collected_at": "2026-09-14T03:48:46.432498+00:00",
+  "review_database": "/Users/elliotbladen/BetMate/RacingEngine/data/review/flemington-rosehill-2026-09-12/racing_engine.sqlite",
+  "snapshot_id": "sep12-collected-2026-09-14T03:48:46.432498+00:00",
+  "accepted_model": "form-first-v2.0",
+  "shadow_model": "achieved-run-v2.10-young-wfa-shadow",
+  "coverage": [
+    {
+      "track": "flemington",
+      "races": 10,
+      "entries": 132,
+      "finishers": 118,
+      "scratches": 14,
+      "dnf": 0,
+      "runner_clocks": 118,
+      "detailed_sectionals": 889,
+      "maximum_split_sum_residual_seconds": 0.0,
+      "clock_evidence_runs": 92,
+      "energy_evidence_runs": 118,
+      "wfa_profiles": 0
+    },
+    {
+      "track": "rosehill",
+      "races": 10,
+      "entries": 134,
+      "finishers": 101,
+      "scratches": 32,
+      "dnf": 1,
+      "runner_clocks": 101,
+      "detailed_sectionals": 719,
+      "maximum_split_sum_residual_seconds": 0.0,
+      "clock_evidence_runs": 101,
+      "energy_evidence_runs": 101,
+      "wfa_profiles": 0
+    }
+  ],
+  "ratings": 219,
+  "source_files": [
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/meeting.json",
+      "sha256": "fba321a61bb9dc1c55bce749605b7cbc0862aff373989471cd65a37564400d3f"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-01-200m.json",
+      "sha256": "09944ad2cd82f6b197b2e9ae7aa3afd7bf618e147bd49256a78bd213fd9e4dfb"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-02-200m.json",
+      "sha256": "ef251735c75337739681fecbb2178d3c0e11ced16d04bf8cd31b205948c6e900"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-03-200m.json",
+      "sha256": "78dd2235d1e58e1fd326c66e1233756a77489393e4e0776b42ea9fd2b5c2ec73"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-04-200m.json",
+      "sha256": "bd38f04f7748eeb2b689ba3f195f00eccbd84cb89015c1e1384c4bbe8bca8e63"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-05-200m.json",
+      "sha256": "e9aacf28bc578b5898e232ae64df215ebb67da8a53814ec5b02c59b1226fe47f"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-06-200m.json",
+      "sha256": "21e4eef3f944bf3d8d7e256685aaad812a624d55f1f95aa83746adc0b15b58d0"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-07-200m.json",
+      "sha256": "fbd7611b73431406fdbe72cfc0340c330d64f93ee590ef83d9f7bd308ba5155c"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-08-200m.json",
+      "sha256": "01de542c4c29e36c2d2582bb745fc2c8096eed01c110de2e978551560185c441"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-09-200m.json",
+      "sha256": "10dcdfe8d630aec317677b5bbc88c8c8009951ab314d464af97ab40c245ab6c8"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/flemington/race-10-200m.json",
+      "sha256": "8cca1778854ba137dd001c73819b42fc9f23baae530e609fe58a589f81863153"
+    },
+    {
+      "path": "data/raw/racing_com/2026-09-12/rosehill/meeting.json",
+      "sha256": "f6356ee1868b229da5775470823eb72bb2b9d0e8287eef4a0ee0734c0b9bffcc"
+    },
+    {
+      "path": "data/raw/rnsw/2026-09-12/rosehill/atc-sectionals.pdf",
+      "sha256": "b75a60160c7b482eebabe69e8328c7df3ef9d760741af2ab710a3659d5b8e98b"
+    },
+    {
+      "path": "data/raw/post_stewards/2026-09-12/rosehill.pdf",
+      "sha256": "9f1c42c0a2def534d224fefbb5f9189b65e59e04f681154830b3752fd32f5c45"
+    }
+  ],
+  "pending_database_operation": {
+    "path": "/Users/elliotbladen/BetMate/RacingEngine/data/review/flemington-rosehill-2026-09-12/approved_scope.sql.gz",
+    "sha256": "965440938af41c65047178360e28999893a4abe7fdb044a7e64358843477b05f",
+    "uncompressed_sha256": "f557d68bac5b07b38a3d322156c08b8c850174455b22fc00ba7deec569e13266",
+    "rows_by_table": {
+      "race_results": 20,
+      "runner_results": 266,
+      "runner_sectionals": 1073,
+      "steward_reports": 20,
+      "steward_events": 135,
+      "steward_report_ingestions": 0,
+      "canonical_sectionals": 219,
+      "v2_clean_races": 20,
+      "v2_clean_runner_results": 266,
+      "v2_vic_200m_sectionals": 889,
+      "v2_vic_200m_acquisition_audit": 10,
+      "v2_run_performances": 219,
+      "v2_race_time_evidence": 18,
+      "v2_runner_energy_sectionals": 219,
+      "v2_achieved_run_candidates": 219,
+      "meeting_run_rating_snapshots": 219
+    },
+    "policy": "Apply only after explicit owner approval; plain INSERT, no deletes or updates; September 12 target meetings only. Existing source rows must be absent; test on a fresh clone first."
+  }
+}

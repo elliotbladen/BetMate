@@ -347,3 +347,90 @@ Archive-> data/nrl/match-review/2026/round-1.json
 
 [AFL] ERROR: Could not fetch the footywire injury page. Skipping AFL diff.
 2026-09-07 07:18:23 [INFO] Done.
+2026-09-14 07:15:02 [INFO] AFL match report scraper  round=26
+2026-09-14 07:15:03 [WARNING] No Report Card found for round 26 — falling back to individual game pages
+2026-09-14 07:15:04 [INFO] Found 0 individual game pages
+2026-09-14 07:15:04 [INFO] Total injury mentions extracted: 0
+
+====================================================
+  AFL MATCH REPORT INJURIES -- Round 26
+====================================================
+  No injury mentions found.
+2026-09-14 07:15:04 [INFO] Wrote new-this-week.json -- 0 new injuries
+2026-09-14 07:15:04 [INFO] Done.
+2026-09-14 07:15:05 [WARNING] Fetch failed attempt 1/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- Expecting value: line 1 column 1 (char 0)
+2026-09-14 07:15:26 [WARNING] Fetch failed attempt 2/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- Expecting value: line 1 column 1 (char 0)
+2026-09-14 07:15:46 [WARNING] Fetch failed attempt 3/3 https://www.nrl.com/draw/data/?competition=111&season=2026&round=1 -- Expecting value: line 1 column 1 (char 0)
+2026-09-14 07:15:46 [INFO] No eligible games for Scout scan. season=2026 round=1 game_filter=None delay=3.0 source=https://www.nrl.com/draw/data/?competition=111&season=2026&round=1
+2026-09-14 07:15:46 [INFO] Season=2026 Round=1
+2026-09-14 07:15:46 [INFO] Fetching judiciary: https://www.nrl.com/news/2026/01/01/nrl-judiciary-report-2026/
+2026-09-14 07:15:47 [INFO] HTML judiciary fallback: 0 charge rows for Round 1
+2026-09-14 07:15:47 [INFO] Loaded 72 prior injury records from latest-injuries.json
+2026-09-14 07:15:47 [INFO] Fetching casualty ward: https://www.nrl.com/news/2026/01/01/nrl-casualty-ward-how-your-club-is-shaping-heading-into-2026/
+2026-09-14 07:15:47 [INFO] Casualty ward: 0 total injury records
+2026-09-14 07:15:47 [INFO] Fresh injuries (not in prior state): 0
+2026-09-14 07:15:47 [INFO] Saved /Users/elliotbladen/BetMate/data/nrl/match-review/latest.json
+2026-09-14 07:15:47 [INFO] Saved /Users/elliotbladen/BetMate/data/nrl/match-review/2026/round-1.json
+
+============================================================
+  NRL Match Review — Round 1 (2026)
+============================================================
+
+--- Judiciary Charges (0) ---
+  None found (check judiciary page manually if expected)
+
+--- Fresh Injuries — new since R0 (0) ---
+  None detected (or no prior state to diff against)
+
+Saved  -> data/nrl/match-review/latest.json
+Archive-> data/nrl/match-review/2026/round-1.json
+2026-09-14 07:15:47 [INFO] weekend_injury_diff  sport=both  nrl_round=29  afl_round=27
+2026-09-14 07:15:47 [INFO] --- NRL injury diff  season=2026  round=29 ---
+2026-09-14 07:15:47 [INFO] Loaded 72 known injuries from /Users/elliotbladen/BetMate/data/nrl/injuries/processed/latest-injuries.json
+2026-09-14 07:15:48 [INFO]   Brisbane Broncos                         4 injuries
+2026-09-14 07:15:49 [INFO]   Canberra Raiders                         4 injuries
+2026-09-14 07:15:51 [INFO]   Canterbury-Bankstown Bulldogs            2 injuries
+2026-09-14 07:15:51 [INFO]   Cronulla-Sutherland Sharks               4 injuries
+2026-09-14 07:15:52 [INFO]   Dolphins                                 1 injuries
+2026-09-14 07:15:53 [INFO]   Gold Coast Titans                        7 injuries
+2026-09-14 07:15:54 [INFO]   Manly-Warringah Sea Eagles               4 injuries
+2026-09-14 07:15:55 [INFO]   Melbourne Storm                          7 injuries
+2026-09-14 07:15:55 [INFO]   Newcastle Knights                        5 injuries
+2026-09-14 07:15:56 [INFO]   New Zealand Warriors                     5 injuries
+2026-09-14 07:15:56 [INFO]   North Queensland Cowboys                 2 injuries
+2026-09-14 07:15:57 [INFO]   Parramatta Eels                          3 injuries
+2026-09-14 07:15:57 [INFO]   Penrith Panthers                         4 injuries
+2026-09-14 07:15:58 [INFO]   South Sydney Rabbitohs                   3 injuries
+2026-09-14 07:15:59 [INFO]   St. George Illawarra Dragons             7 injuries
+2026-09-14 07:15:59 [INFO]   Sydney Roosters                          6 injuries
+2026-09-14 07:16:01 [INFO]   Wests Tigers                             5 injuries
+2026-09-14 07:16:01 [INFO] Zero Tackle total: 73 records across 17 teams
+2026-09-14 07:16:01 [INFO] NRL: scraped 73 fresh records
+2026-09-14 07:16:01 [INFO] Wrote diff to /Users/elliotbladen/BetMate/data/nrl/injuries/processed/new-this-week.json
+2026-09-14 07:16:01 [INFO] Wrote latest-injuries.json -- 73 player records, round 29
+
+====================================================
+  NRL INJURY UPDATE -- Monday 2026-09-14
+====================================================
+
+  NEW (1 players)
+  ------------------------------------------------
+
+  Sydney Roosters
+    [NEW]  Egan Butcher  [OUT]  Head knock | Return: TBC
+
+  1 new/worsened  |  0 cleared
+
+2026-09-14 07:16:01 [INFO] --- AFL injury diff  season=2026  round=27 ---
+2026-09-14 07:16:01 [INFO] Loaded 33 known injuries from /Users/elliotbladen/BetMate/data/afl/injuries/processed/latest-injuries.json
+2026-09-14 07:16:02 [INFO] Parsed 33 player records across all teams
+2026-09-14 07:16:02 [INFO] AFL: scraped 33 fresh records
+2026-09-14 07:16:02 [INFO] Wrote diff to /Users/elliotbladen/BetMate/data/afl/injuries/processed/new-this-week.json
+2026-09-14 07:16:02 [INFO] Wrote latest-injuries.json -- 33 records, round 27
+
+====================================================
+  AFL INJURY UPDATE -- Monday 2026-09-14
+====================================================
+  No changes since last scrape.
+
+2026-09-14 07:16:02 [INFO] Done.

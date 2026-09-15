@@ -1,19 +1,33 @@
 """
 AFL Team Totals Matrix Builder
 Generates one sheet per AFL team with totals analysis vs market.
-Source: /Users/elliotbladen/Downloads/afl (2) (1).xlsx (seasons 2022–2025)
-Output: outputs/afl_team_totals_matrix.xlsx
+Source: AFL historical xlsx (training seasons set by --seasons, default 2022-2025)
+Output: outputs/afl_team_totals_matrix.xlsx  (v1)
+        outputs/afl_team_totals_matrix_v2.xlsx  (v2, --metric hitrate)
 """
 
+import os
 from datetime import datetime, timedelta, date
 from collections import defaultdict
+from pathlib import Path
 
 import ephem
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 
-SOURCE_PATH = "/Users/elliotbladen/Downloads/afl (2) (1).xlsx"
-OUTPUT_PATH = "/Users/elliotbladen/Betting_model/outputs/afl_team_totals_matrix.xlsx"
+_ROOT = Path(__file__).resolve().parents[1]
+
+SOURCE_PATH = str(os.environ.get("AFL_HISTORICAL_XLSX")
+                  or _ROOT / "outputs" / "afl_weekly_review" / "historical" / "latest.xlsx")
+OUTPUT_PATH = str(_ROOT / "outputs" / "afl_team_totals_matrix.xlsx")
+OUTPUT_PATH_V2 = str(_ROOT / "outputs" / "afl_team_totals_matrix_v2.xlsx")
+
+# "mean"    (v1) - avg actual total vs avg closing line. Right-skewed: a blowout
+#                  moves the mean without moving what a bet settles on.
+# "hitrate" (v2) - over/under strike rate vs the 50% the line represents, which
+#                  is the quantity an over/under bet actually pays on.
+METRIC = "mean"
+_FALLBACK_COUNT  = {"open_line": 0}
 SEASONS          = (2022, 2023, 2024, 2025)
 MIN_SAMPLE       = 3
 EDGE_FLAG_PCT    = 15.0
@@ -86,7 +100,14 @@ def load_data():
         is_playoff         = bool(raw[7])
         # AFL column layout (0-based):
         #   42 = Total Score Close,  39 = Total Score Open
-        market_total_close = raw[42] if raw[42] is not None else raw[39]
+        # AFL column layout (0-based): 42 = Total Score Close, 39 = Total Score Open.
+        # Falling back to the OPEN line changes what the cell is measured against,
+        # so it is counted and reported rather than taken silently.
+        market_total_close = raw[42]
+        if market_total_close is None:
+            market_total_close = raw[39]
+            if market_total_close is not None:
+                _FALLBACK_COUNT["open_line"] += 1
 
         if not game_date_raw or not hasattr(game_date_raw, "year"):
             continue
@@ -169,6 +190,16 @@ def enrich_rows(rows):
 # ─────────────────────────────────────────────
 
 def compute_stats(games):
+    if METRIC == "hitrate":
+        # Pushes (total exactly on the line) return the stake, so they are not
+        # part of the strike rate the bet settles on.
+        decided = [g for g in games if g["total_score"] != g["market_total"]]
+        n = len(decided)
+        if n < MIN_SAMPLE:
+            return None
+        overs = sum(1 for g in decided if g["total_score"] > g["market_total"])
+        return round(overs / n * 100, 1), 50.0, n
+
     n = len(games)
     if n < MIN_SAMPLE:
         return None
@@ -215,6 +246,15 @@ COL_HEADERS = [
     "Difference",
     "Edge % & Direction",
     "N (Games)",
+]
+
+COL_HEADERS_V2 = [
+    "Category",
+    "Over Hit Rate %",
+    "Market Implied (line = 50%)",
+    "Difference (pp)",
+    "Edge % & Direction",
+    "N (Decided Games)",
 ]
 
 
@@ -331,13 +371,16 @@ def build_team_sheet(wb, team, all_rows, all_teams):
     ws.column_dimensions["F"].width = 12
 
     ws.merge_cells("A1:F1")
-    tc = ws.cell(row=1, column=1, value=f"{team} — AFL Totals Matrix (2022–2025)")
+    _window = f"{min(SEASONS)}–{max(SEASONS)}" if len(SEASONS) > 1 else str(SEASONS[0])
+    _metric = "Over Hit Rate" if METRIC == "hitrate" else "Mean Total"
+    tc = ws.cell(row=1, column=1,
+                 value=f"{team} — AFL Totals Matrix [{_metric}] ({_window})")
     tc.fill = PatternFill("solid", fgColor="0D2137")
     tc.font = Font(color="FFFFFF", bold=True, size=12)
     tc.alignment = Alignment(horizontal="center", vertical="center")
     ws.row_dimensions[1].height = 22
 
-    for c, h in enumerate(COL_HEADERS, start=1):
+    for c, h in enumerate(COL_HEADERS_V2 if METRIC == "hitrate" else COL_HEADERS, start=1):
         ws.cell(row=2, column=c, value=h)
     style_header_row(ws, 2)
     ws.row_dimensions[2].height = 30
@@ -431,9 +474,31 @@ def build_team_sheet(wb, team, all_rows, all_teams):
 # ─────────────────────────────────────────────
 
 def main():
+    global METRIC, SEASONS, SOURCE_PATH
+    import argparse
+    ap = argparse.ArgumentParser(description="AFL team totals matrix builder")
+    ap.add_argument("--metric", choices=["mean", "hitrate"], default="mean",
+                    help="mean = v1 (avg total vs avg line); hitrate = v2 (over strike rate vs 50%%)")
+    ap.add_argument("--seasons", default=None,
+                    help="comma list of training seasons (default 2022,2023,2024,2025)")
+    ap.add_argument("--source", default=None, help="input historical xlsx")
+    ap.add_argument("--out", default=None, help="output xlsx path")
+    args = ap.parse_args()
+    METRIC = args.metric
+    if args.seasons:
+        SEASONS = tuple(int(x) for x in args.seasons.split(","))
+    if args.source:
+        SOURCE_PATH = args.source
+    out_path = args.out or (OUTPUT_PATH_V2 if METRIC == "hitrate" else OUTPUT_PATH)
+    print(f"Metric: {METRIC}")
+    print(f"Source: {SOURCE_PATH}")
+
     print("Loading data...")
     all_rows = load_data()
     print(f"  Loaded {len(all_rows)} games (seasons {SEASONS})")
+    if _FALLBACK_COUNT["open_line"]:
+        print(f"  WARNING: {_FALLBACK_COUNT['open_line']} rows had no closing total "
+              f"and fell back to the OPENING line")
 
     season_counts = defaultdict(int)
     for r in all_rows:
@@ -455,8 +520,8 @@ def main():
         print(f"  {team}...")
         build_team_sheet(wb, team, all_rows, all_teams)
 
-    wb.save(OUTPUT_PATH)
-    print(f"\nSaved: {OUTPUT_PATH}")
+    wb.save(out_path)
+    print(f"\nSaved: {out_path}")
     print(f"Sheets ({len(wb.sheetnames)}): {', '.join(wb.sheetnames)}")
 
 

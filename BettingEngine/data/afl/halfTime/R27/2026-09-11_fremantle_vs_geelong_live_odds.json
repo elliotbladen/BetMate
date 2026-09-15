@@ -1,0 +1,88 @@
+{
+  "season": 2026,
+  "round": 27,
+  "game_date": "2026-09-11",
+  "home_team": "Fremantle",
+  "away_team": "Geelong",
+  "source": "the_odds_api",
+  "collected_at": "2026-09-11T11:23:41.834309+00:00",
+  "odds_api_game_id": "e7e06a821e70efe5c91cd38371d33977",
+  "odds_api_home": "Fremantle Dockers",
+  "odds_api_away": "Geelong Cats",
+  "commence_time": "2026-09-11T10:12:00Z",
+  "bookmakers": {
+    "sportsbet": {
+      "h2h": {
+        "home": 1.07,
+        "away": 7.25
+      },
+      "spreads": {
+        "home_price": 1.85,
+        "home_point": -25.5,
+        "away_price": 1.89,
+        "away_point": 25.5
+      },
+      "totals": {
+        "over_price": 1.84,
+        "over_point": 195.5,
+        "under_price": 1.9,
+        "under_point": 195.5
+      }
+    },
+    "pointsbetau": {
+      "h2h": {
+        "home": 1.12,
+        "away": 6.0
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -26.5,
+        "away_price": 1.87,
+        "away_point": 26.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 201.5,
+        "under_price": 1.9,
+        "under_point": 201.5
+      }
+    },
+    "tab": {
+      "h2h": {
+        "home": 1.1,
+        "away": 6.0
+      }
+    },
+    "betfair_ex_au": {
+      "h2h": {
+        "home": 1.12,
+        "away": 5.5
+      }
+    },
+    "unibet": {
+      "h2h": {
+        "home": 1.12,
+        "away": 6.1,
+        "draw": 36.0
+      }
+    },
+    "tabtouch": {
+      "h2h": {
+        "home": 1.11,
+        "away": 6.0
+      },
+      "spreads": {
+        "home_price": 1.87,
+        "home_point": -26.5,
+        "away_price": 1.85,
+        "away_point": 26.5
+      },
+      "totals": {
+        "over_price": 1.83,
+        "over_point": 197.5,
+        "under_price": 1.88,
+        "under_point": 197.5
+      }
+    }
+  }
+}

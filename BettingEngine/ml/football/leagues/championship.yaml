@@ -33,6 +33,42 @@ model:
   decay_rate: 0.001                   # candidate for lengthening (goals noisier); tune in Phase 5
   min_train: 200
   between_season_omega: 0.770
+  # Clubs new to the division (promoted or relegated in) carry stale D-C parameters
+  # from the last time they were here. "league_average" wipes them to exactly average
+  # and also discards their current-season results — which rated West Ham and Wolves
+  # as average Championship sides in GW7 2026/27, and both comfortably outplayed the
+  # team the model preferred. "shrunk_current_season" instead refits on this season
+  # alone and shrinks toward average by n/(n+new_team_shrink_games), so six games move
+  # the rating halfway and nothing swings on one result. Falls back to league average
+  # automatically when the season is too young to fit.
+  # THREE MODES TESTED, ALL THREE FAILED — left at league_average. Each was
+  # pre-registered before it was run and each is implemented and still available
+  # behind this key. Same harness every time: 10-season walk-forward, 2,436
+  # fixtures, 2025/26 sealed. Do not switch one on without reading its result doc.
+  #   shrunk_current_season  1X2 -0.0053 (7/10)   O/U +0.0174 (0/10)
+  #   elo_seeded             1X2 -0.0188 (10/10)  O/U +0.0142 (2/10)
+  #   elo_seeded_level_neutral 1X2 -0.0182 (10/10) O/U +0.0063 (4/10)
+  # All three fail on totals. The cause is the model's algebra, not the methods:
+  # lam = base x att / def_away means defence DIVIDES, so any spread away from 1.0
+  # raises expected goals even when symmetric. att = def = 1.0 — what league_average
+  # sets — is the unique level-neutral pair. The level-neutral variant removed 83%
+  # of the level shift but only 56% of the O/U damage, so the diagnosis is
+  # incomplete: part of the harm is the spread itself, not the level.
+  # ⚠️ elo_seeded's 1X2 gain is the best result measured on this model (10/10
+  # seasons) and fails ONLY on totals. A per-market split — elo_seeded for 1X2,
+  # league_average for totals — is the obvious next test and has NOT been run.
+  # See RESET_FIX_BACKTEST_RESULT.md, ELO_SEEDED_RESULT.md, LEVEL_NEUTRAL_RESULT.md.
+  # TOTALS + ASIAN HANDICAP. Stays league_average: all three alternatives made
+  # totals worse, and the totals model is not bet (it loses to a constant
+  # base-rate guess pooled, 0.69263 vs 0.69107).
+  new_team_reset: league_average
+  # 1X2 ONLY. Signed off 2026-09-15. elo_seeded scored 1.0366 against the
+  # league_average baseline's 1.0554 — better in 10 of 10 seasons, 9 of 9
+  # dropping 2015/16 where Elo has one prior season. Best result measured on
+  # this model. It is a better MODEL, not an edge: the de-vigged close scores
+  # 1.0172, so do not bet Championship 1X2 off it.
+  new_team_reset_1x2: elo_seeded
+  new_team_shrink_games: 6.0
 
 elo:
   home_advantage: 65.0                # kept at EPL value — E1 home-win 43.2% vs EPL 44.6%,

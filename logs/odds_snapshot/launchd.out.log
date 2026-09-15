@@ -21742,3 +21742,1383 @@
 2026-09-08 10:14:12 [INFO] Fetching CHAMPIONSHIP odds ...
 2026-09-08 10:14:13 [WARNING]   Attempt 1/3 failed for soccer_efl_champ — 401 Client Error: Unauthorized for url: https://api.the-odds-api.com/v4/sports/soccer_efl_champ/odds/?apiKey=4e09f5cb763d1f3addaeac427f29ee12&regions=au%2Cuk&markets=h2h%2Cspreads%2Ctotals&oddsFormat=decimal. Retrying in 300s ...
 2026-09-08 10:19:13 [WARNING]   Attempt 2/3 failed for soccer_efl_champ — 401 Client Error: Unauthorized for url: https://api.the-odds-api.com/v4/sports/soccer_efl_champ/odds/?apiKey=4e09f5cb763d1f3addaeac427f29ee12&regions=au%2Cuk&markets=h2h%2Cspreads%2Ctotals&oddsFormat=decimal. Retrying in 300s ...
+2026-09-11 13:28:30 [INFO] Fetching NRL odds ...
+2026-09-11 13:28:30 [INFO]   rugbyleague_nrl — 4 events, 16922 API calls remaining
+2026-09-11 13:28:30 [INFO]   248 rows
+2026-09-11 13:28:30 [INFO] Fetching AFL odds ...
+2026-09-11 13:28:31 [INFO]   aussierules_afl — 2 events, 16916 API calls remaining
+2026-09-11 13:28:31 [INFO]   178 rows
+2026-09-11 13:28:31 [INFO] Fetching EPL odds ...
+2026-09-11 13:28:31 [INFO]   soccer_epl — 20 events, 16910 API calls remaining
+2026-09-11 13:28:31 [INFO]   2295 rows
+2026-09-11 13:28:31 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 13:28:31 [INFO]   soccer_efl_champ — 14 events, 16904 API calls remaining
+2026-09-11 13:28:31 [INFO]   1589 rows
+2026-09-11 13:28:31 [INFO] Fetching UCL odds ...
+2026-09-11 13:28:32 [INFO]   soccer_uefa_champs_league — 18 events, 16898 API calls remaining
+2026-09-11 13:28:32 [INFO]   497 rows
+2026-09-11 13:28:32 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4807 rows)
+2026-09-11 13:28:32 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 13:38:32 [INFO] Fetching NRL odds ...
+2026-09-11 13:38:33 [INFO]   rugbyleague_nrl — 4 events, 16886 API calls remaining
+2026-09-11 13:38:33 [INFO]   248 rows
+2026-09-11 13:38:33 [INFO] Fetching AFL odds ...
+2026-09-11 13:38:33 [INFO]   aussierules_afl — 2 events, 16880 API calls remaining
+2026-09-11 13:38:33 [INFO]   178 rows
+2026-09-11 13:38:33 [INFO] Fetching EPL odds ...
+2026-09-11 13:38:33 [INFO]   soccer_epl — 20 events, 16874 API calls remaining
+2026-09-11 13:38:33 [INFO]   2295 rows
+2026-09-11 13:38:33 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 13:38:34 [INFO]   soccer_efl_champ — 14 events, 16868 API calls remaining
+2026-09-11 13:38:34 [INFO]   1589 rows
+2026-09-11 13:38:34 [INFO] Fetching UCL odds ...
+2026-09-11 13:38:34 [INFO]   soccer_uefa_champs_league — 18 events, 16862 API calls remaining
+2026-09-11 13:38:34 [INFO]   497 rows
+2026-09-11 13:38:34 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4807 rows)
+2026-09-11 13:38:34 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 16:04:05 [INFO] Fetching NRL odds ...
+2026-09-11 16:04:05 [INFO]   rugbyleague_nrl — 4 events, 16856 API calls remaining
+2026-09-11 16:04:05 [INFO]   268 rows
+2026-09-11 16:04:05 [INFO] Fetching AFL odds ...
+2026-09-11 16:04:05 [INFO]   aussierules_afl — 2 events, 16850 API calls remaining
+2026-09-11 16:04:05 [INFO]   178 rows
+2026-09-11 16:04:05 [INFO] Fetching EPL odds ...
+2026-09-11 16:04:06 [INFO]   soccer_epl — 20 events, 16844 API calls remaining
+2026-09-11 16:04:06 [INFO]   2295 rows
+2026-09-11 16:04:06 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 16:04:06 [INFO]   soccer_efl_champ — 14 events, 16838 API calls remaining
+2026-09-11 16:04:06 [INFO]   1589 rows
+2026-09-11 16:04:06 [INFO] Fetching UCL odds ...
+2026-09-11 16:04:06 [INFO]   soccer_uefa_champs_league — 18 events, 16832 API calls remaining
+2026-09-11 16:04:06 [INFO]   497 rows
+2026-09-11 16:04:06 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4827 rows)
+2026-09-11 16:04:06 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 16:14:07 [INFO] Fetching NRL odds ...
+2026-09-11 16:14:07 [INFO]   rugbyleague_nrl — 4 events, 16826 API calls remaining
+2026-09-11 16:14:07 [INFO]   268 rows
+2026-09-11 16:14:07 [INFO] Fetching AFL odds ...
+2026-09-11 16:14:08 [INFO]   aussierules_afl — 2 events, 16820 API calls remaining
+2026-09-11 16:14:08 [INFO]   178 rows
+2026-09-11 16:14:08 [INFO] Fetching EPL odds ...
+2026-09-11 16:14:08 [INFO]   soccer_epl — 20 events, 16814 API calls remaining
+2026-09-11 16:14:08 [INFO]   2295 rows
+2026-09-11 16:14:08 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 16:14:08 [INFO]   soccer_efl_champ — 14 events, 16808 API calls remaining
+2026-09-11 16:14:08 [INFO]   1589 rows
+2026-09-11 16:14:08 [INFO] Fetching UCL odds ...
+2026-09-11 16:14:09 [INFO]   soccer_uefa_champs_league — 18 events, 16802 API calls remaining
+2026-09-11 16:14:09 [INFO]   497 rows
+2026-09-11 16:14:09 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4827 rows)
+2026-09-11 16:14:09 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 16:24:09 [INFO] Fetching NRL odds ...
+2026-09-11 16:24:10 [INFO]   rugbyleague_nrl — 4 events, 16796 API calls remaining
+2026-09-11 16:24:10 [INFO]   268 rows
+2026-09-11 16:24:10 [INFO] Fetching AFL odds ...
+2026-09-11 16:24:10 [INFO]   aussierules_afl — 2 events, 16790 API calls remaining
+2026-09-11 16:24:10 [INFO]   178 rows
+2026-09-11 16:24:10 [INFO] Fetching EPL odds ...
+2026-09-11 16:24:10 [INFO]   soccer_epl — 20 events, 16784 API calls remaining
+2026-09-11 16:24:10 [INFO]   2295 rows
+2026-09-11 16:24:10 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 16:24:11 [INFO]   soccer_efl_champ — 14 events, 16778 API calls remaining
+2026-09-11 16:24:11 [INFO]   1589 rows
+2026-09-11 16:24:11 [INFO] Fetching UCL odds ...
+2026-09-11 16:24:11 [INFO]   soccer_uefa_champs_league — 18 events, 16772 API calls remaining
+2026-09-11 16:24:11 [INFO]   497 rows
+2026-09-11 16:24:11 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4827 rows)
+2026-09-11 16:24:11 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 16:34:12 [INFO] Fetching NRL odds ...
+2026-09-11 16:34:12 [INFO]   rugbyleague_nrl — 4 events, 16760 API calls remaining
+2026-09-11 16:34:12 [INFO]   268 rows
+2026-09-11 16:34:12 [INFO] Fetching AFL odds ...
+2026-09-11 16:34:12 [INFO]   aussierules_afl — 2 events, 16754 API calls remaining
+2026-09-11 16:34:12 [INFO]   178 rows
+2026-09-11 16:34:12 [INFO] Fetching EPL odds ...
+2026-09-11 16:34:13 [INFO]   soccer_epl — 20 events, 16748 API calls remaining
+2026-09-11 16:34:13 [INFO]   2295 rows
+2026-09-11 16:34:13 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 16:34:13 [INFO]   soccer_efl_champ — 14 events, 16742 API calls remaining
+2026-09-11 16:34:13 [INFO]   1589 rows
+2026-09-11 16:34:13 [INFO] Fetching UCL odds ...
+2026-09-11 16:34:13 [INFO]   soccer_uefa_champs_league — 18 events, 16736 API calls remaining
+2026-09-11 16:34:13 [INFO]   497 rows
+2026-09-11 16:34:13 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4827 rows)
+2026-09-11 16:34:13 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 16:44:14 [INFO] Fetching NRL odds ...
+2026-09-11 16:44:16 [INFO]   rugbyleague_nrl — 4 events, 16730 API calls remaining
+2026-09-11 16:44:16 [INFO]   268 rows
+2026-09-11 16:44:16 [INFO] Fetching AFL odds ...
+2026-09-11 16:44:16 [INFO]   aussierules_afl — 2 events, 16724 API calls remaining
+2026-09-11 16:44:16 [INFO]   182 rows
+2026-09-11 16:44:16 [INFO] Fetching EPL odds ...
+2026-09-11 16:44:16 [INFO]   soccer_epl — 20 events, 16718 API calls remaining
+2026-09-11 16:44:16 [INFO]   2295 rows
+2026-09-11 16:44:16 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 16:44:17 [INFO]   soccer_efl_champ — 14 events, 16712 API calls remaining
+2026-09-11 16:44:17 [INFO]   1589 rows
+2026-09-11 16:44:17 [INFO] Fetching UCL odds ...
+2026-09-11 16:44:18 [INFO]   soccer_uefa_champs_league — 18 events, 16706 API calls remaining
+2026-09-11 16:44:18 [INFO]   523 rows
+2026-09-11 16:44:18 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4857 rows)
+2026-09-11 16:44:18 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 16:54:18 [INFO] Fetching NRL odds ...
+2026-09-11 16:54:19 [INFO]   rugbyleague_nrl — 4 events, 16652 API calls remaining
+2026-09-11 16:54:19 [INFO]   268 rows
+2026-09-11 16:54:19 [INFO] Fetching AFL odds ...
+2026-09-11 16:54:20 [INFO]   aussierules_afl — 2 events, 16646 API calls remaining
+2026-09-11 16:54:20 [INFO]   182 rows
+2026-09-11 16:54:20 [INFO] Fetching EPL odds ...
+2026-09-11 16:54:20 [INFO]   soccer_epl — 20 events, 16640 API calls remaining
+2026-09-11 16:54:21 [INFO]   2295 rows
+2026-09-11 16:54:21 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 16:54:21 [INFO]   soccer_efl_champ — 14 events, 16634 API calls remaining
+2026-09-11 16:54:21 [INFO]   1589 rows
+2026-09-11 16:54:21 [INFO] Fetching UCL odds ...
+2026-09-11 16:54:22 [INFO]   soccer_uefa_champs_league — 18 events, 16628 API calls remaining
+2026-09-11 16:54:22 [INFO]   616 rows
+2026-09-11 16:54:22 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (4950 rows)
+2026-09-11 16:54:22 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 17:04:22 [INFO] Fetching NRL odds ...
+2026-09-11 17:04:23 [INFO]   rugbyleague_nrl — 4 events, 16622 API calls remaining
+2026-09-11 17:04:23 [INFO]   268 rows
+2026-09-11 17:04:23 [INFO] Fetching AFL odds ...
+2026-09-11 17:04:23 [INFO]   aussierules_afl — 2 events, 16616 API calls remaining
+2026-09-11 17:04:23 [INFO]   182 rows
+2026-09-11 17:04:23 [INFO] Fetching EPL odds ...
+2026-09-11 17:04:23 [INFO]   soccer_epl — 20 events, 16610 API calls remaining
+2026-09-11 17:04:23 [INFO]   2295 rows
+2026-09-11 17:04:23 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 17:04:24 [INFO]   soccer_efl_champ — 14 events, 16604 API calls remaining
+2026-09-11 17:04:24 [INFO]   1589 rows
+2026-09-11 17:04:24 [INFO] Fetching UCL odds ...
+2026-09-11 17:04:24 [INFO]   soccer_uefa_champs_league — 18 events, 16598 API calls remaining
+2026-09-11 17:04:24 [INFO]   709 rows
+2026-09-11 17:04:24 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5043 rows)
+2026-09-11 17:04:24 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 17:14:25 [INFO] Fetching NRL odds ...
+2026-09-11 17:14:25 [INFO]   rugbyleague_nrl — 4 events, 16592 API calls remaining
+2026-09-11 17:14:25 [INFO]   268 rows
+2026-09-11 17:14:25 [INFO] Fetching AFL odds ...
+2026-09-11 17:14:25 [INFO]   aussierules_afl — 2 events, 16586 API calls remaining
+2026-09-11 17:14:25 [INFO]   182 rows
+2026-09-11 17:14:25 [INFO] Fetching EPL odds ...
+2026-09-11 17:14:26 [INFO]   soccer_epl — 20 events, 16580 API calls remaining
+2026-09-11 17:14:26 [INFO]   2295 rows
+2026-09-11 17:14:26 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 17:14:26 [INFO]   soccer_efl_champ — 14 events, 16574 API calls remaining
+2026-09-11 17:14:26 [INFO]   1589 rows
+2026-09-11 17:14:26 [INFO] Fetching UCL odds ...
+2026-09-11 17:14:27 [INFO]   soccer_uefa_champs_league — 18 events, 16568 API calls remaining
+2026-09-11 17:14:27 [INFO]   732 rows
+2026-09-11 17:14:27 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5066 rows)
+2026-09-11 17:14:27 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 17:24:27 [INFO] Fetching NRL odds ...
+2026-09-11 17:24:27 [INFO]   rugbyleague_nrl — 4 events, 16562 API calls remaining
+2026-09-11 17:24:27 [INFO]   268 rows
+2026-09-11 17:24:27 [INFO] Fetching AFL odds ...
+2026-09-11 17:24:28 [INFO]   aussierules_afl — 2 events, 16556 API calls remaining
+2026-09-11 17:24:28 [INFO]   182 rows
+2026-09-11 17:24:28 [INFO] Fetching EPL odds ...
+2026-09-11 17:24:28 [INFO]   soccer_epl — 20 events, 16550 API calls remaining
+2026-09-11 17:24:28 [INFO]   2295 rows
+2026-09-11 17:24:28 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 17:24:28 [INFO]   soccer_efl_champ — 14 events, 16544 API calls remaining
+2026-09-11 17:24:28 [INFO]   1589 rows
+2026-09-11 17:24:28 [INFO] Fetching UCL odds ...
+2026-09-11 17:24:29 [INFO]   soccer_uefa_champs_league — 18 events, 16538 API calls remaining
+2026-09-11 17:24:29 [INFO]   732 rows
+2026-09-11 17:24:29 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5066 rows)
+2026-09-11 17:24:29 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 17:34:29 [INFO] Fetching NRL odds ...
+2026-09-11 17:34:29 [INFO]   rugbyleague_nrl — 4 events, 16532 API calls remaining
+2026-09-11 17:34:29 [INFO]   268 rows
+2026-09-11 17:34:29 [INFO] Fetching AFL odds ...
+2026-09-11 17:34:30 [INFO]   aussierules_afl — 2 events, 16526 API calls remaining
+2026-09-11 17:34:30 [INFO]   182 rows
+2026-09-11 17:34:30 [INFO] Fetching EPL odds ...
+2026-09-11 17:34:30 [INFO]   soccer_epl — 20 events, 16520 API calls remaining
+2026-09-11 17:34:30 [INFO]   2295 rows
+2026-09-11 17:34:30 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 17:34:31 [INFO]   soccer_efl_champ — 14 events, 16514 API calls remaining
+2026-09-11 17:34:31 [INFO]   1589 rows
+2026-09-11 17:34:31 [INFO] Fetching UCL odds ...
+2026-09-11 17:34:31 [INFO]   soccer_uefa_champs_league — 18 events, 16508 API calls remaining
+2026-09-11 17:34:31 [INFO]   732 rows
+2026-09-11 17:34:31 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5066 rows)
+2026-09-11 17:34:31 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 17:44:31 [INFO] Fetching NRL odds ...
+2026-09-11 17:44:32 [INFO]   rugbyleague_nrl — 4 events, 16502 API calls remaining
+2026-09-11 17:44:32 [INFO]   268 rows
+2026-09-11 17:44:32 [INFO] Fetching AFL odds ...
+2026-09-11 17:44:32 [INFO]   aussierules_afl — 2 events, 16496 API calls remaining
+2026-09-11 17:44:32 [INFO]   182 rows
+2026-09-11 17:44:32 [INFO] Fetching EPL odds ...
+2026-09-11 17:44:32 [INFO]   soccer_epl — 20 events, 16490 API calls remaining
+2026-09-11 17:44:32 [INFO]   2295 rows
+2026-09-11 17:44:32 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 17:44:33 [INFO]   soccer_efl_champ — 14 events, 16484 API calls remaining
+2026-09-11 17:44:33 [INFO]   1589 rows
+2026-09-11 17:44:33 [INFO] Fetching UCL odds ...
+2026-09-11 17:44:33 [INFO]   soccer_uefa_champs_league — 18 events, 16478 API calls remaining
+2026-09-11 17:44:33 [INFO]   732 rows
+2026-09-11 17:44:33 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5066 rows)
+2026-09-11 17:44:33 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 17:54:33 [INFO] Fetching NRL odds ...
+2026-09-11 17:54:34 [INFO]   rugbyleague_nrl — 4 events, 16472 API calls remaining
+2026-09-11 17:54:34 [INFO]   268 rows
+2026-09-11 17:54:34 [INFO] Fetching AFL odds ...
+2026-09-11 17:54:34 [INFO]   aussierules_afl — 2 events, 16466 API calls remaining
+2026-09-11 17:54:34 [INFO]   182 rows
+2026-09-11 17:54:34 [INFO] Fetching EPL odds ...
+2026-09-11 17:54:35 [INFO]   soccer_epl — 20 events, 16460 API calls remaining
+2026-09-11 17:54:35 [INFO]   2295 rows
+2026-09-11 17:54:35 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 17:54:36 [INFO]   soccer_efl_champ — 14 events, 16454 API calls remaining
+2026-09-11 17:54:36 [INFO]   1589 rows
+2026-09-11 17:54:36 [INFO] Fetching UCL odds ...
+2026-09-11 17:54:36 [INFO]   soccer_uefa_champs_league — 18 events, 16448 API calls remaining
+2026-09-11 17:54:36 [INFO]   841 rows
+2026-09-11 17:54:36 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5175 rows)
+2026-09-11 17:54:36 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 18:04:36 [INFO] Fetching NRL odds ...
+2026-09-11 18:04:37 [INFO]   rugbyleague_nrl — 4 events, 16442 API calls remaining
+2026-09-11 18:04:37 [INFO]   268 rows
+2026-09-11 18:04:37 [INFO] Fetching AFL odds ...
+2026-09-11 18:04:37 [INFO]   aussierules_afl — 2 events, 16436 API calls remaining
+2026-09-11 18:04:37 [INFO]   182 rows
+2026-09-11 18:04:37 [INFO] Fetching EPL odds ...
+2026-09-11 18:04:37 [INFO]   soccer_epl — 20 events, 16430 API calls remaining
+2026-09-11 18:04:37 [INFO]   2295 rows
+2026-09-11 18:04:37 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 18:04:38 [INFO]   soccer_efl_champ — 14 events, 16424 API calls remaining
+2026-09-11 18:04:38 [INFO]   1589 rows
+2026-09-11 18:04:38 [INFO] Fetching UCL odds ...
+2026-09-11 18:04:39 [INFO]   soccer_uefa_champs_league — 18 events, 16418 API calls remaining
+2026-09-11 18:04:39 [INFO]   1044 rows
+2026-09-11 18:04:39 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5378 rows)
+2026-09-11 18:04:39 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 18:14:40 [INFO] Fetching NRL odds ...
+2026-09-11 18:14:40 [INFO]   rugbyleague_nrl — 4 events, 16412 API calls remaining
+2026-09-11 18:14:40 [INFO]   268 rows
+2026-09-11 18:14:40 [INFO] Fetching AFL odds ...
+2026-09-11 18:14:41 [INFO]   aussierules_afl — 2 events, 16406 API calls remaining
+2026-09-11 18:14:41 [INFO]   182 rows
+2026-09-11 18:14:41 [INFO] Fetching EPL odds ...
+2026-09-11 18:14:42 [INFO]   soccer_epl — 20 events, 16400 API calls remaining
+2026-09-11 18:14:42 [INFO]   2295 rows
+2026-09-11 18:14:42 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 18:14:42 [INFO]   soccer_efl_champ — 14 events, 16394 API calls remaining
+2026-09-11 18:14:42 [INFO]   1589 rows
+2026-09-11 18:14:42 [INFO] Fetching UCL odds ...
+2026-09-11 18:14:42 [INFO]   soccer_uefa_champs_league — 18 events, 16388 API calls remaining
+2026-09-11 18:14:42 [INFO]   1174 rows
+2026-09-11 18:14:42 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5508 rows)
+2026-09-11 18:14:42 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 18:24:43 [INFO] Fetching NRL odds ...
+2026-09-11 18:24:43 [INFO]   rugbyleague_nrl — 4 events, 16382 API calls remaining
+2026-09-11 18:24:43 [INFO]   268 rows
+2026-09-11 18:24:43 [INFO] Fetching AFL odds ...
+2026-09-11 18:24:43 [INFO]   aussierules_afl — 2 events, 16376 API calls remaining
+2026-09-11 18:24:43 [INFO]   182 rows
+2026-09-11 18:24:43 [INFO] Fetching EPL odds ...
+2026-09-11 18:24:44 [INFO]   soccer_epl — 20 events, 16370 API calls remaining
+2026-09-11 18:24:44 [INFO]   2295 rows
+2026-09-11 18:24:44 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 18:24:44 [INFO]   soccer_efl_champ — 14 events, 16364 API calls remaining
+2026-09-11 18:24:44 [INFO]   1589 rows
+2026-09-11 18:24:44 [INFO] Fetching UCL odds ...
+2026-09-11 18:24:44 [INFO]   soccer_uefa_champs_league — 18 events, 16358 API calls remaining
+2026-09-11 18:24:44 [INFO]   1174 rows
+2026-09-11 18:24:44 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5508 rows)
+2026-09-11 18:24:44 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 18:34:45 [INFO] Fetching NRL odds ...
+2026-09-11 18:34:45 [INFO]   rugbyleague_nrl — 4 events, 16352 API calls remaining
+2026-09-11 18:34:45 [INFO]   268 rows
+2026-09-11 18:34:45 [INFO] Fetching AFL odds ...
+2026-09-11 18:34:46 [INFO]   aussierules_afl — 2 events, 16346 API calls remaining
+2026-09-11 18:34:46 [INFO]   182 rows
+2026-09-11 18:34:46 [INFO] Fetching EPL odds ...
+2026-09-11 18:34:46 [INFO]   soccer_epl — 20 events, 16340 API calls remaining
+2026-09-11 18:34:46 [INFO]   2295 rows
+2026-09-11 18:34:46 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 18:34:46 [INFO]   soccer_efl_champ — 14 events, 16334 API calls remaining
+2026-09-11 18:34:46 [INFO]   1589 rows
+2026-09-11 18:34:46 [INFO] Fetching UCL odds ...
+2026-09-11 18:34:47 [INFO]   soccer_uefa_champs_league — 18 events, 16328 API calls remaining
+2026-09-11 18:34:47 [INFO]   1203 rows
+2026-09-11 18:34:47 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5537 rows)
+2026-09-11 18:34:47 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 18:44:47 [INFO] Fetching NRL odds ...
+2026-09-11 18:44:48 [INFO]   rugbyleague_nrl — 4 events, 16322 API calls remaining
+2026-09-11 18:44:48 [INFO]   294 rows
+2026-09-11 18:44:48 [INFO] Fetching AFL odds ...
+2026-09-11 18:44:48 [INFO]   aussierules_afl — 2 events, 16316 API calls remaining
+2026-09-11 18:44:48 [INFO]   182 rows
+2026-09-11 18:44:48 [INFO] Fetching EPL odds ...
+2026-09-11 18:44:49 [INFO]   soccer_epl — 20 events, 16310 API calls remaining
+2026-09-11 18:44:49 [INFO]   2295 rows
+2026-09-11 18:44:49 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 18:44:49 [INFO]   soccer_efl_champ — 14 events, 16304 API calls remaining
+2026-09-11 18:44:49 [INFO]   1589 rows
+2026-09-11 18:44:49 [INFO] Fetching UCL odds ...
+2026-09-11 18:44:49 [INFO]   soccer_uefa_champs_league — 18 events, 16298 API calls remaining
+2026-09-11 18:44:49 [INFO]   1209 rows
+2026-09-11 18:44:50 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5569 rows)
+2026-09-11 18:44:50 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 18:54:50 [INFO] Fetching NRL odds ...
+2026-09-11 18:54:50 [INFO]   rugbyleague_nrl — 4 events, 16292 API calls remaining
+2026-09-11 18:54:50 [INFO]   294 rows
+2026-09-11 18:54:50 [INFO] Fetching AFL odds ...
+2026-09-11 18:54:50 [INFO]   aussierules_afl — 2 events, 16286 API calls remaining
+2026-09-11 18:54:50 [INFO]   182 rows
+2026-09-11 18:54:50 [INFO] Fetching EPL odds ...
+2026-09-11 18:54:51 [INFO]   soccer_epl — 20 events, 16280 API calls remaining
+2026-09-11 18:54:51 [INFO]   2295 rows
+2026-09-11 18:54:51 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 18:54:51 [INFO]   soccer_efl_champ — 14 events, 16274 API calls remaining
+2026-09-11 18:54:51 [INFO]   1589 rows
+2026-09-11 18:54:51 [INFO] Fetching UCL odds ...
+2026-09-11 18:54:52 [INFO]   soccer_uefa_champs_league — 18 events, 16268 API calls remaining
+2026-09-11 18:54:52 [INFO]   1209 rows
+2026-09-11 18:54:52 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5569 rows)
+2026-09-11 18:54:52 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 19:04:52 [INFO] Fetching NRL odds ...
+2026-09-11 19:04:53 [INFO]   rugbyleague_nrl — 4 events, 16256 API calls remaining
+2026-09-11 19:04:53 [INFO]   294 rows
+2026-09-11 19:04:53 [INFO] Fetching AFL odds ...
+2026-09-11 19:04:53 [INFO]   aussierules_afl — 2 events, 16250 API calls remaining
+2026-09-11 19:04:53 [INFO]   182 rows
+2026-09-11 19:04:53 [INFO] Fetching EPL odds ...
+2026-09-11 19:04:54 [INFO]   soccer_epl — 20 events, 16244 API calls remaining
+2026-09-11 19:04:54 [INFO]   2295 rows
+2026-09-11 19:04:54 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 19:04:54 [INFO]   soccer_efl_champ — 14 events, 16238 API calls remaining
+2026-09-11 19:04:54 [INFO]   1589 rows
+2026-09-11 19:04:54 [INFO] Fetching UCL odds ...
+2026-09-11 19:04:55 [INFO]   soccer_uefa_champs_league — 18 events, 16232 API calls remaining
+2026-09-11 19:04:55 [INFO]   1209 rows
+2026-09-11 19:04:55 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5569 rows)
+2026-09-11 19:04:55 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 19:14:55 [INFO] Fetching NRL odds ...
+2026-09-11 19:14:55 [INFO]   rugbyleague_nrl — 4 events, 16226 API calls remaining
+2026-09-11 19:14:55 [INFO]   294 rows
+2026-09-11 19:14:55 [INFO] Fetching AFL odds ...
+2026-09-11 19:14:56 [INFO]   aussierules_afl — 2 events, 16220 API calls remaining
+2026-09-11 19:14:56 [INFO]   182 rows
+2026-09-11 19:14:56 [INFO] Fetching EPL odds ...
+2026-09-11 19:14:56 [INFO]   soccer_epl — 20 events, 16214 API calls remaining
+2026-09-11 19:14:56 [INFO]   2295 rows
+2026-09-11 19:14:56 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 19:14:56 [INFO]   soccer_efl_champ — 14 events, 16208 API calls remaining
+2026-09-11 19:14:56 [INFO]   1589 rows
+2026-09-11 19:14:56 [INFO] Fetching UCL odds ...
+2026-09-11 19:14:57 [INFO]   soccer_uefa_champs_league — 18 events, 16202 API calls remaining
+2026-09-11 19:14:57 [INFO]   1212 rows
+2026-09-11 19:14:57 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5572 rows)
+2026-09-11 19:14:57 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 19:24:58 [INFO] Fetching NRL odds ...
+2026-09-11 19:24:58 [INFO]   rugbyleague_nrl — 4 events, 16196 API calls remaining
+2026-09-11 19:24:58 [INFO]   294 rows
+2026-09-11 19:24:58 [INFO] Fetching AFL odds ...
+2026-09-11 19:24:58 [INFO]   aussierules_afl — 2 events, 16190 API calls remaining
+2026-09-11 19:24:58 [INFO]   182 rows
+2026-09-11 19:24:58 [INFO] Fetching EPL odds ...
+2026-09-11 19:24:59 [INFO]   soccer_epl — 20 events, 16184 API calls remaining
+2026-09-11 19:24:59 [INFO]   2295 rows
+2026-09-11 19:24:59 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 19:24:59 [INFO]   soccer_efl_champ — 14 events, 16178 API calls remaining
+2026-09-11 19:24:59 [INFO]   1589 rows
+2026-09-11 19:24:59 [INFO] Fetching UCL odds ...
+2026-09-11 19:25:00 [INFO]   soccer_uefa_champs_league — 18 events, 16172 API calls remaining
+2026-09-11 19:25:00 [INFO]   1212 rows
+2026-09-11 19:25:00 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5572 rows)
+2026-09-11 19:25:00 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 19:35:00 [INFO] Fetching NRL odds ...
+2026-09-11 19:35:00 [INFO]   rugbyleague_nrl — 4 events, 16166 API calls remaining
+2026-09-11 19:35:00 [INFO]   294 rows
+2026-09-11 19:35:00 [INFO] Fetching AFL odds ...
+2026-09-11 19:35:01 [INFO]   aussierules_afl — 2 events, 16160 API calls remaining
+2026-09-11 19:35:01 [INFO]   182 rows
+2026-09-11 19:35:01 [INFO] Fetching EPL odds ...
+2026-09-11 19:35:01 [INFO]   soccer_epl — 20 events, 16154 API calls remaining
+2026-09-11 19:35:01 [INFO]   2295 rows
+2026-09-11 19:35:01 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 19:35:01 [INFO]   soccer_efl_champ — 14 events, 16148 API calls remaining
+2026-09-11 19:35:01 [INFO]   1589 rows
+2026-09-11 19:35:01 [INFO] Fetching UCL odds ...
+2026-09-11 19:35:02 [INFO]   soccer_uefa_champs_league — 18 events, 16142 API calls remaining
+2026-09-11 19:35:02 [INFO]   1215 rows
+2026-09-11 19:35:02 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5575 rows)
+2026-09-11 19:35:02 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 19:45:02 [INFO] Fetching NRL odds ...
+2026-09-11 19:45:03 [INFO]   rugbyleague_nrl — 4 events, 16136 API calls remaining
+2026-09-11 19:45:03 [INFO]   294 rows
+2026-09-11 19:45:03 [INFO] Fetching AFL odds ...
+2026-09-11 19:45:03 [INFO]   aussierules_afl — 2 events, 16130 API calls remaining
+2026-09-11 19:45:03 [INFO]   182 rows
+2026-09-11 19:45:03 [INFO] Fetching EPL odds ...
+2026-09-11 19:45:03 [INFO]   soccer_epl — 20 events, 16124 API calls remaining
+2026-09-11 19:45:03 [INFO]   2295 rows
+2026-09-11 19:45:03 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 19:45:04 [INFO]   soccer_efl_champ — 14 events, 16118 API calls remaining
+2026-09-11 19:45:04 [INFO]   1592 rows
+2026-09-11 19:45:04 [INFO] Fetching UCL odds ...
+2026-09-11 19:45:05 [INFO]   soccer_uefa_champs_league — 18 events, 16112 API calls remaining
+2026-09-11 19:45:05 [INFO]   1221 rows
+2026-09-11 19:45:05 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5584 rows)
+2026-09-11 19:45:05 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 19:55:05 [INFO] Fetching NRL odds ...
+2026-09-11 19:55:05 [INFO]   rugbyleague_nrl — 4 events, 16106 API calls remaining
+2026-09-11 19:55:05 [INFO]   286 rows
+2026-09-11 19:55:05 [INFO] Fetching AFL odds ...
+2026-09-11 19:55:06 [INFO]   aussierules_afl — 2 events, 16100 API calls remaining
+2026-09-11 19:55:06 [INFO]   182 rows
+2026-09-11 19:55:06 [INFO] Fetching EPL odds ...
+2026-09-11 19:55:06 [INFO]   soccer_epl — 20 events, 16094 API calls remaining
+2026-09-11 19:55:06 [INFO]   2295 rows
+2026-09-11 19:55:06 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 19:55:07 [INFO]   soccer_efl_champ — 14 events, 16088 API calls remaining
+2026-09-11 19:55:07 [INFO]   1592 rows
+2026-09-11 19:55:07 [INFO] Fetching UCL odds ...
+2026-09-11 19:55:07 [INFO]   soccer_uefa_champs_league — 18 events, 16082 API calls remaining
+2026-09-11 19:55:07 [INFO]   1221 rows
+2026-09-11 19:55:07 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5576 rows)
+2026-09-11 19:55:07 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 20:05:08 [INFO] Fetching NRL odds ...
+2026-09-11 20:05:08 [INFO]   rugbyleague_nrl — 4 events, 16073 API calls remaining
+2026-09-11 20:05:08 [INFO]   280 rows
+2026-09-11 20:05:08 [INFO] Fetching AFL odds ...
+2026-09-11 20:05:08 [INFO]   aussierules_afl — 2 events, 16067 API calls remaining
+2026-09-11 20:05:08 [INFO]   182 rows
+2026-09-11 20:05:08 [INFO] Fetching EPL odds ...
+2026-09-11 20:05:09 [INFO]   soccer_epl — 20 events, 16061 API calls remaining
+2026-09-11 20:05:09 [INFO]   2295 rows
+2026-09-11 20:05:09 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 20:05:09 [INFO]   soccer_efl_champ — 14 events, 16055 API calls remaining
+2026-09-11 20:05:09 [INFO]   1589 rows
+2026-09-11 20:05:09 [INFO] Fetching UCL odds ...
+2026-09-11 20:05:09 [INFO]   soccer_uefa_champs_league — 18 events, 16049 API calls remaining
+2026-09-11 20:05:09 [INFO]   1221 rows
+2026-09-11 20:05:10 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5567 rows)
+2026-09-11 20:05:10 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 20:15:10 [INFO] Fetching NRL odds ...
+2026-09-11 20:15:10 [INFO]   rugbyleague_nrl — 4 events, 16040 API calls remaining
+2026-09-11 20:15:10 [INFO]   255 rows
+2026-09-11 20:15:10 [INFO] Fetching AFL odds ...
+2026-09-11 20:15:11 [INFO]   aussierules_afl — 2 events, 16034 API calls remaining
+2026-09-11 20:15:11 [INFO]   179 rows
+2026-09-11 20:15:11 [INFO] Fetching EPL odds ...
+2026-09-11 20:15:12 [INFO]   soccer_epl — 20 events, 16028 API calls remaining
+2026-09-11 20:15:12 [INFO]   2295 rows
+2026-09-11 20:15:12 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 20:15:12 [INFO]   soccer_efl_champ — 14 events, 16022 API calls remaining
+2026-09-11 20:15:12 [INFO]   1589 rows
+2026-09-11 20:15:12 [INFO] Fetching UCL odds ...
+2026-09-11 20:15:13 [INFO]   soccer_uefa_champs_league — 18 events, 16016 API calls remaining
+2026-09-11 20:15:13 [INFO]   1221 rows
+2026-09-11 20:15:13 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5539 rows)
+2026-09-11 20:15:13 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 20:25:13 [INFO] Fetching NRL odds ...
+2026-09-11 20:25:14 [INFO]   rugbyleague_nrl — 4 events, 16010 API calls remaining
+2026-09-11 20:25:14 [INFO]   274 rows
+2026-09-11 20:25:14 [INFO] Fetching AFL odds ...
+2026-09-11 20:25:14 [INFO]   aussierules_afl — 2 events, 16004 API calls remaining
+2026-09-11 20:25:14 [INFO]   162 rows
+2026-09-11 20:25:14 [INFO] Fetching EPL odds ...
+2026-09-11 20:25:14 [INFO]   soccer_epl — 20 events, 15998 API calls remaining
+2026-09-11 20:25:14 [INFO]   2295 rows
+2026-09-11 20:25:14 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 20:25:15 [INFO]   soccer_efl_champ — 14 events, 15992 API calls remaining
+2026-09-11 20:25:15 [INFO]   1589 rows
+2026-09-11 20:25:15 [INFO] Fetching UCL odds ...
+2026-09-11 20:25:15 [INFO]   soccer_uefa_champs_league — 18 events, 15986 API calls remaining
+2026-09-11 20:25:15 [INFO]   1221 rows
+2026-09-11 20:25:15 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5541 rows)
+2026-09-11 20:25:15 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 20:35:15 [INFO] Fetching NRL odds ...
+2026-09-11 20:35:16 [INFO]   rugbyleague_nrl — 4 events, 15974 API calls remaining
+2026-09-11 20:35:16 [INFO]   274 rows
+2026-09-11 20:35:16 [INFO] Fetching AFL odds ...
+2026-09-11 20:35:16 [INFO]   aussierules_afl — 2 events, 15968 API calls remaining
+2026-09-11 20:35:16 [INFO]   144 rows
+2026-09-11 20:35:16 [INFO] Fetching EPL odds ...
+2026-09-11 20:35:16 [INFO]   soccer_epl — 20 events, 15962 API calls remaining
+2026-09-11 20:35:16 [INFO]   2295 rows
+2026-09-11 20:35:16 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 20:35:17 [INFO]   soccer_efl_champ — 14 events, 15956 API calls remaining
+2026-09-11 20:35:17 [INFO]   1589 rows
+2026-09-11 20:35:17 [INFO] Fetching UCL odds ...
+2026-09-11 20:35:17 [INFO]   soccer_uefa_champs_league — 18 events, 15950 API calls remaining
+2026-09-11 20:35:17 [INFO]   1221 rows
+2026-09-11 20:35:17 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5523 rows)
+2026-09-11 20:35:17 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 20:45:18 [INFO] Fetching NRL odds ...
+2026-09-11 20:45:18 [INFO]   rugbyleague_nrl — 4 events, 15938 API calls remaining
+2026-09-11 20:45:18 [INFO]   276 rows
+2026-09-11 20:45:18 [INFO] Fetching AFL odds ...
+2026-09-11 20:45:18 [INFO]   aussierules_afl — 2 events, 15932 API calls remaining
+2026-09-11 20:45:18 [INFO]   144 rows
+2026-09-11 20:45:18 [INFO] Fetching EPL odds ...
+2026-09-11 20:45:19 [INFO]   soccer_epl — 20 events, 15926 API calls remaining
+2026-09-11 20:45:19 [INFO]   2295 rows
+2026-09-11 20:45:19 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 20:45:19 [INFO]   soccer_efl_champ — 14 events, 15920 API calls remaining
+2026-09-11 20:45:19 [INFO]   1589 rows
+2026-09-11 20:45:19 [INFO] Fetching UCL odds ...
+2026-09-11 20:45:20 [INFO]   soccer_uefa_champs_league — 18 events, 15914 API calls remaining
+2026-09-11 20:45:20 [INFO]   1221 rows
+2026-09-11 20:45:20 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5525 rows)
+2026-09-11 20:45:20 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 20:55:20 [INFO] Fetching NRL odds ...
+2026-09-11 20:55:20 [INFO]   rugbyleague_nrl — 4 events, 15908 API calls remaining
+2026-09-11 20:55:20 [INFO]   274 rows
+2026-09-11 20:55:20 [INFO] Fetching AFL odds ...
+2026-09-11 20:55:21 [INFO]   aussierules_afl — 2 events, 15902 API calls remaining
+2026-09-11 20:55:21 [INFO]   144 rows
+2026-09-11 20:55:21 [INFO] Fetching EPL odds ...
+2026-09-11 20:55:21 [INFO]   soccer_epl — 20 events, 15896 API calls remaining
+2026-09-11 20:55:21 [INFO]   2297 rows
+2026-09-11 20:55:21 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 20:55:21 [INFO]   soccer_efl_champ — 14 events, 15890 API calls remaining
+2026-09-11 20:55:21 [INFO]   1589 rows
+2026-09-11 20:55:21 [INFO] Fetching UCL odds ...
+2026-09-11 20:55:22 [INFO]   soccer_uefa_champs_league — 18 events, 15884 API calls remaining
+2026-09-11 20:55:22 [INFO]   1221 rows
+2026-09-11 20:55:22 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5525 rows)
+2026-09-11 20:55:22 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 21:05:22 [INFO] Fetching NRL odds ...
+2026-09-11 21:05:23 [INFO]   rugbyleague_nrl — 4 events, 15878 API calls remaining
+2026-09-11 21:05:23 [INFO]   274 rows
+2026-09-11 21:05:23 [INFO] Fetching AFL odds ...
+2026-09-11 21:05:23 [INFO]   aussierules_afl — 2 events, 15872 API calls remaining
+2026-09-11 21:05:23 [INFO]   144 rows
+2026-09-11 21:05:23 [INFO] Fetching EPL odds ...
+2026-09-11 21:05:23 [INFO]   soccer_epl — 20 events, 15866 API calls remaining
+2026-09-11 21:05:23 [INFO]   2291 rows
+2026-09-11 21:05:23 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 21:05:23 [INFO]   soccer_efl_champ — 14 events, 15860 API calls remaining
+2026-09-11 21:05:23 [INFO]   1589 rows
+2026-09-11 21:05:23 [INFO] Fetching UCL odds ...
+2026-09-11 21:05:24 [INFO]   soccer_uefa_champs_league — 18 events, 15854 API calls remaining
+2026-09-11 21:05:24 [INFO]   1221 rows
+2026-09-11 21:05:24 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5519 rows)
+2026-09-11 21:05:24 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 21:15:24 [INFO] Fetching NRL odds ...
+2026-09-11 21:15:25 [INFO]   rugbyleague_nrl — 4 events, 15837 API calls remaining
+2026-09-11 21:15:25 [INFO]   274 rows
+2026-09-11 21:15:25 [INFO] Fetching AFL odds ...
+2026-09-11 21:15:25 [INFO]   aussierules_afl — 2 events, 15831 API calls remaining
+2026-09-11 21:15:25 [INFO]   144 rows
+2026-09-11 21:15:25 [INFO] Fetching EPL odds ...
+2026-09-11 21:15:25 [INFO]   soccer_epl — 20 events, 15825 API calls remaining
+2026-09-11 21:15:25 [INFO]   2297 rows
+2026-09-11 21:15:25 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 21:15:26 [INFO]   soccer_efl_champ — 14 events, 15819 API calls remaining
+2026-09-11 21:15:26 [INFO]   1589 rows
+2026-09-11 21:15:26 [INFO] Fetching UCL odds ...
+2026-09-11 21:15:26 [INFO]   soccer_uefa_champs_league — 18 events, 15813 API calls remaining
+2026-09-11 21:15:26 [INFO]   1221 rows
+2026-09-11 21:15:26 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5525 rows)
+2026-09-11 21:15:26 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 21:25:26 [INFO] Fetching NRL odds ...
+2026-09-11 21:25:27 [INFO]   rugbyleague_nrl — 4 events, 15801 API calls remaining
+2026-09-11 21:25:27 [INFO]   274 rows
+2026-09-11 21:25:27 [INFO] Fetching AFL odds ...
+2026-09-11 21:25:27 [INFO]   aussierules_afl — 2 events, 15795 API calls remaining
+2026-09-11 21:25:27 [INFO]   144 rows
+2026-09-11 21:25:27 [INFO] Fetching EPL odds ...
+2026-09-11 21:25:28 [INFO]   soccer_epl — 20 events, 15789 API calls remaining
+2026-09-11 21:25:28 [INFO]   2291 rows
+2026-09-11 21:25:28 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 21:25:28 [INFO]   soccer_efl_champ — 14 events, 15783 API calls remaining
+2026-09-11 21:25:28 [INFO]   1589 rows
+2026-09-11 21:25:28 [INFO] Fetching UCL odds ...
+2026-09-11 21:25:28 [INFO]   soccer_uefa_champs_league — 18 events, 15777 API calls remaining
+2026-09-11 21:25:28 [INFO]   1221 rows
+2026-09-11 21:25:29 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5519 rows)
+2026-09-11 21:25:29 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 21:35:29 [INFO] Fetching NRL odds ...
+2026-09-11 21:35:29 [INFO]   rugbyleague_nrl — 4 events, 15771 API calls remaining
+2026-09-11 21:35:29 [INFO]   267 rows
+2026-09-11 21:35:29 [INFO] Fetching AFL odds ...
+2026-09-11 21:35:29 [INFO]   aussierules_afl — 2 events, 15765 API calls remaining
+2026-09-11 21:35:29 [INFO]   144 rows
+2026-09-11 21:35:29 [INFO] Fetching EPL odds ...
+2026-09-11 21:35:30 [INFO]   soccer_epl — 20 events, 15759 API calls remaining
+2026-09-11 21:35:30 [INFO]   2291 rows
+2026-09-11 21:35:30 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 21:35:31 [INFO]   soccer_efl_champ — 14 events, 15753 API calls remaining
+2026-09-11 21:35:31 [INFO]   1589 rows
+2026-09-11 21:35:31 [INFO] Fetching UCL odds ...
+2026-09-11 21:35:31 [INFO]   soccer_uefa_champs_league — 18 events, 15747 API calls remaining
+2026-09-11 21:35:31 [INFO]   1221 rows
+2026-09-11 21:35:31 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5512 rows)
+2026-09-11 21:35:31 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 21:45:31 [INFO] Fetching NRL odds ...
+2026-09-11 21:45:32 [INFO]   rugbyleague_nrl — 4 events, 15741 API calls remaining
+2026-09-11 21:45:32 [INFO]   257 rows
+2026-09-11 21:45:32 [INFO] Fetching AFL odds ...
+2026-09-11 21:45:32 [INFO]   aussierules_afl — 2 events, 15735 API calls remaining
+2026-09-11 21:45:32 [INFO]   144 rows
+2026-09-11 21:45:32 [INFO] Fetching EPL odds ...
+2026-09-11 21:45:33 [INFO]   soccer_epl — 20 events, 15729 API calls remaining
+2026-09-11 21:45:33 [INFO]   2283 rows
+2026-09-11 21:45:33 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 21:45:33 [INFO]   soccer_efl_champ — 14 events, 15723 API calls remaining
+2026-09-11 21:45:33 [INFO]   1589 rows
+2026-09-11 21:45:33 [INFO] Fetching UCL odds ...
+2026-09-11 21:45:34 [INFO]   soccer_uefa_champs_league — 18 events, 15717 API calls remaining
+2026-09-11 21:45:34 [INFO]   1221 rows
+2026-09-11 21:45:34 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5494 rows)
+2026-09-11 21:45:34 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 21:55:34 [INFO] Fetching NRL odds ...
+2026-09-11 21:55:34 [INFO]   rugbyleague_nrl — 4 events, 15711 API calls remaining
+2026-09-11 21:55:34 [INFO]   258 rows
+2026-09-11 21:55:34 [INFO] Fetching AFL odds ...
+2026-09-11 21:55:35 [INFO]   aussierules_afl — 2 events, 15705 API calls remaining
+2026-09-11 21:55:35 [INFO]   142 rows
+2026-09-11 21:55:35 [INFO] Fetching EPL odds ...
+2026-09-11 21:55:35 [INFO]   soccer_epl — 20 events, 15699 API calls remaining
+2026-09-11 21:55:35 [INFO]   2282 rows
+2026-09-11 21:55:35 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 21:55:36 [INFO]   soccer_efl_champ — 14 events, 15693 API calls remaining
+2026-09-11 21:55:36 [INFO]   1589 rows
+2026-09-11 21:55:36 [INFO] Fetching UCL odds ...
+2026-09-11 21:55:37 [INFO]   soccer_uefa_champs_league — 18 events, 15687 API calls remaining
+2026-09-11 21:55:37 [INFO]   1221 rows
+2026-09-11 21:55:37 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5492 rows)
+2026-09-11 21:55:37 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 22:05:37 [INFO] Fetching NRL odds ...
+2026-09-11 22:05:38 [INFO]   rugbyleague_nrl — 3 events, 15681 API calls remaining
+2026-09-11 22:05:38 [INFO]   238 rows
+2026-09-11 22:05:38 [INFO] Fetching AFL odds ...
+2026-09-11 22:05:38 [INFO]   aussierules_afl — 2 events, 15675 API calls remaining
+2026-09-11 22:05:38 [INFO]   144 rows
+2026-09-11 22:05:38 [INFO] Fetching EPL odds ...
+2026-09-11 22:05:38 [INFO]   soccer_epl — 20 events, 15669 API calls remaining
+2026-09-11 22:05:38 [INFO]   2283 rows
+2026-09-11 22:05:38 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 22:05:39 [INFO]   soccer_efl_champ — 14 events, 15663 API calls remaining
+2026-09-11 22:05:39 [INFO]   1589 rows
+2026-09-11 22:05:39 [INFO] Fetching UCL odds ...
+2026-09-11 22:05:39 [INFO]   soccer_uefa_champs_league — 18 events, 15657 API calls remaining
+2026-09-11 22:05:39 [INFO]   1221 rows
+2026-09-11 22:05:39 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5475 rows)
+2026-09-11 22:05:39 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 22:15:39 [INFO] Fetching NRL odds ...
+2026-09-11 22:15:40 [INFO]   rugbyleague_nrl — 3 events, 15651 API calls remaining
+2026-09-11 22:15:40 [INFO]   238 rows
+2026-09-11 22:15:40 [INFO] Fetching AFL odds ...
+2026-09-11 22:15:40 [INFO]   aussierules_afl — 2 events, 15645 API calls remaining
+2026-09-11 22:15:40 [INFO]   142 rows
+2026-09-11 22:15:40 [INFO] Fetching EPL odds ...
+2026-09-11 22:15:41 [INFO]   soccer_epl — 20 events, 15639 API calls remaining
+2026-09-11 22:15:41 [INFO]   2295 rows
+2026-09-11 22:15:41 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 22:15:41 [INFO]   soccer_efl_champ — 14 events, 15633 API calls remaining
+2026-09-11 22:15:41 [INFO]   1553 rows
+2026-09-11 22:15:41 [INFO] Fetching UCL odds ...
+2026-09-11 22:15:42 [INFO]   soccer_uefa_champs_league — 18 events, 15627 API calls remaining
+2026-09-11 22:15:42 [INFO]   1221 rows
+2026-09-11 22:15:42 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5449 rows)
+2026-09-11 22:15:42 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 22:25:42 [INFO] Fetching NRL odds ...
+2026-09-11 22:25:42 [INFO]   rugbyleague_nrl — 3 events, 15621 API calls remaining
+2026-09-11 22:25:42 [INFO]   238 rows
+2026-09-11 22:25:42 [INFO] Fetching AFL odds ...
+2026-09-11 22:25:43 [INFO]   aussierules_afl — 2 events, 15615 API calls remaining
+2026-09-11 22:25:43 [INFO]   144 rows
+2026-09-11 22:25:43 [INFO] Fetching EPL odds ...
+2026-09-11 22:25:43 [INFO]   soccer_epl — 20 events, 15609 API calls remaining
+2026-09-11 22:25:43 [INFO]   2295 rows
+2026-09-11 22:25:43 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 22:25:44 [INFO]   soccer_efl_champ — 14 events, 15603 API calls remaining
+2026-09-11 22:25:44 [INFO]   1541 rows
+2026-09-11 22:25:44 [INFO] Fetching UCL odds ...
+2026-09-11 22:25:45 [INFO]   soccer_uefa_champs_league — 18 events, 15597 API calls remaining
+2026-09-11 22:25:45 [INFO]   1131 rows
+2026-09-11 22:25:45 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5349 rows)
+2026-09-11 22:25:45 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-11 22:35:45 [INFO] Fetching NRL odds ...
+2026-09-11 22:35:45 [INFO]   rugbyleague_nrl — 3 events, 15591 API calls remaining
+2026-09-11 22:35:45 [INFO]   238 rows
+2026-09-11 22:35:45 [INFO] Fetching AFL odds ...
+2026-09-11 22:35:46 [INFO]   aussierules_afl — 2 events, 15585 API calls remaining
+2026-09-11 22:35:46 [INFO]   134 rows
+2026-09-11 22:35:46 [INFO] Fetching EPL odds ...
+2026-09-11 22:35:46 [INFO]   soccer_epl — 20 events, 15579 API calls remaining
+2026-09-11 22:35:46 [INFO]   2295 rows
+2026-09-11 22:35:46 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-11 22:35:46 [INFO]   soccer_efl_champ — 14 events, 15573 API calls remaining
+2026-09-11 22:35:46 [INFO]   1583 rows
+2026-09-11 22:35:46 [INFO] Fetching UCL odds ...
+2026-09-11 22:35:47 [INFO]   soccer_uefa_champs_league — 18 events, 15567 API calls remaining
+2026-09-11 22:35:47 [INFO]   1131 rows
+2026-09-11 22:35:47 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-11.csv (5381 rows)
+2026-09-11 22:35:47 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 00:26:13 [INFO] Fetching NRL odds ...
+2026-09-12 00:26:13 [INFO]   rugbyleague_nrl — 3 events, 15561 API calls remaining
+2026-09-12 00:26:13 [INFO]   238 rows
+2026-09-12 00:26:13 [INFO] Fetching AFL odds ...
+2026-09-12 00:26:14 [INFO]   aussierules_afl — 3 events, 15555 API calls remaining
+2026-09-12 00:26:14 [INFO]   143 rows
+2026-09-12 00:26:14 [INFO] Fetching EPL odds ...
+2026-09-12 00:26:14 [INFO]   soccer_epl — 20 events, 15549 API calls remaining
+2026-09-12 00:26:14 [INFO]   2293 rows
+2026-09-12 00:26:14 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 00:26:14 [INFO]   soccer_efl_champ — 14 events, 15543 API calls remaining
+2026-09-12 00:26:14 [INFO]   1589 rows
+2026-09-12 00:26:14 [INFO] Fetching UCL odds ...
+2026-09-12 00:26:15 [INFO]   soccer_uefa_champs_league — 18 events, 15537 API calls remaining
+2026-09-12 00:26:15 [INFO]   1125 rows
+2026-09-12 00:26:15 [INFO] Saved: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5388 rows)
+2026-09-12 00:26:15 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 01:33:49 [INFO] Fetching NRL odds ...
+2026-09-12 01:33:50 [INFO]   rugbyleague_nrl — 3 events, 15531 API calls remaining
+2026-09-12 01:33:50 [INFO]   238 rows
+2026-09-12 01:33:50 [INFO] Fetching AFL odds ...
+2026-09-12 01:33:50 [INFO]   aussierules_afl — 3 events, 15525 API calls remaining
+2026-09-12 01:33:50 [INFO]   143 rows
+2026-09-12 01:33:50 [INFO] Fetching EPL odds ...
+2026-09-12 01:33:50 [INFO]   soccer_epl — 20 events, 15519 API calls remaining
+2026-09-12 01:33:50 [INFO]   2293 rows
+2026-09-12 01:33:50 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 01:33:51 [INFO]   soccer_efl_champ — 14 events, 15513 API calls remaining
+2026-09-12 01:33:51 [INFO]   1589 rows
+2026-09-12 01:33:51 [INFO] Fetching UCL odds ...
+2026-09-12 01:33:51 [INFO]   soccer_uefa_champs_league — 18 events, 15507 API calls remaining
+2026-09-12 01:33:51 [INFO]   1125 rows
+2026-09-12 01:33:51 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5388 rows)
+2026-09-12 01:33:51 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 01:52:35 [INFO] Fetching NRL odds ...
+2026-09-12 01:52:35 [INFO]   rugbyleague_nrl — 3 events, 15501 API calls remaining
+2026-09-12 01:52:35 [INFO]   238 rows
+2026-09-12 01:52:35 [INFO] Fetching AFL odds ...
+2026-09-12 01:52:35 [INFO]   aussierules_afl — 3 events, 15495 API calls remaining
+2026-09-12 01:52:35 [INFO]   143 rows
+2026-09-12 01:52:35 [INFO] Fetching EPL odds ...
+2026-09-12 01:52:36 [INFO]   soccer_epl — 20 events, 15489 API calls remaining
+2026-09-12 01:52:36 [INFO]   2293 rows
+2026-09-12 01:52:36 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 01:52:36 [INFO]   soccer_efl_champ — 14 events, 15483 API calls remaining
+2026-09-12 01:52:36 [INFO]   1589 rows
+2026-09-12 01:52:36 [INFO] Fetching UCL odds ...
+2026-09-12 01:52:36 [INFO]   soccer_uefa_champs_league — 18 events, 15477 API calls remaining
+2026-09-12 01:52:36 [INFO]   1125 rows
+2026-09-12 01:52:36 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5388 rows)
+2026-09-12 01:52:36 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 02:32:33 [INFO] Fetching NRL odds ...
+2026-09-12 02:32:34 [INFO]   rugbyleague_nrl — 3 events, 15471 API calls remaining
+2026-09-12 02:32:34 [INFO]   238 rows
+2026-09-12 02:32:34 [INFO] Fetching AFL odds ...
+2026-09-12 02:32:34 [INFO]   aussierules_afl — 3 events, 15465 API calls remaining
+2026-09-12 02:32:34 [INFO]   143 rows
+2026-09-12 02:32:34 [INFO] Fetching EPL odds ...
+2026-09-12 02:32:34 [INFO]   soccer_epl — 20 events, 15459 API calls remaining
+2026-09-12 02:32:34 [INFO]   2291 rows
+2026-09-12 02:32:34 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 02:32:35 [INFO]   soccer_efl_champ — 14 events, 15453 API calls remaining
+2026-09-12 02:32:35 [INFO]   1589 rows
+2026-09-12 02:32:35 [INFO] Fetching UCL odds ...
+2026-09-12 02:32:35 [INFO]   soccer_uefa_champs_league — 18 events, 15447 API calls remaining
+2026-09-12 02:32:35 [INFO]   1122 rows
+2026-09-12 02:32:35 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 02:32:35 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 02:42:36 [INFO] Fetching NRL odds ...
+2026-09-12 02:42:36 [INFO]   rugbyleague_nrl — 3 events, 15441 API calls remaining
+2026-09-12 02:42:36 [INFO]   238 rows
+2026-09-12 02:42:36 [INFO] Fetching AFL odds ...
+2026-09-12 02:42:36 [INFO]   aussierules_afl — 3 events, 15435 API calls remaining
+2026-09-12 02:42:36 [INFO]   143 rows
+2026-09-12 02:42:36 [INFO] Fetching EPL odds ...
+2026-09-12 02:42:37 [INFO]   soccer_epl — 20 events, 15429 API calls remaining
+2026-09-12 02:42:37 [INFO]   2291 rows
+2026-09-12 02:42:37 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 02:42:37 [INFO]   soccer_efl_champ — 14 events, 15423 API calls remaining
+2026-09-12 02:42:37 [INFO]   1589 rows
+2026-09-12 02:42:37 [INFO] Fetching UCL odds ...
+2026-09-12 02:42:38 [INFO]   soccer_uefa_champs_league — 18 events, 15417 API calls remaining
+2026-09-12 02:42:38 [INFO]   1122 rows
+2026-09-12 02:42:38 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 02:42:38 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 02:52:38 [INFO] Fetching NRL odds ...
+2026-09-12 02:52:39 [INFO]   rugbyleague_nrl — 3 events, 15411 API calls remaining
+2026-09-12 02:52:39 [INFO]   238 rows
+2026-09-12 02:52:39 [INFO] Fetching AFL odds ...
+2026-09-12 02:52:39 [INFO]   aussierules_afl — 3 events, 15405 API calls remaining
+2026-09-12 02:52:39 [INFO]   143 rows
+2026-09-12 02:52:39 [INFO] Fetching EPL odds ...
+2026-09-12 02:52:40 [INFO]   soccer_epl — 20 events, 15399 API calls remaining
+2026-09-12 02:52:40 [INFO]   2291 rows
+2026-09-12 02:52:40 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 02:52:40 [INFO]   soccer_efl_champ — 14 events, 15393 API calls remaining
+2026-09-12 02:52:40 [INFO]   1589 rows
+2026-09-12 02:52:40 [INFO] Fetching UCL odds ...
+2026-09-12 02:52:40 [INFO]   soccer_uefa_champs_league — 18 events, 15387 API calls remaining
+2026-09-12 02:52:40 [INFO]   1122 rows
+2026-09-12 02:52:40 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 02:52:40 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 03:02:41 [INFO] Fetching NRL odds ...
+2026-09-12 03:02:41 [INFO]   rugbyleague_nrl — 3 events, 15381 API calls remaining
+2026-09-12 03:02:41 [INFO]   238 rows
+2026-09-12 03:02:41 [INFO] Fetching AFL odds ...
+2026-09-12 03:02:42 [INFO]   aussierules_afl — 3 events, 15375 API calls remaining
+2026-09-12 03:02:42 [INFO]   143 rows
+2026-09-12 03:02:42 [INFO] Fetching EPL odds ...
+2026-09-12 03:02:43 [INFO]   soccer_epl — 20 events, 15369 API calls remaining
+2026-09-12 03:02:43 [INFO]   2291 rows
+2026-09-12 03:02:43 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 03:02:43 [INFO]   soccer_efl_champ — 14 events, 15363 API calls remaining
+2026-09-12 03:02:43 [INFO]   1589 rows
+2026-09-12 03:02:43 [INFO] Fetching UCL odds ...
+2026-09-12 03:02:43 [INFO]   soccer_uefa_champs_league — 18 events, 15357 API calls remaining
+2026-09-12 03:02:43 [INFO]   1122 rows
+2026-09-12 03:02:43 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 03:02:43 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 03:12:44 [INFO] Fetching NRL odds ...
+2026-09-12 03:12:44 [INFO]   rugbyleague_nrl — 3 events, 15351 API calls remaining
+2026-09-12 03:12:44 [INFO]   238 rows
+2026-09-12 03:12:44 [INFO] Fetching AFL odds ...
+2026-09-12 03:12:45 [INFO]   aussierules_afl — 3 events, 15345 API calls remaining
+2026-09-12 03:12:45 [INFO]   143 rows
+2026-09-12 03:12:45 [INFO] Fetching EPL odds ...
+2026-09-12 03:12:45 [INFO]   soccer_epl — 20 events, 15339 API calls remaining
+2026-09-12 03:12:45 [INFO]   2291 rows
+2026-09-12 03:12:45 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 03:12:46 [INFO]   soccer_efl_champ — 14 events, 15333 API calls remaining
+2026-09-12 03:12:46 [INFO]   1589 rows
+2026-09-12 03:12:46 [INFO] Fetching UCL odds ...
+2026-09-12 03:12:46 [INFO]   soccer_uefa_champs_league — 18 events, 15327 API calls remaining
+2026-09-12 03:12:46 [INFO]   1122 rows
+2026-09-12 03:12:46 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 03:12:46 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 03:22:47 [INFO] Fetching NRL odds ...
+2026-09-12 03:22:47 [INFO]   rugbyleague_nrl — 3 events, 15321 API calls remaining
+2026-09-12 03:22:47 [INFO]   238 rows
+2026-09-12 03:22:47 [INFO] Fetching AFL odds ...
+2026-09-12 03:22:48 [INFO]   aussierules_afl — 3 events, 15315 API calls remaining
+2026-09-12 03:22:48 [INFO]   143 rows
+2026-09-12 03:22:48 [INFO] Fetching EPL odds ...
+2026-09-12 03:22:48 [INFO]   soccer_epl — 20 events, 15309 API calls remaining
+2026-09-12 03:22:48 [INFO]   2291 rows
+2026-09-12 03:22:48 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 03:22:49 [INFO]   soccer_efl_champ — 14 events, 15303 API calls remaining
+2026-09-12 03:22:49 [INFO]   1589 rows
+2026-09-12 03:22:49 [INFO] Fetching UCL odds ...
+2026-09-12 03:22:49 [INFO]   soccer_uefa_champs_league — 18 events, 15297 API calls remaining
+2026-09-12 03:22:49 [INFO]   1122 rows
+2026-09-12 03:22:49 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 03:22:50 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 03:32:50 [INFO] Fetching NRL odds ...
+2026-09-12 03:32:51 [INFO]   rugbyleague_nrl — 3 events, 15291 API calls remaining
+2026-09-12 03:32:51 [INFO]   238 rows
+2026-09-12 03:32:51 [INFO] Fetching AFL odds ...
+2026-09-12 03:32:51 [INFO]   aussierules_afl — 3 events, 15285 API calls remaining
+2026-09-12 03:32:51 [INFO]   143 rows
+2026-09-12 03:32:51 [INFO] Fetching EPL odds ...
+2026-09-12 03:32:52 [INFO]   soccer_epl — 20 events, 15279 API calls remaining
+2026-09-12 03:32:52 [INFO]   2291 rows
+2026-09-12 03:32:52 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 03:32:53 [INFO]   soccer_efl_champ — 14 events, 15273 API calls remaining
+2026-09-12 03:32:53 [INFO]   1589 rows
+2026-09-12 03:32:53 [INFO] Fetching UCL odds ...
+2026-09-12 03:32:53 [INFO]   soccer_uefa_champs_league — 18 events, 15267 API calls remaining
+2026-09-12 03:32:53 [INFO]   1122 rows
+2026-09-12 03:32:53 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 03:32:53 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 03:42:54 [INFO] Fetching NRL odds ...
+2026-09-12 03:42:54 [INFO]   rugbyleague_nrl — 3 events, 15261 API calls remaining
+2026-09-12 03:42:54 [INFO]   238 rows
+2026-09-12 03:42:54 [INFO] Fetching AFL odds ...
+2026-09-12 03:42:55 [INFO]   aussierules_afl — 3 events, 15255 API calls remaining
+2026-09-12 03:42:55 [INFO]   143 rows
+2026-09-12 03:42:55 [INFO] Fetching EPL odds ...
+2026-09-12 03:42:55 [INFO]   soccer_epl — 20 events, 15249 API calls remaining
+2026-09-12 03:42:55 [INFO]   2291 rows
+2026-09-12 03:42:55 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 03:42:55 [INFO]   soccer_efl_champ — 14 events, 15243 API calls remaining
+2026-09-12 03:42:55 [INFO]   1589 rows
+2026-09-12 03:42:55 [INFO] Fetching UCL odds ...
+2026-09-12 03:42:56 [INFO]   soccer_uefa_champs_league — 18 events, 15237 API calls remaining
+2026-09-12 03:42:56 [INFO]   1122 rows
+2026-09-12 03:42:56 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 03:42:56 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 03:52:56 [INFO] Fetching NRL odds ...
+2026-09-12 03:52:56 [INFO]   rugbyleague_nrl — 3 events, 15231 API calls remaining
+2026-09-12 03:52:56 [INFO]   238 rows
+2026-09-12 03:52:56 [INFO] Fetching AFL odds ...
+2026-09-12 03:52:57 [INFO]   aussierules_afl — 3 events, 15225 API calls remaining
+2026-09-12 03:52:57 [INFO]   143 rows
+2026-09-12 03:52:57 [INFO] Fetching EPL odds ...
+2026-09-12 03:52:57 [INFO]   soccer_epl — 20 events, 15219 API calls remaining
+2026-09-12 03:52:57 [INFO]   2291 rows
+2026-09-12 03:52:57 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 03:52:57 [INFO]   soccer_efl_champ — 14 events, 15213 API calls remaining
+2026-09-12 03:52:57 [INFO]   1589 rows
+2026-09-12 03:52:57 [INFO] Fetching UCL odds ...
+2026-09-12 03:52:58 [INFO]   soccer_uefa_champs_league — 18 events, 15207 API calls remaining
+2026-09-12 03:52:58 [INFO]   1122 rows
+2026-09-12 03:52:58 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 03:52:58 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 04:02:58 [INFO] Fetching NRL odds ...
+2026-09-12 04:02:59 [INFO]   rugbyleague_nrl — 3 events, 15201 API calls remaining
+2026-09-12 04:02:59 [INFO]   238 rows
+2026-09-12 04:02:59 [INFO] Fetching AFL odds ...
+2026-09-12 04:02:59 [INFO]   aussierules_afl — 3 events, 15195 API calls remaining
+2026-09-12 04:02:59 [INFO]   143 rows
+2026-09-12 04:02:59 [INFO] Fetching EPL odds ...
+2026-09-12 04:02:59 [INFO]   soccer_epl — 20 events, 15189 API calls remaining
+2026-09-12 04:02:59 [INFO]   2291 rows
+2026-09-12 04:02:59 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 04:03:00 [INFO]   soccer_efl_champ — 14 events, 15183 API calls remaining
+2026-09-12 04:03:00 [INFO]   1589 rows
+2026-09-12 04:03:00 [INFO] Fetching UCL odds ...
+2026-09-12 04:03:00 [INFO]   soccer_uefa_champs_league — 18 events, 15177 API calls remaining
+2026-09-12 04:03:00 [INFO]   1122 rows
+2026-09-12 04:03:00 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 04:03:00 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 04:13:01 [INFO] Fetching NRL odds ...
+2026-09-12 04:13:01 [INFO]   rugbyleague_nrl — 3 events, 15171 API calls remaining
+2026-09-12 04:13:01 [INFO]   238 rows
+2026-09-12 04:13:01 [INFO] Fetching AFL odds ...
+2026-09-12 04:13:01 [INFO]   aussierules_afl — 3 events, 15165 API calls remaining
+2026-09-12 04:13:01 [INFO]   143 rows
+2026-09-12 04:13:01 [INFO] Fetching EPL odds ...
+2026-09-12 04:13:02 [INFO]   soccer_epl — 20 events, 15159 API calls remaining
+2026-09-12 04:13:02 [INFO]   2291 rows
+2026-09-12 04:13:02 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 04:13:02 [INFO]   soccer_efl_champ — 14 events, 15153 API calls remaining
+2026-09-12 04:13:02 [INFO]   1589 rows
+2026-09-12 04:13:02 [INFO] Fetching UCL odds ...
+2026-09-12 04:13:03 [INFO]   soccer_uefa_champs_league — 18 events, 15147 API calls remaining
+2026-09-12 04:13:03 [INFO]   1122 rows
+2026-09-12 04:13:03 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 04:13:03 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 04:23:03 [INFO] Fetching NRL odds ...
+2026-09-12 04:23:03 [INFO]   rugbyleague_nrl — 3 events, 15141 API calls remaining
+2026-09-12 04:23:03 [INFO]   238 rows
+2026-09-12 04:23:03 [INFO] Fetching AFL odds ...
+2026-09-12 04:23:04 [INFO]   aussierules_afl — 3 events, 15135 API calls remaining
+2026-09-12 04:23:04 [INFO]   143 rows
+2026-09-12 04:23:04 [INFO] Fetching EPL odds ...
+2026-09-12 04:23:04 [INFO]   soccer_epl — 20 events, 15129 API calls remaining
+2026-09-12 04:23:04 [INFO]   2291 rows
+2026-09-12 04:23:04 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 04:23:05 [INFO]   soccer_efl_champ — 14 events, 15123 API calls remaining
+2026-09-12 04:23:05 [INFO]   1589 rows
+2026-09-12 04:23:05 [INFO] Fetching UCL odds ...
+2026-09-12 04:23:05 [INFO]   soccer_uefa_champs_league — 18 events, 15117 API calls remaining
+2026-09-12 04:23:05 [INFO]   1122 rows
+2026-09-12 04:23:05 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 04:23:05 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 04:33:05 [INFO] Fetching NRL odds ...
+2026-09-12 04:33:06 [INFO]   rugbyleague_nrl — 3 events, 15111 API calls remaining
+2026-09-12 04:33:06 [INFO]   238 rows
+2026-09-12 04:33:06 [INFO] Fetching AFL odds ...
+2026-09-12 04:33:06 [INFO]   aussierules_afl — 3 events, 15105 API calls remaining
+2026-09-12 04:33:06 [INFO]   143 rows
+2026-09-12 04:33:06 [INFO] Fetching EPL odds ...
+2026-09-12 04:33:07 [INFO]   soccer_epl — 20 events, 15099 API calls remaining
+2026-09-12 04:33:07 [INFO]   2291 rows
+2026-09-12 04:33:07 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 04:33:07 [INFO]   soccer_efl_champ — 14 events, 15093 API calls remaining
+2026-09-12 04:33:07 [INFO]   1589 rows
+2026-09-12 04:33:07 [INFO] Fetching UCL odds ...
+2026-09-12 04:33:07 [INFO]   soccer_uefa_champs_league — 18 events, 15087 API calls remaining
+2026-09-12 04:33:07 [INFO]   1122 rows
+2026-09-12 04:33:07 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 04:33:07 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 04:43:08 [INFO] Fetching NRL odds ...
+2026-09-12 04:43:08 [INFO]   rugbyleague_nrl — 3 events, 15067 API calls remaining
+2026-09-12 04:43:08 [INFO]   238 rows
+2026-09-12 04:43:08 [INFO] Fetching AFL odds ...
+2026-09-12 04:43:09 [INFO]   aussierules_afl — 3 events, 15061 API calls remaining
+2026-09-12 04:43:09 [INFO]   143 rows
+2026-09-12 04:43:09 [INFO] Fetching EPL odds ...
+2026-09-12 04:43:09 [INFO]   soccer_epl — 20 events, 15055 API calls remaining
+2026-09-12 04:43:09 [INFO]   2291 rows
+2026-09-12 04:43:09 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 04:43:09 [INFO]   soccer_efl_champ — 14 events, 15049 API calls remaining
+2026-09-12 04:43:09 [INFO]   1589 rows
+2026-09-12 04:43:09 [INFO] Fetching UCL odds ...
+2026-09-12 04:43:10 [INFO]   soccer_uefa_champs_league — 18 events, 15043 API calls remaining
+2026-09-12 04:43:10 [INFO]   1122 rows
+2026-09-12 04:43:10 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 04:43:10 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 04:53:10 [INFO] Fetching NRL odds ...
+2026-09-12 04:53:10 [INFO]   rugbyleague_nrl — 3 events, 15037 API calls remaining
+2026-09-12 04:53:10 [INFO]   238 rows
+2026-09-12 04:53:10 [INFO] Fetching AFL odds ...
+2026-09-12 04:53:11 [INFO]   aussierules_afl — 3 events, 15031 API calls remaining
+2026-09-12 04:53:11 [INFO]   143 rows
+2026-09-12 04:53:11 [INFO] Fetching EPL odds ...
+2026-09-12 04:53:11 [INFO]   soccer_epl — 20 events, 15025 API calls remaining
+2026-09-12 04:53:11 [INFO]   2291 rows
+2026-09-12 04:53:11 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 04:53:12 [INFO]   soccer_efl_champ — 14 events, 15019 API calls remaining
+2026-09-12 04:53:12 [INFO]   1589 rows
+2026-09-12 04:53:12 [INFO] Fetching UCL odds ...
+2026-09-12 04:53:12 [INFO]   soccer_uefa_champs_league — 18 events, 15013 API calls remaining
+2026-09-12 04:53:12 [INFO]   1122 rows
+2026-09-12 04:53:12 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5383 rows)
+2026-09-12 04:53:12 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 05:03:12 [INFO] Fetching NRL odds ...
+2026-09-12 05:03:13 [INFO]   rugbyleague_nrl — 3 events, 15007 API calls remaining
+2026-09-12 05:03:13 [INFO]   238 rows
+2026-09-12 05:03:13 [INFO] Fetching AFL odds ...
+2026-09-12 05:03:13 [INFO]   aussierules_afl — 3 events, 15001 API calls remaining
+2026-09-12 05:03:13 [INFO]   143 rows
+2026-09-12 05:03:13 [INFO] Fetching EPL odds ...
+2026-09-12 05:03:14 [INFO]   soccer_epl — 20 events, 14995 API calls remaining
+2026-09-12 05:03:14 [INFO]   2291 rows
+2026-09-12 05:03:14 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 05:03:14 [INFO]   soccer_efl_champ — 15 events, 14989 API calls remaining
+2026-09-12 05:03:14 [INFO]   1615 rows
+2026-09-12 05:03:14 [INFO] Fetching UCL odds ...
+2026-09-12 05:03:15 [INFO]   soccer_uefa_champs_league — 18 events, 14983 API calls remaining
+2026-09-12 05:03:15 [INFO]   1122 rows
+2026-09-12 05:03:15 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5409 rows)
+2026-09-12 05:03:15 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 05:13:15 [INFO] Fetching NRL odds ...
+2026-09-12 05:13:15 [INFO]   rugbyleague_nrl — 3 events, 14977 API calls remaining
+2026-09-12 05:13:15 [INFO]   238 rows
+2026-09-12 05:13:15 [INFO] Fetching AFL odds ...
+2026-09-12 05:13:16 [INFO]   aussierules_afl — 3 events, 14971 API calls remaining
+2026-09-12 05:13:16 [INFO]   143 rows
+2026-09-12 05:13:16 [INFO] Fetching EPL odds ...
+2026-09-12 05:13:16 [INFO]   soccer_epl — 20 events, 14965 API calls remaining
+2026-09-12 05:13:16 [INFO]   2291 rows
+2026-09-12 05:13:16 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 05:13:16 [INFO]   soccer_efl_champ — 15 events, 14959 API calls remaining
+2026-09-12 05:13:16 [INFO]   1618 rows
+2026-09-12 05:13:16 [INFO] Fetching UCL odds ...
+2026-09-12 05:13:17 [INFO]   soccer_uefa_champs_league — 18 events, 14953 API calls remaining
+2026-09-12 05:13:17 [INFO]   1122 rows
+2026-09-12 05:13:17 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5412 rows)
+2026-09-12 05:13:17 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 05:23:17 [INFO] Fetching NRL odds ...
+2026-09-12 05:23:17 [INFO]   rugbyleague_nrl — 3 events, 14947 API calls remaining
+2026-09-12 05:23:17 [INFO]   238 rows
+2026-09-12 05:23:17 [INFO] Fetching AFL odds ...
+2026-09-12 05:23:18 [INFO]   aussierules_afl — 3 events, 14941 API calls remaining
+2026-09-12 05:23:18 [INFO]   143 rows
+2026-09-12 05:23:18 [INFO] Fetching EPL odds ...
+2026-09-12 05:23:18 [INFO]   soccer_epl — 20 events, 14935 API calls remaining
+2026-09-12 05:23:18 [INFO]   2291 rows
+2026-09-12 05:23:18 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 05:23:19 [INFO]   soccer_efl_champ — 15 events, 14929 API calls remaining
+2026-09-12 05:23:19 [INFO]   1588 rows
+2026-09-12 05:23:19 [INFO] Fetching UCL odds ...
+2026-09-12 05:23:19 [INFO]   soccer_uefa_champs_league — 18 events, 14923 API calls remaining
+2026-09-12 05:23:19 [INFO]   1116 rows
+2026-09-12 05:23:19 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5376 rows)
+2026-09-12 05:23:19 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 05:33:19 [INFO] Fetching NRL odds ...
+2026-09-12 05:33:20 [INFO]   rugbyleague_nrl — 3 events, 14917 API calls remaining
+2026-09-12 05:33:20 [INFO]   238 rows
+2026-09-12 05:33:20 [INFO] Fetching AFL odds ...
+2026-09-12 05:33:20 [INFO]   aussierules_afl — 3 events, 14911 API calls remaining
+2026-09-12 05:33:20 [INFO]   143 rows
+2026-09-12 05:33:20 [INFO] Fetching EPL odds ...
+2026-09-12 05:33:21 [INFO]   soccer_epl — 20 events, 14905 API calls remaining
+2026-09-12 05:33:21 [INFO]   2301 rows
+2026-09-12 05:33:21 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 05:33:21 [INFO]   soccer_efl_champ — 15 events, 14899 API calls remaining
+2026-09-12 05:33:21 [INFO]   1591 rows
+2026-09-12 05:33:21 [INFO] Fetching UCL odds ...
+2026-09-12 05:33:22 [INFO]   soccer_uefa_champs_league — 18 events, 14893 API calls remaining
+2026-09-12 05:33:22 [INFO]   1120 rows
+2026-09-12 05:33:22 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5393 rows)
+2026-09-12 05:33:22 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 05:43:22 [INFO] Fetching NRL odds ...
+2026-09-12 05:43:23 [INFO]   rugbyleague_nrl — 3 events, 14887 API calls remaining
+2026-09-12 05:43:23 [INFO]   238 rows
+2026-09-12 05:43:23 [INFO] Fetching AFL odds ...
+2026-09-12 05:43:23 [INFO]   aussierules_afl — 3 events, 14881 API calls remaining
+2026-09-12 05:43:23 [INFO]   143 rows
+2026-09-12 05:43:23 [INFO] Fetching EPL odds ...
+2026-09-12 05:43:23 [INFO]   soccer_epl — 20 events, 14875 API calls remaining
+2026-09-12 05:43:23 [INFO]   2301 rows
+2026-09-12 05:43:23 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 05:43:24 [INFO]   soccer_efl_champ — 15 events, 14869 API calls remaining
+2026-09-12 05:43:24 [INFO]   1591 rows
+2026-09-12 05:43:24 [INFO] Fetching UCL odds ...
+2026-09-12 05:43:24 [INFO]   soccer_uefa_champs_league — 18 events, 14863 API calls remaining
+2026-09-12 05:43:24 [INFO]   1120 rows
+2026-09-12 05:43:24 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5393 rows)
+2026-09-12 05:43:24 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 05:53:25 [INFO] Fetching NRL odds ...
+2026-09-12 05:53:25 [INFO]   rugbyleague_nrl — 3 events, 14857 API calls remaining
+2026-09-12 05:53:25 [INFO]   238 rows
+2026-09-12 05:53:25 [INFO] Fetching AFL odds ...
+2026-09-12 05:53:25 [INFO]   aussierules_afl — 3 events, 14851 API calls remaining
+2026-09-12 05:53:25 [INFO]   143 rows
+2026-09-12 05:53:25 [INFO] Fetching EPL odds ...
+2026-09-12 05:53:26 [INFO]   soccer_epl — 20 events, 14845 API calls remaining
+2026-09-12 05:53:26 [INFO]   2301 rows
+2026-09-12 05:53:26 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 05:53:26 [INFO]   soccer_efl_champ — 15 events, 14839 API calls remaining
+2026-09-12 05:53:26 [INFO]   1588 rows
+2026-09-12 05:53:26 [INFO] Fetching UCL odds ...
+2026-09-12 05:53:27 [INFO]   soccer_uefa_champs_league — 18 events, 14833 API calls remaining
+2026-09-12 05:53:27 [INFO]   1120 rows
+2026-09-12 05:53:27 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5390 rows)
+2026-09-12 05:53:27 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 06:03:27 [INFO] Fetching NRL odds ...
+2026-09-12 06:03:27 [INFO]   rugbyleague_nrl — 3 events, 14827 API calls remaining
+2026-09-12 06:03:27 [INFO]   238 rows
+2026-09-12 06:03:27 [INFO] Fetching AFL odds ...
+2026-09-12 06:03:27 [INFO]   aussierules_afl — 3 events, 14821 API calls remaining
+2026-09-12 06:03:27 [INFO]   143 rows
+2026-09-12 06:03:27 [INFO] Fetching EPL odds ...
+2026-09-12 06:03:28 [INFO]   soccer_epl — 20 events, 14815 API calls remaining
+2026-09-12 06:03:28 [INFO]   2301 rows
+2026-09-12 06:03:28 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 06:03:28 [INFO]   soccer_efl_champ — 15 events, 14809 API calls remaining
+2026-09-12 06:03:28 [INFO]   1588 rows
+2026-09-12 06:03:28 [INFO] Fetching UCL odds ...
+2026-09-12 06:03:28 [INFO]   soccer_uefa_champs_league — 18 events, 14803 API calls remaining
+2026-09-12 06:03:28 [INFO]   1122 rows
+2026-09-12 06:03:29 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5392 rows)
+2026-09-12 06:03:29 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 06:13:29 [INFO] Fetching NRL odds ...
+2026-09-12 06:13:29 [INFO]   rugbyleague_nrl — 3 events, 14797 API calls remaining
+2026-09-12 06:13:29 [INFO]   238 rows
+2026-09-12 06:13:29 [INFO] Fetching AFL odds ...
+2026-09-12 06:13:30 [INFO]   aussierules_afl — 3 events, 14791 API calls remaining
+2026-09-12 06:13:30 [INFO]   143 rows
+2026-09-12 06:13:30 [INFO] Fetching EPL odds ...
+2026-09-12 06:13:30 [INFO]   soccer_epl — 20 events, 14785 API calls remaining
+2026-09-12 06:13:30 [INFO]   2301 rows
+2026-09-12 06:13:30 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 06:13:30 [INFO]   soccer_efl_champ — 15 events, 14779 API calls remaining
+2026-09-12 06:13:30 [INFO]   1561 rows
+2026-09-12 06:13:30 [INFO] Fetching UCL odds ...
+2026-09-12 06:13:31 [INFO]   soccer_uefa_champs_league — 18 events, 14773 API calls remaining
+2026-09-12 06:13:31 [INFO]   1122 rows
+2026-09-12 06:13:31 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5365 rows)
+2026-09-12 06:13:31 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 06:23:32 [INFO] Fetching NRL odds ...
+2026-09-12 06:23:32 [INFO]   rugbyleague_nrl — 3 events, 14761 API calls remaining
+2026-09-12 06:23:32 [INFO]   238 rows
+2026-09-12 06:23:32 [INFO] Fetching AFL odds ...
+2026-09-12 06:23:32 [INFO]   aussierules_afl — 3 events, 14755 API calls remaining
+2026-09-12 06:23:32 [INFO]   143 rows
+2026-09-12 06:23:32 [INFO] Fetching EPL odds ...
+2026-09-12 06:23:33 [INFO]   soccer_epl — 20 events, 14749 API calls remaining
+2026-09-12 06:23:33 [INFO]   2301 rows
+2026-09-12 06:23:33 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 06:23:33 [INFO]   soccer_efl_champ — 15 events, 14743 API calls remaining
+2026-09-12 06:23:33 [INFO]   1549 rows
+2026-09-12 06:23:33 [INFO] Fetching UCL odds ...
+2026-09-12 06:23:34 [INFO]   soccer_uefa_champs_league — 18 events, 14737 API calls remaining
+2026-09-12 06:23:34 [INFO]   1122 rows
+2026-09-12 06:23:34 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5353 rows)
+2026-09-12 06:23:34 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 06:33:34 [INFO] Fetching NRL odds ...
+2026-09-12 06:33:34 [INFO]   rugbyleague_nrl — 3 events, 14731 API calls remaining
+2026-09-12 06:33:34 [INFO]   238 rows
+2026-09-12 06:33:34 [INFO] Fetching AFL odds ...
+2026-09-12 06:33:35 [INFO]   aussierules_afl — 3 events, 14725 API calls remaining
+2026-09-12 06:33:35 [INFO]   147 rows
+2026-09-12 06:33:35 [INFO] Fetching EPL odds ...
+2026-09-12 06:33:35 [INFO]   soccer_epl — 20 events, 14719 API calls remaining
+2026-09-12 06:33:35 [INFO]   2297 rows
+2026-09-12 06:33:35 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 06:33:35 [INFO]   soccer_efl_champ — 15 events, 14713 API calls remaining
+2026-09-12 06:33:35 [INFO]   1497 rows
+2026-09-12 06:33:35 [INFO] Fetching UCL odds ...
+2026-09-12 06:33:36 [INFO]   soccer_uefa_champs_league — 18 events, 14707 API calls remaining
+2026-09-12 06:33:36 [INFO]   1122 rows
+2026-09-12 06:33:36 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5301 rows)
+2026-09-12 06:33:36 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 06:43:36 [INFO] Fetching NRL odds ...
+2026-09-12 06:43:37 [INFO]   rugbyleague_nrl — 3 events, 14701 API calls remaining
+2026-09-12 06:43:37 [INFO]   238 rows
+2026-09-12 06:43:37 [INFO] Fetching AFL odds ...
+2026-09-12 06:43:37 [INFO]   aussierules_afl — 3 events, 14695 API calls remaining
+2026-09-12 06:43:37 [INFO]   147 rows
+2026-09-12 06:43:37 [INFO] Fetching EPL odds ...
+2026-09-12 06:43:37 [INFO]   soccer_epl — 20 events, 14689 API calls remaining
+2026-09-12 06:43:37 [INFO]   2303 rows
+2026-09-12 06:43:37 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 06:43:38 [INFO]   soccer_efl_champ — 15 events, 14683 API calls remaining
+2026-09-12 06:43:38 [INFO]   1477 rows
+2026-09-12 06:43:38 [INFO] Fetching UCL odds ...
+2026-09-12 06:43:38 [INFO]   soccer_uefa_champs_league — 18 events, 14677 API calls remaining
+2026-09-12 06:43:38 [INFO]   1122 rows
+2026-09-12 06:43:38 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5287 rows)
+2026-09-12 06:43:38 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 06:53:39 [INFO] Fetching NRL odds ...
+2026-09-12 06:53:39 [INFO]   rugbyleague_nrl — 3 events, 14671 API calls remaining
+2026-09-12 06:53:39 [INFO]   238 rows
+2026-09-12 06:53:39 [INFO] Fetching AFL odds ...
+2026-09-12 06:53:39 [INFO]   aussierules_afl — 3 events, 14665 API calls remaining
+2026-09-12 06:53:39 [INFO]   147 rows
+2026-09-12 06:53:39 [INFO] Fetching EPL odds ...
+2026-09-12 06:53:40 [INFO]   soccer_epl — 20 events, 14659 API calls remaining
+2026-09-12 06:53:40 [INFO]   2303 rows
+2026-09-12 06:53:40 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 06:53:40 [INFO]   soccer_efl_champ — 15 events, 14653 API calls remaining
+2026-09-12 06:53:40 [INFO]   1489 rows
+2026-09-12 06:53:40 [INFO] Fetching UCL odds ...
+2026-09-12 06:53:41 [INFO]   soccer_uefa_champs_league — 18 events, 14647 API calls remaining
+2026-09-12 06:53:41 [INFO]   1122 rows
+2026-09-12 06:53:41 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5299 rows)
+2026-09-12 06:53:41 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 07:03:41 [INFO] Fetching NRL odds ...
+2026-09-12 07:03:42 [INFO]   rugbyleague_nrl — 3 events, 14641 API calls remaining
+2026-09-12 07:03:42 [INFO]   238 rows
+2026-09-12 07:03:42 [INFO] Fetching AFL odds ...
+2026-09-12 07:03:42 [INFO]   aussierules_afl — 3 events, 14635 API calls remaining
+2026-09-12 07:03:42 [INFO]   147 rows
+2026-09-12 07:03:42 [INFO] Fetching EPL odds ...
+2026-09-12 07:03:42 [INFO]   soccer_epl — 20 events, 14629 API calls remaining
+2026-09-12 07:03:42 [INFO]   2303 rows
+2026-09-12 07:03:42 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 07:03:43 [INFO]   soccer_efl_champ — 15 events, 14623 API calls remaining
+2026-09-12 07:03:43 [INFO]   1519 rows
+2026-09-12 07:03:43 [INFO] Fetching UCL odds ...
+2026-09-12 07:03:43 [INFO]   soccer_uefa_champs_league — 18 events, 14617 API calls remaining
+2026-09-12 07:03:43 [INFO]   1122 rows
+2026-09-12 07:03:43 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5329 rows)
+2026-09-12 07:03:43 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 07:13:44 [INFO] Fetching NRL odds ...
+2026-09-12 07:13:44 [INFO]   rugbyleague_nrl — 3 events, 14611 API calls remaining
+2026-09-12 07:13:44 [INFO]   238 rows
+2026-09-12 07:13:44 [INFO] Fetching AFL odds ...
+2026-09-12 07:13:45 [INFO]   aussierules_afl — 3 events, 14605 API calls remaining
+2026-09-12 07:13:45 [INFO]   147 rows
+2026-09-12 07:13:45 [INFO] Fetching EPL odds ...
+2026-09-12 07:13:45 [INFO]   soccer_epl — 20 events, 14599 API calls remaining
+2026-09-12 07:13:45 [INFO]   2303 rows
+2026-09-12 07:13:45 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 07:13:46 [INFO]   soccer_efl_champ — 14 events, 14593 API calls remaining
+2026-09-12 07:13:46 [INFO]   1466 rows
+2026-09-12 07:13:46 [INFO] Fetching UCL odds ...
+2026-09-12 07:13:47 [INFO]   soccer_uefa_champs_league — 18 events, 14587 API calls remaining
+2026-09-12 07:13:47 [INFO]   1122 rows
+2026-09-12 07:13:47 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5276 rows)
+2026-09-12 07:13:47 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 07:23:47 [INFO] Fetching NRL odds ...
+2026-09-12 07:23:47 [INFO]   rugbyleague_nrl — 3 events, 14581 API calls remaining
+2026-09-12 07:23:47 [INFO]   238 rows
+2026-09-12 07:23:47 [INFO] Fetching AFL odds ...
+2026-09-12 07:23:48 [INFO]   aussierules_afl — 3 events, 14575 API calls remaining
+2026-09-12 07:23:48 [INFO]   147 rows
+2026-09-12 07:23:48 [INFO] Fetching EPL odds ...
+2026-09-12 07:23:48 [INFO]   soccer_epl — 20 events, 14569 API calls remaining
+2026-09-12 07:23:48 [INFO]   2303 rows
+2026-09-12 07:23:48 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 07:23:49 [INFO]   soccer_efl_champ — 14 events, 14563 API calls remaining
+2026-09-12 07:23:49 [INFO]   1466 rows
+2026-09-12 07:23:49 [INFO] Fetching UCL odds ...
+2026-09-12 07:23:49 [INFO]   soccer_uefa_champs_league — 18 events, 14557 API calls remaining
+2026-09-12 07:23:49 [INFO]   1122 rows
+2026-09-12 07:23:49 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5276 rows)
+2026-09-12 07:23:49 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 07:33:49 [INFO] Fetching NRL odds ...
+2026-09-12 07:33:50 [INFO]   rugbyleague_nrl — 3 events, 14551 API calls remaining
+2026-09-12 07:33:50 [INFO]   238 rows
+2026-09-12 07:33:50 [INFO] Fetching AFL odds ...
+2026-09-12 07:33:50 [INFO]   aussierules_afl — 3 events, 14545 API calls remaining
+2026-09-12 07:33:50 [INFO]   147 rows
+2026-09-12 07:33:50 [INFO] Fetching EPL odds ...
+2026-09-12 07:33:50 [INFO]   soccer_epl — 20 events, 14539 API calls remaining
+2026-09-12 07:33:50 [INFO]   2303 rows
+2026-09-12 07:33:50 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 07:33:51 [INFO]   soccer_efl_champ — 14 events, 14533 API calls remaining
+2026-09-12 07:33:51 [INFO]   1493 rows
+2026-09-12 07:33:51 [INFO] Fetching UCL odds ...
+2026-09-12 07:33:51 [INFO]   soccer_uefa_champs_league — 18 events, 14527 API calls remaining
+2026-09-12 07:33:51 [INFO]   1122 rows
+2026-09-12 07:33:51 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5303 rows)
+2026-09-12 07:33:51 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 09:00:00 [INFO] Fetching NRL odds ...
+2026-09-12 09:00:00 [INFO]   rugbyleague_nrl — 3 events, 14413 API calls remaining
+2026-09-12 09:00:00 [INFO]   238 rows
+2026-09-12 09:00:00 [INFO] Fetching AFL odds ...
+2026-09-12 09:00:01 [INFO]   aussierules_afl — 3 events, 14407 API calls remaining
+2026-09-12 09:00:01 [INFO]   147 rows
+2026-09-12 09:00:01 [INFO] Fetching EPL odds ...
+2026-09-12 09:00:12 [WARNING]   Attempt 1/3 failed for soccer_epl — 502 Server Error: Bad Gateway for url: https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=6405027b2a3ef3be4a6af600316961a5&regions=au%2Cuk&markets=h2h%2Cspreads%2Ctotals&oddsFormat=decimal. Retrying in 300s ...
+2026-09-12 09:05:13 [INFO]   soccer_epl — 20 events, 14395 API calls remaining
+2026-09-12 09:05:13 [INFO]   2303 rows
+2026-09-12 09:05:13 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 09:05:13 [INFO]   soccer_efl_champ — 14 events, 14389 API calls remaining
+2026-09-12 09:05:13 [INFO]   1493 rows
+2026-09-12 09:05:13 [INFO] Fetching UCL odds ...
+2026-09-12 09:05:14 [INFO]   soccer_uefa_champs_league — 18 events, 14383 API calls remaining
+2026-09-12 09:05:14 [INFO]   1122 rows
+2026-09-12 09:05:14 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5303 rows)
+2026-09-12 09:05:14 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-12 18:27:23 [INFO] Fetching NRL odds ...
+2026-09-12 18:27:24 [INFO]   rugbyleague_nrl — 3 events, 14057 API calls remaining
+2026-09-12 18:27:24 [INFO]   166 rows
+2026-09-12 18:27:24 [INFO] Fetching AFL odds ...
+2026-09-12 18:27:24 [INFO]   aussierules_afl — 3 events, 14051 API calls remaining
+2026-09-12 18:27:24 [INFO]   165 rows
+2026-09-12 18:27:24 [INFO] Fetching EPL odds ...
+2026-09-12 18:27:25 [INFO]   soccer_epl — 20 events, 14045 API calls remaining
+2026-09-12 18:27:25 [INFO]   2299 rows
+2026-09-12 18:27:25 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-12 18:27:25 [INFO]   soccer_efl_champ — 14 events, 14039 API calls remaining
+2026-09-12 18:27:25 [INFO]   1493 rows
+2026-09-12 18:27:25 [INFO] Fetching UCL odds ...
+2026-09-12 18:27:25 [INFO]   soccer_uefa_champs_league — 18 events, 14033 API calls remaining
+2026-09-12 18:27:25 [INFO]   1113 rows
+2026-09-12 18:27:25 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-12.csv (5236 rows)
+2026-09-12 18:27:25 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-13 09:00:00 [INFO] Fetching NRL odds ...
+2026-09-13 09:00:01 [INFO]   rugbyleague_nrl — 3 events, 13795 API calls remaining
+2026-09-13 09:00:01 [INFO]   120 rows
+2026-09-13 09:00:01 [INFO] Fetching AFL odds ...
+2026-09-13 09:00:02 [INFO]   aussierules_afl — 2 events, 13789 API calls remaining
+2026-09-13 09:00:02 [INFO]   154 rows
+2026-09-13 09:00:02 [INFO] Fetching EPL odds ...
+2026-09-13 09:00:02 [INFO]   soccer_epl — 23 events, 13783 API calls remaining
+2026-09-13 09:00:02 [INFO]   1965 rows
+2026-09-13 09:00:02 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-13 09:00:03 [INFO]   soccer_efl_champ — 15 events, 13777 API calls remaining
+2026-09-13 09:00:03 [INFO]   1520 rows
+2026-09-13 09:00:03 [INFO] Fetching UCL odds ...
+2026-09-13 09:00:04 [INFO]   soccer_uefa_champs_league — 18 events, 13771 API calls remaining
+2026-09-13 09:00:04 [INFO]   1179 rows
+2026-09-13 09:00:04 [INFO] Saved: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-13.csv (4938 rows)
+2026-09-13 09:00:04 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-13 18:00:05 [INFO] Fetching NRL odds ...
+2026-09-13 18:00:05 [INFO]   rugbyleague_nrl — 2 events, 13265 API calls remaining
+2026-09-13 18:00:05 [INFO]   60 rows
+2026-09-13 18:00:05 [INFO] Fetching AFL odds ...
+2026-09-13 18:00:06 [INFO]   aussierules_afl — 2 events, 13259 API calls remaining
+2026-09-13 18:00:06 [INFO]   166 rows
+2026-09-13 18:00:06 [INFO] Fetching EPL odds ...
+2026-09-13 18:00:07 [INFO]   soccer_epl — 23 events, 13253 API calls remaining
+2026-09-13 18:00:07 [INFO]   1992 rows
+2026-09-13 18:00:07 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-13 18:00:08 [INFO]   soccer_efl_champ — 15 events, 13247 API calls remaining
+2026-09-13 18:00:08 [INFO]   1637 rows
+2026-09-13 18:00:08 [INFO] Fetching UCL odds ...
+2026-09-13 18:00:09 [INFO]   soccer_uefa_champs_league — 18 events, 13241 API calls remaining
+2026-09-13 18:00:09 [INFO]   1242 rows
+2026-09-13 18:00:09 [INFO] Appended: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-13.csv (5097 rows)
+2026-09-13 18:00:09 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-14 09:00:00 [INFO] Fetching NRL odds ...
+2026-09-14 09:00:00 [INFO]   rugbyleague_nrl — 2 events, 12769 API calls remaining
+2026-09-14 09:00:00 [INFO]   110 rows
+2026-09-14 09:00:00 [INFO] Fetching AFL odds ...
+2026-09-14 09:00:01 [INFO]   aussierules_afl — 2 events, 12763 API calls remaining
+2026-09-14 09:00:01 [INFO]   170 rows
+2026-09-14 09:00:01 [INFO] Fetching EPL odds ...
+2026-09-14 09:00:02 [INFO]   soccer_epl — 21 events, 12757 API calls remaining
+2026-09-14 09:00:02 [INFO]   1933 rows
+2026-09-14 09:00:02 [INFO] Fetching CHAMPIONSHIP odds ...
+2026-09-14 09:00:02 [INFO]   soccer_efl_champ — 14 events, 12751 API calls remaining
+2026-09-14 09:00:02 [INFO]   1648 rows
+2026-09-14 09:00:02 [INFO] Fetching UCL odds ...
+2026-09-14 09:00:03 [INFO]   soccer_uefa_champs_league — 18 events, 12745 API calls remaining
+2026-09-14 09:00:03 [INFO]   1263 rows
+2026-09-14 09:00:03 [INFO] Saved: /Users/elliotbladen/BetMate/data/odds_snapshots/2026/2026-09-14.csv (5124 rows)
+2026-09-14 09:00:03 [INFO] Updated: /Users/elliotbladen/BetMate/data/odds_snapshots/latest.csv
+2026-09-14 09:00:06 [INFO] Monday baseline pushed to Supabase: nrl_opening_baseline (108 prices)
+2026-09-14 09:00:06 [INFO] Monday baseline pushed to Supabase: afl_opening_baseline (168 prices)
