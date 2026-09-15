@@ -114,7 +114,7 @@ def main() -> None:
         c = sqlite3.connect(a.database); total = inserted = failed = 0
         for item in sorted(meetings, key=lambda x: x["date"], reverse=True):
             url = source_url(item); path = a.run_directory / (digest(url) + ".json")
-            if path.exists() and json.loads(path.read_text()).get("status") == "verified":
+            if path.exists() and json.loads(path.read_text()).get("status") in {"verified", "failed", "abandoned"}:
                 continue
             try:
                 time.sleep(0.75); raw = fetch(url); archive = archive_payload(a.archive, source_id="racing_nsw_trials", source_url=url, payload=raw, collected_at=utc_now())
