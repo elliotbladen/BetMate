@@ -189,7 +189,7 @@ function AllBetsTab() {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-[#E2E8F0]">
-              {['#', 'Date', 'Match', 'Market', 'Odds', 'CLV', 'Result', 'Cum P&L', 'Sport'].map(h => (
+              {['#', 'Date', 'Match', 'Market', 'Odds', 'Result', 'Cum P&L', 'Sport'].map(h => (
                 <th key={h} className="pb-2 pr-4 text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
               ))}
             </tr>
@@ -202,7 +202,6 @@ function AllBetsTab() {
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827] whitespace-nowrap max-w-[180px] truncate">{bet.match}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280] whitespace-nowrap">{bet.market}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280]">{bet.odds ?? '—'}</td>
-                <td className="py-2 pr-4">{clvCell(bet)}</td>
                 <td className="py-2 pr-4">{resultBadge(bet.result)}</td>
                 <td className={`py-2 pr-4 text-[12px] font-mono font-bold ${bet.cumPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500'}`}>
                   {bet.cumPL > 0 ? '+' : ''}{bet.cumPL.toFixed(2)}u
