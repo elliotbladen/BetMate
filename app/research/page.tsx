@@ -225,16 +225,23 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
   const clvBets   = filtered.filter(b => { const s = clvScore(b); return s !== null && s !== 0; });
   const clvBeaten = clvBets.filter(b => (clvScore(b) ?? 0) > 0).length;
   const clvPct    = clvBets.length > 0 ? (clvBeaten / clvBets.length) * 100 : 0;
+  // The count alone is misleading: AFL beat the close on 61% of bets and was still
+  // NET NEGATIVE, because the 39% it lost were nearly twice the size of the 61% it
+  // won (+3.97 pts per winner vs -7.17 per loser). Show the average beside it.
+  const clvPts    = filtered.filter(b => b.clv !== undefined && b.clv !== null && b.clvLabel?.includes('pts'));
+  const clvPtsAvg = clvPts.length > 0 ? clvPts.reduce((t, b) => t + (b.clv ?? 0), 0) / clvPts.length : null;
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-5">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-5">
         {[
           { label: 'Bets',        value: stats.total.toString(),                                                          color: '' },
           { label: 'Win Rate',    value: `${stats.winRate.toFixed(1)}%`,                                                  color: '' },
           { label: 'Running P&L', value: `${stats.totalPL >= 0 ? '+' : ''}${stats.totalPL.toFixed(2)}u`,                 color: stats.totalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
           { label: 'W / L',       value: `${stats.wins} / ${stats.losses}`,                                               color: '' },
           { label: 'Beat CLV',    value: clvBets.length > 0 ? `${clvPct.toFixed(0)}%` : 'N/A',                           color: '' },
+          { label: 'Avg CLV',     value: clvPtsAvg === null ? 'N/A' : `${clvPtsAvg > 0 ? '+' : ''}${clvPtsAvg.toFixed(2)} pts`,
+            color: clvPtsAvg === null ? '' : clvPtsAvg > 0 ? 'text-[#00DEB8]' : clvPtsAvg < 0 ? 'text-red-500' : '' },
           { label: 'ROI',         value: `${stats.roi >= 0 ? '+' : ''}${stats.roi.toFixed(1)}%`,                         color: stats.roi >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
         ].map(s => (
           <div key={s.label} className="border border-[#E2E8F0] rounded-lg px-4 py-3 bg-white">
