@@ -287,8 +287,8 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
           <thead>
             <tr className="border-b border-[#E2E8F0]">
               {(byCompetition
-                ? ['#', 'Date', 'Comp', 'Match', 'Market', 'Predicted', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']
-                : ['#', 'Date', 'Match', 'Market', 'Predicted', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']).map(h => (
+                ? ['#', 'Date', 'Comp', 'Match', 'Market', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']
+                : ['#', 'Date', 'Match', 'Market', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']).map(h => (
                 <th key={h} className="pb-2 pr-4 text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
               ))}
             </tr>
@@ -303,7 +303,6 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
                 )}
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827] whitespace-nowrap max-w-[180px] truncate" title={bet.match}>{bet.match || '—'}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280] whitespace-nowrap">{bet.market || '—'}</td>
-                <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280]">{bet.predictedLine ?? '—'}</td>
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827]">{bet.takenPrice?.toFixed(2) ?? '—'}</td>
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#6B7280]">{bet.closingPrice?.toFixed(2) ?? '—'}</td>
                 <td className="py-2 pr-4">{clvCell(bet)}</td>
