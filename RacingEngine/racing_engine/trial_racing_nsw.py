@@ -91,7 +91,8 @@ def parse(payload: bytes, item: dict, url: str, observed_at: str) -> dict:
                 "beaten_margin": float(margin_text) if re.fullmatch(r"\d+(?:\.\d+)?", margin_text) else None,
                 "heat_time_seconds": winner_clock, "official_time_seconds": winner_clock if finish_position == 1 else None,
                 "source_url": url, "observed_at": observed_at, "time_scope": "heat_winner",
-                "jockey": _text(cells[index["jockey"]]) or None, "trainer": _text(cells[index["trainer"]]) or None,
+                "jockey": {"name": _text(cells[index["jockey"]]) or None, "source_id": None},
+                "trainer": {"name": _text(cells[index["trainer"]]) or None, "source_id": None},
                 "barrier": _text(cells[index["barrier"]]) or None})
         rows.extend(heat_rows)
     if not rows:

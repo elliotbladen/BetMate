@@ -49,7 +49,12 @@ def official_rows(c):
     rows=[]
     if c.execute("SELECT 1 FROM sqlite_master WHERE name='trial_official_observations'").fetchone():
         for r in c.execute('SELECT detail_json,payload_hash FROM trial_official_observations'):
-            d=json.loads(r['detail_json']);d.update(payload_hash=r['payload_hash'],jockey_name=d['jockey']['name'],trainer_name=d['trainer']['name']);rows.append(d)
+            d=json.loads(r['detail_json'])
+            # Older Racing NSW adapter rows stored participant names as strings;
+            # preserve those immutable records while normalising them for review.
+            for role in ('jockey','trainer'):
+                if isinstance(d.get(role), str): d[role]={'name': d[role] or None, 'source_id': None}
+            d.update(payload_hash=r['payload_hash'],jockey_name=(d.get('jockey') or {}).get('name'),trainer_name=(d.get('trainer') or {}).get('name'));rows.append(d)
     queries=["SELECT raw_json,payload_hash FROM fitness_events WHERE source='racing_nsw'",
       "SELECT raw_json,payload_hash FROM fitness_quality_quarantine WHERE source='racing_nsw'",
       "SELECT raw_json,NULL AS payload_hash FROM fitness_identity_quarantine WHERE source='racing_nsw'"]
