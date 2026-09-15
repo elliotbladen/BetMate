@@ -1,0 +1,187 @@
+{
+  "generated": "2026-09-15",
+  "source": "sportsgambler 15 Sep 2026",
+  "filter": "featured in one of last 2 completed matches AND started >=60% of appearances",
+  "audit": [
+    {
+      "club": "Birmingham",
+      "player": "Marc Leonard",
+      "pos": "CM",
+      "reason": "ankle",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Blackburn",
+      "player": "Augustus Kargbo",
+      "pos": "FW",
+      "reason": "calf",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Blackburn",
+      "player": "Lewis Miller",
+      "pos": "CM",
+      "reason": "ankle (ret 15 Nov)",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Bristol City",
+      "player": "Luke McNally",
+      "pos": "CB",
+      "reason": "lower leg",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Charlton",
+      "player": "Joshua Edwards",
+      "pos": "CB",
+      "reason": "ankle",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Derby",
+      "player": "Patrick Agyemang",
+      "pos": "ST",
+      "reason": "ankle",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Millwall",
+      "player": "Benicio Baker-Boaitey",
+      "pos": "FW",
+      "reason": "undisclosed",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Norwich",
+      "player": "Mirko Topic",
+      "pos": "CM",
+      "reason": "cruciate",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Norwich",
+      "player": "Gabriel Forsyth",
+      "pos": "CM",
+      "reason": "knee",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Portsmouth",
+      "player": "Franco Umeh-Chibueze",
+      "pos": "FW",
+      "reason": "hamstring",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Portsmouth",
+      "player": "Mark Kosznovszky",
+      "pos": "CM",
+      "reason": "knee",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "QPR",
+      "player": "Karamoko Dembele",
+      "pos": "AM",
+      "reason": "knee",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Southampton",
+      "player": "Mads Roerslev",
+      "pos": "RB",
+      "reason": "knee",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "Swansea",
+      "player": "Zeidane Inoussa",
+      "pos": "FW",
+      "reason": "undisclosed",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    },
+    {
+      "club": "West Ham",
+      "player": "Tomas Soucek",
+      "pos": "CM",
+      "reason": "ankle",
+      "apps": 0,
+      "starts": 0,
+      "start_rate": 0.0,
+      "featured_last2": false,
+      "included": false
+    }
+  ],
+  "t5_absences": {},
+  "clubs_no_published_absence": [
+    "Bolton",
+    "Burnley",
+    "Cardiff",
+    "Lincoln",
+    "Middlesbrough",
+    "Preston",
+    "Sheffield United",
+    "Stoke",
+    "Watford",
+    "West Brom",
+    "Wolves",
+    "Wrexham"
+  ]
+}

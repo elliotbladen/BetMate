@@ -60,16 +60,54 @@ up as value.
 Over-weighting the draw also *creates* away-side value once the book normalises, which
 casts doubt on the away qualifiers at Portsmouth, QPR and Wolves too.
 
-### T5 is not injected, and that is deliberate
+### T5 was audited properly, and it genuinely comes to zero
 
-The documented Championship lesson from GW7: **62 of ~110 published absentees had made
-zero 2026/27 appearances**, so their absence is already in the ratings and feeding them
-to T5 double-counts. The correct filter is players who featured in one of their club's
-last two matches and start ≥60% — which needs appearance data not assembled here.
+Originally T5 was skipped on the grounds that published absentees are usually already in
+the ratings. That was the right instinct applied the wrong way — skipping a tier handles
+the stale-absentee case and misses fresh injuries entirely, and only a filter separates
+the two. So the filter was built.
 
-A half-built injury list would be worse than none, because it double-counts in exactly
-the direction that manufactures false edges. **T5 = 0 is the honest setting**, and it is
-a real gap, not a clean bill of health.
+**Method.** ESPN player appearances were backfilled to cover GW7 (69 → 81 fixtures,
+3,238 player rows, current to 13 Sep). Every published absentee from
+sportsgambler.com/injuries (retrieved 15 Sep, all 24 clubs) was then tested:
+
+1. did they feature in one of their club's **last two** completed matches, and
+2. do they start **≥60%** of the matches they appear in?
+
+Fail either and the club has already been playing without them, so the Dixon-Coles
+rating — fitted on those very results — already prices the absence. Including them
+subtracts the player twice.
+
+**Result: 15 published absences, 15 excluded, 0 included.** Every named player has
+**zero appearances** in the 81 fixtures this season:
+
+```
+Birmingham  Marc Leonard        Norwich     Mirko Topic, Gabriel Forsyth
+Blackburn   Kargbo, Miller      Portsmouth  Umeh-Chibueze, Kosznovszky
+Bristol City Luke McNally       QPR         Karamoko Dembele
+Charlton    Joshua Edwards      Southampton Mads Roerslev
+Derby       Patrick Agyemang    Swansea     Zeidane Inoussa
+Millwall    Baker-Boaitey       West Ham    Tomas Soucek
+```
+
+Twelve further clubs have no published absence at all.
+
+**So T5 = 0 is correct, and the prices are unchanged** — but it is now correct on
+evidence rather than by assumption, which is the difference. This independently
+reproduces the GW7 finding (62 of ~110 absentees with zero appearances).
+
+⚠️ **The limit of this result: it says the published list contains no fresh injury, not
+that no fresh injury exists.** A source that lists confirmed long-term absences will
+under-report exactly the category T5 needs — the knock picked up in GW7 that keeps a
+regular starter out on Saturday. Fifteen absences across 24 clubs is a thin list for a
+Championship round. Confirmed team news lands about an hour before kick-off and would
+settle it.
+
+⚠️ A methodological note kept because it nearly produced a wrong answer: the first pass
+used a surname-contains fallback when a full name did not match, and it returned three
+hits — all three false. Millwall's Leonard was matched to Birmingham's Marc Leonard,
+QPR's Edwards to Charlton's Joshua Edwards, Derby's Forsyth to Norwich's Gabriel Forsyth.
+Matching is now full-name-within-club only.
 
 ### And the ratings still lag the table
 

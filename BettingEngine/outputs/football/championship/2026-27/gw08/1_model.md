@@ -73,7 +73,7 @@ signature of an uncalibrated Dixon-Coles.
 | T2 PPDA (pressing) | ✅ fired 12/12 · ⚠️ `ppda_dated.csv` holds only matchweek-1 2026/27 rows and `get_ppda` has no recency guard, so these are stale pressing figures |
 | T3 Form | ✅ fired 12/12 |
 | T3 Rest | ➖ fired 0/12 — every club on 6–7 days, below the fatigue threshold |
-| T5 injuries | ❌ 0/12 — deliberately not injected, see `2_bets.md` |
+| T5 injuries | ✅ **AUDITED** — 15 published absentees checked against appearance data, all 15 already in the ratings, so T5 correctly contributes 0. See `_supporting/gw08_t5_audit.json` |
 | T6 referee | ❌ 0/12 — EFL had not published GW8 appointments |
 | T7 Set-piece (corners) | ✅ fired 12/12 |
 | T8 New-team ClubElo prior | ✅ fired 6/12 — only the new-to-division clubs; magnitudes are small (e.g. Cardiff λ −0.024, wt 0.53) |
