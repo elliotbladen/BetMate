@@ -8,6 +8,9 @@ in the existing append-only official-evidence table.
 from __future__ import annotations
 
 import argparse
+import json
+import sqlite3
+import time
 import re
 from datetime import datetime
 from pathlib import Path
@@ -99,12 +102,33 @@ def parse(payload: bytes, item: dict, url: str, observed_at: str) -> dict:
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--database", type=Path, required=True); p.add_argument("--registry-database", type=Path, required=True)
-    p.add_argument("--archive", type=Path, required=True); p.add_argument("--url", required=True)
-    p.add_argument("--date", required=True); p.add_argument("--venue", required=True); p.add_argument("--report", type=Path, required=True)
+    p.add_argument("--archive", type=Path, required=True); p.add_argument("--url")
+    p.add_argument("--date"); p.add_argument("--venue"); p.add_argument("--report", type=Path, required=True)
+    p.add_argument("--plan", type=Path); p.add_argument("--run-directory", type=Path); p.add_argument("--from-date", default="0001-01-01")
     a = p.parse_args(); validate_review_target(a.database, a.registry_database)
+    if a.plan:
+        if not a.run_directory: p.error("--run-directory is required with --plan")
+        a.run_directory.mkdir(parents=True, exist_ok=True)
+        meetings = [x for x in json.loads(a.plan.read_text())["meetings"] if x.get("state") == "NSW" and x.get("isTrial") and not x.get("isJumpOut") and x["date"] >= a.from_date]
+        c = sqlite3.connect(a.database); total = inserted = failed = 0
+        for item in sorted(meetings, key=lambda x: x["date"], reverse=True):
+            url = source_url(item); path = a.run_directory / (digest(url) + ".json")
+            if path.exists() and json.loads(path.read_text()).get("status") == "verified":
+                continue
+            try:
+                time.sleep(0.75); raw = fetch(url); archive = archive_payload(a.archive, source_id="racing_nsw_trials", source_url=url, payload=raw, collected_at=utc_now())
+                result = parse(raw, item, url, archive["collected_at"]); n = install(c, result["rows"], archive)
+                path.write_text(json.dumps({"meeting": item, "source_url": url, "status": result["status"], "rows": len(result["rows"]), "inserted": n}, indent=2) + "\n")
+                inserted += n
+            except Exception as exc:
+                failed += 1; path.write_text(json.dumps({"meeting": item, "source_url": url, "status": "failed", "error": str(exc)}, indent=2) + "\n")
+                if "source_access_challenge" in str(exc): break
+            total += 1
+            if total % 25 == 0: print(json.dumps({"processed": total, "expected": len(meetings), "inserted": inserted, "failed": failed}), flush=True)
+        c.close(); a.report.write_text(json.dumps({"source": "racing_nsw", "expected": len(meetings), "processed": total, "inserted": inserted, "failed": failed}, indent=2) + "\n"); print(a.report.read_text()); return
+    if not a.url or not a.date or not a.venue: p.error("--url, --date and --venue are required without --plan")
     item = {"date": a.date, "venue": a.venue, "isTrial": True, "isJumpOut": False}; url = source_url(item)
     raw = fetch(a.url); archive = archive_payload(a.archive, source_id="racing_nsw_trials", source_url=a.url, payload=raw, collected_at=utc_now())
-    import sqlite3, json
     c = sqlite3.connect(a.database); result = parse(raw, item, url, archive["collected_at"]); inserted = install(c, result["rows"], archive); c.close()
     a.report.write_text(json.dumps({"source": "racing_nsw", "url": a.url, "rows": len(result["rows"]), "inserted": inserted}, indent=2) + "\n")
     print(json.dumps({"rows": len(result["rows"]), "inserted": inserted}))
