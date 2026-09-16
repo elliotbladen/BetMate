@@ -1,5 +1,5 @@
 ﻿export type BetResult = 'win' | 'loss' | 'push';
-export type Sport = 'NRL' | 'AFL' | 'FOOTBALL' | 'OTHER';
+export type Sport = 'NRL' | 'AFL' | 'FOOTBALL' | 'NFL' | 'OTHER';
 export type Competition = 'EPL' | 'EFL' | 'UCL';
 
 export interface LegacyBet {
@@ -21,6 +21,9 @@ export interface LegacyBet {
 export interface ModelBet {
   id: number;
   date: string;
+  sport?: Sport;
+  stake?: number;
+  returnAmount?: number;
   competition?: Competition;   // Football Model tab only — NRL/AFL leave this unset
   match: string;
   market: string;
@@ -1097,3 +1100,25 @@ export const FOOTBALL_MODEL_BETS: ModelBet[] = [
   { id:7, date:'2026-09-13', competition:'EPL', match:'Chelsea vs Hull City',                market:'Hull City or Draw',                    predictedLine:null, takenPrice:4.00, closingPrice:null, result:'win',  plUnits:1.50,  runningTotal:1.87 },
   { id:8, date:'2026-09-14', competition:'EPL', match:'Manchester United vs Manchester City', market:'Manchester United +1',                     predictedLine:null, takenPrice:1.70, closingPrice:null, result:'loss', plUnits:-0.50, runningTotal:1.37 },
 ];
+
+// Settled NFL bets supplied by the owner. Dates are the Australian dates on
+// the slips; $25 = 1 unit. Returns include the original stake.
+export const NFL_BETS: ModelBet[] = [
+  { id: 1, date: '2026-09-14', match: 'Cincinnati Bengals vs Tampa Bay Buccaneers', market: 'Cincinnati Bengals H2H', takenPrice: 1.48, result: 'win', stake: 25, returnAmount: 37 },
+  { id: 2, date: '2026-09-14', match: 'New Orleans Saints @ Detroit Lions', market: 'New Orleans Saints H2H', takenPrice: 3.70, result: 'loss', stake: 25, returnAmount: 0 },
+  { id: 3, date: '2026-09-14', match: 'Arizona Cardinals @ Los Angeles Chargers', market: 'Arizona Cardinals +9.5', takenPrice: 1.95, result: 'win', stake: 25, returnAmount: 48.75 },
+  { id: 4, date: '2026-09-14', match: 'Miami Dolphins @ Las Vegas Raiders', market: 'Miami Dolphins H2H', takenPrice: 2.52, result: 'loss', stake: 25, returnAmount: 0 },
+  { id: 5, date: '2026-09-15', match: 'Denver Broncos @ Kansas City Chiefs', market: 'Denver Broncos H2H', takenPrice: 2.22, result: 'loss', stake: 25, returnAmount: 0 },
+].reduce<ModelBet[]>((rows, bet) => {
+  const plUnits = Number(((bet.returnAmount - bet.stake) / 25).toFixed(2));
+  rows.push({
+    ...bet,
+    result: bet.result as BetResult,
+    sport: 'NFL',
+    predictedLine: null,
+    closingPrice: null,
+    plUnits,
+    runningTotal: Number(((rows.at(-1)?.runningTotal ?? 0) + plUnits).toFixed(2)),
+  });
+  return rows;
+}, []);
