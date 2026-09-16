@@ -1102,7 +1102,7 @@ export const FOOTBALL_MODEL_BETS: ModelBet[] = [
 ];
 
 // Settled NFL bets supplied by the owner. Dates are the Australian dates on
-// the slips; $25 = 1 unit. Returns include the original stake.
+// the slips; $25 = 0.5 units ($50 = 1 unit). Returns include the original stake.
 export const NFL_BETS: ModelBet[] = [
   { id: 1, date: '2026-09-14', match: 'Cincinnati Bengals vs Tampa Bay Buccaneers', market: 'Cincinnati Bengals H2H', takenPrice: 1.48, result: 'win', stake: 25, returnAmount: 37 },
   { id: 2, date: '2026-09-14', match: 'New Orleans Saints @ Detroit Lions', market: 'New Orleans Saints H2H', takenPrice: 3.70, result: 'loss', stake: 25, returnAmount: 0 },
@@ -1110,7 +1110,7 @@ export const NFL_BETS: ModelBet[] = [
   { id: 4, date: '2026-09-14', match: 'Miami Dolphins @ Las Vegas Raiders', market: 'Miami Dolphins H2H', takenPrice: 2.52, result: 'loss', stake: 25, returnAmount: 0 },
   { id: 5, date: '2026-09-15', match: 'Denver Broncos @ Kansas City Chiefs', market: 'Denver Broncos H2H', takenPrice: 2.22, result: 'loss', stake: 25, returnAmount: 0 },
 ].reduce<ModelBet[]>((rows, bet) => {
-  const plUnits = Number(((bet.returnAmount - bet.stake) / 25).toFixed(2));
+  const plUnits = Number(((bet.returnAmount - bet.stake) / 50).toFixed(3));
   rows.push({
     ...bet,
     result: bet.result as BetResult,
@@ -1118,7 +1118,7 @@ export const NFL_BETS: ModelBet[] = [
     predictedLine: null,
     closingPrice: null,
     plUnits,
-    runningTotal: Number(((rows.at(-1)?.runningTotal ?? 0) + plUnits).toFixed(2)),
+    runningTotal: Number(((rows.at(-1)?.runningTotal ?? 0) + plUnits).toFixed(3)),
   });
   return rows;
 }, []);

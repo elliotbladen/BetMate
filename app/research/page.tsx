@@ -10,7 +10,7 @@ const RECENT_BETS: ModelBet[] = [...MODEL_BETS.slice(-3), ...FOOTBALL_MODEL_BETS
   .sort((a, b) => a.date.localeCompare(b.date) || a.id - b.id)
   .reduce<ModelBet[]>((rows, bet) => {
     const runningTotal = (rows.at(-1)?.runningTotal ?? 0) + bet.plUnits;
-    rows.push({ ...bet, runningTotal: Number(runningTotal.toFixed(2)) });
+    rows.push({ ...bet, runningTotal: Number(runningTotal.toFixed(3)) });
     return rows;
   }, []);
 
@@ -26,7 +26,7 @@ const RECENT_BETS_AS_LEGACY: LegacyBet[] = RECENT_BETS.reduce<LegacyBet[]>((rows
     clv: bet.clv,
     clvLabel: bet.clvLabel,
     result: bet.result,
-    cumPL: Number((previousPL + bet.plUnits).toFixed(2)),
+    cumPL: Number((previousPL + bet.plUnits).toFixed(3)),
     sport: bet.sport ?? (bet.competition ? 'FOOTBALL' : 'NRL'),
     notes: '',
   });
@@ -222,6 +222,11 @@ function ModelTab({ bets, byCompetition = false, showCash = false }: { bets: Mod
   const [comp, setComp] = useState<'ALL' | Competition>('ALL');
   const filtered = byCompetition && comp !== 'ALL' ? bets.filter(b => b.competition === comp) : bets;
   const stats = modelStatsFor(filtered);
+  const cashStaked = filtered.reduce((sum, bet) => sum + (bet.stake ?? 0), 0);
+  const cashReturned = filtered.reduce((sum, bet) => sum + (bet.returnAmount ?? 0), 0);
+  const cashPL = cashReturned - cashStaked;
+  const roi = showCash ? (cashStaked > 0 ? cashPL / cashStaked * 100 : 0) : stats.roi;
+  const unitDecimals = showCash ? 3 : 2;
 
   const clvBets   = filtered.filter(b => { const s = clvScore(b); return s !== null && s !== 0; });
   const clvBeaten = clvBets.filter(b => (clvScore(b) ?? 0) > 0).length;
@@ -235,20 +240,20 @@ function ModelTab({ bets, byCompetition = false, showCash = false }: { bets: Mod
   return (
     <>
       {showCash && <p className="text-[12px] text-[#6B7280] mb-4">
-        $25 = 1 unit · ${filtered.reduce((sum, bet) => sum + (bet.stake ?? 0), 0).toFixed(2)} staked
-        {' · '}${filtered.reduce((sum, bet) => sum + (bet.returnAmount ?? 0), 0).toFixed(2)} returned
-        {' · '}Net P&amp;L {stats.totalPL < 0 ? '−' : '+'}${Math.abs(stats.totalPL * 25).toFixed(2)}. Returns include stake.
+        $25 = 0.5 units · $50 = 1 unit · ${cashStaked.toFixed(2)} staked
+        {' · '}${cashReturned.toFixed(2)} returned
+        {' · '}Net P&amp;L {cashPL < 0 ? '−' : '+'}${Math.abs(cashPL).toFixed(2)}. Returns include stake.
       </p>}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-5">
         {[
           { label: 'Bets',        value: stats.total.toString(),                                                          color: '' },
           { label: 'Win Rate',    value: `${stats.winRate.toFixed(1)}%`,                                                  color: '' },
-          { label: 'Running P&L', value: `${stats.totalPL >= 0 ? '+' : ''}${stats.totalPL.toFixed(2)}u`,                 color: stats.totalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
+          { label: 'Running P&L', value: `${stats.totalPL >= 0 ? '+' : ''}${stats.totalPL.toFixed(unitDecimals)}u`,                 color: stats.totalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
           { label: 'W / L',       value: `${stats.wins} / ${stats.losses}`,                                               color: '' },
           { label: 'Beat CLV',    value: clvBets.length > 0 ? `${clvPct.toFixed(0)}%` : 'N/A',                           color: '' },
           { label: 'Avg CLV',     value: clvPtsAvg === null ? 'N/A' : `${clvPtsAvg > 0 ? '+' : ''}${clvPtsAvg.toFixed(2)} pts`,
             color: clvPtsAvg === null ? '' : clvPtsAvg > 0 ? 'text-[#00DEB8]' : clvPtsAvg < 0 ? 'text-red-500' : '' },
-          { label: 'ROI',         value: `${stats.roi >= 0 ? '+' : ''}${stats.roi.toFixed(1)}%`,                         color: stats.roi >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
+          { label: 'ROI',         value: `${roi >= 0 ? '+' : ''}${roi.toFixed(1)}%`,                         color: roi >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
         ].map(s => (
           <div key={s.label} className="border border-[#E2E8F0] rounded-lg px-4 py-3 bg-white">
             <p className="text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1">{s.label}</p>
@@ -325,10 +330,10 @@ function ModelTab({ bets, byCompetition = false, showCash = false }: { bets: Mod
                 <td className="py-2 pr-4">{clvCell(bet)}</td>
                 <td className="py-2 pr-4">{resultBadge(bet.result)}</td>
                 <td className={`py-2 pr-4 text-[12px] font-mono font-bold ${bet.plUnits >= 0 ? 'text-[#00DEB8]' : 'text-red-500'}`}>
-                  {bet.plUnits > 0 ? '+' : ''}{bet.plUnits.toFixed(2)}u
+                  {bet.plUnits > 0 ? '+' : ''}{bet.plUnits.toFixed(unitDecimals)}u
                 </td>
                 <td className={`py-2 pr-4 text-[12px] font-mono font-bold ${bet.runningTotal >= 0 ? 'text-[#00DEB8]' : 'text-red-500'}`}>
-                  {bet.runningTotal > 0 ? '+' : ''}{bet.runningTotal.toFixed(2)}u
+                  {bet.runningTotal > 0 ? '+' : ''}{bet.runningTotal.toFixed(unitDecimals)}u
                 </td>
               </tr>
             ))}
