@@ -1,16 +1,16 @@
 ﻿'use client';
 
 import { useState, useMemo } from 'react';
-import { LEGACY_BETS, MODEL_BETS, AFL_MODEL_BETS, FOOTBALL_MODEL_BETS } from '@/lib/researchData';
+import { LEGACY_BETS, MODEL_BETS, AFL_MODEL_BETS, FOOTBALL_MODEL_BETS, NFL_BETS } from '@/lib/researchData';
 import type { Sport, BetResult, LegacyBet, ModelBet, Competition } from '@/lib/researchData';
 
-// The latest screenshot ledger spans the NRL and football model tabs. Keep a
+// The latest screenshot ledger spans the NRL, football and NFL tabs. Keep a
 // single landing view so newly recorded bets are visible without changing tabs.
-const RECENT_BETS: ModelBet[] = [...MODEL_BETS.slice(-3), ...FOOTBALL_MODEL_BETS]
+const RECENT_BETS: ModelBet[] = [...MODEL_BETS.slice(-3), ...FOOTBALL_MODEL_BETS, ...NFL_BETS]
   .sort((a, b) => a.date.localeCompare(b.date) || a.id - b.id)
   .reduce<ModelBet[]>((rows, bet) => {
     const runningTotal = (rows.at(-1)?.runningTotal ?? 0) + bet.plUnits;
-    rows.push({ ...bet, runningTotal: Number(runningTotal.toFixed(2)) });
+    rows.push({ ...bet, runningTotal: Number(runningTotal.toFixed(3)) });
     return rows;
   }, []);
 
@@ -26,8 +26,8 @@ const RECENT_BETS_AS_LEGACY: LegacyBet[] = RECENT_BETS.reduce<LegacyBet[]>((rows
     clv: bet.clv,
     clvLabel: bet.clvLabel,
     result: bet.result,
-    cumPL: Number((previousPL + bet.plUnits).toFixed(2)),
-    sport: bet.competition ? 'FOOTBALL' : 'NRL',
+    cumPL: Number((previousPL + bet.plUnits).toFixed(3)),
+    sport: bet.sport ?? (bet.competition ? 'FOOTBALL' : 'NRL'),
     notes: '',
   });
   return rows;
@@ -44,6 +44,7 @@ function resultBadge(r: BetResult) {
 function sportPill(s: Sport) {
   const colors: Record<Sport, string> = {
     NRL:      'bg-[#00DEB8]/10 text-[#00DEB8]',
+    NFL:      'bg-orange-500/10 text-orange-600',
     AFL:      'bg-blue-500/10 text-blue-500',
     FOOTBALL: 'bg-purple-500/10 text-purple-500',
     OTHER:    'bg-[#E2E8F0] text-[#9CA3AF]',
@@ -217,10 +218,15 @@ function AllBetsTab() {
 }
 
 // -- Model tab (shared by NRL + AFL) ------------------------------------------
-function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompetition?: boolean }) {
+function ModelTab({ bets, byCompetition = false, showCash = false }: { bets: ModelBet[]; byCompetition?: boolean; showCash?: boolean }) {
   const [comp, setComp] = useState<'ALL' | Competition>('ALL');
   const filtered = byCompetition && comp !== 'ALL' ? bets.filter(b => b.competition === comp) : bets;
   const stats = modelStatsFor(filtered);
+  const cashStaked = filtered.reduce((sum, bet) => sum + (bet.stake ?? 0), 0);
+  const cashReturned = filtered.reduce((sum, bet) => sum + (bet.returnAmount ?? 0), 0);
+  const cashPL = cashReturned - cashStaked;
+  const roi = showCash ? (cashStaked > 0 ? cashPL / cashStaked * 100 : 0) : stats.roi;
+  const unitDecimals = showCash ? 3 : 2;
 
   const clvBets   = filtered.filter(b => { const s = clvScore(b); return s !== null && s !== 0; });
   const clvBeaten = clvBets.filter(b => (clvScore(b) ?? 0) > 0).length;
@@ -233,16 +239,21 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
 
   return (
     <>
+      {showCash && <p className="text-[12px] text-[#6B7280] mb-4">
+        $25 = 0.5 units · $50 = 1 unit · ${cashStaked.toFixed(2)} staked
+        {' · '}${cashReturned.toFixed(2)} returned
+        {' · '}Net P&amp;L {cashPL < 0 ? '−' : '+'}${Math.abs(cashPL).toFixed(2)}. Returns include stake.
+      </p>}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-5">
         {[
           { label: 'Bets',        value: stats.total.toString(),                                                          color: '' },
           { label: 'Win Rate',    value: `${stats.winRate.toFixed(1)}%`,                                                  color: '' },
-          { label: 'Running P&L', value: `${stats.totalPL >= 0 ? '+' : ''}${stats.totalPL.toFixed(2)}u`,                 color: stats.totalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
+          { label: 'Running P&L', value: `${stats.totalPL >= 0 ? '+' : ''}${stats.totalPL.toFixed(unitDecimals)}u`,                 color: stats.totalPL >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
           { label: 'W / L',       value: `${stats.wins} / ${stats.losses}`,                                               color: '' },
           { label: 'Beat CLV',    value: clvBets.length > 0 ? `${clvPct.toFixed(0)}%` : 'N/A',                           color: '' },
           { label: 'Avg CLV',     value: clvPtsAvg === null ? 'N/A' : `${clvPtsAvg > 0 ? '+' : ''}${clvPtsAvg.toFixed(2)} pts`,
             color: clvPtsAvg === null ? '' : clvPtsAvg > 0 ? 'text-[#00DEB8]' : clvPtsAvg < 0 ? 'text-red-500' : '' },
-          { label: 'ROI',         value: `${stats.roi >= 0 ? '+' : ''}${stats.roi.toFixed(1)}%`,                         color: stats.roi >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
+          { label: 'ROI',         value: `${roi >= 0 ? '+' : ''}${roi.toFixed(1)}%`,                         color: roi >= 0 ? 'text-[#00DEB8]' : 'text-red-500' },
         ].map(s => (
           <div key={s.label} className="border border-[#E2E8F0] rounded-lg px-4 py-3 bg-white">
             <p className="text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest mb-1">{s.label}</p>
@@ -295,7 +306,7 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
             <tr className="border-b border-[#E2E8F0]">
               {(byCompetition
                 ? ['#', 'Date', 'Comp', 'Match', 'Market', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']
-                : ['#', 'Date', 'Match', 'Market', 'Taken', 'Close', 'CLV', 'Result', 'P&L', 'Running']).map(h => (
+                : ['#', 'Date', 'Match', 'Market', 'Taken', ...(showCash ? ['Stake', 'Return'] : []), 'Close', 'CLV', 'Result', 'P&L', 'Running']).map(h => (
                 <th key={h} className="pb-2 pr-4 text-[10px] font-mono text-[#9CA3AF] uppercase tracking-widest whitespace-nowrap">{h}</th>
               ))}
             </tr>
@@ -311,14 +322,18 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827] whitespace-nowrap max-w-[180px] truncate" title={bet.match}>{bet.match || '—'}</td>
                 <td className="py-2 pr-4 text-[11px] font-mono text-[#6B7280] whitespace-nowrap">{bet.market || '—'}</td>
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#111827]">{bet.takenPrice?.toFixed(2) ?? '—'}</td>
+                {showCash && <>
+                  <td className="py-2 pr-4 text-[12px] font-mono">${bet.stake?.toFixed(2)}</td>
+                  <td className="py-2 pr-4 text-[12px] font-mono">${bet.returnAmount?.toFixed(2)}</td>
+                </>}
                 <td className="py-2 pr-4 text-[12px] font-mono text-[#6B7280]">{bet.closingPrice?.toFixed(2) ?? '—'}</td>
                 <td className="py-2 pr-4">{clvCell(bet)}</td>
                 <td className="py-2 pr-4">{resultBadge(bet.result)}</td>
                 <td className={`py-2 pr-4 text-[12px] font-mono font-bold ${bet.plUnits >= 0 ? 'text-[#00DEB8]' : 'text-red-500'}`}>
-                  {bet.plUnits > 0 ? '+' : ''}{bet.plUnits.toFixed(2)}u
+                  {bet.plUnits > 0 ? '+' : ''}{bet.plUnits.toFixed(unitDecimals)}u
                 </td>
                 <td className={`py-2 pr-4 text-[12px] font-mono font-bold ${bet.runningTotal >= 0 ? 'text-[#00DEB8]' : 'text-red-500'}`}>
-                  {bet.runningTotal > 0 ? '+' : ''}{bet.runningTotal.toFixed(2)}u
+                  {bet.runningTotal > 0 ? '+' : ''}{bet.runningTotal.toFixed(unitDecimals)}u
                 </td>
               </tr>
             ))}
@@ -332,14 +347,14 @@ function ModelTab({ bets, byCompetition = false }: { bets: ModelBet[]; byCompeti
 }
 
 // -- Page ----------------------------------------------------------------------
-const TABS = ['Sports Betting', 'NRL Model', 'AFL Model', 'Football Model'] as const;
+const TABS = ['Sports Betting', 'NRL Model', 'AFL Model', 'Football Model', 'NFL'] as const;
 type Tab = typeof TABS[number];
 
 export default function ResearchPage() {
   const [activeTab, setActiveTab] = useState<Tab>('Sports Betting');
 
   const allBets = useMemo(() => {
-    const combined = [...LEGACY_BETS, ...MODEL_BETS];
+    const combined = [...LEGACY_BETS, ...MODEL_BETS, ...NFL_BETS];
     const wins   = combined.filter(b => b.result === 'win').length;
     const losses = combined.filter(b => b.result === 'loss').length;
     const total  = combined.length;
@@ -360,13 +375,13 @@ export default function ResearchPage() {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1 border-b border-[#E2E8F0] mb-5">
+        <div className="flex gap-1 overflow-x-auto border-b border-[#E2E8F0] mb-5">
           {TABS.map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={[
-                'px-4 py-2 text-[12px] font-mono font-bold uppercase tracking-widest transition-colors border-b-2 -mb-px',
+                'shrink-0 whitespace-nowrap px-4 py-2 text-[12px] font-mono font-bold uppercase tracking-widest transition-colors border-b-2 -mb-px',
                 activeTab === tab
                   ? 'text-[#111827] border-[#00DEB8]'
                   : 'text-[#9CA3AF] border-transparent hover:text-[#6B7280]',
@@ -378,6 +393,7 @@ export default function ResearchPage() {
         </div>
 
         {activeTab === 'Sports Betting' && <AllBetsTab />}
+        {activeTab === 'NFL' && <ModelTab bets={NFL_BETS} showCash />}
         {activeTab === 'NRL Model'      && <ModelTab bets={MODEL_BETS} />}
         {activeTab === 'AFL Model'      && <ModelTab bets={AFL_MODEL_BETS} />}
         {activeTab === 'Football Model' && <ModelTab bets={FOOTBALL_MODEL_BETS} byCompetition />}
