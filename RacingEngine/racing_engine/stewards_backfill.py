@@ -68,7 +68,8 @@ def validate_pdf_header(text: str, day: str, track: str) -> None:
     # Supplementary sections can mention other dates/venues; only use the header.
     header = re.split(r'COMMITTEE|Supplementary|RACE\s+1\s*:', text, maxsplit=1, flags=re.I)[0]
     expected = date.fromisoformat(day)
-    stamp = rf'\b0?{expected.day}\s+{expected.strftime("%B")}\s+{expected.year}\b'
+    # PDF extraction sometimes removes spaces (``11November2023``).
+    stamp = rf'\b0?{expected.day}\s*{expected.strftime("%B")}\s*{expected.year}\b'
     if not re.search(stamp, header, re.I) or not any(normal(v) in normal(header) for v in VENUES[track]):
         raise ValueError('PDF header date/venue does not match requested meeting')
 

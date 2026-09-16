@@ -115,6 +115,11 @@ def parse_races(report_text: str) -> list[dict]:
     headers = list(_HEADER_RE.finditer(text))
     if not headers:
         return []
+    # Supplementary reports can contain an earlier race header from another
+    # meeting. The canonical per-race section starts at the first RACE 1.
+    first_race_one = next((i for i, header in enumerate(headers) if int(header.group(1)) == 1), None)
+    if first_race_one is not None:
+        headers = headers[first_race_one:]
     trailer = _GENERAL_RE.search(text)
     tail = trailer.start() if trailer else len(text)
     races: list[dict] = []

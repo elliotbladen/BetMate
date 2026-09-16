@@ -9,9 +9,9 @@ The inventory contains 2,697 races across 276 meetings. Before this backfill,
 
 | State | Existing | Newly staged | Still unresolved |
 | --- | ---: | ---: | ---: |
-| NSW (Randwick/Rosehill) | 10 | 1,162 | 206 |
+| NSW (Randwick/Rosehill) | 10 | 1,182 | 186 |
 | Victoria (configured metro tracks) | 1,089 | 183 | 47 |
-| **Total** | **1,099** | **1,345** | **253** |
+| **Total** | **1,099** | **1,365** | **233** |
 
 The new `racing_engine.stewards_backfill` collector keeps the source database
 read-only and writes reports to a separate staging database. It archives each
@@ -23,14 +23,15 @@ every unresolved race with a reason.
 The local staging run produced 322 raw source files and a 49 MB staging SQLite
 database under `data/stewards_backfill_2026-09-16/`. Those source files and the
 staging database are intentionally ignored by git because they are generated
-research data. The audit is resumable with the same command and will reuse
-verified archives.
+research data. A second parser pass excluded supplementary race headers and
+accepted PDF text whose date spacing had been collapsed by extraction. The audit
+is resumable with the same command and will reuse verified archives.
 
-The 253 unresolved races require source-specific review. The main categories
-are 94 races where Racing.com returned no report text, 59 malformed or
-non-race PDF layouts, 40 date/venue mismatches, 40 reports with no stored runner
-identity anchor, and 20 NSW dates where the Racing Australia PDF URL returned
-404. No unresolved item is marked complete.
+The 233 unresolved races require source-specific review. The remaining cases
+include races where Racing.com returned no report text, malformed or non-race
+PDF layouts, date/venue mismatches, reports with no stored runner identity
+anchor, and two NSW dates where the Racing Australia PDF URL returned 404. No
+unresolved item is marked complete.
 
 Validation: the focused steward parser, storage and backfill tests pass (23
 tests, one pre-existing skip). The existing source database was only opened
