@@ -65,7 +65,10 @@
       "losses": 114,
       "pushes": 0,
       "win_rate_ex_pushes": 0.549407114624506,
-      "synthetic_roi_at_minus_110": 0.048868127919511305
+      "synthetic_roi_at_minus_110": 0.048868127919511305,
+      "priced_bets": 253,
+      "priced_profit_units": 7.029999999999996,
+      "priced_roi": 0.027786561264822117
     },
     "1": {
       "bets": 203,
@@ -73,7 +76,10 @@
       "losses": 95,
       "pushes": 0,
       "win_rate_ex_pushes": 0.5320197044334976,
-      "synthetic_roi_at_minus_110": 0.015673981191222597
+      "synthetic_roi_at_minus_110": 0.015673981191222597,
+      "priced_bets": 203,
+      "priced_profit_units": -2.320000000000004,
+      "priced_roi": -0.011428571428571448
     },
     "2": {
       "bets": 153,
@@ -81,7 +87,10 @@
       "losses": 68,
       "pushes": 0,
       "win_rate_ex_pushes": 0.5555555555555556,
-      "synthetic_roi_at_minus_110": 0.060606060606060566
+      "synthetic_roi_at_minus_110": 0.060606060606060566,
+      "priced_bets": 153,
+      "priced_profit_units": 2.749999999999999,
+      "priced_roi": 0.017973856209150322
     },
     "3": {
       "bets": 114,
@@ -89,7 +98,10 @@
       "losses": 52,
       "pushes": 0,
       "win_rate_ex_pushes": 0.543859649122807,
-      "synthetic_roi_at_minus_110": 0.038277511961722514
+      "synthetic_roi_at_minus_110": 0.038277511961722514,
+      "priced_bets": 114,
+      "priced_profit_units": -3.7600000000000007,
+      "priced_roi": -0.032982456140350884
     }
   },
   "base_roi_minus_110": {
@@ -99,7 +111,10 @@
       "losses": 119,
       "pushes": 0,
       "win_rate_ex_pushes": 0.5296442687747036,
-      "synthetic_roi_at_minus_110": 0.01113905856988859
+      "synthetic_roi_at_minus_110": 0.01113905856988859,
+      "priced_bets": 253,
+      "priced_profit_units": -6.409999999999999,
+      "priced_roi": -0.025335968379446638
     },
     "1": {
       "bets": 206,
@@ -107,7 +122,10 @@
       "losses": 99,
       "pushes": 0,
       "win_rate_ex_pushes": 0.5194174757281553,
-      "synthetic_roi_at_minus_110": -0.008384819064430745
+      "synthetic_roi_at_minus_110": -0.008384819064430745,
+      "priced_bets": 206,
+      "priced_profit_units": -11.200000000000003,
+      "priced_roi": -0.054368932038834965
     },
     "2": {
       "bets": 141,
@@ -115,7 +133,10 @@
       "losses": 68,
       "pushes": 0,
       "win_rate_ex_pushes": 0.5177304964539007,
-      "synthetic_roi_at_minus_110": -0.011605415860735038
+      "synthetic_roi_at_minus_110": -0.011605415860735038,
+      "priced_bets": 141,
+      "priced_profit_units": -11.010000000000002,
+      "priced_roi": -0.07808510638297873
     },
     "3": {
       "bets": 103,
@@ -123,9 +144,13 @@
       "losses": 51,
       "pushes": 0,
       "win_rate_ex_pushes": 0.5048543689320388,
-      "synthetic_roi_at_minus_110": -0.03618711385701676
+      "synthetic_roi_at_minus_110": -0.03618711385701676,
+      "priced_bets": 103,
+      "priced_profit_units": -12.51,
+      "priced_roi": -0.12145631067961164
     }
   },
+  "odds_coverage": 253,
   "by_season": {
     "2021": {
       "games": 272,
@@ -153,9 +178,28 @@
       "adjusted_mae": 10.731780117363261
     }
   },
+  "clv": {
+    "0": {
+      "selected_games": 253,
+      "mean_directional_clv_points": 0.4308300395256917
+    },
+    "1": {
+      "selected_games": 203,
+      "mean_directional_clv_points": 0.3842364532019704
+    },
+    "2": {
+      "selected_games": 153,
+      "mean_directional_clv_points": 0.42483660130718953
+    },
+    "3": {
+      "selected_games": 114,
+      "mean_directional_clv_points": 0.5877192982456141
+    }
+  },
+  "odds_source": "data/nfl/historical_odds/nfl_odds_2014_2025.csv (football-data-style opening/closing totals and prices)",
   "restrictions": [
     "2025/26 is the locked holdout",
-    "ROI is synthetic -110 because complete historical obtainable prices are unavailable",
+    "historical odds are archived reference prices; book-level attainability and timestamp granularity are not independently audited",
     "EPA-to-points conversion is a transparent proxy; no future game information is used",
     "staking disabled"
   ]

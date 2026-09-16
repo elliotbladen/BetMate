@@ -17,6 +17,7 @@ ROOT=Path(__file__).resolve().parents[2]
 FEATURES=ROOT/'data/nfl/features/weekly_epa.parquet'
 WF=ROOT/'data/nfl/predictions/step4_challenger.csv'
 VAULT=ROOT/'data/nfl/predictions/step5_2025_vault_scored.csv'
+ODDS=ROOT/'data/nfl/historical_odds/nfl_odds_2014_2025.csv'
 OUT=ROOT/'data/nfl/predictions/regression_progression_2025.csv'
 REPORT=ROOT/'ml/nfl/reports/regression_progression_backtest.json'
 
@@ -61,11 +62,16 @@ def _rolling_process(frame: pd.DataFrame) -> pd.DataFrame:
         histories.setdefault(a,[]).append({'points':float(r.away_score),'epa':float(r.away_off_epa),'epa_points':float(r.away_off_epa)*30+21})
     return pd.DataFrame(rows)
 
-def _roi(edge, result_margin, threshold):
+def _roi(edge, result_margin, threshold, over_odds=None, under_odds=None):
     over=edge>=threshold; under=edge<=-threshold; sel=over|under
     win=((over)&(result_margin>0))|((under)&(result_margin<0)); loss=((over)&(result_margin<0))|((under)&(result_margin>0)); push=sel&(result_margin==0)
     n=int(sel.sum()); w=int(win.sum()); l=int(loss.sum()); p=int(push.sum())
-    return {'bets':n,'wins':w,'losses':l,'pushes':p,'win_rate_ex_pushes':w/(w+l) if w+l else None,'synthetic_roi_at_minus_110':(w*100/110-l)/n if n else None}
+    out={'bets':n,'wins':w,'losses':l,'pushes':p,'win_rate_ex_pushes':w/(w+l) if w+l else None,'synthetic_roi_at_minus_110':(w*100/110-l)/n if n else None}
+    if over_odds is not None and under_odds is not None:
+        oo=pd.to_numeric(over_odds,errors='coerce'); uu=pd.to_numeric(under_odds,errors='coerce'); covered=sel & np.where(over,oo.notna(),uu.notna())
+        profit=np.where(win, np.where(over,oo-1,uu-1), np.where(loss,-1.0,0.0)); profit=pd.Series(profit,index=edge.index)
+        out.update({'priced_bets':int(covered.sum()),'priced_profit_units':float(profit[covered].sum()),'priced_roi':float(profit[covered].sum()/covered.sum()) if covered.sum() else None})
+    return out
 
 def run():
     raw=pd.read_parquet(FEATURES)
@@ -74,6 +80,11 @@ def run():
     process=_rolling_process(raw)
     base=_base_predictions()
     d=raw[['game_id','season','week','gameday','home_team','away_team','total','total_line_open','total_line_close']].merge(process,on=['game_id','season','week'],validate='one_to_one').merge(base,on=['game_id','season','week'],validate='one_to_one')
+    odds=pd.read_csv(ODDS)
+    odds['date_key']=pd.to_datetime(odds['date']).dt.strftime('%Y-%m-%d')
+    odds=odds[['date_key','season','home_team','away_team','total_over_open','total_under_open','total_line_open','total_line_close']].rename(columns={'total_line_open':'odds_total_line_open','total_line_close':'odds_total_line_close'})
+    d=d.merge(odds,left_on=['gameday','season','home_team','away_team'],right_on=['date_key','season','home_team','away_team'],how='left',validate='one_to_one').drop(columns=['date_key'])
+    d['total_line_open']=d['total_line_open'].fillna(d['odds_total_line_open']); d['total_line_close']=d['total_line_close'].fillna(d['odds_total_line_close'])
     d['base_error']=d.total-d.base_total
     d['feature_cols']=[None]*len(d)
     feature_cols=[c for c in process.columns if c not in {'game_id','season','week'} and pd.api.types.is_numeric_dtype(process[c])]
@@ -84,10 +95,10 @@ def run():
     model=make_pipeline(StandardScaler(),Ridge(alpha=20.0))
     model.fit(train[feature_cols].fillna(med),train.base_error)
     d['adjustment']=model.predict(d[feature_cols].fillna(med)); d['adjusted_total']=d.base_total+d.adjustment
-    d['adjusted_error']=d.total-d.adjusted_total; d['base_total_edge']=d.base_total-d.total_line_open; d['adjusted_total_edge']=d.adjusted_total-d.total_line_open; d['total_result_margin']=d.total-d.total_line_open
+    d['adjusted_error']=d.total-d.adjusted_total; d['base_total_edge']=d.base_total-d.total_line_open; d['adjusted_total_edge']=d.adjusted_total-d.total_line_open; d['total_result_margin']=d.total-d.total_line_open; d['total_clv_directional']=np.where(d.adjusted_total_edge>=0,d.total_line_close-d.total_line_open,d.total_line_open-d.total_line_close)
     scored=d[d.season.eq(TEST_SEASON)].copy()
     def metrics(x): return {'games':int(len(x)),'mae':float(np.abs(x.total-x.pred).mean()),'rmse':float(np.sqrt(np.mean((x.total-x.pred)**2)))}
     mb=pd.DataFrame({'total':scored.total,'pred':scored.base_total}); ma=pd.DataFrame({'total':scored.total,'pred':scored.adjusted_total})
-    report={'status':'nfl_regression_progression_backtest_complete','train_seasons':sorted(TRAIN_SEASONS),'test_season':TEST_SEASON,'train_games':int(len(train)),'test_games':int(len(scored)),'feature_count':len(feature_cols),'model':'standardized_ridge_residual_alpha_20','features':feature_cols,'metrics':{'base':metrics(mb),'adjusted':metrics(ma)},'roi_minus_110':{str(t):_roi(scored.adjusted_total_edge,scored.total_result_margin,t) for t in (0,1,2,3)},'base_roi_minus_110':{str(t):_roi(scored.base_total_edge,scored.total_result_margin,t) for t in (0,1,2,3)},'by_season':{str(int(s)):{'games':int(len(g)),'base_mae':float(np.abs(g.total-g.base_total).mean()),'adjusted_mae':float(np.abs(g.total-g.adjusted_total).mean())} for s,g in d.groupby('season')},'restrictions':['2025/26 is the locked holdout','ROI is synthetic -110 because complete historical obtainable prices are unavailable','EPA-to-points conversion is a transparent proxy; no future game information is used','staking disabled']}
+    report={'status':'nfl_regression_progression_backtest_complete','train_seasons':sorted(TRAIN_SEASONS),'test_season':TEST_SEASON,'train_games':int(len(train)),'test_games':int(len(scored)),'feature_count':len(feature_cols),'model':'standardized_ridge_residual_alpha_20','features':feature_cols,'metrics':{'base':metrics(mb),'adjusted':metrics(ma)},'roi_minus_110':{str(t):_roi(scored.adjusted_total_edge,scored.total_result_margin,t,scored.total_over_open,scored.total_under_open) for t in (0,1,2,3)},'base_roi_minus_110':{str(t):_roi(scored.base_total_edge,scored.total_result_margin,t,scored.total_over_open,scored.total_under_open) for t in (0,1,2,3)},'odds_coverage':int(scored[['total_over_open','total_under_open']].notna().all(axis=1).sum()),'by_season':{str(int(s)):{'games':int(len(g)),'base_mae':float(np.abs(g.total-g.base_total).mean()),'adjusted_mae':float(np.abs(g.total-g.adjusted_total).mean())} for s,g in d.groupby('season')},'clv':{str(t):{'selected_games':int((scored.adjusted_total_edge.abs()>=t).sum()),'mean_directional_clv_points':float(scored.loc[scored.adjusted_total_edge.abs()>=t,'total_clv_directional'].mean())} for t in (0,1,2,3)},'odds_source':'data/nfl/historical_odds/nfl_odds_2014_2025.csv (football-data-style opening/closing totals and prices)','restrictions':['2025/26 is the locked holdout','historical odds are archived reference prices; book-level attainability and timestamp granularity are not independently audited','EPA-to-points conversion is a transparent proxy; no future game information is used','staking disabled']}
     d.drop(columns=['feature_cols'],errors='ignore').to_csv(OUT,index=False); REPORT.parent.mkdir(parents=True,exist_ok=True); REPORT.write_text(json.dumps(report,indent=2)+'\n'); return report
 if __name__=='__main__': print(json.dumps(run(),indent=2))
