@@ -1,0 +1,162 @@
+{
+  "status": "nfl_regression_progression_backtest_complete",
+  "train_seasons": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "test_season": 2025,
+  "train_games": 1087,
+  "test_games": 272,
+  "feature_count": 33,
+  "model": "standardized_ridge_residual_alpha_20",
+  "features": [
+    "home_points_l4",
+    "home_epa_l4",
+    "home_gap_l4",
+    "home_games_l4",
+    "home_points_l8",
+    "home_epa_l8",
+    "home_gap_l8",
+    "home_games_l8",
+    "home_points_l12",
+    "home_epa_l12",
+    "home_gap_l12",
+    "home_games_l12",
+    "away_points_l4",
+    "away_epa_l4",
+    "away_gap_l4",
+    "away_games_l4",
+    "away_points_l8",
+    "away_epa_l8",
+    "away_gap_l8",
+    "away_games_l8",
+    "away_points_l12",
+    "away_epa_l12",
+    "away_gap_l12",
+    "away_games_l12",
+    "home_process_epa",
+    "away_process_epa",
+    "home_def_epa",
+    "away_def_epa",
+    "process_gap_l4_diff",
+    "process_gap_l8_diff",
+    "process_gap_l12_diff",
+    "scoring_form_diff_l4",
+    "scoring_form_diff_l8"
+  ],
+  "metrics": {
+    "base": {
+      "games": 272,
+      "mae": 10.687765778991775,
+      "rmse": 13.500093141610725
+    },
+    "adjusted": {
+      "games": 272,
+      "mae": 10.731780117363261,
+      "rmse": 13.541452064871175
+    }
+  },
+  "roi_minus_110": {
+    "0": {
+      "bets": 253,
+      "wins": 139,
+      "losses": 114,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.549407114624506,
+      "synthetic_roi_at_minus_110": 0.048868127919511305
+    },
+    "1": {
+      "bets": 203,
+      "wins": 108,
+      "losses": 95,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.5320197044334976,
+      "synthetic_roi_at_minus_110": 0.015673981191222597
+    },
+    "2": {
+      "bets": 153,
+      "wins": 85,
+      "losses": 68,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.5555555555555556,
+      "synthetic_roi_at_minus_110": 0.060606060606060566
+    },
+    "3": {
+      "bets": 114,
+      "wins": 62,
+      "losses": 52,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.543859649122807,
+      "synthetic_roi_at_minus_110": 0.038277511961722514
+    }
+  },
+  "base_roi_minus_110": {
+    "0": {
+      "bets": 253,
+      "wins": 134,
+      "losses": 119,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.5296442687747036,
+      "synthetic_roi_at_minus_110": 0.01113905856988859
+    },
+    "1": {
+      "bets": 206,
+      "wins": 107,
+      "losses": 99,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.5194174757281553,
+      "synthetic_roi_at_minus_110": -0.008384819064430745
+    },
+    "2": {
+      "bets": 141,
+      "wins": 73,
+      "losses": 68,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.5177304964539007,
+      "synthetic_roi_at_minus_110": -0.011605415860735038
+    },
+    "3": {
+      "bets": 103,
+      "wins": 52,
+      "losses": 51,
+      "pushes": 0,
+      "win_rate_ex_pushes": 0.5048543689320388,
+      "synthetic_roi_at_minus_110": -0.03618711385701676
+    }
+  },
+  "by_season": {
+    "2021": {
+      "games": 272,
+      "base_mae": 10.931931027560312,
+      "adjusted_mae": 10.604690636897612
+    },
+    "2022": {
+      "games": 271,
+      "base_mae": 10.979802032895682,
+      "adjusted_mae": 10.81349219383406
+    },
+    "2023": {
+      "games": 272,
+      "base_mae": 10.844352691482902,
+      "adjusted_mae": 10.584911400868373
+    },
+    "2024": {
+      "games": 272,
+      "base_mae": 9.95359887584434,
+      "adjusted_mae": 10.055702267535667
+    },
+    "2025": {
+      "games": 272,
+      "base_mae": 10.687765778991775,
+      "adjusted_mae": 10.731780117363261
+    }
+  },
+  "restrictions": [
+    "2025/26 is the locked holdout",
+    "ROI is synthetic -110 because complete historical obtainable prices are unavailable",
+    "EPA-to-points conversion is a transparent proxy; no future game information is used",
+    "staking disabled"
+  ]
+}
