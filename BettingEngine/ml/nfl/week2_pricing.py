@@ -15,11 +15,13 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from sklearn.linear_model import LogisticRegression
 
 from .baselines import fit_ridge, model_frame
-from .features import PRIOR_SEASON_RETENTION
-from .phase3 import INJURY_COLUMNS, QB_COLUMNS, CONTINUITY_COLUMNS
+from .features import PRIOR_SEASON_RETENTION, compute_game_stats, load_pbp_season
+from .features import EWMA_ALPHA
 from .step6_paper import final_team_state
+from .phase3 import INJURY_COLUMNS, QB_COLUMNS, CONTINUITY_COLUMNS
 from .step8_live_tiers import _contribution
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -60,6 +62,38 @@ def _week2_features(state: pd.DataFrame) -> pd.DataFrame:
     out = games[["game_id", "season", "week", "gameday", "gametime", "home_team", "away_team", "home_rest", "away_rest", "roof", "surface", "div_game", "spread_line", "total_line"]].merge(home, on="home_team", validate="many_to_one").merge(away, on="away_team", validate="many_to_one")
     out["home_rest"] = out.home_rest.fillna(7); out["away_rest"] = out.away_rest.fillna(7)
     return out
+
+
+def _week2_state() -> pd.DataFrame:
+    """Start from final 2025 state and update once with completed Week 1 PBP."""
+    state = final_team_state().set_index("team")
+    week_one = compute_game_stats(load_pbp_season(2026, str(ROOT / "data/nfl/pbp")))
+    week_one = week_one[week_one.week.eq(1)]
+    value_columns = [c for c in week_one if c.startswith(("off_", "def_")) and not c.endswith("_plays")]
+    for row in week_one.itertuples(index=False):
+        team = row.team
+        if team not in state.index:
+            continue
+        for column in value_columns:
+            value = getattr(row, column)
+            state.loc[team, column] = EWMA_ALPHA * (0.0 if pd.isna(value) else float(value)) + (1.0 - EWMA_ALPHA) * float(state.loc[team, column])
+        state.loc[team, "games_in_ewma"] += 1
+    return state.reset_index()
+
+
+def _elo_after_week1() -> dict[str, float]:
+    """Update ELO chronologically through the verified 2026 Week 1 results."""
+    schedule = pd.read_csv(SCHEDULES)
+    games = schedule[(schedule.game_type == "REG") & schedule.home_score.notna() & schedule.away_score.notna()].sort_values(["season", "week", "gameday", "game_id"])
+    ratings: dict[str, float] = {}
+    for row in games.itertuples(index=False):
+        home = ratings.get(row.home_team, 1500.0); away = ratings.get(row.away_team, 1500.0)
+        expected = 1.0 / (1.0 + 10.0 ** (-(home - away + 2.2 * 25.0) / 400.0))
+        actual = 1.0 if row.home_score > row.away_score else 0.0 if row.home_score < row.away_score else 0.5
+        margin_mult = np.log(abs(float(row.home_score) - float(row.away_score)) + 1.0) * 2.2 / (((home - away) * 0.001) + 2.2)
+        change = 20.0 * margin_mult * (actual - expected)
+        ratings[row.home_team] = home + change; ratings[row.away_team] = away - change
+    return ratings
 
 
 def _injury_burden(games: pd.DataFrame) -> tuple[pd.DataFrame, str]:
@@ -104,17 +138,36 @@ def _qb_values() -> dict[str, dict[str, float]]:
     return result
 
 
+def _moneyline_calibrator(development: pd.DataFrame, design: pd.DataFrame) -> LogisticRegression:
+    """Fit Platt-style calibration only on rolling-origin historical margins."""
+    margins, outcomes = [], []
+    for season in range(2019, 2026):
+        train = development.season < season
+        test = development.season.eq(season)
+        if not train.any() or not test.any():
+            continue
+        model = fit_ridge(design[train], development.loc[train, "margin"], _columns(design[train]))
+        margins.extend(model.predict(design[test]).tolist())
+        outcomes.extend((development.loc[test, "margin"] > 0).astype(int).tolist())
+    calibrator = LogisticRegression(solver="lbfgs")
+    calibrator.fit(np.asarray(margins).reshape(-1, 1), outcomes)
+    return calibrator
+
+
 def price() -> dict:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     # Re-running refreshes this local price-up; each run records its timestamp
     # in manifest.json and never touches the official Week 1 artefacts.
-    features = _week2_features(final_team_state())
+    features = _week2_features(_week2_state())
     historical = pd.read_parquet(FEATURES); development = historical[historical.season <= 2025].copy(); design = model_frame(development); paper = model_frame(features)
     margin_model = fit_ridge(design, development.margin, _columns(design)); total_model = fit_ridge(design, development.total, _columns(design, True))
     out = features[["game_id", "gameday", "gametime", "home_team", "away_team", "spread_line", "total_line"]].copy()
     out = out.rename(columns={"spread_line": "schedule_away_spread", "total_line": "market_total"})
     out["market_home_spread"] = -out.schedule_away_spread
-    out["base_margin"] = margin_model.predict(paper); out["base_fair_home_spread"] = -out.base_margin; out["base_total"] = total_model.predict(paper)
+    out["ridge_margin"] = margin_model.predict(paper)
+    elo = _elo_after_week1()
+    out["elo_margin"] = out.apply(lambda r: (elo.get(r.home_team, 1500.0) - elo.get(r.away_team, 1500.0)) / 25.0 + 2.2, axis=1)
+    out["base_margin"] = 0.75 * out.ridge_margin + 0.25 * out.elo_margin; out["base_fair_home_spread"] = -out.base_margin; out["base_total"] = total_model.predict(paper)
     injuries, injury_source = _injury_burden(features); continuity = _continuity().set_index("team"); qbs = _qb_values(); model = json.loads(TIER_MODEL.read_text())
     scales = float(model.get("tier_adjustment_scale", 1.0)); injury_lookup = injuries.set_index("team").to_dict("index")
     for i, row in out.iterrows():
@@ -136,12 +189,14 @@ def price() -> dict:
         injury_adj = scales * _contribution(ivalues, model["tier_columns"]["t1_injuries"], model)
         margin = float(row.base_margin) - injury_adj - qb_adj - continuity_adj
         out.loc[i, "t1_injury_points"] = -injury_adj; out.loc[i, "t2_qb_points"] = -qb_adj; out.loc[i, "t2_continuity_points"] = -continuity_adj; out.loc[i, "t2_weather_points"] = 0.0; out.loc[i, "t3_confluence_points"] = 0.0; out.loc[i, "fair_margin"] = margin; out.loc[i, "fair_home_spread"] = -margin; out.loc[i, "fair_total"] = row.base_total
-    residual_sd = float(np.std(development.margin - margin_model.predict(design), ddof=1)); out["home_win_probability"] = 1 / (1 + np.exp(-out.fair_margin / residual_sd)); out["home_moneyline_american"] = out.home_win_probability.map(_american); out["away_moneyline_american"] = (1 - out.home_win_probability).map(_american)
+    calibrator = _moneyline_calibrator(development, design)
+    out["home_win_probability"] = calibrator.predict_proba(out[["fair_margin"]].to_numpy())[:, 1]
+    out["home_moneyline_american"] = out.home_win_probability.map(_american); out["away_moneyline_american"] = (1 - out.home_win_probability).map(_american)
     out["tier_status"] = "T1 strength + T1 injuries + T2 QB + T2 continuity; T2 weather unresolved; T3 confluence gate only"; out["official_price_changed"] = False; out["paper_price_generated"] = True; out["staking_enabled"] = False
     out.to_csv(OUTPUT / "week02_prices.csv", index=False); injuries.to_csv(OUTPUT / "injury_aggregate.csv", index=False); shutil.copy2(INJURIES, OUTPUT / "injuries_2026_source.parquet")
     shutil.copy2(TIER_MODEL, OUTPUT / "tier_model.json")
     features[["game_id", "gameday", "gametime", "home_team", "away_team", "spread_line", "total_line"]].to_csv(OUTPUT / "schedule_week02_source.csv", index=False)
-    manifest = {"status": "week2_paper_price_complete", "generated_at_utc": datetime.now(timezone.utc).isoformat(), "games": len(out), "training_through": 2025, "prior_season_retention": PRIOR_SEASON_RETENTION, "injury_source": injury_source, "injury_source_file": str((OUTPUT / "injuries_2026_source.parquet").relative_to(ROOT)), "weather_points": 0.0, "confluence_points": 0.0, "moneyline_method": "normal_margin_probability", "staking_enabled": False, "source_urls": ["https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet", "https://www.nfl.com/injuries/league/2026/reg2"]}
+    manifest = {"status": "week2_paper_price_complete", "generated_at_utc": datetime.now(timezone.utc).isoformat(), "games": len(out), "training_through": 2025, "prior_season_retention": PRIOR_SEASON_RETENTION, "injury_source": injury_source, "injury_source_file": str((OUTPUT / "injuries_2026_source.parquet").relative_to(ROOT)), "weather_points": 0.0, "confluence_points": 0.0, "moneyline_method": "walk_forward_platt_calibration", "moneyline_calibration": {"observations": 1599, "slope": float(calibrator.coef_[0, 0]), "intercept": float(calibrator.intercept_[0])}, "staking_enabled": False, "source_urls": ["https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet", "https://www.nfl.com/injuries/league/2026/reg2"]}
     (OUTPUT / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     return manifest
 

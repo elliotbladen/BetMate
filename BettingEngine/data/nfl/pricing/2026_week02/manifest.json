@@ -1,6 +1,6 @@
 {
   "status": "week2_paper_price_complete",
-  "generated_at_utc": "2026-09-15T23:42:26.852866+00:00",
+  "generated_at_utc": "2026-09-16T00:10:23.119936+00:00",
   "games": 16,
   "training_through": 2025,
   "prior_season_retention": 1.0,
@@ -8,10 +8,19 @@
   "injury_source_file": "data/nfl/pricing/2026_week02/injuries_2026_source.parquet",
   "weather_points": 0.0,
   "confluence_points": 0.0,
-  "moneyline_method": "normal_margin_probability",
+  "moneyline_method": "walk_forward_platt_calibration",
+  "moneyline_calibration": {
+    "observations": 1599,
+    "slope": 0.12376762163602852,
+    "intercept": -0.09820872274840603
+  },
   "staking_enabled": false,
   "source_urls": [
     "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
     "https://www.nfl.com/injuries/league/2026/reg2"
-  ]
+  ],
+  "odds_api_snapshot_file": "pricing/2026_week02/odds_api_raw_latest.json",
+  "odds_api_comparison_file": "pricing/2026_week02/odds_api_comparison.csv",
+  "odds_api_verified_games": 16,
+  "odds_api_captured_at_utc": "2026-09-15T23:55:26.495993+00:00"
 }
