@@ -8,6 +8,8 @@ import pandas as pd
 
 ROOT = Path(__file__).parent
 MATCHES = ROOT / "data" / "epl" / "matches" / "epl_matches.csv"
+CARD_RESULTS = ROOT / "data" / "epl" / "cards" / "epl_card_results_2022_23_to_2025_26.csv"
+CARD_ODDS = ROOT / "data" / "epl" / "cards" / "footiqo_epl_cards_closing_odds_2025_26.csv"
 REPORT = ROOT / "reports" / "epl_cards_step1_data_audit.json"
 
 
@@ -52,12 +54,21 @@ def main() -> None:
             "missing": int(df["total_yellows"].isna().sum()),
         },
         "market_fields_found_in_match_file": market_fields,
+        "normalized_card_results": {
+            "path": str(CARD_RESULTS.relative_to(ROOT.parent.parent)),
+            "exists": CARD_RESULTS.exists(),
+            "rows": int(len(pd.read_csv(CARD_RESULTS))) if CARD_RESULTS.exists() else 0,
+        },
+        "yellow_card_closing_odds": {
+            "path": str(CARD_ODDS.relative_to(ROOT.parent.parent)),
+            "exists": CARD_ODDS.exists(),
+            "rows": int(len(pd.read_csv(CARD_ODDS))) if CARD_ODDS.exists() else 0,
+        },
         "season_coverage": season.reset_index().to_dict(orient="records"),
         "known_gaps": [
-            "The match file contains yellow cards but no HR/AR red-card columns.",
-            "The match file contains no historical Over/Under 3.5 cards prices.",
-            "Bookmaker red-card settlement treatment must be confirmed before live pricing.",
-            "Historical opening and closing card prices need a separate source and match join.",
+            "Free historical yellow-card closing odds are available only for 2025/26.",
+            "Historical opening card odds are not available in the free source.",
+            "Booking-points markets (where a red is worth two) require a separate target.",
         ],
     }
     REPORT.parent.mkdir(parents=True, exist_ok=True)

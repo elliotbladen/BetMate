@@ -42,6 +42,16 @@
     "missing": 0
   },
   "market_fields_found_in_match_file": [],
+  "normalized_card_results": {
+    "path": "ml/football/data/epl/cards/epl_card_results_2022_23_to_2025_26.csv",
+    "exists": true,
+    "rows": 1520
+  },
+  "yellow_card_closing_odds": {
+    "path": "ml/football/data/epl/cards/footiqo_epl_cards_closing_odds_2025_26.csv",
+    "exists": true,
+    "rows": 380
+  },
   "season_coverage": [
     {
       "Season": "2014/15",
@@ -136,9 +146,8 @@
     }
   ],
   "known_gaps": [
-    "The match file contains yellow cards but no HR/AR red-card columns.",
-    "The match file contains no historical Over/Under 3.5 cards prices.",
-    "Bookmaker red-card settlement treatment must be confirmed before live pricing.",
-    "Historical opening and closing card prices need a separate source and match join."
+    "Free historical yellow-card closing odds are available only for 2025/26.",
+    "Historical opening card odds are not available in the free source.",
+    "Booking-points markets (where a red is worth two) require a separate target."
   ]
 }
