@@ -37,6 +37,12 @@ The user-provided
 It contains all 380 EPL matches from 2025/26, with complete Over/Under 3.5 yellow-card
 closing odds. It is enough to test the final unseen season's price comparison.
 
+The odds were joined to the normalized results using date and normalized team names;
+all 380 fixtures matched. The two providers disagree on the recorded yellow-card
+total for 22 fixtures. The joined file keeps both values and marks the mismatch in
+`yellow_total_match`; the model backtest will use the official football-data result
+field and report the disagreement rather than silently overwriting it.
+
 The free Footiqo file does **not** contain 2022/23–2024/25 card odds and does not
 contain historical opening card odds. Footiqo's public coverage page says the free
 sample is 2025/26, while the multi-season specialist card-closing file is part of the

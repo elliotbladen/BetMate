@@ -1,0 +1,381 @@
+Season,Date,HomeTeam,AwayTeam,Referee,HY,AY,HR,AR,total_yellow_cards,total_red_cards,total_cards_including_red,date_key,home_key,away_key,match_id,referee,over_3_5_yellow_cards_ft_closing_odds,under_3_5_yellow_cards_ft_closing_odds,total_yellow_cards_ft,yellow_total_match,market_outcome_source
+2025/26,15/08/2025,Liverpool,Bournemouth,A Taylor,1,2,0,0,3,0,3,2025-08-15,Liverpool,Bournemouth,74457,Anthony Taylor,1.64,2.24,3,True,football-data.co.uk
+2025/26,16/08/2025,Aston Villa,Newcastle,C Pawson,1,1,1,0,2,1,3,2025-08-16,Aston Villa,Newcastle,64374,Craig Pawson,1.41,2.91,2,True,football-data.co.uk
+2025/26,16/08/2025,Brighton,Fulham,S Barrott,3,3,0,0,6,0,6,2025-08-16,Brighton,Fulham,64371,Samuel Barrott,1.45,2.73,6,True,football-data.co.uk
+2025/26,16/08/2025,Sunderland,West Ham,R Jones,0,1,0,0,1,0,1,2025-08-16,Sunderland,West Ham,64372,Robert Jones,1.43,2.81,1,True,football-data.co.uk
+2025/26,16/08/2025,Tottenham,Burnley,M Oliver,0,0,0,0,0,0,0,2025-08-16,Tottenham,Burnley,64373,Michael Oliver,1.53,2.48,0,True,football-data.co.uk
+2025/26,16/08/2025,Wolves,Man City,J Gillett,1,2,0,0,3,0,3,2025-08-16,Wolves,Manchester City,64370,Jarred Gillett,1.64,2.24,3,True,football-data.co.uk
+2025/26,17/08/2025,Chelsea,Crystal Palace,D England,2,3,0,0,5,0,5,2025-08-17,Chelsea,Crystal Palace,64403,Darren England,1.36,3.12,5,True,football-data.co.uk
+2025/26,17/08/2025,Man United,Arsenal,S Hooper,1,4,0,0,5,0,5,2025-08-17,Manchester Utd,Arsenal,64402,Simon Hooper,1.38,3.01,5,True,football-data.co.uk
+2025/26,17/08/2025,Nott'm Forest,Brentford,P Bankes,1,2,0,0,3,0,3,2025-08-17,Nottingham,Brentford,64404,Peter Bankes,1.53,2.48,3,True,football-data.co.uk
+2025/26,18/08/2025,Leeds,Everton,C Kavanagh,0,2,0,0,2,0,2,2025-08-18,Leeds,Everton,64444,Chris Kavanagh,1.62,2.29,2,True,football-data.co.uk
+2025/26,22/08/2025,West Ham,Chelsea,M Oliver,0,1,0,0,1,0,1,2025-08-22,West Ham,Chelsea,64479,Michael Oliver,1.38,3.01,1,True,football-data.co.uk
+2025/26,23/08/2025,Arsenal,Leeds,J Gillett,0,2,0,0,2,0,2,2025-08-23,Arsenal,Leeds,64532,Jarred Gillett,2.03,1.78,2,True,football-data.co.uk
+2025/26,23/08/2025,Bournemouth,Wolves,T Bramall,2,4,0,1,6,1,7,2025-08-23,Bournemouth,Wolves,64533,Thomas Bramall,1.41,2.91,6,True,football-data.co.uk
+2025/26,23/08/2025,Brentford,Aston Villa,T Harrington,1,2,0,0,3,0,3,2025-08-23,Brentford,Aston Villa,64534,Tony Harrington,1.67,2.19,3,True,football-data.co.uk
+2025/26,23/08/2025,Burnley,Sunderland,M Salisbury,0,1,0,0,1,0,1,2025-08-23,Burnley,Sunderland,64535,Michael Salisbury,1.67,2.19,1,True,football-data.co.uk
+2025/26,23/08/2025,Man City,Tottenham,P Bankes,1,4,0,0,5,0,5,2025-08-23,Manchester City,Tottenham,64536,Peter Bankes,1.66,2.21,5,True,football-data.co.uk
+2025/26,24/08/2025,Crystal Palace,Nott'm Forest,A Taylor,3,3,0,0,6,0,6,2025-08-24,Crystal Palace,Nottingham,64582,Anthony Taylor,1.43,2.81,6,True,football-data.co.uk
+2025/26,24/08/2025,Everton,Brighton,S Attwell,4,3,0,0,7,0,7,2025-08-24,Everton,Brighton,64583,Stuart Attwell,1.61,2.31,7,True,football-data.co.uk
+2025/26,24/08/2025,Fulham,Man United,C Kavanagh,1,1,0,0,2,0,2,2025-08-24,Fulham,Manchester Utd,64581,Chris Kavanagh,1.53,2.48,2,True,football-data.co.uk
+2025/26,25/08/2025,Newcastle,Liverpool,S Hooper,2,3,1,0,5,1,6,2025-08-25,Newcastle,Liverpool,64632,Simon Hooper,1.29,3.59,5,True,football-data.co.uk
+2025/26,30/08/2025,Chelsea,Fulham,R Jones,2,2,0,0,4,0,4,2025-08-30,Chelsea,Fulham,64711,Robert Jones,1.5,2.56,4,True,football-data.co.uk
+2025/26,30/08/2025,Leeds,Newcastle,P Bankes,1,1,0,0,2,0,2,2025-08-30,Leeds,Newcastle,64706,Peter Bankes,1.52,2.51,2,True,football-data.co.uk
+2025/26,30/08/2025,Man United,Burnley,S Barrott,1,5,0,0,6,0,6,2025-08-30,Manchester Utd,Burnley,64707,Samuel Barrott,1.8,2.0,6,True,football-data.co.uk
+2025/26,30/08/2025,Sunderland,Brentford,A Taylor,3,2,0,0,5,0,5,2025-08-30,Sunderland,Brentford,64708,Anthony Taylor,1.75,2.07,5,True,football-data.co.uk
+2025/26,30/08/2025,Tottenham,Bournemouth,S Hooper,2,4,0,0,6,0,6,2025-08-30,Tottenham,Bournemouth,64709,Simon Hooper,1.29,3.55,6,True,football-data.co.uk
+2025/26,30/08/2025,Wolves,Everton,M Oliver,0,1,0,0,1,0,1,2025-08-30,Wolves,Everton,64710,Michael Oliver,1.62,2.29,1,True,football-data.co.uk
+2025/26,31/08/2025,Aston Villa,Crystal Palace,S Attwell,2,3,0,0,5,0,5,2025-08-31,Aston Villa,Crystal Palace,64761,Stuart Attwell,1.41,2.91,5,True,football-data.co.uk
+2025/26,31/08/2025,Brighton,Man City,D England,2,2,0,0,4,0,4,2025-08-31,Brighton,Manchester City,64763,Darren England,1.63,2.26,4,True,football-data.co.uk
+2025/26,31/08/2025,Liverpool,Arsenal,C Kavanagh,2,2,0,0,4,0,4,2025-08-31,Liverpool,Arsenal,64762,Chris Kavanagh,1.38,3.01,4,True,football-data.co.uk
+2025/26,31/08/2025,Nott'm Forest,West Ham,C Pawson,0,0,0,0,0,0,0,2025-08-31,Nottingham,West Ham,64764,Craig Pawson,1.56,2.41,0,True,football-data.co.uk
+2025/26,13/09/2025,Arsenal,Nott'm Forest,D England,1,1,0,0,2,0,2,2025-09-13,Arsenal,Nottingham,64945,Darren England,1.63,2.26,2,True,football-data.co.uk
+2025/26,13/09/2025,Bournemouth,Brighton,P Bankes,4,4,0,0,8,0,8,2025-09-13,Bournemouth,Brighton,64940,Peter Bankes,1.4,2.94,8,True,football-data.co.uk
+2025/26,13/09/2025,Brentford,Chelsea,S Attwell,3,2,0,0,5,0,5,2025-09-13,Brentford,Chelsea,64938,Stuart Attwell,1.45,2.73,5,True,football-data.co.uk
+2025/26,13/09/2025,Crystal Palace,Sunderland,T Bramall,1,1,0,0,2,0,2,2025-09-13,Crystal Palace,Sunderland,64941,Thomas Bramall,1.55,2.44,2,True,football-data.co.uk
+2025/26,13/09/2025,Everton,Aston Villa,S Hooper,3,3,0,0,6,0,6,2025-09-13,Everton,Aston Villa,64942,Simon Hooper,1.36,3.12,6,True,football-data.co.uk
+2025/26,13/09/2025,Fulham,Leeds,C Pawson,1,2,0,0,3,0,3,2025-09-13,Fulham,Leeds,64943,Craig Pawson,1.78,2.03,3,True,football-data.co.uk
+2025/26,13/09/2025,Newcastle,Wolves,C Kavanagh,1,4,0,0,5,0,5,2025-09-13,Newcastle,Wolves,64944,Chris Kavanagh,1.53,2.48,5,True,football-data.co.uk
+2025/26,13/09/2025,West Ham,Tottenham,J Gillett,0,1,1,0,1,1,2,2025-09-13,West Ham,Tottenham,64939,Jarred Gillett,1.53,2.48,1,True,football-data.co.uk
+2025/26,14/09/2025,Burnley,Liverpool,M Oliver,0,2,0,0,2,0,2,2025-09-14,Burnley,Liverpool,64999,Michael Oliver,2.25,1.64,4,False,football-data.co.uk
+2025/26,14/09/2025,Man City,Man United,A Taylor,0,0,0,0,0,0,0,2025-09-14,Manchester City,Manchester Utd,64998,Anthony Taylor,1.53,2.48,0,True,football-data.co.uk
+2025/26,20/09/2025,Brighton,Tottenham,C Kavanagh,1,2,0,0,3,0,3,2025-09-20,Brighton,Tottenham,65127,Chris Kavanagh,1.38,3.01,3,True,football-data.co.uk
+2025/26,20/09/2025,Burnley,Nott'm Forest,T Bramall,1,1,0,0,2,0,2,2025-09-20,Burnley,Nottingham,65128,Thomas Bramall,1.59,2.35,2,True,football-data.co.uk
+2025/26,20/09/2025,Fulham,Brentford,M Oliver,4,1,0,0,5,0,5,2025-09-20,Fulham,Brentford,65125,Michael Oliver,1.85,1.94,5,True,football-data.co.uk
+2025/26,20/09/2025,Liverpool,Everton,D England,2,3,0,0,5,0,5,2025-09-20,Liverpool,Everton,65131,Darren England,1.36,3.12,5,True,football-data.co.uk
+2025/26,20/09/2025,Man United,Chelsea,P Bankes,0,5,1,1,5,2,7,2025-09-20,Manchester Utd,Chelsea,65126,Peter Bankes,1.33,3.3,7,False,football-data.co.uk
+2025/26,20/09/2025,West Ham,Crystal Palace,T Harrington,3,3,0,0,6,0,6,2025-09-20,West Ham,Crystal Palace,65129,Tony Harrington,1.67,2.19,6,True,football-data.co.uk
+2025/26,20/09/2025,Wolves,Leeds,A Taylor,1,1,0,0,2,0,2,2025-09-20,Wolves,Leeds,65130,Anthony Taylor,1.85,1.94,2,True,football-data.co.uk
+2025/26,21/09/2025,Arsenal,Man City,S Attwell,1,2,0,0,3,0,3,2025-09-21,Arsenal,Manchester City,65184,Stuart Attwell,1.53,2.48,3,True,football-data.co.uk
+2025/26,21/09/2025,Bournemouth,Newcastle,R Jones,2,1,0,0,3,0,3,2025-09-21,Bournemouth,Newcastle,65185,Robert Jones,1.29,3.55,3,True,football-data.co.uk
+2025/26,21/09/2025,Sunderland,Aston Villa,S Barrott,2,1,1,0,3,1,4,2025-09-21,Sunderland,Aston Villa,65186,Samuel Barrott,1.43,2.81,3,True,football-data.co.uk
+2025/26,27/09/2025,Brentford,Man United,C Pawson,2,2,0,0,4,0,4,2025-09-27,Brentford,Manchester Utd,65330,Craig Pawson,1.75,2.07,4,True,football-data.co.uk
+2025/26,27/09/2025,Chelsea,Brighton,S Hooper,3,5,1,0,8,1,9,2025-09-27,Chelsea,Brighton,65326,Simon Hooper,1.25,3.89,9,False,football-data.co.uk
+2025/26,27/09/2025,Crystal Palace,Liverpool,C Kavanagh,1,3,0,0,4,0,4,2025-09-27,Crystal Palace,Liverpool,65327,Chris Kavanagh,1.62,2.29,4,True,football-data.co.uk
+2025/26,27/09/2025,Leeds,Bournemouth,M Oliver,2,2,0,0,4,0,4,2025-09-27,Leeds,Bournemouth,65328,Michael Oliver,1.53,2.48,4,True,football-data.co.uk
+2025/26,27/09/2025,Man City,Burnley,R Jones,1,3,0,0,4,0,4,2025-09-27,Manchester City,Burnley,65329,Robert Jones,2.62,1.49,4,True,football-data.co.uk
+2025/26,27/09/2025,Nott'm Forest,Sunderland,T Harrington,4,2,0,0,6,0,6,2025-09-27,Nottingham,Sunderland,65325,Tony Harrington,1.53,2.48,6,True,football-data.co.uk
+2025/26,27/09/2025,Tottenham,Wolves,M Salisbury,3,2,0,0,5,0,5,2025-09-27,Tottenham,Wolves,65324,Michael Salisbury,1.67,2.19,5,True,football-data.co.uk
+2025/26,28/09/2025,Aston Villa,Fulham,A Madley,1,4,0,0,5,0,5,2025-09-28,Aston Villa,Fulham,65381,Andy Madley,1.55,2.44,5,True,football-data.co.uk
+2025/26,28/09/2025,Newcastle,Arsenal,J Gillett,2,1,0,0,3,0,3,2025-09-28,Newcastle,Arsenal,65380,Jarred Gillett,1.43,2.81,3,True,football-data.co.uk
+2025/26,29/09/2025,Everton,West Ham,S Barrott,3,4,0,0,7,0,7,2025-09-29,Everton,West Ham,65435,Samuel Barrott,1.8,2.0,7,True,football-data.co.uk
+2025/26,03/10/2025,Bournemouth,Fulham,S Hooper,0,1,0,0,1,0,1,2025-10-03,Bournemouth,Fulham,65482,Simon Hooper,1.28,3.7,1,True,football-data.co.uk
+2025/26,04/10/2025,Arsenal,West Ham,J Brooks,0,2,0,0,2,0,2,2025-10-04,Arsenal,West Ham,65536,John Brooks,1.95,1.84,2,True,football-data.co.uk
+2025/26,04/10/2025,Chelsea,Liverpool,A Taylor,0,2,0,0,2,0,2,2025-10-04,Chelsea,Liverpool,65535,Anthony Taylor,1.34,3.25,2,True,football-data.co.uk
+2025/26,04/10/2025,Leeds,Tottenham,T Bramall,2,3,0,0,5,0,5,2025-10-04,Leeds,Tottenham,65538,Thomas Bramall,1.8,2.0,5,True,football-data.co.uk
+2025/26,04/10/2025,Man United,Sunderland,S Attwell,1,4,0,0,5,0,5,2025-10-04,Manchester Utd,Sunderland,65537,Stuart Attwell,1.66,2.21,5,True,football-data.co.uk
+2025/26,05/10/2025,Aston Villa,Burnley,A Kitchen,3,1,0,0,4,0,4,2025-10-05,Aston Villa,Burnley,65593,Andrew Kitchen,1.85,1.94,4,True,football-data.co.uk
+2025/26,05/10/2025,Brentford,Man City,D England,3,2,0,0,5,0,5,2025-10-05,Brentford,Manchester City,65592,Darren England,1.95,1.84,5,True,football-data.co.uk
+2025/26,05/10/2025,Everton,Crystal Palace,M Salisbury,2,3,0,0,5,0,5,2025-10-05,Everton,Crystal Palace,65594,Michael Salisbury,1.52,2.51,5,True,football-data.co.uk
+2025/26,05/10/2025,Newcastle,Nott'm Forest,P Bankes,0,4,0,0,4,0,4,2025-10-05,Newcastle,Nottingham,65595,Peter Bankes,1.41,2.91,4,True,football-data.co.uk
+2025/26,05/10/2025,Wolves,Brighton,J Gillett,2,4,0,0,6,0,6,2025-10-05,Wolves,Brighton,65596,Jarred Gillett,1.42,2.85,6,True,football-data.co.uk
+2025/26,18/10/2025,Brighton,Newcastle,C Pawson,0,1,0,0,1,0,1,2025-10-18,Brighton,Newcastle,67158,Craig Pawson,1.41,2.91,1,True,football-data.co.uk
+2025/26,18/10/2025,Burnley,Leeds,T Robinson,2,1,0,0,3,0,3,2025-10-18,Burnley,Leeds,67159,Tim Robinson,1.59,2.35,3,True,football-data.co.uk
+2025/26,18/10/2025,Crystal Palace,Bournemouth,J Gillett,1,4,0,0,5,0,5,2025-10-18,Crystal Palace,Bournemouth,67160,Jarred Gillett,1.36,3.12,5,True,football-data.co.uk
+2025/26,18/10/2025,Fulham,Arsenal,A Taylor,0,0,0,0,0,0,0,2025-10-18,Fulham,Arsenal,67157,Anthony Taylor,2.0,1.8,0,True,football-data.co.uk
+2025/26,18/10/2025,Man City,Everton,T Harrington,0,2,0,0,2,0,2,2025-10-18,Manchester City,Everton,67161,Tony Harrington,1.85,1.94,2,True,football-data.co.uk
+2025/26,18/10/2025,Nott'm Forest,Chelsea,C Kavanagh,2,2,0,1,4,1,5,2025-10-18,Nottingham,Chelsea,67163,Chris Kavanagh,1.28,3.65,6,False,football-data.co.uk
+2025/26,18/10/2025,Sunderland,Wolves,R Jones,0,0,0,0,0,0,0,2025-10-18,Sunderland,Wolves,67162,Robert Jones,1.43,2.81,0,True,football-data.co.uk
+2025/26,19/10/2025,Liverpool,Man United,M Oliver,0,2,0,0,2,0,2,2025-10-19,Liverpool,Manchester Utd,67210,Michael Oliver,1.33,3.3,2,True,football-data.co.uk
+2025/26,19/10/2025,Tottenham,Aston Villa,S Hooper,2,0,0,0,2,0,2,2025-10-19,Tottenham,Aston Villa,67211,Simon Hooper,1.41,2.91,2,True,football-data.co.uk
+2025/26,20/10/2025,West Ham,Brentford,A Madley,1,1,0,0,2,0,2,2025-10-20,West Ham,Brentford,67300,Andy Madley,1.75,2.07,2,True,football-data.co.uk
+2025/26,24/10/2025,Leeds,West Ham,S Attwell,3,3,0,0,6,0,6,2025-10-24,Leeds,West Ham,67348,Stuart Attwell,1.8,2.0,6,True,football-data.co.uk
+2025/26,25/10/2025,Brentford,Liverpool,S Hooper,3,2,0,0,5,0,5,2025-10-25,Brentford,Liverpool,67642,Simon Hooper,1.63,2.26,5,True,football-data.co.uk
+2025/26,25/10/2025,Chelsea,Sunderland,A Madley,1,1,0,0,2,0,2,2025-10-25,Chelsea,Sunderland,67644,Andy Madley,1.56,2.41,2,True,football-data.co.uk
+2025/26,25/10/2025,Man United,Brighton,A Taylor,2,2,0,0,4,0,4,2025-10-25,Manchester Utd,Brighton,67643,Anthony Taylor,1.75,2.07,4,True,football-data.co.uk
+2025/26,25/10/2025,Newcastle,Fulham,P Bankes,0,2,0,0,2,0,2,2025-10-25,Newcastle,Fulham,67645,Peter Bankes,1.62,2.29,2,True,football-data.co.uk
+2025/26,26/10/2025,Arsenal,Crystal Palace,T Bramall,0,0,0,0,0,0,0,2025-10-26,Arsenal,Crystal Palace,69139,Thomas Bramall,1.67,2.19,0,True,football-data.co.uk
+2025/26,26/10/2025,Aston Villa,Man City,M Oliver,1,4,0,0,5,0,5,2025-10-26,Aston Villa,Manchester City,69140,Michael Oliver,1.64,2.24,5,True,football-data.co.uk
+2025/26,26/10/2025,Bournemouth,Nott'm Forest,S Barrott,3,1,0,0,4,0,4,2025-10-26,Bournemouth,Nottingham,69141,Samuel Barrott,1.25,3.89,5,False,football-data.co.uk
+2025/26,26/10/2025,Everton,Tottenham,C Pawson,2,0,0,0,2,0,2,2025-10-26,Everton,Tottenham,69138,Craig Pawson,1.59,2.35,2,True,football-data.co.uk
+2025/26,26/10/2025,Wolves,Burnley,T Harrington,1,0,0,0,1,0,1,2025-10-26,Wolves,Burnley,69142,Tony Harrington,1.52,2.51,1,True,football-data.co.uk
+2025/26,01/11/2025,Brighton,Leeds,M Oliver,0,1,0,0,1,0,1,2025-11-01,Brighton,Leeds,74172,Michael Oliver,1.78,2.03,1,True,football-data.co.uk
+2025/26,01/11/2025,Burnley,Arsenal,C Kavanagh,2,1,0,0,3,0,3,2025-11-01,Burnley,Arsenal,74173,Chris Kavanagh,2.42,1.56,3,True,football-data.co.uk
+2025/26,01/11/2025,Crystal Palace,Brentford,P Bankes,0,3,0,0,3,0,3,2025-11-01,Crystal Palace,Brentford,74174,Peter Bankes,1.52,2.51,3,True,football-data.co.uk
+2025/26,01/11/2025,Fulham,Wolves,J Brooks,1,3,0,1,4,1,5,2025-11-01,Fulham,Wolves,74175,John Brooks,1.55,2.44,4,True,football-data.co.uk
+2025/26,01/11/2025,Liverpool,Aston Villa,S Attwell,2,3,0,0,5,0,5,2025-11-01,Liverpool,Aston Villa,74170,Stuart Attwell,1.45,2.73,5,True,football-data.co.uk
+2025/26,01/11/2025,Nott'm Forest,Man United,D England,1,1,0,0,2,0,2,2025-11-01,Nottingham,Manchester Utd,74176,Darren England,1.59,2.35,2,True,football-data.co.uk
+2025/26,01/11/2025,Tottenham,Chelsea,J Gillett,4,2,0,0,6,0,6,2025-11-01,Tottenham,Chelsea,74171,Jarred Gillett,1.25,3.89,6,True,football-data.co.uk
+2025/26,02/11/2025,Man City,Bournemouth,A Taylor,2,2,0,0,4,0,4,2025-11-02,Manchester City,Bournemouth,74235,Anthony Taylor,2.0,1.8,4,True,football-data.co.uk
+2025/26,02/11/2025,West Ham,Newcastle,R Jones,1,2,0,0,3,0,3,2025-11-02,West Ham,Newcastle,74236,Robert Jones,1.83,1.97,3,True,football-data.co.uk
+2025/26,03/11/2025,Sunderland,Everton,T Bramall,3,2,0,0,5,0,5,2025-11-03,Sunderland,Everton,74284,Thomas Bramall,1.8,2.0,5,True,football-data.co.uk
+2025/26,08/11/2025,Chelsea,Wolves,A Kitchen,1,2,0,0,3,0,3,2025-11-08,Chelsea,Wolves,74398,Andrew Kitchen,1.63,2.26,3,True,football-data.co.uk
+2025/26,08/11/2025,Everton,Fulham,A Madley,2,2,0,0,4,0,4,2025-11-08,Everton,Fulham,74400,Andy Madley,1.9,1.89,4,True,football-data.co.uk
+2025/26,08/11/2025,Sunderland,Arsenal,C Pawson,2,1,0,0,3,0,3,2025-11-08,Sunderland,Arsenal,74399,Craig Pawson,2.55,1.51,3,True,football-data.co.uk
+2025/26,08/11/2025,Tottenham,Man United,S Barrott,5,1,0,0,6,0,6,2025-11-08,Tottenham,Manchester Utd,74402,Samuel Barrott,1.42,2.85,6,True,football-data.co.uk
+2025/26,08/11/2025,West Ham,Burnley,M Salisbury,2,2,0,0,4,0,4,2025-11-08,West Ham,Burnley,74401,Michael Salisbury,2.31,1.61,4,True,football-data.co.uk
+2025/26,09/11/2025,Aston Villa,Bournemouth,J Brooks,2,2,0,0,4,0,4,2025-11-09,Aston Villa,Bournemouth,74466,John Brooks,1.22,4.25,4,True,football-data.co.uk
+2025/26,09/11/2025,Brentford,Newcastle,S Attwell,2,1,0,0,3,0,3,2025-11-09,Brentford,Newcastle,74467,Stuart Attwell,1.59,2.35,5,False,football-data.co.uk
+2025/26,09/11/2025,Crystal Palace,Brighton,T Robinson,1,4,0,0,5,0,5,2025-11-09,Crystal Palace,Brighton,74468,Tim Robinson,1.25,3.94,5,True,football-data.co.uk
+2025/26,09/11/2025,Man City,Liverpool,C Kavanagh,2,4,0,0,6,0,6,2025-11-09,Manchester City,Liverpool,74465,Chris Kavanagh,1.58,2.37,6,True,football-data.co.uk
+2025/26,09/11/2025,Nott'm Forest,Leeds,J Gillett,2,1,0,0,3,0,3,2025-11-09,Nottingham,Leeds,74469,Jarred Gillett,1.59,2.35,3,True,football-data.co.uk
+2025/26,22/11/2025,Bournemouth,West Ham,T Bramall,3,2,0,0,5,0,5,2025-11-22,Bournemouth,West Ham,74621,Thomas Bramall,1.59,2.35,5,True,football-data.co.uk
+2025/26,22/11/2025,Brighton,Brentford,C Kavanagh,4,2,0,0,6,0,6,2025-11-22,Brighton,Brentford,74622,Chris Kavanagh,1.43,2.81,6,True,football-data.co.uk
+2025/26,22/11/2025,Burnley,Chelsea,P Bankes,2,3,0,0,5,0,5,2025-11-22,Burnley,Chelsea,74626,Peter Bankes,1.64,2.24,5,True,football-data.co.uk
+2025/26,22/11/2025,Fulham,Sunderland,D England,3,3,0,0,6,0,6,2025-11-22,Fulham,Sunderland,74623,Darren England,1.85,1.94,6,True,football-data.co.uk
+2025/26,22/11/2025,Liverpool,Nott'm Forest,A Madley,2,0,0,0,2,0,2,2025-11-22,Liverpool,Nottingham,74624,Andy Madley,1.9,1.89,2,True,football-data.co.uk
+2025/26,22/11/2025,Newcastle,Man City,S Barrott,1,3,0,0,4,0,4,2025-11-22,Newcastle,Manchester City,74620,Samuel Barrott,1.55,2.44,4,True,football-data.co.uk
+2025/26,22/11/2025,Wolves,Crystal Palace,A Taylor,2,3,0,0,5,0,5,2025-11-22,Wolves,Crystal Palace,74625,Anthony Taylor,1.8,2.0,5,True,football-data.co.uk
+2025/26,23/11/2025,Arsenal,Tottenham,M Oliver,1,3,0,0,4,0,4,2025-11-23,Arsenal,Tottenham,74684,Michael Oliver,1.28,3.7,4,True,football-data.co.uk
+2025/26,23/11/2025,Leeds,Aston Villa,R Jones,5,1,0,0,6,0,6,2025-11-23,Leeds,Aston Villa,74685,Robert Jones,1.62,2.29,6,True,football-data.co.uk
+2025/26,24/11/2025,Man United,Everton,T Harrington,2,0,0,1,2,1,3,2025-11-24,Manchester Utd,Everton,74730,Tony Harrington,1.64,2.24,2,True,football-data.co.uk
+2025/26,29/11/2025,Brentford,Burnley,S Barrott,0,2,0,0,2,0,2,2025-11-29,Brentford,Burnley,74838,Samuel Barrott,1.56,2.41,2,True,football-data.co.uk
+2025/26,29/11/2025,Everton,Newcastle,C Pawson,0,0,0,0,0,0,0,2025-11-29,Everton,Newcastle,74837,Craig Pawson,1.8,2.0,0,True,football-data.co.uk
+2025/26,29/11/2025,Man City,Leeds,P Bankes,4,1,0,0,5,0,5,2025-11-29,Manchester City,Leeds,74839,Peter Bankes,2.29,1.62,5,True,football-data.co.uk
+2025/26,29/11/2025,Sunderland,Bournemouth,T Robinson,5,5,0,1,10,1,11,2025-11-29,Sunderland,Bournemouth,74840,Tim Robinson,1.43,2.81,9,False,football-data.co.uk
+2025/26,29/11/2025,Tottenham,Fulham,S Attwell,3,2,0,0,5,0,5,2025-11-29,Tottenham,Fulham,74836,Stuart Attwell,1.56,2.41,5,True,football-data.co.uk
+2025/26,30/11/2025,Aston Villa,Wolves,C Kavanagh,0,4,0,0,4,0,4,2025-11-30,Aston Villa,Wolves,74896,Chris Kavanagh,1.36,3.12,4,True,football-data.co.uk
+2025/26,30/11/2025,Chelsea,Arsenal,A Taylor,1,6,1,0,7,1,8,2025-11-30,Chelsea,Arsenal,74895,Anthony Taylor,1.41,2.91,7,True,football-data.co.uk
+2025/26,30/11/2025,Crystal Palace,Man United,R Jones,3,2,0,0,5,0,5,2025-11-30,Crystal Palace,Manchester Utd,74899,Robert Jones,1.63,2.26,5,True,football-data.co.uk
+2025/26,30/11/2025,Nott'm Forest,Brighton,M Oliver,0,1,0,0,1,0,1,2025-11-30,Nottingham,Brighton,74897,Michael Oliver,1.42,2.85,1,True,football-data.co.uk
+2025/26,30/11/2025,West Ham,Liverpool,D England,1,0,1,0,1,1,2,2025-11-30,West Ham,Liverpool,74898,Darren England,1.83,1.97,3,False,football-data.co.uk
+2025/26,02/12/2025,Bournemouth,Everton,M Salisbury,3,3,0,0,6,0,6,2025-12-02,Bournemouth,Everton,74955,Michael Salisbury,1.63,2.26,6,True,football-data.co.uk
+2025/26,02/12/2025,Fulham,Man City,C Pawson,0,1,0,0,1,0,1,2025-12-02,Fulham,Manchester City,74956,Craig Pawson,2.25,1.64,1,True,football-data.co.uk
+2025/26,02/12/2025,Newcastle,Tottenham,T Bramall,0,3,0,0,3,0,3,2025-12-02,Newcastle,Tottenham,74954,Thomas Bramall,1.5,2.56,3,True,football-data.co.uk
+2025/26,03/12/2025,Arsenal,Brentford,T Harrington,0,1,0,0,1,0,1,2025-12-03,Arsenal,Brentford,74974,Tony Harrington,2.45,1.55,1,True,football-data.co.uk
+2025/26,03/12/2025,Brighton,Aston Villa,A Madley,2,2,0,0,4,0,4,2025-12-03,Brighton,Aston Villa,74975,Andy Madley,1.55,2.44,4,True,football-data.co.uk
+2025/26,03/12/2025,Burnley,Crystal Palace,T Kirk,0,0,0,0,0,0,0,2025-12-03,Burnley,Crystal Palace,74976,Thomas Kirk,1.78,2.03,0,True,football-data.co.uk
+2025/26,03/12/2025,Leeds,Chelsea,D England,1,1,0,0,2,0,2,2025-12-03,Leeds,Chelsea,74972,Darren England,1.43,2.81,2,True,football-data.co.uk
+2025/26,03/12/2025,Liverpool,Sunderland,S Attwell,1,1,0,0,2,0,2,2025-12-03,Liverpool,Sunderland,74973,Stuart Attwell,1.62,2.29,2,True,football-data.co.uk
+2025/26,03/12/2025,Wolves,Nott'm Forest,T Robinson,2,2,0,0,4,0,4,2025-12-03,Wolves,Nottingham,74977,Tim Robinson,1.41,2.91,4,True,football-data.co.uk
+2025/26,04/12/2025,Man United,West Ham,A Kitchen,2,2,0,0,4,0,4,2025-12-04,Manchester Utd,West Ham,74989,Andrew Kitchen,2.05,1.76,4,True,football-data.co.uk
+2025/26,06/12/2025,Aston Villa,Arsenal,P Bankes,0,2,0,0,2,0,2,2025-12-06,Aston Villa,Arsenal,75033,Peter Bankes,1.43,2.81,2,True,football-data.co.uk
+2025/26,06/12/2025,Bournemouth,Chelsea,M Oliver,0,2,0,0,2,0,2,2025-12-06,Bournemouth,Chelsea,75028,Michael Oliver,1.26,3.81,2,True,football-data.co.uk
+2025/26,06/12/2025,Everton,Nott'm Forest,C Kavanagh,4,3,0,0,7,0,7,2025-12-06,Everton,Nottingham,75029,Chris Kavanagh,1.75,2.07,7,True,football-data.co.uk
+2025/26,06/12/2025,Leeds,Liverpool,A Taylor,3,3,0,0,6,0,6,2025-12-06,Leeds,Liverpool,75027,Anthony Taylor,2.08,1.74,6,True,football-data.co.uk
+2025/26,06/12/2025,Man City,Sunderland,A Madley,1,0,0,1,1,1,2,2025-12-06,Manchester City,Sunderland,75030,Andy Madley,2.08,1.74,1,True,football-data.co.uk
+2025/26,06/12/2025,Newcastle,Burnley,S Attwell,2,2,0,1,4,1,5,2025-12-06,Newcastle,Burnley,75031,Stuart Attwell,1.95,1.84,4,True,football-data.co.uk
+2025/26,06/12/2025,Tottenham,Brentford,R Jones,3,4,0,0,7,0,7,2025-12-06,Tottenham,Brentford,75032,Robert Jones,1.59,2.35,7,True,football-data.co.uk
+2025/26,07/12/2025,Brighton,West Ham,S Hooper,2,2,0,0,4,0,4,2025-12-07,Brighton,West Ham,75090,Simon Hooper,1.66,2.21,4,True,football-data.co.uk
+2025/26,07/12/2025,Fulham,Crystal Palace,S Barrott,0,0,0,0,0,0,0,2025-12-07,Fulham,Crystal Palace,75089,Samuel Barrott,1.53,2.48,0,True,football-data.co.uk
+2025/26,08/12/2025,Wolves,Man United,M Salisbury,3,2,0,0,5,0,5,2025-12-08,Wolves,Manchester Utd,75131,Michael Salisbury,1.75,2.07,5,True,football-data.co.uk
+2025/26,13/12/2025,Arsenal,Wolves,R Jones,0,4,0,0,4,0,4,2025-12-13,Arsenal,Wolves,75255,Robert Jones,2.31,1.61,4,True,football-data.co.uk
+2025/26,13/12/2025,Burnley,Fulham,M Oliver,1,2,0,0,3,0,3,2025-12-13,Burnley,Fulham,75256,Michael Oliver,1.85,1.94,3,True,football-data.co.uk
+2025/26,13/12/2025,Chelsea,Everton,T Bramall,1,0,0,0,1,0,1,2025-12-13,Chelsea,Everton,75257,Thomas Bramall,1.55,2.44,1,True,football-data.co.uk
+2025/26,13/12/2025,Liverpool,Brighton,C Pawson,1,2,0,0,3,0,3,2025-12-13,Liverpool,Brighton,75258,Craig Pawson,1.8,2.0,3,True,football-data.co.uk
+2025/26,14/12/2025,Brentford,Leeds,J Brooks,0,0,0,0,0,0,0,2025-12-14,Brentford,Leeds,75308,John Brooks,1.63,2.26,0,True,football-data.co.uk
+2025/26,14/12/2025,Crystal Palace,Man City,D England,2,0,0,0,2,0,2,2025-12-14,Crystal Palace,Manchester City,75309,Darren England,1.66,2.21,2,True,football-data.co.uk
+2025/26,14/12/2025,Nott'm Forest,Tottenham,S Barrott,1,3,0,0,4,0,4,2025-12-14,Nottingham,Tottenham,75310,Samuel Barrott,1.4,2.94,4,True,football-data.co.uk
+2025/26,14/12/2025,Sunderland,Newcastle,P Bankes,5,4,0,0,9,0,9,2025-12-14,Sunderland,Newcastle,75311,Peter Bankes,1.22,4.25,9,True,football-data.co.uk
+2025/26,14/12/2025,West Ham,Aston Villa,A Taylor,1,2,0,0,3,0,3,2025-12-14,West Ham,Aston Villa,75312,Anthony Taylor,1.85,1.94,3,True,football-data.co.uk
+2025/26,15/12/2025,Man United,Bournemouth,S Hooper,2,3,0,0,5,0,5,2025-12-15,Manchester Utd,Bournemouth,75351,Simon Hooper,1.28,3.65,5,True,football-data.co.uk
+2025/26,20/12/2025,Bournemouth,Burnley,C Kavanagh,1,1,0,0,2,0,2,2025-12-20,Bournemouth,Burnley,75414,Chris Kavanagh,1.67,2.19,2,True,football-data.co.uk
+2025/26,20/12/2025,Brighton,Sunderland,D England,2,2,0,0,4,0,4,2025-12-20,Brighton,Sunderland,75415,Darren England,1.64,2.24,4,True,football-data.co.uk
+2025/26,20/12/2025,Everton,Arsenal,S Barrott,2,2,0,0,4,0,4,2025-12-20,Everton,Arsenal,75411,Samuel Barrott,1.85,1.94,4,True,football-data.co.uk
+2025/26,20/12/2025,Leeds,Crystal Palace,T Bramall,1,3,0,0,4,0,4,2025-12-20,Leeds,Crystal Palace,75412,Thomas Bramall,1.67,2.19,4,True,football-data.co.uk
+2025/26,20/12/2025,Man City,West Ham,P Tierney,1,1,0,0,2,0,2,2025-12-20,Manchester City,West Ham,75416,Paul Tierney,2.51,1.52,2,True,football-data.co.uk
+2025/26,20/12/2025,Newcastle,Chelsea,A Madley,3,6,0,0,9,0,9,2025-12-20,Newcastle,Chelsea,75418,Andy Madley,1.38,3.01,9,True,football-data.co.uk
+2025/26,20/12/2025,Tottenham,Liverpool,J Brooks,3,3,2,0,6,2,8,2025-12-20,Tottenham,Liverpool,75413,John Brooks,1.38,3.01,8,False,football-data.co.uk
+2025/26,20/12/2025,Wolves,Brentford,M Donohue,2,4,0,0,6,0,6,2025-12-20,Wolves,Brentford,75417,Matt Donohue,1.67,2.19,6,True,football-data.co.uk
+2025/26,21/12/2025,Aston Villa,Man United,M Oliver,1,2,0,0,3,0,3,2025-12-21,Aston Villa,Manchester Utd,75460,Michael Oliver,1.63,2.26,3,True,football-data.co.uk
+2025/26,22/12/2025,Fulham,Nott'm Forest,A Taylor,5,4,0,0,9,0,9,2025-12-22,Fulham,Nottingham,75495,Anthony Taylor,1.64,2.24,9,True,football-data.co.uk
+2025/26,26/12/2025,Man United,Newcastle,A Taylor,2,1,0,0,3,0,3,2025-12-26,Manchester Utd,Newcastle,75540,Anthony Taylor,1.63,2.26,3,True,football-data.co.uk
+2025/26,27/12/2025,Arsenal,Brighton,J Brooks,2,3,0,0,5,0,5,2025-12-27,Arsenal,Brighton,75544,John Brooks,1.88,1.91,5,True,football-data.co.uk
+2025/26,27/12/2025,Brentford,Bournemouth,P Bankes,2,2,0,0,4,0,4,2025-12-27,Brentford,Bournemouth,75545,Peter Bankes,1.38,3.01,4,True,football-data.co.uk
+2025/26,27/12/2025,Burnley,Everton,C Pawson,0,2,0,0,2,0,2,2025-12-27,Burnley,Everton,75546,Craig Pawson,2.62,1.49,3,False,football-data.co.uk
+2025/26,27/12/2025,Chelsea,Aston Villa,S Attwell,5,3,0,0,8,0,8,2025-12-27,Chelsea,Aston Villa,75543,Stuart Attwell,1.33,3.3,8,True,football-data.co.uk
+2025/26,27/12/2025,Liverpool,Wolves,S Hooper,0,1,0,0,1,0,1,2025-12-27,Liverpool,Wolves,75547,Simon Hooper,1.67,2.19,1,True,football-data.co.uk
+2025/26,27/12/2025,Nott'm Forest,Man City,R Jones,1,2,0,0,3,0,3,2025-12-27,Nottingham,Manchester City,75549,Robert Jones,1.95,1.84,3,True,football-data.co.uk
+2025/26,27/12/2025,West Ham,Fulham,C Kavanagh,1,3,0,0,4,0,4,2025-12-27,West Ham,Fulham,75548,Chris Kavanagh,1.78,2.03,4,True,football-data.co.uk
+2025/26,28/12/2025,Crystal Palace,Tottenham,J Gillett,3,2,0,0,5,0,5,2025-12-28,Crystal Palace,Tottenham,75573,Jarred Gillett,1.45,2.73,5,True,football-data.co.uk
+2025/26,28/12/2025,Sunderland,Leeds,T Harrington,1,0,0,0,1,0,1,2025-12-28,Sunderland,Leeds,75574,Tony Harrington,1.59,2.35,1,True,football-data.co.uk
+2025/26,30/12/2025,Arsenal,Aston Villa,D England,2,3,0,0,5,0,5,2025-12-30,Arsenal,Aston Villa,75646,Darren England,1.66,2.21,5,True,football-data.co.uk
+2025/26,30/12/2025,Burnley,Newcastle,R Jones,2,1,0,0,3,0,3,2025-12-30,Burnley,Newcastle,75637,Robert Jones,2.03,1.78,3,True,football-data.co.uk
+2025/26,30/12/2025,Chelsea,Bournemouth,S Barrott,1,1,0,0,2,0,2,2025-12-30,Chelsea,Bournemouth,75638,Samuel Barrott,1.33,3.3,2,True,football-data.co.uk
+2025/26,30/12/2025,Man United,Wolves,T Bramall,0,2,0,0,2,0,2,2025-12-30,Manchester Utd,Wolves,75647,Thomas Bramall,1.88,1.91,2,True,football-data.co.uk
+2025/26,30/12/2025,Nott'm Forest,Everton,M Oliver,1,0,0,0,1,0,1,2025-12-30,Nottingham,Everton,75639,Michael Oliver,1.85,1.94,1,True,football-data.co.uk
+2025/26,30/12/2025,West Ham,Brighton,M Salisbury,3,5,0,0,8,0,8,2025-12-30,West Ham,Brighton,75640,Michael Salisbury,1.9,1.89,8,True,football-data.co.uk
+2025/26,01/01/2026,Brentford,Tottenham,A Madley,1,2,0,0,3,0,3,2026-01-01,Brentford,Tottenham,75689,Andy Madley,1.85,1.94,3,True,football-data.co.uk
+2025/26,01/01/2026,Crystal Palace,Fulham,T Harrington,0,5,0,0,5,0,5,2026-01-01,Crystal Palace,Fulham,75686,Tony Harrington,1.93,1.86,5,True,football-data.co.uk
+2025/26,01/01/2026,Liverpool,Leeds,C Kavanagh,0,2,0,0,2,0,2,2026-01-01,Liverpool,Leeds,75687,Chris Kavanagh,2.0,1.8,2,True,football-data.co.uk
+2025/26,01/01/2026,Sunderland,Man City,J Gillett,1,1,0,0,2,0,2,2026-01-01,Sunderland,Manchester City,75690,Jarred Gillett,2.25,1.64,2,True,football-data.co.uk
+2025/26,03/01/2026,Aston Villa,Nott'm Forest,S Hooper,1,2,0,0,3,0,3,2026-01-03,Aston Villa,Nottingham,75701,Simon Hooper,1.34,3.25,3,True,football-data.co.uk
+2025/26,03/01/2026,Bournemouth,Arsenal,C Kavanagh,3,1,0,0,4,0,4,2026-01-03,Bournemouth,Arsenal,75721,Chris Kavanagh,1.78,2.03,4,True,football-data.co.uk
+2025/26,03/01/2026,Brighton,Burnley,T Robinson,0,4,0,0,4,0,4,2026-01-03,Brighton,Burnley,75708,Tim Robinson,1.62,2.29,4,True,football-data.co.uk
+2025/26,03/01/2026,Wolves,West Ham,P Bankes,1,0,0,0,1,0,1,2026-01-03,Wolves,West Ham,75709,Peter Bankes,1.53,2.48,1,True,football-data.co.uk
+2025/26,04/01/2026,Everton,Brentford,A Taylor,0,2,0,0,2,0,2,2026-01-04,Everton,Brentford,75752,Anthony Taylor,1.95,1.84,2,True,football-data.co.uk
+2025/26,04/01/2026,Fulham,Liverpool,C Pawson,1,1,0,0,2,0,2,2026-01-04,Fulham,Liverpool,75767,Craig Pawson,2.38,1.58,2,True,football-data.co.uk
+2025/26,04/01/2026,Leeds,Man United,J Gillett,0,1,0,0,1,0,1,2026-01-04,Leeds,Manchester Utd,75747,Jarred Gillett,1.44,2.76,1,True,football-data.co.uk
+2025/26,04/01/2026,Man City,Chelsea,M Oliver,3,3,0,0,6,0,6,2026-01-04,Manchester City,Chelsea,75775,Michael Oliver,1.62,2.29,6,True,football-data.co.uk
+2025/26,04/01/2026,Newcastle,Crystal Palace,J Brooks,1,3,0,0,4,0,4,2026-01-04,Newcastle,Crystal Palace,75753,John Brooks,1.53,2.48,4,True,football-data.co.uk
+2025/26,04/01/2026,Tottenham,Sunderland,S Attwell,2,3,0,0,5,0,5,2026-01-04,Tottenham,Sunderland,75754,Stuart Attwell,1.43,2.81,5,True,football-data.co.uk
+2025/26,06/01/2026,West Ham,Nott'm Forest,T Harrington,3,0,0,0,3,0,3,2026-01-06,West Ham,Nottingham,75802,Tony Harrington,1.66,2.21,3,True,football-data.co.uk
+2025/26,07/01/2026,Bournemouth,Tottenham,D England,3,3,0,0,6,0,6,2026-01-07,Bournemouth,Tottenham,75806,Darren England,1.53,2.48,6,True,football-data.co.uk
+2025/26,07/01/2026,Brentford,Sunderland,M Donohue,2,1,0,0,3,0,3,2026-01-07,Brentford,Sunderland,75807,Matt Donohue,1.67,2.19,3,True,football-data.co.uk
+2025/26,07/01/2026,Burnley,Man United,S Attwell,2,0,0,0,2,0,2,2026-01-07,Burnley,Manchester Utd,75815,Stuart Attwell,1.8,2.0,2,True,football-data.co.uk
+2025/26,07/01/2026,Crystal Palace,Aston Villa,A Madley,2,0,0,0,2,0,2,2026-01-07,Crystal Palace,Aston Villa,75808,Andy Madley,1.66,2.21,2,True,football-data.co.uk
+2025/26,07/01/2026,Everton,Wolves,T Kirk,1,3,2,0,4,2,6,2026-01-07,Everton,Wolves,75809,Thomas Kirk,1.85,1.94,6,False,football-data.co.uk
+2025/26,07/01/2026,Fulham,Chelsea,P Bankes,3,3,0,1,6,1,7,2026-01-07,Fulham,Chelsea,75810,Peter Bankes,1.36,3.12,6,True,football-data.co.uk
+2025/26,07/01/2026,Man City,Brighton,T Bramall,1,6,0,0,7,0,7,2026-01-07,Manchester City,Brighton,75811,Thomas Bramall,1.85,1.94,7,True,football-data.co.uk
+2025/26,07/01/2026,Newcastle,Leeds,M Salisbury,3,2,0,0,5,0,5,2026-01-07,Newcastle,Leeds,75816,Michael Salisbury,1.95,1.84,5,True,football-data.co.uk
+2025/26,08/01/2026,Arsenal,Liverpool,A Taylor,2,2,0,0,4,0,4,2026-01-08,Arsenal,Liverpool,75832,Anthony Taylor,1.62,2.29,4,True,football-data.co.uk
+2025/26,17/01/2026,Chelsea,Brentford,J Brooks,3,2,0,0,5,0,5,2026-01-17,Chelsea,Brentford,79610,John Brooks,1.44,2.76,5,True,football-data.co.uk
+2025/26,17/01/2026,Leeds,Fulham,C Kavanagh,1,5,0,0,6,0,6,2026-01-17,Leeds,Fulham,79611,Chris Kavanagh,1.9,1.89,6,True,football-data.co.uk
+2025/26,17/01/2026,Liverpool,Burnley,A Madley,1,2,0,0,3,0,3,2026-01-17,Liverpool,Burnley,79612,Andy Madley,3.06,1.37,3,True,football-data.co.uk
+2025/26,17/01/2026,Man United,Man City,A Taylor,2,3,0,0,5,0,5,2026-01-17,Manchester Utd,Manchester City,79586,Anthony Taylor,1.66,2.21,5,True,football-data.co.uk
+2025/26,17/01/2026,Nott'm Forest,Arsenal,M Oliver,1,1,0,0,2,0,2,2026-01-17,Nottingham,Arsenal,79650,Michael Oliver,2.31,1.61,2,True,football-data.co.uk
+2025/26,17/01/2026,Sunderland,Crystal Palace,R Jones,3,3,0,0,6,0,6,2026-01-17,Sunderland,Crystal Palace,79613,Robert Jones,1.64,2.24,6,True,football-data.co.uk
+2025/26,17/01/2026,Tottenham,West Ham,J Gillett,5,3,0,0,8,0,8,2026-01-17,Tottenham,West Ham,79614,Jarred Gillett,1.59,2.35,8,True,football-data.co.uk
+2025/26,18/01/2026,Aston Villa,Everton,T Harrington,1,2,0,0,3,0,3,2026-01-18,Aston Villa,Everton,79696,Tony Harrington,1.8,2.0,3,True,football-data.co.uk
+2025/26,18/01/2026,Wolves,Newcastle,S Barrott,2,2,0,0,4,0,4,2026-01-18,Wolves,Newcastle,79682,Samuel Barrott,1.56,2.41,4,True,football-data.co.uk
+2025/26,19/01/2026,Brighton,Bournemouth,P Tierney,2,3,0,0,5,0,5,2026-01-19,Brighton,Bournemouth,81004,Paul Tierney,1.56,2.41,5,True,football-data.co.uk
+2025/26,24/01/2026,Bournemouth,Liverpool,M Salisbury,1,1,0,0,2,0,2,2026-01-24,Bournemouth,Liverpool,84308,Michael Salisbury,1.64,2.24,2,True,football-data.co.uk
+2025/26,24/01/2026,Burnley,Tottenham,P Bankes,1,0,0,0,1,0,1,2026-01-24,Burnley,Tottenham,84269,Peter Bankes,1.64,2.24,1,True,football-data.co.uk
+2025/26,24/01/2026,Fulham,Brighton,M Oliver,1,1,0,0,2,0,2,2026-01-24,Fulham,Brighton,84270,Michael Oliver,1.88,1.91,2,True,football-data.co.uk
+2025/26,24/01/2026,Man City,Wolves,F Hallam,1,3,0,0,4,0,4,2026-01-24,Manchester City,Wolves,84271,Farai Hallam,2.08,1.74,4,True,football-data.co.uk
+2025/26,24/01/2026,West Ham,Sunderland,T Bramall,2,4,0,0,6,0,6,2026-01-24,West Ham,Sunderland,84245,Thomas Bramall,1.83,1.97,7,False,football-data.co.uk
+2025/26,25/01/2026,Arsenal,Man United,C Pawson,2,0,0,0,2,0,2,2026-01-25,Arsenal,Manchester Utd,85212,Craig Pawson,1.95,1.84,2,True,football-data.co.uk
+2025/26,25/01/2026,Brentford,Nott'm Forest,S Barrott,1,0,0,0,1,0,1,2026-01-25,Brentford,Nottingham,85191,Samuel Barrott,1.59,2.35,1,True,football-data.co.uk
+2025/26,25/01/2026,Crystal Palace,Chelsea,D England,2,2,1,0,4,1,5,2026-01-25,Crystal Palace,Chelsea,85192,Darren England,1.44,2.76,6,False,football-data.co.uk
+2025/26,25/01/2026,Newcastle,Aston Villa,J Gillett,1,2,0,0,3,0,3,2026-01-25,Newcastle,Aston Villa,85193,Jarred Gillett,1.63,2.26,3,True,football-data.co.uk
+2025/26,26/01/2026,Everton,Leeds,S Hooper,0,3,0,0,3,0,3,2026-01-26,Everton,Leeds,86846,Simon Hooper,1.85,1.94,3,True,football-data.co.uk
+2025/26,31/01/2026,Brighton,Everton,C Kavanagh,1,2,0,0,3,0,3,2026-01-31,Brighton,Everton,88889,Chris Kavanagh,1.59,2.35,3,True,football-data.co.uk
+2025/26,31/01/2026,Chelsea,West Ham,A Taylor,3,2,0,1,5,1,6,2026-01-31,Chelsea,West Ham,88934,Anthony Taylor,1.59,2.35,5,True,football-data.co.uk
+2025/26,31/01/2026,Leeds,Arsenal,S Attwell,1,1,0,0,2,0,2,2026-01-31,Leeds,Arsenal,88890,Stuart Attwell,2.0,1.8,2,True,football-data.co.uk
+2025/26,31/01/2026,Liverpool,Newcastle,S Hooper,1,3,0,0,4,0,4,2026-01-31,Liverpool,Newcastle,88946,Simon Hooper,1.63,2.26,4,True,football-data.co.uk
+2025/26,31/01/2026,Wolves,Bournemouth,M Oliver,3,3,0,0,6,0,6,2026-01-31,Wolves,Bournemouth,88891,Michael Oliver,1.44,2.76,6,True,football-data.co.uk
+2025/26,01/02/2026,Aston Villa,Brentford,T Robinson,0,3,0,0,3,0,3,2026-02-01,Aston Villa,Brentford,89583,Tim Robinson,1.59,2.35,5,False,football-data.co.uk
+2025/26,01/02/2026,Man United,Fulham,J Brooks,2,1,0,0,3,0,3,2026-02-01,Manchester Utd,Fulham,89584,John Brooks,1.64,2.24,3,True,football-data.co.uk
+2025/26,01/02/2026,Nott'm Forest,Crystal Palace,M Salisbury,1,3,0,0,4,0,4,2026-02-01,Nottingham,Crystal Palace,89585,Tony Harrington,1.58,2.37,4,True,football-data.co.uk
+2025/26,01/02/2026,Tottenham,Man City,R Jones,3,3,0,0,6,0,6,2026-02-01,Tottenham,Manchester City,89602,Robert Jones,1.5,2.56,6,True,football-data.co.uk
+2025/26,02/02/2026,Sunderland,Burnley,P Tierney,1,4,0,0,5,0,5,2026-02-02,Sunderland,Burnley,90177,Paul Tierney,1.85,1.94,5,True,football-data.co.uk
+2025/26,06/02/2026,Leeds,Nott'm Forest,P Bankes,1,1,0,0,2,0,2,2026-02-06,Leeds,Nottingham,90848,Peter Bankes,1.9,1.89,2,True,football-data.co.uk
+2025/26,07/02/2026,Arsenal,Sunderland,S Barrott,1,2,0,0,3,0,3,2026-02-07,Arsenal,Sunderland,90885,Samuel Barrott,2.31,1.61,3,True,football-data.co.uk
+2025/26,07/02/2026,Bournemouth,Aston Villa,A Taylor,1,1,0,0,2,0,2,2026-02-07,Bournemouth,Aston Villa,90886,Anthony Taylor,1.59,2.35,2,True,football-data.co.uk
+2025/26,07/02/2026,Burnley,West Ham,D England,3,1,0,0,4,0,4,2026-02-07,Burnley,West Ham,90887,Darren England,1.59,2.35,4,True,football-data.co.uk
+2025/26,07/02/2026,Fulham,Everton,S Attwell,1,5,0,0,6,0,6,2026-02-07,Fulham,Everton,90888,Stuart Attwell,1.64,2.24,6,True,football-data.co.uk
+2025/26,07/02/2026,Man United,Tottenham,M Oliver,1,2,0,1,3,1,4,2026-02-07,Manchester Utd,Tottenham,90861,Michael Oliver,1.63,2.26,3,True,football-data.co.uk
+2025/26,07/02/2026,Newcastle,Brentford,A Madley,2,2,0,0,4,0,4,2026-02-07,Newcastle,Brentford,90926,Andy Madley,2.08,1.74,4,True,football-data.co.uk
+2025/26,07/02/2026,Wolves,Chelsea,J Gillett,1,1,0,0,2,0,2,2026-02-07,Wolves,Chelsea,90889,Jarred Gillett,1.38,3.01,2,True,football-data.co.uk
+2025/26,08/02/2026,Brighton,Crystal Palace,T Bramall,1,3,0,0,4,0,4,2026-02-08,Brighton,Crystal Palace,90965,Thomas Bramall,1.36,3.12,4,True,football-data.co.uk
+2025/26,08/02/2026,Liverpool,Man City,C Pawson,2,4,1,0,6,1,7,2026-02-08,Liverpool,Manchester City,90982,Craig Pawson,1.85,1.94,6,True,football-data.co.uk
+2025/26,10/02/2026,Chelsea,Leeds,R Jones,4,4,0,0,8,0,8,2026-02-10,Chelsea,Leeds,91710,Robert Jones,1.78,2.03,8,True,football-data.co.uk
+2025/26,10/02/2026,Everton,Bournemouth,A Madley,1,3,1,0,4,1,5,2026-02-10,Everton,Bournemouth,91711,Andy Madley,1.75,2.07,4,True,football-data.co.uk
+2025/26,10/02/2026,Tottenham,Newcastle,A Taylor,3,2,0,0,5,0,5,2026-02-10,Tottenham,Newcastle,91712,Anthony Taylor,1.58,2.37,5,True,football-data.co.uk
+2025/26,10/02/2026,West Ham,Man United,S Hooper,1,1,0,0,2,0,2,2026-02-10,West Ham,Manchester Utd,91721,Simon Hooper,1.85,1.94,2,True,football-data.co.uk
+2025/26,11/02/2026,Aston Villa,Brighton,P Bankes,2,3,0,0,5,0,5,2026-02-11,Aston Villa,Brighton,91731,Peter Bankes,1.5,2.56,5,True,football-data.co.uk
+2025/26,11/02/2026,Crystal Palace,Burnley,F Hallam,2,1,0,0,3,0,3,2026-02-11,Crystal Palace,Burnley,91732,Farai Hallam,2.25,1.64,3,True,football-data.co.uk
+2025/26,11/02/2026,Man City,Fulham,P Tierney,3,1,0,0,4,0,4,2026-02-11,Manchester City,Fulham,91733,Paul Tierney,2.31,1.61,4,True,football-data.co.uk
+2025/26,11/02/2026,Nott'm Forest,Wolves,T Robinson,0,2,0,0,2,0,2,2026-02-11,Nottingham,Wolves,91734,Tim Robinson,1.63,2.26,2,True,football-data.co.uk
+2025/26,11/02/2026,Sunderland,Liverpool,C Kavanagh,1,0,0,0,1,0,1,2026-02-11,Sunderland,Liverpool,91743,Chris Kavanagh,1.64,2.24,1,True,football-data.co.uk
+2025/26,12/02/2026,Brentford,Arsenal,J Brooks,3,2,0,0,5,0,5,2026-02-12,Brentford,Arsenal,91751,John Brooks,2.03,1.78,5,True,football-data.co.uk
+2025/26,18/02/2026,Wolves,Arsenal,P Tierney,2,1,0,0,3,0,3,2026-02-18,Wolves,Arsenal,97023,Paul Tierney,2.08,1.74,3,True,football-data.co.uk
+2025/26,21/02/2026,Aston Villa,Leeds,M Oliver,1,4,0,0,5,0,5,2026-02-21,Aston Villa,Leeds,97115,Michael Oliver,1.73,2.1,5,True,football-data.co.uk
+2025/26,21/02/2026,Brentford,Brighton,J Gillett,1,2,0,0,3,0,3,2026-02-21,Brentford,Brighton,97116,Jarred Gillett,1.59,2.35,3,True,football-data.co.uk
+2025/26,21/02/2026,Chelsea,Burnley,L Smith,2,2,1,0,4,1,5,2026-02-21,Chelsea,Burnley,97117,Lewis Smith,2.05,1.76,6,False,football-data.co.uk
+2025/26,21/02/2026,Man City,Newcastle,T Bramall,2,5,0,0,7,0,7,2026-02-21,Manchester City,Newcastle,97177,Thomas Bramall,1.83,1.97,7,True,football-data.co.uk
+2025/26,21/02/2026,West Ham,Bournemouth,S Barrott,1,1,0,0,2,0,2,2026-02-21,West Ham,Bournemouth,97156,Samuel Barrott,1.56,2.41,2,True,football-data.co.uk
+2025/26,22/02/2026,Crystal Palace,Wolves,T Kirk,5,1,0,1,6,1,7,2026-02-22,Crystal Palace,Wolves,97224,Thomas Kirk,1.64,2.24,8,False,football-data.co.uk
+2025/26,22/02/2026,Nott'm Forest,Liverpool,A Taylor,2,0,0,0,2,0,2,2026-02-22,Nottingham,Liverpool,97225,Anthony Taylor,2.0,1.8,2,True,football-data.co.uk
+2025/26,22/02/2026,Sunderland,Fulham,C Pawson,1,1,0,0,2,0,2,2026-02-22,Sunderland,Fulham,97226,Craig Pawson,1.85,1.94,2,True,football-data.co.uk
+2025/26,22/02/2026,Tottenham,Arsenal,P Bankes,2,1,0,0,3,0,3,2026-02-22,Tottenham,Arsenal,97243,Peter Bankes,1.28,3.7,3,True,football-data.co.uk
+2025/26,23/02/2026,Everton,Man United,D England,2,3,0,0,5,0,5,2026-02-23,Everton,Manchester Utd,97280,Darren England,1.85,1.94,5,True,football-data.co.uk
+2025/26,27/02/2026,Wolves,Aston Villa,C Pawson,3,3,0,0,6,0,6,2026-02-27,Wolves,Aston Villa,97381,Craig Pawson,1.67,2.19,6,True,football-data.co.uk
+2025/26,28/02/2026,Bournemouth,Sunderland,J Gillett,4,2,0,0,6,0,6,2026-02-28,Bournemouth,Sunderland,97397,Jarred Gillett,1.59,2.35,6,True,football-data.co.uk
+2025/26,28/02/2026,Burnley,Brentford,S Barrott,2,2,0,0,4,0,4,2026-02-28,Burnley,Brentford,97421,Samuel Barrott,2.05,1.76,4,True,football-data.co.uk
+2025/26,28/02/2026,Leeds,Man City,P Bankes,0,3,0,0,3,0,3,2026-02-28,Leeds,Manchester City,97466,Peter Bankes,1.88,1.91,3,True,football-data.co.uk
+2025/26,28/02/2026,Liverpool,West Ham,T Robinson,2,2,0,0,4,0,4,2026-02-28,Liverpool,West Ham,97422,Tim Robinson,1.93,1.86,4,True,football-data.co.uk
+2025/26,28/02/2026,Newcastle,Everton,S Attwell,2,3,0,0,5,0,5,2026-02-28,Newcastle,Everton,97423,Stuart Attwell,1.66,2.21,6,False,football-data.co.uk
+2025/26,01/03/2026,Arsenal,Chelsea,D England,1,3,0,1,4,1,5,2026-03-01,Arsenal,Chelsea,98751,Darren England,1.28,3.65,6,False,football-data.co.uk
+2025/26,01/03/2026,Brighton,Nott'm Forest,A Madley,3,1,0,0,4,0,4,2026-03-01,Brighton,Nottingham,98720,Andy Madley,1.83,1.97,4,True,football-data.co.uk
+2025/26,01/03/2026,Fulham,Tottenham,T Bramall,3,3,0,0,6,0,6,2026-03-01,Fulham,Tottenham,98721,Thomas Bramall,1.55,2.44,6,True,football-data.co.uk
+2025/26,01/03/2026,Man United,Crystal Palace,C Kavanagh,2,2,0,1,4,1,5,2026-03-01,Manchester Utd,Crystal Palace,98722,Chris Kavanagh,1.64,2.24,4,True,football-data.co.uk
+2025/26,03/03/2026,Bournemouth,Brentford,C Pawson,2,1,0,0,3,0,3,2026-03-03,Bournemouth,Brentford,99434,Craig Pawson,2.03,1.78,3,True,football-data.co.uk
+2025/26,03/03/2026,Everton,Burnley,T Robinson,0,1,0,0,1,0,1,2026-03-03,Everton,Burnley,99435,Tim Robinson,1.85,1.94,1,True,football-data.co.uk
+2025/26,03/03/2026,Leeds,Sunderland,S Attwell,1,3,0,0,4,0,4,2026-03-03,Leeds,Sunderland,99436,Stuart Attwell,1.63,2.26,4,True,football-data.co.uk
+2025/26,03/03/2026,Wolves,Liverpool,T Bramall,2,1,0,0,3,0,3,2026-03-03,Wolves,Liverpool,99447,Thomas Bramall,1.9,1.89,3,True,football-data.co.uk
+2025/26,04/03/2026,Aston Villa,Chelsea,J Gillett,3,2,0,0,5,0,5,2026-03-04,Aston Villa,Chelsea,99460,Jarred Gillett,1.29,3.59,5,True,football-data.co.uk
+2025/26,04/03/2026,Brighton,Arsenal,C Kavanagh,4,1,0,0,5,0,5,2026-03-04,Brighton,Arsenal,99461,Chris Kavanagh,1.8,2.0,5,True,football-data.co.uk
+2025/26,04/03/2026,Fulham,West Ham,M Donohue,2,4,0,0,6,0,6,2026-03-04,Fulham,West Ham,99462,Matt Donohue,1.78,2.03,6,True,football-data.co.uk
+2025/26,04/03/2026,Man City,Nott'm Forest,D England,0,4,0,0,4,0,4,2026-03-04,Manchester City,Nottingham,99463,Darren England,1.8,2.0,4,True,football-data.co.uk
+2025/26,04/03/2026,Newcastle,Man United,P Bankes,2,3,1,0,5,1,6,2026-03-04,Newcastle,Manchester Utd,99466,Peter Bankes,1.59,2.35,7,False,football-data.co.uk
+2025/26,05/03/2026,Tottenham,Crystal Palace,A Madley,3,2,0,0,5,0,5,2026-03-05,Tottenham,Crystal Palace,99470,Andy Madley,1.53,2.48,5,True,football-data.co.uk
+2025/26,14/03/2026,Arsenal,Everton,A Madley,0,0,0,0,0,0,0,2026-03-14,Arsenal,Everton,106537,Andy Madley,2.08,1.74,0,True,football-data.co.uk
+2025/26,14/03/2026,Burnley,Bournemouth,P Bankes,1,0,0,0,1,0,1,2026-03-14,Burnley,Bournemouth,106535,Peter Bankes,1.78,2.03,1,True,football-data.co.uk
+2025/26,14/03/2026,Chelsea,Newcastle,P Tierney,2,2,0,0,4,0,4,2026-03-14,Chelsea,Newcastle,106538,Paul Tierney,1.34,3.25,4,True,football-data.co.uk
+2025/26,14/03/2026,Sunderland,Brighton,T Kirk,1,2,0,0,3,0,3,2026-03-14,Sunderland,Brighton,106536,Thomas Kirk,1.45,2.73,3,True,football-data.co.uk
+2025/26,14/03/2026,West Ham,Man City,M Oliver,2,2,0,0,4,0,4,2026-03-14,West Ham,Manchester City,106539,Michael Oliver,2.31,1.6,4,True,football-data.co.uk
+2025/26,15/03/2026,Crystal Palace,Leeds,T Bramall,2,1,0,1,3,1,4,2026-03-15,Crystal Palace,Leeds,107978,Thomas Bramall,1.66,2.21,5,False,football-data.co.uk
+2025/26,15/03/2026,Liverpool,Tottenham,C Kavanagh,0,0,0,0,0,0,0,2026-03-15,Liverpool,Tottenham,107981,Chris Kavanagh,1.64,2.24,0,True,football-data.co.uk
+2025/26,15/03/2026,Man United,Aston Villa,A Taylor,3,2,0,0,5,0,5,2026-03-15,Manchester Utd,Aston Villa,107979,Anthony Taylor,1.67,2.17,5,True,football-data.co.uk
+2025/26,15/03/2026,Nott'm Forest,Fulham,S Barrott,2,3,0,0,5,0,5,2026-03-15,Nottingham,Fulham,107980,Samuel Barrott,1.9,1.9,5,True,football-data.co.uk
+2025/26,16/03/2026,Brentford,Wolves,S Attwell,2,4,0,0,6,0,6,2026-03-16,Brentford,Wolves,110046,Stuart Attwell,1.67,2.17,6,True,football-data.co.uk
+2025/26,20/03/2026,Bournemouth,Man United,S Attwell,2,2,0,1,4,1,5,2026-03-20,Bournemouth,Manchester Utd,114203,Stuart Attwell,1.45,2.71,4,True,football-data.co.uk
+2025/26,21/03/2026,Brighton,Liverpool,D England,5,5,0,0,10,0,10,2026-03-21,Brighton,Liverpool,114243,Darren England,1.59,2.36,10,True,football-data.co.uk
+2025/26,21/03/2026,Everton,Chelsea,S Barrott,0,2,0,0,2,0,2,2026-03-21,Everton,Chelsea,114245,Samuel Barrott,1.58,2.4,2,True,football-data.co.uk
+2025/26,21/03/2026,Fulham,Burnley,C Kavanagh,2,2,0,1,4,1,5,2026-03-21,Fulham,Burnley,114244,Chris Kavanagh,2.31,1.6,4,True,football-data.co.uk
+2025/26,21/03/2026,Leeds,Brentford,J Gillett,2,0,0,0,2,0,2,2026-03-21,Leeds,Brentford,114246,Jarred Gillett,1.9,1.9,2,True,football-data.co.uk
+2025/26,22/03/2026,Aston Villa,West Ham,P Tierney,0,1,0,0,1,0,1,2026-03-22,Aston Villa,West Ham,114379,Paul Tierney,1.8,2.0,1,True,football-data.co.uk
+2025/26,22/03/2026,Newcastle,Sunderland,A Taylor,1,6,0,0,7,0,7,2026-03-22,Newcastle,Sunderland,114378,Anthony Taylor,1.24,4.12,7,True,football-data.co.uk
+2025/26,22/03/2026,Tottenham,Nott'm Forest,M Oliver,1,2,0,0,3,0,3,2026-03-22,Tottenham,Nottingham,114380,Michael Oliver,1.43,2.81,3,True,football-data.co.uk
+2025/26,10/04/2026,West Ham,Wolves,J Gillett,2,2,0,0,4,0,4,2026-04-10,West Ham,Wolves,117810,Jarred Gillett,1.8,2.0,4,True,football-data.co.uk
+2025/26,11/04/2026,Arsenal,Bournemouth,M Oliver,1,3,0,0,4,0,4,2026-04-11,Arsenal,Bournemouth,117859,Michael Oliver,2.35,1.6,4,True,football-data.co.uk
+2025/26,11/04/2026,Brentford,Everton,F Hallam,0,2,0,0,2,0,2,2026-04-11,Brentford,Everton,117860,Farai Hallam,2.0,1.8,2,True,football-data.co.uk
+2025/26,11/04/2026,Burnley,Brighton,T Bramall,2,1,0,0,3,0,3,2026-04-11,Burnley,Brighton,117861,Thomas Bramall,1.8,2.0,3,True,football-data.co.uk
+2025/26,11/04/2026,Liverpool,Fulham,A Taylor,0,0,0,0,0,0,0,2026-04-11,Liverpool,Fulham,117862,Anthony Taylor,1.98,1.83,0,True,football-data.co.uk
+2025/26,12/04/2026,Chelsea,Man City,C Kavanagh,3,1,0,0,4,0,4,2026-04-12,Chelsea,Manchester City,118008,Chris Kavanagh,1.35,3.2,4,True,football-data.co.uk
+2025/26,12/04/2026,Crystal Palace,Newcastle,A Madley,0,3,0,0,3,0,3,2026-04-12,Crystal Palace,Newcastle,118005,Andy Madley,1.61,2.34,3,True,football-data.co.uk
+2025/26,12/04/2026,Nott'm Forest,Aston Villa,M Salisbury,2,2,0,0,4,0,4,2026-04-12,Nottingham,Aston Villa,118006,Michael Salisbury,1.66,2.21,4,True,football-data.co.uk
+2025/26,12/04/2026,Sunderland,Tottenham,R Jones,3,3,0,0,6,0,6,2026-04-12,Sunderland,Tottenham,118007,Robert Jones,1.42,2.87,6,True,football-data.co.uk
+2025/26,13/04/2026,Man United,Leeds,P Tierney,3,2,1,0,5,1,6,2026-04-13,Manchester Utd,Leeds,118082,Paul Tierney,1.67,2.17,5,True,football-data.co.uk
+2025/26,18/04/2026,Brentford,Fulham,P Tierney,0,1,0,0,1,0,1,2026-04-18,Brentford,Fulham,118198,Paul Tierney,1.8,2.0,1,True,football-data.co.uk
+2025/26,18/04/2026,Chelsea,Man United,M Oliver,1,3,0,0,4,0,4,2026-04-18,Chelsea,Manchester Utd,118202,Michael Oliver,1.34,3.24,4,True,football-data.co.uk
+2025/26,18/04/2026,Leeds,Wolves,F Hallam,2,1,0,0,3,0,3,2026-04-18,Leeds,Wolves,118199,Farai Hallam,1.75,2.05,3,True,football-data.co.uk
+2025/26,18/04/2026,Newcastle,Bournemouth,T Bramall,2,4,0,0,6,0,6,2026-04-18,Newcastle,Bournemouth,118200,Thomas Bramall,1.45,2.71,6,True,football-data.co.uk
+2025/26,18/04/2026,Tottenham,Brighton,S Attwell,3,1,0,0,4,0,4,2026-04-18,Tottenham,Brighton,118201,Stuart Attwell,1.29,3.52,4,True,football-data.co.uk
+2025/26,19/04/2026,Aston Villa,Sunderland,S Barrott,1,3,0,0,4,0,4,2026-04-19,Aston Villa,Sunderland,118326,Samuel Barrott,1.64,2.24,4,True,football-data.co.uk
+2025/26,19/04/2026,Everton,Liverpool,C Kavanagh,2,0,0,0,2,0,2,2026-04-19,Everton,Liverpool,118327,Chris Kavanagh,1.29,3.59,2,True,football-data.co.uk
+2025/26,19/04/2026,Man City,Arsenal,A Taylor,2,2,0,0,4,0,4,2026-04-19,Manchester City,Arsenal,118329,Anthony Taylor,1.62,2.3,4,True,football-data.co.uk
+2025/26,19/04/2026,Nott'm Forest,Burnley,T Kirk,0,2,0,0,2,0,2,2026-04-19,Nottingham,Burnley,118328,Thomas Kirk,2.05,1.75,2,True,football-data.co.uk
+2025/26,20/04/2026,Crystal Palace,West Ham,D England,2,1,0,0,3,0,3,2026-04-20,Crystal Palace,West Ham,118408,Darren England,1.5,2.54,3,True,football-data.co.uk
+2025/26,21/04/2026,Brighton,Chelsea,C Pawson,1,1,0,0,2,0,2,2026-04-21,Brighton,Chelsea,118437,Craig Pawson,1.59,2.36,2,True,football-data.co.uk
+2025/26,22/04/2026,Bournemouth,Leeds,M Salisbury,3,0,0,0,3,0,3,2026-04-22,Bournemouth,Leeds,118478,Michael Salisbury,1.8,2.0,3,True,football-data.co.uk
+2025/26,22/04/2026,Burnley,Man City,A Madley,0,0,0,0,0,0,0,2026-04-22,Burnley,Manchester City,118479,Andy Madley,3.84,1.25,0,True,football-data.co.uk
+2025/26,24/04/2026,Sunderland,Nott'm Forest,D England,2,5,0,0,7,0,7,2026-04-24,Sunderland,Nottingham,118552,Darren England,1.43,2.81,7,True,football-data.co.uk
+2025/26,25/04/2026,Arsenal,Newcastle,S Barrott,2,2,0,0,4,0,4,2026-04-25,Arsenal,Newcastle,118606,Samuel Barrott,2.08,1.73,4,True,football-data.co.uk
+2025/26,25/04/2026,Fulham,Aston Villa,M Oliver,2,2,0,0,4,0,4,2026-04-25,Fulham,Aston Villa,118602,Michael Oliver,1.95,1.85,4,True,football-data.co.uk
+2025/26,25/04/2026,Liverpool,Crystal Palace,A Madley,1,3,0,0,4,0,4,2026-04-25,Liverpool,Crystal Palace,118603,Andy Madley,2.35,1.6,4,True,football-data.co.uk
+2025/26,25/04/2026,West Ham,Everton,S Attwell,3,4,0,0,7,0,7,2026-04-25,West Ham,Everton,118604,Stuart Attwell,1.58,2.4,7,True,football-data.co.uk
+2025/26,25/04/2026,Wolves,Tottenham,A Taylor,3,4,0,0,7,0,7,2026-04-25,Wolves,Tottenham,118605,Anthony Taylor,1.56,2.42,7,True,football-data.co.uk
+2025/26,27/04/2026,Man United,Brentford,C Kavanagh,2,4,0,0,6,0,6,2026-04-27,Manchester Utd,Brentford,118824,Chris Kavanagh,1.88,1.93,6,True,football-data.co.uk
+2025/26,01/05/2026,Leeds,Burnley,T Bramall,4,3,0,0,7,0,7,2026-05-01,Leeds,Burnley,118883,Thomas Bramall,2.62,1.49,7,True,football-data.co.uk
+2025/26,02/05/2026,Arsenal,Fulham,J Gillett,0,1,0,0,1,0,1,2026-05-02,Arsenal,Fulham,118934,Jarred Gillett,2.08,1.73,1,True,football-data.co.uk
+2025/26,02/05/2026,Brentford,West Ham,C Pawson,1,3,0,0,4,0,4,2026-05-02,Brentford,West Ham,118931,Craig Pawson,2.08,1.73,4,True,football-data.co.uk
+2025/26,02/05/2026,Newcastle,Brighton,C Kavanagh,3,3,0,0,6,0,6,2026-05-02,Newcastle,Brighton,118932,Chris Kavanagh,1.44,2.77,6,True,football-data.co.uk
+2025/26,02/05/2026,Wolves,Sunderland,P Tierney,0,4,0,1,4,1,5,2026-05-02,Wolves,Sunderland,118933,Paul Tierney,1.85,1.95,4,True,football-data.co.uk
+2025/26,03/05/2026,Aston Villa,Tottenham,S Barrott,2,5,0,0,7,0,7,2026-05-03,Aston Villa,Tottenham,119076,Samuel Barrott,1.39,3.02,7,True,football-data.co.uk
+2025/26,03/05/2026,Bournemouth,Crystal Palace,R Jones,0,2,0,0,2,0,2,2026-05-03,Bournemouth,Crystal Palace,119074,Robert Jones,1.58,2.4,2,True,football-data.co.uk
+2025/26,03/05/2026,Man United,Liverpool,D England,2,2,0,0,4,0,4,2026-05-03,Manchester Utd,Liverpool,119075,Darren England,1.4,2.98,4,True,football-data.co.uk
+2025/26,04/05/2026,Chelsea,Nott'm Forest,A Taylor,3,1,0,0,4,0,4,2026-05-04,Chelsea,Nottingham,119162,Anthony Taylor,1.55,2.46,4,True,football-data.co.uk
+2025/26,04/05/2026,Everton,Man City,M Oliver,4,1,0,0,5,0,5,2026-05-04,Everton,Manchester City,119163,Michael Oliver,1.8,2.0,5,True,football-data.co.uk
+2025/26,09/05/2026,Brighton,Wolves,J Brooks,1,2,0,0,3,0,3,2026-05-09,Brighton,Wolves,119251,John Brooks,1.8,2.0,3,True,football-data.co.uk
+2025/26,09/05/2026,Fulham,Bournemouth,A Madley,4,2,1,1,6,2,8,2026-05-09,Fulham,Bournemouth,119252,Andy Madley,1.75,2.05,6,True,football-data.co.uk
+2025/26,09/05/2026,Liverpool,Chelsea,C Pawson,2,4,0,0,6,0,6,2026-05-09,Liverpool,Chelsea,119250,Craig Pawson,1.8,2.0,6,True,football-data.co.uk
+2025/26,09/05/2026,Man City,Brentford,M Salisbury,4,2,0,0,6,0,6,2026-05-09,Manchester City,Brentford,119254,Michael Salisbury,1.83,1.98,6,True,football-data.co.uk
+2025/26,09/05/2026,Sunderland,Man United,S Attwell,0,3,0,0,3,0,3,2026-05-09,Sunderland,Manchester Utd,119253,Stuart Attwell,1.58,2.4,3,True,football-data.co.uk
+2025/26,10/05/2026,Burnley,Aston Villa,A Taylor,1,1,0,0,2,0,2,2026-05-10,Burnley,Aston Villa,119350,Anthony Taylor,2.51,1.53,2,True,football-data.co.uk
+2025/26,10/05/2026,Crystal Palace,Everton,T Bramall,0,2,0,0,2,0,2,2026-05-10,Crystal Palace,Everton,119351,Thomas Bramall,1.5,2.54,2,True,football-data.co.uk
+2025/26,10/05/2026,Nott'm Forest,Newcastle,P Tierney,2,0,0,0,2,0,2,2026-05-10,Nottingham,Newcastle,119352,Paul Tierney,1.62,2.3,2,True,football-data.co.uk
+2025/26,10/05/2026,West Ham,Arsenal,C Kavanagh,3,4,0,0,7,0,7,2026-05-10,West Ham,Arsenal,119353,Chris Kavanagh,1.66,2.21,7,True,football-data.co.uk
+2025/26,11/05/2026,Tottenham,Leeds,J Gillett,3,1,0,0,4,0,4,2026-05-11,Tottenham,Leeds,119689,Jarred Gillett,1.43,2.81,4,True,football-data.co.uk
+2025/26,13/05/2026,Man City,Crystal Palace,S Attwell,0,2,0,0,2,0,2,2026-05-13,Manchester City,Crystal Palace,120425,Stuart Attwell,1.83,1.98,2,True,football-data.co.uk
+2025/26,15/05/2026,Aston Villa,Liverpool,C Kavanagh,3,1,0,0,4,0,4,2026-05-15,Aston Villa,Liverpool,120476,Chris Kavanagh,1.64,2.24,4,True,football-data.co.uk
+2025/26,17/05/2026,Brentford,Crystal Palace,S Barrott,1,3,0,0,4,0,4,2026-05-17,Brentford,Crystal Palace,120589,Samuel Barrott,2.05,1.75,4,True,football-data.co.uk
+2025/26,17/05/2026,Everton,Sunderland,J Brooks,3,0,0,0,3,0,3,2026-05-17,Everton,Sunderland,120590,John Brooks,1.8,2.0,3,True,football-data.co.uk
+2025/26,17/05/2026,Leeds,Brighton,M Oliver,1,0,0,0,1,0,1,2026-05-17,Leeds,Brighton,120591,Michael Oliver,1.9,1.9,1,True,football-data.co.uk
+2025/26,17/05/2026,Man United,Nott'm Forest,M Salisbury,2,1,0,0,3,0,3,2026-05-17,Manchester Utd,Nottingham,120588,Michael Salisbury,2.29,1.62,3,True,football-data.co.uk
+2025/26,17/05/2026,Newcastle,West Ham,J Gillett,1,3,0,0,4,0,4,2026-05-17,Newcastle,West Ham,120593,Jarred Gillett,1.75,2.05,4,True,football-data.co.uk
+2025/26,17/05/2026,Wolves,Fulham,T Kirk,1,0,0,0,1,0,1,2026-05-17,Wolves,Fulham,120592,Thomas Kirk,1.8,2.0,1,True,football-data.co.uk
+2025/26,18/05/2026,Arsenal,Burnley,P Tierney,1,3,0,0,4,0,4,2026-05-18,Arsenal,Burnley,120693,Paul Tierney,3.84,1.25,4,True,football-data.co.uk
+2025/26,19/05/2026,Bournemouth,Man City,A Taylor,4,2,0,0,6,0,6,2026-05-19,Bournemouth,Manchester City,120707,Anthony Taylor,1.52,2.52,6,True,football-data.co.uk
+2025/26,19/05/2026,Chelsea,Tottenham,S Attwell,4,3,0,0,7,0,7,2026-05-19,Chelsea,Tottenham,120708,Stuart Attwell,1.14,5.67,7,True,football-data.co.uk
+2025/26,24/05/2026,Brighton,Man United,S Barrott,0,1,0,0,1,0,1,2026-05-24,Brighton,Manchester Utd,120841,Samuel Barrott,2.05,1.75,1,True,football-data.co.uk
+2025/26,24/05/2026,Burnley,Wolves,A Kitchen,2,2,0,0,4,0,4,2026-05-24,Burnley,Wolves,120842,Andrew Kitchen,2.93,1.39,4,True,football-data.co.uk
+2025/26,24/05/2026,Crystal Palace,Arsenal,F Hallam,0,1,0,0,1,0,1,2026-05-24,Crystal Palace,Arsenal,120843,Farai Hallam,9.55,1.06,1,True,football-data.co.uk
+2025/26,24/05/2026,Fulham,Newcastle,R Jones,2,2,0,0,4,0,4,2026-05-24,Fulham,Newcastle,120844,Robert Jones,2.08,1.73,4,True,football-data.co.uk
+2025/26,24/05/2026,Liverpool,Brentford,D England,2,3,0,0,5,0,5,2026-05-24,Liverpool,Brentford,120845,Darren England,1.85,1.95,5,True,football-data.co.uk
+2025/26,24/05/2026,Man City,Aston Villa,A Madley,1,0,0,0,1,0,1,2026-05-24,Manchester City,Aston Villa,120846,Andy Madley,4.76,1.18,1,True,football-data.co.uk
+2025/26,24/05/2026,Nott'm Forest,Bournemouth,C Pawson,1,1,0,0,2,0,2,2026-05-24,Nottingham,Bournemouth,120847,Craig Pawson,2.35,1.6,2,True,football-data.co.uk
+2025/26,24/05/2026,Sunderland,Chelsea,C Kavanagh,3,2,0,0,5,0,5,2026-05-24,Sunderland,Chelsea,120848,Chris Kavanagh,1.28,3.72,10,False,football-data.co.uk
+2025/26,24/05/2026,Tottenham,Everton,M Oliver,5,3,0,1,8,1,9,2026-05-24,Tottenham,Everton,120849,Michael Oliver,1.55,2.46,5,False,football-data.co.uk
+2025/26,24/05/2026,West Ham,Leeds,A Taylor,0,3,0,0,3,0,3,2026-05-24,West Ham,Leeds,120850,Anthony Taylor,1.64,2.24,3,True,football-data.co.uk

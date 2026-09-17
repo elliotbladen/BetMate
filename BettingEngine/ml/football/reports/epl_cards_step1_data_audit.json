@@ -52,6 +52,12 @@
     "exists": true,
     "rows": 380
   },
+  "yellow_card_market_join": {
+    "path": "ml/football/data/epl/cards/epl_2025_26_card_market_join.csv",
+    "exists": true,
+    "rows": 380,
+    "outcome_mismatches": 22
+  },
   "season_coverage": [
     {
       "Season": "2014/15",

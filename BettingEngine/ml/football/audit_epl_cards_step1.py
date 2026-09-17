@@ -10,6 +10,7 @@ ROOT = Path(__file__).parent
 MATCHES = ROOT / "data" / "epl" / "matches" / "epl_matches.csv"
 CARD_RESULTS = ROOT / "data" / "epl" / "cards" / "epl_card_results_2022_23_to_2025_26.csv"
 CARD_ODDS = ROOT / "data" / "epl" / "cards" / "footiqo_epl_cards_closing_odds_2025_26.csv"
+CARD_JOIN = ROOT / "data" / "epl" / "cards" / "epl_2025_26_card_market_join.csv"
 REPORT = ROOT / "reports" / "epl_cards_step1_data_audit.json"
 
 
@@ -63,6 +64,13 @@ def main() -> None:
             "path": str(CARD_ODDS.relative_to(ROOT.parent.parent)),
             "exists": CARD_ODDS.exists(),
             "rows": int(len(pd.read_csv(CARD_ODDS))) if CARD_ODDS.exists() else 0,
+        },
+        "yellow_card_market_join": {
+            "path": str(CARD_JOIN.relative_to(ROOT.parent.parent)),
+            "exists": CARD_JOIN.exists(),
+            "rows": int(len(pd.read_csv(CARD_JOIN))) if CARD_JOIN.exists() else 0,
+            "outcome_mismatches": int((~pd.read_csv(CARD_JOIN)["yellow_total_match"]).sum())
+            if CARD_JOIN.exists() else 0,
         },
         "season_coverage": season.reset_index().to_dict(orient="records"),
         "known_gaps": [
