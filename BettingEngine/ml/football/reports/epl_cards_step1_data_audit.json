@@ -1,0 +1,144 @@
+{
+  "source": "ml/football/data/epl/matches/epl_matches.csv",
+  "rows": 4600,
+  "date_min": "2014-08-16",
+  "date_max": "2026-09-14",
+  "seasons": 13,
+  "required_fields_present": {
+    "Season": true,
+    "Date": true,
+    "HomeTeam": true,
+    "AwayTeam": true,
+    "Referee": true,
+    "HY": true,
+    "AY": true
+  },
+  "field_coverage": {
+    "HY": {
+      "present": true,
+      "non_null": 4600
+    },
+    "AY": {
+      "present": true,
+      "non_null": 4600
+    },
+    "HR": {
+      "present": false,
+      "non_null": 0
+    },
+    "AR": {
+      "present": false,
+      "non_null": 0
+    }
+  },
+  "referees": {
+    "unique": 53,
+    "missing": 0
+  },
+  "duplicate_fixture_keys": 0,
+  "yellow_card_target": {
+    "mean": 3.4835,
+    "over_3_5_rate": 0.468,
+    "missing": 0
+  },
+  "market_fields_found_in_match_file": [],
+  "season_coverage": [
+    {
+      "Season": "2014/15",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2015/16",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2016/17",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2017/18",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2018/19",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2019/20",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2020/21",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2021/22",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2022/23",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2023/24",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2024/25",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2025/26",
+      "matches": 380,
+      "referees": 380,
+      "home_yellows": 380,
+      "away_yellows": 380
+    },
+    {
+      "Season": "2026/27",
+      "matches": 40,
+      "referees": 40,
+      "home_yellows": 40,
+      "away_yellows": 40
+    }
+  ],
+  "known_gaps": [
+    "The match file contains yellow cards but no HR/AR red-card columns.",
+    "The match file contains no historical Over/Under 3.5 cards prices.",
+    "Bookmaker red-card settlement treatment must be confirmed before live pricing.",
+    "Historical opening and closing card prices need a separate source and match join."
+  ]
+}
