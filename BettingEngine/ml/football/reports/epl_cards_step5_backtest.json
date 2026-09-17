@@ -1,0 +1,84 @@
+{
+  "season": "2025/26",
+  "market": "yellow_cards_ou35",
+  "model": "calibrated_glm",
+  "matches": 380,
+  "closing_odds_complete": true,
+  "eligible_matches": 361,
+  "provider_outcome_mismatches": 22,
+  "calibration": {
+    "brier": 0.2510899377592371,
+    "log_loss": 0.6956099308012286,
+    "predicted_over_rate": 0.6218776453600416,
+    "actual_over_rate": 0.5526315789473685
+  },
+  "official_result_thresholds": [
+    {
+      "threshold": 0.0,
+      "bets": 204,
+      "wins": 104,
+      "roi": -0.05343137254901962,
+      "profit": -10.900000000000002,
+      "mean_ev": 0.1747114232161471
+    },
+    {
+      "threshold": 0.05,
+      "bets": 143,
+      "wins": 73,
+      "roi": -0.004615384615384613,
+      "profit": -0.6599999999999997,
+      "mean_ev": 0.24034649756981885
+    },
+    {
+      "threshold": 0.08,
+      "bets": 130,
+      "wins": 63,
+      "roi": -0.036692307692307705,
+      "profit": -4.770000000000001,
+      "mean_ev": 0.2576388408305363
+    },
+    {
+      "threshold": 0.1,
+      "bets": 119,
+      "wins": 56,
+      "roi": -0.05168067226890755,
+      "profit": -6.149999999999999,
+      "mean_ev": 0.27291598462920014
+    }
+  ],
+  "footiqo_result_sensitivity": [
+    {
+      "threshold": 0.0,
+      "bets": 204,
+      "wins": 106,
+      "roi": -0.034264705882352954,
+      "profit": -6.990000000000003,
+      "mean_ev": 0.1747114232161471
+    },
+    {
+      "threshold": 0.05,
+      "bets": 143,
+      "wins": 74,
+      "roi": 0.011118881118881124,
+      "profit": 1.5900000000000007,
+      "mean_ev": 0.24034649756981885
+    },
+    {
+      "threshold": 0.08,
+      "bets": 130,
+      "wins": 64,
+      "roi": -0.0193846153846154,
+      "profit": -2.520000000000002,
+      "mean_ev": 0.2576388408305363
+    },
+    {
+      "threshold": 0.1,
+      "bets": 119,
+      "wins": 57,
+      "roi": -0.032773109243697474,
+      "profit": -3.899999999999999,
+      "mean_ev": 0.27291598462920014
+    }
+  ],
+  "outputs": "ml/football/data/epl/cards/epl_cards_step5_bets.csv"
+}
