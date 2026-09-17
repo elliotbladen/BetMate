@@ -12,7 +12,7 @@ PRICES = ROOT / "data" / "epl" / "cards" / "epl_cards_step4_calibrated_prices.cs
 MARKET = ROOT / "data" / "epl" / "cards" / "epl_2025_26_card_market_join.csv"
 OUT = ROOT / "data" / "epl" / "cards" / "epl_cards_step5_bets.csv"
 REPORT = ROOT / "reports" / "epl_cards_step5_backtest.json"
-THRESHOLDS = [0.00, 0.05, 0.08, 0.10]
+THRESHOLDS = [0.00, 0.05, 0.08, 0.10, 0.20]
 
 
 def settle(row: pd.Series, outcome_col: str) -> int:

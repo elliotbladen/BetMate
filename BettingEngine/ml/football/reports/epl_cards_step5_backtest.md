@@ -14,6 +14,7 @@ was evaluated at four minimum model-EV thresholds:
 | 5% | 143 | 73 | **-0.46%** | -0.66 |
 | 8% | 130 | 63 | **-3.67%** | -4.77 |
 | 10% | 119 | 56 | **-5.17%** | -6.15 |
+| 20% | 55 | 22 | **-9.00%** | -4.95 |
 
 The official football-data settlement target is used for the primary result. Footiqo's
 recorded yellow-card total differs on 22 fixtures. Using Footiqo's own totals changes
