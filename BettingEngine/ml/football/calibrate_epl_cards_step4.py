@@ -12,7 +12,7 @@ from sklearn.linear_model import LogisticRegression, PoissonRegressor
 from fit_epl_cards_model_step3 import FEATURE_COLUMNS, dispersion, make_features, nb_over_prob
 
 ROOT = Path(__file__).parent
-FEATURES = ROOT / "data" / "epl" / "cards" / "epl_cards_features_2022_23_to_2025_26.csv"
+FEATURES = ROOT / "data" / "epl" / "cards" / "epl_cards_context_features_step1_enriched.csv"
 OUT = ROOT / "data" / "epl" / "cards" / "epl_cards_step4_calibrated_prices.csv"
 REPORT = ROOT / "reports" / "epl_cards_step4_calibration.json"
 SEASONS = ["2022/23", "2023/24", "2024/25", "2025/26"]
