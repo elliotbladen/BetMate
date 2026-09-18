@@ -1,5 +1,5 @@
 import { createAdminClient } from '@/lib/supabaseAdmin';
-import { getActualResult, getEplFixtures, scoreResult, type Fixture } from '@/lib/tipping';
+import { EPL_SEASON_FIXTURES, getActualResult, getEplFixtures, scoreResult, type Fixture } from '@/lib/tipping';
 
 type ApiScore = { name: string; score: string };
 export type ApiGame = { completed: boolean; commence_time: string; home_team: string; away_team: string; scores: ApiScore[] | null };
@@ -50,29 +50,46 @@ async function fetchOddsApiScores(): Promise<ApiGame[]> {
 }
 
 async function fetchEspnScores(fixtures: Fixture[]): Promise<ApiGame[]> {
-  const dates = fixtures.map(fixture => fixture.kickoff.slice(0, 10).replaceAll('-', '')).sort();
-  const url = new URL('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard');
-  url.searchParams.set('dates', `${dates[0]}-${dates[dates.length - 1]}`); url.searchParams.set('limit', '100');
-  const response = await fetch(url.toString(), { cache: 'no-store' });
-  if (!response.ok) throw new Error(`ESPN scores returned ${response.status}`);
-  const payload = await response.json() as { events?: EspnEvent[] };
-  return mapEspnGames(payload.events ?? []);
+  // ESPN's scoreboard endpoint accepts one YYYYMMDD value. A season range
+  // either returns 400 or an incomplete response, which used to make the
+  // gameweek endpoint fail and strand the tipping page on GW1. Keep requests
+  // bounded to the dates represented by this round.
+  const dates = getEspnScoreboardDates(fixtures);
+  const games: ApiGame[] = [];
+  for (const date of dates) {
+    const url = new URL('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard');
+    url.searchParams.set('dates', date);
+    url.searchParams.set('limit', '100');
+    const response = await fetch(url.toString(), { cache: 'no-store' });
+    if (!response.ok) throw new Error(`ESPN scores returned ${response.status}`);
+    const payload = await response.json() as { events?: EspnEvent[] };
+    games.push(...mapEspnGames(payload.events ?? []));
+  }
+  return games;
 }
 
-async function fetchEspnSeasonScores(): Promise<ApiGame[]> {
-  const url = new URL('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard');
-  url.searchParams.set('dates', '20260801-20270531');
-  url.searchParams.set('limit', '500');
-  const response = await fetch(url.toString(), { cache: 'no-store' });
-  if (!response.ok) throw new Error(`ESPN season scores returned ${response.status}`);
-  const payload = await response.json() as { events?: EspnEvent[] };
-  return mapEspnGames(payload.events ?? []);
+export function getEspnScoreboardDates(fixtures: Fixture[]): string[] {
+  return [...new Set(fixtures.map(fixture => fixture.kickoff.slice(0, 10).replaceAll('-', '')))].sort();
 }
 
 export function findCurrentGameweek(games: ApiGame[]): number | null {
   for (let gameweek = 1; gameweek <= 38; gameweek++) {
     const fixtures = getEplFixtures(gameweek);
     if (matchCompletedFixtures(fixtures, games).length !== fixtures.length) return gameweek;
+  }
+  return null;
+}
+
+/**
+ * Return the first round that has not entirely passed on the published
+ * schedule. This is deliberately only a fallback: it keeps the UI usable when
+ * a score provider is unavailable, while score reconciliation still uses the
+ * provider-backed path when it is healthy.
+ */
+export function findScheduledGameweek(fixtures: Fixture[], now = new Date()): number | null {
+  for (let gameweek = 1; gameweek <= 38; gameweek++) {
+    const round = fixtures.filter(fixture => fixture.gameweek === gameweek);
+    if (round.some(fixture => new Date(fixture.kickoff).getTime() > now.getTime())) return gameweek;
   }
   return null;
 }
@@ -87,7 +104,24 @@ export function gameweeksToSyncOnTransition(currentGameweek: number | null): num
 }
 
 export async function getCurrentEplGameweek(): Promise<number | null> {
-  return findCurrentGameweek(await fetchEspnSeasonScores());
+  const scheduled = findScheduledGameweek(EPL_SEASON_FIXTURES);
+  try {
+    // Only completed calendar rounds need a provider lookup. The first round
+    // with a future kickoff is necessarily the visible round, so this avoids a
+    // full-season request and keeps the endpoint to a handful of daily calls.
+    const games: ApiGame[] = [];
+    for (let gameweek = 1; gameweek <= 38; gameweek++) {
+      const fixtures = getEplFixtures(gameweek);
+      if (!fixtures.length) continue;
+      if (fixtures.some(fixture => new Date(fixture.kickoff).getTime() > Date.now())) return gameweek;
+      games.push(...await fetchEspnScores(fixtures));
+      if (matchCompletedFixtures(fixtures, games).length !== fixtures.length) return gameweek;
+    }
+    return null;
+  } catch (error) {
+    console.error('EPL score provider unavailable; using schedule fallback', error);
+    return scheduled;
+  }
 }
 
 async function completedScores(fixtures: Fixture[]): Promise<CompletedFixture[]> {
