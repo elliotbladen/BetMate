@@ -26,7 +26,8 @@ import requests
 OUT_DIR = Path(__file__).parent.parent / "data" / "epl" / "style"
 
 BASE_URL = "https://understat.com/getLeagueData/EPL/{year}"
-SEASONS  = list(range(2014, 2025))
+# Include 2025/26 for the held-out cards test.
+SEASONS  = list(range(2014, 2026))
 SLEEP    = 1.5
 
 HEADERS = {

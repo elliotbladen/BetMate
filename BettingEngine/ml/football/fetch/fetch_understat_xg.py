@@ -24,7 +24,8 @@ OUT_DIR = Path(__file__).parent.parent / "data" / "epl" / "xg"
 OUT_CSV = OUT_DIR / "understat_xg.csv"
 
 BASE_URL = "https://understat.com/getLeagueData/EPL/{year}"
-SEASONS = list(range(2014, 2025))  # 2014 = 2014/15, ..., 2024 = 2024/25
+# Include 2025/26 so the held-out test has the same context variables.
+SEASONS = list(range(2014, 2026))  # 2014 = 2014/15, ..., 2025 = 2025/26
 SLEEP   = 1.5  # seconds between requests
 
 HEADERS = {
