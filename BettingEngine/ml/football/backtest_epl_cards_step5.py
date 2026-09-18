@@ -9,6 +9,7 @@ import pandas as pd
 
 ROOT = Path(__file__).parent
 PRICES = ROOT / "data" / "epl" / "cards" / "epl_cards_step4_calibrated_prices.csv"
+RAW_PRICES = ROOT / "data" / "epl" / "cards" / "epl_cards_step3_prices.csv"
 MARKET = ROOT / "data" / "epl" / "cards" / "epl_2025_26_card_market_join.csv"
 OUT = ROOT / "data" / "epl" / "cards" / "epl_cards_step5_bets.csv"
 REPORT = ROOT / "reports" / "epl_cards_step5_backtest.json"
@@ -21,7 +22,7 @@ def settle(row: pd.Series, outcome_col: str) -> int:
 
 
 def run_bets(frame: pd.DataFrame, threshold: float, outcome_col: str) -> dict[str, float | int]:
-    candidates = frame[(frame["eligible_for_step5"]) & (frame["ev"] >= threshold)].copy()
+    candidates = frame[(frame["eligible_variant"]) & (frame["ev"] >= threshold)].copy()
     if candidates.empty:
         return {"threshold": threshold, "bets": 0, "wins": 0, "roi": 0.0, "profit": 0.0, "mean_ev": 0.0}
     candidates["win"] = candidates.apply(lambda r: settle(r, outcome_col), axis=1)
@@ -38,7 +39,12 @@ def run_bets(frame: pd.DataFrame, threshold: float, outcome_col: str) -> dict[st
 
 def main() -> None:
     prices = pd.read_csv(PRICES)
+    raw_prices = pd.read_csv(RAW_PRICES)[["Date", "HomeTeam", "AwayTeam", "baseline_p_over35"]]
+    for frame in (prices, raw_prices):
+        frame["Date"] = pd.to_datetime(frame["Date"], format="mixed", dayfirst=False)
+    prices = prices.merge(raw_prices, on=["Date", "HomeTeam", "AwayTeam"], how="left", validate="one_to_one")
     market = pd.read_csv(MARKET)
+    market["Date"] = pd.to_datetime(market["Date"], format="mixed", dayfirst=True)
     odds_cols = ["over_3_5_yellow_cards_ft_closing_odds", "under_3_5_yellow_cards_ft_closing_odds"]
     if market[odds_cols].isna().any().any():
         raise RuntimeError("closing card odds are incomplete")
@@ -48,58 +54,52 @@ def main() -> None:
     if not (df["_merge"] == "both").all():
         raise RuntimeError(f"market join failed: {df['_merge'].value_counts().to_dict()}")
     df = df.drop(columns="_merge")
-    df["selection"] = np.where(
-        df["selected_p_over35_calibrated"] >= df["selected_p_under35_calibrated"],
-        "Over 3.5", "Under 3.5",
-    )
-    df["model_probability"] = np.where(
-        df["selection"].eq("Over 3.5"),
-        df["selected_p_over35_calibrated"], df["selected_p_under35_calibrated"],
-    )
-    df["odds"] = np.where(
-        df["selection"].eq("Over 3.5"),
-        df[odds_cols[0]], df[odds_cols[1]],
-    )
-    df["market_implied_probability"] = 1.0 / df["odds"]
-    df["probability_edge"] = df["model_probability"] - df["market_implied_probability"]
-    df["ev"] = df["model_probability"] * df["odds"] - 1.0
-    df["closing_odds_source"] = "Footiqo free EPL 2025/26 cards file"
+    variant_probs = {
+        "baseline": df["baseline_p_over35"],
+        "raw_enriched_glm": df["selected_p_over35_raw"],
+        "calibrated_enriched_glm": df["selected_p_over35_calibrated"],
+    }
     bets = []
-    for _, row in df[df["eligible_for_step5"]].iterrows():
-        for threshold in THRESHOLDS:
-            if row.ev >= threshold:
-                bets.append({
-                    "Date": row.Date, "HomeTeam": row.HomeTeam, "AwayTeam": row.AwayTeam,
-                    "Referee": row.Referee, "selection": row.selection,
-                    "model_probability": row.model_probability, "odds": row.odds,
-                    "ev": row.ev, "threshold": threshold,
-                    "official_total_yellow_cards": row.total_yellow_cards,
-                    "footiqo_total_yellow_cards": row.total_yellow_cards_ft,
-                    "yellow_total_match": row.yellow_total_match,
-                    "official_win": settle(row, "total_yellow_cards"),
-                    "footiqo_win": settle(row, "total_yellow_cards_ft"),
-                })
+    summaries = {}
+    for model_name, p_over in variant_probs.items():
+        work = df.copy()
+        work["model_name"] = model_name
+        work["p_over"] = p_over
+        work["p_under"] = 1.0 - p_over
+        work["selection"] = np.where(work.p_over >= work.p_under, "Over 3.5", "Under 3.5")
+        work["model_probability"] = np.where(work.selection.eq("Over 3.5"), work.p_over, work.p_under)
+        work["odds"] = np.where(work.selection.eq("Over 3.5"), work[odds_cols[0]], work[odds_cols[1]])
+        work["market_implied_probability"] = 1.0 / work.odds
+        work["probability_edge"] = work.model_probability - work.market_implied_probability
+        work["ev"] = work.model_probability * work.odds - 1.0
+        work["eligible_variant"] = work.ref_sample_ok & (work[["p_over", "p_under"]].max(axis=1) >= 0.57)
+        summaries[model_name] = {
+            "calibration": {"brier": float(np.mean((work.p_over - (work.total_yellow_cards > 3.5)) ** 2)),
+                            "predicted_over_rate": float(work.p_over.mean()),
+                            "actual_over_rate": float((work.total_yellow_cards > 3.5).mean())},
+            "eligible_matches": int(work.eligible_variant.sum()),
+            "official_result_thresholds": [run_bets(work, t, "total_yellow_cards") for t in THRESHOLDS],
+            "footiqo_result_sensitivity": [run_bets(work, t, "total_yellow_cards_ft") for t in THRESHOLDS],
+        }
+        for _, row in work[work.eligible_variant].iterrows():
+            for threshold in THRESHOLDS:
+                if row.ev >= threshold:
+                    bets.append({"model": model_name, "Date": row.Date, "HomeTeam": row.HomeTeam, "AwayTeam": row.AwayTeam,
+                                 "Referee": row.Referee, "selection": row.selection, "model_probability": row.model_probability,
+                                 "odds": row.odds, "ev": row.ev, "threshold": threshold,
+                                 "official_total_yellow_cards": row.total_yellow_cards, "footiqo_total_yellow_cards": row.total_yellow_cards_ft,
+                                 "yellow_total_match": row.yellow_total_match, "official_win": settle(row, "total_yellow_cards"),
+                                 "footiqo_win": settle(row, "total_yellow_cards_ft")})
     bets_df = pd.DataFrame(bets)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     bets_df.to_csv(OUT, index=False)
-    y = (df.total_yellow_cards > 3.5).astype(int).to_numpy()
-    p = df.selected_p_over35_calibrated.to_numpy()
     report = {
         "season": "2025/26",
         "market": "yellow_cards_ou35",
-        "model": "calibrated_glm",
+        "models": summaries,
         "matches": int(len(df)),
         "closing_odds_complete": bool(df[odds_cols].notna().all().all()),
-        "eligible_matches": int(df.eligible_for_step5.sum()),
         "provider_outcome_mismatches": int((~df.yellow_total_match).sum()),
-        "calibration": {
-            "brier": float(np.mean((p - y) ** 2)),
-            "log_loss": float(-np.mean(y * np.log(np.clip(p, 1e-6, 1 - 1e-6)) + (1 - y) * np.log(np.clip(1 - p, 1e-6, 1 - 1e-6)))),
-            "predicted_over_rate": float(p.mean()),
-            "actual_over_rate": float(y.mean()),
-        },
-        "official_result_thresholds": [run_bets(df, t, "total_yellow_cards") for t in THRESHOLDS],
-        "footiqo_result_sensitivity": [run_bets(df, t, "total_yellow_cards_ft") for t in THRESHOLDS],
         "outputs": str(OUT.relative_to(ROOT.parent.parent)),
     }
     REPORT.parent.mkdir(parents=True, exist_ok=True)
