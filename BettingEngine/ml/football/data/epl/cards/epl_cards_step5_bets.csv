@@ -1,0 +1,1302 @@
+model,Date,HomeTeam,AwayTeam,Referee,selection,model_probability,odds,ev,threshold,official_total_yellow_cards,footiqo_total_yellow_cards,yellow_total_match,official_win,footiqo_win
+baseline,2025-08-15,Liverpool,Bournemouth,A Taylor,Under 3.5,0.6582668006921537,2.24,0.4745176335504244,0.0,3,3,True,1,1
+baseline,2025-08-15,Liverpool,Bournemouth,A Taylor,Under 3.5,0.6582668006921537,2.24,0.4745176335504244,0.05,3,3,True,1,1
+baseline,2025-08-15,Liverpool,Bournemouth,A Taylor,Under 3.5,0.6582668006921537,2.24,0.4745176335504244,0.08,3,3,True,1,1
+baseline,2025-08-15,Liverpool,Bournemouth,A Taylor,Under 3.5,0.6582668006921537,2.24,0.4745176335504244,0.1,3,3,True,1,1
+baseline,2025-08-15,Liverpool,Bournemouth,A Taylor,Under 3.5,0.6582668006921537,2.24,0.4745176335504244,0.2,3,3,True,1,1
+baseline,2025-08-16,Tottenham,Burnley,M Oliver,Under 3.5,0.6360931785311166,2.48,0.577511082757169,0.0,0,0,True,1,1
+baseline,2025-08-16,Tottenham,Burnley,M Oliver,Under 3.5,0.6360931785311166,2.48,0.577511082757169,0.05,0,0,True,1,1
+baseline,2025-08-16,Tottenham,Burnley,M Oliver,Under 3.5,0.6360931785311166,2.48,0.577511082757169,0.08,0,0,True,1,1
+baseline,2025-08-16,Tottenham,Burnley,M Oliver,Under 3.5,0.6360931785311166,2.48,0.577511082757169,0.1,0,0,True,1,1
+baseline,2025-08-16,Tottenham,Burnley,M Oliver,Under 3.5,0.6360931785311166,2.48,0.577511082757169,0.2,0,0,True,1,1
+baseline,2025-08-16,Wolves,Man City,J Gillett,Under 3.5,0.5802108542490918,2.24,0.29967231351796575,0.0,3,3,True,1,1
+baseline,2025-08-16,Wolves,Man City,J Gillett,Under 3.5,0.5802108542490918,2.24,0.29967231351796575,0.05,3,3,True,1,1
+baseline,2025-08-16,Wolves,Man City,J Gillett,Under 3.5,0.5802108542490918,2.24,0.29967231351796575,0.08,3,3,True,1,1
+baseline,2025-08-16,Wolves,Man City,J Gillett,Under 3.5,0.5802108542490918,2.24,0.29967231351796575,0.1,3,3,True,1,1
+baseline,2025-08-16,Wolves,Man City,J Gillett,Under 3.5,0.5802108542490918,2.24,0.29967231351796575,0.2,3,3,True,1,1
+baseline,2025-08-17,Man United,Arsenal,S Hooper,Under 3.5,0.570006138874285,3.01,0.7157184780115977,0.0,5,5,True,0,0
+baseline,2025-08-17,Man United,Arsenal,S Hooper,Under 3.5,0.570006138874285,3.01,0.7157184780115977,0.05,5,5,True,0,0
+baseline,2025-08-17,Man United,Arsenal,S Hooper,Under 3.5,0.570006138874285,3.01,0.7157184780115977,0.08,5,5,True,0,0
+baseline,2025-08-17,Man United,Arsenal,S Hooper,Under 3.5,0.570006138874285,3.01,0.7157184780115977,0.1,5,5,True,0,0
+baseline,2025-08-17,Man United,Arsenal,S Hooper,Under 3.5,0.570006138874285,3.01,0.7157184780115977,0.2,5,5,True,0,0
+baseline,2025-08-22,West Ham,Chelsea,M Oliver,Under 3.5,0.6518994733252448,3.01,0.9622174147089866,0.0,1,1,True,1,1
+baseline,2025-08-22,West Ham,Chelsea,M Oliver,Under 3.5,0.6518994733252448,3.01,0.9622174147089866,0.05,1,1,True,1,1
+baseline,2025-08-22,West Ham,Chelsea,M Oliver,Under 3.5,0.6518994733252448,3.01,0.9622174147089866,0.08,1,1,True,1,1
+baseline,2025-08-22,West Ham,Chelsea,M Oliver,Under 3.5,0.6518994733252448,3.01,0.9622174147089866,0.1,1,1,True,1,1
+baseline,2025-08-22,West Ham,Chelsea,M Oliver,Under 3.5,0.6518994733252448,3.01,0.9622174147089866,0.2,1,1,True,1,1
+baseline,2025-08-24,Everton,Brighton,S Attwell,Under 3.5,0.5845607026185315,2.31,0.35033522304880793,0.0,7,7,True,0,0
+baseline,2025-08-24,Everton,Brighton,S Attwell,Under 3.5,0.5845607026185315,2.31,0.35033522304880793,0.05,7,7,True,0,0
+baseline,2025-08-24,Everton,Brighton,S Attwell,Under 3.5,0.5845607026185315,2.31,0.35033522304880793,0.08,7,7,True,0,0
+baseline,2025-08-24,Everton,Brighton,S Attwell,Under 3.5,0.5845607026185315,2.31,0.35033522304880793,0.1,7,7,True,0,0
+baseline,2025-08-24,Everton,Brighton,S Attwell,Under 3.5,0.5845607026185315,2.31,0.35033522304880793,0.2,7,7,True,0,0
+baseline,2025-08-25,Newcastle,Liverpool,S Hooper,Under 3.5,0.657628752237472,3.59,1.3608872205325242,0.0,5,5,True,0,0
+baseline,2025-08-25,Newcastle,Liverpool,S Hooper,Under 3.5,0.657628752237472,3.59,1.3608872205325242,0.05,5,5,True,0,0
+baseline,2025-08-25,Newcastle,Liverpool,S Hooper,Under 3.5,0.657628752237472,3.59,1.3608872205325242,0.08,5,5,True,0,0
+baseline,2025-08-25,Newcastle,Liverpool,S Hooper,Under 3.5,0.657628752237472,3.59,1.3608872205325242,0.1,5,5,True,0,0
+baseline,2025-08-25,Newcastle,Liverpool,S Hooper,Under 3.5,0.657628752237472,3.59,1.3608872205325242,0.2,5,5,True,0,0
+baseline,2025-08-30,Wolves,Everton,M Oliver,Under 3.5,0.6168339762995507,2.29,0.4125498057259711,0.0,1,1,True,1,1
+baseline,2025-08-30,Wolves,Everton,M Oliver,Under 3.5,0.6168339762995507,2.29,0.4125498057259711,0.05,1,1,True,1,1
+baseline,2025-08-30,Wolves,Everton,M Oliver,Under 3.5,0.6168339762995507,2.29,0.4125498057259711,0.08,1,1,True,1,1
+baseline,2025-08-30,Wolves,Everton,M Oliver,Under 3.5,0.6168339762995507,2.29,0.4125498057259711,0.1,1,1,True,1,1
+baseline,2025-08-30,Wolves,Everton,M Oliver,Under 3.5,0.6168339762995507,2.29,0.4125498057259711,0.2,1,1,True,1,1
+baseline,2025-08-31,Brighton,Man City,D England,Under 3.5,0.5999583797107806,2.26,0.35590593814636406,0.0,4,4,True,0,0
+baseline,2025-08-31,Brighton,Man City,D England,Under 3.5,0.5999583797107806,2.26,0.35590593814636406,0.05,4,4,True,0,0
+baseline,2025-08-31,Brighton,Man City,D England,Under 3.5,0.5999583797107806,2.26,0.35590593814636406,0.08,4,4,True,0,0
+baseline,2025-08-31,Brighton,Man City,D England,Under 3.5,0.5999583797107806,2.26,0.35590593814636406,0.1,4,4,True,0,0
+baseline,2025-08-31,Brighton,Man City,D England,Under 3.5,0.5999583797107806,2.26,0.35590593814636406,0.2,4,4,True,0,0
+baseline,2025-08-31,Liverpool,Arsenal,C Kavanagh,Under 3.5,0.7021698711160618,3.01,1.113531312059346,0.0,4,4,True,0,0
+baseline,2025-08-31,Liverpool,Arsenal,C Kavanagh,Under 3.5,0.7021698711160618,3.01,1.113531312059346,0.05,4,4,True,0,0
+baseline,2025-08-31,Liverpool,Arsenal,C Kavanagh,Under 3.5,0.7021698711160618,3.01,1.113531312059346,0.08,4,4,True,0,0
+baseline,2025-08-31,Liverpool,Arsenal,C Kavanagh,Under 3.5,0.7021698711160618,3.01,1.113531312059346,0.1,4,4,True,0,0
+baseline,2025-08-31,Liverpool,Arsenal,C Kavanagh,Under 3.5,0.7021698711160618,3.01,1.113531312059346,0.2,4,4,True,0,0
+baseline,2025-09-13,Newcastle,Wolves,C Kavanagh,Under 3.5,0.5949419818092774,2.48,0.4754561148870078,0.0,5,5,True,0,0
+baseline,2025-09-13,Newcastle,Wolves,C Kavanagh,Under 3.5,0.5949419818092774,2.48,0.4754561148870078,0.05,5,5,True,0,0
+baseline,2025-09-13,Newcastle,Wolves,C Kavanagh,Under 3.5,0.5949419818092774,2.48,0.4754561148870078,0.08,5,5,True,0,0
+baseline,2025-09-13,Newcastle,Wolves,C Kavanagh,Under 3.5,0.5949419818092774,2.48,0.4754561148870078,0.1,5,5,True,0,0
+baseline,2025-09-13,Newcastle,Wolves,C Kavanagh,Under 3.5,0.5949419818092774,2.48,0.4754561148870078,0.2,5,5,True,0,0
+baseline,2025-09-14,Burnley,Liverpool,M Oliver,Under 3.5,0.7120622691433992,1.64,0.16778212139517468,0.0,2,4,False,1,0
+baseline,2025-09-14,Burnley,Liverpool,M Oliver,Under 3.5,0.7120622691433992,1.64,0.16778212139517468,0.05,2,4,False,1,0
+baseline,2025-09-14,Burnley,Liverpool,M Oliver,Under 3.5,0.7120622691433992,1.64,0.16778212139517468,0.08,2,4,False,1,0
+baseline,2025-09-14,Burnley,Liverpool,M Oliver,Under 3.5,0.7120622691433992,1.64,0.16778212139517468,0.1,2,4,False,1,0
+baseline,2025-09-14,Man City,Man United,A Taylor,Under 3.5,0.6094650274104618,2.48,0.5114732679779452,0.0,0,0,True,1,1
+baseline,2025-09-14,Man City,Man United,A Taylor,Under 3.5,0.6094650274104618,2.48,0.5114732679779452,0.05,0,0,True,1,1
+baseline,2025-09-14,Man City,Man United,A Taylor,Under 3.5,0.6094650274104618,2.48,0.5114732679779452,0.08,0,0,True,1,1
+baseline,2025-09-14,Man City,Man United,A Taylor,Under 3.5,0.6094650274104618,2.48,0.5114732679779452,0.1,0,0,True,1,1
+baseline,2025-09-14,Man City,Man United,A Taylor,Under 3.5,0.6094650274104618,2.48,0.5114732679779452,0.2,0,0,True,1,1
+baseline,2025-09-20,Brighton,Tottenham,C Kavanagh,Under 3.5,0.6014340405103515,3.01,0.810316461936158,0.0,3,3,True,1,1
+baseline,2025-09-20,Brighton,Tottenham,C Kavanagh,Under 3.5,0.6014340405103515,3.01,0.810316461936158,0.05,3,3,True,1,1
+baseline,2025-09-20,Brighton,Tottenham,C Kavanagh,Under 3.5,0.6014340405103515,3.01,0.810316461936158,0.08,3,3,True,1,1
+baseline,2025-09-20,Brighton,Tottenham,C Kavanagh,Under 3.5,0.6014340405103515,3.01,0.810316461936158,0.1,3,3,True,1,1
+baseline,2025-09-20,Brighton,Tottenham,C Kavanagh,Under 3.5,0.6014340405103515,3.01,0.810316461936158,0.2,3,3,True,1,1
+baseline,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5988119359886559,1.94,0.16169515581799243,0.0,5,5,True,0,0
+baseline,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5988119359886559,1.94,0.16169515581799243,0.05,5,5,True,0,0
+baseline,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5988119359886559,1.94,0.16169515581799243,0.08,5,5,True,0,0
+baseline,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5988119359886559,1.94,0.16169515581799243,0.1,5,5,True,0,0
+baseline,2025-09-20,Liverpool,Everton,D England,Under 3.5,0.5992645301249746,3.12,0.8697053339899208,0.0,5,5,True,0,0
+baseline,2025-09-20,Liverpool,Everton,D England,Under 3.5,0.5992645301249746,3.12,0.8697053339899208,0.05,5,5,True,0,0
+baseline,2025-09-20,Liverpool,Everton,D England,Under 3.5,0.5992645301249746,3.12,0.8697053339899208,0.08,5,5,True,0,0
+baseline,2025-09-20,Liverpool,Everton,D England,Under 3.5,0.5992645301249746,3.12,0.8697053339899208,0.1,5,5,True,0,0
+baseline,2025-09-20,Liverpool,Everton,D England,Under 3.5,0.5992645301249746,3.12,0.8697053339899208,0.2,5,5,True,0,0
+baseline,2025-09-21,Arsenal,Man City,S Attwell,Under 3.5,0.6497390104640837,2.48,0.6113527459509276,0.0,3,3,True,1,1
+baseline,2025-09-21,Arsenal,Man City,S Attwell,Under 3.5,0.6497390104640837,2.48,0.6113527459509276,0.05,3,3,True,1,1
+baseline,2025-09-21,Arsenal,Man City,S Attwell,Under 3.5,0.6497390104640837,2.48,0.6113527459509276,0.08,3,3,True,1,1
+baseline,2025-09-21,Arsenal,Man City,S Attwell,Under 3.5,0.6497390104640837,2.48,0.6113527459509276,0.1,3,3,True,1,1
+baseline,2025-09-21,Arsenal,Man City,S Attwell,Under 3.5,0.6497390104640837,2.48,0.6113527459509276,0.2,3,3,True,1,1
+baseline,2025-09-27,Crystal Palace,Liverpool,C Kavanagh,Under 3.5,0.6663008139881581,2.29,0.5258288640328821,0.0,4,4,True,0,0
+baseline,2025-09-27,Crystal Palace,Liverpool,C Kavanagh,Under 3.5,0.6663008139881581,2.29,0.5258288640328821,0.05,4,4,True,0,0
+baseline,2025-09-27,Crystal Palace,Liverpool,C Kavanagh,Under 3.5,0.6663008139881581,2.29,0.5258288640328821,0.08,4,4,True,0,0
+baseline,2025-09-27,Crystal Palace,Liverpool,C Kavanagh,Under 3.5,0.6663008139881581,2.29,0.5258288640328821,0.1,4,4,True,0,0
+baseline,2025-09-27,Crystal Palace,Liverpool,C Kavanagh,Under 3.5,0.6663008139881581,2.29,0.5258288640328821,0.2,4,4,True,0,0
+baseline,2025-09-28,Newcastle,Arsenal,J Gillett,Under 3.5,0.5964810671245264,2.81,0.6761117986199192,0.0,3,3,True,1,1
+baseline,2025-09-28,Newcastle,Arsenal,J Gillett,Under 3.5,0.5964810671245264,2.81,0.6761117986199192,0.05,3,3,True,1,1
+baseline,2025-09-28,Newcastle,Arsenal,J Gillett,Under 3.5,0.5964810671245264,2.81,0.6761117986199192,0.08,3,3,True,1,1
+baseline,2025-09-28,Newcastle,Arsenal,J Gillett,Under 3.5,0.5964810671245264,2.81,0.6761117986199192,0.1,3,3,True,1,1
+baseline,2025-09-28,Newcastle,Arsenal,J Gillett,Under 3.5,0.5964810671245264,2.81,0.6761117986199192,0.2,3,3,True,1,1
+baseline,2025-10-04,Chelsea,Liverpool,A Taylor,Under 3.5,0.6471600938066646,3.25,1.1032703048716601,0.0,2,2,True,1,1
+baseline,2025-10-04,Chelsea,Liverpool,A Taylor,Under 3.5,0.6471600938066646,3.25,1.1032703048716601,0.05,2,2,True,1,1
+baseline,2025-10-04,Chelsea,Liverpool,A Taylor,Under 3.5,0.6471600938066646,3.25,1.1032703048716601,0.08,2,2,True,1,1
+baseline,2025-10-04,Chelsea,Liverpool,A Taylor,Under 3.5,0.6471600938066646,3.25,1.1032703048716601,0.1,2,2,True,1,1
+baseline,2025-10-04,Chelsea,Liverpool,A Taylor,Under 3.5,0.6471600938066646,3.25,1.1032703048716601,0.2,2,2,True,1,1
+baseline,2025-10-05,Brentford,Man City,D England,Under 3.5,0.5838301802536886,1.84,0.07424753166678699,0.0,5,5,True,0,0
+baseline,2025-10-05,Brentford,Man City,D England,Under 3.5,0.5838301802536886,1.84,0.07424753166678699,0.05,5,5,True,0,0
+baseline,2025-10-18,Brighton,Newcastle,C Pawson,Under 3.5,0.5931857292247515,2.91,0.7261704720440272,0.0,1,1,True,1,1
+baseline,2025-10-18,Brighton,Newcastle,C Pawson,Under 3.5,0.5931857292247515,2.91,0.7261704720440272,0.05,1,1,True,1,1
+baseline,2025-10-18,Brighton,Newcastle,C Pawson,Under 3.5,0.5931857292247515,2.91,0.7261704720440272,0.08,1,1,True,1,1
+baseline,2025-10-18,Brighton,Newcastle,C Pawson,Under 3.5,0.5931857292247515,2.91,0.7261704720440272,0.1,1,1,True,1,1
+baseline,2025-10-18,Brighton,Newcastle,C Pawson,Under 3.5,0.5931857292247515,2.91,0.7261704720440272,0.2,1,1,True,1,1
+baseline,2025-10-18,Fulham,Arsenal,A Taylor,Under 3.5,0.5763191782899846,1.8,0.03737452092197224,0.0,0,0,True,1,1
+baseline,2025-10-18,Man City,Everton,T Harrington,Under 3.5,0.5945766935095502,1.94,0.15347878540852733,0.0,2,2,True,1,1
+baseline,2025-10-18,Man City,Everton,T Harrington,Under 3.5,0.5945766935095502,1.94,0.15347878540852733,0.05,2,2,True,1,1
+baseline,2025-10-18,Man City,Everton,T Harrington,Under 3.5,0.5945766935095502,1.94,0.15347878540852733,0.08,2,2,True,1,1
+baseline,2025-10-18,Man City,Everton,T Harrington,Under 3.5,0.5945766935095502,1.94,0.15347878540852733,0.1,2,2,True,1,1
+baseline,2025-10-19,Liverpool,Man United,M Oliver,Under 3.5,0.6773639759747261,3.3,1.235301120716596,0.0,2,2,True,1,1
+baseline,2025-10-19,Liverpool,Man United,M Oliver,Under 3.5,0.6773639759747261,3.3,1.235301120716596,0.05,2,2,True,1,1
+baseline,2025-10-19,Liverpool,Man United,M Oliver,Under 3.5,0.6773639759747261,3.3,1.235301120716596,0.08,2,2,True,1,1
+baseline,2025-10-19,Liverpool,Man United,M Oliver,Under 3.5,0.6773639759747261,3.3,1.235301120716596,0.1,2,2,True,1,1
+baseline,2025-10-19,Liverpool,Man United,M Oliver,Under 3.5,0.6773639759747261,3.3,1.235301120716596,0.2,2,2,True,1,1
+baseline,2025-10-20,West Ham,Brentford,A Madley,Under 3.5,0.6262947811534081,2.07,0.2964301969875547,0.0,2,2,True,1,1
+baseline,2025-10-20,West Ham,Brentford,A Madley,Under 3.5,0.6262947811534081,2.07,0.2964301969875547,0.05,2,2,True,1,1
+baseline,2025-10-20,West Ham,Brentford,A Madley,Under 3.5,0.6262947811534081,2.07,0.2964301969875547,0.08,2,2,True,1,1
+baseline,2025-10-20,West Ham,Brentford,A Madley,Under 3.5,0.6262947811534081,2.07,0.2964301969875547,0.1,2,2,True,1,1
+baseline,2025-10-20,West Ham,Brentford,A Madley,Under 3.5,0.6262947811534081,2.07,0.2964301969875547,0.2,2,2,True,1,1
+baseline,2025-10-25,Brentford,Liverpool,S Hooper,Under 3.5,0.6272632142223444,2.26,0.4176148641424984,0.0,5,5,True,0,0
+baseline,2025-10-25,Brentford,Liverpool,S Hooper,Under 3.5,0.6272632142223444,2.26,0.4176148641424984,0.05,5,5,True,0,0
+baseline,2025-10-25,Brentford,Liverpool,S Hooper,Under 3.5,0.6272632142223444,2.26,0.4176148641424984,0.08,5,5,True,0,0
+baseline,2025-10-25,Brentford,Liverpool,S Hooper,Under 3.5,0.6272632142223444,2.26,0.4176148641424984,0.1,5,5,True,0,0
+baseline,2025-10-25,Brentford,Liverpool,S Hooper,Under 3.5,0.6272632142223444,2.26,0.4176148641424984,0.2,5,5,True,0,0
+baseline,2025-10-26,Aston Villa,Man City,M Oliver,Under 3.5,0.6482564584948102,2.24,0.45209446702837486,0.0,5,5,True,0,0
+baseline,2025-10-26,Aston Villa,Man City,M Oliver,Under 3.5,0.6482564584948102,2.24,0.45209446702837486,0.05,5,5,True,0,0
+baseline,2025-10-26,Aston Villa,Man City,M Oliver,Under 3.5,0.6482564584948102,2.24,0.45209446702837486,0.08,5,5,True,0,0
+baseline,2025-10-26,Aston Villa,Man City,M Oliver,Under 3.5,0.6482564584948102,2.24,0.45209446702837486,0.1,5,5,True,0,0
+baseline,2025-10-26,Aston Villa,Man City,M Oliver,Under 3.5,0.6482564584948102,2.24,0.45209446702837486,0.2,5,5,True,0,0
+baseline,2025-11-01,Brighton,Leeds,M Oliver,Under 3.5,0.5749224872364931,2.03,0.1670926490900808,0.0,1,1,True,1,1
+baseline,2025-11-01,Brighton,Leeds,M Oliver,Under 3.5,0.5749224872364931,2.03,0.1670926490900808,0.05,1,1,True,1,1
+baseline,2025-11-01,Brighton,Leeds,M Oliver,Under 3.5,0.5749224872364931,2.03,0.1670926490900808,0.08,1,1,True,1,1
+baseline,2025-11-01,Brighton,Leeds,M Oliver,Under 3.5,0.5749224872364931,2.03,0.1670926490900808,0.1,1,1,True,1,1
+baseline,2025-11-01,Liverpool,Aston Villa,S Attwell,Under 3.5,0.58116130309945,2.73,0.5865703574614987,0.0,5,5,True,0,0
+baseline,2025-11-01,Liverpool,Aston Villa,S Attwell,Under 3.5,0.58116130309945,2.73,0.5865703574614987,0.05,5,5,True,0,0
+baseline,2025-11-01,Liverpool,Aston Villa,S Attwell,Under 3.5,0.58116130309945,2.73,0.5865703574614987,0.08,5,5,True,0,0
+baseline,2025-11-01,Liverpool,Aston Villa,S Attwell,Under 3.5,0.58116130309945,2.73,0.5865703574614987,0.1,5,5,True,0,0
+baseline,2025-11-01,Liverpool,Aston Villa,S Attwell,Under 3.5,0.58116130309945,2.73,0.5865703574614987,0.2,5,5,True,0,0
+baseline,2025-11-02,Man City,Bournemouth,A Taylor,Under 3.5,0.6214033444023265,1.8,0.11852601992418776,0.0,4,4,True,0,0
+baseline,2025-11-02,Man City,Bournemouth,A Taylor,Under 3.5,0.6214033444023265,1.8,0.11852601992418776,0.05,4,4,True,0,0
+baseline,2025-11-02,Man City,Bournemouth,A Taylor,Under 3.5,0.6214033444023265,1.8,0.11852601992418776,0.08,4,4,True,0,0
+baseline,2025-11-02,Man City,Bournemouth,A Taylor,Under 3.5,0.6214033444023265,1.8,0.11852601992418776,0.1,4,4,True,0,0
+baseline,2025-11-02,West Ham,Newcastle,R Jones,Under 3.5,0.5779379493420254,1.97,0.13853776020379005,0.0,3,3,True,1,1
+baseline,2025-11-02,West Ham,Newcastle,R Jones,Under 3.5,0.5779379493420254,1.97,0.13853776020379005,0.05,3,3,True,1,1
+baseline,2025-11-02,West Ham,Newcastle,R Jones,Under 3.5,0.5779379493420254,1.97,0.13853776020379005,0.08,3,3,True,1,1
+baseline,2025-11-02,West Ham,Newcastle,R Jones,Under 3.5,0.5779379493420254,1.97,0.13853776020379005,0.1,3,3,True,1,1
+baseline,2025-11-09,Man City,Liverpool,C Kavanagh,Under 3.5,0.7167219104570142,2.37,0.6986309277831237,0.0,6,6,True,0,0
+baseline,2025-11-09,Man City,Liverpool,C Kavanagh,Under 3.5,0.7167219104570142,2.37,0.6986309277831237,0.05,6,6,True,0,0
+baseline,2025-11-09,Man City,Liverpool,C Kavanagh,Under 3.5,0.7167219104570142,2.37,0.6986309277831237,0.08,6,6,True,0,0
+baseline,2025-11-09,Man City,Liverpool,C Kavanagh,Under 3.5,0.7167219104570142,2.37,0.6986309277831237,0.1,6,6,True,0,0
+baseline,2025-11-09,Man City,Liverpool,C Kavanagh,Under 3.5,0.7167219104570142,2.37,0.6986309277831237,0.2,6,6,True,0,0
+baseline,2025-11-22,Brighton,Brentford,C Kavanagh,Under 3.5,0.5941642471863249,2.81,0.6696015345935729,0.0,6,6,True,0,0
+baseline,2025-11-22,Brighton,Brentford,C Kavanagh,Under 3.5,0.5941642471863249,2.81,0.6696015345935729,0.05,6,6,True,0,0
+baseline,2025-11-22,Brighton,Brentford,C Kavanagh,Under 3.5,0.5941642471863249,2.81,0.6696015345935729,0.08,6,6,True,0,0
+baseline,2025-11-22,Brighton,Brentford,C Kavanagh,Under 3.5,0.5941642471863249,2.81,0.6696015345935729,0.1,6,6,True,0,0
+baseline,2025-11-22,Brighton,Brentford,C Kavanagh,Under 3.5,0.5941642471863249,2.81,0.6696015345935729,0.2,6,6,True,0,0
+baseline,2025-11-22,Fulham,Sunderland,D England,Over 3.5,0.5704635403618987,1.85,0.05535754966951267,0.0,6,6,True,1,1
+baseline,2025-11-22,Fulham,Sunderland,D England,Over 3.5,0.5704635403618987,1.85,0.05535754966951267,0.05,6,6,True,1,1
+baseline,2025-11-22,Liverpool,Nott'm Forest,A Madley,Under 3.5,0.6082903051680448,1.89,0.14966867676760476,0.0,2,2,True,1,1
+baseline,2025-11-22,Liverpool,Nott'm Forest,A Madley,Under 3.5,0.6082903051680448,1.89,0.14966867676760476,0.05,2,2,True,1,1
+baseline,2025-11-22,Liverpool,Nott'm Forest,A Madley,Under 3.5,0.6082903051680448,1.89,0.14966867676760476,0.08,2,2,True,1,1
+baseline,2025-11-22,Liverpool,Nott'm Forest,A Madley,Under 3.5,0.6082903051680448,1.89,0.14966867676760476,0.1,2,2,True,1,1
+baseline,2025-11-23,Arsenal,Tottenham,M Oliver,Under 3.5,0.6513599118101796,3.7,1.4100316736976648,0.0,4,4,True,0,0
+baseline,2025-11-23,Arsenal,Tottenham,M Oliver,Under 3.5,0.6513599118101796,3.7,1.4100316736976648,0.05,4,4,True,0,0
+baseline,2025-11-23,Arsenal,Tottenham,M Oliver,Under 3.5,0.6513599118101796,3.7,1.4100316736976648,0.08,4,4,True,0,0
+baseline,2025-11-23,Arsenal,Tottenham,M Oliver,Under 3.5,0.6513599118101796,3.7,1.4100316736976648,0.1,4,4,True,0,0
+baseline,2025-11-23,Arsenal,Tottenham,M Oliver,Under 3.5,0.6513599118101796,3.7,1.4100316736976648,0.2,4,4,True,0,0
+baseline,2025-11-29,Everton,Newcastle,C Pawson,Under 3.5,0.5769617712974542,2.0,0.15392354259490837,0.0,0,0,True,1,1
+baseline,2025-11-29,Everton,Newcastle,C Pawson,Under 3.5,0.5769617712974542,2.0,0.15392354259490837,0.05,0,0,True,1,1
+baseline,2025-11-29,Everton,Newcastle,C Pawson,Under 3.5,0.5769617712974542,2.0,0.15392354259490837,0.08,0,0,True,1,1
+baseline,2025-11-29,Everton,Newcastle,C Pawson,Under 3.5,0.5769617712974542,2.0,0.15392354259490837,0.1,0,0,True,1,1
+baseline,2025-11-30,Chelsea,Arsenal,A Taylor,Under 3.5,0.6042770642335558,2.91,0.7584462569196473,0.0,7,7,True,0,0
+baseline,2025-11-30,Chelsea,Arsenal,A Taylor,Under 3.5,0.6042770642335558,2.91,0.7584462569196473,0.05,7,7,True,0,0
+baseline,2025-11-30,Chelsea,Arsenal,A Taylor,Under 3.5,0.6042770642335558,2.91,0.7584462569196473,0.08,7,7,True,0,0
+baseline,2025-11-30,Chelsea,Arsenal,A Taylor,Under 3.5,0.6042770642335558,2.91,0.7584462569196473,0.1,7,7,True,0,0
+baseline,2025-11-30,Chelsea,Arsenal,A Taylor,Under 3.5,0.6042770642335558,2.91,0.7584462569196473,0.2,7,7,True,0,0
+baseline,2025-11-30,Nott'm Forest,Brighton,M Oliver,Under 3.5,0.5854299566109304,2.85,0.6684753763411517,0.0,1,1,True,1,1
+baseline,2025-11-30,Nott'm Forest,Brighton,M Oliver,Under 3.5,0.5854299566109304,2.85,0.6684753763411517,0.05,1,1,True,1,1
+baseline,2025-11-30,Nott'm Forest,Brighton,M Oliver,Under 3.5,0.5854299566109304,2.85,0.6684753763411517,0.08,1,1,True,1,1
+baseline,2025-11-30,Nott'm Forest,Brighton,M Oliver,Under 3.5,0.5854299566109304,2.85,0.6684753763411517,0.1,1,1,True,1,1
+baseline,2025-11-30,Nott'm Forest,Brighton,M Oliver,Under 3.5,0.5854299566109304,2.85,0.6684753763411517,0.2,1,1,True,1,1
+baseline,2025-11-30,West Ham,Liverpool,D England,Under 3.5,0.6183242003443856,1.97,0.21809867467843969,0.0,1,3,False,1,1
+baseline,2025-11-30,West Ham,Liverpool,D England,Under 3.5,0.6183242003443856,1.97,0.21809867467843969,0.05,1,3,False,1,1
+baseline,2025-11-30,West Ham,Liverpool,D England,Under 3.5,0.6183242003443856,1.97,0.21809867467843969,0.08,1,3,False,1,1
+baseline,2025-11-30,West Ham,Liverpool,D England,Under 3.5,0.6183242003443856,1.97,0.21809867467843969,0.1,1,3,False,1,1
+baseline,2025-11-30,West Ham,Liverpool,D England,Under 3.5,0.6183242003443856,1.97,0.21809867467843969,0.2,1,3,False,1,1
+baseline,2025-12-03,Brighton,Aston Villa,A Madley,Under 3.5,0.5846993189909553,2.44,0.4266663383379308,0.0,4,4,True,0,0
+baseline,2025-12-03,Brighton,Aston Villa,A Madley,Under 3.5,0.5846993189909553,2.44,0.4266663383379308,0.05,4,4,True,0,0
+baseline,2025-12-03,Brighton,Aston Villa,A Madley,Under 3.5,0.5846993189909553,2.44,0.4266663383379308,0.08,4,4,True,0,0
+baseline,2025-12-03,Brighton,Aston Villa,A Madley,Under 3.5,0.5846993189909553,2.44,0.4266663383379308,0.1,4,4,True,0,0
+baseline,2025-12-03,Brighton,Aston Villa,A Madley,Under 3.5,0.5846993189909553,2.44,0.4266663383379308,0.2,4,4,True,0,0
+baseline,2025-12-03,Liverpool,Sunderland,S Attwell,Under 3.5,0.5716719265660717,2.29,0.3091287118363042,0.0,2,2,True,1,1
+baseline,2025-12-03,Liverpool,Sunderland,S Attwell,Under 3.5,0.5716719265660717,2.29,0.3091287118363042,0.05,2,2,True,1,1
+baseline,2025-12-03,Liverpool,Sunderland,S Attwell,Under 3.5,0.5716719265660717,2.29,0.3091287118363042,0.08,2,2,True,1,1
+baseline,2025-12-03,Liverpool,Sunderland,S Attwell,Under 3.5,0.5716719265660717,2.29,0.3091287118363042,0.1,2,2,True,1,1
+baseline,2025-12-03,Liverpool,Sunderland,S Attwell,Under 3.5,0.5716719265660717,2.29,0.3091287118363042,0.2,2,2,True,1,1
+baseline,2025-12-06,Bournemouth,Chelsea,M Oliver,Under 3.5,0.6126221648922103,3.81,1.3340904482393214,0.0,2,2,True,1,1
+baseline,2025-12-06,Bournemouth,Chelsea,M Oliver,Under 3.5,0.6126221648922103,3.81,1.3340904482393214,0.05,2,2,True,1,1
+baseline,2025-12-06,Bournemouth,Chelsea,M Oliver,Under 3.5,0.6126221648922103,3.81,1.3340904482393214,0.08,2,2,True,1,1
+baseline,2025-12-06,Bournemouth,Chelsea,M Oliver,Under 3.5,0.6126221648922103,3.81,1.3340904482393214,0.1,2,2,True,1,1
+baseline,2025-12-06,Bournemouth,Chelsea,M Oliver,Under 3.5,0.6126221648922103,3.81,1.3340904482393214,0.2,2,2,True,1,1
+baseline,2025-12-06,Leeds,Liverpool,A Taylor,Under 3.5,0.5768410259999849,1.74,0.003703385239973711,0.0,6,6,True,0,0
+baseline,2025-12-06,Man City,Sunderland,A Madley,Under 3.5,0.6084062349362944,1.74,0.058626848789152364,0.0,1,1,True,1,1
+baseline,2025-12-06,Man City,Sunderland,A Madley,Under 3.5,0.6084062349362944,1.74,0.058626848789152364,0.05,1,1,True,1,1
+baseline,2025-12-06,Newcastle,Burnley,S Attwell,Under 3.5,0.57806810278653,1.84,0.06364530912721511,0.0,4,4,True,0,0
+baseline,2025-12-06,Newcastle,Burnley,S Attwell,Under 3.5,0.57806810278653,1.84,0.06364530912721511,0.05,4,4,True,0,0
+baseline,2025-12-07,Brighton,West Ham,S Hooper,Under 3.5,0.5848579280158521,2.21,0.29253602091503317,0.0,4,4,True,0,0
+baseline,2025-12-07,Brighton,West Ham,S Hooper,Under 3.5,0.5848579280158521,2.21,0.29253602091503317,0.05,4,4,True,0,0
+baseline,2025-12-07,Brighton,West Ham,S Hooper,Under 3.5,0.5848579280158521,2.21,0.29253602091503317,0.08,4,4,True,0,0
+baseline,2025-12-07,Brighton,West Ham,S Hooper,Under 3.5,0.5848579280158521,2.21,0.29253602091503317,0.1,4,4,True,0,0
+baseline,2025-12-07,Brighton,West Ham,S Hooper,Under 3.5,0.5848579280158521,2.21,0.29253602091503317,0.2,4,4,True,0,0
+baseline,2025-12-13,Burnley,Fulham,M Oliver,Under 3.5,0.6047877904688326,1.94,0.1732883135095351,0.0,3,3,True,1,1
+baseline,2025-12-13,Burnley,Fulham,M Oliver,Under 3.5,0.6047877904688326,1.94,0.1732883135095351,0.05,3,3,True,1,1
+baseline,2025-12-13,Burnley,Fulham,M Oliver,Under 3.5,0.6047877904688326,1.94,0.1732883135095351,0.08,3,3,True,1,1
+baseline,2025-12-13,Burnley,Fulham,M Oliver,Under 3.5,0.6047877904688326,1.94,0.1732883135095351,0.1,3,3,True,1,1
+baseline,2025-12-13,Liverpool,Brighton,C Pawson,Under 3.5,0.6398564566490027,2.0,0.2797129132980054,0.0,3,3,True,1,1
+baseline,2025-12-13,Liverpool,Brighton,C Pawson,Under 3.5,0.6398564566490027,2.0,0.2797129132980054,0.05,3,3,True,1,1
+baseline,2025-12-13,Liverpool,Brighton,C Pawson,Under 3.5,0.6398564566490027,2.0,0.2797129132980054,0.08,3,3,True,1,1
+baseline,2025-12-13,Liverpool,Brighton,C Pawson,Under 3.5,0.6398564566490027,2.0,0.2797129132980054,0.1,3,3,True,1,1
+baseline,2025-12-13,Liverpool,Brighton,C Pawson,Under 3.5,0.6398564566490027,2.0,0.2797129132980054,0.2,3,3,True,1,1
+baseline,2025-12-14,Brentford,Leeds,J Brooks,Over 3.5,0.6249718139652751,1.63,0.01870405676339848,0.0,0,0,True,0,0
+baseline,2025-12-14,Crystal Palace,Man City,D England,Under 3.5,0.575784698319303,2.21,0.2724841832856597,0.0,2,2,True,1,1
+baseline,2025-12-14,Crystal Palace,Man City,D England,Under 3.5,0.575784698319303,2.21,0.2724841832856597,0.05,2,2,True,1,1
+baseline,2025-12-14,Crystal Palace,Man City,D England,Under 3.5,0.575784698319303,2.21,0.2724841832856597,0.08,2,2,True,1,1
+baseline,2025-12-14,Crystal Palace,Man City,D England,Under 3.5,0.575784698319303,2.21,0.2724841832856597,0.1,2,2,True,1,1
+baseline,2025-12-14,Crystal Palace,Man City,D England,Under 3.5,0.575784698319303,2.21,0.2724841832856597,0.2,2,2,True,1,1
+baseline,2025-12-20,Bournemouth,Burnley,C Kavanagh,Under 3.5,0.5778175108910002,2.19,0.2654203488512905,0.0,2,2,True,1,1
+baseline,2025-12-20,Bournemouth,Burnley,C Kavanagh,Under 3.5,0.5778175108910002,2.19,0.2654203488512905,0.05,2,2,True,1,1
+baseline,2025-12-20,Bournemouth,Burnley,C Kavanagh,Under 3.5,0.5778175108910002,2.19,0.2654203488512905,0.08,2,2,True,1,1
+baseline,2025-12-20,Bournemouth,Burnley,C Kavanagh,Under 3.5,0.5778175108910002,2.19,0.2654203488512905,0.1,2,2,True,1,1
+baseline,2025-12-20,Bournemouth,Burnley,C Kavanagh,Under 3.5,0.5778175108910002,2.19,0.2654203488512905,0.2,2,2,True,1,1
+baseline,2025-12-20,Man City,West Ham,P Tierney,Under 3.5,0.6727451772651862,1.52,0.022572669443083004,0.0,2,2,True,1,1
+baseline,2025-12-20,Newcastle,Chelsea,A Madley,Under 3.5,0.6179166027943404,3.01,0.8599289744109644,0.0,9,9,True,0,0
+baseline,2025-12-20,Newcastle,Chelsea,A Madley,Under 3.5,0.6179166027943404,3.01,0.8599289744109644,0.05,9,9,True,0,0
+baseline,2025-12-20,Newcastle,Chelsea,A Madley,Under 3.5,0.6179166027943404,3.01,0.8599289744109644,0.08,9,9,True,0,0
+baseline,2025-12-20,Newcastle,Chelsea,A Madley,Under 3.5,0.6179166027943404,3.01,0.8599289744109644,0.1,9,9,True,0,0
+baseline,2025-12-20,Newcastle,Chelsea,A Madley,Under 3.5,0.6179166027943404,3.01,0.8599289744109644,0.2,9,9,True,0,0
+baseline,2025-12-21,Aston Villa,Man United,M Oliver,Under 3.5,0.5750110400968822,2.26,0.2995249506189537,0.0,3,3,True,1,1
+baseline,2025-12-21,Aston Villa,Man United,M Oliver,Under 3.5,0.5750110400968822,2.26,0.2995249506189537,0.05,3,3,True,1,1
+baseline,2025-12-21,Aston Villa,Man United,M Oliver,Under 3.5,0.5750110400968822,2.26,0.2995249506189537,0.08,3,3,True,1,1
+baseline,2025-12-21,Aston Villa,Man United,M Oliver,Under 3.5,0.5750110400968822,2.26,0.2995249506189537,0.1,3,3,True,1,1
+baseline,2025-12-21,Aston Villa,Man United,M Oliver,Under 3.5,0.5750110400968822,2.26,0.2995249506189537,0.2,3,3,True,1,1
+baseline,2025-12-27,Liverpool,Wolves,S Hooper,Under 3.5,0.597254559156857,2.19,0.3079874845535169,0.0,1,1,True,1,1
+baseline,2025-12-27,Liverpool,Wolves,S Hooper,Under 3.5,0.597254559156857,2.19,0.3079874845535169,0.05,1,1,True,1,1
+baseline,2025-12-27,Liverpool,Wolves,S Hooper,Under 3.5,0.597254559156857,2.19,0.3079874845535169,0.08,1,1,True,1,1
+baseline,2025-12-27,Liverpool,Wolves,S Hooper,Under 3.5,0.597254559156857,2.19,0.3079874845535169,0.1,1,1,True,1,1
+baseline,2025-12-27,Liverpool,Wolves,S Hooper,Under 3.5,0.597254559156857,2.19,0.3079874845535169,0.2,1,1,True,1,1
+baseline,2025-12-27,West Ham,Fulham,C Kavanagh,Under 3.5,0.5742342761188235,2.03,0.16569558052121147,0.0,4,4,True,0,0
+baseline,2025-12-27,West Ham,Fulham,C Kavanagh,Under 3.5,0.5742342761188235,2.03,0.16569558052121147,0.05,4,4,True,0,0
+baseline,2025-12-27,West Ham,Fulham,C Kavanagh,Under 3.5,0.5742342761188235,2.03,0.16569558052121147,0.08,4,4,True,0,0
+baseline,2025-12-27,West Ham,Fulham,C Kavanagh,Under 3.5,0.5742342761188235,2.03,0.16569558052121147,0.1,4,4,True,0,0
+baseline,2025-12-30,Nott'm Forest,Everton,M Oliver,Under 3.5,0.5772675020398232,1.94,0.11989895395725703,0.0,1,1,True,1,1
+baseline,2025-12-30,Nott'm Forest,Everton,M Oliver,Under 3.5,0.5772675020398232,1.94,0.11989895395725703,0.05,1,1,True,1,1
+baseline,2025-12-30,Nott'm Forest,Everton,M Oliver,Under 3.5,0.5772675020398232,1.94,0.11989895395725703,0.08,1,1,True,1,1
+baseline,2025-12-30,Nott'm Forest,Everton,M Oliver,Under 3.5,0.5772675020398232,1.94,0.11989895395725703,0.1,1,1,True,1,1
+baseline,2025-12-30,West Ham,Brighton,M Salisbury,Under 3.5,0.570636788530025,1.89,0.07850353032174717,0.0,8,8,True,0,0
+baseline,2025-12-30,West Ham,Brighton,M Salisbury,Under 3.5,0.570636788530025,1.89,0.07850353032174717,0.05,8,8,True,0,0
+baseline,2026-01-01,Brentford,Tottenham,A Madley,Under 3.5,0.5844288432114738,1.94,0.13379195583025916,0.0,3,3,True,1,1
+baseline,2026-01-01,Brentford,Tottenham,A Madley,Under 3.5,0.5844288432114738,1.94,0.13379195583025916,0.05,3,3,True,1,1
+baseline,2026-01-01,Brentford,Tottenham,A Madley,Under 3.5,0.5844288432114738,1.94,0.13379195583025916,0.08,3,3,True,1,1
+baseline,2026-01-01,Brentford,Tottenham,A Madley,Under 3.5,0.5844288432114738,1.94,0.13379195583025916,0.1,3,3,True,1,1
+baseline,2026-01-01,Liverpool,Leeds,C Kavanagh,Under 3.5,0.5979254607334643,1.8,0.07626582932023585,0.0,2,2,True,1,1
+baseline,2026-01-01,Liverpool,Leeds,C Kavanagh,Under 3.5,0.5979254607334643,1.8,0.07626582932023585,0.05,2,2,True,1,1
+baseline,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Under 3.5,0.606127329154208,2.03,0.23043847818304197,0.0,4,4,True,0,0
+baseline,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Under 3.5,0.606127329154208,2.03,0.23043847818304197,0.05,4,4,True,0,0
+baseline,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Under 3.5,0.606127329154208,2.03,0.23043847818304197,0.08,4,4,True,0,0
+baseline,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Under 3.5,0.606127329154208,2.03,0.23043847818304197,0.1,4,4,True,0,0
+baseline,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Under 3.5,0.606127329154208,2.03,0.23043847818304197,0.2,4,4,True,0,0
+baseline,2026-01-04,Man City,Chelsea,M Oliver,Under 3.5,0.6747570429006335,2.29,0.5451936282424508,0.0,6,6,True,0,0
+baseline,2026-01-04,Man City,Chelsea,M Oliver,Under 3.5,0.6747570429006335,2.29,0.5451936282424508,0.05,6,6,True,0,0
+baseline,2026-01-04,Man City,Chelsea,M Oliver,Under 3.5,0.6747570429006335,2.29,0.5451936282424508,0.08,6,6,True,0,0
+baseline,2026-01-04,Man City,Chelsea,M Oliver,Under 3.5,0.6747570429006335,2.29,0.5451936282424508,0.1,6,6,True,0,0
+baseline,2026-01-04,Man City,Chelsea,M Oliver,Under 3.5,0.6747570429006335,2.29,0.5451936282424508,0.2,6,6,True,0,0
+baseline,2026-01-07,Man City,Brighton,T Bramall,Under 3.5,0.6133525802563145,1.94,0.18990400569725008,0.0,7,7,True,0,0
+baseline,2026-01-07,Man City,Brighton,T Bramall,Under 3.5,0.6133525802563145,1.94,0.18990400569725008,0.05,7,7,True,0,0
+baseline,2026-01-07,Man City,Brighton,T Bramall,Under 3.5,0.6133525802563145,1.94,0.18990400569725008,0.08,7,7,True,0,0
+baseline,2026-01-07,Man City,Brighton,T Bramall,Under 3.5,0.6133525802563145,1.94,0.18990400569725008,0.1,7,7,True,0,0
+baseline,2026-01-08,Arsenal,Liverpool,A Taylor,Under 3.5,0.6718292166347462,2.29,0.5384889060935687,0.0,4,4,True,0,0
+baseline,2026-01-08,Arsenal,Liverpool,A Taylor,Under 3.5,0.6718292166347462,2.29,0.5384889060935687,0.05,4,4,True,0,0
+baseline,2026-01-08,Arsenal,Liverpool,A Taylor,Under 3.5,0.6718292166347462,2.29,0.5384889060935687,0.08,4,4,True,0,0
+baseline,2026-01-08,Arsenal,Liverpool,A Taylor,Under 3.5,0.6718292166347462,2.29,0.5384889060935687,0.1,4,4,True,0,0
+baseline,2026-01-08,Arsenal,Liverpool,A Taylor,Under 3.5,0.6718292166347462,2.29,0.5384889060935687,0.2,4,4,True,0,0
+baseline,2026-01-17,Man United,Man City,A Taylor,Under 3.5,0.60157459648599,2.21,0.3294798582340379,0.0,5,5,True,0,0
+baseline,2026-01-17,Man United,Man City,A Taylor,Under 3.5,0.60157459648599,2.21,0.3294798582340379,0.05,5,5,True,0,0
+baseline,2026-01-17,Man United,Man City,A Taylor,Under 3.5,0.60157459648599,2.21,0.3294798582340379,0.08,5,5,True,0,0
+baseline,2026-01-17,Man United,Man City,A Taylor,Under 3.5,0.60157459648599,2.21,0.3294798582340379,0.1,5,5,True,0,0
+baseline,2026-01-17,Man United,Man City,A Taylor,Under 3.5,0.60157459648599,2.21,0.3294798582340379,0.2,5,5,True,0,0
+baseline,2026-01-19,Brighton,Bournemouth,P Tierney,Under 3.5,0.5986487102815117,2.41,0.44274339177844313,0.0,5,5,True,0,0
+baseline,2026-01-19,Brighton,Bournemouth,P Tierney,Under 3.5,0.5986487102815117,2.41,0.44274339177844313,0.05,5,5,True,0,0
+baseline,2026-01-19,Brighton,Bournemouth,P Tierney,Under 3.5,0.5986487102815117,2.41,0.44274339177844313,0.08,5,5,True,0,0
+baseline,2026-01-19,Brighton,Bournemouth,P Tierney,Under 3.5,0.5986487102815117,2.41,0.44274339177844313,0.1,5,5,True,0,0
+baseline,2026-01-19,Brighton,Bournemouth,P Tierney,Under 3.5,0.5986487102815117,2.41,0.44274339177844313,0.2,5,5,True,0,0
+baseline,2026-01-24,Bournemouth,Liverpool,M Salisbury,Under 3.5,0.5883585759030889,2.24,0.31792321002291923,0.0,2,2,True,1,1
+baseline,2026-01-24,Bournemouth,Liverpool,M Salisbury,Under 3.5,0.5883585759030889,2.24,0.31792321002291923,0.05,2,2,True,1,1
+baseline,2026-01-24,Bournemouth,Liverpool,M Salisbury,Under 3.5,0.5883585759030889,2.24,0.31792321002291923,0.08,2,2,True,1,1
+baseline,2026-01-24,Bournemouth,Liverpool,M Salisbury,Under 3.5,0.5883585759030889,2.24,0.31792321002291923,0.1,2,2,True,1,1
+baseline,2026-01-24,Bournemouth,Liverpool,M Salisbury,Under 3.5,0.5883585759030889,2.24,0.31792321002291923,0.2,2,2,True,1,1
+baseline,2026-01-24,Fulham,Brighton,M Oliver,Under 3.5,0.6015073912705087,1.91,0.14887911732667147,0.0,2,2,True,1,1
+baseline,2026-01-24,Fulham,Brighton,M Oliver,Under 3.5,0.6015073912705087,1.91,0.14887911732667147,0.05,2,2,True,1,1
+baseline,2026-01-24,Fulham,Brighton,M Oliver,Under 3.5,0.6015073912705087,1.91,0.14887911732667147,0.08,2,2,True,1,1
+baseline,2026-01-24,Fulham,Brighton,M Oliver,Under 3.5,0.6015073912705087,1.91,0.14887911732667147,0.1,2,2,True,1,1
+baseline,2026-01-25,Arsenal,Man United,C Pawson,Under 3.5,0.5734948855808519,1.84,0.05523058946876769,0.0,2,2,True,1,1
+baseline,2026-01-25,Arsenal,Man United,C Pawson,Under 3.5,0.5734948855808519,1.84,0.05523058946876769,0.05,2,2,True,1,1
+baseline,2026-01-31,Brighton,Everton,C Kavanagh,Under 3.5,0.5887231722517958,2.35,0.3834994547917203,0.0,3,3,True,1,1
+baseline,2026-01-31,Brighton,Everton,C Kavanagh,Under 3.5,0.5887231722517958,2.35,0.3834994547917203,0.05,3,3,True,1,1
+baseline,2026-01-31,Brighton,Everton,C Kavanagh,Under 3.5,0.5887231722517958,2.35,0.3834994547917203,0.08,3,3,True,1,1
+baseline,2026-01-31,Brighton,Everton,C Kavanagh,Under 3.5,0.5887231722517958,2.35,0.3834994547917203,0.1,3,3,True,1,1
+baseline,2026-01-31,Brighton,Everton,C Kavanagh,Under 3.5,0.5887231722517958,2.35,0.3834994547917203,0.2,3,3,True,1,1
+baseline,2026-01-31,Chelsea,West Ham,A Taylor,Under 3.5,0.5792102802249997,2.35,0.36114415852874915,0.0,5,5,True,0,0
+baseline,2026-01-31,Chelsea,West Ham,A Taylor,Under 3.5,0.5792102802249997,2.35,0.36114415852874915,0.05,5,5,True,0,0
+baseline,2026-01-31,Chelsea,West Ham,A Taylor,Under 3.5,0.5792102802249997,2.35,0.36114415852874915,0.08,5,5,True,0,0
+baseline,2026-01-31,Chelsea,West Ham,A Taylor,Under 3.5,0.5792102802249997,2.35,0.36114415852874915,0.1,5,5,True,0,0
+baseline,2026-01-31,Chelsea,West Ham,A Taylor,Under 3.5,0.5792102802249997,2.35,0.36114415852874915,0.2,5,5,True,0,0
+baseline,2026-01-31,Liverpool,Newcastle,S Hooper,Under 3.5,0.6443997032748225,2.26,0.4563433294010988,0.0,4,4,True,0,0
+baseline,2026-01-31,Liverpool,Newcastle,S Hooper,Under 3.5,0.6443997032748225,2.26,0.4563433294010988,0.05,4,4,True,0,0
+baseline,2026-01-31,Liverpool,Newcastle,S Hooper,Under 3.5,0.6443997032748225,2.26,0.4563433294010988,0.08,4,4,True,0,0
+baseline,2026-01-31,Liverpool,Newcastle,S Hooper,Under 3.5,0.6443997032748225,2.26,0.4563433294010988,0.1,4,4,True,0,0
+baseline,2026-01-31,Liverpool,Newcastle,S Hooper,Under 3.5,0.6443997032748225,2.26,0.4563433294010988,0.2,4,4,True,0,0
+baseline,2026-01-31,Wolves,Bournemouth,M Oliver,Under 3.5,0.5982657939125511,2.76,0.6512135911986408,0.0,6,6,True,0,0
+baseline,2026-01-31,Wolves,Bournemouth,M Oliver,Under 3.5,0.5982657939125511,2.76,0.6512135911986408,0.05,6,6,True,0,0
+baseline,2026-01-31,Wolves,Bournemouth,M Oliver,Under 3.5,0.5982657939125511,2.76,0.6512135911986408,0.08,6,6,True,0,0
+baseline,2026-01-31,Wolves,Bournemouth,M Oliver,Under 3.5,0.5982657939125511,2.76,0.6512135911986408,0.1,6,6,True,0,0
+baseline,2026-01-31,Wolves,Bournemouth,M Oliver,Under 3.5,0.5982657939125511,2.76,0.6512135911986408,0.2,6,6,True,0,0
+baseline,2026-02-01,Man United,Fulham,J Brooks,Over 3.5,0.615663081185271,1.64,0.009687453143844449,0.0,3,3,True,0,0
+baseline,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6014115160447521,1.9,0.14268188048502894,0.0,2,2,True,0,0
+baseline,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6014115160447521,1.9,0.14268188048502894,0.05,2,2,True,0,0
+baseline,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6014115160447521,1.9,0.14268188048502894,0.08,2,2,True,0,0
+baseline,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6014115160447521,1.9,0.14268188048502894,0.1,2,2,True,0,0
+baseline,2026-02-07,Man United,Tottenham,M Oliver,Under 3.5,0.5953475402166086,2.26,0.34548544088953537,0.0,3,3,True,1,1
+baseline,2026-02-07,Man United,Tottenham,M Oliver,Under 3.5,0.5953475402166086,2.26,0.34548544088953537,0.05,3,3,True,1,1
+baseline,2026-02-07,Man United,Tottenham,M Oliver,Under 3.5,0.5953475402166086,2.26,0.34548544088953537,0.08,3,3,True,1,1
+baseline,2026-02-07,Man United,Tottenham,M Oliver,Under 3.5,0.5953475402166086,2.26,0.34548544088953537,0.1,3,3,True,1,1
+baseline,2026-02-07,Man United,Tottenham,M Oliver,Under 3.5,0.5953475402166086,2.26,0.34548544088953537,0.2,3,3,True,1,1
+baseline,2026-02-07,Newcastle,Brentford,A Madley,Under 3.5,0.617331557889243,1.74,0.07415691072728281,0.0,4,4,True,0,0
+baseline,2026-02-07,Newcastle,Brentford,A Madley,Under 3.5,0.617331557889243,1.74,0.07415691072728281,0.05,4,4,True,0,0
+baseline,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.6916850684263153,1.94,0.3418690327470515,0.0,6,6,True,0,0
+baseline,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.6916850684263153,1.94,0.3418690327470515,0.05,6,6,True,0,0
+baseline,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.6916850684263153,1.94,0.3418690327470515,0.08,6,6,True,0,0
+baseline,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.6916850684263153,1.94,0.3418690327470515,0.1,6,6,True,0,0
+baseline,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.6916850684263153,1.94,0.3418690327470515,0.2,6,6,True,0,0
+baseline,2026-02-10,Everton,Bournemouth,A Madley,Under 3.5,0.5955466012983515,2.07,0.23278146468758742,0.0,4,4,True,0,0
+baseline,2026-02-10,Everton,Bournemouth,A Madley,Under 3.5,0.5955466012983515,2.07,0.23278146468758742,0.05,4,4,True,0,0
+baseline,2026-02-10,Everton,Bournemouth,A Madley,Under 3.5,0.5955466012983515,2.07,0.23278146468758742,0.08,4,4,True,0,0
+baseline,2026-02-10,Everton,Bournemouth,A Madley,Under 3.5,0.5955466012983515,2.07,0.23278146468758742,0.1,4,4,True,0,0
+baseline,2026-02-10,Everton,Bournemouth,A Madley,Under 3.5,0.5955466012983515,2.07,0.23278146468758742,0.2,4,4,True,0,0
+baseline,2026-02-11,Sunderland,Liverpool,C Kavanagh,Under 3.5,0.6035312151084944,2.24,0.3519099218430275,0.0,1,1,True,1,1
+baseline,2026-02-11,Sunderland,Liverpool,C Kavanagh,Under 3.5,0.6035312151084944,2.24,0.3519099218430275,0.05,1,1,True,1,1
+baseline,2026-02-11,Sunderland,Liverpool,C Kavanagh,Under 3.5,0.6035312151084944,2.24,0.3519099218430275,0.08,1,1,True,1,1
+baseline,2026-02-11,Sunderland,Liverpool,C Kavanagh,Under 3.5,0.6035312151084944,2.24,0.3519099218430275,0.1,1,1,True,1,1
+baseline,2026-02-11,Sunderland,Liverpool,C Kavanagh,Under 3.5,0.6035312151084944,2.24,0.3519099218430275,0.2,1,1,True,1,1
+baseline,2026-02-18,Wolves,Arsenal,P Tierney,Under 3.5,0.6013880096968076,1.74,0.04641513687244525,0.0,3,3,True,1,1
+baseline,2026-02-21,Man City,Newcastle,T Bramall,Under 3.5,0.6080402254255008,1.97,0.1978392440882366,0.0,7,7,True,0,0
+baseline,2026-02-21,Man City,Newcastle,T Bramall,Under 3.5,0.6080402254255008,1.97,0.1978392440882366,0.05,7,7,True,0,0
+baseline,2026-02-21,Man City,Newcastle,T Bramall,Under 3.5,0.6080402254255008,1.97,0.1978392440882366,0.08,7,7,True,0,0
+baseline,2026-02-21,Man City,Newcastle,T Bramall,Under 3.5,0.6080402254255008,1.97,0.1978392440882366,0.1,7,7,True,0,0
+baseline,2026-02-22,Nott'm Forest,Liverpool,A Taylor,Under 3.5,0.5937911323136587,1.8,0.06882403816458571,0.0,2,2,True,1,1
+baseline,2026-02-22,Nott'm Forest,Liverpool,A Taylor,Under 3.5,0.5937911323136587,1.8,0.06882403816458571,0.05,2,2,True,1,1
+baseline,2026-02-28,Liverpool,West Ham,T Robinson,Under 3.5,0.5855357115799267,1.86,0.08909642353866376,0.0,4,4,True,0,0
+baseline,2026-02-28,Liverpool,West Ham,T Robinson,Under 3.5,0.5855357115799267,1.86,0.08909642353866376,0.05,4,4,True,0,0
+baseline,2026-02-28,Liverpool,West Ham,T Robinson,Under 3.5,0.5855357115799267,1.86,0.08909642353866376,0.08,4,4,True,0,0
+baseline,2026-03-03,Wolves,Liverpool,T Bramall,Under 3.5,0.5728954568927693,1.89,0.082772413527334,0.0,3,3,True,1,1
+baseline,2026-03-03,Wolves,Liverpool,T Bramall,Under 3.5,0.5728954568927693,1.89,0.082772413527334,0.05,3,3,True,1,1
+baseline,2026-03-03,Wolves,Liverpool,T Bramall,Under 3.5,0.5728954568927693,1.89,0.082772413527334,0.08,3,3,True,1,1
+baseline,2026-03-04,Brighton,Arsenal,C Kavanagh,Under 3.5,0.6254175474057813,2.0,0.2508350948115625,0.0,5,5,True,0,0
+baseline,2026-03-04,Brighton,Arsenal,C Kavanagh,Under 3.5,0.6254175474057813,2.0,0.2508350948115625,0.05,5,5,True,0,0
+baseline,2026-03-04,Brighton,Arsenal,C Kavanagh,Under 3.5,0.6254175474057813,2.0,0.2508350948115625,0.08,5,5,True,0,0
+baseline,2026-03-04,Brighton,Arsenal,C Kavanagh,Under 3.5,0.6254175474057813,2.0,0.2508350948115625,0.1,5,5,True,0,0
+baseline,2026-03-04,Brighton,Arsenal,C Kavanagh,Under 3.5,0.6254175474057813,2.0,0.2508350948115625,0.2,5,5,True,0,0
+baseline,2026-03-05,Tottenham,Crystal Palace,A Madley,Under 3.5,0.5905823049812842,2.48,0.4646441163535848,0.0,5,5,True,0,0
+baseline,2026-03-05,Tottenham,Crystal Palace,A Madley,Under 3.5,0.5905823049812842,2.48,0.4646441163535848,0.05,5,5,True,0,0
+baseline,2026-03-05,Tottenham,Crystal Palace,A Madley,Under 3.5,0.5905823049812842,2.48,0.4646441163535848,0.08,5,5,True,0,0
+baseline,2026-03-05,Tottenham,Crystal Palace,A Madley,Under 3.5,0.5905823049812842,2.48,0.4646441163535848,0.1,5,5,True,0,0
+baseline,2026-03-05,Tottenham,Crystal Palace,A Madley,Under 3.5,0.5905823049812842,2.48,0.4646441163535848,0.2,5,5,True,0,0
+baseline,2026-03-14,Arsenal,Everton,A Madley,Under 3.5,0.6421976030448673,1.74,0.11742382929806916,0.0,0,0,True,1,1
+baseline,2026-03-14,Arsenal,Everton,A Madley,Under 3.5,0.6421976030448673,1.74,0.11742382929806916,0.05,0,0,True,1,1
+baseline,2026-03-14,Arsenal,Everton,A Madley,Under 3.5,0.6421976030448673,1.74,0.11742382929806916,0.08,0,0,True,1,1
+baseline,2026-03-14,Arsenal,Everton,A Madley,Under 3.5,0.6421976030448673,1.74,0.11742382929806916,0.1,0,0,True,1,1
+baseline,2026-03-14,Chelsea,Newcastle,P Tierney,Under 3.5,0.6072182380540327,3.25,0.9734592736756065,0.0,4,4,True,0,0
+baseline,2026-03-14,Chelsea,Newcastle,P Tierney,Under 3.5,0.6072182380540327,3.25,0.9734592736756065,0.05,4,4,True,0,0
+baseline,2026-03-14,Chelsea,Newcastle,P Tierney,Under 3.5,0.6072182380540327,3.25,0.9734592736756065,0.08,4,4,True,0,0
+baseline,2026-03-14,Chelsea,Newcastle,P Tierney,Under 3.5,0.6072182380540327,3.25,0.9734592736756065,0.1,4,4,True,0,0
+baseline,2026-03-14,Chelsea,Newcastle,P Tierney,Under 3.5,0.6072182380540327,3.25,0.9734592736756065,0.2,4,4,True,0,0
+baseline,2026-03-14,West Ham,Man City,M Oliver,Under 3.5,0.7106189647273756,1.6,0.13699034356380113,0.0,4,4,True,0,0
+baseline,2026-03-14,West Ham,Man City,M Oliver,Under 3.5,0.7106189647273756,1.6,0.13699034356380113,0.05,4,4,True,0,0
+baseline,2026-03-14,West Ham,Man City,M Oliver,Under 3.5,0.7106189647273756,1.6,0.13699034356380113,0.08,4,4,True,0,0
+baseline,2026-03-14,West Ham,Man City,M Oliver,Under 3.5,0.7106189647273756,1.6,0.13699034356380113,0.1,4,4,True,0,0
+baseline,2026-03-15,Liverpool,Tottenham,C Kavanagh,Under 3.5,0.6411689712802445,2.24,0.43621849566774795,0.0,0,0,True,1,1
+baseline,2026-03-15,Liverpool,Tottenham,C Kavanagh,Under 3.5,0.6411689712802445,2.24,0.43621849566774795,0.05,0,0,True,1,1
+baseline,2026-03-15,Liverpool,Tottenham,C Kavanagh,Under 3.5,0.6411689712802445,2.24,0.43621849566774795,0.08,0,0,True,1,1
+baseline,2026-03-15,Liverpool,Tottenham,C Kavanagh,Under 3.5,0.6411689712802445,2.24,0.43621849566774795,0.1,0,0,True,1,1
+baseline,2026-03-15,Liverpool,Tottenham,C Kavanagh,Under 3.5,0.6411689712802445,2.24,0.43621849566774795,0.2,0,0,True,1,1
+baseline,2026-03-15,Nott'm Forest,Fulham,S Barrott,Over 3.5,0.570315893389286,1.9,0.08360019743964342,0.0,5,5,True,1,1
+baseline,2026-03-15,Nott'm Forest,Fulham,S Barrott,Over 3.5,0.570315893389286,1.9,0.08360019743964342,0.05,5,5,True,1,1
+baseline,2026-03-15,Nott'm Forest,Fulham,S Barrott,Over 3.5,0.570315893389286,1.9,0.08360019743964342,0.08,5,5,True,1,1
+baseline,2026-03-21,Brighton,Liverpool,D England,Under 3.5,0.6005531765773894,2.36,0.41730549672263884,0.0,10,10,True,0,0
+baseline,2026-03-21,Brighton,Liverpool,D England,Under 3.5,0.6005531765773894,2.36,0.41730549672263884,0.05,10,10,True,0,0
+baseline,2026-03-21,Brighton,Liverpool,D England,Under 3.5,0.6005531765773894,2.36,0.41730549672263884,0.08,10,10,True,0,0
+baseline,2026-03-21,Brighton,Liverpool,D England,Under 3.5,0.6005531765773894,2.36,0.41730549672263884,0.1,10,10,True,0,0
+baseline,2026-03-21,Brighton,Liverpool,D England,Under 3.5,0.6005531765773894,2.36,0.41730549672263884,0.2,10,10,True,0,0
+baseline,2026-03-22,Aston Villa,West Ham,P Tierney,Under 3.5,0.5901304011582043,2.0,0.1802608023164085,0.0,1,1,True,1,1
+baseline,2026-03-22,Aston Villa,West Ham,P Tierney,Under 3.5,0.5901304011582043,2.0,0.1802608023164085,0.05,1,1,True,1,1
+baseline,2026-03-22,Aston Villa,West Ham,P Tierney,Under 3.5,0.5901304011582043,2.0,0.1802608023164085,0.08,1,1,True,1,1
+baseline,2026-03-22,Aston Villa,West Ham,P Tierney,Under 3.5,0.5901304011582043,2.0,0.1802608023164085,0.1,1,1,True,1,1
+baseline,2026-03-22,Tottenham,Nott'm Forest,M Oliver,Under 3.5,0.5752851945782922,2.81,0.6165513967650011,0.0,3,3,True,1,1
+baseline,2026-03-22,Tottenham,Nott'm Forest,M Oliver,Under 3.5,0.5752851945782922,2.81,0.6165513967650011,0.05,3,3,True,1,1
+baseline,2026-03-22,Tottenham,Nott'm Forest,M Oliver,Under 3.5,0.5752851945782922,2.81,0.6165513967650011,0.08,3,3,True,1,1
+baseline,2026-03-22,Tottenham,Nott'm Forest,M Oliver,Under 3.5,0.5752851945782922,2.81,0.6165513967650011,0.1,3,3,True,1,1
+baseline,2026-03-22,Tottenham,Nott'm Forest,M Oliver,Under 3.5,0.5752851945782922,2.81,0.6165513967650011,0.2,3,3,True,1,1
+baseline,2026-04-11,Arsenal,Bournemouth,M Oliver,Under 3.5,0.6572644665066554,1.6,0.05162314641064869,0.0,4,4,True,0,0
+baseline,2026-04-11,Arsenal,Bournemouth,M Oliver,Under 3.5,0.6572644665066554,1.6,0.05162314641064869,0.05,4,4,True,0,0
+baseline,2026-04-11,Liverpool,Fulham,A Taylor,Under 3.5,0.6021957305386703,1.83,0.10201818688576658,0.0,0,0,True,1,1
+baseline,2026-04-11,Liverpool,Fulham,A Taylor,Under 3.5,0.6021957305386703,1.83,0.10201818688576658,0.05,0,0,True,1,1
+baseline,2026-04-11,Liverpool,Fulham,A Taylor,Under 3.5,0.6021957305386703,1.83,0.10201818688576658,0.08,0,0,True,1,1
+baseline,2026-04-11,Liverpool,Fulham,A Taylor,Under 3.5,0.6021957305386703,1.83,0.10201818688576658,0.1,0,0,True,1,1
+baseline,2026-04-12,Chelsea,Man City,C Kavanagh,Under 3.5,0.6277521639183095,3.2,1.0088069245385904,0.0,4,4,True,0,0
+baseline,2026-04-12,Chelsea,Man City,C Kavanagh,Under 3.5,0.6277521639183095,3.2,1.0088069245385904,0.05,4,4,True,0,0
+baseline,2026-04-12,Chelsea,Man City,C Kavanagh,Under 3.5,0.6277521639183095,3.2,1.0088069245385904,0.08,4,4,True,0,0
+baseline,2026-04-12,Chelsea,Man City,C Kavanagh,Under 3.5,0.6277521639183095,3.2,1.0088069245385904,0.1,4,4,True,0,0
+baseline,2026-04-12,Chelsea,Man City,C Kavanagh,Under 3.5,0.6277521639183095,3.2,1.0088069245385904,0.2,4,4,True,0,0
+baseline,2026-04-12,Crystal Palace,Newcastle,A Madley,Under 3.5,0.6190861515597845,2.34,0.44866159464989575,0.0,3,3,True,1,1
+baseline,2026-04-12,Crystal Palace,Newcastle,A Madley,Under 3.5,0.6190861515597845,2.34,0.44866159464989575,0.05,3,3,True,1,1
+baseline,2026-04-12,Crystal Palace,Newcastle,A Madley,Under 3.5,0.6190861515597845,2.34,0.44866159464989575,0.08,3,3,True,1,1
+baseline,2026-04-12,Crystal Palace,Newcastle,A Madley,Under 3.5,0.6190861515597845,2.34,0.44866159464989575,0.1,3,3,True,1,1
+baseline,2026-04-12,Crystal Palace,Newcastle,A Madley,Under 3.5,0.6190861515597845,2.34,0.44866159464989575,0.2,3,3,True,1,1
+baseline,2026-04-18,Chelsea,Man United,M Oliver,Under 3.5,0.6004920739114523,3.24,0.9455943194731056,0.0,4,4,True,0,0
+baseline,2026-04-18,Chelsea,Man United,M Oliver,Under 3.5,0.6004920739114523,3.24,0.9455943194731056,0.05,4,4,True,0,0
+baseline,2026-04-18,Chelsea,Man United,M Oliver,Under 3.5,0.6004920739114523,3.24,0.9455943194731056,0.08,4,4,True,0,0
+baseline,2026-04-18,Chelsea,Man United,M Oliver,Under 3.5,0.6004920739114523,3.24,0.9455943194731056,0.1,4,4,True,0,0
+baseline,2026-04-18,Chelsea,Man United,M Oliver,Under 3.5,0.6004920739114523,3.24,0.9455943194731056,0.2,4,4,True,0,0
+baseline,2026-04-19,Everton,Liverpool,C Kavanagh,Under 3.5,0.6636211101892087,3.59,1.382399785579259,0.0,2,2,True,1,1
+baseline,2026-04-19,Everton,Liverpool,C Kavanagh,Under 3.5,0.6636211101892087,3.59,1.382399785579259,0.05,2,2,True,1,1
+baseline,2026-04-19,Everton,Liverpool,C Kavanagh,Under 3.5,0.6636211101892087,3.59,1.382399785579259,0.08,2,2,True,1,1
+baseline,2026-04-19,Everton,Liverpool,C Kavanagh,Under 3.5,0.6636211101892087,3.59,1.382399785579259,0.1,2,2,True,1,1
+baseline,2026-04-19,Everton,Liverpool,C Kavanagh,Under 3.5,0.6636211101892087,3.59,1.382399785579259,0.2,2,2,True,1,1
+baseline,2026-04-19,Man City,Arsenal,A Taylor,Under 3.5,0.659257692422397,2.3,0.5162926925715128,0.0,4,4,True,0,0
+baseline,2026-04-19,Man City,Arsenal,A Taylor,Under 3.5,0.659257692422397,2.3,0.5162926925715128,0.05,4,4,True,0,0
+baseline,2026-04-19,Man City,Arsenal,A Taylor,Under 3.5,0.659257692422397,2.3,0.5162926925715128,0.08,4,4,True,0,0
+baseline,2026-04-19,Man City,Arsenal,A Taylor,Under 3.5,0.659257692422397,2.3,0.5162926925715128,0.1,4,4,True,0,0
+baseline,2026-04-19,Man City,Arsenal,A Taylor,Under 3.5,0.659257692422397,2.3,0.5162926925715128,0.2,4,4,True,0,0
+baseline,2026-04-25,Liverpool,Crystal Palace,A Madley,Under 3.5,0.6770840518854873,1.6,0.0833344830167797,0.0,4,4,True,0,0
+baseline,2026-04-25,Liverpool,Crystal Palace,A Madley,Under 3.5,0.6770840518854873,1.6,0.0833344830167797,0.05,4,4,True,0,0
+baseline,2026-04-25,Liverpool,Crystal Palace,A Madley,Under 3.5,0.6770840518854873,1.6,0.0833344830167797,0.08,4,4,True,0,0
+baseline,2026-05-02,Brentford,West Ham,C Pawson,Under 3.5,0.591253995642885,1.73,0.022869412462191097,0.0,4,4,True,0,0
+baseline,2026-05-02,Newcastle,Brighton,C Kavanagh,Under 3.5,0.6096844570314489,2.77,0.6888259459771136,0.0,6,6,True,0,0
+baseline,2026-05-02,Newcastle,Brighton,C Kavanagh,Under 3.5,0.6096844570314489,2.77,0.6888259459771136,0.05,6,6,True,0,0
+baseline,2026-05-02,Newcastle,Brighton,C Kavanagh,Under 3.5,0.6096844570314489,2.77,0.6888259459771136,0.08,6,6,True,0,0
+baseline,2026-05-02,Newcastle,Brighton,C Kavanagh,Under 3.5,0.6096844570314489,2.77,0.6888259459771136,0.1,6,6,True,0,0
+baseline,2026-05-02,Newcastle,Brighton,C Kavanagh,Under 3.5,0.6096844570314489,2.77,0.6888259459771136,0.2,6,6,True,0,0
+baseline,2026-05-04,Everton,Man City,M Oliver,Under 3.5,0.6893292876351882,2.0,0.3786585752703764,0.0,5,5,True,0,0
+baseline,2026-05-04,Everton,Man City,M Oliver,Under 3.5,0.6893292876351882,2.0,0.3786585752703764,0.05,5,5,True,0,0
+baseline,2026-05-04,Everton,Man City,M Oliver,Under 3.5,0.6893292876351882,2.0,0.3786585752703764,0.08,5,5,True,0,0
+baseline,2026-05-04,Everton,Man City,M Oliver,Under 3.5,0.6893292876351882,2.0,0.3786585752703764,0.1,5,5,True,0,0
+baseline,2026-05-04,Everton,Man City,M Oliver,Under 3.5,0.6893292876351882,2.0,0.3786585752703764,0.2,5,5,True,0,0
+baseline,2026-05-09,Fulham,Bournemouth,A Madley,Under 3.5,0.5701454830403985,2.05,0.16879824023281675,0.0,6,6,True,0,0
+baseline,2026-05-09,Fulham,Bournemouth,A Madley,Under 3.5,0.5701454830403985,2.05,0.16879824023281675,0.05,6,6,True,0,0
+baseline,2026-05-09,Fulham,Bournemouth,A Madley,Under 3.5,0.5701454830403985,2.05,0.16879824023281675,0.08,6,6,True,0,0
+baseline,2026-05-09,Fulham,Bournemouth,A Madley,Under 3.5,0.5701454830403985,2.05,0.16879824023281675,0.1,6,6,True,0,0
+baseline,2026-05-09,Liverpool,Chelsea,C Pawson,Under 3.5,0.6327470692089248,2.0,0.2654941384178495,0.0,6,6,True,0,0
+baseline,2026-05-09,Liverpool,Chelsea,C Pawson,Under 3.5,0.6327470692089248,2.0,0.2654941384178495,0.05,6,6,True,0,0
+baseline,2026-05-09,Liverpool,Chelsea,C Pawson,Under 3.5,0.6327470692089248,2.0,0.2654941384178495,0.08,6,6,True,0,0
+baseline,2026-05-09,Liverpool,Chelsea,C Pawson,Under 3.5,0.6327470692089248,2.0,0.2654941384178495,0.1,6,6,True,0,0
+baseline,2026-05-09,Liverpool,Chelsea,C Pawson,Under 3.5,0.6327470692089248,2.0,0.2654941384178495,0.2,6,6,True,0,0
+baseline,2026-05-09,Man City,Brentford,M Salisbury,Under 3.5,0.5878907411481857,1.98,0.16402366747340769,0.0,6,6,True,0,0
+baseline,2026-05-09,Man City,Brentford,M Salisbury,Under 3.5,0.5878907411481857,1.98,0.16402366747340769,0.05,6,6,True,0,0
+baseline,2026-05-09,Man City,Brentford,M Salisbury,Under 3.5,0.5878907411481857,1.98,0.16402366747340769,0.08,6,6,True,0,0
+baseline,2026-05-09,Man City,Brentford,M Salisbury,Under 3.5,0.5878907411481857,1.98,0.16402366747340769,0.1,6,6,True,0,0
+baseline,2026-05-10,Nott'm Forest,Newcastle,P Tierney,Under 3.5,0.576844789113079,2.3,0.3267430149600816,0.0,2,2,True,1,1
+baseline,2026-05-10,Nott'm Forest,Newcastle,P Tierney,Under 3.5,0.576844789113079,2.3,0.3267430149600816,0.05,2,2,True,1,1
+baseline,2026-05-10,Nott'm Forest,Newcastle,P Tierney,Under 3.5,0.576844789113079,2.3,0.3267430149600816,0.08,2,2,True,1,1
+baseline,2026-05-10,Nott'm Forest,Newcastle,P Tierney,Under 3.5,0.576844789113079,2.3,0.3267430149600816,0.1,2,2,True,1,1
+baseline,2026-05-10,Nott'm Forest,Newcastle,P Tierney,Under 3.5,0.576844789113079,2.3,0.3267430149600816,0.2,2,2,True,1,1
+baseline,2026-05-10,West Ham,Arsenal,C Kavanagh,Under 3.5,0.6506449819382786,2.21,0.43792541008359565,0.0,7,7,True,0,0
+baseline,2026-05-10,West Ham,Arsenal,C Kavanagh,Under 3.5,0.6506449819382786,2.21,0.43792541008359565,0.05,7,7,True,0,0
+baseline,2026-05-10,West Ham,Arsenal,C Kavanagh,Under 3.5,0.6506449819382786,2.21,0.43792541008359565,0.08,7,7,True,0,0
+baseline,2026-05-10,West Ham,Arsenal,C Kavanagh,Under 3.5,0.6506449819382786,2.21,0.43792541008359565,0.1,7,7,True,0,0
+baseline,2026-05-10,West Ham,Arsenal,C Kavanagh,Under 3.5,0.6506449819382786,2.21,0.43792541008359565,0.2,7,7,True,0,0
+baseline,2026-05-13,Man City,Crystal Palace,S Attwell,Under 3.5,0.6042409797192358,1.98,0.1963971398440869,0.0,2,2,True,1,1
+baseline,2026-05-13,Man City,Crystal Palace,S Attwell,Under 3.5,0.6042409797192358,1.98,0.1963971398440869,0.05,2,2,True,1,1
+baseline,2026-05-13,Man City,Crystal Palace,S Attwell,Under 3.5,0.6042409797192358,1.98,0.1963971398440869,0.08,2,2,True,1,1
+baseline,2026-05-13,Man City,Crystal Palace,S Attwell,Under 3.5,0.6042409797192358,1.98,0.1963971398440869,0.1,2,2,True,1,1
+baseline,2026-05-15,Aston Villa,Liverpool,C Kavanagh,Under 3.5,0.6286930221307364,2.24,0.4082723695728496,0.0,4,4,True,0,0
+baseline,2026-05-15,Aston Villa,Liverpool,C Kavanagh,Under 3.5,0.6286930221307364,2.24,0.4082723695728496,0.05,4,4,True,0,0
+baseline,2026-05-15,Aston Villa,Liverpool,C Kavanagh,Under 3.5,0.6286930221307364,2.24,0.4082723695728496,0.08,4,4,True,0,0
+baseline,2026-05-15,Aston Villa,Liverpool,C Kavanagh,Under 3.5,0.6286930221307364,2.24,0.4082723695728496,0.1,4,4,True,0,0
+baseline,2026-05-15,Aston Villa,Liverpool,C Kavanagh,Under 3.5,0.6286930221307364,2.24,0.4082723695728496,0.2,4,4,True,0,0
+baseline,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.5947207106957182,1.8,0.07049727925229288,0.0,3,3,True,0,0
+baseline,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.5947207106957182,1.8,0.07049727925229288,0.05,3,3,True,0,0
+baseline,2026-05-17,Leeds,Brighton,M Oliver,Under 3.5,0.5946344666328134,1.9,0.12980548660234548,0.0,1,1,True,1,1
+baseline,2026-05-17,Leeds,Brighton,M Oliver,Under 3.5,0.5946344666328134,1.9,0.12980548660234548,0.05,1,1,True,1,1
+baseline,2026-05-17,Leeds,Brighton,M Oliver,Under 3.5,0.5946344666328134,1.9,0.12980548660234548,0.08,1,1,True,1,1
+baseline,2026-05-17,Leeds,Brighton,M Oliver,Under 3.5,0.5946344666328134,1.9,0.12980548660234548,0.1,1,1,True,1,1
+baseline,2026-05-17,Newcastle,West Ham,J Gillett,Under 3.5,0.5859394717745594,2.05,0.20117591713784666,0.0,4,4,True,0,0
+baseline,2026-05-17,Newcastle,West Ham,J Gillett,Under 3.5,0.5859394717745594,2.05,0.20117591713784666,0.05,4,4,True,0,0
+baseline,2026-05-17,Newcastle,West Ham,J Gillett,Under 3.5,0.5859394717745594,2.05,0.20117591713784666,0.08,4,4,True,0,0
+baseline,2026-05-17,Newcastle,West Ham,J Gillett,Under 3.5,0.5859394717745594,2.05,0.20117591713784666,0.1,4,4,True,0,0
+baseline,2026-05-17,Newcastle,West Ham,J Gillett,Under 3.5,0.5859394717745594,2.05,0.20117591713784666,0.2,4,4,True,0,0
+baseline,2026-05-19,Bournemouth,Man City,A Taylor,Under 3.5,0.6132781717862138,2.52,0.5454609929012588,0.0,6,6,True,0,0
+baseline,2026-05-19,Bournemouth,Man City,A Taylor,Under 3.5,0.6132781717862138,2.52,0.5454609929012588,0.05,6,6,True,0,0
+baseline,2026-05-19,Bournemouth,Man City,A Taylor,Under 3.5,0.6132781717862138,2.52,0.5454609929012588,0.08,6,6,True,0,0
+baseline,2026-05-19,Bournemouth,Man City,A Taylor,Under 3.5,0.6132781717862138,2.52,0.5454609929012588,0.1,6,6,True,0,0
+baseline,2026-05-19,Bournemouth,Man City,A Taylor,Under 3.5,0.6132781717862138,2.52,0.5454609929012588,0.2,6,6,True,0,0
+baseline,2026-05-24,Liverpool,Brentford,D England,Under 3.5,0.5868581845635628,1.95,0.14437345989894745,0.0,5,5,True,0,0
+baseline,2026-05-24,Liverpool,Brentford,D England,Under 3.5,0.5868581845635628,1.95,0.14437345989894745,0.05,5,5,True,0,0
+baseline,2026-05-24,Liverpool,Brentford,D England,Under 3.5,0.5868581845635628,1.95,0.14437345989894745,0.08,5,5,True,0,0
+baseline,2026-05-24,Liverpool,Brentford,D England,Under 3.5,0.5868581845635628,1.95,0.14437345989894745,0.1,5,5,True,0,0
+baseline,2026-05-24,Tottenham,Everton,M Oliver,Under 3.5,0.6192986186525684,2.46,0.5234746018853182,0.0,8,5,False,0,0
+baseline,2026-05-24,Tottenham,Everton,M Oliver,Under 3.5,0.6192986186525684,2.46,0.5234746018853182,0.05,8,5,False,0,0
+baseline,2026-05-24,Tottenham,Everton,M Oliver,Under 3.5,0.6192986186525684,2.46,0.5234746018853182,0.08,8,5,False,0,0
+baseline,2026-05-24,Tottenham,Everton,M Oliver,Under 3.5,0.6192986186525684,2.46,0.5234746018853182,0.1,8,5,False,0,0
+baseline,2026-05-24,Tottenham,Everton,M Oliver,Under 3.5,0.6192986186525684,2.46,0.5234746018853182,0.2,8,5,False,0,0
+raw_enriched_glm,2025-08-16,Sunderland,West Ham,R Jones,Under 3.5,0.6599186981394085,2.81,0.8543715417717379,0.0,1,1,True,1,1
+raw_enriched_glm,2025-08-16,Sunderland,West Ham,R Jones,Under 3.5,0.6599186981394085,2.81,0.8543715417717379,0.05,1,1,True,1,1
+raw_enriched_glm,2025-08-16,Sunderland,West Ham,R Jones,Under 3.5,0.6599186981394085,2.81,0.8543715417717379,0.08,1,1,True,1,1
+raw_enriched_glm,2025-08-16,Sunderland,West Ham,R Jones,Under 3.5,0.6599186981394085,2.81,0.8543715417717379,0.1,1,1,True,1,1
+raw_enriched_glm,2025-08-16,Sunderland,West Ham,R Jones,Under 3.5,0.6599186981394085,2.81,0.8543715417717379,0.2,1,1,True,1,1
+raw_enriched_glm,2025-08-23,Brentford,Aston Villa,T Harrington,Over 3.5,0.6331774757420359,1.67,0.05740638448919988,0.0,3,3,True,0,0
+raw_enriched_glm,2025-08-23,Brentford,Aston Villa,T Harrington,Over 3.5,0.6331774757420359,1.67,0.05740638448919988,0.05,3,3,True,0,0
+raw_enriched_glm,2025-08-23,Man City,Tottenham,P Bankes,Over 3.5,0.6134097867207247,1.66,0.018260245956402965,0.0,5,5,True,1,1
+raw_enriched_glm,2025-09-13,Arsenal,Nott'm Forest,D England,Over 3.5,0.6154207677553296,1.63,0.0031358514411872207,0.0,2,2,True,0,0
+raw_enriched_glm,2025-09-13,Fulham,Leeds,C Pawson,Under 3.5,0.5912099396656625,2.03,0.20015617752129478,0.0,3,3,True,1,1
+raw_enriched_glm,2025-09-13,Fulham,Leeds,C Pawson,Under 3.5,0.5912099396656625,2.03,0.20015617752129478,0.05,3,3,True,1,1
+raw_enriched_glm,2025-09-13,Fulham,Leeds,C Pawson,Under 3.5,0.5912099396656625,2.03,0.20015617752129478,0.08,3,3,True,1,1
+raw_enriched_glm,2025-09-13,Fulham,Leeds,C Pawson,Under 3.5,0.5912099396656625,2.03,0.20015617752129478,0.1,3,3,True,1,1
+raw_enriched_glm,2025-09-13,Fulham,Leeds,C Pawson,Under 3.5,0.5912099396656625,2.03,0.20015617752129478,0.2,3,3,True,1,1
+raw_enriched_glm,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5766819286030043,1.94,0.11876294148982836,0.0,5,5,True,0,0
+raw_enriched_glm,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5766819286030043,1.94,0.11876294148982836,0.05,5,5,True,0,0
+raw_enriched_glm,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5766819286030043,1.94,0.11876294148982836,0.08,5,5,True,0,0
+raw_enriched_glm,2025-09-20,Fulham,Brentford,M Oliver,Under 3.5,0.5766819286030043,1.94,0.11876294148982836,0.1,5,5,True,0,0
+raw_enriched_glm,2025-10-26,Arsenal,Crystal Palace,T Bramall,Over 3.5,0.6199263193118233,1.67,0.03527695325074487,0.0,0,0,True,0,0
+raw_enriched_glm,2025-11-22,Wolves,Crystal Palace,A Taylor,Over 3.5,0.5743270375096776,1.8,0.03378866751741971,0.0,5,5,True,1,1
+raw_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.5720847091304325,2.45,0.4016075373695598,0.0,1,1,True,0,0
+raw_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.5720847091304325,2.45,0.4016075373695598,0.05,1,1,True,0,0
+raw_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.5720847091304325,2.45,0.4016075373695598,0.08,1,1,True,0,0
+raw_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.5720847091304325,2.45,0.4016075373695598,0.1,1,1,True,0,0
+raw_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.5720847091304325,2.45,0.4016075373695598,0.2,1,1,True,0,0
+raw_enriched_glm,2025-12-08,Wolves,Man United,M Salisbury,Over 3.5,0.5921386617225405,1.75,0.03624265801444593,0.0,5,5,True,1,1
+raw_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6214985865983935,2.31,0.4356617350422891,0.0,4,4,True,1,1
+raw_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6214985865983935,2.31,0.4356617350422891,0.05,4,4,True,1,1
+raw_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6214985865983935,2.31,0.4356617350422891,0.08,4,4,True,1,1
+raw_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6214985865983935,2.31,0.4356617350422891,0.1,4,4,True,1,1
+raw_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6214985865983935,2.31,0.4356617350422891,0.2,4,4,True,1,1
+raw_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.5980107817152237,1.85,0.10631994617316387,0.0,3,3,True,0,0
+raw_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.5980107817152237,1.85,0.10631994617316387,0.05,3,3,True,0,0
+raw_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.5980107817152237,1.85,0.10631994617316387,0.08,3,3,True,0,0
+raw_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.5980107817152237,1.85,0.10631994617316387,0.1,3,3,True,0,0
+raw_enriched_glm,2025-12-20,Bournemouth,Burnley,C Kavanagh,Over 3.5,0.6496113021530017,1.67,0.08485087459551277,0.0,2,2,True,0,0
+raw_enriched_glm,2025-12-20,Bournemouth,Burnley,C Kavanagh,Over 3.5,0.6496113021530017,1.67,0.08485087459551277,0.05,2,2,True,0,0
+raw_enriched_glm,2025-12-20,Bournemouth,Burnley,C Kavanagh,Over 3.5,0.6496113021530017,1.67,0.08485087459551277,0.08,2,2,True,0,0
+raw_enriched_glm,2025-12-21,Aston Villa,Man United,M Oliver,Over 3.5,0.6664003400708551,1.63,0.08623255431549381,0.0,3,3,True,0,0
+raw_enriched_glm,2025-12-21,Aston Villa,Man United,M Oliver,Over 3.5,0.6664003400708551,1.63,0.08623255431549381,0.05,3,3,True,0,0
+raw_enriched_glm,2025-12-21,Aston Villa,Man United,M Oliver,Over 3.5,0.6664003400708551,1.63,0.08623255431549381,0.08,3,3,True,0,0
+raw_enriched_glm,2025-12-26,Man United,Newcastle,A Taylor,Over 3.5,0.6241971714054952,1.63,0.017441389390957074,0.0,3,3,True,0,0
+raw_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.5910706148899285,1.88,0.11121275599306557,0.0,5,5,True,1,1
+raw_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.5910706148899285,1.88,0.11121275599306557,0.05,5,5,True,1,1
+raw_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.5910706148899285,1.88,0.11121275599306557,0.08,5,5,True,1,1
+raw_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.5910706148899285,1.88,0.11121275599306557,0.1,5,5,True,1,1
+raw_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.7258698880012833,1.66,0.20494401408213014,0.0,5,5,True,1,1
+raw_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.7258698880012833,1.66,0.20494401408213014,0.05,5,5,True,1,1
+raw_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.7258698880012833,1.66,0.20494401408213014,0.08,5,5,True,1,1
+raw_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.7258698880012833,1.66,0.20494401408213014,0.1,5,5,True,1,1
+raw_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.7258698880012833,1.66,0.20494401408213014,0.2,5,5,True,1,1
+raw_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.6498812886748984,1.88,0.22177682270880883,0.0,2,2,True,0,0
+raw_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.6498812886748984,1.88,0.22177682270880883,0.05,2,2,True,0,0
+raw_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.6498812886748984,1.88,0.22177682270880883,0.08,2,2,True,0,0
+raw_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.6498812886748984,1.88,0.22177682270880883,0.1,2,2,True,0,0
+raw_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.6498812886748984,1.88,0.22177682270880883,0.2,2,2,True,0,0
+raw_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6562876739665142,1.78,0.1681920596603954,0.0,4,4,True,1,1
+raw_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6562876739665142,1.78,0.1681920596603954,0.05,4,4,True,1,1
+raw_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6562876739665142,1.78,0.1681920596603954,0.08,4,4,True,1,1
+raw_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6562876739665142,1.78,0.1681920596603954,0.1,4,4,True,1,1
+raw_enriched_glm,2026-01-07,Bournemouth,Tottenham,D England,Over 3.5,0.6760058436351499,1.53,0.03428894076177946,0.0,6,6,True,1,1
+raw_enriched_glm,2026-01-07,Crystal Palace,Aston Villa,A Madley,Over 3.5,0.6549049391143972,1.66,0.08714219892989927,0.0,2,2,True,0,0
+raw_enriched_glm,2026-01-07,Crystal Palace,Aston Villa,A Madley,Over 3.5,0.6549049391143972,1.66,0.08714219892989927,0.05,2,2,True,0,0
+raw_enriched_glm,2026-01-07,Crystal Palace,Aston Villa,A Madley,Over 3.5,0.6549049391143972,1.66,0.08714219892989927,0.08,2,2,True,0,0
+raw_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.5849074802373473,1.95,0.14056958646282713,0.0,5,5,True,1,1
+raw_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.5849074802373473,1.95,0.14056958646282713,0.05,5,5,True,1,1
+raw_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.5849074802373473,1.95,0.14056958646282713,0.08,5,5,True,1,1
+raw_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.5849074802373473,1.95,0.14056958646282713,0.1,5,5,True,1,1
+raw_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.5758960886828954,2.31,0.3303199648574884,0.0,2,2,True,0,0
+raw_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.5758960886828954,2.31,0.3303199648574884,0.05,2,2,True,0,0
+raw_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.5758960886828954,2.31,0.3303199648574884,0.08,2,2,True,0,0
+raw_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.5758960886828954,2.31,0.3303199648574884,0.1,2,2,True,0,0
+raw_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.5758960886828954,2.31,0.3303199648574884,0.2,2,2,True,0,0
+raw_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.621299924656876,1.8,0.11833986438237676,0.0,3,3,True,0,0
+raw_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.621299924656876,1.8,0.11833986438237676,0.05,3,3,True,0,0
+raw_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.621299924656876,1.8,0.11833986438237676,0.08,3,3,True,0,0
+raw_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.621299924656876,1.8,0.11833986438237676,0.1,3,3,True,0,0
+raw_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6045849173265883,1.95,0.17894058878684715,0.0,2,2,True,0,0
+raw_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6045849173265883,1.95,0.17894058878684715,0.05,2,2,True,0,0
+raw_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6045849173265883,1.95,0.17894058878684715,0.08,2,2,True,0,0
+raw_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6045849173265883,1.95,0.17894058878684715,0.1,2,2,True,0,0
+raw_enriched_glm,2026-01-25,Newcastle,Aston Villa,J Gillett,Over 3.5,0.7039905702018783,1.63,0.14750462942906162,0.0,3,3,True,0,0
+raw_enriched_glm,2026-01-25,Newcastle,Aston Villa,J Gillett,Over 3.5,0.7039905702018783,1.63,0.14750462942906162,0.05,3,3,True,0,0
+raw_enriched_glm,2026-01-25,Newcastle,Aston Villa,J Gillett,Over 3.5,0.7039905702018783,1.63,0.14750462942906162,0.08,3,3,True,0,0
+raw_enriched_glm,2026-01-25,Newcastle,Aston Villa,J Gillett,Over 3.5,0.7039905702018783,1.63,0.14750462942906162,0.1,3,3,True,0,0
+raw_enriched_glm,2026-02-01,Aston Villa,Brentford,T Robinson,Over 3.5,0.6290533471041939,1.59,0.00019482189566844,0.0,3,5,False,0,1
+raw_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.622620593962665,1.9,0.1829791285290634,0.0,2,2,True,0,0
+raw_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.622620593962665,1.9,0.1829791285290634,0.05,2,2,True,0,0
+raw_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.622620593962665,1.9,0.1829791285290634,0.08,2,2,True,0,0
+raw_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.622620593962665,1.9,0.1829791285290634,0.1,2,2,True,0,0
+raw_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.5751293319074938,2.31,0.3285487567063108,0.0,3,3,True,0,0
+raw_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.5751293319074938,2.31,0.3285487567063108,0.05,3,3,True,0,0
+raw_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.5751293319074938,2.31,0.3285487567063108,0.08,3,3,True,0,0
+raw_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.5751293319074938,2.31,0.3285487567063108,0.1,3,3,True,0,0
+raw_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.5751293319074938,2.31,0.3285487567063108,0.2,3,3,True,0,0
+raw_enriched_glm,2026-02-07,Bournemouth,Aston Villa,A Taylor,Over 3.5,0.6902441430906139,1.59,0.09748818751407606,0.0,2,2,True,0,0
+raw_enriched_glm,2026-02-07,Bournemouth,Aston Villa,A Taylor,Over 3.5,0.6902441430906139,1.59,0.09748818751407606,0.05,2,2,True,0,0
+raw_enriched_glm,2026-02-07,Bournemouth,Aston Villa,A Taylor,Over 3.5,0.6902441430906139,1.59,0.09748818751407606,0.08,2,2,True,0,0
+raw_enriched_glm,2026-02-07,Man United,Tottenham,M Oliver,Over 3.5,0.6519137347067823,1.63,0.0626193875720551,0.0,3,3,True,0,0
+raw_enriched_glm,2026-02-07,Man United,Tottenham,M Oliver,Over 3.5,0.6519137347067823,1.63,0.0626193875720551,0.05,3,3,True,0,0
+raw_enriched_glm,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.5729940313195743,1.94,0.11160842075997413,0.0,6,6,True,0,0
+raw_enriched_glm,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.5729940313195743,1.94,0.11160842075997413,0.05,6,6,True,0,0
+raw_enriched_glm,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.5729940313195743,1.94,0.11160842075997413,0.08,6,6,True,0,0
+raw_enriched_glm,2026-02-08,Liverpool,Man City,C Pawson,Under 3.5,0.5729940313195743,1.94,0.11160842075997413,0.1,6,6,True,0,0
+raw_enriched_glm,2026-02-10,Chelsea,Leeds,R Jones,Over 3.5,0.5771506179553659,1.78,0.02732809996055141,0.0,8,8,True,1,1
+raw_enriched_glm,2026-02-11,Nott'm Forest,Wolves,T Robinson,Over 3.5,0.6212239624749417,1.63,0.012595058834155015,0.0,2,2,True,0,0
+raw_enriched_glm,2026-02-21,Aston Villa,Leeds,M Oliver,Over 3.5,0.5821068858611509,1.73,0.007044912539791115,0.0,5,5,True,1,1
+raw_enriched_glm,2026-02-27,Wolves,Aston Villa,C Pawson,Over 3.5,0.636410286082186,1.67,0.06280517775725047,0.0,6,6,True,1,1
+raw_enriched_glm,2026-02-27,Wolves,Aston Villa,C Pawson,Over 3.5,0.636410286082186,1.67,0.06280517775725047,0.05,6,6,True,1,1
+raw_enriched_glm,2026-02-28,Bournemouth,Sunderland,J Gillett,Over 3.5,0.6305581978966016,1.59,0.0025875346555965795,0.0,6,6,True,1,1
+raw_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.617747203498691,1.83,0.13047738240260465,0.0,4,4,True,1,1
+raw_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.617747203498691,1.83,0.13047738240260465,0.05,4,4,True,1,1
+raw_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.617747203498691,1.83,0.13047738240260465,0.08,4,4,True,1,1
+raw_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.617747203498691,1.83,0.13047738240260465,0.1,4,4,True,1,1
+raw_enriched_glm,2026-03-04,Man City,Nott'm Forest,D England,Over 3.5,0.5758690217192819,1.8,0.03656423909470741,0.0,4,4,True,1,1
+raw_enriched_glm,2026-03-04,Newcastle,Man United,P Bankes,Over 3.5,0.6305014333355075,1.59,0.002497279003456976,0.0,5,7,False,1,1
+raw_enriched_glm,2026-03-15,Man United,Aston Villa,A Taylor,Over 3.5,0.6142029780097609,1.67,0.025718973276300572,0.0,5,5,True,1,1
+raw_enriched_glm,2026-04-18,Brentford,Fulham,P Tierney,Under 3.5,0.589177669184195,2.0,0.17835533836839002,0.0,1,1,True,1,1
+raw_enriched_glm,2026-04-18,Brentford,Fulham,P Tierney,Under 3.5,0.589177669184195,2.0,0.17835533836839002,0.05,1,1,True,1,1
+raw_enriched_glm,2026-04-18,Brentford,Fulham,P Tierney,Under 3.5,0.589177669184195,2.0,0.17835533836839002,0.08,1,1,True,1,1
+raw_enriched_glm,2026-04-18,Brentford,Fulham,P Tierney,Under 3.5,0.589177669184195,2.0,0.17835533836839002,0.1,1,1,True,1,1
+raw_enriched_glm,2026-04-19,Aston Villa,Sunderland,S Barrott,Over 3.5,0.6197990568419145,1.64,0.01647045322073981,0.0,4,4,True,1,1
+raw_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.5887662438453825,2.08,0.22463378719839544,0.0,4,4,True,1,1
+raw_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.5887662438453825,2.08,0.22463378719839544,0.05,4,4,True,1,1
+raw_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.5887662438453825,2.08,0.22463378719839544,0.08,4,4,True,1,1
+raw_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.5887662438453825,2.08,0.22463378719839544,0.1,4,4,True,1,1
+raw_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.5887662438453825,2.08,0.22463378719839544,0.2,4,4,True,1,1
+raw_enriched_glm,2026-04-25,Wolves,Tottenham,A Taylor,Over 3.5,0.6614100671919733,1.56,0.03179970481947825,0.0,7,7,True,1,1
+raw_enriched_glm,2026-05-02,Brentford,West Ham,C Pawson,Under 3.5,0.5832336057013947,1.73,0.008994137863412854,0.0,4,4,True,0,0
+raw_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.605076870922578,1.85,0.11939221120676935,0.0,4,4,True,1,1
+raw_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.605076870922578,1.85,0.11939221120676935,0.05,4,4,True,1,1
+raw_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.605076870922578,1.85,0.11939221120676935,0.08,4,4,True,1,1
+raw_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.605076870922578,1.85,0.11939221120676935,0.1,4,4,True,1,1
+raw_enriched_glm,2026-05-04,Chelsea,Nott'm Forest,A Taylor,Over 3.5,0.6611741609450243,1.55,0.024819949464787827,0.0,4,4,True,1,1
+raw_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.623901321127101,1.8,0.1230223780287818,0.0,3,3,True,0,0
+raw_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.623901321127101,1.8,0.1230223780287818,0.05,3,3,True,0,0
+raw_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.623901321127101,1.8,0.1230223780287818,0.08,3,3,True,0,0
+raw_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.623901321127101,1.8,0.1230223780287818,0.1,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6287599274539204,1.8,0.13176786941705676,0.0,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6287599274539204,1.8,0.13176786941705676,0.05,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6287599274539204,1.8,0.13176786941705676,0.08,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6287599274539204,1.8,0.13176786941705676,0.1,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6602826662456285,2.29,0.5120473057024892,0.0,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6602826662456285,2.29,0.5120473057024892,0.05,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6602826662456285,2.29,0.5120473057024892,0.08,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6602826662456285,2.29,0.5120473057024892,0.1,3,3,True,0,0
+raw_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6602826662456285,2.29,0.5120473057024892,0.2,3,3,True,0,0
+raw_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6159286317967603,2.05,0.26265369518335846,0.0,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6159286317967603,2.05,0.26265369518335846,0.05,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6159286317967603,2.05,0.26265369518335846,0.08,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6159286317967603,2.05,0.26265369518335846,0.1,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6159286317967603,2.05,0.26265369518335846,0.2,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6558233690655073,4.76,2.1217192367518147,0.0,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6558233690655073,4.76,2.1217192367518147,0.05,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6558233690655073,4.76,2.1217192367518147,0.08,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6558233690655073,4.76,2.1217192367518147,0.1,1,1,True,0,0
+raw_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6558233690655073,4.76,2.1217192367518147,0.2,1,1,True,0,0
+calibrated_enriched_glm,2025-08-16,Wolves,Man City,J Gillett,Over 3.5,0.6182930266222063,1.64,0.014000563660418353,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-08-23,Arsenal,Leeds,J Gillett,Over 3.5,0.6192688127711476,2.03,0.25711568992542966,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-08-23,Arsenal,Leeds,J Gillett,Over 3.5,0.6192688127711476,2.03,0.25711568992542966,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-08-23,Arsenal,Leeds,J Gillett,Over 3.5,0.6192688127711476,2.03,0.25711568992542966,0.08,2,2,True,0,0
+calibrated_enriched_glm,2025-08-23,Arsenal,Leeds,J Gillett,Over 3.5,0.6192688127711476,2.03,0.25711568992542966,0.1,2,2,True,0,0
+calibrated_enriched_glm,2025-08-23,Arsenal,Leeds,J Gillett,Over 3.5,0.6192688127711476,2.03,0.25711568992542966,0.2,2,2,True,0,0
+calibrated_enriched_glm,2025-08-23,Brentford,Aston Villa,T Harrington,Over 3.5,0.637025326416864,1.67,0.06383229511616295,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-08-23,Brentford,Aston Villa,T Harrington,Over 3.5,0.637025326416864,1.67,0.06383229511616295,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-08-23,Burnley,Sunderland,M Salisbury,Over 3.5,0.6138334775607889,1.67,0.02510190752651731,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-08-23,Man City,Tottenham,P Bankes,Over 3.5,0.632526131632182,1.66,0.04999337850942198,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-08-30,Man United,Burnley,S Barrott,Over 3.5,0.6172273341490326,1.8,0.11100920146825888,0.0,6,6,True,1,1
+calibrated_enriched_glm,2025-08-30,Man United,Burnley,S Barrott,Over 3.5,0.6172273341490326,1.8,0.11100920146825888,0.05,6,6,True,1,1
+calibrated_enriched_glm,2025-08-30,Man United,Burnley,S Barrott,Over 3.5,0.6172273341490326,1.8,0.11100920146825888,0.08,6,6,True,1,1
+calibrated_enriched_glm,2025-08-30,Man United,Burnley,S Barrott,Over 3.5,0.6172273341490326,1.8,0.11100920146825888,0.1,6,6,True,1,1
+calibrated_enriched_glm,2025-08-30,Sunderland,Brentford,A Taylor,Over 3.5,0.6030009750330889,1.75,0.05525170630790566,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-08-30,Sunderland,Brentford,A Taylor,Over 3.5,0.6030009750330889,1.75,0.05525170630790566,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-08-30,Wolves,Everton,M Oliver,Over 3.5,0.6173516799497557,1.62,0.00010972151860433321,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-08-31,Brighton,Man City,D England,Over 3.5,0.6215960676939908,1.63,0.013201590341204827,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-09-13,Arsenal,Nott'm Forest,D England,Over 3.5,0.6329807448089353,1.63,0.03175861403856439,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-09-13,Fulham,Leeds,C Pawson,Over 3.5,0.587012447739381,1.78,0.04488215697609821,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-09-14,Burnley,Liverpool,M Oliver,Over 3.5,0.5998964227706354,2.25,0.34976695123392965,0.0,2,4,False,0,1
+calibrated_enriched_glm,2025-09-14,Burnley,Liverpool,M Oliver,Over 3.5,0.5998964227706354,2.25,0.34976695123392965,0.05,2,4,False,0,1
+calibrated_enriched_glm,2025-09-14,Burnley,Liverpool,M Oliver,Over 3.5,0.5998964227706354,2.25,0.34976695123392965,0.08,2,4,False,0,1
+calibrated_enriched_glm,2025-09-14,Burnley,Liverpool,M Oliver,Over 3.5,0.5998964227706354,2.25,0.34976695123392965,0.1,2,4,False,0,1
+calibrated_enriched_glm,2025-09-14,Burnley,Liverpool,M Oliver,Over 3.5,0.5998964227706354,2.25,0.34976695123392965,0.2,2,4,False,0,1
+calibrated_enriched_glm,2025-09-20,Fulham,Brentford,M Oliver,Over 3.5,0.5903497736733291,1.85,0.09214708129565885,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-09-20,Fulham,Brentford,M Oliver,Over 3.5,0.5903497736733291,1.85,0.09214708129565885,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-09-20,Fulham,Brentford,M Oliver,Over 3.5,0.5903497736733291,1.85,0.09214708129565885,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-09-20,West Ham,Crystal Palace,T Harrington,Over 3.5,0.627125306796596,1.67,0.04729926235031523,0.0,6,6,True,1,1
+calibrated_enriched_glm,2025-09-20,Wolves,Leeds,A Taylor,Over 3.5,0.6177922159504938,1.85,0.1429155995084137,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-09-20,Wolves,Leeds,A Taylor,Over 3.5,0.6177922159504938,1.85,0.1429155995084137,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-09-20,Wolves,Leeds,A Taylor,Over 3.5,0.6177922159504938,1.85,0.1429155995084137,0.08,2,2,True,0,0
+calibrated_enriched_glm,2025-09-20,Wolves,Leeds,A Taylor,Over 3.5,0.6177922159504938,1.85,0.1429155995084137,0.1,2,2,True,0,0
+calibrated_enriched_glm,2025-09-27,Brentford,Man United,C Pawson,Over 3.5,0.6125040667517353,1.75,0.0718821168155368,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-09-27,Brentford,Man United,C Pawson,Over 3.5,0.6125040667517353,1.75,0.0718821168155368,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-09-27,Man City,Burnley,R Jones,Over 3.5,0.6063203709705712,2.62,0.5885593719428968,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-09-27,Man City,Burnley,R Jones,Over 3.5,0.6063203709705712,2.62,0.5885593719428968,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-09-27,Man City,Burnley,R Jones,Over 3.5,0.6063203709705712,2.62,0.5885593719428968,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-09-27,Man City,Burnley,R Jones,Over 3.5,0.6063203709705712,2.62,0.5885593719428968,0.1,4,4,True,1,1
+calibrated_enriched_glm,2025-09-27,Man City,Burnley,R Jones,Over 3.5,0.6063203709705712,2.62,0.5885593719428968,0.2,4,4,True,1,1
+calibrated_enriched_glm,2025-09-27,Tottenham,Wolves,M Salisbury,Over 3.5,0.6255762472005001,1.67,0.04471233282483511,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-09-29,Everton,West Ham,S Barrott,Over 3.5,0.59464149323697,1.8,0.07035468782654597,0.0,7,7,True,1,1
+calibrated_enriched_glm,2025-09-29,Everton,West Ham,S Barrott,Over 3.5,0.59464149323697,1.8,0.07035468782654597,0.05,7,7,True,1,1
+calibrated_enriched_glm,2025-10-04,Arsenal,West Ham,J Brooks,Over 3.5,0.6079482930553131,1.95,0.18549917145786043,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-10-04,Arsenal,West Ham,J Brooks,Over 3.5,0.6079482930553131,1.95,0.18549917145786043,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-10-04,Arsenal,West Ham,J Brooks,Over 3.5,0.6079482930553131,1.95,0.18549917145786043,0.08,2,2,True,0,0
+calibrated_enriched_glm,2025-10-04,Arsenal,West Ham,J Brooks,Over 3.5,0.6079482930553131,1.95,0.18549917145786043,0.1,2,2,True,0,0
+calibrated_enriched_glm,2025-10-04,Leeds,Tottenham,T Bramall,Over 3.5,0.6144746737372326,1.8,0.10605441272701888,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-10-04,Leeds,Tottenham,T Bramall,Over 3.5,0.6144746737372326,1.8,0.10605441272701888,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-10-04,Leeds,Tottenham,T Bramall,Over 3.5,0.6144746737372326,1.8,0.10605441272701888,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-10-04,Leeds,Tottenham,T Bramall,Over 3.5,0.6144746737372326,1.8,0.10605441272701888,0.1,5,5,True,1,1
+calibrated_enriched_glm,2025-10-04,Man United,Sunderland,S Attwell,Over 3.5,0.6121394943334911,1.66,0.016151560593595127,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-10-05,Brentford,Man City,D England,Over 3.5,0.609491519471588,1.95,0.18850846296959656,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-10-05,Brentford,Man City,D England,Over 3.5,0.609491519471588,1.95,0.18850846296959656,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-10-05,Brentford,Man City,D England,Over 3.5,0.609491519471588,1.95,0.18850846296959656,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-10-05,Brentford,Man City,D England,Over 3.5,0.609491519471588,1.95,0.18850846296959656,0.1,5,5,True,1,1
+calibrated_enriched_glm,2025-10-18,Fulham,Arsenal,A Taylor,Over 3.5,0.593493122122318,2.0,0.18698624424463595,0.0,0,0,True,0,0
+calibrated_enriched_glm,2025-10-18,Fulham,Arsenal,A Taylor,Over 3.5,0.593493122122318,2.0,0.18698624424463595,0.05,0,0,True,0,0
+calibrated_enriched_glm,2025-10-18,Fulham,Arsenal,A Taylor,Over 3.5,0.593493122122318,2.0,0.18698624424463595,0.08,0,0,True,0,0
+calibrated_enriched_glm,2025-10-18,Fulham,Arsenal,A Taylor,Over 3.5,0.593493122122318,2.0,0.18698624424463595,0.1,0,0,True,0,0
+calibrated_enriched_glm,2025-10-18,Man City,Everton,T Harrington,Over 3.5,0.6083648630831704,1.85,0.1254749967038653,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-10-18,Man City,Everton,T Harrington,Over 3.5,0.6083648630831704,1.85,0.1254749967038653,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-10-18,Man City,Everton,T Harrington,Over 3.5,0.6083648630831704,1.85,0.1254749967038653,0.08,2,2,True,0,0
+calibrated_enriched_glm,2025-10-18,Man City,Everton,T Harrington,Over 3.5,0.6083648630831704,1.85,0.1254749967038653,0.1,2,2,True,0,0
+calibrated_enriched_glm,2025-10-20,West Ham,Brentford,A Madley,Over 3.5,0.6129304174846651,1.75,0.07262823059816403,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-10-20,West Ham,Brentford,A Madley,Over 3.5,0.6129304174846651,1.75,0.07262823059816403,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-10-24,Leeds,West Ham,S Attwell,Over 3.5,0.5921731848015761,1.8,0.06591173264283712,0.0,6,6,True,1,1
+calibrated_enriched_glm,2025-10-24,Leeds,West Ham,S Attwell,Over 3.5,0.5921731848015761,1.8,0.06591173264283712,0.05,6,6,True,1,1
+calibrated_enriched_glm,2025-10-25,Man United,Brighton,A Taylor,Over 3.5,0.6197694818702597,1.75,0.08459659327295443,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-10-25,Man United,Brighton,A Taylor,Over 3.5,0.6197694818702597,1.75,0.08459659327295443,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-10-25,Man United,Brighton,A Taylor,Over 3.5,0.6197694818702597,1.75,0.08459659327295443,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-10-26,Arsenal,Crystal Palace,T Bramall,Over 3.5,0.6340016986957161,1.67,0.05878283682184593,0.0,0,0,True,0,0
+calibrated_enriched_glm,2025-10-26,Arsenal,Crystal Palace,T Bramall,Over 3.5,0.6340016986957161,1.67,0.05878283682184593,0.05,0,0,True,0,0
+calibrated_enriched_glm,2025-10-26,Aston Villa,Man City,M Oliver,Over 3.5,0.6193873580020449,1.64,0.015795267123353662,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-11-01,Brighton,Leeds,M Oliver,Over 3.5,0.602319275203569,1.78,0.07212830986235286,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-11-01,Brighton,Leeds,M Oliver,Over 3.5,0.602319275203569,1.78,0.07212830986235286,0.05,1,1,True,0,0
+calibrated_enriched_glm,2025-11-01,Burnley,Arsenal,C Kavanagh,Over 3.5,0.5915922188436485,2.42,0.43165316960162947,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-11-01,Burnley,Arsenal,C Kavanagh,Over 3.5,0.5915922188436485,2.42,0.43165316960162947,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-11-01,Burnley,Arsenal,C Kavanagh,Over 3.5,0.5915922188436485,2.42,0.43165316960162947,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-11-01,Burnley,Arsenal,C Kavanagh,Over 3.5,0.5915922188436485,2.42,0.43165316960162947,0.1,3,3,True,0,0
+calibrated_enriched_glm,2025-11-01,Burnley,Arsenal,C Kavanagh,Over 3.5,0.5915922188436485,2.42,0.43165316960162947,0.2,3,3,True,0,0
+calibrated_enriched_glm,2025-11-01,Nott'm Forest,Man United,D England,Over 3.5,0.6337979073988536,1.59,0.007738672764177279,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-11-02,Man City,Bournemouth,A Taylor,Over 3.5,0.6199407197205047,2.0,0.23988143944100937,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-11-02,Man City,Bournemouth,A Taylor,Over 3.5,0.6199407197205047,2.0,0.23988143944100937,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-11-02,Man City,Bournemouth,A Taylor,Over 3.5,0.6199407197205047,2.0,0.23988143944100937,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-11-02,Man City,Bournemouth,A Taylor,Over 3.5,0.6199407197205047,2.0,0.23988143944100937,0.1,4,4,True,1,1
+calibrated_enriched_glm,2025-11-02,Man City,Bournemouth,A Taylor,Over 3.5,0.6199407197205047,2.0,0.23988143944100937,0.2,4,4,True,1,1
+calibrated_enriched_glm,2025-11-02,West Ham,Newcastle,R Jones,Over 3.5,0.607106330547032,1.83,0.11100458490106857,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-11-02,West Ham,Newcastle,R Jones,Over 3.5,0.607106330547032,1.83,0.11100458490106857,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-11-02,West Ham,Newcastle,R Jones,Over 3.5,0.607106330547032,1.83,0.11100458490106857,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-11-02,West Ham,Newcastle,R Jones,Over 3.5,0.607106330547032,1.83,0.11100458490106857,0.1,3,3,True,0,0
+calibrated_enriched_glm,2025-11-03,Sunderland,Everton,T Bramall,Over 3.5,0.6004491814193702,1.8,0.08080852655486637,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-11-03,Sunderland,Everton,T Bramall,Over 3.5,0.6004491814193702,1.8,0.08080852655486637,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-11-03,Sunderland,Everton,T Bramall,Over 3.5,0.6004491814193702,1.8,0.08080852655486637,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-11-08,Everton,Fulham,A Madley,Over 3.5,0.5933612916344518,1.9,0.12738645410545835,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,Everton,Fulham,A Madley,Over 3.5,0.5933612916344518,1.9,0.12738645410545835,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,Everton,Fulham,A Madley,Over 3.5,0.5933612916344518,1.9,0.12738645410545835,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,Everton,Fulham,A Madley,Over 3.5,0.5933612916344518,1.9,0.12738645410545835,0.1,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,Sunderland,Arsenal,C Pawson,Over 3.5,0.5956115489233667,2.55,0.5188094497545848,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-11-08,Sunderland,Arsenal,C Pawson,Over 3.5,0.5956115489233667,2.55,0.5188094497545848,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-11-08,Sunderland,Arsenal,C Pawson,Over 3.5,0.5956115489233667,2.55,0.5188094497545848,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-11-08,Sunderland,Arsenal,C Pawson,Over 3.5,0.5956115489233667,2.55,0.5188094497545848,0.1,3,3,True,0,0
+calibrated_enriched_glm,2025-11-08,Sunderland,Arsenal,C Pawson,Over 3.5,0.5956115489233667,2.55,0.5188094497545848,0.2,3,3,True,0,0
+calibrated_enriched_glm,2025-11-08,West Ham,Burnley,M Salisbury,Over 3.5,0.6104004389401184,2.31,0.4100250139516737,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,West Ham,Burnley,M Salisbury,Over 3.5,0.6104004389401184,2.31,0.4100250139516737,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,West Ham,Burnley,M Salisbury,Over 3.5,0.6104004389401184,2.31,0.4100250139516737,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,West Ham,Burnley,M Salisbury,Over 3.5,0.6104004389401184,2.31,0.4100250139516737,0.1,4,4,True,1,1
+calibrated_enriched_glm,2025-11-08,West Ham,Burnley,M Salisbury,Over 3.5,0.6104004389401184,2.31,0.4100250139516737,0.2,4,4,True,1,1
+calibrated_enriched_glm,2025-11-22,Bournemouth,West Ham,T Bramall,Over 3.5,0.6294580281485518,1.59,0.0008382647561973045,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-11-22,Burnley,Chelsea,P Bankes,Over 3.5,0.6268666233642184,1.64,0.028061262317318203,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-11-22,Fulham,Sunderland,D England,Over 3.5,0.5989557958100322,1.85,0.10806822224855961,0.0,6,6,True,1,1
+calibrated_enriched_glm,2025-11-22,Fulham,Sunderland,D England,Over 3.5,0.5989557958100322,1.85,0.10806822224855961,0.05,6,6,True,1,1
+calibrated_enriched_glm,2025-11-22,Fulham,Sunderland,D England,Over 3.5,0.5989557958100322,1.85,0.10806822224855961,0.08,6,6,True,1,1
+calibrated_enriched_glm,2025-11-22,Fulham,Sunderland,D England,Over 3.5,0.5989557958100322,1.85,0.10806822224855961,0.1,6,6,True,1,1
+calibrated_enriched_glm,2025-11-22,Liverpool,Nott'm Forest,A Madley,Over 3.5,0.6162747940884621,1.9,0.1709221087680779,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-11-22,Liverpool,Nott'm Forest,A Madley,Over 3.5,0.6162747940884621,1.9,0.1709221087680779,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-11-22,Liverpool,Nott'm Forest,A Madley,Over 3.5,0.6162747940884621,1.9,0.1709221087680779,0.08,2,2,True,0,0
+calibrated_enriched_glm,2025-11-22,Liverpool,Nott'm Forest,A Madley,Over 3.5,0.6162747940884621,1.9,0.1709221087680779,0.1,2,2,True,0,0
+calibrated_enriched_glm,2025-11-22,Wolves,Crystal Palace,A Taylor,Over 3.5,0.6237979407246843,1.8,0.1228362933044318,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-11-22,Wolves,Crystal Palace,A Taylor,Over 3.5,0.6237979407246843,1.8,0.1228362933044318,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-11-22,Wolves,Crystal Palace,A Taylor,Over 3.5,0.6237979407246843,1.8,0.1228362933044318,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-11-22,Wolves,Crystal Palace,A Taylor,Over 3.5,0.6237979407246843,1.8,0.1228362933044318,0.1,5,5,True,1,1
+calibrated_enriched_glm,2025-11-23,Leeds,Aston Villa,R Jones,Over 3.5,0.624349345300449,1.62,0.011445939386727444,0.0,6,6,True,1,1
+calibrated_enriched_glm,2025-11-24,Man United,Everton,T Harrington,Over 3.5,0.6099878733443315,1.64,0.00038011228470358205,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-11-29,Everton,Newcastle,C Pawson,Over 3.5,0.6070582263596003,1.8,0.09270480744728049,0.0,0,0,True,0,0
+calibrated_enriched_glm,2025-11-29,Everton,Newcastle,C Pawson,Over 3.5,0.6070582263596003,1.8,0.09270480744728049,0.05,0,0,True,0,0
+calibrated_enriched_glm,2025-11-29,Everton,Newcastle,C Pawson,Over 3.5,0.6070582263596003,1.8,0.09270480744728049,0.08,0,0,True,0,0
+calibrated_enriched_glm,2025-11-29,Man City,Leeds,P Bankes,Over 3.5,0.6076484990374854,2.29,0.3915150627958417,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-11-29,Man City,Leeds,P Bankes,Over 3.5,0.6076484990374854,2.29,0.3915150627958417,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-11-29,Man City,Leeds,P Bankes,Over 3.5,0.6076484990374854,2.29,0.3915150627958417,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-11-29,Man City,Leeds,P Bankes,Over 3.5,0.6076484990374854,2.29,0.3915150627958417,0.1,5,5,True,1,1
+calibrated_enriched_glm,2025-11-29,Man City,Leeds,P Bankes,Over 3.5,0.6076484990374854,2.29,0.3915150627958417,0.2,5,5,True,1,1
+calibrated_enriched_glm,2025-11-30,Crystal Palace,Man United,R Jones,Over 3.5,0.6225443859730607,1.63,0.014747349136088994,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-11-30,West Ham,Liverpool,D England,Over 3.5,0.592639760945481,1.83,0.08453076253023029,0.0,1,3,False,0,0
+calibrated_enriched_glm,2025-11-30,West Ham,Liverpool,D England,Over 3.5,0.592639760945481,1.83,0.08453076253023029,0.05,1,3,False,0,0
+calibrated_enriched_glm,2025-11-30,West Ham,Liverpool,D England,Over 3.5,0.592639760945481,1.83,0.08453076253023029,0.08,1,3,False,0,0
+calibrated_enriched_glm,2025-12-02,Bournemouth,Everton,M Salisbury,Over 3.5,0.6296594075390948,1.63,0.026344834288724472,0.0,6,6,True,1,1
+calibrated_enriched_glm,2025-12-02,Fulham,Man City,C Pawson,Over 3.5,0.6026989844517006,2.25,0.3560727150163263,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-12-02,Fulham,Man City,C Pawson,Over 3.5,0.6026989844517006,2.25,0.3560727150163263,0.05,1,1,True,0,0
+calibrated_enriched_glm,2025-12-02,Fulham,Man City,C Pawson,Over 3.5,0.6026989844517006,2.25,0.3560727150163263,0.08,1,1,True,0,0
+calibrated_enriched_glm,2025-12-02,Fulham,Man City,C Pawson,Over 3.5,0.6026989844517006,2.25,0.3560727150163263,0.1,1,1,True,0,0
+calibrated_enriched_glm,2025-12-02,Fulham,Man City,C Pawson,Over 3.5,0.6026989844517006,2.25,0.3560727150163263,0.2,1,1,True,0,0
+calibrated_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.6233020655157784,2.45,0.527090060513657,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.6233020655157784,2.45,0.527090060513657,0.05,1,1,True,0,0
+calibrated_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.6233020655157784,2.45,0.527090060513657,0.08,1,1,True,0,0
+calibrated_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.6233020655157784,2.45,0.527090060513657,0.1,1,1,True,0,0
+calibrated_enriched_glm,2025-12-03,Arsenal,Brentford,T Harrington,Over 3.5,0.6233020655157784,2.45,0.527090060513657,0.2,1,1,True,0,0
+calibrated_enriched_glm,2025-12-06,Everton,Nott'm Forest,C Kavanagh,Over 3.5,0.620968037847633,1.75,0.08669406623335774,0.0,7,7,True,1,1
+calibrated_enriched_glm,2025-12-06,Everton,Nott'm Forest,C Kavanagh,Over 3.5,0.620968037847633,1.75,0.08669406623335774,0.05,7,7,True,1,1
+calibrated_enriched_glm,2025-12-06,Everton,Nott'm Forest,C Kavanagh,Over 3.5,0.620968037847633,1.75,0.08669406623335774,0.08,7,7,True,1,1
+calibrated_enriched_glm,2025-12-06,Leeds,Liverpool,A Taylor,Over 3.5,0.5987876191755073,2.08,0.24547824788505523,0.0,6,6,True,1,1
+calibrated_enriched_glm,2025-12-06,Leeds,Liverpool,A Taylor,Over 3.5,0.5987876191755073,2.08,0.24547824788505523,0.05,6,6,True,1,1
+calibrated_enriched_glm,2025-12-06,Leeds,Liverpool,A Taylor,Over 3.5,0.5987876191755073,2.08,0.24547824788505523,0.08,6,6,True,1,1
+calibrated_enriched_glm,2025-12-06,Leeds,Liverpool,A Taylor,Over 3.5,0.5987876191755073,2.08,0.24547824788505523,0.1,6,6,True,1,1
+calibrated_enriched_glm,2025-12-06,Leeds,Liverpool,A Taylor,Over 3.5,0.5987876191755073,2.08,0.24547824788505523,0.2,6,6,True,1,1
+calibrated_enriched_glm,2025-12-06,Man City,Sunderland,A Madley,Over 3.5,0.6174534074293226,2.08,0.28430308745299104,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-12-06,Man City,Sunderland,A Madley,Over 3.5,0.6174534074293226,2.08,0.28430308745299104,0.05,1,1,True,0,0
+calibrated_enriched_glm,2025-12-06,Man City,Sunderland,A Madley,Over 3.5,0.6174534074293226,2.08,0.28430308745299104,0.08,1,1,True,0,0
+calibrated_enriched_glm,2025-12-06,Man City,Sunderland,A Madley,Over 3.5,0.6174534074293226,2.08,0.28430308745299104,0.1,1,1,True,0,0
+calibrated_enriched_glm,2025-12-06,Man City,Sunderland,A Madley,Over 3.5,0.6174534074293226,2.08,0.28430308745299104,0.2,1,1,True,0,0
+calibrated_enriched_glm,2025-12-06,Newcastle,Burnley,S Attwell,Over 3.5,0.6228341564560773,1.95,0.21452660508935084,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-12-06,Newcastle,Burnley,S Attwell,Over 3.5,0.6228341564560773,1.95,0.21452660508935084,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-12-06,Newcastle,Burnley,S Attwell,Over 3.5,0.6228341564560773,1.95,0.21452660508935084,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-12-06,Newcastle,Burnley,S Attwell,Over 3.5,0.6228341564560773,1.95,0.21452660508935084,0.1,4,4,True,1,1
+calibrated_enriched_glm,2025-12-06,Newcastle,Burnley,S Attwell,Over 3.5,0.6228341564560773,1.95,0.21452660508935084,0.2,4,4,True,1,1
+calibrated_enriched_glm,2025-12-07,Brighton,West Ham,S Hooper,Over 3.5,0.6154747060245199,1.66,0.021688012000703027,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-12-08,Wolves,Man United,M Salisbury,Over 3.5,0.6277533482471855,1.75,0.09856835943257458,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-12-08,Wolves,Man United,M Salisbury,Over 3.5,0.6277533482471855,1.75,0.09856835943257458,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-12-08,Wolves,Man United,M Salisbury,Over 3.5,0.6277533482471855,1.75,0.09856835943257458,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6343587828298776,2.31,0.4653687883370172,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6343587828298776,2.31,0.4653687883370172,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6343587828298776,2.31,0.4653687883370172,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6343587828298776,2.31,0.4653687883370172,0.1,4,4,True,1,1
+calibrated_enriched_glm,2025-12-13,Arsenal,Wolves,R Jones,Over 3.5,0.6343587828298776,2.31,0.4653687883370172,0.2,4,4,True,1,1
+calibrated_enriched_glm,2025-12-13,Burnley,Fulham,M Oliver,Over 3.5,0.6046972716258814,1.85,0.11868995250788061,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-12-13,Burnley,Fulham,M Oliver,Over 3.5,0.6046972716258814,1.85,0.11868995250788061,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-12-13,Burnley,Fulham,M Oliver,Over 3.5,0.6046972716258814,1.85,0.11868995250788061,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-12-13,Burnley,Fulham,M Oliver,Over 3.5,0.6046972716258814,1.85,0.11868995250788061,0.1,3,3,True,0,0
+calibrated_enriched_glm,2025-12-13,Liverpool,Brighton,C Pawson,Over 3.5,0.6023328492462298,1.8,0.08419912864321355,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-12-13,Liverpool,Brighton,C Pawson,Over 3.5,0.6023328492462298,1.8,0.08419912864321355,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-12-13,Liverpool,Brighton,C Pawson,Over 3.5,0.6023328492462298,1.8,0.08419912864321355,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-12-14,Crystal Palace,Man City,D England,Over 3.5,0.612409779264338,1.66,0.016600233578801138,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.6290648974049232,1.85,0.16377006019910811,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.6290648974049232,1.85,0.16377006019910811,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.6290648974049232,1.85,0.16377006019910811,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-12-14,West Ham,Aston Villa,A Taylor,Over 3.5,0.6290648974049232,1.85,0.16377006019910811,0.1,3,3,True,0,0
+calibrated_enriched_glm,2025-12-20,Bournemouth,Burnley,C Kavanagh,Over 3.5,0.6408247778410459,1.67,0.07017737899454657,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-12-20,Bournemouth,Burnley,C Kavanagh,Over 3.5,0.6408247778410459,1.67,0.07017737899454657,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-12-20,Brighton,Sunderland,D England,Over 3.5,0.6253107251784448,1.64,0.02550958929264935,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-12-20,Everton,Arsenal,S Barrott,Over 3.5,0.6138691001832051,1.85,0.1356578353389295,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-12-20,Everton,Arsenal,S Barrott,Over 3.5,0.6138691001832051,1.85,0.1356578353389295,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-12-20,Everton,Arsenal,S Barrott,Over 3.5,0.6138691001832051,1.85,0.1356578353389295,0.08,4,4,True,1,1
+calibrated_enriched_glm,2025-12-20,Everton,Arsenal,S Barrott,Over 3.5,0.6138691001832051,1.85,0.1356578353389295,0.1,4,4,True,1,1
+calibrated_enriched_glm,2025-12-20,Leeds,Crystal Palace,T Bramall,Over 3.5,0.6189451655874901,1.67,0.03363842653110849,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-12-20,Man City,West Ham,P Tierney,Over 3.5,0.6089243312686683,2.51,0.5284000714843573,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-12-20,Man City,West Ham,P Tierney,Over 3.5,0.6089243312686683,2.51,0.5284000714843573,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-12-20,Man City,West Ham,P Tierney,Over 3.5,0.6089243312686683,2.51,0.5284000714843573,0.08,2,2,True,0,0
+calibrated_enriched_glm,2025-12-20,Man City,West Ham,P Tierney,Over 3.5,0.6089243312686683,2.51,0.5284000714843573,0.1,2,2,True,0,0
+calibrated_enriched_glm,2025-12-20,Man City,West Ham,P Tierney,Over 3.5,0.6089243312686683,2.51,0.5284000714843573,0.2,2,2,True,0,0
+calibrated_enriched_glm,2025-12-21,Aston Villa,Man United,M Oliver,Over 3.5,0.6447734420080381,1.63,0.05098071047310193,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-12-21,Aston Villa,Man United,M Oliver,Over 3.5,0.6447734420080381,1.63,0.05098071047310193,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-12-22,Fulham,Nott'm Forest,A Taylor,Over 3.5,0.6228954632755636,1.64,0.02154855977192427,0.0,9,9,True,1,1
+calibrated_enriched_glm,2025-12-26,Man United,Newcastle,A Taylor,Over 3.5,0.6349726822510082,1.63,0.035005472069143284,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.6275152384006775,1.88,0.1797286481932736,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.6275152384006775,1.88,0.1797286481932736,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.6275152384006775,1.88,0.1797286481932736,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-12-27,Arsenal,Brighton,J Brooks,Over 3.5,0.6275152384006775,1.88,0.1797286481932736,0.1,5,5,True,1,1
+calibrated_enriched_glm,2025-12-27,Burnley,Everton,C Pawson,Over 3.5,0.605674787434586,2.62,0.5868679430786155,0.0,2,3,False,0,0
+calibrated_enriched_glm,2025-12-27,Burnley,Everton,C Pawson,Over 3.5,0.605674787434586,2.62,0.5868679430786155,0.05,2,3,False,0,0
+calibrated_enriched_glm,2025-12-27,Burnley,Everton,C Pawson,Over 3.5,0.605674787434586,2.62,0.5868679430786155,0.08,2,3,False,0,0
+calibrated_enriched_glm,2025-12-27,Burnley,Everton,C Pawson,Over 3.5,0.605674787434586,2.62,0.5868679430786155,0.1,2,3,False,0,0
+calibrated_enriched_glm,2025-12-27,Burnley,Everton,C Pawson,Over 3.5,0.605674787434586,2.62,0.5868679430786155,0.2,2,3,False,0,0
+calibrated_enriched_glm,2025-12-27,Liverpool,Wolves,S Hooper,Over 3.5,0.6095377768522038,1.67,0.017928087343180188,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-12-27,Nott'm Forest,Man City,R Jones,Over 3.5,0.6175530423976029,1.95,0.20422843267532564,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-12-27,Nott'm Forest,Man City,R Jones,Over 3.5,0.6175530423976029,1.95,0.20422843267532564,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-12-27,Nott'm Forest,Man City,R Jones,Over 3.5,0.6175530423976029,1.95,0.20422843267532564,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-12-27,Nott'm Forest,Man City,R Jones,Over 3.5,0.6175530423976029,1.95,0.20422843267532564,0.1,3,3,True,0,0
+calibrated_enriched_glm,2025-12-27,Nott'm Forest,Man City,R Jones,Over 3.5,0.6175530423976029,1.95,0.20422843267532564,0.2,3,3,True,0,0
+calibrated_enriched_glm,2025-12-27,West Ham,Fulham,C Kavanagh,Over 3.5,0.6032171533611997,1.78,0.07372653298293552,0.0,4,4,True,1,1
+calibrated_enriched_glm,2025-12-27,West Ham,Fulham,C Kavanagh,Over 3.5,0.6032171533611997,1.78,0.07372653298293552,0.05,4,4,True,1,1
+calibrated_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.6595063930448678,1.66,0.09478061245448055,0.0,5,5,True,1,1
+calibrated_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.6595063930448678,1.66,0.09478061245448055,0.05,5,5,True,1,1
+calibrated_enriched_glm,2025-12-30,Arsenal,Aston Villa,D England,Over 3.5,0.6595063930448678,1.66,0.09478061245448055,0.08,5,5,True,1,1
+calibrated_enriched_glm,2025-12-30,Burnley,Newcastle,R Jones,Over 3.5,0.6135659189407922,2.03,0.24553881544980793,0.0,3,3,True,0,0
+calibrated_enriched_glm,2025-12-30,Burnley,Newcastle,R Jones,Over 3.5,0.6135659189407922,2.03,0.24553881544980793,0.05,3,3,True,0,0
+calibrated_enriched_glm,2025-12-30,Burnley,Newcastle,R Jones,Over 3.5,0.6135659189407922,2.03,0.24553881544980793,0.08,3,3,True,0,0
+calibrated_enriched_glm,2025-12-30,Burnley,Newcastle,R Jones,Over 3.5,0.6135659189407922,2.03,0.24553881544980793,0.1,3,3,True,0,0
+calibrated_enriched_glm,2025-12-30,Burnley,Newcastle,R Jones,Over 3.5,0.6135659189407922,2.03,0.24553881544980793,0.2,3,3,True,0,0
+calibrated_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.640887709241241,1.88,0.2048688933735332,0.0,2,2,True,0,0
+calibrated_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.640887709241241,1.88,0.2048688933735332,0.05,2,2,True,0,0
+calibrated_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.640887709241241,1.88,0.2048688933735332,0.08,2,2,True,0,0
+calibrated_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.640887709241241,1.88,0.2048688933735332,0.1,2,2,True,0,0
+calibrated_enriched_glm,2025-12-30,Man United,Wolves,T Bramall,Over 3.5,0.640887709241241,1.88,0.2048688933735332,0.2,2,2,True,0,0
+calibrated_enriched_glm,2025-12-30,Nott'm Forest,Everton,M Oliver,Over 3.5,0.6131378261107273,1.85,0.13430497830484556,0.0,1,1,True,0,0
+calibrated_enriched_glm,2025-12-30,Nott'm Forest,Everton,M Oliver,Over 3.5,0.6131378261107273,1.85,0.13430497830484556,0.05,1,1,True,0,0
+calibrated_enriched_glm,2025-12-30,Nott'm Forest,Everton,M Oliver,Over 3.5,0.6131378261107273,1.85,0.13430497830484556,0.08,1,1,True,0,0
+calibrated_enriched_glm,2025-12-30,Nott'm Forest,Everton,M Oliver,Over 3.5,0.6131378261107273,1.85,0.13430497830484556,0.1,1,1,True,0,0
+calibrated_enriched_glm,2025-12-30,West Ham,Brighton,M Salisbury,Over 3.5,0.6091330947689021,1.9,0.15735288006091386,0.0,8,8,True,1,1
+calibrated_enriched_glm,2025-12-30,West Ham,Brighton,M Salisbury,Over 3.5,0.6091330947689021,1.9,0.15735288006091386,0.05,8,8,True,1,1
+calibrated_enriched_glm,2025-12-30,West Ham,Brighton,M Salisbury,Over 3.5,0.6091330947689021,1.9,0.15735288006091386,0.08,8,8,True,1,1
+calibrated_enriched_glm,2025-12-30,West Ham,Brighton,M Salisbury,Over 3.5,0.6091330947689021,1.9,0.15735288006091386,0.1,8,8,True,1,1
+calibrated_enriched_glm,2026-01-01,Brentford,Tottenham,A Madley,Over 3.5,0.6222606106966274,1.85,0.15118212978876078,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-01-01,Brentford,Tottenham,A Madley,Over 3.5,0.6222606106966274,1.85,0.15118212978876078,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-01-01,Brentford,Tottenham,A Madley,Over 3.5,0.6222606106966274,1.85,0.15118212978876078,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-01-01,Brentford,Tottenham,A Madley,Over 3.5,0.6222606106966274,1.85,0.15118212978876078,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-01-01,Crystal Palace,Fulham,T Harrington,Over 3.5,0.6059873029686127,1.93,0.16955549472942244,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-01-01,Crystal Palace,Fulham,T Harrington,Over 3.5,0.6059873029686127,1.93,0.16955549472942244,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-01-01,Crystal Palace,Fulham,T Harrington,Over 3.5,0.6059873029686127,1.93,0.16955549472942244,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-01-01,Crystal Palace,Fulham,T Harrington,Over 3.5,0.6059873029686127,1.93,0.16955549472942244,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-01-01,Liverpool,Leeds,C Kavanagh,Over 3.5,0.6024720467275614,2.0,0.20494409345512277,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Liverpool,Leeds,C Kavanagh,Over 3.5,0.6024720467275614,2.0,0.20494409345512277,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Liverpool,Leeds,C Kavanagh,Over 3.5,0.6024720467275614,2.0,0.20494409345512277,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Liverpool,Leeds,C Kavanagh,Over 3.5,0.6024720467275614,2.0,0.20494409345512277,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Liverpool,Leeds,C Kavanagh,Over 3.5,0.6024720467275614,2.0,0.20494409345512277,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Sunderland,Man City,J Gillett,Over 3.5,0.6121387243227322,2.25,0.37731212972614747,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Sunderland,Man City,J Gillett,Over 3.5,0.6121387243227322,2.25,0.37731212972614747,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Sunderland,Man City,J Gillett,Over 3.5,0.6121387243227322,2.25,0.37731212972614747,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Sunderland,Man City,J Gillett,Over 3.5,0.6121387243227322,2.25,0.37731212972614747,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-01,Sunderland,Man City,J Gillett,Over 3.5,0.6121387243227322,2.25,0.37731212972614747,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6423862350831593,1.78,0.14344749844802362,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6423862350831593,1.78,0.14344749844802362,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6423862350831593,1.78,0.14344749844802362,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-01-03,Bournemouth,Arsenal,C Kavanagh,Over 3.5,0.6423862350831593,1.78,0.14344749844802362,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-01-03,Brighton,Burnley,T Robinson,Over 3.5,0.6241214893679186,1.62,0.011076812776028122,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-01-04,Everton,Brentford,A Taylor,Over 3.5,0.6005575257730374,1.95,0.171087175257423,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Everton,Brentford,A Taylor,Over 3.5,0.6005575257730374,1.95,0.171087175257423,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Everton,Brentford,A Taylor,Over 3.5,0.6005575257730374,1.95,0.171087175257423,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Everton,Brentford,A Taylor,Over 3.5,0.6005575257730374,1.95,0.171087175257423,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Fulham,Liverpool,C Pawson,Over 3.5,0.5864614662947664,2.38,0.39577828978154383,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Fulham,Liverpool,C Pawson,Over 3.5,0.5864614662947664,2.38,0.39577828978154383,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Fulham,Liverpool,C Pawson,Over 3.5,0.5864614662947664,2.38,0.39577828978154383,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Fulham,Liverpool,C Pawson,Over 3.5,0.5864614662947664,2.38,0.39577828978154383,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Fulham,Liverpool,C Pawson,Over 3.5,0.5864614662947664,2.38,0.39577828978154383,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-01-04,Man City,Chelsea,M Oliver,Over 3.5,0.619235642384315,1.62,0.003161740662590562,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-01-06,West Ham,Nott'm Forest,T Harrington,Over 3.5,0.6237951930991842,1.66,0.03550002054464563,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-01-07,Burnley,Man United,S Attwell,Over 3.5,0.6170774760423419,1.8,0.11073945687621545,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-07,Burnley,Man United,S Attwell,Over 3.5,0.6170774760423419,1.8,0.11073945687621545,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-07,Burnley,Man United,S Attwell,Over 3.5,0.6170774760423419,1.8,0.11073945687621545,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-07,Burnley,Man United,S Attwell,Over 3.5,0.6170774760423419,1.8,0.11073945687621545,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-07,Crystal Palace,Aston Villa,A Madley,Over 3.5,0.6420619286064351,1.66,0.06582280148668218,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-07,Crystal Palace,Aston Villa,A Madley,Over 3.5,0.6420619286064351,1.66,0.06582280148668218,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-07,Man City,Brighton,T Bramall,Over 3.5,0.6081138226708968,1.85,0.12501057194115894,0.0,7,7,True,1,1
+calibrated_enriched_glm,2026-01-07,Man City,Brighton,T Bramall,Over 3.5,0.6081138226708968,1.85,0.12501057194115894,0.05,7,7,True,1,1
+calibrated_enriched_glm,2026-01-07,Man City,Brighton,T Bramall,Over 3.5,0.6081138226708968,1.85,0.12501057194115894,0.08,7,7,True,1,1
+calibrated_enriched_glm,2026-01-07,Man City,Brighton,T Bramall,Over 3.5,0.6081138226708968,1.85,0.12501057194115894,0.1,7,7,True,1,1
+calibrated_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.6261436956818512,1.95,0.22098020657960982,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.6261436956818512,1.95,0.22098020657960982,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.6261436956818512,1.95,0.22098020657960982,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.6261436956818512,1.95,0.22098020657960982,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-01-07,Newcastle,Leeds,M Salisbury,Over 3.5,0.6261436956818512,1.95,0.22098020657960982,0.2,5,5,True,1,1
+calibrated_enriched_glm,2026-01-17,Leeds,Fulham,C Kavanagh,Over 3.5,0.603337302449906,1.9,0.14634087465482137,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-01-17,Leeds,Fulham,C Kavanagh,Over 3.5,0.603337302449906,1.9,0.14634087465482137,0.05,6,6,True,1,1
+calibrated_enriched_glm,2026-01-17,Leeds,Fulham,C Kavanagh,Over 3.5,0.603337302449906,1.9,0.14634087465482137,0.08,6,6,True,1,1
+calibrated_enriched_glm,2026-01-17,Leeds,Fulham,C Kavanagh,Over 3.5,0.603337302449906,1.9,0.14634087465482137,0.1,6,6,True,1,1
+calibrated_enriched_glm,2026-01-17,Liverpool,Burnley,A Madley,Over 3.5,0.5968875738273042,3.06,0.8264759759115508,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-01-17,Liverpool,Burnley,A Madley,Over 3.5,0.5968875738273042,3.06,0.8264759759115508,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-01-17,Liverpool,Burnley,A Madley,Over 3.5,0.5968875738273042,3.06,0.8264759759115508,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-01-17,Liverpool,Burnley,A Madley,Over 3.5,0.5968875738273042,3.06,0.8264759759115508,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-01-17,Liverpool,Burnley,A Madley,Over 3.5,0.5968875738273042,3.06,0.8264759759115508,0.2,3,3,True,0,0
+calibrated_enriched_glm,2026-01-17,Man United,Man City,A Taylor,Over 3.5,0.6172275621073637,1.66,0.024597753098223762,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.6241451720238639,2.31,0.4417753473751256,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.6241451720238639,2.31,0.4417753473751256,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.6241451720238639,2.31,0.4417753473751256,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.6241451720238639,2.31,0.4417753473751256,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-17,Nott'm Forest,Arsenal,M Oliver,Over 3.5,0.6241451720238639,2.31,0.4417753473751256,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-01-17,Sunderland,Crystal Palace,R Jones,Over 3.5,0.6219372349977714,1.64,0.01997706539634514,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.6343136402003114,1.8,0.14176455236056063,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.6343136402003114,1.8,0.14176455236056063,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.6343136402003114,1.8,0.14176455236056063,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-01-18,Aston Villa,Everton,T Harrington,Over 3.5,0.6343136402003114,1.8,0.14176455236056063,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-01-24,Bournemouth,Liverpool,M Salisbury,Over 3.5,0.6175982095815349,1.64,0.012861063713717202,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-24,Burnley,Tottenham,P Bankes,Over 3.5,0.6124034771021098,1.64,0.004341702447460127,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-01-24,Fulham,Brighton,M Oliver,Over 3.5,0.5933059662608946,1.88,0.11541521657048182,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-24,Fulham,Brighton,M Oliver,Over 3.5,0.5933059662608946,1.88,0.11541521657048182,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-24,Fulham,Brighton,M Oliver,Over 3.5,0.5933059662608946,1.88,0.11541521657048182,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-24,Fulham,Brighton,M Oliver,Over 3.5,0.5933059662608946,1.88,0.11541521657048182,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-24,West Ham,Sunderland,T Bramall,Over 3.5,0.6104055441530633,1.83,0.11704214580010586,0.0,6,7,False,1,1
+calibrated_enriched_glm,2026-01-24,West Ham,Sunderland,T Bramall,Over 3.5,0.6104055441530633,1.83,0.11704214580010586,0.05,6,7,False,1,1
+calibrated_enriched_glm,2026-01-24,West Ham,Sunderland,T Bramall,Over 3.5,0.6104055441530633,1.83,0.11704214580010586,0.08,6,7,False,1,1
+calibrated_enriched_glm,2026-01-24,West Ham,Sunderland,T Bramall,Over 3.5,0.6104055441530633,1.83,0.11704214580010586,0.1,6,7,False,1,1
+calibrated_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6305384607156865,1.95,0.22954999839558865,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6305384607156865,1.95,0.22954999839558865,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6305384607156865,1.95,0.22954999839558865,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6305384607156865,1.95,0.22954999839558865,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-25,Arsenal,Man United,C Pawson,Over 3.5,0.6305384607156865,1.95,0.22954999839558865,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-01-25,Newcastle,Aston Villa,J Gillett,Over 3.5,0.6539264757900265,1.63,0.0659001555377432,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-01-25,Newcastle,Aston Villa,J Gillett,Over 3.5,0.6539264757900265,1.63,0.0659001555377432,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-01-26,Everton,Leeds,S Hooper,Over 3.5,0.6053277254379694,1.85,0.11985629206024351,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-01-26,Everton,Leeds,S Hooper,Over 3.5,0.6053277254379694,1.85,0.11985629206024351,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-01-26,Everton,Leeds,S Hooper,Over 3.5,0.6053277254379694,1.85,0.11985629206024351,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-01-26,Everton,Leeds,S Hooper,Over 3.5,0.6053277254379694,1.85,0.11985629206024351,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-01-31,Leeds,Arsenal,S Attwell,Over 3.5,0.6143354657572508,2.0,0.22867093151450169,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-01-31,Leeds,Arsenal,S Attwell,Over 3.5,0.6143354657572508,2.0,0.22867093151450169,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-01-31,Leeds,Arsenal,S Attwell,Over 3.5,0.6143354657572508,2.0,0.22867093151450169,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-01-31,Leeds,Arsenal,S Attwell,Over 3.5,0.6143354657572508,2.0,0.22867093151450169,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-01-31,Leeds,Arsenal,S Attwell,Over 3.5,0.6143354657572508,2.0,0.22867093151450169,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-02-01,Aston Villa,Brentford,T Robinson,Over 3.5,0.6360807552435355,1.59,0.01136840083722146,0.0,3,5,False,0,1
+calibrated_enriched_glm,2026-02-01,Man United,Fulham,J Brooks,Over 3.5,0.6199467570835638,1.64,0.016712681617044645,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-02-02,Sunderland,Burnley,P Tierney,Over 3.5,0.6130656527635038,1.85,0.13417145761248195,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-02-02,Sunderland,Burnley,P Tierney,Over 3.5,0.6130656527635038,1.85,0.13417145761248195,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-02-02,Sunderland,Burnley,P Tierney,Over 3.5,0.6130656527635038,1.85,0.13417145761248195,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-02-02,Sunderland,Burnley,P Tierney,Over 3.5,0.6130656527635038,1.85,0.13417145761248195,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6346138704705051,1.9,0.20576635389395959,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6346138704705051,1.9,0.20576635389395959,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6346138704705051,1.9,0.20576635389395959,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6346138704705051,1.9,0.20576635389395959,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-02-06,Leeds,Nott'm Forest,P Bankes,Over 3.5,0.6346138704705051,1.9,0.20576635389395959,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.6239754626841538,2.31,0.4413833188003953,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.6239754626841538,2.31,0.4413833188003953,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.6239754626841538,2.31,0.4413833188003953,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.6239754626841538,2.31,0.4413833188003953,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-02-07,Arsenal,Sunderland,S Barrott,Over 3.5,0.6239754626841538,2.31,0.4413833188003953,0.2,3,3,True,0,0
+calibrated_enriched_glm,2026-02-07,Bournemouth,Aston Villa,A Taylor,Over 3.5,0.6505225335371081,1.59,0.03433082832400203,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-02-07,Man United,Tottenham,M Oliver,Over 3.5,0.6413620202825853,1.63,0.0454200930606139,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-02-07,Newcastle,Brentford,A Madley,Over 3.5,0.6130499180042407,2.08,0.27514382944882065,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-02-07,Newcastle,Brentford,A Madley,Over 3.5,0.6130499180042407,2.08,0.27514382944882065,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-02-07,Newcastle,Brentford,A Madley,Over 3.5,0.6130499180042407,2.08,0.27514382944882065,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-02-07,Newcastle,Brentford,A Madley,Over 3.5,0.6130499180042407,2.08,0.27514382944882065,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-02-07,Newcastle,Brentford,A Madley,Over 3.5,0.6130499180042407,2.08,0.27514382944882065,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-02-08,Liverpool,Man City,C Pawson,Over 3.5,0.5911905679053832,1.85,0.09370255062495891,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-02-08,Liverpool,Man City,C Pawson,Over 3.5,0.5911905679053832,1.85,0.09370255062495891,0.05,6,6,True,1,1
+calibrated_enriched_glm,2026-02-08,Liverpool,Man City,C Pawson,Over 3.5,0.5911905679053832,1.85,0.09370255062495891,0.08,6,6,True,1,1
+calibrated_enriched_glm,2026-02-10,Chelsea,Leeds,R Jones,Over 3.5,0.624422951043458,1.78,0.1114728528573552,0.0,8,8,True,1,1
+calibrated_enriched_glm,2026-02-10,Chelsea,Leeds,R Jones,Over 3.5,0.624422951043458,1.78,0.1114728528573552,0.05,8,8,True,1,1
+calibrated_enriched_glm,2026-02-10,Chelsea,Leeds,R Jones,Over 3.5,0.624422951043458,1.78,0.1114728528573552,0.08,8,8,True,1,1
+calibrated_enriched_glm,2026-02-10,Chelsea,Leeds,R Jones,Over 3.5,0.624422951043458,1.78,0.1114728528573552,0.1,8,8,True,1,1
+calibrated_enriched_glm,2026-02-10,Everton,Bournemouth,A Madley,Over 3.5,0.6219292445094559,1.75,0.08837617789154772,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-02-10,Everton,Bournemouth,A Madley,Over 3.5,0.6219292445094559,1.75,0.08837617789154772,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-02-10,Everton,Bournemouth,A Madley,Over 3.5,0.6219292445094559,1.75,0.08837617789154772,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-02-10,West Ham,Man United,S Hooper,Over 3.5,0.6225133069280488,1.85,0.15164961781689046,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-02-10,West Ham,Man United,S Hooper,Over 3.5,0.6225133069280488,1.85,0.15164961781689046,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-02-10,West Ham,Man United,S Hooper,Over 3.5,0.6225133069280488,1.85,0.15164961781689046,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-02-10,West Ham,Man United,S Hooper,Over 3.5,0.6225133069280488,1.85,0.15164961781689046,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-02-11,Man City,Fulham,P Tierney,Over 3.5,0.5959640547297551,2.31,0.37667696642573434,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-02-11,Man City,Fulham,P Tierney,Over 3.5,0.5959640547297551,2.31,0.37667696642573434,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-02-11,Man City,Fulham,P Tierney,Over 3.5,0.5959640547297551,2.31,0.37667696642573434,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-02-11,Man City,Fulham,P Tierney,Over 3.5,0.5959640547297551,2.31,0.37667696642573434,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-02-11,Man City,Fulham,P Tierney,Over 3.5,0.5959640547297551,2.31,0.37667696642573434,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-02-11,Nott'm Forest,Wolves,T Robinson,Over 3.5,0.6342963808759443,1.63,0.033903100827789245,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-02-12,Brentford,Arsenal,J Brooks,Over 3.5,0.6067877550826595,2.03,0.23177914281779866,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-02-12,Brentford,Arsenal,J Brooks,Over 3.5,0.6067877550826595,2.03,0.23177914281779866,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-02-12,Brentford,Arsenal,J Brooks,Over 3.5,0.6067877550826595,2.03,0.23177914281779866,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-02-12,Brentford,Arsenal,J Brooks,Over 3.5,0.6067877550826595,2.03,0.23177914281779866,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-02-12,Brentford,Arsenal,J Brooks,Over 3.5,0.6067877550826595,2.03,0.23177914281779866,0.2,5,5,True,1,1
+calibrated_enriched_glm,2026-02-18,Wolves,Arsenal,P Tierney,Over 3.5,0.6174833851943305,2.08,0.2843654412042076,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-02-18,Wolves,Arsenal,P Tierney,Over 3.5,0.6174833851943305,2.08,0.2843654412042076,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-02-18,Wolves,Arsenal,P Tierney,Over 3.5,0.6174833851943305,2.08,0.2843654412042076,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-02-18,Wolves,Arsenal,P Tierney,Over 3.5,0.6174833851943305,2.08,0.2843654412042076,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-02-18,Wolves,Arsenal,P Tierney,Over 3.5,0.6174833851943305,2.08,0.2843654412042076,0.2,3,3,True,0,0
+calibrated_enriched_glm,2026-02-21,Aston Villa,Leeds,M Oliver,Over 3.5,0.6255217611248219,1.73,0.08215264674594192,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-02-21,Aston Villa,Leeds,M Oliver,Over 3.5,0.6255217611248219,1.73,0.08215264674594192,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-02-21,Aston Villa,Leeds,M Oliver,Over 3.5,0.6255217611248219,1.73,0.08215264674594192,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-02-21,Man City,Newcastle,T Bramall,Over 3.5,0.6055103186391341,1.83,0.10808388310961536,0.0,7,7,True,1,1
+calibrated_enriched_glm,2026-02-21,Man City,Newcastle,T Bramall,Over 3.5,0.6055103186391341,1.83,0.10808388310961536,0.05,7,7,True,1,1
+calibrated_enriched_glm,2026-02-21,Man City,Newcastle,T Bramall,Over 3.5,0.6055103186391341,1.83,0.10808388310961536,0.08,7,7,True,1,1
+calibrated_enriched_glm,2026-02-21,Man City,Newcastle,T Bramall,Over 3.5,0.6055103186391341,1.83,0.10808388310961536,0.1,7,7,True,1,1
+calibrated_enriched_glm,2026-02-22,Nott'm Forest,Liverpool,A Taylor,Over 3.5,0.6025144312105335,2.0,0.205028862421067,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Nott'm Forest,Liverpool,A Taylor,Over 3.5,0.6025144312105335,2.0,0.205028862421067,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Nott'm Forest,Liverpool,A Taylor,Over 3.5,0.6025144312105335,2.0,0.205028862421067,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Nott'm Forest,Liverpool,A Taylor,Over 3.5,0.6025144312105335,2.0,0.205028862421067,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Nott'm Forest,Liverpool,A Taylor,Over 3.5,0.6025144312105335,2.0,0.205028862421067,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Sunderland,Fulham,C Pawson,Over 3.5,0.6055539331016097,1.85,0.12027477623797789,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Sunderland,Fulham,C Pawson,Over 3.5,0.6055539331016097,1.85,0.12027477623797789,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Sunderland,Fulham,C Pawson,Over 3.5,0.6055539331016097,1.85,0.12027477623797789,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-02-22,Sunderland,Fulham,C Pawson,Over 3.5,0.6055539331016097,1.85,0.12027477623797789,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-02-23,Everton,Man United,D England,Over 3.5,0.6150406462667621,1.85,0.13782519559350992,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-02-23,Everton,Man United,D England,Over 3.5,0.6150406462667621,1.85,0.13782519559350992,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-02-23,Everton,Man United,D England,Over 3.5,0.6150406462667621,1.85,0.13782519559350992,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-02-23,Everton,Man United,D England,Over 3.5,0.6150406462667621,1.85,0.13782519559350992,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-02-27,Wolves,Aston Villa,C Pawson,Over 3.5,0.637768133316683,1.67,0.06507278263886063,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-02-27,Wolves,Aston Villa,C Pawson,Over 3.5,0.637768133316683,1.67,0.06507278263886063,0.05,6,6,True,1,1
+calibrated_enriched_glm,2026-02-28,Bournemouth,Sunderland,J Gillett,Over 3.5,0.6364250336721141,1.59,0.011915803538661507,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-02-28,Burnley,Brentford,S Barrott,Over 3.5,0.5945645624680098,2.05,0.21885735305942,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Burnley,Brentford,S Barrott,Over 3.5,0.5945645624680098,2.05,0.21885735305942,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Burnley,Brentford,S Barrott,Over 3.5,0.5945645624680098,2.05,0.21885735305942,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Burnley,Brentford,S Barrott,Over 3.5,0.5945645624680098,2.05,0.21885735305942,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Burnley,Brentford,S Barrott,Over 3.5,0.5945645624680098,2.05,0.21885735305942,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Leeds,Man City,P Bankes,Over 3.5,0.6044537262299632,1.88,0.13637300531233065,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-02-28,Leeds,Man City,P Bankes,Over 3.5,0.6044537262299632,1.88,0.13637300531233065,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-02-28,Leeds,Man City,P Bankes,Over 3.5,0.6044537262299632,1.88,0.13637300531233065,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-02-28,Leeds,Man City,P Bankes,Over 3.5,0.6044537262299632,1.88,0.13637300531233065,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-02-28,Liverpool,West Ham,T Robinson,Over 3.5,0.5934752086831661,1.93,0.14540715275851035,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Liverpool,West Ham,T Robinson,Over 3.5,0.5934752086831661,1.93,0.14540715275851035,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Liverpool,West Ham,T Robinson,Over 3.5,0.5934752086831661,1.93,0.14540715275851035,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Liverpool,West Ham,T Robinson,Over 3.5,0.5934752086831661,1.93,0.14540715275851035,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-02-28,Newcastle,Everton,S Attwell,Over 3.5,0.6161726475062784,1.66,0.022846594860422176,0.0,5,6,False,1,1
+calibrated_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.6335074901364384,1.83,0.1593187069496822,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.6335074901364384,1.83,0.1593187069496822,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.6335074901364384,1.83,0.1593187069496822,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-03-01,Brighton,Nott'm Forest,A Madley,Over 3.5,0.6335074901364384,1.83,0.1593187069496822,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-03-01,Man United,Crystal Palace,C Kavanagh,Over 3.5,0.6173413888832197,1.64,0.012439877768480212,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-03-03,Bournemouth,Brentford,C Pawson,Over 3.5,0.6197151290139878,2.03,0.2580217118983952,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Bournemouth,Brentford,C Pawson,Over 3.5,0.6197151290139878,2.03,0.2580217118983952,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Bournemouth,Brentford,C Pawson,Over 3.5,0.6197151290139878,2.03,0.2580217118983952,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Bournemouth,Brentford,C Pawson,Over 3.5,0.6197151290139878,2.03,0.2580217118983952,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Bournemouth,Brentford,C Pawson,Over 3.5,0.6197151290139878,2.03,0.2580217118983952,0.2,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Everton,Burnley,T Robinson,Over 3.5,0.6035681617817261,1.85,0.11660109929619344,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-03-03,Everton,Burnley,T Robinson,Over 3.5,0.6035681617817261,1.85,0.11660109929619344,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-03-03,Everton,Burnley,T Robinson,Over 3.5,0.6035681617817261,1.85,0.11660109929619344,0.08,1,1,True,0,0
+calibrated_enriched_glm,2026-03-03,Everton,Burnley,T Robinson,Over 3.5,0.6035681617817261,1.85,0.11660109929619344,0.1,1,1,True,0,0
+calibrated_enriched_glm,2026-03-03,Leeds,Sunderland,S Attwell,Over 3.5,0.6170260595551792,1.63,0.005752477074941975,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-03-03,Wolves,Liverpool,T Bramall,Over 3.5,0.6162209962340887,1.9,0.1708198928447684,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Wolves,Liverpool,T Bramall,Over 3.5,0.6162209962340887,1.9,0.1708198928447684,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Wolves,Liverpool,T Bramall,Over 3.5,0.6162209962340887,1.9,0.1708198928447684,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-03-03,Wolves,Liverpool,T Bramall,Over 3.5,0.6162209962340887,1.9,0.1708198928447684,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-03-04,Brighton,Arsenal,C Kavanagh,Over 3.5,0.6211821426881932,1.8,0.11812785683874782,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-03-04,Brighton,Arsenal,C Kavanagh,Over 3.5,0.6211821426881932,1.8,0.11812785683874782,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-03-04,Brighton,Arsenal,C Kavanagh,Over 3.5,0.6211821426881932,1.8,0.11812785683874782,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-03-04,Brighton,Arsenal,C Kavanagh,Over 3.5,0.6211821426881932,1.8,0.11812785683874782,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-03-04,Man City,Nott'm Forest,D England,Over 3.5,0.6241391803314588,1.8,0.12345052459662575,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-03-04,Man City,Nott'm Forest,D England,Over 3.5,0.6241391803314588,1.8,0.12345052459662575,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-03-04,Man City,Nott'm Forest,D England,Over 3.5,0.6241391803314588,1.8,0.12345052459662575,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-03-04,Man City,Nott'm Forest,D England,Over 3.5,0.6241391803314588,1.8,0.12345052459662575,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-03-04,Newcastle,Man United,P Bankes,Over 3.5,0.6364120391677905,1.59,0.011895142276787007,0.0,5,7,False,1,1
+calibrated_enriched_glm,2026-03-14,Arsenal,Everton,A Madley,Over 3.5,0.6073181278887649,2.08,0.26322170600863104,0.0,0,0,True,0,0
+calibrated_enriched_glm,2026-03-14,Arsenal,Everton,A Madley,Over 3.5,0.6073181278887649,2.08,0.26322170600863104,0.05,0,0,True,0,0
+calibrated_enriched_glm,2026-03-14,Arsenal,Everton,A Madley,Over 3.5,0.6073181278887649,2.08,0.26322170600863104,0.08,0,0,True,0,0
+calibrated_enriched_glm,2026-03-14,Arsenal,Everton,A Madley,Over 3.5,0.6073181278887649,2.08,0.26322170600863104,0.1,0,0,True,0,0
+calibrated_enriched_glm,2026-03-14,Arsenal,Everton,A Madley,Over 3.5,0.6073181278887649,2.08,0.26322170600863104,0.2,0,0,True,0,0
+calibrated_enriched_glm,2026-03-14,Burnley,Bournemouth,P Bankes,Over 3.5,0.61126924979611,1.78,0.0880592646370757,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-03-14,Burnley,Bournemouth,P Bankes,Over 3.5,0.61126924979611,1.78,0.0880592646370757,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-03-14,Burnley,Bournemouth,P Bankes,Over 3.5,0.61126924979611,1.78,0.0880592646370757,0.08,1,1,True,0,0
+calibrated_enriched_glm,2026-03-14,West Ham,Man City,M Oliver,Over 3.5,0.5925785596488383,2.31,0.3688564727888166,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-03-14,West Ham,Man City,M Oliver,Over 3.5,0.5925785596488383,2.31,0.3688564727888166,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-03-14,West Ham,Man City,M Oliver,Over 3.5,0.5925785596488383,2.31,0.3688564727888166,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-03-14,West Ham,Man City,M Oliver,Over 3.5,0.5925785596488383,2.31,0.3688564727888166,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-03-14,West Ham,Man City,M Oliver,Over 3.5,0.5925785596488383,2.31,0.3688564727888166,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-03-15,Crystal Palace,Leeds,T Bramall,Over 3.5,0.6169083182945552,1.66,0.024067808368961607,0.0,3,5,False,0,1
+calibrated_enriched_glm,2026-03-15,Liverpool,Tottenham,C Kavanagh,Over 3.5,0.6218894016510835,1.64,0.019898618707776983,0.0,0,0,True,0,0
+calibrated_enriched_glm,2026-03-15,Man United,Aston Villa,A Taylor,Over 3.5,0.6327053675288583,1.67,0.05661796377319339,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-03-15,Man United,Aston Villa,A Taylor,Over 3.5,0.6327053675288583,1.67,0.05661796377319339,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-03-15,Nott'm Forest,Fulham,S Barrott,Over 3.5,0.6101656533171388,1.9,0.15931474130256373,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-03-15,Nott'm Forest,Fulham,S Barrott,Over 3.5,0.6101656533171388,1.9,0.15931474130256373,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-03-15,Nott'm Forest,Fulham,S Barrott,Over 3.5,0.6101656533171388,1.9,0.15931474130256373,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-03-15,Nott'm Forest,Fulham,S Barrott,Over 3.5,0.6101656533171388,1.9,0.15931474130256373,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-03-16,Brentford,Wolves,S Attwell,Over 3.5,0.6196925358053946,1.67,0.03488653479500892,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-03-21,Fulham,Burnley,C Kavanagh,Over 3.5,0.590211736343083,2.31,0.3633891109525218,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-03-21,Fulham,Burnley,C Kavanagh,Over 3.5,0.590211736343083,2.31,0.3633891109525218,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-03-21,Fulham,Burnley,C Kavanagh,Over 3.5,0.590211736343083,2.31,0.3633891109525218,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-03-21,Fulham,Burnley,C Kavanagh,Over 3.5,0.590211736343083,2.31,0.3633891109525218,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-03-21,Fulham,Burnley,C Kavanagh,Over 3.5,0.590211736343083,2.31,0.3633891109525218,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-03-21,Leeds,Brentford,J Gillett,Over 3.5,0.605500779795624,1.9,0.15045148161168553,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-03-21,Leeds,Brentford,J Gillett,Over 3.5,0.605500779795624,1.9,0.15045148161168553,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-03-21,Leeds,Brentford,J Gillett,Over 3.5,0.605500779795624,1.9,0.15045148161168553,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-03-21,Leeds,Brentford,J Gillett,Over 3.5,0.605500779795624,1.9,0.15045148161168553,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-03-22,Aston Villa,West Ham,P Tierney,Over 3.5,0.615585078993579,1.8,0.10805314218844209,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-03-22,Aston Villa,West Ham,P Tierney,Over 3.5,0.615585078993579,1.8,0.10805314218844209,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-03-22,Aston Villa,West Ham,P Tierney,Over 3.5,0.615585078993579,1.8,0.10805314218844209,0.08,1,1,True,0,0
+calibrated_enriched_glm,2026-03-22,Aston Villa,West Ham,P Tierney,Over 3.5,0.615585078993579,1.8,0.10805314218844209,0.1,1,1,True,0,0
+calibrated_enriched_glm,2026-04-10,West Ham,Wolves,J Gillett,Over 3.5,0.613630846262087,1.8,0.10453552327175664,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-04-10,West Ham,Wolves,J Gillett,Over 3.5,0.613630846262087,1.8,0.10453552327175664,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-04-10,West Ham,Wolves,J Gillett,Over 3.5,0.613630846262087,1.8,0.10453552327175664,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-04-10,West Ham,Wolves,J Gillett,Over 3.5,0.613630846262087,1.8,0.10453552327175664,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-04-11,Arsenal,Bournemouth,M Oliver,Over 3.5,0.6191616422598925,2.35,0.45502985931074735,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-04-11,Arsenal,Bournemouth,M Oliver,Over 3.5,0.6191616422598925,2.35,0.45502985931074735,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-04-11,Arsenal,Bournemouth,M Oliver,Over 3.5,0.6191616422598925,2.35,0.45502985931074735,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-04-11,Arsenal,Bournemouth,M Oliver,Over 3.5,0.6191616422598925,2.35,0.45502985931074735,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-04-11,Arsenal,Bournemouth,M Oliver,Over 3.5,0.6191616422598925,2.35,0.45502985931074735,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-04-11,Burnley,Brighton,T Bramall,Over 3.5,0.5971908901230379,1.8,0.07494360222146823,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-04-11,Burnley,Brighton,T Bramall,Over 3.5,0.5971908901230379,1.8,0.07494360222146823,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-04-11,Liverpool,Fulham,A Taylor,Over 3.5,0.6014061794978387,1.98,0.19078423540572054,0.0,0,0,True,0,0
+calibrated_enriched_glm,2026-04-11,Liverpool,Fulham,A Taylor,Over 3.5,0.6014061794978387,1.98,0.19078423540572054,0.05,0,0,True,0,0
+calibrated_enriched_glm,2026-04-11,Liverpool,Fulham,A Taylor,Over 3.5,0.6014061794978387,1.98,0.19078423540572054,0.08,0,0,True,0,0
+calibrated_enriched_glm,2026-04-11,Liverpool,Fulham,A Taylor,Over 3.5,0.6014061794978387,1.98,0.19078423540572054,0.1,0,0,True,0,0
+calibrated_enriched_glm,2026-04-12,Nott'm Forest,Aston Villa,M Salisbury,Over 3.5,0.6273747248238387,1.66,0.041442043207572166,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-04-13,Man United,Leeds,P Tierney,Over 3.5,0.6193138307390695,1.67,0.034254097334246,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-04-18,Brentford,Fulham,P Tierney,Over 3.5,0.5874818475504497,1.8,0.05746732559080958,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-04-18,Brentford,Fulham,P Tierney,Over 3.5,0.5874818475504497,1.8,0.05746732559080958,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-04-19,Aston Villa,Sunderland,S Barrott,Over 3.5,0.6339728142528498,1.64,0.03971541537467349,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-04-22,Bournemouth,Leeds,M Salisbury,Over 3.5,0.6166935202170482,1.8,0.11004833639068679,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-04-22,Bournemouth,Leeds,M Salisbury,Over 3.5,0.6166935202170482,1.8,0.11004833639068679,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-04-22,Bournemouth,Leeds,M Salisbury,Over 3.5,0.6166935202170482,1.8,0.11004833639068679,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-04-22,Bournemouth,Leeds,M Salisbury,Over 3.5,0.6166935202170482,1.8,0.11004833639068679,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-04-22,Burnley,Man City,A Madley,Over 3.5,0.5932453400943167,3.84,1.2780621059621762,0.0,0,0,True,0,0
+calibrated_enriched_glm,2026-04-22,Burnley,Man City,A Madley,Over 3.5,0.5932453400943167,3.84,1.2780621059621762,0.05,0,0,True,0,0
+calibrated_enriched_glm,2026-04-22,Burnley,Man City,A Madley,Over 3.5,0.5932453400943167,3.84,1.2780621059621762,0.08,0,0,True,0,0
+calibrated_enriched_glm,2026-04-22,Burnley,Man City,A Madley,Over 3.5,0.5932453400943167,3.84,1.2780621059621762,0.1,0,0,True,0,0
+calibrated_enriched_glm,2026-04-22,Burnley,Man City,A Madley,Over 3.5,0.5932453400943167,3.84,1.2780621059621762,0.2,0,0,True,0,0
+calibrated_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.6270019420140267,2.08,0.3041640393891756,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.6270019420140267,2.08,0.3041640393891756,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.6270019420140267,2.08,0.3041640393891756,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.6270019420140267,2.08,0.3041640393891756,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Arsenal,Newcastle,S Barrott,Over 3.5,0.6270019420140267,2.08,0.3041640393891756,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Fulham,Aston Villa,M Oliver,Over 3.5,0.6036053678591614,1.95,0.17703046732536465,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Fulham,Aston Villa,M Oliver,Over 3.5,0.6036053678591614,1.95,0.17703046732536465,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Fulham,Aston Villa,M Oliver,Over 3.5,0.6036053678591614,1.95,0.17703046732536465,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Fulham,Aston Villa,M Oliver,Over 3.5,0.6036053678591614,1.95,0.17703046732536465,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Liverpool,Crystal Palace,A Madley,Over 3.5,0.6041825408312832,2.35,0.4198289709535157,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Liverpool,Crystal Palace,A Madley,Over 3.5,0.6041825408312832,2.35,0.4198289709535157,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Liverpool,Crystal Palace,A Madley,Over 3.5,0.6041825408312832,2.35,0.4198289709535157,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Liverpool,Crystal Palace,A Madley,Over 3.5,0.6041825408312832,2.35,0.4198289709535157,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Liverpool,Crystal Palace,A Madley,Over 3.5,0.6041825408312832,2.35,0.4198289709535157,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-04-25,Wolves,Tottenham,A Taylor,Over 3.5,0.6435919762648608,1.56,0.004003482973182759,0.0,7,7,True,1,1
+calibrated_enriched_glm,2026-04-27,Man United,Brentford,C Kavanagh,Over 3.5,0.6152343712713532,1.88,0.15664061799014384,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-04-27,Man United,Brentford,C Kavanagh,Over 3.5,0.6152343712713532,1.88,0.15664061799014384,0.05,6,6,True,1,1
+calibrated_enriched_glm,2026-04-27,Man United,Brentford,C Kavanagh,Over 3.5,0.6152343712713532,1.88,0.15664061799014384,0.08,6,6,True,1,1
+calibrated_enriched_glm,2026-04-27,Man United,Brentford,C Kavanagh,Over 3.5,0.6152343712713532,1.88,0.15664061799014384,0.1,6,6,True,1,1
+calibrated_enriched_glm,2026-05-01,Leeds,Burnley,T Bramall,Over 3.5,0.6030942960366087,2.62,0.5801070556159149,0.0,7,7,True,1,1
+calibrated_enriched_glm,2026-05-01,Leeds,Burnley,T Bramall,Over 3.5,0.6030942960366087,2.62,0.5801070556159149,0.05,7,7,True,1,1
+calibrated_enriched_glm,2026-05-01,Leeds,Burnley,T Bramall,Over 3.5,0.6030942960366087,2.62,0.5801070556159149,0.08,7,7,True,1,1
+calibrated_enriched_glm,2026-05-01,Leeds,Burnley,T Bramall,Over 3.5,0.6030942960366087,2.62,0.5801070556159149,0.1,7,7,True,1,1
+calibrated_enriched_glm,2026-05-01,Leeds,Burnley,T Bramall,Over 3.5,0.6030942960366087,2.62,0.5801070556159149,0.2,7,7,True,1,1
+calibrated_enriched_glm,2026-05-02,Arsenal,Fulham,J Gillett,Over 3.5,0.6020921317592521,2.08,0.25235163405924443,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-05-02,Arsenal,Fulham,J Gillett,Over 3.5,0.6020921317592521,2.08,0.25235163405924443,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-05-02,Arsenal,Fulham,J Gillett,Over 3.5,0.6020921317592521,2.08,0.25235163405924443,0.08,1,1,True,0,0
+calibrated_enriched_glm,2026-05-02,Arsenal,Fulham,J Gillett,Over 3.5,0.6020921317592521,2.08,0.25235163405924443,0.1,1,1,True,0,0
+calibrated_enriched_glm,2026-05-02,Arsenal,Fulham,J Gillett,Over 3.5,0.6020921317592521,2.08,0.25235163405924443,0.2,1,1,True,0,0
+calibrated_enriched_glm,2026-05-02,Brentford,West Ham,C Pawson,Over 3.5,0.588849889895296,2.08,0.2248077709822156,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Brentford,West Ham,C Pawson,Over 3.5,0.588849889895296,2.08,0.2248077709822156,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Brentford,West Ham,C Pawson,Over 3.5,0.588849889895296,2.08,0.2248077709822156,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Brentford,West Ham,C Pawson,Over 3.5,0.588849889895296,2.08,0.2248077709822156,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Brentford,West Ham,C Pawson,Over 3.5,0.588849889895296,2.08,0.2248077709822156,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.6306489662560606,1.85,0.1667005875737122,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.6306489662560606,1.85,0.1667005875737122,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.6306489662560606,1.85,0.1667005875737122,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-05-02,Wolves,Sunderland,P Tierney,Over 3.5,0.6306489662560606,1.85,0.1667005875737122,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-05-04,Everton,Man City,M Oliver,Over 3.5,0.6099670764126056,1.8,0.09794073754269017,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-05-04,Everton,Man City,M Oliver,Over 3.5,0.6099670764126056,1.8,0.09794073754269017,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-05-04,Everton,Man City,M Oliver,Over 3.5,0.6099670764126056,1.8,0.09794073754269017,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.6349053159777035,1.8,0.1428295687598664,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.6349053159777035,1.8,0.1428295687598664,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.6349053159777035,1.8,0.1428295687598664,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-05-09,Brighton,Wolves,J Brooks,Over 3.5,0.6349053159777035,1.8,0.1428295687598664,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-05-09,Fulham,Bournemouth,A Madley,Over 3.5,0.5941114300872204,1.75,0.0396950026526357,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Liverpool,Chelsea,C Pawson,Over 3.5,0.6130597147143269,1.8,0.10350748648578834,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Liverpool,Chelsea,C Pawson,Over 3.5,0.6130597147143269,1.8,0.10350748648578834,0.05,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Liverpool,Chelsea,C Pawson,Over 3.5,0.6130597147143269,1.8,0.10350748648578834,0.08,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Liverpool,Chelsea,C Pawson,Over 3.5,0.6130597147143269,1.8,0.10350748648578834,0.1,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Man City,Brentford,M Salisbury,Over 3.5,0.6094623381532658,1.83,0.11531607882047634,0.0,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Man City,Brentford,M Salisbury,Over 3.5,0.6094623381532658,1.83,0.11531607882047634,0.05,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Man City,Brentford,M Salisbury,Over 3.5,0.6094623381532658,1.83,0.11531607882047634,0.08,6,6,True,1,1
+calibrated_enriched_glm,2026-05-09,Man City,Brentford,M Salisbury,Over 3.5,0.6094623381532658,1.83,0.11531607882047634,0.1,6,6,True,1,1
+calibrated_enriched_glm,2026-05-10,Burnley,Aston Villa,A Taylor,Over 3.5,0.6122395036664949,2.51,0.5367211542029022,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-05-10,Burnley,Aston Villa,A Taylor,Over 3.5,0.6122395036664949,2.51,0.5367211542029022,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-05-10,Burnley,Aston Villa,A Taylor,Over 3.5,0.6122395036664949,2.51,0.5367211542029022,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-05-10,Burnley,Aston Villa,A Taylor,Over 3.5,0.6122395036664949,2.51,0.5367211542029022,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-05-10,Burnley,Aston Villa,A Taylor,Over 3.5,0.6122395036664949,2.51,0.5367211542029022,0.2,2,2,True,0,0
+calibrated_enriched_glm,2026-05-10,Nott'm Forest,Newcastle,P Tierney,Over 3.5,0.6270144663240138,1.62,0.01576343544490233,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-05-13,Man City,Crystal Palace,S Attwell,Over 3.5,0.6162504546077896,1.83,0.12773833193225492,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-05-13,Man City,Crystal Palace,S Attwell,Over 3.5,0.6162504546077896,1.83,0.12773833193225492,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-05-13,Man City,Crystal Palace,S Attwell,Over 3.5,0.6162504546077896,1.83,0.12773833193225492,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-05-13,Man City,Crystal Palace,S Attwell,Over 3.5,0.6162504546077896,1.83,0.12773833193225492,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-05-15,Aston Villa,Liverpool,C Kavanagh,Over 3.5,0.6308777205763889,1.64,0.034639461745277655,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Brentford,Crystal Palace,S Barrott,Over 3.5,0.606698873352335,2.05,0.2437326903722865,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Brentford,Crystal Palace,S Barrott,Over 3.5,0.606698873352335,2.05,0.2437326903722865,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Brentford,Crystal Palace,S Barrott,Over 3.5,0.606698873352335,2.05,0.2437326903722865,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Brentford,Crystal Palace,S Barrott,Over 3.5,0.606698873352335,2.05,0.2437326903722865,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Brentford,Crystal Palace,S Barrott,Over 3.5,0.606698873352335,2.05,0.2437326903722865,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6360136776996368,1.8,0.14482461985934636,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6360136776996368,1.8,0.14482461985934636,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6360136776996368,1.8,0.14482461985934636,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Everton,Sunderland,J Brooks,Over 3.5,0.6360136776996368,1.8,0.14482461985934636,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Leeds,Brighton,M Oliver,Over 3.5,0.609047926581514,1.9,0.15719106050487652,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-05-17,Leeds,Brighton,M Oliver,Over 3.5,0.609047926581514,1.9,0.15719106050487652,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-05-17,Leeds,Brighton,M Oliver,Over 3.5,0.609047926581514,1.9,0.15719106050487652,0.08,1,1,True,0,0
+calibrated_enriched_glm,2026-05-17,Leeds,Brighton,M Oliver,Over 3.5,0.609047926581514,1.9,0.15719106050487652,0.1,1,1,True,0,0
+calibrated_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6433260048482096,2.29,0.4732165511024,0.0,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6433260048482096,2.29,0.4732165511024,0.05,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6433260048482096,2.29,0.4732165511024,0.08,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6433260048482096,2.29,0.4732165511024,0.1,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Man United,Nott'm Forest,M Salisbury,Over 3.5,0.6433260048482096,2.29,0.4732165511024,0.2,3,3,True,0,0
+calibrated_enriched_glm,2026-05-17,Newcastle,West Ham,J Gillett,Over 3.5,0.617965303179372,1.75,0.08143928056390104,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Newcastle,West Ham,J Gillett,Over 3.5,0.617965303179372,1.75,0.08143928056390104,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-05-17,Newcastle,West Ham,J Gillett,Over 3.5,0.617965303179372,1.75,0.08143928056390104,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-05-18,Arsenal,Burnley,P Tierney,Over 3.5,0.6164381694165044,3.84,1.3671225705593768,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-05-18,Arsenal,Burnley,P Tierney,Over 3.5,0.6164381694165044,3.84,1.3671225705593768,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-05-18,Arsenal,Burnley,P Tierney,Over 3.5,0.6164381694165044,3.84,1.3671225705593768,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-05-18,Arsenal,Burnley,P Tierney,Over 3.5,0.6164381694165044,3.84,1.3671225705593768,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-05-18,Arsenal,Burnley,P Tierney,Over 3.5,0.6164381694165044,3.84,1.3671225705593768,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6330956582702424,2.05,0.29784609945399687,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6330956582702424,2.05,0.29784609945399687,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6330956582702424,2.05,0.29784609945399687,0.08,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6330956582702424,2.05,0.29784609945399687,0.1,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Brighton,Man United,S Barrott,Over 3.5,0.6330956582702424,2.05,0.29784609945399687,0.2,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Fulham,Newcastle,R Jones,Over 3.5,0.6092945112934823,2.08,0.2673325834904432,0.0,4,4,True,1,1
+calibrated_enriched_glm,2026-05-24,Fulham,Newcastle,R Jones,Over 3.5,0.6092945112934823,2.08,0.2673325834904432,0.05,4,4,True,1,1
+calibrated_enriched_glm,2026-05-24,Fulham,Newcastle,R Jones,Over 3.5,0.6092945112934823,2.08,0.2673325834904432,0.08,4,4,True,1,1
+calibrated_enriched_glm,2026-05-24,Fulham,Newcastle,R Jones,Over 3.5,0.6092945112934823,2.08,0.2673325834904432,0.1,4,4,True,1,1
+calibrated_enriched_glm,2026-05-24,Fulham,Newcastle,R Jones,Over 3.5,0.6092945112934823,2.08,0.2673325834904432,0.2,4,4,True,1,1
+calibrated_enriched_glm,2026-05-24,Liverpool,Brentford,D England,Over 3.5,0.6040896843319338,1.85,0.11756591601407762,0.0,5,5,True,1,1
+calibrated_enriched_glm,2026-05-24,Liverpool,Brentford,D England,Over 3.5,0.6040896843319338,1.85,0.11756591601407762,0.05,5,5,True,1,1
+calibrated_enriched_glm,2026-05-24,Liverpool,Brentford,D England,Over 3.5,0.6040896843319338,1.85,0.11756591601407762,0.08,5,5,True,1,1
+calibrated_enriched_glm,2026-05-24,Liverpool,Brentford,D England,Over 3.5,0.6040896843319338,1.85,0.11756591601407762,0.1,5,5,True,1,1
+calibrated_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6422772826191149,4.76,2.0572398652669865,0.0,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6422772826191149,4.76,2.0572398652669865,0.05,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6422772826191149,4.76,2.0572398652669865,0.08,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6422772826191149,4.76,2.0572398652669865,0.1,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Man City,Aston Villa,A Madley,Over 3.5,0.6422772826191149,4.76,2.0572398652669865,0.2,1,1,True,0,0
+calibrated_enriched_glm,2026-05-24,Nott'm Forest,Bournemouth,C Pawson,Over 3.5,0.6191887934677578,2.35,0.45509366464923096,0.0,2,2,True,0,0
+calibrated_enriched_glm,2026-05-24,Nott'm Forest,Bournemouth,C Pawson,Over 3.5,0.6191887934677578,2.35,0.45509366464923096,0.05,2,2,True,0,0
+calibrated_enriched_glm,2026-05-24,Nott'm Forest,Bournemouth,C Pawson,Over 3.5,0.6191887934677578,2.35,0.45509366464923096,0.08,2,2,True,0,0
+calibrated_enriched_glm,2026-05-24,Nott'm Forest,Bournemouth,C Pawson,Over 3.5,0.6191887934677578,2.35,0.45509366464923096,0.1,2,2,True,0,0
+calibrated_enriched_glm,2026-05-24,Nott'm Forest,Bournemouth,C Pawson,Over 3.5,0.6191887934677578,2.35,0.45509366464923096,0.2,2,2,True,0,0

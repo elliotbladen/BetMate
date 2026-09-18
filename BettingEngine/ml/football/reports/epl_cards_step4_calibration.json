@@ -1,0 +1,47 @@
+{
+  "oof_seasons": [
+    "2023/24",
+    "2024/25"
+  ],
+  "held_out_season": "2025/26",
+  "oof_rows": 760,
+  "summary": {
+    "baseline": {
+      "brier": 0.2819902105563901,
+      "log_loss": 0.7600142206129689,
+      "mean_probability": 0.40316911547124246,
+      "actual_rate": 0.6013157894736842,
+      "mae_probability": 0.5178505117907648
+    },
+    "glm": {
+      "brier": 0.26530435223721816,
+      "log_loss": 0.7271335672607488,
+      "mean_probability": 0.47780405801558573,
+      "actual_rate": 0.6013157894736842,
+      "mae_probability": 0.496291226504318
+    },
+    "baseline_calibrated": {
+      "brier": 0.23955443763670264,
+      "log_loss": 0.6721045439169292,
+      "mean_probability": 0.6013343288307288,
+      "actual_rate": 0.6013157894736842,
+      "mae_probability": 0.4791082209145463
+    },
+    "glm_calibrated": {
+      "brier": 0.23866921132427263,
+      "log_loss": 0.6702908390289346,
+      "mean_probability": 0.601310218135047,
+      "actual_rate": 0.6013157894736842,
+      "mae_probability": 0.47735507937876864
+    }
+  },
+  "selected_model": "glm",
+  "calibration": "Platt logistic map fit on rolling-origin development predictions",
+  "guardrails": {
+    "minimum_referee_games": 25,
+    "minimum_side_probability": 0.57
+  },
+  "held_out_eligible_rows": 361,
+  "held_out_ref_thin_rows": 19,
+  "output": "ml/football/data/epl/cards/epl_cards_step4_calibrated_prices.csv"
+}

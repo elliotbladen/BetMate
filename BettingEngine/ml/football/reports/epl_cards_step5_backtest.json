@@ -1,0 +1,286 @@
+{
+  "season": "2025/26",
+  "market": "yellow_cards_ou35",
+  "models": {
+    "baseline": {
+      "calibration": {
+        "brier": 0.2613058364742827,
+        "predicted_over_rate": 0.45929250841917607,
+        "actual_over_rate": 0.5526315789473685
+      },
+      "eligible_matches": 147,
+      "official_result_thresholds": [
+        {
+          "threshold": 0.0,
+          "bets": 121,
+          "wins": 56,
+          "roi": 0.03504132231404956,
+          "profit": 4.239999999999997,
+          "mean_ev": 0.386830622055738
+        },
+        {
+          "threshold": 0.05,
+          "bets": 114,
+          "wins": 53,
+          "roi": 0.05421052631578947,
+          "profit": 6.18,
+          "mean_ev": 0.4091682336306789
+        },
+        {
+          "threshold": 0.08,
+          "bets": 103,
+          "wins": 48,
+          "roi": 0.07912621359223301,
+          "profit": 8.15,
+          "mean_ev": 0.4458077676794094
+        },
+        {
+          "threshold": 0.1,
+          "bets": 99,
+          "wins": 46,
+          "roi": 0.08444444444444443,
+          "profit": 8.36,
+          "mean_ev": 0.46039794498441167
+        },
+        {
+          "threshold": 0.2,
+          "bets": 74,
+          "wins": 31,
+          "roi": 0.06364864864864864,
+          "profit": 4.709999999999999,
+          "mean_ev": 0.5642786707395051
+        }
+      ],
+      "footiqo_result_sensitivity": [
+        {
+          "threshold": 0.0,
+          "bets": 121,
+          "wins": 55,
+          "roi": 0.0214876033057851,
+          "profit": 2.599999999999997,
+          "mean_ev": 0.386830622055738
+        },
+        {
+          "threshold": 0.05,
+          "bets": 114,
+          "wins": 52,
+          "roi": 0.03982456140350876,
+          "profit": 4.539999999999999,
+          "mean_ev": 0.4091682336306789
+        },
+        {
+          "threshold": 0.08,
+          "bets": 103,
+          "wins": 47,
+          "roi": 0.06320388349514564,
+          "profit": 6.51,
+          "mean_ev": 0.4458077676794094
+        },
+        {
+          "threshold": 0.1,
+          "bets": 99,
+          "wins": 45,
+          "roi": 0.06787878787878787,
+          "profit": 6.719999999999999,
+          "mean_ev": 0.46039794498441167
+        },
+        {
+          "threshold": 0.2,
+          "bets": 74,
+          "wins": 31,
+          "roi": 0.06364864864864864,
+          "profit": 4.709999999999999,
+          "mean_ev": 0.5642786707395051
+        }
+      ]
+    },
+    "raw_enriched_glm": {
+      "calibration": {
+        "brier": 0.24512874236518073,
+        "predicted_over_rate": 0.5500340661546025,
+        "actual_over_rate": 0.5526315789473685
+      },
+      "eligible_matches": 144,
+      "official_result_thresholds": [
+        {
+          "threshold": 0.0,
+          "bets": 53,
+          "wins": 25,
+          "roi": -0.14150943396226415,
+          "profit": -7.5,
+          "mean_ev": 0.17131094928530105
+        },
+        {
+          "threshold": 0.05,
+          "bets": 34,
+          "wins": 12,
+          "roi": -0.2985294117647059,
+          "profit": -10.15,
+          "mean_ev": 0.2560126600340991
+        },
+        {
+          "threshold": 0.08,
+          "bets": 31,
+          "wins": 11,
+          "roi": -0.2845161290322581,
+          "profit": -8.82,
+          "mean_ev": 0.274890306172286
+        },
+        {
+          "threshold": 0.1,
+          "bets": 27,
+          "wins": 11,
+          "roi": -0.17851851851851852,
+          "profit": -4.82,
+          "mean_ev": 0.30244021022169937
+        },
+        {
+          "threshold": 0.2,
+          "bets": 12,
+          "wins": 5,
+          "roi": -0.09249999999999999,
+          "profit": -1.1099999999999999,
+          "mean_ev": 0.5082033812413065
+        }
+      ],
+      "footiqo_result_sensitivity": [
+        {
+          "threshold": 0.0,
+          "bets": 53,
+          "wins": 26,
+          "roi": -0.11150943396226415,
+          "profit": -5.91,
+          "mean_ev": 0.17131094928530105
+        },
+        {
+          "threshold": 0.05,
+          "bets": 34,
+          "wins": 12,
+          "roi": -0.2985294117647059,
+          "profit": -10.15,
+          "mean_ev": 0.2560126600340991
+        },
+        {
+          "threshold": 0.08,
+          "bets": 31,
+          "wins": 11,
+          "roi": -0.2845161290322581,
+          "profit": -8.82,
+          "mean_ev": 0.274890306172286
+        },
+        {
+          "threshold": 0.1,
+          "bets": 27,
+          "wins": 11,
+          "roi": -0.17851851851851852,
+          "profit": -4.82,
+          "mean_ev": 0.30244021022169937
+        },
+        {
+          "threshold": 0.2,
+          "bets": 12,
+          "wins": 5,
+          "roi": -0.09249999999999999,
+          "profit": -1.1099999999999999,
+          "mean_ev": 0.5082033812413065
+        }
+      ]
+    },
+    "calibrated_enriched_glm": {
+      "calibration": {
+        "brier": 0.2504180432240537,
+        "predicted_over_rate": 0.6185352030426353,
+        "actual_over_rate": 0.5526315789473685
+      },
+      "eligible_matches": 361,
+      "official_result_thresholds": [
+        {
+          "threshold": 0.0,
+          "bets": 196,
+          "wins": 101,
+          "roi": -0.04005102040816328,
+          "profit": -7.850000000000003,
+          "mean_ev": 0.17524261936514532
+        },
+        {
+          "threshold": 0.05,
+          "bets": 144,
+          "wins": 70,
+          "roi": -0.046805555555555545,
+          "profit": -6.739999999999998,
+          "mean_ev": 0.23039309142468678
+        },
+        {
+          "threshold": 0.08,
+          "bets": 127,
+          "wins": 63,
+          "roi": -0.015433070866141735,
+          "profit": -1.9600000000000004,
+          "mean_ev": 0.2524812913028678
+        },
+        {
+          "threshold": 0.1,
+          "bets": 112,
+          "wins": 52,
+          "roi": -0.05714285714285716,
+          "profit": -6.400000000000002,
+          "mean_ev": 0.2744144946392274
+        },
+        {
+          "threshold": 0.2,
+          "bets": 54,
+          "wins": 22,
+          "roi": -0.07314814814814813,
+          "profit": -3.9499999999999993,
+          "mean_ev": 0.42001303086727043
+        }
+      ],
+      "footiqo_result_sensitivity": [
+        {
+          "threshold": 0.0,
+          "bets": 196,
+          "wins": 104,
+          "roi": -0.011989795918367364,
+          "profit": -2.350000000000003,
+          "mean_ev": 0.17524261936514532
+        },
+        {
+          "threshold": 0.05,
+          "bets": 144,
+          "wins": 71,
+          "roi": -0.031180555555555545,
+          "profit": -4.489999999999998,
+          "mean_ev": 0.23039309142468678
+        },
+        {
+          "threshold": 0.08,
+          "bets": 127,
+          "wins": 64,
+          "roi": 0.0022834645669291376,
+          "profit": 0.2900000000000005,
+          "mean_ev": 0.2524812913028678
+        },
+        {
+          "threshold": 0.1,
+          "bets": 112,
+          "wins": 53,
+          "roi": -0.03705357142857145,
+          "profit": -4.150000000000002,
+          "mean_ev": 0.2744144946392274
+        },
+        {
+          "threshold": 0.2,
+          "bets": 54,
+          "wins": 23,
+          "roi": -0.03148148148148147,
+          "profit": -1.6999999999999993,
+          "mean_ev": 0.42001303086727043
+        }
+      ]
+    }
+  },
+  "matches": 380,
+  "closing_odds_complete": true,
+  "provider_outcome_mismatches": 22,
+  "outputs": "ml/football/data/epl/cards/epl_cards_step5_bets.csv"
+}

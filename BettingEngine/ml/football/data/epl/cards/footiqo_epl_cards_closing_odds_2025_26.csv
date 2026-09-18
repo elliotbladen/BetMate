@@ -1,0 +1,381 @@
+match_id,start_datetime,competition_type,country,league,league_id,season,home_team_id,home_team,away_team_id,away_team,referee_id,referee,home_yellow_cards_ft,away_yellow_cards_ft,total_yellow_cards_ft,over_2_5_yellow_cards_ft_closing_odds,under_2_5_yellow_cards_ft_closing_odds,over_3_5_yellow_cards_ft_closing_odds,under_3_5_yellow_cards_ft_closing_odds,over_4_5_yellow_cards_ft_closing_odds,under_4_5_yellow_cards_ft_closing_odds,over_5_5_yellow_cards_ft_closing_odds,under_5_5_yellow_cards_ft_closing_odds
+120841,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,67,Manchester Utd,78,Samuel Barrott,0,1,1,1.4,2.92,2.05,1.75,3.47,1.3,6.71,1.1
+120842,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,73,Wolves,238,Andrew Kitchen,2,2,4,1.73,2.08,2.93,1.39,5.81,1.13,13.31,1.02
+120843,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,55,Arsenal,539,Farai Hallam,0,1,1,3.75,1.27,9.55,1.06,25.0,1.01,25.0,1.01
+120844,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,68,Newcastle,68,Robert Jones,2,2,4,1.41,2.87,2.08,1.73,3.54,1.29,6.91,1.09
+120845,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,58,Brentford,73,Darren England,2,3,5,1.32,3.4,1.85,1.95,2.97,1.4,5.43,1.15
+120846,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,56,Aston Villa,67,Andy Madley,1,0,1,2.36,1.58,4.76,1.18,11.46,1.03,25.0,1.01
+120847,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,57,Bournemouth,60,Craig Pawson,1,1,2,1.52,2.55,2.35,1.6,4.23,1.23,8.73,1.07
+120848,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,61,Chelsea,64,Chris Kavanagh,5,5,10,1.08,7.99,1.28,3.72,1.66,2.22,2.4,1.57
+120849,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,63,Everton,58,Michael Oliver,3,2,5,1.2,4.65,1.55,2.46,2.27,1.64,3.74,1.28
+120850,2026-05-24 17:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,77,Leeds,62,Anthony Taylor,0,3,3,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+120708,2026-05-19 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,71,Tottenham,72,Stuart Attwell,4,3,7,1.02,13.52,1.14,5.67,1.37,3.07,1.8,2.0
+120707,2026-05-19 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,66,Manchester City,62,Anthony Taylor,4,2,6,1.18,4.81,1.52,2.52,2.21,1.66,3.6,1.29
+120693,2026-05-18 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,60,Burnley,70,Paul Tierney,1,3,4,2.05,1.75,3.84,1.25,8.5,1.06,21.87,1.01
+120593,2026-05-17 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,72,West Ham,74,Jarred Gillett,1,3,4,1.27,3.65,1.75,2.05,2.74,1.44,4.87,1.17
+120589,2026-05-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,62,Crystal Palace,78,Samuel Barrott,1,3,4,1.4,2.92,2.05,1.75,3.47,1.3,6.71,1.1
+120590,2026-05-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,89,Sunderland,66,John Brooks,3,0,3,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+120591,2026-05-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,59,Brighton,58,Michael Oliver,1,0,1,1.34,3.27,1.9,1.9,3.09,1.37,5.72,1.14
+120592,2026-05-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,64,Fulham,550,Thomas Kirk,1,0,1,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+120588,2026-05-17 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,69,Nottingham,69,Michael Salisbury,2,1,3,1.49,2.61,2.29,1.62,4.06,1.24,8.28,1.07
+120476,2026-05-15 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,65,Liverpool,64,Chris Kavanagh,3,1,4,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+120425,2026-05-13 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,62,Crystal Palace,72,Stuart Attwell,0,2,2,1.31,3.47,1.83,1.98,2.92,1.41,5.3,1.16
+119689,2026-05-11 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,77,Leeds,74,Jarred Gillett,3,1,4,1.14,5.57,1.43,2.81,2.0,1.8,3.13,1.36
+119353,2026-05-10 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,55,Arsenal,64,Chris Kavanagh,3,4,7,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+119350,2026-05-10 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,56,Aston Villa,62,Anthony Taylor,1,1,2,1.58,2.38,2.51,1.53,4.65,1.19,9.92,1.05
+119351,2026-05-10 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,63,Everton,75,Thomas Bramall,0,2,2,1.17,4.88,1.5,2.54,2.17,1.67,3.52,1.29
+119352,2026-05-10 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,68,Newcastle,70,Paul Tierney,2,0,2,1.22,4.26,1.62,2.3,2.42,1.56,4.1,1.24
+119254,2026-05-09 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,58,Brentford,69,Michael Salisbury,4,2,6,1.31,3.47,1.83,1.98,2.92,1.41,5.3,1.16
+119251,2026-05-09 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,73,Wolves,66,John Brooks,1,2,3,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+119252,2026-05-09 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,57,Bournemouth,67,Andy Madley,4,2,6,1.27,3.65,1.75,2.05,2.74,1.44,4.87,1.17
+119253,2026-05-09 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,67,Manchester Utd,72,Stuart Attwell,0,3,3,1.21,4.5,1.58,2.4,2.33,1.61,3.89,1.26
+119250,2026-05-09 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,61,Chelsea,60,Craig Pawson,2,4,6,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+119163,2026-05-04 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,66,Manchester City,58,Michael Oliver,4,1,5,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+119162,2026-05-04 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,69,Nottingham,62,Anthony Taylor,3,1,4,1.2,4.65,1.55,2.46,2.27,1.64,3.74,1.28
+119076,2026-05-03 20:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,71,Tottenham,78,Samuel Barrott,2,5,7,1.12,6.12,1.39,3.02,1.9,1.9,2.91,1.41
+119075,2026-05-03 16:30:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,65,Liverpool,73,Darren England,2,2,4,1.13,5.99,1.4,2.98,1.93,1.88,2.97,1.4
+119074,2026-05-03 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,62,Crystal Palace,68,Robert Jones,0,2,2,1.21,4.5,1.58,2.4,2.33,1.61,3.89,1.26
+118934,2026-05-02 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,64,Fulham,74,Jarred Gillett,0,1,1,1.41,2.87,2.08,1.73,3.54,1.29,6.91,1.09
+118931,2026-05-02 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,72,West Ham,60,Craig Pawson,1,3,4,1.41,2.87,2.08,1.73,3.54,1.29,6.91,1.09
+118932,2026-05-02 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,59,Brighton,64,Chris Kavanagh,3,3,6,1.15,5.45,1.44,2.77,2.03,1.78,3.2,1.35
+118933,2026-05-02 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,89,Sunderland,70,Paul Tierney,0,4,4,1.32,3.4,1.85,1.95,2.97,1.4,5.43,1.15
+118883,2026-05-01 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,60,Burnley,75,Thomas Bramall,4,3,7,1.62,2.29,2.62,1.49,4.94,1.17,10.73,1.04
+118824,2026-04-27 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,58,Brentford,64,Chris Kavanagh,2,4,6,1.33,3.34,1.88,1.93,3.04,1.39,5.59,1.15
+118606,2026-04-25 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,68,Newcastle,78,Samuel Barrott,2,2,4,1.41,2.87,2.08,1.73,3.54,1.29,6.91,1.09
+118603,2026-04-25 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,62,Crystal Palace,67,Andy Madley,1,3,4,1.52,2.55,2.35,1.6,4.23,1.23,8.73,1.07
+118604,2026-04-25 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,63,Everton,72,Stuart Attwell,3,4,7,1.21,4.5,1.58,2.4,2.33,1.61,3.89,1.26
+118605,2026-04-25 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,71,Tottenham,62,Anthony Taylor,3,4,7,1.2,4.56,1.56,2.42,2.3,1.62,3.8,1.27
+118602,2026-04-25 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,56,Aston Villa,58,Michael Oliver,2,2,4,1.36,3.15,1.95,1.85,3.21,1.35,6.04,1.13
+118552,2026-04-24 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,69,Nottingham,73,Darren England,2,5,7,1.14,5.57,1.43,2.81,2.0,1.8,3.13,1.36
+118478,2026-04-22 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,77,Leeds,69,Michael Salisbury,3,0,3,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+118479,2026-04-22 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,66,Manchester City,67,Andy Madley,0,0,0,2.05,1.75,3.84,1.25,8.5,1.06,21.87,1.01
+118437,2026-04-21 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,61,Chelsea,60,Craig Pawson,1,1,2,1.21,4.41,1.59,2.36,2.36,1.59,3.95,1.25
+118408,2026-04-20 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,72,West Ham,73,Darren England,2,1,3,1.17,4.88,1.5,2.54,2.17,1.67,3.52,1.29
+118329,2026-04-19 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,55,Arsenal,62,Anthony Taylor,2,2,4,1.22,4.26,1.62,2.3,2.42,1.56,4.1,1.24
+118326,2026-04-19 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,89,Sunderland,78,Samuel Barrott,1,3,4,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+118327,2026-04-19 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,65,Liverpool,64,Chris Kavanagh,2,0,2,1.08,7.64,1.29,3.59,1.69,2.16,2.46,1.54
+118328,2026-04-19 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,60,Burnley,550,Thomas Kirk,0,2,2,1.4,2.92,2.05,1.75,3.47,1.3,6.71,1.1
+118202,2026-04-18 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,67,Manchester Utd,58,Michael Oliver,1,3,4,1.1,6.71,1.34,3.24,1.8,2.0,2.7,1.46
+118201,2026-04-18 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,59,Brighton,72,Stuart Attwell,3,1,4,1.08,7.45,1.29,3.52,1.7,2.12,2.49,1.52
+118199,2026-04-18 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,73,Wolves,539,Farai Hallam,2,1,3,1.27,3.65,1.75,2.05,2.74,1.44,4.87,1.17
+118200,2026-04-18 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,57,Bournemouth,75,Thomas Bramall,2,4,6,1.15,5.3,1.45,2.71,2.05,1.75,3.25,1.33
+118198,2026-04-18 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,64,Fulham,70,Paul Tierney,0,1,1,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+118082,2026-04-13 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,77,Leeds,70,Paul Tierney,3,2,5,1.24,3.96,1.67,2.17,2.55,1.5,4.4,1.2
+118008,2026-04-12 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,66,Manchester City,64,Chris Kavanagh,3,1,4,1.11,6.57,1.35,3.2,1.83,1.98,2.76,1.45
+118005,2026-04-12 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,68,Newcastle,67,Andy Madley,0,3,3,1.22,4.35,1.61,2.34,2.4,1.58,4.03,1.25
+118006,2026-04-12 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,56,Aston Villa,69,Michael Salisbury,2,2,4,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+118007,2026-04-12 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,71,Tottenham,68,Robert Jones,3,3,6,1.14,5.72,1.42,2.87,1.98,1.83,3.08,1.37
+117862,2026-04-11 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,64,Fulham,62,Anthony Taylor,0,0,0,1.37,3.1,1.98,1.83,3.28,1.34,6.22,1.12
+117860,2026-04-11 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,63,Everton,539,Farai Hallam,0,2,2,1.38,3.04,2.0,1.8,3.34,1.32,6.37,1.11
+117861,2026-04-11 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,59,Brighton,75,Thomas Bramall,2,1,3,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+117859,2026-04-11 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,57,Bournemouth,58,Michael Oliver,1,3,4,1.52,2.55,2.35,1.6,4.23,1.23,8.73,1.07
+117810,2026-04-10 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,73,Wolves,74,Jarred Gillett,2,2,4,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+114379,2026-03-22 15:15:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,72,West Ham,70,Paul Tierney,0,1,1,1.3,3.52,1.8,2.0,2.85,1.42,5.14,1.16
+114380,2026-03-22 15:15:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,69,Nottingham,58,Michael Oliver,1,2,3,1.14,5.57,1.43,2.81,2.0,1.8,3.13,1.36
+114378,2026-03-22 13:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,89,Sunderland,62,Anthony Taylor,1,6,7,1.06,9.09,1.24,4.12,1.58,2.4,2.22,1.67
+114246,2026-03-21 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,58,Brentford,74,Jarred Gillett,2,0,2,1.34,3.27,1.9,1.9,3.09,1.37,5.72,1.14
+114245,2026-03-21 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,61,Chelsea,78,Samuel Barrott,0,2,2,1.21,4.5,1.58,2.4,2.33,1.61,3.89,1.26
+114244,2026-03-21 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,60,Burnley,64,Chris Kavanagh,2,2,4,1.5,2.57,2.31,1.6,4.13,1.23,8.48,1.07
+114243,2026-03-21 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,65,Liverpool,73,Darren England,5,5,10,1.21,4.41,1.59,2.36,2.36,1.59,3.95,1.25
+114203,2026-03-20 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,67,Manchester Utd,72,Stuart Attwell,2,2,4,1.15,5.3,1.45,2.71,2.05,1.75,3.25,1.33
+110046,2026-03-16 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,73,Wolves,72,Stuart Attwell,2,4,6,1.24,3.96,1.67,2.17,2.55,1.5,4.4,1.2
+107981,2026-03-15 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,71,Tottenham,64,Chris Kavanagh,0,0,0,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+107978,2026-03-15 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,77,Leeds,75,Thomas Bramall,2,3,5,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+107979,2026-03-15 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,56,Aston Villa,62,Anthony Taylor,3,2,5,1.24,3.96,1.67,2.17,2.55,1.5,4.4,1.2
+107980,2026-03-15 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,64,Fulham,78,Samuel Barrott,2,3,5,1.34,3.27,1.9,1.9,3.09,1.37,5.72,1.14
+106539,2026-03-14 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,66,Manchester City,58,Michael Oliver,2,2,4,1.5,2.57,2.31,1.6,4.13,1.23,8.48,1.07
+106537,2026-03-14 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,63,Everton,67,Andy Madley,0,0,0,1.41,2.9,2.08,1.74,3.54,1.29,6.88,1.1
+106538,2026-03-14 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,68,Newcastle,70,Paul Tierney,2,2,4,1.1,6.72,1.34,3.25,1.8,2.0,2.69,1.46
+106535,2026-03-14 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,57,Bournemouth,84,Peter Bankes,1,0,1,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+106536,2026-03-14 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,59,Brighton,550,Thomas Kirk,1,2,3,1.15,5.36,1.45,2.73,2.05,1.76,3.24,1.34
+99470,2026-03-05 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,62,Crystal Palace,67,Andy Madley,3,2,5,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+99466,2026-03-04 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,67,Manchester Utd,84,Peter Bankes,4,3,7,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+99460,2026-03-04 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,61,Chelsea,74,Jarred Gillett,3,2,5,1.08,7.63,1.29,3.59,1.69,2.16,2.46,1.54
+99461,2026-03-04 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,55,Arsenal,64,Chris Kavanagh,4,1,5,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+99462,2026-03-04 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,72,West Ham,65,Matt Donohue,2,4,6,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+99463,2026-03-04 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,69,Nottingham,73,Darren England,0,4,4,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+99447,2026-03-03 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,65,Liverpool,75,Thomas Bramall,2,1,3,1.34,3.26,1.9,1.89,3.09,1.37,5.74,1.14
+99434,2026-03-03 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,58,Brentford,60,Craig Pawson,2,1,3,1.39,2.98,2.03,1.78,3.41,1.31,6.56,1.11
+99435,2026-03-03 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,60,Burnley,77,Tim Robinson,0,1,1,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+99436,2026-03-03 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,89,Sunderland,72,Stuart Attwell,1,3,4,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+98751,2026-03-01 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,61,Chelsea,73,Darren England,1,5,6,1.08,7.81,1.28,3.65,1.67,2.19,2.43,1.56
+98720,2026-03-01 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,69,Nottingham,67,Andy Madley,3,1,4,1.31,3.44,1.83,1.97,2.92,1.4,5.31,1.15
+98721,2026-03-01 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,71,Tottenham,75,Thomas Bramall,3,3,6,1.19,4.62,1.55,2.44,2.27,1.63,3.75,1.27
+98722,2026-03-01 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,62,Crystal Palace,64,Chris Kavanagh,2,2,4,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+97466,2026-02-28 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,66,Manchester City,84,Peter Bankes,0,3,3,1.33,3.31,1.88,1.91,3.05,1.38,5.62,1.14
+97421,2026-02-28 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,58,Brentford,78,Samuel Barrott,2,2,4,1.4,2.95,2.05,1.76,3.46,1.31,6.68,1.1
+97422,2026-02-28 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,72,West Ham,77,Tim Robinson,2,2,4,1.35,3.19,1.93,1.86,3.17,1.35,5.92,1.13
+97423,2026-02-28 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,63,Everton,72,Stuart Attwell,3,3,6,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+97397,2026-02-28 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,89,Sunderland,74,Jarred Gillett,4,2,6,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+97381,2026-02-27 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,56,Aston Villa,60,Craig Pawson,3,3,6,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+97280,2026-02-23 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,67,Manchester Utd,73,Darren England,2,3,5,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+97243,2026-02-22 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,55,Arsenal,84,Peter Bankes,2,1,3,1.08,7.93,1.28,3.7,1.66,2.21,2.4,1.57
+97224,2026-02-22 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,73,Wolves,550,Thomas Kirk,5,3,8,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+97225,2026-02-22 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,65,Liverpool,62,Anthony Taylor,2,0,2,1.38,3.04,2.0,1.8,3.34,1.32,6.36,1.11
+97226,2026-02-22 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,64,Fulham,60,Craig Pawson,1,1,2,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+97177,2026-02-21 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,68,Newcastle,75,Thomas Bramall,2,5,7,1.31,3.44,1.83,1.97,2.92,1.4,5.31,1.15
+97156,2026-02-21 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,57,Bournemouth,78,Samuel Barrott,1,1,2,1.2,4.55,1.56,2.41,2.3,1.61,3.81,1.26
+97115,2026-02-21 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,77,Leeds,58,Michael Oliver,1,4,5,1.27,3.76,1.73,2.1,2.69,1.46,4.73,1.19
+97116,2026-02-21 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,59,Brighton,74,Jarred Gillett,1,2,3,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+97117,2026-02-21 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,60,Burnley,81,Lewis Smith,4,2,6,1.4,2.95,2.05,1.76,3.46,1.31,6.68,1.1
+97023,2026-02-18 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,55,Arsenal,70,Paul Tierney,2,1,3,1.41,2.9,2.08,1.74,3.54,1.29,6.88,1.1
+91751,2026-02-12 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,55,Arsenal,66,John Brooks,3,2,5,1.39,2.98,2.03,1.78,3.41,1.31,6.56,1.11
+91743,2026-02-11 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,65,Liverpool,64,Chris Kavanagh,1,0,1,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+91731,2026-02-11 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,59,Brighton,84,Peter Bankes,2,3,5,1.17,4.93,1.5,2.56,2.17,1.68,3.51,1.3
+91732,2026-02-11 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,60,Burnley,539,Farai Hallam,2,1,3,1.47,2.65,2.25,1.64,3.96,1.25,8.0,1.08
+91733,2026-02-11 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,64,Fulham,70,Paul Tierney,3,1,4,1.5,2.57,2.31,1.61,4.13,1.23,8.47,1.07
+91734,2026-02-11 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,73,Wolves,77,Tim Robinson,0,2,2,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+91721,2026-02-10 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,67,Manchester Utd,59,Simon Hooper,1,1,2,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+91710,2026-02-10 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,77,Leeds,68,Robert Jones,4,4,8,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+91711,2026-02-10 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,57,Bournemouth,67,Andy Madley,1,3,4,1.28,3.69,1.75,2.07,2.73,1.45,4.85,1.18
+91712,2026-02-10 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,68,Newcastle,62,Anthony Taylor,3,2,5,1.2,4.45,1.58,2.37,2.33,1.6,3.89,1.25
+90982,2026-02-08 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,66,Manchester City,60,Craig Pawson,2,4,6,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+90965,2026-02-08 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,62,Crystal Palace,75,Thomas Bramall,1,3,4,1.11,6.38,1.36,3.12,1.85,1.94,2.8,1.43
+90926,2026-02-07 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,58,Brentford,67,Andy Madley,2,2,4,1.41,2.9,2.08,1.74,3.54,1.29,6.88,1.1
+90885,2026-02-07 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,89,Sunderland,78,Samuel Barrott,1,2,3,1.5,2.57,2.31,1.61,4.13,1.23,8.47,1.07
+90886,2026-02-07 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,56,Aston Villa,62,Anthony Taylor,1,1,2,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+90887,2026-02-07 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,72,West Ham,73,Darren England,3,1,4,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+90888,2026-02-07 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,63,Everton,72,Stuart Attwell,1,5,6,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+90889,2026-02-07 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,61,Chelsea,74,Jarred Gillett,1,1,2,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+90861,2026-02-07 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,71,Tottenham,58,Michael Oliver,1,2,3,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+90848,2026-02-06 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,69,Nottingham,84,Peter Bankes,1,1,2,1.34,3.26,1.9,1.89,3.09,1.37,5.74,1.14
+90177,2026-02-02 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,60,Burnley,70,Paul Tierney,1,4,5,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+89602,2026-02-01 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,66,Manchester City,68,Robert Jones,3,3,6,1.17,4.93,1.5,2.56,2.17,1.68,3.51,1.3
+89583,2026-02-01 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,58,Brentford,77,Tim Robinson,1,4,5,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+89584,2026-02-01 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,64,Fulham,66,John Brooks,2,1,3,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+89585,2026-02-01 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,62,Crystal Palace,71,Tony Harrington,1,3,4,1.2,4.45,1.58,2.37,2.33,1.6,3.89,1.25
+88946,2026-01-31 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,68,Newcastle,59,Simon Hooper,1,3,4,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+88934,2026-01-31 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,72,West Ham,62,Anthony Taylor,3,2,5,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+88889,2026-01-31 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,63,Everton,64,Chris Kavanagh,1,2,3,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+88890,2026-01-31 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,55,Arsenal,72,Stuart Attwell,1,1,2,1.38,3.04,2.0,1.8,3.34,1.32,6.36,1.11
+88891,2026-01-31 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,57,Bournemouth,58,Michael Oliver,3,3,6,1.15,5.44,1.44,2.76,2.03,1.78,3.2,1.35
+86846,2026-01-26 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,77,Leeds,59,Simon Hooper,0,3,3,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+85212,2026-01-25 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,67,Manchester Utd,60,Craig Pawson,2,0,2,1.36,3.14,1.95,1.84,3.22,1.34,6.05,1.12
+85191,2026-01-25 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,69,Nottingham,78,Samuel Barrott,1,0,1,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+85192,2026-01-25 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,61,Chelsea,73,Darren England,4,2,6,1.15,5.44,1.44,2.76,2.03,1.78,3.2,1.35
+85193,2026-01-25 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,56,Aston Villa,74,Jarred Gillett,1,2,3,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+84308,2026-01-24 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,65,Liverpool,69,Michael Salisbury,1,1,2,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+84269,2026-01-24 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,71,Tottenham,84,Peter Bankes,1,0,1,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+84270,2026-01-24 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,59,Brighton,58,Michael Oliver,1,1,2,1.33,3.31,1.88,1.91,3.05,1.38,5.62,1.14
+84271,2026-01-24 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,73,Wolves,539,Farai Hallam,1,3,4,1.41,2.9,2.08,1.74,3.54,1.29,6.88,1.1
+84245,2026-01-24 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,89,Sunderland,75,Thomas Bramall,2,5,7,1.31,3.44,1.83,1.97,2.92,1.4,5.31,1.15
+81004,2026-01-19 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,57,Bournemouth,70,Paul Tierney,2,3,5,1.2,4.55,1.56,2.41,2.3,1.61,3.81,1.26
+79696,2026-01-18 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,63,Everton,71,Tony Harrington,1,2,3,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+79682,2026-01-18 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,68,Newcastle,78,Samuel Barrott,2,2,4,1.2,4.55,1.56,2.41,2.3,1.61,3.81,1.26
+79650,2026-01-17 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,55,Arsenal,58,Michael Oliver,1,1,2,1.5,2.57,2.31,1.61,4.13,1.23,8.47,1.07
+79610,2026-01-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,58,Brentford,66,John Brooks,3,2,5,1.15,5.44,1.44,2.76,2.03,1.78,3.2,1.35
+79611,2026-01-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,64,Fulham,64,Chris Kavanagh,1,5,6,1.34,3.26,1.9,1.89,3.09,1.37,5.74,1.14
+79612,2026-01-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,60,Burnley,67,Andy Madley,1,2,3,1.78,2.03,3.06,1.37,6.17,1.12,14.4,1.01
+79613,2026-01-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,62,Crystal Palace,68,Robert Jones,3,3,6,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+79614,2026-01-17 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,72,West Ham,74,Jarred Gillett,5,3,8,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+79586,2026-01-17 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,66,Manchester City,62,Anthony Taylor,2,3,5,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+75832,2026-01-08 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,65,Liverpool,62,Anthony Taylor,2,2,4,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+75815,2026-01-07 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,67,Manchester Utd,72,Stuart Attwell,2,0,2,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+75816,2026-01-07 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,77,Leeds,69,Michael Salisbury,3,2,5,1.36,3.14,1.95,1.84,3.22,1.34,6.05,1.12
+75806,2026-01-07 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,71,Tottenham,73,Darren England,3,3,6,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+75807,2026-01-07 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,89,Sunderland,65,Matt Donohue,2,1,3,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+75808,2026-01-07 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,56,Aston Villa,67,Andy Madley,2,0,2,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+75809,2026-01-07 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,73,Wolves,550,Thomas Kirk,3,3,6,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+75810,2026-01-07 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,61,Chelsea,84,Peter Bankes,3,3,6,1.11,6.38,1.36,3.12,1.85,1.94,2.8,1.43
+75811,2026-01-07 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,59,Brighton,75,Thomas Bramall,1,6,7,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+75802,2026-01-06 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,69,Nottingham,71,Tony Harrington,3,0,3,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+75775,2026-01-04 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,61,Chelsea,58,Michael Oliver,3,3,6,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+75767,2026-01-04 16:15:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,65,Liverpool,60,Craig Pawson,1,1,2,1.53,2.5,2.38,1.58,4.31,1.22,8.95,1.06
+75752,2026-01-04 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,58,Brentford,62,Anthony Taylor,0,2,2,1.36,3.14,1.95,1.84,3.22,1.34,6.05,1.12
+75753,2026-01-04 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,62,Crystal Palace,66,John Brooks,1,3,4,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+75754,2026-01-04 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,89,Sunderland,72,Stuart Attwell,2,3,5,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+75747,2026-01-04 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,67,Manchester Utd,74,Jarred Gillett,0,1,1,1.15,5.44,1.44,2.76,2.03,1.78,3.2,1.35
+75721,2026-01-03 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,55,Arsenal,64,Chris Kavanagh,3,1,4,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+75708,2026-01-03 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,60,Burnley,77,Tim Robinson,0,4,4,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+75709,2026-01-03 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,72,West Ham,84,Peter Bankes,1,0,1,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+75701,2026-01-03 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,69,Nottingham,59,Simon Hooper,1,2,3,1.1,6.72,1.34,3.25,1.8,2.0,2.69,1.46
+75689,2026-01-01 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,71,Tottenham,67,Andy Madley,1,2,3,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+75690,2026-01-01 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,66,Manchester City,74,Jarred Gillett,1,1,2,1.47,2.65,2.25,1.64,3.96,1.25,8.0,1.08
+75686,2026-01-01 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,64,Fulham,71,Tony Harrington,0,5,5,1.35,3.19,1.93,1.86,3.17,1.35,5.92,1.13
+75687,2026-01-01 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,77,Leeds,64,Chris Kavanagh,0,2,2,1.38,3.04,2.0,1.8,3.34,1.32,6.36,1.11
+75646,2025-12-30 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,56,Aston Villa,73,Darren England,2,3,5,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+75647,2025-12-30 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,73,Wolves,75,Thomas Bramall,0,2,2,1.33,3.31,1.88,1.91,3.05,1.38,5.62,1.14
+75637,2025-12-30 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,68,Newcastle,68,Robert Jones,2,1,3,1.39,2.98,2.03,1.78,3.41,1.31,6.56,1.11
+75638,2025-12-30 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,57,Bournemouth,78,Samuel Barrott,1,1,2,1.1,6.87,1.33,3.3,1.78,2.03,2.65,1.48
+75639,2025-12-30 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,63,Everton,58,Michael Oliver,1,0,1,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+75640,2025-12-30 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,59,Brighton,69,Michael Salisbury,3,5,8,1.34,3.26,1.9,1.89,3.09,1.37,5.74,1.14
+75573,2025-12-28 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,71,Tottenham,74,Jarred Gillett,3,2,5,1.15,5.36,1.45,2.73,2.05,1.76,3.24,1.34
+75574,2025-12-28 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,77,Leeds,71,Tony Harrington,1,0,1,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+75543,2025-12-27 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,56,Aston Villa,72,Stuart Attwell,5,3,8,1.1,6.87,1.33,3.3,1.78,2.03,2.65,1.48
+75544,2025-12-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,59,Brighton,66,John Brooks,2,3,5,1.33,3.31,1.88,1.91,3.05,1.38,5.62,1.14
+75545,2025-12-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,57,Bournemouth,84,Peter Bankes,2,2,4,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+75546,2025-12-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,63,Everton,60,Craig Pawson,1,2,3,1.62,2.29,2.62,1.49,4.94,1.17,10.73,1.04
+75547,2025-12-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,73,Wolves,59,Simon Hooper,0,1,1,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+75548,2025-12-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,64,Fulham,64,Chris Kavanagh,1,3,4,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+75549,2025-12-27 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,66,Manchester City,68,Robert Jones,1,2,3,1.36,3.14,1.95,1.84,3.22,1.34,6.05,1.12
+75540,2025-12-26 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,68,Newcastle,62,Anthony Taylor,2,1,3,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+75495,2025-12-22 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,69,Nottingham,62,Anthony Taylor,5,4,9,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+75460,2025-12-21 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,67,Manchester Utd,58,Michael Oliver,1,2,3,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+75411,2025-12-20 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,55,Arsenal,78,Samuel Barrott,2,2,4,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+75412,2025-12-20 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,62,Crystal Palace,75,Thomas Bramall,1,3,4,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+75413,2025-12-20 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,65,Liverpool,66,John Brooks,5,3,8,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+75414,2025-12-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,60,Burnley,64,Chris Kavanagh,1,1,2,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+75415,2025-12-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,89,Sunderland,73,Darren England,2,2,4,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+75416,2025-12-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,72,West Ham,70,Paul Tierney,1,1,2,1.58,2.38,2.51,1.52,4.66,1.19,9.93,1.05
+75417,2025-12-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,58,Brentford,65,Matt Donohue,2,4,6,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+75418,2025-12-20 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,61,Chelsea,67,Andy Madley,3,6,9,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+75351,2025-12-15 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,57,Bournemouth,59,Simon Hooper,2,3,5,1.08,7.81,1.28,3.65,1.67,2.19,2.43,1.56
+75308,2025-12-14 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,77,Leeds,66,John Brooks,0,0,0,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+75309,2025-12-14 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,66,Manchester City,73,Darren England,2,0,2,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+75310,2025-12-14 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,71,Tottenham,78,Samuel Barrott,1,3,4,1.13,5.92,1.4,2.94,1.93,1.86,2.98,1.39
+75311,2025-12-14 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,68,Newcastle,84,Peter Bankes,5,4,9,1.05,9.47,1.22,4.25,1.54,2.45,2.15,1.69
+75312,2025-12-14 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,56,Aston Villa,62,Anthony Taylor,1,2,3,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+75255,2025-12-13 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,73,Wolves,68,Robert Jones,0,4,4,1.5,2.57,2.31,1.61,4.13,1.23,8.47,1.07
+75256,2025-12-13 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,64,Fulham,58,Michael Oliver,1,2,3,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+75257,2025-12-13 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,63,Everton,75,Thomas Bramall,1,0,1,1.19,4.62,1.55,2.44,2.27,1.63,3.75,1.27
+75258,2025-12-13 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,59,Brighton,60,Craig Pawson,1,2,3,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+75131,2025-12-08 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,67,Manchester Utd,69,Michael Salisbury,3,2,5,1.28,3.69,1.75,2.07,2.73,1.45,4.85,1.18
+75089,2025-12-07 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,62,Crystal Palace,78,Samuel Barrott,0,0,0,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+75090,2025-12-07 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,72,West Ham,59,Simon Hooper,2,2,4,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+75027,2025-12-06 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,65,Liverpool,62,Anthony Taylor,3,3,6,1.41,2.9,2.08,1.74,3.54,1.29,6.88,1.1
+75028,2025-12-06 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,61,Chelsea,58,Michael Oliver,0,2,2,1.07,8.25,1.26,3.81,1.63,2.26,2.34,1.59
+75029,2025-12-06 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,69,Nottingham,64,Chris Kavanagh,4,3,7,1.28,3.69,1.75,2.07,2.73,1.45,4.85,1.18
+75030,2025-12-06 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,89,Sunderland,67,Andy Madley,1,0,1,1.41,2.9,2.08,1.74,3.54,1.29,6.88,1.1
+75031,2025-12-06 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,60,Burnley,72,Stuart Attwell,2,2,4,1.36,3.14,1.95,1.84,3.22,1.34,6.05,1.12
+75032,2025-12-06 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,58,Brentford,68,Robert Jones,3,4,7,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+75033,2025-12-06 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,55,Arsenal,84,Peter Bankes,0,2,2,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+74989,2025-12-04 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,72,West Ham,238,Andrew Kitchen,2,2,4,1.4,2.95,2.05,1.76,3.46,1.31,6.68,1.1
+74972,2025-12-03 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,61,Chelsea,73,Darren England,1,1,2,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+74973,2025-12-03 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,89,Sunderland,72,Stuart Attwell,1,1,2,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+74974,2025-12-03 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,58,Brentford,71,Tony Harrington,0,1,1,1.55,2.44,2.45,1.55,4.48,1.2,9.44,1.05
+74975,2025-12-03 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,56,Aston Villa,67,Andy Madley,2,2,4,1.19,4.62,1.55,2.44,2.27,1.63,3.75,1.27
+74976,2025-12-03 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,62,Crystal Palace,550,Thomas Kirk,0,0,0,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+74977,2025-12-03 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,69,Nottingham,77,Tim Robinson,2,2,4,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+74954,2025-12-02 21:15:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,71,Tottenham,75,Thomas Bramall,0,3,3,1.17,4.93,1.5,2.56,2.17,1.68,3.51,1.3
+74955,2025-12-02 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,63,Everton,69,Michael Salisbury,3,3,6,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+74956,2025-12-02 20:30:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,66,Manchester City,60,Craig Pawson,0,1,1,1.47,2.65,2.25,1.64,3.96,1.25,8.0,1.08
+74895,2025-11-30 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,55,Arsenal,62,Anthony Taylor,1,6,7,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+74896,2025-11-30 15:05:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,73,Wolves,64,Chris Kavanagh,0,4,4,1.11,6.38,1.36,3.12,1.85,1.94,2.8,1.43
+74897,2025-11-30 15:05:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,59,Brighton,58,Michael Oliver,0,1,1,1.14,5.67,1.42,2.85,1.98,1.82,3.09,1.37
+74898,2025-11-30 15:05:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,65,Liverpool,73,Darren England,3,0,3,1.31,3.44,1.83,1.97,2.92,1.4,5.31,1.15
+74899,2025-11-30 13:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,67,Manchester Utd,68,Robert Jones,3,2,5,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+74836,2025-11-29 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,64,Fulham,72,Stuart Attwell,3,2,5,1.2,4.55,1.56,2.41,2.3,1.61,3.81,1.26
+74837,2025-11-29 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,68,Newcastle,60,Craig Pawson,0,0,0,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+74838,2025-11-29 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,60,Burnley,78,Samuel Barrott,0,2,2,1.2,4.55,1.56,2.41,2.3,1.61,3.81,1.26
+74839,2025-11-29 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,77,Leeds,84,Peter Bankes,4,1,5,1.49,2.6,2.29,1.62,4.06,1.24,8.28,1.07
+74840,2025-11-29 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,57,Bournemouth,77,Tim Robinson,5,4,9,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+74730,2025-11-24 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,63,Everton,71,Tony Harrington,2,0,2,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+74684,2025-11-23 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,71,Tottenham,58,Michael Oliver,1,3,4,1.08,7.93,1.28,3.7,1.66,2.21,2.4,1.57
+74685,2025-11-23 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,56,Aston Villa,68,Robert Jones,5,1,6,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+74620,2025-11-22 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,66,Manchester City,78,Samuel Barrott,1,3,4,1.19,4.62,1.55,2.44,2.27,1.63,3.75,1.27
+74621,2025-11-22 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,72,West Ham,75,Thomas Bramall,3,2,5,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+74622,2025-11-22 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,58,Brentford,64,Chris Kavanagh,4,2,6,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+74623,2025-11-22 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,89,Sunderland,73,Darren England,3,3,6,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+74624,2025-11-22 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,69,Nottingham,67,Andy Madley,2,0,2,1.34,3.26,1.9,1.89,3.09,1.37,5.74,1.14
+74625,2025-11-22 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,62,Crystal Palace,62,Anthony Taylor,2,3,5,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+74626,2025-11-22 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,61,Chelsea,84,Peter Bankes,2,3,5,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+74465,2025-11-09 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,65,Liverpool,64,Chris Kavanagh,2,4,6,1.2,4.45,1.58,2.37,2.33,1.6,3.89,1.25
+74466,2025-11-09 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,57,Bournemouth,66,John Brooks,2,2,4,1.05,9.47,1.22,4.25,1.54,2.45,2.15,1.69
+74467,2025-11-09 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,68,Newcastle,72,Stuart Attwell,2,3,5,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+74468,2025-11-09 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,59,Brighton,77,Tim Robinson,1,4,5,1.07,8.61,1.25,3.94,1.6,2.32,2.28,1.62
+74469,2025-11-09 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,77,Leeds,74,Jarred Gillett,2,1,3,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+74398,2025-11-08 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,73,Wolves,238,Andrew Kitchen,1,2,3,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+74399,2025-11-08 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,55,Arsenal,60,Craig Pawson,2,1,3,1.59,2.34,2.55,1.51,4.76,1.18,10.23,1.04
+74400,2025-11-08 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,64,Fulham,67,Andy Madley,2,2,4,1.34,3.26,1.9,1.89,3.09,1.37,5.74,1.14
+74401,2025-11-08 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,60,Burnley,69,Michael Salisbury,2,2,4,1.5,2.57,2.31,1.61,4.13,1.23,8.47,1.07
+74402,2025-11-08 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,67,Manchester Utd,78,Samuel Barrott,5,1,6,1.14,5.67,1.42,2.85,1.98,1.82,3.09,1.37
+74284,2025-11-03 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,63,Everton,75,Thomas Bramall,3,2,5,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+74235,2025-11-02 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,57,Bournemouth,62,Anthony Taylor,2,2,4,1.38,3.04,2.0,1.8,3.34,1.32,6.36,1.11
+74236,2025-11-02 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,68,Newcastle,68,Robert Jones,1,2,3,1.31,3.44,1.83,1.97,2.92,1.4,5.31,1.15
+74170,2025-11-01 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,56,Aston Villa,72,Stuart Attwell,2,3,5,1.15,5.36,1.45,2.73,2.05,1.76,3.24,1.34
+74171,2025-11-01 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,61,Chelsea,74,Jarred Gillett,4,2,6,1.07,8.46,1.25,3.89,1.62,2.29,2.3,1.61
+74172,2025-11-01 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,77,Leeds,58,Michael Oliver,0,1,1,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+74173,2025-11-01 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,55,Arsenal,64,Chris Kavanagh,2,1,3,1.54,2.46,2.42,1.56,4.41,1.21,9.25,1.06
+74174,2025-11-01 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,58,Brentford,84,Peter Bankes,0,3,3,1.18,4.8,1.52,2.51,2.21,1.66,3.6,1.29
+74175,2025-11-01 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,73,Wolves,66,John Brooks,1,3,4,1.19,4.62,1.55,2.44,2.27,1.63,3.75,1.27
+74176,2025-11-01 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,67,Manchester Utd,73,Darren England,1,1,2,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+69138,2025-10-26 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,71,Tottenham,60,Craig Pawson,2,0,2,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+69139,2025-10-26 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,62,Crystal Palace,75,Thomas Bramall,0,0,0,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+69140,2025-10-26 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,66,Manchester City,58,Michael Oliver,1,4,5,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+69141,2025-10-26 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,69,Nottingham,78,Samuel Barrott,3,2,5,1.07,8.46,1.25,3.89,1.62,2.29,2.3,1.61
+69142,2025-10-26 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,60,Burnley,71,Tony Harrington,1,0,1,1.18,4.8,1.52,2.51,2.21,1.66,3.6,1.29
+67642,2025-10-25 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,65,Liverpool,59,Simon Hooper,3,2,5,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+67643,2025-10-25 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,59,Brighton,62,Anthony Taylor,2,2,4,1.28,3.69,1.75,2.07,2.73,1.45,4.85,1.18
+67644,2025-10-25 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,89,Sunderland,67,Andy Madley,1,1,2,1.2,4.55,1.56,2.41,2.3,1.61,3.81,1.26
+67645,2025-10-25 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,64,Fulham,84,Peter Bankes,0,2,2,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+67348,2025-10-24 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,72,West Ham,72,Stuart Attwell,3,3,6,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+67300,2025-10-20 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,58,Brentford,67,Andy Madley,1,1,2,1.28,3.69,1.75,2.07,2.73,1.45,4.85,1.18
+67210,2025-10-19 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,67,Manchester Utd,58,Michael Oliver,0,2,2,1.1,6.87,1.33,3.3,1.78,2.03,2.65,1.48
+67211,2025-10-19 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,56,Aston Villa,59,Simon Hooper,2,0,2,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+67157,2025-10-18 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,55,Arsenal,62,Anthony Taylor,0,0,0,1.38,3.04,2.0,1.8,3.34,1.32,6.36,1.11
+67158,2025-10-18 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,68,Newcastle,60,Craig Pawson,0,1,1,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+67159,2025-10-18 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,77,Leeds,77,Tim Robinson,2,1,3,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+67160,2025-10-18 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,57,Bournemouth,74,Jarred Gillett,1,4,5,1.11,6.38,1.36,3.12,1.85,1.94,2.8,1.43
+67161,2025-10-18 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,63,Everton,71,Tony Harrington,0,2,2,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+67162,2025-10-18 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,73,Wolves,68,Robert Jones,0,0,0,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+67163,2025-10-18 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,61,Chelsea,64,Chris Kavanagh,2,4,6,1.08,7.81,1.28,3.65,1.67,2.19,2.43,1.56
+65592,2025-10-05 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,66,Manchester City,73,Darren England,3,2,5,1.36,3.14,1.95,1.84,3.22,1.34,6.05,1.12
+65593,2025-10-05 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,60,Burnley,238,Andrew Kitchen,3,1,4,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+65594,2025-10-05 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,62,Crystal Palace,69,Michael Salisbury,2,3,5,1.18,4.8,1.52,2.51,2.21,1.66,3.6,1.29
+65595,2025-10-05 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,69,Nottingham,84,Peter Bankes,0,4,4,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+65596,2025-10-05 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,59,Brighton,74,Jarred Gillett,2,4,6,1.14,5.67,1.42,2.85,1.98,1.82,3.09,1.37
+65535,2025-10-04 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,65,Liverpool,62,Anthony Taylor,0,2,2,1.1,6.72,1.34,3.25,1.8,2.0,2.69,1.46
+65536,2025-10-04 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,72,West Ham,66,John Brooks,0,2,2,1.36,3.14,1.95,1.84,3.22,1.34,6.05,1.12
+65537,2025-10-04 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,89,Sunderland,72,Stuart Attwell,1,4,5,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+65538,2025-10-04 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,71,Tottenham,75,Thomas Bramall,2,3,5,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+65482,2025-10-03 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,64,Fulham,59,Simon Hooper,0,1,1,1.08,7.93,1.28,3.7,1.66,2.21,2.4,1.57
+65435,2025-09-29 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,72,West Ham,78,Samuel Barrott,3,4,7,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+65380,2025-09-28 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,55,Arsenal,74,Jarred Gillett,2,1,3,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+65381,2025-09-28 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,64,Fulham,67,Andy Madley,1,4,5,1.19,4.62,1.55,2.44,2.27,1.63,3.75,1.27
+65324,2025-09-27 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,73,Wolves,69,Michael Salisbury,3,2,5,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+65325,2025-09-27 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,89,Sunderland,71,Tony Harrington,4,2,6,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+65326,2025-09-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,59,Brighton,59,Simon Hooper,4,5,9,1.07,8.46,1.25,3.89,1.62,2.29,2.3,1.61
+65327,2025-09-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,65,Liverpool,64,Chris Kavanagh,1,3,4,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+65328,2025-09-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,57,Bournemouth,58,Michael Oliver,2,2,4,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+65329,2025-09-27 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,60,Burnley,68,Robert Jones,1,3,4,1.62,2.29,2.62,1.49,4.94,1.17,10.73,1.04
+65330,2025-09-27 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,67,Manchester Utd,60,Craig Pawson,2,2,4,1.28,3.69,1.75,2.07,2.73,1.45,4.85,1.18
+65184,2025-09-21 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,66,Manchester City,72,Stuart Attwell,1,2,3,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+65185,2025-09-21 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,68,Newcastle,68,Robert Jones,2,1,3,1.08,7.52,1.29,3.55,1.7,2.14,2.49,1.53
+65186,2025-09-21 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,56,Aston Villa,78,Samuel Barrott,2,1,3,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+65125,2025-09-20 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,58,Brentford,58,Michael Oliver,4,1,5,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+65126,2025-09-20 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,61,Chelsea,84,Peter Bankes,2,5,7,1.1,6.87,1.33,3.3,1.78,2.03,2.65,1.48
+65127,2025-09-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,71,Tottenham,64,Chris Kavanagh,1,2,3,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+65128,2025-09-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,69,Nottingham,75,Thomas Bramall,1,1,2,1.21,4.39,1.59,2.35,2.36,1.58,3.95,1.25
+65129,2025-09-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,62,Crystal Palace,71,Tony Harrington,3,3,6,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+65130,2025-09-20 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,77,Leeds,62,Anthony Taylor,1,1,2,1.32,3.38,1.85,1.94,2.97,1.39,5.43,1.15
+65131,2025-09-20 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,63,Everton,73,Darren England,2,3,5,1.11,6.38,1.36,3.12,1.85,1.94,2.8,1.43
+64998,2025-09-14 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,67,Manchester Utd,62,Anthony Taylor,0,0,0,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+64999,2025-09-14 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,65,Liverpool,58,Michael Oliver,2,2,4,1.47,2.65,2.25,1.64,3.96,1.25,8.0,1.08
+64938,2025-09-13 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,61,Chelsea,72,Stuart Attwell,3,2,5,1.15,5.36,1.45,2.73,2.05,1.76,3.24,1.34
+64939,2025-09-13 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,71,Tottenham,74,Jarred Gillett,0,1,1,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+64940,2025-09-13 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,59,Brighton,84,Peter Bankes,4,4,8,1.13,5.92,1.4,2.94,1.93,1.86,2.98,1.39
+64941,2025-09-13 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,89,Sunderland,75,Thomas Bramall,1,1,2,1.19,4.62,1.55,2.44,2.27,1.63,3.75,1.27
+64942,2025-09-13 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,56,Aston Villa,59,Simon Hooper,3,3,6,1.11,6.38,1.36,3.12,1.85,1.94,2.8,1.43
+64943,2025-09-13 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,77,Leeds,60,Craig Pawson,1,2,3,1.29,3.59,1.78,2.03,2.81,1.43,5.02,1.17
+64944,2025-09-13 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,73,Wolves,64,Chris Kavanagh,1,4,5,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+64945,2025-09-13 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,69,Nottingham,73,Darren England,1,1,2,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+64761,2025-08-31 20:00:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,62,Crystal Palace,72,Stuart Attwell,2,3,5,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+64762,2025-08-31 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,55,Arsenal,64,Chris Kavanagh,2,2,4,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+64763,2025-08-31 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,66,Manchester City,73,Darren England,2,2,4,1.23,4.16,1.63,2.26,2.46,1.54,4.19,1.23
+64764,2025-08-31 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,72,West Ham,60,Craig Pawson,0,0,0,1.2,4.55,1.56,2.41,2.3,1.61,3.81,1.26
+64706,2025-08-30 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,68,Newcastle,84,Peter Bankes,1,1,2,1.18,4.8,1.52,2.51,2.21,1.66,3.6,1.29
+64707,2025-08-30 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,60,Burnley,78,Samuel Barrott,1,5,6,1.3,3.53,1.8,2.0,2.85,1.42,5.14,1.16
+64708,2025-08-30 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,58,Brentford,62,Anthony Taylor,3,2,5,1.28,3.69,1.75,2.07,2.73,1.45,4.85,1.18
+64709,2025-08-30 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,57,Bournemouth,59,Simon Hooper,2,4,6,1.08,7.52,1.29,3.55,1.7,2.14,2.49,1.53
+64710,2025-08-30 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,63,Everton,58,Michael Oliver,0,1,1,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+64711,2025-08-30 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,64,Fulham,68,Robert Jones,2,2,4,1.17,4.93,1.5,2.56,2.17,1.68,3.51,1.3
+64632,2025-08-25 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,68,Newcastle,65,Liverpool,59,Simon Hooper,2,3,5,1.08,7.63,1.29,3.59,1.69,2.16,2.46,1.54
+64581,2025-08-24 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,64,Fulham,67,Manchester Utd,64,Chris Kavanagh,1,1,2,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+64582,2025-08-24 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,62,Crystal Palace,69,Nottingham,62,Anthony Taylor,3,3,6,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+64583,2025-08-24 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,63,Everton,59,Brighton,72,Stuart Attwell,4,3,7,1.22,4.3,1.61,2.31,2.4,1.57,4.04,1.24
+64532,2025-08-23 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,55,Arsenal,77,Leeds,74,Jarred Gillett,0,2,2,1.39,2.98,2.03,1.78,3.41,1.31,6.56,1.11
+64533,2025-08-23 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,57,Bournemouth,73,Wolves,75,Thomas Bramall,2,4,6,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+64534,2025-08-23 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,58,Brentford,56,Aston Villa,71,Tony Harrington,1,2,3,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+64535,2025-08-23 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,60,Burnley,89,Sunderland,69,Michael Salisbury,0,1,1,1.24,3.99,1.67,2.19,2.55,1.51,4.4,1.21
+64536,2025-08-23 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,66,Manchester City,71,Tottenham,84,Peter Bankes,1,4,5,1.24,4.04,1.66,2.21,2.52,1.52,4.34,1.21
+64479,2025-08-22 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,72,West Ham,61,Chelsea,58,Michael Oliver,0,1,1,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+64444,2025-08-18 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,77,Leeds,63,Everton,64,Chris Kavanagh,0,2,2,1.22,4.24,1.62,2.29,2.42,1.56,4.1,1.23
+64402,2025-08-17 17:30:00,Domestic Leagues,England,Premier League,2,2025/2026,67,Manchester Utd,55,Arsenal,59,Simon Hooper,1,4,5,1.12,6.08,1.38,3.01,1.9,1.89,2.91,1.41
+64403,2025-08-17 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,61,Chelsea,62,Crystal Palace,73,Darren England,2,3,5,1.11,6.38,1.36,3.12,1.85,1.94,2.8,1.43
+64404,2025-08-17 15:00:00,Domestic Leagues,England,Premier League,2,2025/2026,69,Nottingham,58,Brentford,84,Peter Bankes,1,2,3,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+64370,2025-08-16 18:30:00,Domestic Leagues,England,Premier League,2,2025/2026,73,Wolves,66,Manchester City,74,Jarred Gillett,1,2,3,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
+64371,2025-08-16 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,59,Brighton,64,Fulham,78,Samuel Barrott,3,3,6,1.15,5.36,1.45,2.73,2.05,1.76,3.24,1.34
+64372,2025-08-16 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,89,Sunderland,72,West Ham,68,Robert Jones,0,1,1,1.14,5.58,1.43,2.81,2.0,1.8,3.13,1.36
+64373,2025-08-16 16:00:00,Domestic Leagues,England,Premier League,2,2025/2026,71,Tottenham,60,Burnley,58,Michael Oliver,0,0,0,1.19,4.73,1.53,2.48,2.23,1.65,3.66,1.28
+64374,2025-08-16 13:30:00,Domestic Leagues,England,Premier League,2,2025/2026,56,Aston Villa,68,Newcastle,60,Craig Pawson,1,1,2,1.13,5.82,1.41,2.91,1.95,1.84,3.02,1.38
+74457,2025-08-15 21:00:00,Domestic Leagues,England,Premier League,2,2025/2026,65,Liverpool,57,Bournemouth,62,Anthony Taylor,1,2,3,1.23,4.11,1.64,2.24,2.49,1.53,4.25,1.22
