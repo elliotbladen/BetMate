@@ -13,6 +13,11 @@ and RaceHub sectional data where indexed. The RaceHub track indexes do not
 expose every historical meeting, and Racing Australia currently returns a
 CAPTCHA challenge to unattended requests; therefore the archive is a complete
 dated acquisition audit, but not yet a complete normalized three-year import.
-Steward reports were not embedded in the RaceHub race pages. South Australian
-official steward PDFs must be collected from Racing SA's dated S3/files archive,
-and Western Australian reports from RWWA, before claiming steward coverage.
+
+`breednet/manifest.json` is the independent result fallback. It made 623/624
+successful dated requests and found 197 full result pages, restoring barriers,
+weights and beaten margins for meetings where the page exists. Breednet does
+not publish the required sectional or steward-report fields. South Australian
+official steward PDFs still need collection from Racing SA's dated S3/files
+archive, and Western Australian race pages/reports from Racing WA/RWWA (whose
+public endpoint rate-limits automated enumeration).
