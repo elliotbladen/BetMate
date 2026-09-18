@@ -1,0 +1,35 @@
+{
+  "development_seasons": [
+    "2022/23",
+    "2023/24",
+    "2024/25"
+  ],
+  "out_of_sample_season": "2025/26",
+  "development_rows": 1140,
+  "out_of_sample_rows": 380,
+  "line": 3.5,
+  "distribution": "negative_binomial",
+  "dispersion_alpha": 0.01793985751056422,
+  "glm_coefficients": {
+    "ref_dev": 0.04330681435205527,
+    "team_dev": -0.12208565114145772,
+    "drawn_dev": 0.20426872651943337,
+    "foul_dev": 0.014778577354026727,
+    "venue_dev": 0.1643971204264823,
+    "blocked_shots_volume": -0.0010431541377259948,
+    "crosses_volume": -0.0232167723244538,
+    "box_shot_volume": -0.0021075400752163407,
+    "box_touch_volume": -0.0014539699357294504,
+    "possession_balance": 0.002509705790099158,
+    "shot_on_target_volume": 0.048084228594803095,
+    "starter_rating_volume": -0.09081399907103982,
+    "starter_count_volume": 0.06310129854811149
+  },
+  "mean_lambdas": {
+    "baseline_development": 3.2726109793636167,
+    "glm_development": 3.9368561085115448,
+    "baseline_2025_26": 3.5038700536577223,
+    "glm_2025_26": 3.962540076091498
+  },
+  "outputs": "ml/football/data/epl/cards/epl_cards_step3_prices.csv"
+}

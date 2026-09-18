@@ -10,7 +10,7 @@ from scipy import stats
 from sklearn.linear_model import PoissonRegressor
 
 ROOT = Path(__file__).parent
-FEATURES = ROOT / "data" / "epl" / "cards" / "epl_cards_features_2022_23_to_2025_26.csv"
+FEATURES = ROOT / "data" / "epl" / "cards" / "epl_cards_context_features_step1_enriched.csv"
 OUT = ROOT / "data" / "epl" / "cards" / "epl_cards_step3_prices.csv"
 REPORT = ROOT / "reports" / "epl_cards_step3_model.json"
 
@@ -18,6 +18,9 @@ DEVELOPMENT = {"2022/23", "2023/24", "2024/25"}
 TEST = "2025/26"
 FEATURE_COLUMNS = [
     "ref_dev", "team_dev", "drawn_dev", "foul_dev", "venue_dev",
+    "blocked_shots_volume", "crosses_volume", "box_shot_volume",
+    "box_touch_volume", "possession_balance", "shot_on_target_volume",
+    "starter_rating_volume", "starter_count_volume",
 ]
 
 
@@ -41,6 +44,14 @@ def make_features(df: pd.DataFrame) -> pd.DataFrame:
     out["drawn_dev"] = (df["home_cards_drawn_mean_prior"] + df["away_cards_drawn_mean_prior"]) - lg
     out["foul_dev"] = (df["home_fouls_mean_prior"] + df["away_fouls_mean_prior"]) - df["league_fouls_mean_prior"]
     out["venue_dev"] = (df["home_yellow_home_mean_prior"] + df["away_yellow_away_mean_prior"]) - lg
+    out["blocked_shots_volume"] = df["home_blocked_shots_prior"] + df["away_blocked_shots_prior"]
+    out["crosses_volume"] = df["home_accurate_crosses_n_prior"] + df["away_accurate_crosses_n_prior"]
+    out["box_shot_volume"] = df["home_shots_inside_box_prior"] + df["away_shots_inside_box_prior"]
+    out["box_touch_volume"] = df["home_touches_opp_box_prior"] + df["away_touches_opp_box_prior"]
+    out["possession_balance"] = df["home_possession_prior"] - df["away_possession_prior"]
+    out["shot_on_target_volume"] = df["home_shots_on_target_prior"] + df["away_shots_on_target_prior"]
+    out["starter_rating_volume"] = df["home_starter_rating_mean_prior"] + df["away_starter_rating_mean_prior"]
+    out["starter_count_volume"] = df["home_starter_count_prior"] + df["away_starter_count_prior"]
     return out[FEATURE_COLUMNS].fillna(0.0)
 
 
