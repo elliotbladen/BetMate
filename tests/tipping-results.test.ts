@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { findCurrentGameweek, gameweeksToSyncOnTransition, mapEspnGames, matchCompletedFixtures, type ApiGame } from '../lib/tippingResults';
+import { findCurrentGameweek, findScheduledGameweek, gameweeksToSyncOnTransition, getEspnScoreboardDates, mapEspnGames, matchCompletedFixtures, type ApiGame } from '../lib/tippingResults';
 import { EPL_SEASON_FIXTURES, getEplFixtures, getValidTipSelections } from '../lib/tipping';
 
 const EPL_GW1_FIXTURES = getEplFixtures(1);
@@ -103,6 +103,19 @@ test('rolling window advances only after the final match and stops after week 38
   assert.equal(findCurrentGameweek(games), 2);
   games.forEach(game => { game.completed = true; });
   assert.equal(findCurrentGameweek(games), null);
+});
+
+test('schedule fallback selects the first round with a future kickoff', () => {
+  const beforeGw3 = new Date('2026-09-04T18:00:00Z');
+  assert.equal(findScheduledGameweek(EPL_SEASON_FIXTURES, beforeGw3), 3);
+  const afterSeason = new Date('2027-06-01T00:00:00Z');
+  assert.equal(findScheduledGameweek(EPL_SEASON_FIXTURES, afterSeason), null);
+});
+
+test('ESPN score requests stay single-day even when a round spans a weekend', () => {
+  assert.deepEqual(getEspnScoreboardDates(EPL_GW1_FIXTURES), [
+    '20260821', '20260822', '20260823', '20260824',
+  ]);
 });
 
 test('round transition resynchronises the round that just finished', () => {
